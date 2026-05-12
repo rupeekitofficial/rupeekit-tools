@@ -7,8 +7,7 @@ export default function ContactPage() {
       <p className="mt-6 leading-8 text-slate-700">
         For corrections, feedback, calculator suggestions or business queries, contact us at:
       </p>
-      <p className="mt-4 rounded-2xl bg-white p-5 font-semibold shadow-sm">your-email@example.com</p>
-      <p className="mt-4 text-sm leading-6 text-slate-500">Replace this email before publishing the website.</p>
+      <p className="mt-4 rounded-2xl bg-white p-5 font-semibold shadow-sm">rupeekitofficial@gmail.com</p>
     </div>
   );
 }

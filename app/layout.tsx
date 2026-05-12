@@ -2,8 +2,8 @@ import './globals.css';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Smart India Calculators';
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'RupeeKit';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://rupeekit-tools.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

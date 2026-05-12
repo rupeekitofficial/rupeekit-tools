@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
         Analytics and advertising tools may use cookies or similar technologies. You can control cookies through your browser settings.
       </p>
       <h2 className="mt-8 text-2xl font-bold">Contact</h2>
-      <p className="mt-4 leading-8 text-slate-700">For privacy questions, contact: your-email@example.com</p>
+      <p className="mt-4 leading-8 text-slate-700">For privacy questions, contact: rupeekitofficial@gmail.com</p>
     </div>
   );
 }
