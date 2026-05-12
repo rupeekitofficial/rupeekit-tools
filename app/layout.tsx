@@ -1,62 +1,128 @@
-import './globals.css';
-import Link from 'next/link';
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import Script from "next/script";
+import "./globals.css";
 
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'RupeeKit';
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://rupeekit-tools.vercel.app';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "RupeeKit";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.rupeekit.co.in";
+const contactEmail =
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "rupeekitofficial@gmail.com";
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} - Free India Salary & Finance Tools`,
+    default: `${siteName} - Free India Salary & Finance Calculators`,
     template: `%s | ${siteName}`,
   },
-  description: 'Free India-focused salary, tax, EMI, SIP, PF, gratuity and personal finance calculators with formulas, examples and FAQs.',
+  description:
+    "RupeeKit offers free India-focused salary, EMI, SIP, GST, and FD calculators with simple explanations and examples.",
+  keywords: [
+    "RupeeKit",
+    "salary calculator India",
+    "in hand salary calculator",
+    "EMI calculator India",
+    "SIP calculator India",
+    "GST calculator India",
+    "FD calculator India",
+    "finance calculators India",
+  ],
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    title: `${siteName} - Free India Salary & Finance Calculators`,
+    description:
+      "Free India-focused salary, EMI, SIP, GST, and FD calculators with simple explanations.",
+    url: siteUrl,
+    siteName,
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} - Free India Salary & Finance Calculators`,
+    description:
+      "Free India-focused salary, EMI, SIP, GST, and FD calculators.",
+  },
 };
 
-const nav = [
-  { href: '/', label: 'Tools' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/privacy-policy', label: 'Privacy' },
-];
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en-IN">
-      <body className="min-h-screen bg-slate-50 text-slate-950 antialiased">
-        <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+      <body>
+        {gaId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){window.dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        ) : null}
+
+        <header className="border-b bg-white">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-            <Link href="/" className="text-lg font-bold tracking-tight text-slate-950">
+            <a href="/" className="text-xl font-bold text-slate-900">
               {siteName}
-            </Link>
-            <nav className="flex flex-wrap items-center gap-3 text-sm font-medium text-slate-600">
-              {nav.map((item) => (
-                <Link key={item.href} href={item.href} className="rounded-full px-3 py-2 hover:bg-slate-100 hover:text-slate-950">
-                  {item.label}
-                </Link>
-              ))}
+            </a>
+
+            <nav className="flex gap-4 text-sm text-slate-700">
+              <a href="/" className="hover:text-slate-950">
+                Home
+              </a>
+              <a href="/about" className="hover:text-slate-950">
+                About
+              </a>
+              <a href="/contact" className="hover:text-slate-950">
+                Contact
+              </a>
             </nav>
           </div>
         </header>
+
         <main>{children}</main>
-        <footer className="mt-16 border-t border-slate-200 bg-white">
-          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 md:grid-cols-3">
-            <div>
-              <p className="text-base font-semibold">{siteName}</p>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                Free India-focused calculators for salary, tax and personal finance decisions.
-              </p>
+
+        <footer className="mt-12 border-t bg-slate-50">
+          <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-600">
+            <div className="mb-4 font-semibold text-slate-900">{siteName}</div>
+
+            <p className="mb-4 max-w-3xl">
+              Free India-focused calculators for salary, EMI, SIP, GST, FD, and
+              personal finance planning. Results are for educational and
+              informational purposes only.
+            </p>
+
+            <div className="mb-4 flex flex-wrap gap-4">
+              <a href="/about" className="hover:text-slate-950">
+                About
+              </a>
+              <a href="/contact" className="hover:text-slate-950">
+                Contact
+              </a>
+              <a href="/privacy-policy" className="hover:text-slate-950">
+                Privacy Policy
+              </a>
+              <a href="/terms" className="hover:text-slate-950">
+                Terms
+              </a>
+              <a href="/disclaimer" className="hover:text-slate-950">
+                Disclaimer
+              </a>
             </div>
-            <div className="text-sm text-slate-600">
-              <p className="font-semibold text-slate-900">Important</p>
-              <p className="mt-2 leading-6">Tools are for educational estimates only. Verify tax, salary and investment decisions with official sources or a qualified professional.</p>
-            </div>
-            <div className="flex flex-col gap-2 text-sm text-slate-600">
-              <Link href="/terms" className="hover:text-slate-950">Terms</Link>
-              <Link href="/disclaimer" className="hover:text-slate-950">Disclaimer</Link>
-              <Link href="/privacy-policy" className="hover:text-slate-950">Privacy Policy</Link>
-            </div>
+
+            <p className="mb-2">Contact: {contactEmail}</p>
+            <p>© {new Date().getFullYear()} {siteName}. All rights reserved.</p>
           </div>
         </footer>
       </body>
