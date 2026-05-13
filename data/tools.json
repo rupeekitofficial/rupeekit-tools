@@ -8,27 +8,109 @@
     "shortDescription": "Estimate monthly take-home salary from annual CTC, basic salary percentage, PF, tax and other deductions.",
     "metaDescription": "Free salary in-hand calculator for Indian employees. Estimate monthly take-home salary from CTC, basic salary, PF, tax and deductions with example and FAQ.",
     "inputs": [
-      { "key": "annualCtc", "label": "Annual CTC", "unit": "₹", "default": 1200000, "min": 0, "step": 10000, "help": "Enter your annual cost to company." },
-      { "key": "basicPercent", "label": "Basic salary as % of CTC", "unit": "%", "default": 40, "min": 0, "max": 100, "step": 1, "help": "Many salary structures use 35% to 50% as basic. Use your offer letter if available." },
-      { "key": "pfRate", "label": "Employee PF rate on basic", "unit": "%", "default": 12, "min": 0, "step": 1, "help": "Standard employee EPF contribution is often 12% of basic salary, subject to company structure and statutory rules." },
-      { "key": "monthlyTax", "label": "Monthly income tax/TDS", "unit": "₹", "default": 25000, "min": 0, "step": 500, "help": "Estimated monthly TDS or income tax deduction." },
-      { "key": "professionalTax", "label": "Professional tax", "unit": "₹", "default": 200, "min": 0, "step": 50, "help": "State-specific deduction if applicable." },
-      { "key": "otherDeduction", "label": "Other monthly deductions", "unit": "₹", "default": 0, "min": 0, "step": 500, "help": "Food card, insurance, transport or other deductions." }
+      {
+        "key": "annualCtc",
+        "label": "Annual CTC",
+        "unit": "₹",
+        "default": 1200000,
+        "min": 0,
+        "step": 10000,
+        "help": "Enter your annual cost to company."
+      },
+      {
+        "key": "basicPercent",
+        "label": "Basic salary as % of CTC",
+        "unit": "%",
+        "default": 40,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "help": "Many salary structures use 35% to 50% as basic. Use your offer letter if available."
+      },
+      {
+        "key": "pfRate",
+        "label": "Employee PF rate on basic",
+        "unit": "%",
+        "default": 12,
+        "min": 0,
+        "step": 1,
+        "help": "Standard employee EPF contribution is often 12% of basic salary, subject to company structure and statutory rules."
+      },
+      {
+        "key": "monthlyTax",
+        "label": "Monthly income tax/TDS",
+        "unit": "₹",
+        "default": 25000,
+        "min": 0,
+        "step": 500,
+        "help": "Estimated monthly TDS or income tax deduction."
+      },
+      {
+        "key": "professionalTax",
+        "label": "Professional tax",
+        "unit": "₹",
+        "default": 200,
+        "min": 0,
+        "step": 50,
+        "help": "State-specific deduction if applicable."
+      },
+      {
+        "key": "otherDeduction",
+        "label": "Other monthly deductions",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 500,
+        "help": "Food card, insurance, transport or other deductions."
+      }
     ],
     "outputs": [
-      { "key": "monthlyGross", "label": "Estimated monthly gross", "formula": "annualCtc / 12", "format": "currency" },
-      { "key": "monthlyBasic", "label": "Estimated monthly basic", "formula": "annualCtc / 12 * basicPercent / 100", "format": "currency" },
-      { "key": "employeePf", "label": "Estimated employee PF", "formula": "annualCtc / 12 * basicPercent / 100 * pfRate / 100", "format": "currency" },
-      { "key": "monthlyInHand", "label": "Estimated monthly in-hand salary", "formula": "annualCtc / 12 - (annualCtc / 12 * basicPercent / 100 * pfRate / 100) - monthlyTax - professionalTax - otherDeduction", "format": "currency" }
+      {
+        "key": "monthlyGross",
+        "label": "Estimated monthly gross",
+        "formula": "annualCtc / 12",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyBasic",
+        "label": "Estimated monthly basic",
+        "formula": "annualCtc / 12 * basicPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "employeePf",
+        "label": "Estimated employee PF",
+        "formula": "annualCtc / 12 * basicPercent / 100 * pfRate / 100",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyInHand",
+        "label": "Estimated monthly in-hand salary",
+        "formula": "annualCtc / 12 - (annualCtc / 12 * basicPercent / 100 * pfRate / 100) - monthlyTax - professionalTax - otherDeduction",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "Monthly in-hand salary is estimated as monthly gross salary minus employee PF, monthly tax/TDS, professional tax and other recurring deductions.",
     "example": "For a ₹12,00,000 CTC with 40% basic, 12% PF, ₹25,000 monthly tax and ₹200 professional tax, the estimated in-hand salary is shown after subtracting these deductions.",
     "faqs": [
-      { "question": "Is this salary calculator exact?", "answer": "No. It is an estimate. Actual salary depends on your company salary structure, benefits, reimbursements, tax regime and declarations." },
-      { "question": "Does CTC equal in-hand salary?", "answer": "No. CTC includes employer costs and benefits. In-hand salary is the amount received after employee-side deductions and tax." },
-      { "question": "Should I use offer-letter values?", "answer": "Yes. Use actual basic salary, PF, tax and deduction values from your offer letter or payslip for a better estimate." }
+      {
+        "question": "Is this salary calculator exact?",
+        "answer": "No. It is an estimate. Actual salary depends on your company salary structure, benefits, reimbursements, tax regime and declarations."
+      },
+      {
+        "question": "Does CTC equal in-hand salary?",
+        "answer": "No. CTC includes employer costs and benefits. In-hand salary is the amount received after employee-side deductions and tax."
+      },
+      {
+        "question": "Should I use offer-letter values?",
+        "answer": "Yes. Use actual basic salary, PF, tax and deduction values from your offer letter or payslip for a better estimate."
+      }
     ],
-    "related": ["ctc-breakup-calculator", "old-vs-new-tax-regime-calculator", "pf-calculator"]
+    "related": [
+      "ctc-breakup-calculator",
+      "old-vs-new-tax-regime-calculator",
+      "pf-calculator"
+    ]
   },
   {
     "slug": "emi-calculator-india",
@@ -39,22 +121,71 @@
     "shortDescription": "Calculate monthly EMI, total payment and total interest for home, personal or car loans.",
     "metaDescription": "Free EMI calculator for India. Estimate monthly EMI, total interest and total payment for home loans, personal loans and car loans.",
     "inputs": [
-      { "key": "principal", "label": "Loan amount", "unit": "₹", "default": 1000000, "min": 0, "step": 10000, "help": "Total loan amount borrowed." },
-      { "key": "annualRate", "label": "Annual interest rate", "unit": "%", "default": 9, "min": 0.01, "step": 0.1, "help": "Annual reducing balance interest rate." },
-      { "key": "years", "label": "Loan tenure", "unit": "years", "default": 5, "min": 0.1, "step": 0.5, "help": "Loan repayment period in years." }
+      {
+        "key": "principal",
+        "label": "Loan amount",
+        "unit": "₹",
+        "default": 1000000,
+        "min": 0,
+        "step": 10000,
+        "help": "Total loan amount borrowed."
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual interest rate",
+        "unit": "%",
+        "default": 9,
+        "min": 0.01,
+        "step": 0.1,
+        "help": "Annual reducing balance interest rate."
+      },
+      {
+        "key": "years",
+        "label": "Loan tenure",
+        "unit": "years",
+        "default": 5,
+        "min": 0.1,
+        "step": 0.5,
+        "help": "Loan repayment period in years."
+      }
     ],
     "outputs": [
-      { "key": "emi", "label": "Monthly EMI", "formula": "principal * ((annualRate/12/100) * (1 + annualRate/12/100) ^ (years*12)) / (((1 + annualRate/12/100) ^ (years*12)) - 1)", "format": "currency" },
-      { "key": "totalPayment", "label": "Total payment", "formula": "principal * ((annualRate/12/100) * (1 + annualRate/12/100) ^ (years*12)) / (((1 + annualRate/12/100) ^ (years*12)) - 1) * years * 12", "format": "currency" },
-      { "key": "totalInterest", "label": "Total interest", "formula": "principal * ((annualRate/12/100) * (1 + annualRate/12/100) ^ (years*12)) / (((1 + annualRate/12/100) ^ (years*12)) - 1) * years * 12 - principal", "format": "currency" }
+      {
+        "key": "emi",
+        "label": "Monthly EMI",
+        "formula": "principal * ((annualRate/12/100) * (1 + annualRate/12/100) ^ (years*12)) / (((1 + annualRate/12/100) ^ (years*12)) - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "totalPayment",
+        "label": "Total payment",
+        "formula": "principal * ((annualRate/12/100) * (1 + annualRate/12/100) ^ (years*12)) / (((1 + annualRate/12/100) ^ (years*12)) - 1) * years * 12",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest",
+        "formula": "principal * ((annualRate/12/100) * (1 + annualRate/12/100) ^ (years*12)) / (((1 + annualRate/12/100) ^ (years*12)) - 1) * years * 12 - principal",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "EMI is calculated using the reducing balance loan formula: P × r × (1+r)^n / ((1+r)^n − 1), where P is principal, r is monthly interest rate and n is number of monthly payments.",
     "example": "For a ₹10,00,000 loan at 9% annual interest for 5 years, the calculator estimates the EMI and total interest over the full tenure.",
     "faqs": [
-      { "question": "Can this be used for home loan EMI?", "answer": "Yes. You can use it for home, personal, car or education loans if the lender uses a reducing balance EMI structure." },
-      { "question": "Why does interest change with tenure?", "answer": "Longer tenure reduces monthly EMI but usually increases total interest paid over the loan period." }
+      {
+        "question": "Can this be used for home loan EMI?",
+        "answer": "Yes. You can use it for home, personal, car or education loans if the lender uses a reducing balance EMI structure."
+      },
+      {
+        "question": "Why does interest change with tenure?",
+        "answer": "Longer tenure reduces monthly EMI but usually increases total interest paid over the loan period."
+      }
     ],
-    "related": ["home-loan-emi-calculator", "personal-loan-emi-calculator", "car-loan-emi-calculator"]
+    "related": [
+      "home-loan-emi-calculator",
+      "personal-loan-emi-calculator",
+      "car-loan-emi-calculator"
+    ]
   },
   {
     "slug": "sip-calculator-india",
@@ -65,22 +196,71 @@
     "shortDescription": "Estimate future value of monthly SIP investments using expected annual return and investment duration.",
     "metaDescription": "Free SIP calculator for India. Estimate future value, invested amount and potential gains from monthly SIP investments.",
     "inputs": [
-      { "key": "monthlyInvestment", "label": "Monthly SIP amount", "unit": "₹", "default": 10000, "min": 0, "step": 500, "help": "Amount invested every month." },
-      { "key": "expectedReturn", "label": "Expected annual return", "unit": "%", "default": 12, "min": 0.1, "step": 0.1, "help": "Expected average annual return. This is not guaranteed." },
-      { "key": "years", "label": "Investment duration", "unit": "years", "default": 10, "min": 1, "step": 1, "help": "How long you plan to continue the SIP." }
+      {
+        "key": "monthlyInvestment",
+        "label": "Monthly SIP amount",
+        "unit": "₹",
+        "default": 10000,
+        "min": 0,
+        "step": 500,
+        "help": "Amount invested every month."
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected annual return",
+        "unit": "%",
+        "default": 12,
+        "min": 0.1,
+        "step": 0.1,
+        "help": "Expected average annual return. This is not guaranteed."
+      },
+      {
+        "key": "years",
+        "label": "Investment duration",
+        "unit": "years",
+        "default": 10,
+        "min": 1,
+        "step": 1,
+        "help": "How long you plan to continue the SIP."
+      }
     ],
     "outputs": [
-      { "key": "investedAmount", "label": "Total invested amount", "formula": "monthlyInvestment * years * 12", "format": "currency" },
-      { "key": "futureValue", "label": "Estimated future value", "formula": "monthlyInvestment * (((1 + expectedReturn/12/100) ^ (years*12) - 1) / (expectedReturn/12/100)) * (1 + expectedReturn/12/100)", "format": "currency" },
-      { "key": "estimatedGains", "label": "Estimated gains", "formula": "monthlyInvestment * (((1 + expectedReturn/12/100) ^ (years*12) - 1) / (expectedReturn/12/100)) * (1 + expectedReturn/12/100) - monthlyInvestment * years * 12", "format": "currency" }
+      {
+        "key": "investedAmount",
+        "label": "Total invested amount",
+        "formula": "monthlyInvestment * years * 12",
+        "format": "currency"
+      },
+      {
+        "key": "futureValue",
+        "label": "Estimated future value",
+        "formula": "monthlyInvestment * (((1 + expectedReturn/12/100) ^ (years*12) - 1) / (expectedReturn/12/100)) * (1 + expectedReturn/12/100)",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedGains",
+        "label": "Estimated gains",
+        "formula": "monthlyInvestment * (((1 + expectedReturn/12/100) ^ (years*12) - 1) / (expectedReturn/12/100)) * (1 + expectedReturn/12/100) - monthlyInvestment * years * 12",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "The calculator uses a monthly compounded future value estimate for SIP investments. Actual returns are market-linked and not guaranteed.",
     "example": "A ₹10,000 monthly SIP for 10 years at 12% expected annual return gives an estimated future corpus based on monthly compounding assumptions.",
     "faqs": [
-      { "question": "Are SIP returns guaranteed?", "answer": "No. SIP returns depend on market performance and the selected mutual fund or investment product." },
-      { "question": "Should I use pre-tax or post-tax returns?", "answer": "For realistic planning, consider post-tax and post-expense expectations, especially for long-term goals." }
+      {
+        "question": "Are SIP returns guaranteed?",
+        "answer": "No. SIP returns depend on market performance and the selected mutual fund or investment product."
+      },
+      {
+        "question": "Should I use pre-tax or post-tax returns?",
+        "answer": "For realistic planning, consider post-tax and post-expense expectations, especially for long-term goals."
+      }
     ],
-    "related": ["goal-sip-calculator", "step-up-sip-calculator", "mutual-fund-return-calculator"]
+    "related": [
+      "goal-sip-calculator",
+      "step-up-sip-calculator",
+      "mutual-fund-return-calculator"
+    ]
   },
   {
     "slug": "gst-calculator-india",
@@ -91,22 +271,68 @@
     "shortDescription": "Calculate GST amount and final invoice value by adding or removing GST from a price.",
     "metaDescription": "Free GST calculator for India. Add or remove GST from invoice value and calculate CGST, SGST and total GST amount.",
     "inputs": [
-      { "key": "taxableAmount", "label": "Taxable amount", "unit": "₹", "default": 10000, "min": 0, "step": 100, "help": "Amount before GST." },
-      { "key": "gstRate", "label": "GST rate", "unit": "%", "default": 18, "min": 0, "step": 1, "help": "Common GST slabs include 5%, 12%, 18% and 28%." }
+      {
+        "key": "taxableAmount",
+        "label": "Taxable amount",
+        "unit": "₹",
+        "default": 10000,
+        "min": 0,
+        "step": 100,
+        "help": "Amount before GST."
+      },
+      {
+        "key": "gstRate",
+        "label": "GST rate",
+        "unit": "%",
+        "default": 18,
+        "min": 0,
+        "step": 1,
+        "help": "Common GST slabs include 5%, 12%, 18% and 28%."
+      }
     ],
     "outputs": [
-      { "key": "gstAmount", "label": "GST amount", "formula": "taxableAmount * gstRate / 100", "format": "currency" },
-      { "key": "cgst", "label": "CGST estimate", "formula": "taxableAmount * gstRate / 100 / 2", "format": "currency" },
-      { "key": "sgst", "label": "SGST estimate", "formula": "taxableAmount * gstRate / 100 / 2", "format": "currency" },
-      { "key": "finalAmount", "label": "Final amount with GST", "formula": "taxableAmount + taxableAmount * gstRate / 100", "format": "currency" }
+      {
+        "key": "gstAmount",
+        "label": "GST amount",
+        "formula": "taxableAmount * gstRate / 100",
+        "format": "currency"
+      },
+      {
+        "key": "cgst",
+        "label": "CGST estimate",
+        "formula": "taxableAmount * gstRate / 100 / 2",
+        "format": "currency"
+      },
+      {
+        "key": "sgst",
+        "label": "SGST estimate",
+        "formula": "taxableAmount * gstRate / 100 / 2",
+        "format": "currency"
+      },
+      {
+        "key": "finalAmount",
+        "label": "Final amount with GST",
+        "formula": "taxableAmount + taxableAmount * gstRate / 100",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "GST amount is taxable amount multiplied by GST rate. For intra-state examples, CGST and SGST are generally split equally.",
     "example": "For ₹10,000 taxable value and 18% GST, GST is ₹1,800 and final value is ₹11,800.",
     "faqs": [
-      { "question": "Does this calculator handle IGST?", "answer": "The main GST amount is valid for both cases. CGST/SGST split is shown as a simple intra-state estimate." },
-      { "question": "Can GST rates change?", "answer": "Yes. Always verify applicable GST rate for your product or service from official guidance or a tax professional." }
+      {
+        "question": "Does this calculator handle IGST?",
+        "answer": "The main GST amount is valid for both cases. CGST/SGST split is shown as a simple intra-state estimate."
+      },
+      {
+        "question": "Can GST rates change?",
+        "answer": "Yes. Always verify applicable GST rate for your product or service from official guidance or a tax professional."
+      }
     ],
-    "related": ["freelance-invoice-generator", "tds-calculator", "income-tax-slab-explainer"]
+    "related": [
+      "freelance-invoice-generator",
+      "tds-calculator",
+      "income-tax-slab-explainer"
+    ]
   },
   {
     "slug": "fd-calculator-india",
@@ -117,21 +343,199 @@
     "shortDescription": "Estimate fixed deposit maturity amount and interest earned using deposit amount, interest rate and tenure.",
     "metaDescription": "Free FD calculator for India. Estimate fixed deposit maturity amount and interest earned using rate, tenure and compounding frequency.",
     "inputs": [
-      { "key": "principal", "label": "Deposit amount", "unit": "₹", "default": 100000, "min": 0, "step": 1000, "help": "Initial fixed deposit amount." },
-      { "key": "annualRate", "label": "Annual interest rate", "unit": "%", "default": 7, "min": 0, "step": 0.1, "help": "Annual FD interest rate." },
-      { "key": "years", "label": "Tenure", "unit": "years", "default": 3, "min": 0.1, "step": 0.5, "help": "FD duration in years." },
-      { "key": "compoundFrequency", "label": "Compounding frequency per year", "unit": "times", "default": 4, "min": 1, "step": 1, "help": "Use 4 for quarterly compounding." }
+      {
+        "key": "principal",
+        "label": "Deposit amount",
+        "unit": "₹",
+        "default": 100000,
+        "min": 0,
+        "step": 1000,
+        "help": "Initial fixed deposit amount."
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual interest rate",
+        "unit": "%",
+        "default": 7,
+        "min": 0,
+        "step": 0.1,
+        "help": "Annual FD interest rate."
+      },
+      {
+        "key": "years",
+        "label": "Tenure",
+        "unit": "years",
+        "default": 3,
+        "min": 0.1,
+        "step": 0.5,
+        "help": "FD duration in years."
+      },
+      {
+        "key": "compoundFrequency",
+        "label": "Compounding frequency per year",
+        "unit": "times",
+        "default": 4,
+        "min": 1,
+        "step": 1,
+        "help": "Use 4 for quarterly compounding."
+      }
     ],
     "outputs": [
-      { "key": "maturityAmount", "label": "Estimated maturity amount", "formula": "principal * (1 + annualRate/(compoundFrequency*100)) ^ (compoundFrequency*years)", "format": "currency" },
-      { "key": "interestEarned", "label": "Estimated interest earned", "formula": "principal * (1 + annualRate/(compoundFrequency*100)) ^ (compoundFrequency*years) - principal", "format": "currency" }
+      {
+        "key": "maturityAmount",
+        "label": "Estimated maturity amount",
+        "formula": "principal * (1 + annualRate/(compoundFrequency*100)) ^ (compoundFrequency*years)",
+        "format": "currency"
+      },
+      {
+        "key": "interestEarned",
+        "label": "Estimated interest earned",
+        "formula": "principal * (1 + annualRate/(compoundFrequency*100)) ^ (compoundFrequency*years) - principal",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "FD maturity is estimated using compound interest: P × (1 + r/n)^(n×t), where P is principal, r is annual rate, n is compounding frequency and t is tenure.",
     "example": "For a ₹1,00,000 FD at 7% for 3 years with quarterly compounding, the calculator estimates maturity value and interest earned.",
     "faqs": [
-      { "question": "Is TDS included?", "answer": "No. This calculator estimates pre-tax maturity. Actual post-tax returns depend on TDS and your income tax slab." },
-      { "question": "Why does compounding frequency matter?", "answer": "More frequent compounding can slightly increase maturity value for the same annual rate." }
+      {
+        "question": "Is TDS included?",
+        "answer": "No. This calculator estimates pre-tax maturity. Actual post-tax returns depend on TDS and your income tax slab."
+      },
+      {
+        "question": "Why does compounding frequency matter?",
+        "answer": "More frequent compounding can slightly increase maturity value for the same annual rate."
+      }
     ],
-    "related": ["rd-calculator-india", "sip-calculator-india", "inflation-calculator-india"]
+    "related": [
+      "rd-calculator-india",
+      "sip-calculator-india",
+      "inflation-calculator-india"
+    ]
+  },
+  {
+    "slug": "hra-exemption-calculator-india",
+    "name": "HRA Exemption Calculator India",
+    "category": "Tax",
+    "status": "live",
+    "targetKeyword": "HRA exemption calculator India",
+    "shortDescription": "Use RupeeKit's HRA Exemption Calculator for India to quickly determine your eligible HRA tax benefit. Maximize your savings based on salary, rent, and...",
+    "metaDescription": "Use RupeeKit's HRA Exemption Calculator for India to quickly determine your eligible HRA tax benefit. Maximize your savings based on salary, rent, and...",
+    "inputs": [
+      {
+        "key": "basicSalary",
+        "label": "Basic Salary",
+        "unit": "₹",
+        "default": 50000,
+        "min": 0,
+        "step": 100,
+        "help": "Enter your monthly basic salary component."
+      },
+      {
+        "key": "dearnessAllowance",
+        "label": "Dearness Allowance (DA)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 100,
+        "help": "Enter your monthly Dearness Allowance, if applicable. Only DA forming part of salary for retirement benefits is considered."
+      },
+      {
+        "key": "commission",
+        "label": "Commission (if fixed % of turnover)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 100,
+        "help": "Enter monthly commission if it's a fixed percentage of turnover. Other commissions are not included."
+      },
+      {
+        "key": "hraReceived",
+        "label": "HRA Received",
+        "unit": "₹",
+        "default": 20000,
+        "min": 0,
+        "step": 100,
+        "help": "Enter the actual House Rent Allowance you receive from your employer monthly."
+      },
+      {
+        "key": "rentPaid",
+        "label": "Rent Paid",
+        "unit": "₹",
+        "default": 15000,
+        "min": 0,
+        "step": 100,
+        "help": "Enter the actual monthly rent you pay for your accommodation."
+      },
+      {
+        "key": "metroMultiplier",
+        "label": "Metro City Multiplier (0.4 for Non-Metro, 0.5 for Metro)",
+        "unit": "optional",
+        "default": 0.4,
+        "min": 0.4,
+        "max": 0.5,
+        "step": 0.1,
+        "help": "Enter 0.5 if you live in a Metro city (Mumbai, Delhi, Chennai, Kolkata) or 0.4 for Non-Metro cities."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyHRAExemption",
+        "label": "Monthly HRA Exemption",
+        "formula": "min(hraReceived, metroMultiplier * (basicSalary + dearnessAllowance + commission), rentPaid - 0.10 * (basicSalary + dearnessAllowance + commission))",
+        "format": "currency"
+      },
+      {
+        "key": "annualHRAExemption",
+        "label": "Annual HRA Exemption",
+        "formula": "monthlyHRAExemption * 12",
+        "format": "currency"
+      },
+      {
+        "key": "taxableHRAMonthly",
+        "label": "Taxable HRA (Monthly)",
+        "formula": "hraReceived - monthlyHRAExemption",
+        "format": "currency"
+      },
+      {
+        "key": "taxableHRAAnnual",
+        "label": "Taxable HRA (Annual)",
+        "formula": "taxableHRAMonthly * 12",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "The House Rent Allowance (HRA) exemption is calculated based on the least of three specific amounts as per Indian income tax laws. First, the actual HRA amount received from your employer. Second, a percentage of your 'salary' (which includes Basic Salary, Dearness Allowance if it forms part of retirement benefits, and any commission based on a fixed percentage of turnover). This percentage is 50% if you reside in a metro city (Mumbai, Delhi, Chennai, Kolkata) and 40% for non-metro cities. Third, the actual rent you pay for your accommodation, minus 10% of your 'salary' (as defined above). The lowest of these three calculated figures is your eligible HRA exemption for the month. This calculator helps you determine this amount accurately, allowing you to understand your potential tax savings. All calculations are performed on a monthly basis, and then annualized for convenience.",
+    "example": "Consider Priya, who resides in Bengaluru (a non-metro city). Her monthly basic salary is ₹60,000, Dearness Allowance (DA) is ₹5,000, and she receives ₹25,000 as HRA. She pays a monthly rent of ₹18,000. To calculate her HRA exemption: 1. Actual HRA received: ₹25,000. 2. 40% of salary (₹60,000 + ₹5,000) = 40% of ₹65,000 = ₹26,000. 3. Rent paid minus 10% of salary = ₹18,000 - (10% of ₹65,000) = ₹18,000 - ₹6,500 = ₹11,500. The least of these three amounts (₹25,000, ₹26,000, ₹11,500) is ₹11,500. Therefore, Priya's monthly HRA exemption is ₹11,500.",
+    "faqs": [
+      {
+        "question": "Can I claim HRA if I live with my parents and pay them rent?",
+        "answer": "Yes, you can claim HRA exemption even if you pay rent to your parents, provided you have a valid rent agreement and actual rent payments are made. Your parents must declare this rental income in their income tax return."
+      },
+      {
+        "question": "What if I pay rent but don't receive HRA from my employer?",
+        "answer": "If you do not receive HRA from your employer but pay rent, you may be eligible to claim a deduction under Section 80GG of the Income Tax Act. This deduction has specific conditions and limits, and it's different from HRA exemption."
+      },
+      {
+        "question": "Is HRA exemption applicable if I own a house but live in a rented one?",
+        "answer": "Yes, you can claim HRA exemption if you own a house in one city but live in a rented house in another city for employment purposes. You can also claim HRA if you own a house in the same city but rent it out and live in another rented property."
+      },
+      {
+        "question": "What documents do I need to submit to claim HRA exemption?",
+        "answer": "You typically need rent receipts as proof of payment. If your annual rent exceeds ₹1,00,000, you must also provide your landlord's PAN (Permanent Account Number). A valid rent agreement is also advisable."
+      },
+      {
+        "question": "How is 'salary' defined for HRA calculation?",
+        "answer": "For HRA calculation, 'salary' is defined as the sum of your Basic Salary, Dearness Allowance (DA) if it forms part of your retirement benefits, and any commission received as a fixed percentage of turnover. Other allowances or perquisites are generally not included."
+      },
+      {
+        "question": "Is this calculator financial or tax advice?",
+        "answer": "No. This calculator is for educational and informational purposes only. It provides an estimate based on the values entered and should not be treated as tax, legal, investment, or financial advice."
+      }
+    ],
+    "related": [
+      "salary-in-hand-calculator-india",
+      "emi-calculator-india",
+      "sip-calculator-india",
+      "gst-calculator-india"
+    ]
   }
 ]
