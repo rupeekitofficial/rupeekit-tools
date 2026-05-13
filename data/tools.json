@@ -107,9 +107,9 @@
       }
     ],
     "related": [
-      "ctc-breakup-calculator",
-      "old-vs-new-tax-regime-calculator",
-      "pf-calculator"
+      "hra-exemption-calculator-india",
+      "gst-calculator-india",
+      "emi-calculator-india"
     ]
   },
   {
@@ -182,9 +182,9 @@
       }
     ],
     "related": [
-      "home-loan-emi-calculator",
-      "personal-loan-emi-calculator",
-      "car-loan-emi-calculator"
+      "salary-in-hand-calculator-india",
+      "fd-calculator-india",
+      "sip-calculator-india"
     ]
   },
   {
@@ -257,9 +257,9 @@
       }
     ],
     "related": [
-      "goal-sip-calculator",
-      "step-up-sip-calculator",
-      "mutual-fund-return-calculator"
+      "fd-calculator-india",
+      "salary-in-hand-calculator-india",
+      "emi-calculator-india"
     ]
   },
   {
@@ -329,9 +329,9 @@
       }
     ],
     "related": [
-      "freelance-invoice-generator",
-      "tds-calculator",
-      "income-tax-slab-explainer"
+      "hra-exemption-calculator-india",
+      "salary-in-hand-calculator-india",
+      "emi-calculator-india"
     ]
   },
   {
@@ -407,9 +407,9 @@
       }
     ],
     "related": [
-      "rd-calculator-india",
       "sip-calculator-india",
-      "inflation-calculator-india"
+      "salary-in-hand-calculator-india",
+      "emi-calculator-india"
     ]
   },
   {
