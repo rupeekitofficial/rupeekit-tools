@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-05-13T08:13:31.036Z",
+  "workflow": "RupeeKit Workflow 1 - Keyword Research and Content Plan",
+  "status": "approved-plan",
+  "plan": {
+    "dayNumber": 1,
+    "date": "2024-07-29",
+    "keyword": "HRA exemption calculator India",
+    "slug": "hra-exemption-calculator-india",
+    "searchIntent": "Help salaried employees calculate possible HRA exemption using salary, rent, city type, and HRA received.",
+    "targetPersona": "Salaried employees in India seeking to understand and calculate their House Rent Allowance (HRA) tax exemption to optimize their tax savings.",
+    "pageType": "calculator",
+    "seoPriority": "high",
+    "riskLevel": "medium",
+    "primaryGoal": "To provide an accurate, easy-to-use HRA exemption calculator for Indian salaried employees, helping them understand their potential tax savings and improve RupeeKit's organic search visibility for HRA-related queries.",
+    "titleOptions": [
+      "HRA Exemption Calculator India - Calculate Your Tax Savings",
+      "Calculate HRA Exemption in India | RupeeKit Tax Tool",
+      "India HRA Exemption Calculator: Maximize Your Tax Benefit"
+    ],
+    "recommendedMetaTitle": "HRA Exemption Calculator India - Calculate Tax Savings",
+    "recommendedMetaDescription": "Use RupeeKit's HRA Exemption Calculator for India to quickly determine your eligible HRA tax benefit. Maximize your savings based on salary, rent, and...",
+    "h1": "HRA Exemption Calculator India",
+    "calculatorSpec": {
+      "inputs": [
+        {
+          "name": "basicSalary",
+          "label": "Basic Salary (Monthly)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "50000",
+          "helpText": "Enter your monthly basic salary component."
+        },
+        {
+          "name": "dearnessAllowance",
+          "label": "Dearness Allowance (DA) (Monthly)",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "helpText": "Enter your monthly Dearness Allowance, if applicable. Only DA forming part of salary for retirement benefits is considered."
+        },
+        {
+          "name": "commission",
+          "label": "Commission (Monthly, if fixed % of turnover)",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "helpText": "Enter monthly commission if it's a fixed percentage of turnover. Other commissions are not included."
+        },
+        {
+          "name": "hraReceived",
+          "label": "HRA Received (Monthly)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "20000",
+          "helpText": "Enter the actual House Rent Allowance you receive from your employer monthly."
+        },
+        {
+          "name": "rentPaid",
+          "label": "Rent Paid (Monthly)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "15000",
+          "helpText": "Enter the actual monthly rent you pay for your accommodation."
+        },
+        {
+          "name": "cityType",
+          "label": "City Type",
+          "type": "select",
+          "required": true,
+          "defaultValue": "Non-Metro",
+          "helpText": "Select if you reside in a Metro city (Mumbai, Delhi, Chennai, Kolkata) or Non-Metro city.",
+          "options": [
+            "Metro",
+            "Non-Metro"
+          ]
+        }
+      ],
+      "formulaPlainEnglish": "The HRA exemption is the least of the following three amounts: 1. Actual HRA received. 2. 50% of (Basic Salary + DA + Commission) for metro cities or 40% for non-metro cities. 3. Actual rent paid minus 10% of (Basic Salary + DA + Commission).",
+      "formula": "Let 'Salary for HRA' = (Basic_Salary + DA + Commission). The HRA exemption is min(HRA_Received, (City_Type == 'Metro' ? 0.50 : 0.40) * Salary_for_HRA, Rent_Paid - 0.10 * Salary_for_HRA). All inputs are monthly, so the result is monthly HRA exemption.",
+      "outputFields": [
+        "Monthly HRA Exemption",
+        "Annual HRA Exemption",
+        "Taxable HRA (Monthly)",
+        "Taxable HRA (Annual)"
+      ]
+    },
+    "contentBrief": {
+      "introAngle": "Start by highlighting the importance of HRA for salaried individuals in India to reduce their taxable income, then introduce the calculator as an easy solution to determine their eligible exemption.",
+      "mustCover": [
+        "What is HRA and its purpose?",
+        "Who is eligible for HRA exemption?",
+        "Conditions for claiming HRA exemption (e.g., not owning a house in the same city, paying rent)",
+        "Detailed breakdown of the three HRA exemption rules (actual HRA, percentage of salary, rent paid minus 10% of salary)",
+        "Definition of 'salary' for HRA calculation (Basic + DA + Commission if fixed % of turnover)",
+        "Difference between Metro and Non-Metro cities for HRA calculation",
+        "Documents required to claim HRA (rent receipts, landlord PAN if rent > ₹1 Lakh/year)",
+        "How HRA exemption impacts overall taxable income and tax liability.",
+        "Scenarios where HRA exemption cannot be claimed (e.g., paying rent to spouse, living in own house)."
+      ],
+      "exampleScenario": "Priya lives in Bengaluru (Non-Metro). Her monthly basic salary is ₹60,000, DA is ₹5,000, HRA received is ₹25,000, and she pays ₹18,000 in rent. Calculate her monthly HRA exemption.",
+      "faqQuestions": [
+        "Can I claim HRA if I live with my parents and pay them rent?",
+        "What if I pay rent but don't receive HRA from my employer?",
+        "Is HRA exemption applicable if I own a house but live in a rented one?",
+        "What documents do I need to submit to claim HRA exemption?",
+        "How is 'salary' defined for HRA calculation?",
+        "Can both spouses claim HRA exemption if they live in different cities?",
+        "What happens if my rent changes during the financial year?"
+      ],
+      "internalLinks": [
+        {
+          "label": "Income Tax Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/income-tax-calculator-india"
+        },
+        {
+          "label": "Salary Slip Generator",
+          "url": "https://www.rupeekit.co.in/tools/salary-slip-generator"
+        },
+        {
+          "label": "EPF Calculator",
+          "url": "https://www.rupeekit.co.in/tools/epf-calculator"
+        },
+        {
+          "label": "Gratuity Calculator",
+          "url": "https://www.rupeekit.co.in/tools/gratuity-calculator"
+        },
+        {
+          "label": "NPS Calculator",
+          "url": "https://www.rupeekit.co.in/tools/nps-calculator"
+        }
+      ],
+      "trustNotes": [
+        "Based on the latest Income Tax Act, 1961 provisions for HRA exemption.",
+        "Formulas are regularly reviewed and updated by our financial content team.",
+        "Designed for accuracy and ease of use for Indian taxpayers.",
+        "Transparent calculation methodology explained clearly."
+      ],
+      "disclaimer": "This HRA Exemption Calculator is provided for general informational purposes only and should not be considered as professional tax advice. Tax laws are complex and subject to change. Individual financial situations vary, and the results from this calculator are estimates. RupeeKit recommends consulting with a qualified tax advisor for personalized guidance regarding your specific tax situation."
+    },
+    "qualityGate": {
+      "shouldPublish": true,
+      "checks": [
+        {
+          "name": "clear search intent",
+          "pass": true,
+          "note": "The content and calculator directly address the user's intent to calculate HRA exemption."
+        },
+        {
+          "name": "calculator utility",
+          "pass": true,
+          "note": "The page provides a functional calculator with relevant inputs and outputs for HRA exemption."
+        },
+        {
+          "name": "India context",
+          "pass": true,
+          "note": "All content, rules, and examples are strictly aligned with Indian tax laws and user context."
+        },
+        {
+          "name": "no financial advice",
+          "pass": true,
+          "note": "Clear disclaimers are included, and the content avoids giving personalized financial advice."
+        },
+        {
+          "name": "no guaranteed claims",
+          "pass": true,
+          "note": "The calculator provides estimates, and no guaranteed tax savings are claimed."
+        },
+        {
+          "name": "unique page angle",
+          "pass": true,
+          "note": "Focuses on a practical calculator tool with comprehensive supporting information for HRA exemption."
+        }
+      ]
+    },
+    "publishingPlan": {
+      "targetPath": "data/tools/hra-exemption-calculator-india.json",
+      "targetUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "nextWorkflow": "Daily Page Publisher"
+    }
+  },
+  "nextStep": {
+    "workflow": "Workflow 2 - Daily Page Publisher",
+    "publishTarget": "data/tools/hra-exemption-calculator-india.json",
+    "liveUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india"
+  }
+}
