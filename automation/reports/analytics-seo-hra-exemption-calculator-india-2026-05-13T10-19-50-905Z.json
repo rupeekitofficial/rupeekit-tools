@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-05-13T10:19:50.905Z",
+  "workflow": "RupeeKit Workflow 4 - Analytics and Search Console Monitor",
+  "status": "ACTION_NEEDED",
+  "targetUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+  "tool": {
+    "slug": "hra-exemption-calculator-india",
+    "name": "HRA Exemption Calculator India",
+    "category": "Tax",
+    "status": "live",
+    "targetKeyword": "HRA exemption calculator India",
+    "shortDescription": "Calculate monthly and annual HRA exemption using salary, HRA received, rent paid, and metro or non-metro rules.",
+    "metaDescription": "Calculate HRA exemption in India using salary, HRA received, rent paid, and metro or non-metro city rules.",
+    "inputs": [
+      {
+        "key": "basicSalary",
+        "label": "Basic Salary (Monthly)",
+        "unit": "₹",
+        "default": 50000,
+        "min": 0,
+        "step": 1,
+        "help": "Enter your monthly basic salary component."
+      },
+      {
+        "key": "dearnessAllowance",
+        "label": "Dearness Allowance (DA) (Monthly)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 1,
+        "help": "Enter your monthly Dearness Allowance, if applicable. Only DA forming part of salary for retirement benefits is considered."
+      },
+      {
+        "key": "commission",
+        "label": "Commission (Monthly, if fixed % of turnover)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 1,
+        "help": "Enter monthly commission if it's a fixed percentage of turnover. Other commissions are not included."
+      },
+      {
+        "key": "hraReceived",
+        "label": "HRA Received (Monthly)",
+        "unit": "₹",
+        "default": 20000,
+        "min": 0,
+        "step": 1,
+        "help": "Enter the actual House Rent Allowance you receive from your employer monthly."
+      },
+      {
+        "key": "rentPaid",
+        "label": "Rent Paid (Monthly)",
+        "unit": "₹",
+        "default": 15000,
+        "min": 0,
+        "step": 1,
+        "help": "Enter the actual monthly rent you pay for your accommodation."
+      },
+      {
+        "key": "metroMultiplier",
+        "label": "City multiplier",
+        "unit": "",
+        "default": 0.4,
+        "min": 0.4,
+        "max": 0.5,
+        "step": 0.1,
+        "help": "Use 0.5 for Delhi, Mumbai, Kolkata or Chennai. Use 0.4 for other cities."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyHraExemption",
+        "label": "Monthly HRA Exemption",
+        "formula": "max(0, min(hraReceived, metroMultiplier * (basicSalary + dearnessAllowance + commission), rentPaid - 0.10 * (basicSalary + dearnessAllowance + commission)))",
+        "format": "currency"
+      },
+      {
+        "key": "annualHraExemption",
+        "label": "Annual HRA Exemption",
+        "formula": "monthlyHraExemption * 12",
+        "format": "currency"
+      },
+      {
+        "key": "taxableHraMonthly",
+        "label": "Taxable HRA Monthly",
+        "formula": "max(0, hraReceived - monthlyHraExemption)",
+        "format": "currency"
+      },
+      {
+        "key": "taxableHraAnnual",
+        "label": "Taxable HRA Annual",
+        "formula": "taxableHraMonthly * 12",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "The House Rent Allowance (HRA) exemption in India is calculated based on the least of three specific amounts as per income tax rules. First, the actual HRA amount received from your employer is considered. Second, a percentage of your 'salary' (which includes basic salary, dearness allowance if it forms part of retirement benefits, and commission if it's a fixed percentage of turnover) is taken into account. This percentage is 50% if you reside in a metro city (Mumbai, Delhi, Chennai, Kolkata) and 40% for non-metro cities. Third, the calculation considers the actual rent you pay, minus 10% of your 'salary' (as defined above). The lowest of these three figures is your eligible HRA exemption for the month. This exemption directly reduces your taxable income, leading to potential tax savings. The calculator simplifies this complex rule, allowing you to quickly determine your monthly and annual HRA exemption and the resulting taxable HRA.",
+    "example": "Consider Priya, a salaried employee residing in Bengaluru, which is a non-metro city for HRA purposes. Her monthly basic salary is ₹60,000, and she receives a Dearness Allowance (DA) of ₹5,000. Her employer provides her with ₹25,000 as HRA each month, and she pays a monthly rent of ₹18,000. To calculate her HRA exemption using the RupeeKit calculator, she would input these figures: Basic Salary ₹60,000, DA ₹5,000, HRA Received ₹25,000, Rent Paid ₹18,000, and set the City Type Multiplier to 0.40 (for non-metro). The calculator would then determine her eligible monthly HRA exemption, helping her understand her tax-saving potential.",
+    "faqs": [
+      {
+        "question": "Can I claim HRA if I live with my parents and pay them rent?",
+        "answer": "Yes, you can claim HRA exemption if you pay rent to your parents, provided you have a valid rent agreement and actual rent receipts. Your parents must declare this rental income in their income tax return. It's crucial to maintain proper documentation for verification by tax authorities."
+      },
+      {
+        "question": "What if I pay rent but don't receive HRA from my employer?",
+        "answer": "If you do not receive HRA from your employer but pay rent, you can still claim a deduction under Section 80GG of the Income Tax Act. This deduction is available to self-employed individuals and salaried employees who do not receive HRA. Specific conditions and limits apply to this deduction."
+      },
+      {
+        "question": "Is HRA exemption applicable if I own a house but live in a rented one?",
+        "answer": "Yes, you can claim HRA exemption even if you own a house, provided that the owned house is not occupied by you and is either rented out or vacant, and you are living in a different city in a rented accommodation. You must be paying rent for the accommodation you live in."
+      },
+      {
+        "question": "What documents do I need to submit to claim HRA exemption?",
+        "answer": "To claim HRA exemption, you typically need rent receipts for the payments made. If your annual rent paid exceeds ₹1,00,000, you must also provide the PAN card details of your landlord to your employer. A valid rent agreement is also advisable."
+      },
+      {
+        "question": "How is 'salary' defined for HRA calculation?",
+        "answer": "For HRA calculation purposes, 'salary' is defined as the sum of your Basic Salary, Dearness Allowance (DA) if it forms part of your retirement benefits, and any commission received if it is a fixed percentage of your turnover. Other allowances or perquisites are generally not included in this definition."
+      },
+      {
+        "question": "Is this calculator financial or tax advice?",
+        "answer": "No. This calculator is for educational and informational purposes only. It provides an estimate based on the values entered and should not be treated as tax, legal, investment, or financial advice."
+      }
+    ],
+    "related": [
+      "salary-in-hand-calculator-india",
+      "gst-calculator-india",
+      "emi-calculator-india"
+    ]
+  },
+  "dateRange": {
+    "startDate": "2026-05-05",
+    "endDate": "2026-05-11"
+  },
+  "ga4": {
+    "totals": {
+      "activeUsers": 0,
+      "screenPageViews": 0,
+      "sessions": 0,
+      "eventCount": 0
+    },
+    "rawRowCount": 0,
+    "error": {
+      "message": "403 - \"{\\n  \\\"error\\\": {\\n    \\\"code\\\": 403,\\n    \\\"message\\\": \\\"User does not have sufficient permissions for this property. To learn more about Property ID, see https://developers.google.com/analytics/devguides/reporting/data/v1/property-id.\\\",\\n    \\\"status\\\": \\\"PERMISSION_DENIED\\\"\\n  }\\n}\\n\"",
+      "name": "AxiosError",
+      "stack": "AxiosError: Request failed with status code 403\n    at settle (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/axios@1.16.0/node_modules/axios/lib/core/settle.js:19:12)\n    at RedirectableRequest.handleResponse (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/axios@1.16.0/node_modules/axios/lib/adapters/http.js:969:11)\n    at RedirectableRequest.emit (node:events:520:35)\n    at RedirectableRequest._processResponse (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/follow-redirects@1.16.0/node_modules/follow-redirects/index.js:424:10)\n    at ClientRequest.RedirectableRequest._onNativeResponse (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/follow-redirects@1.16.0/node_modules/follow-redirects/index.js:109:12)\n    at Object.onceWrapper (node:events:623:26)\n    at ClientRequest.emit (node:events:508:28)\n    at HTTPParser.parserOnIncomingClient [as onIncoming] (node:_http_client:780:27)\n    at HTTPParser.parserOnHeadersComplete (node:_http_common:125:17)\n    at TLSSocket.socketOnData (node:_http_client:615:22)\n    at Axios.request (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/axios@1.16.0/node_modules/axios/lib/core/Axios.js:46:41)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at invokeAxios (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:98:10)\n    at proxyRequestToAxios (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:448:20)\n    at Object.request (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:1701:11)\n    at ExecuteContext.requestOAuth2 (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:999:9)\n    at ExecuteContext.requestOAuth2 (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:1757:11)",
+      "code": "ERR_BAD_REQUEST",
+      "status": 403
+    }
+  },
+  "searchConsole": {
+    "totals": {
+      "clicks": 0,
+      "impressions": 0,
+      "weightedPositionTotal": 0,
+      "ctr": 0,
+      "avgPosition": 0
+    },
+    "topQueries": [],
+    "rawRowCount": 0,
+    "error": {
+      "message": "403 - \"{\\n  \\\"error\\\": {\\n    \\\"code\\\": 403,\\n    \\\"message\\\": \\\"Google Search Console API has not been used in project 207337142599 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=207337142599 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.\\\",\\n    \\\"errors\\\": [\\n      {\\n        \\\"message\\\": \\\"Google Search Console API has not been used in project 207337142599 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=207337142599 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.\\\",\\n        \\\"domain\\\": \\\"usageLimits\\\",\\n        \\\"reason\\\": \\\"accessNotConfigured\\\",\\n        \\\"extendedHelp\\\": \\\"https://console.developers.google.com\\\"\\n      }\\n    ],\\n    \\\"status\\\": \\\"PERMISSION_DENIED\\\",\\n    \\\"details\\\": [\\n      {\\n        \\\"@type\\\": \\\"type.googleapis.com/google.rpc.ErrorInfo\\\",\\n        \\\"reason\\\": \\\"SERVICE_DISABLED\\\",\\n        \\\"domain\\\": \\\"googleapis.com\\\",\\n        \\\"metadata\\\": {\\n          \\\"serviceTitle\\\": \\\"Google Search Console API\\\",\\n          \\\"consumer\\\": \\\"projects/207337142599\\\",\\n          \\\"activationUrl\\\": \\\"https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=207337142599\\\",\\n          \\\"service\\\": \\\"searchconsole.googleapis.com\\\",\\n          \\\"containerInfo\\\": \\\"207337142599\\\"\\n        }\\n      },\\n      {\\n        \\\"@type\\\": \\\"type.googleapis.com/google.rpc.LocalizedMessage\\\",\\n        \\\"locale\\\": \\\"en-US\\\",\\n        \\\"message\\\": \\\"Google Search Console API has not been used in project 207337142599 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=207337142599 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.\\\"\\n      },\\n      {\\n        \\\"@type\\\": \\\"type.googleapis.com/google.rpc.Help\\\",\\n        \\\"links\\\": [\\n          {\\n            \\\"description\\\": \\\"Google developers console API activation\\\",\\n            \\\"url\\\": \\\"https://console.developers.google.com/apis/api/searchconsole.googleapis.com/overview?project=207337142599\\\"\\n          }\\n        ]\\n      }\\n    ]\\n  }\\n}\\n\"",
+      "name": "AxiosError",
+      "stack": "AxiosError: Request failed with status code 403\n    at settle (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/axios@1.16.0/node_modules/axios/lib/core/settle.js:19:12)\n    at RedirectableRequest.handleResponse (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/axios@1.16.0/node_modules/axios/lib/adapters/http.js:969:11)\n    at RedirectableRequest.emit (node:events:520:35)\n    at RedirectableRequest._processResponse (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/follow-redirects@1.16.0/node_modules/follow-redirects/index.js:424:10)\n    at ClientRequest.RedirectableRequest._onNativeResponse (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/follow-redirects@1.16.0/node_modules/follow-redirects/index.js:109:12)\n    at Object.onceWrapper (node:events:623:26)\n    at ClientRequest.emit (node:events:508:28)\n    at HTTPParser.parserOnIncomingClient [as onIncoming] (node:_http_client:780:27)\n    at HTTPParser.parserOnHeadersComplete (node:_http_common:125:17)\n    at TLSSocket.socketOnData (node:_http_client:615:22)\n    at Axios.request (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/axios@1.16.0/node_modules/axios/lib/core/Axios.js:46:41)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at invokeAxios (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:98:10)\n    at proxyRequestToAxios (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:448:20)\n    at Object.request (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:1701:11)\n    at ExecuteContext.requestOAuth2 (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:999:9)\n    at ExecuteContext.requestOAuth2 (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_2c2e1f47b69b34bef6f634a13cbf61d9/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/request-helper-functions.ts:1757:11)",
+      "code": "ERR_BAD_REQUEST",
+      "status": 403
+    }
+  },
+  "recommendations": [
+    "GA4 API returned an error. Check Google OAuth credential, GA4 property ID, and Analytics Data API access.",
+    "Search Console API returned an error. Check Google OAuth credential and whether the Search Console property URL matches gscSiteUrl."
+  ]
+}
