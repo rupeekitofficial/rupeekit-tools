@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1500" viewBox="0 0 1000 1500">
+  <rect width="1000" height="1500" fill="#f8fafc"/>
+  <rect x="54" y="54" width="892" height="1392" rx="64" fill="#ffffff" stroke="#e2e8f0" stroke-width="4"/>
+  <circle cx="840" cy="180" r="180" fill="#dbeafe"/>
+  <circle cx="150" cy="1320" r="230" fill="#dcfce7"/>
+  
+    <rect x="100" y="120" width="360" height="50" rx="25" fill="#e0f2fe"/>
+    <text x="124" y="153" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#0369a1">INDIA FINANCE CALCULATOR</text>
+  
+  <text x="900" y="156" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" fill="#0284c7">RupeeKit</text>
+  <rect x="100" y="245" width="130" height="14" rx="7" fill="#16a34a"/>
+  <text x="100" y="360" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="900" fill="#0f172a">
+    <tspan x="100" dy="0">HRA Exemption</tspan>
+<tspan x="100" dy="82">Calculator India -</tspan>
+<tspan x="100" dy="82">Estimate Your Tax</tspan>
+<tspan x="100" dy="82">Savings</tspan>
+  </text>
+  <text x="100" y="735" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="600" fill="#334155">
+    <tspan x="100" dy="0">Estimate your House Rent Allowance (HRA)</tspan>
+<tspan x="100" dy="50">exemption in India with RupeeKit's</tspan>
+<tspan x="100" dy="50">easy-to-use calculator. Understand how</tspan>
+<tspan x="100" dy="50">your salary, HRA received, rent paid, and</tspan>
+<tspan x="100" dy="50">city type (metro vs. non-metro) impact</tspan>
+<tspan x="100" dy="50">your potential tax savings. This tool</tspan>
+<tspan x="100" dy="50">provides an educational estimate for</tspan>
+<tspan x="100" dy="50">salaried individuals to help with...</tspan>
+  </text>
+  <rect x="100" y="1195" width="800" height="110" rx="36" fill="#0f172a"/>
+  <text x="500" y="1264" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900" fill="#ffffff">Calculate HRA Exemption</text>
+  
+    <line x1="72" y1="1352" x2="928" y2="1352" stroke="#dbeafe" stroke-width="2"/>
+    <text x="72" y="1400" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#0284c7">RupeeKit</text>
+    <text x="928" y="1400" text-anchor="end" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="#64748b">rupeekit.co.in/tools/hra-exemption-calculator-india</text>
+  
+</svg>
