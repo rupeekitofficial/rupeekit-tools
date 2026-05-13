@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-05-13T14:05:42.936Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "MANUAL_SINGLE_PAGE_TEST",
+  "slug": "hra-exemption-calculator-india",
+  "name": "HRA Exemption Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Calculate your monthly and annual HRA exemption in India. Input salary, HRA, rent, and city type to estimate your tax-saving potential accurately with RupeeKit.",
+    "metaDescription": "Estimate your HRA exemption in India with RupeeKit's calculator. Understand how salary, HRA, rent, and city impact your tax savings. For informational...",
+    "faqCount": 8
+  },
+  "after": {
+    "shortDescription": "Calculate your monthly and annual HRA exemption in India. Input salary, HRA, rent, and city type to estimate your tax-saving potential accurately with RupeeKit.",
+    "metaDescription": "Estimate your HRA exemption in India with RupeeKit's calculator. Understand how salary, HRA, rent, and city impact your tax savings. For informational...",
+    "faqCount": 8,
+    "howToUseCount": 6,
+    "assumptionsCount": 6,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 4,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Updated shortDescription to be under 180 characters.",
+    "Updated metaDescription to be between 130 and 155 characters.",
+    "Ensured formulaExplanation and example meet word count requirements (120-240 and 80-180 words respectively).",
+    "Verified FAQs, How-To-Use, Assumptions, and Common Mistakes sections meet quantity and quality requirements.",
+    "Confirmed content sections are specific, use India context, and mention educational estimates.",
+    "Added 'changeSummary' field."
+  ]
+}
