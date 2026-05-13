@@ -1,0 +1,190 @@
+{
+  "generatedAt": "2026-05-13T14:23:13.427Z",
+  "workflow": "RupeeKit Workflow 7 - Homepage Internal Link Optimizer",
+  "status": "UPDATED",
+  "liveToolCount": 6,
+  "categories": [
+    "Salary",
+    "Loans",
+    "Investments",
+    "Tax",
+    "Savings"
+  ],
+  "homepageCoverage": [
+    {
+      "slug": "salary-in-hand-calculator-india",
+      "name": "Salary In-Hand Calculator India",
+      "category": "Salary"
+    },
+    {
+      "slug": "emi-calculator-india",
+      "name": "EMI Calculator India",
+      "category": "Loans"
+    },
+    {
+      "slug": "sip-calculator-india",
+      "name": "SIP Calculator India",
+      "category": "Investments"
+    },
+    {
+      "slug": "gst-calculator-india",
+      "name": "GST Calculator India",
+      "category": "Tax"
+    },
+    {
+      "slug": "fd-calculator-india",
+      "name": "FD Calculator India",
+      "category": "Savings"
+    },
+    {
+      "slug": "hra-exemption-calculator-india",
+      "name": "HRA Exemption Calculator India",
+      "category": "Tax"
+    }
+  ],
+  "changedToolCount": 5,
+  "changes": [
+    {
+      "slug": "salary-in-hand-calculator-india",
+      "name": "Salary In-Hand Calculator India",
+      "oldRelated": [
+        "ctc-breakup-calculator",
+        "old-vs-new-tax-regime-calculator",
+        "pf-calculator"
+      ],
+      "newRelated": [
+        "hra-exemption-calculator-india",
+        "gst-calculator-india",
+        "emi-calculator-india"
+      ],
+      "invalidRemoved": [
+        "ctc-breakup-calculator",
+        "old-vs-new-tax-regime-calculator",
+        "pf-calculator"
+      ]
+    },
+    {
+      "slug": "emi-calculator-india",
+      "name": "EMI Calculator India",
+      "oldRelated": [
+        "home-loan-emi-calculator",
+        "personal-loan-emi-calculator",
+        "car-loan-emi-calculator"
+      ],
+      "newRelated": [
+        "salary-in-hand-calculator-india",
+        "fd-calculator-india",
+        "sip-calculator-india"
+      ],
+      "invalidRemoved": [
+        "home-loan-emi-calculator",
+        "personal-loan-emi-calculator",
+        "car-loan-emi-calculator"
+      ]
+    },
+    {
+      "slug": "sip-calculator-india",
+      "name": "SIP Calculator India",
+      "oldRelated": [
+        "goal-sip-calculator",
+        "step-up-sip-calculator",
+        "mutual-fund-return-calculator"
+      ],
+      "newRelated": [
+        "fd-calculator-india",
+        "salary-in-hand-calculator-india",
+        "emi-calculator-india"
+      ],
+      "invalidRemoved": [
+        "goal-sip-calculator",
+        "step-up-sip-calculator",
+        "mutual-fund-return-calculator"
+      ]
+    },
+    {
+      "slug": "gst-calculator-india",
+      "name": "GST Calculator India",
+      "oldRelated": [
+        "freelance-invoice-generator",
+        "tds-calculator",
+        "income-tax-slab-explainer"
+      ],
+      "newRelated": [
+        "hra-exemption-calculator-india",
+        "salary-in-hand-calculator-india",
+        "emi-calculator-india"
+      ],
+      "invalidRemoved": [
+        "freelance-invoice-generator",
+        "tds-calculator",
+        "income-tax-slab-explainer"
+      ]
+    },
+    {
+      "slug": "fd-calculator-india",
+      "name": "FD Calculator India",
+      "oldRelated": [
+        "rd-calculator-india",
+        "sip-calculator-india",
+        "inflation-calculator-india"
+      ],
+      "newRelated": [
+        "sip-calculator-india",
+        "salary-in-hand-calculator-india",
+        "emi-calculator-india"
+      ],
+      "invalidRemoved": [
+        "rd-calculator-india",
+        "inflation-calculator-india"
+      ]
+    }
+  ],
+  "invalidRelatedBefore": [
+    {
+      "slug": "salary-in-hand-calculator-india",
+      "invalidRelated": [
+        "ctc-breakup-calculator",
+        "old-vs-new-tax-regime-calculator",
+        "pf-calculator"
+      ]
+    },
+    {
+      "slug": "emi-calculator-india",
+      "invalidRelated": [
+        "home-loan-emi-calculator",
+        "personal-loan-emi-calculator",
+        "car-loan-emi-calculator"
+      ]
+    },
+    {
+      "slug": "sip-calculator-india",
+      "invalidRelated": [
+        "goal-sip-calculator",
+        "step-up-sip-calculator",
+        "mutual-fund-return-calculator"
+      ]
+    },
+    {
+      "slug": "gst-calculator-india",
+      "invalidRelated": [
+        "freelance-invoice-generator",
+        "tds-calculator",
+        "income-tax-slab-explainer"
+      ]
+    },
+    {
+      "slug": "fd-calculator-india",
+      "invalidRelated": [
+        "rd-calculator-india",
+        "inflation-calculator-india"
+      ]
+    }
+  ],
+  "safety": {
+    "formulasPreserved": true,
+    "inputsPreserved": true,
+    "outputsPreserved": true,
+    "onlyRelatedFieldUpdated": true,
+    "homepageAlreadyDynamic": true
+  }
+}
