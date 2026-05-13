@@ -487,44 +487,44 @@
       {
         "key": "annualHraExemption",
         "label": "Annual HRA Exemption",
-        "formula": "hraExemptionMonthly * 12",
+        "formula": "monthlyHraExemption * 12",
         "format": "currency"
       },
       {
         "key": "taxableHraMonthly",
-        "label": "Taxable HRA (Monthly)",
-        "formula": "max(0, hraReceived - hraExemptionMonthly)",
+        "label": "Taxable HRA Monthly",
+        "formula": "max(0, hraReceived - monthlyHraExemption)",
         "format": "currency"
       },
       {
         "key": "taxableHraAnnual",
-        "label": "Taxable HRA (Annual)",
+        "label": "Taxable HRA Annual",
         "formula": "taxableHraMonthly * 12",
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The HRA exemption is calculated based on the least of three specific conditions as per Indian income tax laws. These conditions are: 1. The actual House Rent Allowance (HRA) received from your employer. 2. A percentage of your 'salary' (Basic Salary + Dearness Allowance + Commission, if applicable). This percentage is 50% if you reside in a metro city (Mumbai, Delhi, Chennai, Kolkata) and 40% for non-metro cities. 3. The actual rent paid for your accommodation, minus 10% of your 'salary' (Basic Salary + Dearness Allowance + Commission, if applicable). The lowest of these three amounts is considered your eligible HRA exemption for tax purposes. This calculator helps you determine this amount accurately, allowing you to understand your potential tax savings.",
-    "example": "Consider Priya, who resides in Bengaluru, which is a Non-Metro city for HRA purposes. Her monthly basic salary is ₹60,000, and she receives a Dearness Allowance (DA) of ₹5,000. Her employer provides her with ₹25,000 as HRA each month, and she pays ₹18,000 in rent. To calculate her monthly HRA exemption using the RupeeKit calculator, you would input: Basic Salary ₹60,000, Dearness Allowance ₹5,000, HRA Received ₹25,000, Rent Paid ₹18,000, and set the Metro City Factor to 0.4 (for Non-Metro). The calculator will then determine her eligible monthly HRA exemption based on the three conditions.",
+    "formulaExplanation": "The House Rent Allowance (HRA) exemption in India is calculated based on the least of three specific amounts as per income tax rules. First, the actual HRA amount received from your employer is considered. Second, a percentage of your 'salary' (which includes basic salary, dearness allowance if it forms part of retirement benefits, and commission if it's a fixed percentage of turnover) is taken into account. This percentage is 50% if you reside in a metro city (Mumbai, Delhi, Chennai, Kolkata) and 40% for non-metro cities. Third, the calculation considers the actual rent you pay, minus 10% of your 'salary' (as defined above). The lowest of these three figures is your eligible HRA exemption for the month. This exemption directly reduces your taxable income, leading to potential tax savings. The calculator simplifies this complex rule, allowing you to quickly determine your monthly and annual HRA exemption and the resulting taxable HRA.",
+    "example": "Consider Priya, a salaried employee residing in Bengaluru, which is a non-metro city for HRA purposes. Her monthly basic salary is ₹60,000, and she receives a Dearness Allowance (DA) of ₹5,000. Her employer provides her with ₹25,000 as HRA each month, and she pays a monthly rent of ₹18,000. To calculate her HRA exemption using the RupeeKit calculator, she would input these figures: Basic Salary ₹60,000, DA ₹5,000, HRA Received ₹25,000, Rent Paid ₹18,000, and set the City Type Multiplier to 0.40 (for non-metro). The calculator would then determine her eligible monthly HRA exemption, helping her understand her tax-saving potential.",
     "faqs": [
       {
         "question": "Can I claim HRA if I live with my parents and pay them rent?",
-        "answer": "Yes, you can claim HRA exemption if you pay rent to your parents, provided you have a valid rent agreement and can provide rent receipts. Your parents must declare this rental income in their income tax return. It's crucial to ensure all transactions are legitimate and documented."
+        "answer": "Yes, you can claim HRA exemption if you pay rent to your parents, provided you have a valid rent agreement and actual rent receipts. Your parents must declare this rental income in their income tax return. It's crucial to maintain proper documentation for verification by tax authorities."
       },
       {
         "question": "What if I pay rent but don't receive HRA from my employer?",
-        "answer": "If you pay rent but do not receive HRA from your employer, you may still be eligible to claim a deduction under Section 80GG of the Income Tax Act. This deduction is available to self-employed individuals or salaried employees who do not receive HRA. Conditions and limits apply."
+        "answer": "If you do not receive HRA from your employer but pay rent, you can still claim a deduction under Section 80GG of the Income Tax Act. This deduction is available to self-employed individuals and salaried employees who do not receive HRA. Specific conditions and limits apply to this deduction."
       },
       {
         "question": "Is HRA exemption applicable if I own a house but live in a rented one?",
-        "answer": "Yes, you can claim HRA exemption even if you own a house, provided that house is not occupied by you and you are living in a rented accommodation in a different city for employment purposes. If your owned house is in the same city, claiming HRA might be subject to scrutiny."
+        "answer": "Yes, you can claim HRA exemption even if you own a house, provided that the owned house is not occupied by you and is either rented out or vacant, and you are living in a different city in a rented accommodation. You must be paying rent for the accommodation you live in."
       },
       {
         "question": "What documents do I need to submit to claim HRA exemption?",
-        "answer": "To claim HRA exemption, you typically need rent receipts for the period you are claiming. If your annual rent paid exceeds ₹1,00,000, you must also provide the PAN card details of your landlord to your employer. A valid rent agreement is also advisable."
+        "answer": "To claim HRA exemption, you typically need rent receipts for the payments made. If your annual rent paid exceeds ₹1,00,000, you must also provide the PAN card details of your landlord to your employer. A valid rent agreement is also advisable."
       },
       {
         "question": "How is 'salary' defined for HRA calculation?",
-        "answer": "For HRA calculation purposes, 'salary' is defined as the sum of your Basic Salary, Dearness Allowance (DA) if it forms part of your retirement benefits, and any commission received if it is a fixed percentage of turnover. Other allowances or perquisites are generally not included."
+        "answer": "For HRA calculation purposes, 'salary' is defined as the sum of your Basic Salary, Dearness Allowance (DA) if it forms part of your retirement benefits, and any commission received if it is a fixed percentage of your turnover. Other allowances or perquisites are generally not included in this definition."
       },
       {
         "question": "Is this calculator financial or tax advice?",
@@ -533,8 +533,8 @@
     ],
     "related": [
       "salary-in-hand-calculator-india",
-      "emi-calculator-india",
-      "gst-calculator-india"
+      "gst-calculator-india",
+      "emi-calculator-india"
     ]
   }
 ]
