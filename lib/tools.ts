@@ -23,6 +23,12 @@ export type ToolFaq = {
   answer: string;
 };
 
+export type ToolContentSection = {
+  heading: string;
+  body: string;
+  bullets?: string[];
+};
+
 export type Tool = {
   slug: string;
   name: string;
@@ -37,6 +43,13 @@ export type Tool = {
   example: string;
   faqs: ToolFaq[];
   related: string[];
+
+  // Optional SEO enrichment fields for Workflow 6
+  howToUse?: string[];
+  assumptions?: string[];
+  commonMistakes?: string[];
+  contentSections?: ToolContentSection[];
+  lastReviewed?: string;
 };
 
 export const allTools = tools as Tool[];
