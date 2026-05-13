@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-05-13T14:52:03.814Z",
+  "workflow": "RupeeKit Workflow 8 - Brand Social Content Generator",
+  "status": "DRAFT_CREATED",
+  "selectedSlug": "hra-exemption-calculator-india",
+  "selectedToolName": "HRA Exemption Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+  "outputPath": "automation/social-drafts/social-draft-hra-exemption-calculator-india-2026-05-13T14-52-03-814Z.json",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "noAdClickLanguage": true,
+    "noArtificialTrafficLanguage": true,
+    "manualReviewRequiredForRedditAndQuora": true
+  }
+}
