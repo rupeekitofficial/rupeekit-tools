@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-13T14:04:41.092Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "MANUAL_SINGLE_PAGE_TEST",
+  "slug": "hra-exemption-calculator-india",
+  "name": "HRA Exemption Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Calculate monthly and annual HRA exemption using salary, HRA received, rent paid, and metro or non-metro rules.",
+    "metaDescription": "Calculate HRA exemption in India using salary, HRA received, rent paid, and metro or non-metro city rules.",
+    "faqCount": 6
+  },
+  "after": {
+    "shortDescription": "Calculate your monthly and annual HRA exemption in India. Input salary, HRA, rent, and city type to estimate your tax-saving potential accurately with RupeeKit.",
+    "metaDescription": "Estimate your HRA exemption in India with RupeeKit's calculator. Understand how salary, HRA, rent, and city impact your tax savings. For informational...",
+    "faqCount": 8,
+    "howToUseCount": 6,
+    "assumptionsCount": 6,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 4,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Updated shortDescription and metaDescription for clarity and SEO.",
+    "Enriched formulaExplanation and example for better understanding and word count.",
+    "Expanded faqs to 8 items, adding practical scenarios.",
+    "Introduced howToUse with clear, step-by-step instructions.",
+    "Added assumptions to clarify the calculator's basis.",
+    "Included commonMistakes to help users avoid errors.",
+    "Created contentSections to provide comprehensive information on HRA exemption in India.",
+    "Set lastReviewed date."
+  ]
+}
