@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-05-13T20:26:13.106Z",
+  "workflow": "RupeeKit Workflow 9 - Social Posting Pack",
+  "status": "POSTING_PACK_CREATED",
+  "mode": "manual_posting_pack_only_no_auto_posting",
+  "slug": "hra-exemption-calculator-india",
+  "pageUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+  "toolName": "HRA Exemption Calculator India",
+  "sourceDraft": {
+    "status": "DRAFT_CREATED",
+    "generatedAt": "2026-05-13T14:52:03.814Z"
+  },
+  "sourceAssets": {
+    "manifestPath": "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/manifest.json",
+    "assetFolder": "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5",
+    "assetCount": 8
+  },
+  "platforms": {
+    "facebook": {
+      "copy": "Understanding your House Rent Allowance (HRA) exemption can significantly impact your annual tax planning in India. Many salaried individuals can reduce their taxable income by accurately calculating their HRA benefits. Factors like your salary, the HRA you receive, the rent you pay, and your city type all play a crucial role. RupeeKit offers a straightforward HRA Exemption Calculator to help you estimate your potential tax savings. It simplifies the complex rules, providing an educational estimate of your monthly and annual HRA exemption. This tool is designed to help you understand your financial position better for informational purposes. Estimate your HRA exemption today: https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "hashtags": [
+        "#HRAExemption",
+        "#TaxSavingsIndia",
+        "#RupeeKit",
+        "#IndianTax",
+        "#FinanceIndia",
+        "#SalaryIndia",
+        "#TaxPlanning"
+      ],
+      "visualAsset": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/facebook-x-card.svg",
+      "manualInstructions": [
+        "Create a RupeeKit brand page post.",
+        "Attach the Facebook/X card visual.",
+        "Paste the Facebook copy and hashtags.",
+        "Use the calculator URL once.",
+        "Do not boost or buy traffic during test phase."
+      ]
+    },
+    "instagram": {
+      "caption": "Unlock your potential tax savings with RupeeKit's HRA Exemption Calculator! 🏠💰 Understanding how House Rent Allowance (HRA) works is key for many salaried individuals in India. Our calculator helps you estimate your eligible HRA exemption based on your salary, HRA received, rent paid, and city type. It's a simple way to get an educational estimate of your monthly and annual HRA exemption, helping you plan your finances better. Remember, proper documentation like rent receipts and agreements are essential for claiming HRA. Use RupeeKit for informational content and smart financial planning. Find the calculator at rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "hashtags": [
+        "#HRAIndia",
+        "#TaxPlanning",
+        "#RupeeKit",
+        "#FinanceTips",
+        "#IndianTaxpayer",
+        "#SalaryBenefits",
+        "#RentExemption",
+        "#SaveTax"
+      ],
+      "carouselAssets": [
+        "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-01.svg",
+        "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-02.svg",
+        "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-03.svg",
+        "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-04.svg",
+        "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-05.svg",
+        "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-06.svg"
+      ],
+      "manualInstructions": [
+        "Create an Instagram carousel post under the RupeeKit brand.",
+        "Upload slides 1 to 6 in order.",
+        "Paste the caption and hashtags.",
+        "Use the website URL in bio or plain caption text where allowed.",
+        "Do not use personal identity, personal photo, WhatsApp, or personal profile."
+      ]
+    },
+    "pinterest": {
+      "title": "HRA Exemption Calculator India - Estimate Your Tax Savings",
+      "description": "Estimate your House Rent Allowance (HRA) exemption in India with RupeeKit's easy-to-use calculator. Understand how your salary, HRA received, rent paid, and city type (metro vs. non-metro) impact your potential tax savings. This tool provides an educational estimate for salaried individuals to help with financial planning. Learn about the 'salary' definition for HRA and essential documentation like rent receipts and landlord's PAN. Simplify your tax understanding with RupeeKit.",
+      "pinText": "Calculate HRA Exemption",
+      "visualAsset": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/pinterest-pin.svg",
+      "manualInstructions": [
+        "Create a Pinterest pin under the RupeeKit brand.",
+        "Upload the Pinterest pin visual.",
+        "Paste the title and description.",
+        "Use the HRA calculator URL as destination link.",
+        "Keep board/category finance-education focused."
+      ]
+    },
+    "x": {
+      "post": "Estimate your HRA exemption in India! 🏠💰 RupeeKit's calculator helps salaried individuals understand potential tax savings based on salary, rent, and city... https://www.rupeekit.co.in/tools/hra-exemption-calculator-india #HRAExemption #TaxIndia #RupeeKit",
+      "hashtags": [
+        "#HRAExemption",
+        "#TaxIndia",
+        "#RupeeKit",
+        "#Finance",
+        "#Salary"
+      ],
+      "visualAsset": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/facebook-x-card.svg",
+      "manualInstructions": [
+        "Create an X/Twitter post under the RupeeKit brand.",
+        "Attach the Facebook/X card visual.",
+        "Paste the short post.",
+        "Verify the post is under platform character limits.",
+        "Do not use engagement-bait or clickbait."
+      ]
+    },
+    "reddit": {
+      "title": "Understanding HRA Exemption in India: A Quick Guide & Calculator",
+      "body": "For many salaried individuals in India, House Rent Allowance (HRA) is a key component of their compensation that can help reduce taxable income. However, calculating the exact exemption can sometimes feel complex. The HRA exemption is generally the least of three amounts: the actual HRA received, 50% of your 'salary' (for metro cities like Delhi, Mumbai, Chennai, Kolkata) or 40% (for non-metro cities), and the actual rent paid minus 10% of your 'salary'. It's important to note that 'salary' for HRA purposes specifically includes your Basic Salary, Dearness Allowance (if it forms part of retirement benefits), and any commission based on a fixed percentage of turnover. Proper documentation, such as rent receipts and a valid rent agreement, is crucial. If your annual rent exceeds ₹1,00,000, providing your landlord's PAN to your employer is mandatory. If you don't receive HRA but pay rent, you might be eligible for a deduction under Section 80GG. This is a separate provision with its own conditions and limits. To get an educational estimate of your monthly and annual HRA exemption, RupeeKit offers a free calculator. It's a useful tool for informational purposes to help you with your financial planning. You can find the HRA Exemption Calculator here: https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "postingNote": "This should be manually posted only in relevant subreddits (e.g., r/IndiaInvestments, r/personalfinanceindia) if allowed by their rules, focusing on providing helpful information.",
+      "manualInstructions": [
+        "Manual review only.",
+        "Post only in relevant subreddits where self-promotion and calculators are allowed.",
+        "Make sure the answer is helpful even without the link.",
+        "Use the link only once and only if allowed by subreddit rules."
+      ]
+    },
+    "quora": {
+      "questionTarget": "How is HRA exemption calculated in India, and what factors affect it?",
+      "answer": "The House Rent Allowance (HRA) exemption in India is a valuable benefit for salaried individuals living in rented accommodation, helping to reduce their taxable income. The exemption is determined by the Income Tax Act and is essentially the *least* of three specific amounts: 1. **Actual HRA Received:** The total HRA amount your employer provides to you. 2. **Percentage of 'Salary':** This is 50% of your 'salary' if you reside in a metro city (Delhi, Mumbai, Chennai, Kolkata) or 40% of your 'salary' if you live in a non-metro city. 3. **Rent Paid Minus 10% of 'Salary':** The actual rent you pay for your accommodation, reduced by 10% of your 'salary'. **What is 'Salary' for HRA Calculation?** For HRA purposes, 'salary' has a specific definition: it includes your Basic Salary, Dearness Allowance (DA) if it forms part of your retirement benefits, and any commission received if it's a fixed percentage of turnover. Other allowances are generally not included. **Key Factors Affecting HRA Exemption:** * **Your Salary Structure:** Specifically, your basic salary and DA (if applicable). * **HRA Component:** The actual HRA amount your employer gives you. * **Rent Paid:** The actual monthly rent you pay. * **City Type:** Whether you live in a metro city (50% rule) or a non-metro city (40% rule). **Documentation:** To claim HRA exemption, you need valid rent receipts and it's advisable to have a rent agreement. If your annual rent exceeds ₹1,00,000, providing your landlord's PAN to your employer is mandatory. This calculation helps you estimate the portion of your HRA that is exempt from tax. For an educational estimate based on your specific figures, RupeeKit provides an HRA Exemption Calculator, which can be a useful tool for informational purposes in your financial planning.",
+      "postingNote": "This should be manually posted only when directly relevant to a user's question about HRA exemption in India, providing a comprehensive and helpful answer.",
+      "manualInstructions": [
+        "Manual review only.",
+        "Answer only directly relevant questions.",
+        "Make the answer useful without requiring users to click.",
+        "Add RupeeKit link only when it genuinely helps."
+      ]
+    }
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "noPaidTraffic": true,
+    "noAdClickLanguage": true,
+    "noFakeTraffic": true,
+    "manualReviewRequired": true,
+    "visualsAreSvg": true
+  }
+}
