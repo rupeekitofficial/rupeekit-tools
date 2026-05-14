@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-05-14T10:42:41.473Z",
+  "workflow": "RupeeKit Workflow 1 - Keyword Research and Content Plan",
+  "status": "approved-plan",
+  "plan": {
+    "dayNumber": 2,
+    "date": "2026-05-14",
+    "keyword": "80C deduction calculator India",
+    "slug": "80c-deduction-calculator-india",
+    "searchIntent": "Help Indian taxpayers estimate eligible Section 80C deductions across EPF, PPF, ELSS, insurance, tuition fees, and home loan principal.",
+    "targetPersona": "Indian salaried individuals, self-employed professionals, and taxpayers seeking to optimize their tax savings under Section 80C of the Income Tax Act.",
+    "pageType": "calculator",
+    "seoPriority": "high",
+    "riskLevel": "medium",
+    "primaryGoal": "Provide an accurate, user-friendly, and comprehensive calculator for estimating Section 80C deductions, thereby increasing user engagement, organic traffic, and establishing RupeeKit as a reliable tax planning resource in India.",
+    "titleOptions": [
+      "80C Deduction Calculator India - RupeeKit",
+      "Section 80C Tax Savings Calculator India",
+      "Calculate Your 80C Deductions - India Tax Tool"
+    ],
+    "recommendedMetaTitle": "80C Deduction Calculator India - RupeeKit",
+    "recommendedMetaDescription": "Estimate your Section 80C tax deductions in India with RupeeKit's free calculator. Maximize savings on EPF, PPF, ELSS, insurance, and more. Easy &",
+    "h1": "Section 80C Deduction Calculator India",
+    "calculatorSpec": {
+      "inputs": [
+        {
+          "name": "epfContribution",
+          "label": "Employee's EPF Contribution (Voluntary + Mandatory)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter the total employee's share of EPF contribution for the financial year."
+        },
+        {
+          "name": "ppfContribution",
+          "label": "PPF Contribution",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter your Public Provident Fund (PPF) contributions."
+        },
+        {
+          "name": "elssInvestment",
+          "label": "ELSS Investments",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter your Equity Linked Savings Scheme (ELSS) investments."
+        },
+        {
+          "name": "lifeInsurancePremium",
+          "label": "Life Insurance Premiums",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter premiums paid for life insurance policies for self, spouse, or children."
+        },
+        {
+          "name": "tuitionFees",
+          "label": "Children's Tuition Fees (Max 2 children)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter tuition fees paid for up to two children for full-time education in India."
+        },
+        {
+          "name": "homeLoanPrincipal",
+          "label": "Home Loan Principal Repayment",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter the principal amount repaid on your housing loan."
+        },
+        {
+          "name": "ssyContribution",
+          "label": "Sukanya Samriddhi Yojana (SSY) Contribution",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter contributions made to Sukanya Samriddhi Yojana account."
+        },
+        {
+          "name": "nscInvestment",
+          "label": "National Savings Certificate (NSC) Investment",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter investments made in National Savings Certificates."
+        },
+        {
+          "name": "scssInvestment",
+          "label": "Senior Citizen Savings Scheme (SCSS) Investment",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter investments made in Senior Citizen Savings Scheme."
+        },
+        {
+          "name": "taxSavingFd",
+          "label": "Tax Saving Fixed Deposit",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter investments made in 5-year tax-saving fixed deposits."
+        }
+      ],
+      "formulaPlainEnglish": "The calculator sums up all eligible investments and expenses entered by the user. The total eligible amount is then capped at the maximum permissible deduction under Section 80C, which is currently ₹1,50,000 per financial year. The output shows the total eligible amount and the final deductible amount.",
+      "formula": "MIN(SUM(epfContribution, ppfContribution, elssInvestment, lifeInsurancePremium, tuitionFees, homeLoanPrincipal, ssyContribution, nscInvestment, scssInvestment, taxSavingFd), 150000)",
+      "outputFields": [
+        "Total 80C Eligible Amount",
+        "Maximum 80C Deduction",
+        "Potential Tax Savings (Estimate)"
+      ]
+    },
+    "contentBrief": {
+      "introAngle": "Start by highlighting the importance of Section 80C for Indian taxpayers to reduce their taxable income and save money. Introduce the calculator as a simple, quick tool to estimate eligible deductions and plan tax-saving investments effectively.",
+      "mustCover": [
+        "What is Section 80C of the Income Tax Act?",
+        "List of eligible investments and expenses under 80C (EPF, PPF, ELSS, Life Insurance, Home Loan Principal, Tuition Fees, SSY, NSC, SCSS, Tax Saving FDs, etc.)",
+        "The maximum deduction limit under Section 80C (₹1.5 Lakhs)",
+        "How the calculator works and its benefits for tax planning",
+        "Key considerations and common mistakes to avoid when claiming 80C deductions",
+        "Importance of early tax planning and investment diversification"
+      ],
+      "exampleScenario": "Priya, a 30-year-old salaried professional in Bengaluru, has contributed ₹70,000 to EPF, ₹30,000 to PPF, paid ₹25,000 for her child's tuition fees, and ₹40,000 towards home loan principal. Using the calculator, she can quickly see her total eligible 80C deduction and how much more she can invest to reach the ₹1.5 Lakh limit.",
+      "faqQuestions": [
+        "What is the maximum limit for 80C deduction?",
+        "Are all life insurance premiums eligible for 80C?",
+        "Can I claim 80C for my parents' investments?",
+        "Is home loan interest covered under 80C?",
+        "What is the difference between 80C and 80CCD?",
+        "How does the 80C deduction impact my overall tax liability?"
+      ],
+      "internalLinks": [
+        {
+          "label": "Salary Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india"
+        },
+        {
+          "label": "EMI Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/emi-calculator-india"
+        },
+        {
+          "label": "SIP Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/sip-calculator-india"
+        },
+        {
+          "label": "GST Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/gst-calculator-india"
+        },
+        {
+          "label": "FD Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/fd-calculator-india"
+        }
+      ],
+      "trustNotes": [
+        "Uses commonly followed Indian HRA exemption calculation rules for educational purposes.",
+        "Explains assumptions clearly so users can understand how the estimate is calculated.",
+        "Designed as an informational calculator, not as personalized tax or financial advice.",
+        "Users should verify final tax treatment with official guidance or a qualified tax professional."
+      ],
+      "disclaimer": "This calculator is for educational and informational purposes only. It provides an estimate based on the inputs and assumptions shown. It is not tax, legal, investment, or financial advice. Please verify with official sources or consult a qualified professional before making tax or financial decisions."
+    },
+    "qualityGate": {
+      "shouldPublish": true,
+      "checks": [
+        {
+          "name": "clear search intent",
+          "pass": true,
+          "note": "The page directly addresses the user's intent to calculate 80C deductions."
+        },
+        {
+          "name": "calculator utility",
+          "pass": true,
+          "note": "Provides a functional and practical tool for estimating 80C deductions."
+        },
+        {
+          "name": "India context",
+          "pass": true,
+          "note": "Content and calculator are specifically tailored to Indian tax laws and investments (Section 80C)."
+        },
+        {
+          "name": "no financial advice",
+          "pass": true,
+          "note": "Clearly states that the calculator provides estimates and is not financial advice, with a prominent disclaimer."
+        },
+        {
+          "name": "no guaranteed claims",
+          "pass": true,
+          "note": "Avoids any language that guarantees returns or specific tax outcomes, focusing on estimates."
+        },
+        {
+          "name": "unique page angle",
+          "pass": true,
+          "note": "Offers a comprehensive, easy-to-use 80C calculator covering multiple components, which is a distinct utility."
+        }
+      ]
+    },
+    "publishingPlan": {
+      "targetPath": "data/tools/80c-deduction-calculator-india.json",
+      "targetUrl": "https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+      "nextWorkflow": "Daily Page Publisher"
+    }
+  },
+  "nextStep": {
+    "workflow": "Workflow 2 - Daily Page Publisher",
+    "publishTarget": "data/tools/80c-deduction-calculator-india.json",
+    "liveUrl": "https://www.rupeekit.co.in/tools/80c-deduction-calculator-india"
+  }
+}
