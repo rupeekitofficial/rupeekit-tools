@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-05-15T08:34:52.612Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_free_image_generation_ready",
+  "freeImageGenerationTarget": "ComfyUI + FLUX.1 Schnell or SDXL",
+  "creativePack": {
+    "slug": "salary-in-hand-calculator-india",
+    "toolName": "Salary In-Hand Calculator India",
+    "pageUrl": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+    "angle": "explainer",
+    "hookType": "question",
+    "visualStyle": "bold_question_card",
+    "hook": "Ever wondered how your CTC translates to actual take-home pay?",
+    "cta": "Check your estimate",
+    "keywords": [
+      "salary in hand",
+      "take home pay",
+      "CTC breakdown",
+      "salary estimate",
+      "India salary",
+      "PF deduction",
+      "TDS calculation",
+      "monthly income"
+    ],
+    "facebook": {
+      "caption": "Your Cost-to-Company (CTC) is just the starting point! Understanding your actual 'Salary In-Hand' is key for personal financial planning. Our free RupeeKit Salary In-Hand Calculator India helps you estimate your monthly take-home pay after accounting for PF, tax, and other common deductions. It's an educational estimate to help you compare and plan. Get a clearer picture of your earnings today for informational planning. Check your estimate: https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+      "hashtags": [
+        "#SalaryInHand",
+        "#TakeHomePay",
+        "#CTCBreakdown",
+        "#IndianSalary",
+        "#FinancialPlanning",
+        "#RupeeKit",
+        "#SalaryCalculator"
+      ]
+    },
+    "instagram": {
+      "caption": "Decode your payslip! 💡 Many factors bridge the gap between your CTC and your actual 'Salary In-Hand'. From Provident Fund (PF) to professional tax and TDS, these deductions significantly impact what you take home. Our RupeeKit Salary In-Hand Calculator India provides an easy way to get an educational estimate of your monthly earnings. Understand your deductions and plan better. It's for informational planning, helping you compare different scenarios. Estimate your take-home pay: https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+      "hashtags": [
+        "#SalaryInHandIndia",
+        "#TakeHomeSalary",
+        "#CTCVsInHand",
+        "#SalaryEstimate",
+        "#PFDeduction",
+        "#TDSIndia",
+        "#RupeeKitTools",
+        "#FinancialLiteracy",
+        "#PersonalFinanceIndia",
+        "#KnowYourPay"
+      ]
+    },
+    "pinterest": {
+      "title": "Salary In-Hand Calculator India - Estimate Your Take-Home Pay",
+      "description": "Unlock the mystery of your monthly earnings with RupeeKit's free Salary In-Hand Calculator India. Your Cost-to-Company (CTC) is often very different from what actually lands in your bank account. This essential tool provides an educational estimate of your take-home salary by factoring in crucial deductions such as employee Provident Fund (PF) contributions, estimated monthly income tax (TDS), professional tax, and any other recurring deductions specific to your salary structure. It’s designed for informational planning, empowering you to understand the various components that make up your compensation package and to compare potential earnings scenarios. For the best estimate, we recommend using actual basic salary, PF, tax, and deduction values directly from your offer letter or latest payslip. This calculator helps you gain clarity on your financial situation without requiring any personal data. It's a simple, secure way to plan your budget, savings, and investments more effectively by giving you a clear picture of your true monthly income. Understand the difference between CTC and in-hand salary, and make informed decisions about your career and financial goals. This tool is perfect for new job seekers, those considering a switch, or anyone wanting a clearer picture of their current earnings. It helps demystify the numbers on your offer letter. Estimate your salary in hand today: https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+      "hashtags": [
+        "#SalaryInHand",
+        "#TakeHomePayIndia",
+        "#CTCBreakdown",
+        "#SalaryCalculator",
+        "#FinancialPlanning",
+        "#RupeeKit",
+        "#IndiaFinance",
+        "#PFCalculation"
+      ]
+    },
+    "x": {
+      "post": "CTC vs. In-Hand Salary: What's the real difference? 🧐 Our free RupeeKit calculator helps you estimate your monthly take-home pay after PF,... https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india #SalaryIndia #TakeHomePay #CTCBreakdown",
+      "hashtags": [
+        "#SalaryIndia",
+        "#TakeHomePay",
+        "#CTCBreakdown",
+        "#RupeeKit"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A clean, modern, minimalist graphic design for RupeeKit. Focus on a bold question card style. The central element is a large, clear question text: 'Ever wondered how your CTC translates to actual take-home pay?' surrounded by abstract, subtle finance-related icons (calculator, pie chart segments, currency symbols, upward trend lines). Use RupeeKit's brand colors: deep blue and fresh green accents on a pristine white background. The RupeeKit logo should be subtly integrated. No human faces, no personal identity, no mascot. Text should be short, readable, and integrated into the design. Emphasize a finance utility brand aesthetic, not a bank or loan advertisement. High-quality PNG/JPG output, sharp, professional."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A square, clean, modern, minimalist graphic design for RupeeKit. Focus on a bold question card style. The central element is a large, clear question text: 'Ever wondered how your CTC translates to actual take-home pay?' surrounded by abstract, subtle finance-related icons (calculator, pie chart segments, currency symbols, upward trend lines). Use RupeeKit's brand colors: deep blue and fresh green accents on a pristine white background. The RupeeKit logo should be subtly integrated. No human faces, no personal identity, no mascot. Text should be short, readable, and integrated into the design. Emphasize a finance utility brand aesthetic, not a bank or loan advertisement. High-quality PNG/JPG output, sharp, professional."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A tall, clean, modern, minimalist graphic design for RupeeKit. Focus on a bold question card style. The central element is a large, clear question text: 'Ever wondered how your CTC translates to actual take-home pay?' surrounded by abstract, subtle finance-related icons (calculator, pie chart segments, currency symbols, upward trend lines). Use RupeeKit's brand colors: deep blue and fresh green accents on a pristine white background. The RupeeKit logo should be subtly integrated. No human faces, no personal identity, no mascot. Text should be short, readable, and integrated into the design. Emphasize a finance utility brand aesthetic, not a bank or loan advertisement. High-quality PNG/JPG output, sharp, professional."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, mascot, clutter, misleading claims, bank/loan advertising, loan approval, estimated returns, tiny unreadable text, watermarks, founder names, personal stories, specific company logos other than RupeeKit, any form of advice (tax, financial, legal, investment), AdSense, ad clicks, paid traffic, paid-to-click, traffic exchange, fake traffic, bot traffic, artificial visits, official government accuracy",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "Ensure the aspect ratio matches the platform. Use a strong text prompt or ControlNet for clear, readable text. Prioritize clean, minimalist design with RupeeKit branding prominent but not overwhelming."
+    },
+    "safetyNotes": [
+      "Verify all claims in captions align with brand guidelines.",
+      "Ensure generated images strictly adhere to 'no human faces/personal identity' and 'finance utility brand' rules.",
+      "Double-check that no 'advice' phrases or 'guaranteed' claims are present."
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-15T08:34:52.612Z",
+    "slug": "salary-in-hand-calculator-india",
+    "toolName": "Salary In-Hand Calculator India",
+    "angle": "explainer",
+    "hookType": "question",
+    "visualStyle": "bold_question_card",
+    "hook": "Ever wondered how your CTC translates to actual take-home pay?",
+    "cta": "Check your estimate",
+    "firstCaptionLine": "your cost-to-company (ctc) is just the starting point",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "salary in hand",
+      "take home pay",
+      "CTC breakdown",
+      "salary estimate",
+      "India salary",
+      "PF deduction",
+      "TDS calculation",
+      "monthly income"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "freeSelfHostedImageGenerationReady": true
+  }
+}
