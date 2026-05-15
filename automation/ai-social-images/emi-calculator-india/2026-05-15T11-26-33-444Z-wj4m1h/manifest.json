@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-05-15T11:26:33.444Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "mode": "gemini_low_cost_image_api_no_auto_posting",
+  "model": "gemini-2.5-flash-image",
+  "slug": "emi-calculator-india",
+  "toolName": "EMI Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/emi-calculator-india",
+  "sourceCreative": {
+    "generatedAt": "2026-05-15T09:02:13.719Z",
+    "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+    "status": "CREATIVE_PACK_CREATED"
+  },
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "filePath": "automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 439818,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/facebook.png"
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "expectedWidth": 1080,
+      "expectedHeight": 1080,
+      "filePath": "automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 962880,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/instagram.png"
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "filePath": "automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 976046,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/pinterest.png"
+    }
+  ],
+  "promptsUsed": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "prompt": "A clean, modern infographic for RupeeKit. The central theme is a warning against focusing only on EMI. On a white background, feature a prominent visual comparison: one section with a small, simple bar chart labeled 'Monthly EMI' (in deep blue) and another section with a larger, more impactful bar chart or pie chart labeled 'Total Interest' (in fresh green), indicating its significant size. A bold, deep blue warning icon (like an exclamation mark) in the center. Short, readable text overlay: 'Don't just look at the EMI!', 'Understand the FULL loan cost.', and 'RupeeKit.co.in/tools/emi-calculator-india' at the bottom. The design should be minimalist, professional, and convey financial utility, not a bank ad. No human faces or personal identity. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "prompt": "A square, clean infographic for RupeeKit. On a light grey or white background, a central, stylized warning sign (e.g., an exclamation mark within a geometric shape) in deep blue. Surrounding it, use fresh green and deep blue elements like interconnected circles or simple icons representing 'Monthly EMI' (smaller) and 'Total Interest' (larger, more prominent), with a subtle arrow pointing to a conceptual 'Total Payment'. Short, crisp text: 'EMI Trap?', 'Total Interest Matters!', and 'RupeeKit' as a brand identifier. The overall aesthetic should be modern, informative, and visually engaging, suitable for a financial tool, with clear, readable typography. No human faces or personal identity. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "prompt": "A tall, vertical infographic for RupeeKit, designed with a clean, educational aesthetic. On a pristine white background, create a visual flow from top to bottom. At the top, a title 'Common EMI Mistake' in deep blue. Below, a small, subtle graphic representing 'Monthly EMI' with a question mark. Transition downwards to a much larger, more emphasized graphic (e.g., a stacked bar or pie chart) illustrating 'Total Interest Paid' and 'Total Principal Paid', using deep blue and fresh green to differentiate. A clear call to action or insight at the bottom: 'Plan Smarter: Focus on Total Interest!' with 'RupeeKit's EMI Calculator' and 'RupeeKit.co.in/tools/emi-calculator-india' prominently displayed. The design should be highly organized, professional, and easy to digest, like a helpful financial guide. No human faces or personal identity. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 439818,
+      "model": "gemini-2.5-flash-image",
+      "textResponse": ""
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 962880,
+      "model": "gemini-2.5-flash-image",
+      "textResponse": ""
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 976046,
+      "model": "gemini-2.5-flash-image",
+      "textResponse": ""
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}
