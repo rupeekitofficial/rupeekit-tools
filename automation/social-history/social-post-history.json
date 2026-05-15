@@ -51,5 +51,31 @@
       "budgeting error",
       "loan calculator"
     ]
+  },
+  {
+    "generatedAt": "2026-05-15T19:09:33.599Z",
+    "slug": "sip-calculator-india",
+    "toolName": "SIP Calculator India",
+    "angle": "quick_checklist",
+    "hookType": "numbered_tip",
+    "visualStyle": "calculator_ui_mockup",
+    "hook": "Ready to plan your SIP? Here's a quick checklist:",
+    "cta": "Try the calculator",
+    "firstCaptionLine": "thinking about investing through a systematic investment plan (sip)",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "SIP planning",
+      "investment calculator",
+      "future value",
+      "wealth growth",
+      "mutual funds",
+      "financial goals",
+      "RupeeKit"
+    ]
   }
 ]

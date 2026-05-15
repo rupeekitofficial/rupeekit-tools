@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-15T19:09:33.599Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "slug": "sip-calculator-india",
+  "toolName": "SIP Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/sip-calculator-india",
+  "angle": "quick_checklist",
+  "hookType": "numbered_tip",
+  "visualStyle": "calculator_ui_mockup",
+  "hook": "Ready to plan your SIP? Here's a quick checklist:",
+  "cta": "Try the calculator",
+  "historyLengthBefore": 2,
+  "historyLengthAfter": 3,
+  "freeImageGenerationTarget": "ComfyUI + FLUX.1 Schnell or SDXL",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "freeSelfHostedImageGenerationReady": true
+  }
+}

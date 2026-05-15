@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-05-15T19:09:33.599Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_free_image_generation_ready",
+  "freeImageGenerationTarget": "ComfyUI + FLUX.1 Schnell or SDXL",
+  "creativePack": {
+    "slug": "sip-calculator-india",
+    "toolName": "SIP Calculator India",
+    "pageUrl": "https://www.rupeekit.co.in/tools/sip-calculator-india",
+    "angle": "quick_checklist",
+    "hookType": "numbered_tip",
+    "visualStyle": "calculator_ui_mockup",
+    "hook": "Ready to plan your SIP? Here's a quick checklist:",
+    "cta": "Try the calculator",
+    "keywords": [
+      "SIP planning",
+      "investment calculator",
+      "future value",
+      "wealth growth",
+      "mutual funds",
+      "financial goals",
+      "RupeeKit"
+    ],
+    "facebook": {
+      "caption": "Thinking about investing through a Systematic Investment Plan (SIP)? It's a smart way to build wealth over time. Before you start, here's a quick checklist to help you plan effectively: 1. Define Your Goal: What are you saving for? (e.g., retirement, child's education) 2. Determine Duration: How long do you plan to invest? 3. Estimate Returns: What's a realistic expected annual return for your chosen investment? 4. Calculate Your SIP Amount: How much can you comfortably invest each month? Our SIP Calculator India helps you estimate the future value of your monthly SIP investments based on your expected annual return and investment duration. It's a valuable tool for informational planning. Try it now and understand your potential growth: https://www.rupeekit.co.in/tools/sip-calculator-india",
+      "hashtags": [
+        "#SIPCalculator",
+        "#InvestmentPlanning",
+        "#FinancialGoals",
+        "#WealthCreation",
+        "#RupeeKit"
+      ]
+    },
+    "instagram": {
+      "caption": "Ready to kickstart your SIP journey? 🚀 A Systematic Investment Plan is a powerful way to grow your wealth. To plan effectively, here's a quick checklist: 1. Identify Your Financial Goal: What are you aiming for? 2. Set Your Investment Horizon: How many years will you invest? 3. Project Expected Returns: What's a reasonable annual return? 4. Decide Your Monthly SIP: How much can you invest consistently? Use RupeeKit's SIP Calculator India to estimate your future corpus. It's perfect for informational planning and understanding potential gains. Plan smart, invest consistently! Link in bio to try it: https://www.rupeekit.co.in/tools/sip-calculator-india",
+      "hashtags": [
+        "#SIP",
+        "#InvestSmart",
+        "#FinancialPlanning",
+        "#WealthBuilding",
+        "#MutualFunds",
+        "#IndiaInvests",
+        "#RupeeKitTools"
+      ]
+    },
+    "pinterest": {
+      "title": "SIP Planning Checklist: Estimate Your Investment Future",
+      "description": "Planning your Systematic Investment Plan (SIP) effectively can make a big difference. Use this quick checklist to guide your financial goals, investment duration, and expected returns. Our SIP Calculator India helps you estimate the future value of your monthly SIP investments, providing insights for your informational planning. Understand your potential wealth growth today. Visit RupeeKit... https://www.rupeekit.co.in/tools/sip-calculator-india",
+      "hashtags": [
+        "#SIPCalculator",
+        "#InvestmentTips",
+        "#FinancialFreedom",
+        "#WealthManagement",
+        "#RupeeKit"
+      ]
+    },
+    "x": {
+      "post": "Planning your SIP? Use this quick checklist! 1. Goal 2. Duration 3. Expected Returns 4. Monthly SIP Estimate your future wealth with RupeeKit's SIP... https://www.rupeekit.co.in/tools/sip-calculator-india #SIP #Investments #FinancialPlanning",
+      "hashtags": [
+        "#SIP",
+        "#Investments",
+        "#FinancialPlanning"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A clean, modern, horizontal UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A large, readable text overlay on the image, not in the top-right corner, says: 'SIP Calculator'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean and empty for logo overlay. Finance utility brand look, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A clean, modern, square UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A large, readable text overlay on the image, not in the top-right corner, says: 'Plan Your SIP Future'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean and empty for logo overlay. Finance utility brand look, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A clean, modern, tall vertical UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A prominent, large, readable text overlay on the image, not in the top-right corner, says: 'SIP Calculator: Quick Checklist'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean and empty for logo overlay. Finance utility brand look, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, clutter, misleading claims, bank/loan ad look, watermark, tiny unreadable text, fake RupeeKit logo, fake RupeeKit wordmark, fake website URL, important elements in top-right corner",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "Ensure clean UI elements and clear color separation for accents."
+    },
+    "safetyNotes": [
+      "Ensure all captions use conservative language (estimate, understand, informational planning).",
+      "Verify no personal names, faces, or identities are implied.",
+      "Confirm no guarantees of returns or tax savings are made.",
+      "Double-check that the pageUrl is included exactly once in each platform's caption/description."
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-15T19:09:33.599Z",
+    "slug": "sip-calculator-india",
+    "toolName": "SIP Calculator India",
+    "angle": "quick_checklist",
+    "hookType": "numbered_tip",
+    "visualStyle": "calculator_ui_mockup",
+    "hook": "Ready to plan your SIP? Here's a quick checklist:",
+    "cta": "Try the calculator",
+    "firstCaptionLine": "thinking about investing through a systematic investment plan (sip)",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "SIP planning",
+      "investment calculator",
+      "future value",
+      "wealth growth",
+      "mutual funds",
+      "financial goals",
+      "RupeeKit"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "freeSelfHostedImageGenerationReady": true
+  }
+}
