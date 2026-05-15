@@ -1,0 +1,128 @@
+{
+  "generatedAt": "2026-05-15T09:02:13.719Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_free_image_generation_ready",
+  "freeImageGenerationTarget": "ComfyUI + FLUX.1 Schnell or SDXL",
+  "creativePack": {
+    "slug": "emi-calculator-india",
+    "toolName": "EMI Calculator India",
+    "pageUrl": "https://www.rupeekit.co.in/tools/emi-calculator-india",
+    "angle": "common_mistake",
+    "hookType": "mistake_warning",
+    "visualStyle": "clean_infographic",
+    "hook": "Are you making this common EMI mistake?",
+    "cta": "Estimate it on RupeeKit",
+    "keywords": [
+      "EMI calculation",
+      "loan planning",
+      "interest cost",
+      "loan tenure",
+      "financial estimate",
+      "budgeting error",
+      "loan calculator"
+    ],
+    "facebook": {
+      "caption": "Many of us focus solely on the monthly EMI amount when taking a loan, but are you overlooking the total interest you'll pay over the entire loan tenure? It's a common mistake that can significantly impact your financial planning. Understanding the full cost of your loan – both principal and total interest – is crucial for smart budgeting. Our EMI Calculator India helps you get a clear, educational estimate of your monthly payments, total interest, and total payment. Don't just see the monthly number; understand the complete financial picture. Plan smarter with RupeeKit. Visit https://www.rupeekit.co.in/tools/emi-calculator-india to estimate your loan costs today.",
+      "hashtags": [
+        "#EMICalculator",
+        "#LoanPlanning",
+        "#FinancialEstimate",
+        "#RupeeKit",
+        "#InterestCost"
+      ]
+    },
+    "instagram": {
+      "caption": "Ever wonder if you're missing something crucial when calculating your loan EMI? A common pitfall is focusing only on the monthly payment, without fully grasping the total interest accumulated over the loan's life. This oversight can affect your long-term financial health! RupeeKit's EMI Calculator India provides a clear, informational breakdown, helping you understand not just your monthly EMI but also the total interest and overall payment. Make informed decisions and avoid common loan planning mistakes. Get your estimate at https://www.rupeekit.co.in/tools/emi-calculator-india.",
+      "hashtags": [
+        "#EMICalculatorIndia",
+        "#LoanTips",
+        "#FinancialLiteracy",
+        "#SmartPlanning",
+        "#RupeeKitTools",
+        "#InterestRates",
+        "#Budgeting"
+      ]
+    },
+    "pinterest": {
+      "title": "Avoid Common EMI Mistakes: Understand Your Total Loan Cost with RupeeKit",
+      "description": "Don't fall into the common trap of only considering your monthly EMI! Understanding the total interest you'll pay over your loan's tenure is vital for smart financial planning. Our free EMI Calculator India helps you estimate your monthly payments, total interest, and total payment for home, personal, or car loans. Get a clear, educational estimate and plan your finances better. Visit  to... https://www.rupeekit.co.in/tools/emi-calculator-india",
+      "hashtags": [
+        "#EMICalculator",
+        "#LoanPlanningTips",
+        "#FinancialEstimates",
+        "#RupeeKit"
+      ]
+    },
+    "x": {
+      "post": "Are you making a common EMI mistake? Don't just look at the monthly payment. Understand the total interest cost for smarter loan planning. Estimate it... https://www.rupeekit.co.in/tools/emi-calculator-india #EMICalculator #LoanPlanning #RupeeKit",
+      "hashtags": [
+        "#EMICalculator",
+        "#LoanPlanning",
+        "#RupeeKit"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A clean, modern infographic for RupeeKit. The central theme is a warning against focusing only on EMI. On a white background, feature a prominent visual comparison: one section with a small, simple bar chart labeled 'Monthly EMI' (in deep blue) and another section with a larger, more impactful bar chart or pie chart labeled 'Total Interest' (in fresh green), indicating its significant size. A bold, deep blue warning icon (like an exclamation mark) in the center. Short, readable text overlay: 'Don't just look at the EMI!', 'Understand the FULL loan cost.', and 'RupeeKit.co.in/tools/emi-calculator-india' at the bottom. The design should be minimalist, professional, and convey financial utility, not a bank ad. No human faces or personal identity. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A square, clean infographic for RupeeKit. On a light grey or white background, a central, stylized warning sign (e.g., an exclamation mark within a geometric shape) in deep blue. Surrounding it, use fresh green and deep blue elements like interconnected circles or simple icons representing 'Monthly EMI' (smaller) and 'Total Interest' (larger, more prominent), with a subtle arrow pointing to a conceptual 'Total Payment'. Short, crisp text: 'EMI Trap?', 'Total Interest Matters!', and 'RupeeKit' as a brand identifier. The overall aesthetic should be modern, informative, and visually engaging, suitable for a financial tool, with clear, readable typography. No human faces or personal identity. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A tall, vertical infographic for RupeeKit, designed with a clean, educational aesthetic. On a pristine white background, create a visual flow from top to bottom. At the top, a title 'Common EMI Mistake' in deep blue. Below, a small, subtle graphic representing 'Monthly EMI' with a question mark. Transition downwards to a much larger, more emphasized graphic (e.g., a stacked bar or pie chart) illustrating 'Total Interest Paid' and 'Total Principal Paid', using deep blue and fresh green to differentiate. A clear call to action or insight at the bottom: 'Plan Smarter: Focus on Total Interest!' with 'RupeeKit's EMI Calculator' and 'RupeeKit.co.in/tools/emi-calculator-india' prominently displayed. The design should be highly organized, professional, and easy to digest, like a helpful financial guide. No human faces or personal identity. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, clutter, misleading claims, bank/loan ad look, watermark, tiny unreadable text",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "Ensure clear text and clean design for infographic style. Use deep blue and fresh green for accents on a white/light background."
+    },
+    "safetyNotes": [
+      "Ensure no educational information claims, only educational estimates.",
+      "Verify all text on images is clear and brand-aligned.",
+      "Avoid any imagery that could be misinterpreted as a loan advertisement."
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-15T09:02:13.719Z",
+    "slug": "emi-calculator-india",
+    "toolName": "EMI Calculator India",
+    "angle": "common_mistake",
+    "hookType": "mistake_warning",
+    "visualStyle": "clean_infographic",
+    "hook": "Are you making this common EMI mistake?",
+    "cta": "Estimate it on RupeeKit",
+    "firstCaptionLine": "many of us focus solely on the monthly emi amount when taking a loan, but are you overlooking the total interest you'll pay over the entire loan tenure",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "EMI calculation",
+      "loan planning",
+      "interest cost",
+      "loan tenure",
+      "financial estimate",
+      "budgeting error",
+      "loan calculator"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "freeSelfHostedImageGenerationReady": true
+  }
+}

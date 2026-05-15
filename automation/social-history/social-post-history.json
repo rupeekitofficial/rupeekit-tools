@@ -25,5 +25,31 @@
       "TDS calculation",
       "monthly income"
     ]
+  },
+  {
+    "generatedAt": "2026-05-15T09:02:13.719Z",
+    "slug": "emi-calculator-india",
+    "toolName": "EMI Calculator India",
+    "angle": "common_mistake",
+    "hookType": "mistake_warning",
+    "visualStyle": "clean_infographic",
+    "hook": "Are you making this common EMI mistake?",
+    "cta": "Estimate it on RupeeKit",
+    "firstCaptionLine": "many of us focus solely on the monthly emi amount when taking a loan, but are you overlooking the total interest you'll pay over the entire loan tenure",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "EMI calculation",
+      "loan planning",
+      "interest cost",
+      "loan tenure",
+      "financial estimate",
+      "budgeting error",
+      "loan calculator"
+    ]
   }
 ]

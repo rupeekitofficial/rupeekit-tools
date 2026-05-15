@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-15T09:02:13.719Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "slug": "emi-calculator-india",
+  "toolName": "EMI Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/emi-calculator-india",
+  "angle": "common_mistake",
+  "hookType": "mistake_warning",
+  "visualStyle": "clean_infographic",
+  "hook": "Are you making this common EMI mistake?",
+  "cta": "Estimate it on RupeeKit",
+  "historyLengthBefore": 1,
+  "historyLengthAfter": 2,
+  "freeImageGenerationTarget": "ComfyUI + FLUX.1 Schnell or SDXL",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "freeSelfHostedImageGenerationReady": true
+  }
+}
