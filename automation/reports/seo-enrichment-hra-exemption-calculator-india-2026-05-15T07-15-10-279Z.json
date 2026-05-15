@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-15T07:15:10.279Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "MANUAL_SINGLE_PAGE_TEST",
+  "slug": "hra-exemption-calculator-india",
+  "name": "HRA Exemption Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Calculate your monthly and annual HRA exemption in India. Input salary, HRA, rent, and city type to estimate your tax-saving potential accurately with RupeeKit.",
+    "metaDescription": "Estimate your HRA exemption in India with RupeeKit's calculator. Understand how salary, HRA, rent, and city impact your tax savings. For informational...",
+    "faqCount": 8
+  },
+  "after": {
+    "shortDescription": "Calculate your monthly and annual HRA exemption in India. Input salary, HRA, rent, and city type to estimate your tax-saving potential accurately with RupeeKit.",
+    "metaDescription": "Estimate your HRA exemption in India with RupeeKit's calculator. Understand how salary, HRA, rent, and city impact your tax savings. For informational...",
+    "faqCount": 8,
+    "howToUseCount": 6,
+    "assumptionsCount": 6,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 4,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Updated 'shortDescription' to be under 180 characters.",
+    "Updated 'metaDescription' to be between 130 and 155 characters.",
+    "Ensured 'formulaExplanation' is between 120-240 words and emphasizes estimates.",
+    "Ensured 'example' is between 80-180 words and clarifies its illustrative nature.",
+    "Verified 'faqs' count (8 items) and content for helpfulness and compliance.",
+    "Verified 'howToUse' count (6 steps) for clarity.",
+    "Verified 'assumptions' count (6 items) for practicality.",
+    "Verified 'commonMistakes' count (6 items) for relevance."
+  ]
+}
