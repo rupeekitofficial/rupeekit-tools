@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-05-15T07:10:55.831Z",
+  "workflow": "RupeeKit Workflow 3 - Technical SEO Checker",
+  "status": "PASS",
+  "targetUrl": "https://www.rupeekit.co.in/tools/income-tax-calculator-old-vs-new-regime-india",
+  "tool": {
+    "slug": "income-tax-calculator-old-vs-new-regime-india",
+    "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+    "category": "Tax",
+    "targetKeyword": "income tax calculator old vs new regime India",
+    "metaDescription": "Compare your income tax liability under the Old vs New Tax Regime in India for FY 2023-24. Use RupeeKit's calculator to find out which regime saves"
+  },
+  "extracted": {
+    "title": "Income Tax Calculator: Old vs New Regime India (FY 2023-24) | RupeeKit",
+    "metaDescription": "Compare your income tax liability under the Old vs New Tax Regime in India for FY 2023-24. Use RupeeKit&#x27;s calculator to find out which regime saves",
+    "canonicalDetected": true
+  },
+  "checks": [
+    {
+      "name": "Live page fetched",
+      "pass": true,
+      "detail": "HTML length: 51726"
+    },
+    {
+      "name": "Tool name visible in page",
+      "pass": true,
+      "detail": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)"
+    },
+    {
+      "name": "Page title exists",
+      "pass": true,
+      "detail": "Income Tax Calculator: Old vs New Regime India (FY 2023-24) | RupeeKit"
+    },
+    {
+      "name": "Meta description exists",
+      "pass": true,
+      "detail": "Compare your income tax liability under the Old vs New Tax Regime in India for FY 2023-24. Use RupeeKit&#x27;s calculator to find out which regime saves"
+    },
+    {
+      "name": "Canonical appears valid",
+      "pass": true,
+      "detail": "/tools/income-tax-calculator-old-vs-new-regime-india"
+    },
+    {
+      "name": "Calculator UI appears",
+      "pass": true,
+      "detail": "Checks for calculator section text"
+    },
+    {
+      "name": "No default calculation error visible",
+      "pass": true,
+      "detail": "No Check inputs text found"
+    },
+    {
+      "name": "robots.txt reachable",
+      "pass": true,
+      "detail": "robots.txt length: 72"
+    },
+    {
+      "name": "sitemap.xml reachable",
+      "pass": true,
+      "detail": "sitemap.xml length: 2368"
+    },
+    {
+      "name": "Sitemap contains target URL",
+      "pass": true,
+      "detail": "Target URL found"
+    }
+  ],
+  "failed": [],
+  "recommendation": "No immediate technical action needed. Continue monitoring indexing and analytics."
+}
