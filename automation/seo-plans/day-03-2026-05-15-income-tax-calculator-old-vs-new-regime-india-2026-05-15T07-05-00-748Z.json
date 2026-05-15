@@ -1,0 +1,198 @@
+{
+  "generatedAt": "2026-05-15T07:05:00.749Z",
+  "workflow": "RupeeKit Workflow 1 - Keyword Research and Content Plan",
+  "status": "approved-plan",
+  "plan": {
+    "dayNumber": 3,
+    "date": "2026-05-15",
+    "keyword": "income tax calculator old vs new regime India",
+    "slug": "income-tax-calculator-old-vs-new-regime-india",
+    "searchIntent": "Help salaried users compare old and new income tax regimes using income, deductions, and standard assumptions.",
+    "targetPersona": "Salaried individuals in India, tax planners, financial advisors looking for quick comparisons.",
+    "pageType": "calculator",
+    "seoPriority": "high",
+    "riskLevel": "medium",
+    "primaryGoal": "Provide a clear, easy-to-use calculator for comparing tax liabilities under old and new regimes, encouraging user engagement and repeat visits.",
+    "titleOptions": [
+      "Income Tax Calculator: Old vs New Regime India 2023-24",
+      "Compare Old vs New Tax Regime India | RupeeKit Calculator",
+      "Income Tax Comparison Tool: Old vs New Regime for India"
+    ],
+    "recommendedMetaTitle": "Income Tax Calculator: Old vs New Regime India 2023-24",
+    "recommendedMetaDescription": "Compare your income tax liability under the Old vs New Tax Regime in India for FY 2023-24. Use RupeeKit's calculator to find out which regime saves",
+    "h1": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+    "calculatorSpec": {
+      "inputs": [
+        {
+          "name": "grossAnnualIncome",
+          "label": "Gross Annual Income (₹)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "750000",
+          "helpText": "Your total income before any deductions."
+        },
+        {
+          "name": "hraReceived",
+          "label": "HRA Received (₹)",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "helpText": "House Rent Allowance received from your employer."
+        },
+        {
+          "name": "rentPaidAnnually",
+          "label": "Rent Paid Annually (₹)",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "helpText": "Total rent paid for accommodation in a financial year."
+        },
+        {
+          "name": "homeLoanInterest24b",
+          "label": "Home Loan Interest (Section 24b) (₹)",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "helpText": "Interest paid on housing loan for self-occupied or let-out property (max ₹2,00,000 for self-occupied)."
+        },
+        {
+          "name": "deductions80C",
+          "label": "Deductions under Section 80C (₹)",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "helpText": "Investments like PPF, EPF, ELSS, life insurance premiums, etc. (max ₹1,50,000)."
+        },
+        {
+          "name": "deductions80D",
+          "label": "Deductions under Section 80D (₹)",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "helpText": "Health insurance premiums and preventive health check-ups."
+        },
+        {
+          "name": "otherEligibleDeductionsOldRegime",
+          "label": "Other Eligible Deductions (Old Regime Only) (₹)",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "helpText": "Includes deductions like 80CCD(1B) for NPS (up to ₹50,000), 80G, etc. Applicable only for Old Regime."
+        },
+        {
+          "name": "professionalTaxPaid",
+          "label": "Professional Tax Paid (₹)",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "helpText": "Professional tax paid (max ₹2,500 per annum). Applicable only for Old Regime."
+        }
+      ],
+      "formulaPlainEnglish": "The calculator determines taxable income for both Old and New Tax Regimes. For the Old Regime, it applies standard deduction, HRA exemption (based on rules), professional tax, and other specified deductions (80C, 80D, 24b, etc.) to the gross income. For the New Regime, it applies the standard deduction (if applicable for the current FY) and then calculates tax based on the respective slab rates. Finally, it compares the calculated tax liabilities for both regimes and shows which one results in lower tax, along with the potential savings.",
+      "formula": "Old Regime Taxable Income = Gross Income - (Standard Deduction + HRA Exemption + Professional Tax + 80C + 80D + 24b + Other Deductions). New Regime Taxable Income = Gross Income - Standard Deduction (if applicable for current FY). Tax Calculation: Apply respective slab rates and Section 87A rebate (if applicable) to taxable income for both regimes.",
+      "outputFields": [
+        "Taxable Income (Old Regime)",
+        "Tax Payable (Old Regime)",
+        "Taxable Income (New Regime)",
+        "Tax Payable (New Regime)",
+        "Recommended Regime",
+        "Tax Savings/Loss (New vs Old)"
+      ]
+    },
+    "contentBrief": {
+      "introAngle": "Start by acknowledging the confusion and complexity salaried individuals in India face when choosing between the old and new income tax regimes. Immediately introduce the RupeeKit calculator as the definitive, easy-to-use solution to help them make an informed decision by comparing their tax liability side-by-side based on their specific financial situation and deductions.",
+      "mustCover": [
+        "Clear explanation of the core differences between the Old and New Tax Regimes (deductions, exemptions, slab rates).",
+        "Detailed breakdown of common deductions available only in the Old Regime (e.g., 80C, 80D, HRA, LTA, Standard Deduction).",
+        "Explanation of the simplified structure and standard deduction (if applicable for current FY) in the New Regime.",
+        "Guidance on who might benefit more from the Old Regime (e.g., those with significant deductions) vs. the New Regime (e.g., those with fewer deductions, seeking simplicity).",
+        "Importance of the current Financial Year (FY 2023-24 / AY 2024-25) and how tax laws apply.",
+        "Step-by-step instructions on how to use the RupeeKit calculator effectively.",
+        "Assumptions made by the calculator for accurate results."
+      ],
+      "exampleScenario": "Consider a salaried individual, Ms. Priya, with an annual gross income of ₹15,00,000. She receives ₹2,00,000 as HRA, pays ₹1,80,000 in annual rent, has ₹1,50,000 in 80C deductions, ₹25,000 in 80D deductions, and pays ₹1,00,000 as home loan interest (Section 24b). Demonstrate how the calculator helps her determine the optimal tax regime and potential savings.",
+      "faqQuestions": [
+        "What are the main differences between the old and new income tax regimes in India?",
+        "Which tax regime is better for me if I have many deductions?",
+        "Can I switch between the old and new tax regimes every year?",
+        "What deductions are still allowed in the new tax regime?",
+        "Is the standard deduction available in both old and new tax regimes for FY 2023-24?",
+        "How does HRA exemption impact my tax liability under the old vs new regime?"
+      ],
+      "internalLinks": [
+        {
+          "label": "Salary Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india"
+        },
+        {
+          "label": "EMI Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/emi-calculator-india"
+        },
+        {
+          "label": "SIP Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/sip-calculator-india"
+        },
+        {
+          "label": "GST Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/gst-calculator-india"
+        },
+        {
+          "label": "FD Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/fd-calculator-india"
+        }
+      ],
+      "trustNotes": [
+        "Uses commonly followed Indian HRA exemption calculation rules for educational purposes.",
+        "Explains assumptions clearly so users can understand how the estimate is calculated.",
+        "Designed as an informational calculator, not as personalized tax or financial advice.",
+        "Users should verify final tax treatment with official guidance or a qualified tax professional."
+      ],
+      "disclaimer": "This calculator is for educational and informational purposes only. It provides an estimate based on the inputs and assumptions shown. It is not tax, legal, investment, or financial advice. Please verify with official sources or consult a qualified professional before making tax or financial decisions."
+    },
+    "qualityGate": {
+      "shouldPublish": true,
+      "checks": [
+        {
+          "name": "clear search intent",
+          "pass": true,
+          "note": "The page directly addresses the user's intent to compare old vs. new tax regimes with a functional calculator."
+        },
+        {
+          "name": "calculator utility",
+          "pass": true,
+          "note": "The core of the page is a functional calculator providing side-by-side comparison, making it highly useful as a tool."
+        },
+        {
+          "name": "India context",
+          "pass": true,
+          "note": "All content, calculations, and examples are strictly tailored to Indian income tax laws and financial practices."
+        },
+        {
+          "name": "no financial advice",
+          "pass": true,
+          "note": "Explicit disclaimers and trust notes clearly state that the tool provides estimates, not financial advice, and recommend consulting professionals."
+        },
+        {
+          "name": "no guaranteed claims",
+          "pass": true,
+          "note": "The output is presented as an 'estimate' and 'potential savings/loss', avoiding any guarantees of tax outcomes."
+        },
+        {
+          "name": "unique page angle",
+          "pass": true,
+          "note": "The page offers a direct, interactive comparison tool, which is more engaging and useful than a static article on the topic."
+        }
+      ]
+    },
+    "publishingPlan": {
+      "targetPath": "data/tools/income-tax-calculator-old-vs-new-regime-india.json",
+      "targetUrl": "https://www.rupeekit.co.in/tools/income-tax-calculator-old-vs-new-regime-india",
+      "nextWorkflow": "Daily Page Publisher"
+    }
+  },
+  "nextStep": {
+    "workflow": "Workflow 2 - Daily Page Publisher",
+    "publishTarget": "data/tools/income-tax-calculator-old-vs-new-regime-india.json",
+    "liveUrl": "https://www.rupeekit.co.in/tools/income-tax-calculator-old-vs-new-regime-india"
+  }
+}
