@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-05-15T07:16:01.603Z",
+  "workflow": "RupeeKit Workflow 7 - Homepage Internal Link Optimizer",
+  "status": "UPDATED",
+  "liveToolCount": 7,
+  "categories": [
+    "Salary",
+    "Loans",
+    "Investments",
+    "Tax",
+    "Savings"
+  ],
+  "homepageCoverage": [
+    {
+      "slug": "salary-in-hand-calculator-india",
+      "name": "Salary In-Hand Calculator India",
+      "category": "Salary"
+    },
+    {
+      "slug": "emi-calculator-india",
+      "name": "EMI Calculator India",
+      "category": "Loans"
+    },
+    {
+      "slug": "sip-calculator-india",
+      "name": "SIP Calculator India",
+      "category": "Investments"
+    },
+    {
+      "slug": "gst-calculator-india",
+      "name": "GST Calculator India",
+      "category": "Tax"
+    },
+    {
+      "slug": "fd-calculator-india",
+      "name": "FD Calculator India",
+      "category": "Savings"
+    },
+    {
+      "slug": "hra-exemption-calculator-india",
+      "name": "HRA Exemption Calculator India",
+      "category": "Tax"
+    },
+    {
+      "slug": "income-tax-calculator-old-vs-new-regime-india",
+      "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+      "category": "Tax"
+    }
+  ],
+  "changedToolCount": 1,
+  "changes": [
+    {
+      "slug": "income-tax-calculator-old-vs-new-regime-india",
+      "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+      "oldRelated": [
+        "salary-in-hand-calculator-india",
+        "emi-calculator-india",
+        "sip-calculator-india",
+        "gst-calculator-india"
+      ],
+      "newRelated": [
+        "salary-in-hand-calculator-india",
+        "emi-calculator-india",
+        "sip-calculator-india"
+      ],
+      "invalidRemoved": []
+    }
+  ],
+  "invalidRelatedBefore": [],
+  "safety": {
+    "formulasPreserved": true,
+    "inputsPreserved": true,
+    "outputsPreserved": true,
+    "onlyRelatedFieldUpdated": true,
+    "homepageAlreadyDynamic": true
+  }
+}
