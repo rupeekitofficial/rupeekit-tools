@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-05-15T19:14:36.643Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "mode": "gemini_low_cost_image_api_no_auto_posting",
+  "model": "gemini-2.5-flash-image",
+  "slug": "sip-calculator-india",
+  "toolName": "SIP Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/sip-calculator-india",
+  "sourceCreative": {
+    "generatedAt": "2026-05-15T19:09:33.599Z",
+    "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+    "status": "CREATIVE_PACK_CREATED"
+  },
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "filePath": "automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 1284993,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/facebook.png"
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "expectedWidth": 1080,
+      "expectedHeight": 1080,
+      "filePath": "automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 996583,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/instagram.png"
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "filePath": "automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 1021305,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/pinterest.png"
+    }
+  ],
+  "promptsUsed": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "prompt": "A clean, modern, horizontal UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A large, readable text overlay on the image, not in the top-right corner, says: 'SIP Calculator'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean and empty for logo overlay. Finance utility brand look, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "prompt": "A clean, modern, square UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A large, readable text overlay on the image, not in the top-right corner, says: 'Plan Your SIP Future'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean and empty for logo overlay. Finance utility brand look, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "prompt": "A clean, modern, tall vertical UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A prominent, large, readable text overlay on the image, not in the top-right corner, says: 'SIP Calculator: Quick Checklist'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean and empty for logo overlay. Finance utility brand look, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 1284993,
+      "model": "gemini-2.5-flash-image",
+      "textResponse": ""
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 996583,
+      "model": "gemini-2.5-flash-image",
+      "textResponse": "`"
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 1021305,
+      "model": "gemini-2.5-flash-image",
+      "textResponse": "`"
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}
