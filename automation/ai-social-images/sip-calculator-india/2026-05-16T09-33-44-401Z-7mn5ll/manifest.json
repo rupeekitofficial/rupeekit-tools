@@ -1,0 +1,177 @@
+{
+  "generatedAt": "2026-05-16T09:33:44.401Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "mode": "gemini_low_cost_image_api_no_auto_posting",
+  "model": "gemini-2.5-flash-image",
+  "slug": "sip-calculator-india",
+  "toolName": "SIP Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/sip-calculator-india",
+  "sourceCreative": {
+    "generatedAt": "2026-05-15T19:09:33.599Z",
+    "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+    "status": "CREATIVE_PACK_CREATED"
+  },
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 908344,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/facebook.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "expectedWidth": 1080,
+      "expectedHeight": 1080,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 779740,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/instagram.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 854690,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/pinterest.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    }
+  ],
+  "promptsUsed": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "sourcePrompt": "A clean, modern, horizontal UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A large, readable text overlay on the image, not in the top-right corner, says: 'SIP Calculator'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean and empty for logo overlay. Finance utility brand look, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\nfacebook\n\nRequired aspect ratio:\n16:9\n\nUse this visual concept:\nA clean, modern, horizontal UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A large, readable text overlay on the image, not in the top-right corner, says: 'SIP Calculator'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean with plain natural background. Finance utility brand look, not a bank ad.  Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "sourcePrompt": "A clean, modern, square UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A large, readable text overlay on the image, not in the top-right corner, says: 'Plan Your SIP Future'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean and empty for logo overlay. Finance utility brand look, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\ninstagram\n\nRequired aspect ratio:\n1:1\n\nUse this visual concept:\nA clean, modern, square UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A large, readable text overlay on the image, not in the top-right corner, says: 'Plan Your SIP Future'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean with plain natural background. Finance utility brand look, not a bank ad.  Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "sourcePrompt": "A clean, modern, tall vertical UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A prominent, large, readable text overlay on the image, not in the top-right corner, says: 'SIP Calculator: Quick Checklist'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean and empty for logo overlay. Finance utility brand look, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\npinterest\n\nRequired aspect ratio:\n2:3\n\nUse this visual concept:\nA clean, modern, tall vertical UI mockup of a financial calculator. The central focus is a simplified SIP calculator interface with input fields for 'Monthly SIP Amount', 'Investment Duration (Years)', 'Expected Annual Return (%)', and an output display for 'Estimated Future Value'. The design uses a white/light background with deep blue and fresh green accents for buttons, highlights, and subtle graph elements. The layout should be balanced and uncluttered. A prominent, large, readable text overlay on the image, not in the top-right corner, says: 'SIP Calculator: Quick Checklist'. No human figures, faces, or personal identity. Ensure the top-right corner remains clean with plain natural background. Finance utility brand look, not a bank ad.  Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 908344,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 779740,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 854690,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "officialLogoHandledBy8DG2": true,
+    "sanitizedBeforeGemini": true,
+    "generatedImageValidatedBeforeCommit": true,
+    "reEncodedToCleanPngBeforeCommit": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}
