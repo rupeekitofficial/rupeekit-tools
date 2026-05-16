@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-05-16T09:09:37.667Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "slug": "sip-calculator-india",
+  "toolName": "SIP Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/sip-calculator-india",
+  "model": "gemini-2.5-flash-image",
+  "imageCount": 3,
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "filePath": "automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 994059,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/facebook.png"
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "expectedWidth": 1080,
+      "expectedHeight": 1080,
+      "filePath": "automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 1204538,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/instagram.png"
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "filePath": "automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 963081,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/pinterest.png"
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 994059,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "textResponse": "`"
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 1204538,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "textResponse": "`"
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 963081,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "textResponse": ""
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "officialLogoHandledBy8DG2": true,
+    "sanitizedBeforeGemini": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}
