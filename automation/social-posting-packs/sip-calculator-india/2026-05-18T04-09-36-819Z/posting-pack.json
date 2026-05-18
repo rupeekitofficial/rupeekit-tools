@@ -1,0 +1,106 @@
+{
+  "generatedAt": "2026-05-18T04:09:36.819Z",
+  "workflow": "RupeeKit Workflow 9 Scheduler - Daily Final Social Posting Pack",
+  "status": "POSTING_PACK_CREATED",
+  "mode": "daily_scheduler_manual_review_only_no_auto_posting",
+  "slug": "sip-calculator-india",
+  "toolName": "SIP Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/sip-calculator-india",
+  "finalImageBatch": {
+    "manifestPath": "automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4/manifest.json",
+    "folderPath": "automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4",
+    "sourceWorkflow": "RupeeKit Workflow 8D-G2 - Logo Overlay Finalizer",
+    "generatedAt": "2026-05-16T09:45:53.273Z"
+  },
+  "creativeSource": {
+    "found": true,
+    "sourcePath": "automation/ai-social-creatives/sip-calculator-india/2026-05-15T19-09-33-599Z-q9z5sy/creative-pack.json",
+    "sourceType": "ai-social-creatives"
+  },
+  "platforms": {
+    "facebook": {
+      "copy": "Thinking about investing through a Systematic Investment Plan (SIP)? It's a smart way to build wealth over time. Before you start, here's a quick checklist to help you plan effectively: 1. Define Your Goal: What are you saving for? (e.g., retirement, child's education) 2. Determine Duration: How long do you plan to invest? 3. Estimate Returns: What's a realistic expected annual return for your chosen investment? 4. Calculate Your SIP Amount: How much can you comfortably invest each month? Our SIP Calculator India helps you estimate the future value of your monthly SIP investments based on your expected annual return and investment duration. It's a valuable tool for informational planning. Try it now and understand your potential growth: https://www.rupeekit.co.in/tools/sip-calculator-india",
+      "hashtags": [
+        "#SIPCalculator",
+        "#InvestmentPlanning",
+        "#FinancialGoals",
+        "#WealthCreation",
+        "#RupeeKit"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4/facebook.png",
+      "manualInstructions": [
+        "Create a RupeeKit Facebook Page post.",
+        "Attach the Facebook final PNG image.",
+        "Paste the copy and hashtags.",
+        "Use the calculator URL once.",
+        "Do not boost or buy traffic during test phase."
+      ]
+    },
+    "instagram": {
+      "caption": "Ready to kickstart your SIP journey? 🚀 A Systematic Investment Plan is a powerful way to grow your wealth. To plan effectively, here's a quick checklist: 1. Identify Your Financial Goal: What are you aiming for? 2. Set Your Investment Horizon: How many years will you invest? 3. Project Expected Returns: What's a reasonable annual return? 4. Decide Your Monthly SIP: How much can you invest consistently? Use RupeeKit's SIP Calculator India to estimate your future corpus. It's perfect for informational planning and understanding potential gains. Plan smart, invest consistently! Link in bio to try it: https://www.rupeekit.co.in/tools/sip-calculator-india",
+      "hashtags": [
+        "#SIP",
+        "#InvestSmart",
+        "#FinancialPlanning",
+        "#WealthBuilding",
+        "#MutualFunds",
+        "#IndiaInvests",
+        "#RupeeKitTools"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4/instagram.png",
+      "manualInstructions": [
+        "Create an Instagram image post under the RupeeKit brand.",
+        "Upload the Instagram final PNG image.",
+        "Paste the caption and hashtags.",
+        "Use website link in bio or plain caption text where allowed.",
+        "Do not use personal identity or personal profile."
+      ]
+    },
+    "pinterest": {
+      "title": "SIP Planning Checklist: Estimate Your Investment Future",
+      "description": "Planning your Systematic Investment Plan (SIP) effectively can make a big difference. Use this quick checklist to guide your financial goals, investment duration, and expected returns. Our SIP Calculator India helps you estimate the future value of your monthly SIP investments, providing insights for your informational planning. Understand your potential wealth growth today. Visit RupeeKit... https://www.rupeekit.co.in/tools/sip-calculator-india",
+      "destinationLink": "https://www.rupeekit.co.in/tools/sip-calculator-india",
+      "hashtags": [
+        "#SIPCalculator",
+        "#InvestmentTips",
+        "#FinancialFreedom",
+        "#WealthManagement",
+        "#RupeeKit"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4/pinterest.png",
+      "manualInstructions": [
+        "Create a Pinterest pin under the RupeeKit brand.",
+        "Upload the Pinterest final PNG image.",
+        "Use https://www.rupeekit.co.in/tools/sip-calculator-india as the destination link.",
+        "Paste the title and description.",
+        "Keep board/category finance-education focused."
+      ]
+    },
+    "x": {
+      "post": "Planning your SIP? Use this quick checklist! 1. Goal 2. Duration 3. Expected Returns 4. Monthly SIP Estimate your future wealth with RupeeKit's SIP... https://www.rupeekit.co.in/tools/sip-calculator-india #SIP #Investments #FinancialPlanning",
+      "hashtags": [
+        "#SIP",
+        "#Investments",
+        "#FinancialPlanning"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4/facebook.png",
+      "manualInstructions": [
+        "Create an X/Twitter post under the RupeeKit brand.",
+        "Attach the Facebook final PNG image.",
+        "Paste the short post and hashtags.",
+        "Verify character length before posting.",
+        "Avoid engagement bait or clickbait."
+      ]
+    }
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "noPaidTraffic": true,
+    "noAdClickLanguage": true,
+    "noFakeTraffic": true,
+    "manualReviewRequired": true,
+    "finalImagesArePng": true
+  }
+}
