@@ -8,14 +8,37 @@ export function generateStaticParams() {
   return getLiveTools().map((tool) => ({ slug: tool.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Metadata {
   const tool = getToolBySlug(params.slug);
   if (!tool) return {};
+
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.rupeekit.co.in";
+  const pageUrl = `${siteUrl}/tools/${tool.slug}`;
 
   return {
     title: tool.name,
     description: tool.metaDescription,
-    alternates: { canonical: `/tools/${tool.slug}` },
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title: tool.name,
+      description: tool.metaDescription,
+      url: pageUrl,
+      siteName: "RupeeKit",
+      type: "article",
+      locale: "en_IN",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: tool.name,
+      description: tool.metaDescription,
+    },
   };
 }
 
