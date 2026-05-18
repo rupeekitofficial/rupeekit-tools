@@ -3,10 +3,30 @@ import Script from "next/script";
 import "./globals.css";
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "RupeeKit";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.rupeekit.co.in";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.rupeekit.co.in";
 const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "rupeekitofficial@gmail.com";
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/rupeekitofficial/",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61589666252483",
+  },
+  {
+    name: "Pinterest",
+    href: "https://www.pinterest.com/rupeekitofficial/",
+  },
+  {
+    name: "X",
+    href: "https://x.com/rupeekit",
+  },
+];
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -51,9 +71,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteName,
+    url: siteUrl,
+    email: contactEmail,
+    sameAs: socialLinks.map((link) => link.href),
+  };
+
   return (
     <html lang="en-IN">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+
         {gaId ? (
           <>
             <Script
@@ -95,7 +131,9 @@ export default function RootLayout({
 
         <footer className="mt-12 border-t bg-slate-50">
           <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-600">
-            <div className="mb-4 font-semibold text-slate-900">{siteName}</div>
+            <div className="mb-4 font-semibold text-slate-900">
+              {siteName}
+            </div>
 
             <p className="mb-4 max-w-3xl">
               Free India-focused calculators for salary, EMI, SIP, GST, FD, and
@@ -121,8 +159,29 @@ export default function RootLayout({
               </a>
             </div>
 
+            <div className="mb-4">
+              <p className="mb-2 font-semibold text-slate-900">
+                Follow RupeeKit
+              </p>
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-slate-950"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+
             <p className="mb-2">Contact: {contactEmail}</p>
-            <p>© {new Date().getFullYear()} {siteName}. All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()} {siteName}. All rights reserved.
+            </p>
           </div>
         </footer>
       </body>
