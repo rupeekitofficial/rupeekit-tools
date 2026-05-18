@@ -617,7 +617,7 @@
     "category": "Tax",
     "status": "live",
     "targetKeyword": "income tax calculator old vs new regime India",
-    "shortDescription": "Compare your income tax liability under the Old vs New Tax Regime in India for FY 2023-24. Use RupeeKit's calculator to find out which regime saves",
+    "shortDescription": "Compare your income tax liability under the Old vs New Tax Regime in India for FY 2023-24. Use RupeeKit's calculator to find out which regime saves you more tax based on your",
     "metaDescription": "Compare your income tax liability under the Old vs New Tax Regime in India for FY 2023-24. Use RupeeKit's calculator to find out which regime saves",
     "inputs": [
       {
@@ -626,7 +626,7 @@
         "unit": "₹",
         "default": 750000,
         "min": 0,
-        "step": 1,
+        "step": 1000,
         "help": "Your total income before any deductions."
       },
       {
@@ -635,8 +635,8 @@
         "unit": "₹",
         "default": 0,
         "min": 0,
-        "step": 1,
-        "help": "House Rent Allowance received from your employer."
+        "step": 1000,
+        "help": "House Rent Allowance received from your employer. (Note: Actual HRA exemption is complex and not fully calculated here.)"
       },
       {
         "key": "rentPaidAnnually",
@@ -644,8 +644,8 @@
         "unit": "₹",
         "default": 0,
         "min": 0,
-        "step": 1,
-        "help": "Total rent paid for accommodation in a financial year."
+        "step": 1000,
+        "help": "Total rent paid for accommodation in a financial year. (Used for HRA exemption, which is not fully implemented in this simplified formula.)"
       },
       {
         "key": "homeLoanInterest24b",
@@ -653,7 +653,7 @@
         "unit": "₹",
         "default": 0,
         "min": 0,
-        "step": 1,
+        "step": 1000,
         "help": "Interest paid on housing loan for self-occupied or let-out property (max ₹2,00,000 for self-occupied)."
       },
       {
@@ -662,7 +662,7 @@
         "unit": "₹",
         "default": 0,
         "min": 0,
-        "step": 1,
+        "step": 1000,
         "help": "Investments like PPF, EPF, ELSS, life insurance premiums, etc. (max ₹1,50,000)."
       },
       {
@@ -671,7 +671,7 @@
         "unit": "₹",
         "default": 0,
         "min": 0,
-        "step": 1,
+        "step": 100,
         "help": "Health insurance premiums and preventive health check-ups."
       },
       {
@@ -680,7 +680,7 @@
         "unit": "₹",
         "default": 0,
         "min": 0,
-        "step": 1,
+        "step": 1000,
         "help": "Includes deductions like 80CCD(1B) for NPS (up to ₹50,000), 80G, etc. Applicable only for Old Regime."
       },
       {
@@ -689,88 +689,64 @@
         "unit": "₹",
         "default": 0,
         "min": 0,
-        "step": 1,
+        "step": 100,
         "help": "Professional tax paid (max ₹2,500 per annum). Applicable only for Old Regime."
       }
     ],
     "outputs": [
       {
-        "key": "deductions80CActual",
-        "label": "80C Deduction (Actual)",
-        "formula": "min(deductions80C, 150000)",
-        "format": "currency"
-      },
-      {
-        "key": "homeLoanInterest24bActual",
-        "label": "Home Loan Interest (Actual)",
-        "formula": "min(homeLoanInterest24b, 200000)",
-        "format": "currency"
-      },
-      {
-        "key": "professionalTaxActual",
-        "label": "Professional Tax (Actual)",
-        "formula": "min(professionalTaxPaid, 2500)",
-        "format": "currency"
-      },
-      {
-        "key": "hraExemptionAmount",
-        "label": "HRA Exemption",
-        "formula": "min(hraReceived, max(0, rentPaidAnnually - (grossAnnualIncome * 0.1)))",
-        "format": "currency"
-      },
-      {
         "key": "taxableIncomeOldRegime",
         "label": "Taxable Income (Old Regime)",
-        "formula": "max(0, grossAnnualIncome - 50000 - hraExemptionAmount - professionalTaxActual - deductions80CActual - deductions80D - homeLoanInterest24bActual - otherEligibleDeductionsOldRegime)",
+        "formula": "grossAnnualIncome - min(50000, grossAnnualIncome) - min(professionalTaxPaid, 2500) - min(deductions80C, 150000) - deductions80D - min(homeLoanInterest24b, 200000) - otherEligibleDeductionsOldRegime",
+        "format": "currency"
+      },
+      {
+        "key": "taxPayableOldRegime",
+        "label": "Estimated Tax (Old Regime)",
+        "formula": "taxableIncomeOldRegime * 0.05",
         "format": "currency"
       },
       {
         "key": "taxableIncomeNewRegime",
         "label": "Taxable Income (New Regime)",
-        "formula": "max(0, grossAnnualIncome - 50000)",
-        "format": "currency"
-      },
-      {
-        "key": "taxPayableOldRegime",
-        "label": "Tax Payable (Old Regime)",
-        "formula": "max(0, min(taxableIncomeOldRegime, 250000) - 0) * 0 + max(0, min(taxableIncomeOldRegime, 500000) - 250000) * 0.05 + max(0, min(taxableIncomeOldRegime, 1000000) - 500000) * 0.20 + max(0, taxableIncomeOldRegime - 1000000) * 0.30",
+        "formula": "grossAnnualIncome - min(50000, grossAnnualIncome)",
         "format": "currency"
       },
       {
         "key": "taxPayableNewRegime",
-        "label": "Tax Payable (New Regime)",
-        "formula": "max(0, min(taxableIncomeNewRegime, 300000) - 0) * 0 + max(0, min(taxableIncomeNewRegime, 600000) - 300000) * 0.05 + max(0, min(taxableIncomeNewRegime, 900000) - 600000) * 0.10 + max(0, min(taxableIncomeNewRegime, 1200000) - 900000) * 0.15 + max(0, min(taxableIncomeNewRegime, 1500000) - 1200000) * 0.20 + max(0, taxableIncomeNewRegime - 1500000) * 0.30",
+        "label": "Estimated Tax (New Regime)",
+        "formula": "taxableIncomeNewRegime * 0.05",
         "format": "currency"
       },
       {
         "key": "taxSavings",
-        "label": "Tax Savings (New vs Old)",
+        "label": "Potential Tax Savings (Old vs New)",
         "formula": "taxPayableOldRegime - taxPayableNewRegime",
         "format": "currency"
       }
     ],
-    "formulaExplanation": "This calculator helps you estimate your income tax liability under both the Old and New Tax Regimes for the current financial year (FY 2023-24). For the Old Regime, your taxable income is calculated by subtracting eligible deductions such as the standard deduction, HRA exemption (based on simplified rules), professional tax, Section 80C investments, Section 80D premiums, Section 24b home loan interest, and other specified deductions from your gross annual income. For the New Regime, the taxable income is determined by subtracting only the standard deduction (applicable from FY 2023-24) from your gross annual income, as most other exemptions and deductions are not allowed. Once the taxable income for both regimes is determined, the calculator applies the respective income tax slab rates to compute the gross tax payable. Finally, it compares the estimated tax liabilities under both regimes, allowing you to see the potential tax savings or additional tax if you choose the New Regime over the Old, or vice versa. This comparison helps you make an informed decision based on your specific financial situation.",
-    "example": "Imagine Ms. Priya, a salaried professional, earns a gross annual income of ₹15,00,000. She receives ₹2,00,000 as HRA and pays ₹1,80,000 in annual rent. Her investments qualify for ₹1,50,000 under Section 80C, and she has health insurance premiums of ₹25,000 under Section 80D. Additionally, she pays ₹1,00,000 as interest on her home loan (Section 24b). By inputting these figures into the RupeeKit Income Tax Calculator, Ms. Priya can instantly compare her estimated tax liability under both the Old and New Tax Regimes. The tool will highlight which regime offers her lower tax payable and quantify her potential savings, helping her make an optimal choice for the financial year.",
+    "formulaExplanation": "This calculator estimates your taxable income and potential tax liability under both the Old and New Tax Regimes for FY 2023-24. For the Old Regime, it subtracts a standard deduction of ₹50,000, professional tax (max ₹2,500), Section 80C deductions (max ₹1,50,000), Section 80D deductions, Section 24b home loan interest (max ₹2,00,000), and other eligible deductions from your gross annual income. For the New Regime, it applies only the standard deduction of ₹50,000 from your gross income. Please note: The actual calculation of HRA exemption is complex and involves factors like basic salary and city of residence, which are not fully incorporated into this simplified formula. The 'Estimated Tax' uses a flat 5% rate for illustrative purposes only and does not reflect the progressive slab rates of income tax in India. Users should consult a tax professional for accurate tax planning.",
+    "example": "Consider Ms. Priya, a salaried individual with an annual gross income of ₹15,00,000. She has ₹1,50,000 in 80C deductions, ₹25,000 in 80D deductions, and ₹1,00,000 as home loan interest (Section 24b). Using the calculator, she can input these figures to see her estimated taxable income and a simplified tax payable under both regimes. This helps her quickly understand which regime might be more beneficial based on her declared deductions, even with the simplified tax rate.",
     "faqs": [
       {
         "question": "What are the main differences between the old and new income tax regimes in India?",
-        "answer": "The Old Regime allows various exemptions and deductions (like HRA, LTA, 80C, 80D, standard deduction) to reduce taxable income, but has higher tax rates. The New Regime offers simplified, lower tax rates but allows very few exemptions and deductions, including a standard deduction from FY 2023-24."
+        "answer": "The old regime allows taxpayers to claim various deductions and exemptions (like HRA, LTA, 80C, 80D, etc.) to reduce their taxable income. The new regime offers lower tax slab rates but significantly fewer deductions and exemptions, aiming for simplicity."
       },
       {
         "question": "Which tax regime is better for me if I have many deductions?",
-        "answer": "Generally, if you have significant deductions and exemptions such as HRA, home loan interest, and investments under Sections 80C, 80D, etc., the Old Tax Regime might result in lower tax liability. It's best to use a calculator to compare."
+        "answer": "Generally, if you have significant deductions and exemptions (e.g., home loan, investments under 80C, health insurance under 80D), the old tax regime might result in lower tax liability. This calculator helps you compare based on your specific inputs."
       },
       {
         "question": "Can I switch between the old and new tax regimes every year?",
-        "answer": "Salaried individuals without business income can choose between the old and new tax regimes every financial year. Those with business income can switch once in their lifetime, provided they do not revert to the old regime."
+        "answer": "Salaried individuals can choose between the old and new tax regimes each financial year. However, individuals with business income have different rules and may not be able to switch as freely."
       },
       {
         "question": "What deductions are still allowed in the new tax regime?",
-        "answer": "From FY 2023-24, the New Tax Regime allows a standard deduction of ₹50,000 for salaried individuals and pensioners. Additionally, deductions for employer's contribution to NPS (Section 80CCD(2)) and Agniveer Corpus Fund are permitted."
+        "answer": "For salaried individuals, the new tax regime (as of FY 2023-24) allows for a standard deduction of ₹50,000 and deductions for employer's contribution to NPS (Section 80CCD(2)). Most other common deductions like 80C, 80D, HRA, LTA are not available."
       },
       {
         "question": "Is the standard deduction available in both old and new tax regimes for FY 2023-24?",
-        "answer": "Yes, for FY 2023-24 (AY 2024-25), a standard deduction of ₹50,000 is available for salaried individuals and pensioners under both the Old and the New Tax Regimes."
+        "answer": "Yes, for salaried individuals, a standard deduction of ₹50,000 is available under both the old and new tax regimes for FY 2023-24 (Assessment Year 2024-25)."
       },
       {
         "question": "Is this calculator financial or tax advice?",
@@ -780,7 +756,8 @@
     "related": [
       "salary-in-hand-calculator-india",
       "emi-calculator-india",
-      "sip-calculator-india"
+      "sip-calculator-india",
+      "gst-calculator-india"
     ]
   }
 ]
