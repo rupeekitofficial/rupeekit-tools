@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-18T17:59:10.428Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "AUTO_LATEST_LIVE_TOOL",
+  "slug": "hra-exemption-calculator-india",
+  "name": "HRA Exemption Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Estimate your monthly and annual HRA exemption in India with RupeeKit. Input salary, HRA, rent, and city type to understand potential tax savings.",
+    "metaDescription": "Use RupeeKit's HRA Exemption Calculator to estimate your tax-exempt House Rent Allowance in India. Input salary, HRA, rent, and city for an estimate.",
+    "faqCount": 7
+  },
+  "after": {
+    "shortDescription": "Estimate your potential monthly and annual HRA tax exemption in India with RupeeKit. Input salary, HRA, rent, and city type to understand your possible tax savings.",
+    "metaDescription": "Use RupeeKit's HRA Exemption Calculator to estimate your tax-exempt House Rent Allowance in India. Input salary, HRA, rent, and city for an estimate",
+    "faqCount": 7,
+    "howToUseCount": 6,
+    "assumptionsCount": 6,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 3,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Ensured 'shortDescription' is under 180 characters.",
+    "Ensured 'metaDescription' is between 130 and 155 characters.",
+    "Confirmed 'formulaExplanation' is 120-240 words and conservative.",
+    "Confirmed 'example' is 80-180 words, practical, and mentions estimates.",
+    "Verified 'faqs' contains 6-8 items, all conservative and helpful.",
+    "Verified 'howToUse' contains 4-6 steps.",
+    "Verified 'assumptions' contains 4-6 practical assumptions.",
+    "Verified 'commonMistakes' contains 4-6 relevant mistakes."
+  ]
+}
