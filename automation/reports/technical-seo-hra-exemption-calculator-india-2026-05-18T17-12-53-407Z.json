@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-05-18T17:12:53.407Z",
+  "workflow": "RupeeKit Workflow 3 - Technical SEO Checker",
+  "status": "PASS",
+  "targetUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+  "tool": {
+    "slug": "hra-exemption-calculator-india",
+    "name": "HRA Exemption Calculator India",
+    "category": "Tax",
+    "targetKeyword": "HRA exemption calculator India",
+    "metaDescription": "Calculate HRA exemption in India using salary, HRA received, rent paid, and metro or non-metro city rules."
+  },
+  "extracted": {
+    "title": "HRA Exemption Calculator India | RupeeKit",
+    "metaDescription": "Calculate HRA exemption in India using salary, HRA received, rent paid, and metro or non-metro city rules.",
+    "canonicalDetected": true
+  },
+  "checks": [
+    {
+      "name": "Live page fetched",
+      "pass": true,
+      "detail": "HTML length: 46225"
+    },
+    {
+      "name": "Tool name visible in page",
+      "pass": true,
+      "detail": "HRA Exemption Calculator India"
+    },
+    {
+      "name": "Page title exists",
+      "pass": true,
+      "detail": "HRA Exemption Calculator India | RupeeKit"
+    },
+    {
+      "name": "Meta description exists",
+      "pass": true,
+      "detail": "Calculate HRA exemption in India using salary, HRA received, rent paid, and metro or non-metro city rules."
+    },
+    {
+      "name": "Canonical appears valid",
+      "pass": true,
+      "detail": "/tools/hra-exemption-calculator-india"
+    },
+    {
+      "name": "Calculator UI appears",
+      "pass": true,
+      "detail": "Checks for calculator section text"
+    },
+    {
+      "name": "No default calculation error visible",
+      "pass": true,
+      "detail": "No Check inputs text found"
+    },
+    {
+      "name": "robots.txt reachable",
+      "pass": true,
+      "detail": "robots.txt length: 72"
+    },
+    {
+      "name": "sitemap.xml reachable",
+      "pass": true,
+      "detail": "sitemap.xml length: 2368"
+    },
+    {
+      "name": "Sitemap contains target URL",
+      "pass": true,
+      "detail": "Target URL found"
+    }
+  ],
+  "failed": [],
+  "recommendation": "No immediate technical action needed. Continue monitoring indexing and analytics."
+}
