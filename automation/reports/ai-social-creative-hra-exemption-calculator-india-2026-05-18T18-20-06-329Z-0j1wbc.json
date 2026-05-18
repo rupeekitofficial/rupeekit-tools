@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-18T18:20:06.329Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "slug": "hra-exemption-calculator-india",
+  "toolName": "HRA Exemption Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+  "angle": "myth_vs_fact",
+  "hookType": "checklist",
+  "visualStyle": "comparison_card",
+  "hook": "HRA Exemption: Separate Fact from Fiction.",
+  "cta": "Understand your numbers",
+  "historyLengthBefore": 3,
+  "historyLengthAfter": 4,
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

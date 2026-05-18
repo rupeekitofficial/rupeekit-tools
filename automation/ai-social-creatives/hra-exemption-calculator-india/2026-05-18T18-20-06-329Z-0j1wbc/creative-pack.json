@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-05-18T18:20:06.329Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_image_generation_ready",
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "creativePack": {
+    "slug": "hra-exemption-calculator-india",
+    "toolName": "HRA Exemption Calculator India",
+    "pageUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+    "angle": "myth_vs_fact",
+    "hookType": "checklist",
+    "visualStyle": "comparison_card",
+    "hook": "HRA Exemption: Separate Fact from Fiction.",
+    "cta": "Understand your numbers",
+    "keywords": [
+      "HRA exemption",
+      "tax planning",
+      "rent allowance",
+      "India tax",
+      "salary",
+      "tax benefits",
+      "income tax"
+    ],
+    "facebook": {
+      "caption": "Think you know everything about HRA exemption? It's easy to get confused with common myths that can impact your tax planning. Our HRA Exemption Calculator helps you separate fact from fiction and understand your potential tax benefits. Learn how factors like your actual HRA received, rent paid, specific salary components, and even your city type truly impact the exemption amount you can claim. Don't miss out on potential tax savings by relying on incorrect information. Use RupeeKit to estimate your HRA exemption accurately for educational and informational planning. Understand your numbers today. Visit: https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "hashtags": [
+        "#HRAExemption",
+        "#TaxSavings",
+        "#RupeeKit",
+        "#IncomeTaxIndia",
+        "#FinancialPlanning"
+      ]
+    },
+    "instagram": {
+      "caption": "HRA Exemption: Myth vs. Reality! 💡 Many believe HRA exemption is a simple, fixed amount, but there are key details and rules to understand. Our RupeeKit HRA Exemption Calculator helps you clarify common misconceptions and check your eligibility based on official guidelines. Discover how your actual HRA received, rent paid, specific salary components, and even your city type factor into your actual exemption. Get clear, educational estimates for better financial understanding and planning. Understand your numbers with RupeeKit! Estimate your HRA exemption now: https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "hashtags": [
+        "#HRA",
+        "#TaxFacts",
+        "#RupeeKitCalculator",
+        "#IndianTax",
+        "#PersonalFinance",
+        "#MoneyMatters",
+        "#TaxTipsIndia",
+        "#FinancialLiteracy"
+      ]
+    },
+    "pinterest": {
+      "title": "HRA Exemption: Myth vs. Fact | Understand Your Tax Savings",
+      "description": "Confused about HRA exemption? Separate common myths from facts with RupeeKit's HRA Exemption Calculator. Quickly estimate your potential tax-exempt House Rent Allowance based on your salary, HRA, rent, and city. Get clear, educational estimates for better tax planning. Understand your numbers today. Visit: https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "hashtags": [
+        "#HRAExemption",
+        "#TaxPlanning",
+        "#RupeeKit",
+        "#IncomeTax"
+      ]
+    },
+    "x": {
+      "post": "HRA Exemption: Myth vs. Fact? 🤔 Don't let misconceptions cost you. Use RupeeKit's HRA Exemption Calculator to estimate your potential tax savings... https://www.rupeekit.co.in/tools/hra-exemption-calculator-india #HRA #TaxSavings #RupeeKit",
+      "hashtags": [
+        "#HRA",
+        "#TaxSavings",
+        "#RupeeKit"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A clean, modern comparison card design with a white background. The image is divided vertically into two distinct sections. The left section, labeled 'MYTH' in a prominent deep blue font, features a subtle, abstract graphic representing a question mark or confusion, perhaps with a faint red cross-out overlay. The right section, labeled 'FACT' in a prominent fresh green font, features a subtle, abstract graphic representing clarity or a checkmark. Both sections contain simple, finance-related icons (e.g., a house outline, a rupee symbol, a calculator graphic) in deep blue and fresh green. The overall aesthetic is professional, clean, and utility-focused, avoiding any human elements or personal identity. Ensure the top-right corner is kept clean and uncluttered. Text on image: 'HRA Exemption: Myth vs. Fact'. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A square, clean, and modern comparison card design with a light, off-white background. The design features a central vertical divider. On the left side, under a bold 'MYTH' header in deep blue, display abstract, slightly blurred or distorted graphic elements suggesting incorrect information or confusion. On the right side, under a bold 'FACT' header in fresh green, display crisp, clear graphic elements like a simple checkmark or a simplified calculator screen. Incorporate minimal, modern finance-related icons (e.g., a small house, a currency symbol) in deep blue and fresh green. The design should be visually balanced and easy to understand, with no human figures or personal elements. Keep the top-right corner completely free of any design elements or text. Text on image: 'HRA Exemption: Myth vs. Fact'. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A tall, elegant comparison card design with a crisp white background. The image is divided horizontally into two main sections. The top section, clearly marked 'MYTH' in a large, clean deep blue typeface, features abstract, light grey graphic patterns that suggest uncertainty or a question. The bottom section, clearly marked 'FACT' in a large, clean fresh green typeface, features abstract, light grey graphic patterns that suggest clarity or a solution. Between these sections, or subtly within them, include small, modern icons related to HRA (e.g., a minimalist house, a rupee symbol, a tax form outline) in deep blue and fresh green accents. The overall look is professional, informational, and visually appealing, without any human presence or identifiable elements. Ensure the top-right corner remains entirely clear for logo placement. Text on image: 'HRA Exemption: Myth vs. Fact', 'Understand Your Tax Savings'. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, clutter, misleading claims, bank/loan ad look, watermark, tiny unreadable text, fake RupeeKit logo, fake RupeeKit wordmark, fake website URL, important elements in top-right corner",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "short setup notes"
+    },
+    "safetyNotes": [
+      "short internal safety notes"
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-18T18:20:06.329Z",
+    "slug": "hra-exemption-calculator-india",
+    "toolName": "HRA Exemption Calculator India",
+    "angle": "myth_vs_fact",
+    "hookType": "checklist",
+    "visualStyle": "comparison_card",
+    "hook": "HRA Exemption: Separate Fact from Fiction.",
+    "cta": "Understand your numbers",
+    "firstCaptionLine": "think you know everything about hra exemption",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "HRA exemption",
+      "tax planning",
+      "rent allowance",
+      "India tax",
+      "salary",
+      "tax benefits",
+      "income tax"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}
