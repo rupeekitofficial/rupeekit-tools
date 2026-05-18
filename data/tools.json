@@ -595,8 +595,8 @@
     "category": "Tax",
     "status": "live",
     "targetKeyword": "HRA exemption calculator India",
-    "shortDescription": "Estimate your monthly and annual HRA exemption in India with RupeeKit. Input salary, HRA, rent, and city type to understand potential tax savings.",
-    "metaDescription": "Use RupeeKit's HRA Exemption Calculator to estimate your tax-exempt House Rent Allowance in India. Input salary, HRA, rent, and city for an estimate.",
+    "shortDescription": "Estimate your potential monthly and annual HRA tax exemption in India with RupeeKit. Input salary, HRA, rent, and city type to understand your possible tax savings.",
+    "metaDescription": "Use RupeeKit's HRA Exemption Calculator to estimate your tax-exempt House Rent Allowance in India. Input salary, HRA, rent, and city for an estimate",
     "inputs": [
       {
         "key": "basicSalary",
