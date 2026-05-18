@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-05-18T19:06:49.750Z",
+  "workflow": "RupeeKit Workflow 9 Scheduler - Daily Final Social Posting Pack",
+  "status": "POSTING_PACK_CREATED",
+  "mode": "daily_scheduler_manual_review_only_no_auto_posting",
+  "slug": "hra-exemption-calculator-india",
+  "toolName": "HRA Exemption Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+  "finalImageBatch": {
+    "manifestPath": "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/manifest.json",
+    "folderPath": "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g",
+    "sourceWorkflow": "RupeeKit Workflow 8D-G2 - Logo Overlay Finalizer",
+    "generatedAt": "2026-05-18T18:58:01.796Z"
+  },
+  "creativeSource": {
+    "found": true,
+    "sourcePath": "automation/social-drafts/social-draft-hra-exemption-calculator-india-2026-05-15T07-16-59-279Z.json",
+    "sourceType": "automation/social-drafts"
+  },
+  "platforms": {
+    "facebook": {
+      "copy": "Understanding your HRA exemption can significantly reduce your taxable income in India. House Rent Allowance (HRA) is a key component for many salaried individuals, helping to offset rental costs. With RupeeKit's HRA Exemption Calculator, you can easily estimate your potential monthly and annual tax savings. Just input your salary, HRA received, rent paid, and city type to get an accurate estimate. It's a simple way to understand how different factors impact your HRA exemption. Plan your finances smarter with RupeeKit. Try it now: https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "hashtags": [
+        "#HRAExemption",
+        "#TaxSavingsIndia",
+        "#RupeeKit",
+        "#IncomeTaxIndia",
+        "#FinancialPlanning",
+        "#RentAllowance",
+        "#IndianFinance"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/facebook.png",
+      "manualInstructions": [
+        "Create a RupeeKit Facebook Page post.",
+        "Attach the Facebook final PNG image.",
+        "Paste the copy and hashtags.",
+        "Use the calculator URL once.",
+        "Do not boost or buy traffic during test phase."
+      ]
+    },
+    "instagram": {
+      "caption": "Unlock your tax-saving potential with RupeeKit's HRA Exemption Calculator! 🏠💰 House Rent Allowance (HRA) is a valuable benefit for salaried individuals in India, designed to help cover your rental expenses. Knowing your eligible HRA exemption can make a real difference to your taxable income. Our easy-to-use calculator helps you estimate your monthly and annual HRA exemption based on your salary, HRA received, rent paid, and city type. Get a clearer picture of your finances and plan ahead. Visit RupeeKit to try it out today! Link in bio.",
+      "hashtags": [
+        "#HRA",
+        "#TaxSavings",
+        "#IndiaTax",
+        "#RupeeKitCalculators",
+        "#PersonalFinanceIndia",
+        "#RentExemption",
+        "#IncomeTax",
+        "#FinancialWellness"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/instagram.png",
+      "manualInstructions": [
+        "Create an Instagram image post under the RupeeKit brand.",
+        "Upload the Instagram final PNG image.",
+        "Paste the caption and hashtags.",
+        "Use website link in bio or plain caption text where allowed.",
+        "Do not use personal identity or personal profile."
+      ]
+    },
+    "pinterest": {
+      "title": "HRA Exemption Calculator India: Estimate Your Tax Savings",
+      "description": "Estimate your House Rent Allowance (HRA) exemption in India with RupeeKit's free online calculator. Understand how your basic salary, HRA received, rent paid, and city type (metro vs. non-metro) impact your potential tax savings. Our tool simplifies the complex HRA rules, providing an educational estimate of your monthly and annual HRA exemption. Learn about the 'salary' definition for HRA, required documentation like rent receipts and landlord's PAN, and common mistakes to avoid. Plan your finances effectively and maximize your HRA benefits with RupeeKit. Useful for salaried individuals across India.",
+      "destinationLink": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "hashtags": [],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/pinterest.png",
+      "manualInstructions": [
+        "Create a Pinterest pin under the RupeeKit brand.",
+        "Upload the Pinterest final PNG image.",
+        "Use https://www.rupeekit.co.in/tools/hra-exemption-calculator-india as the destination link.",
+        "Paste the title and description.",
+        "Keep board/category finance-education focused."
+      ]
+    },
+    "x": {
+      "post": "Estimate your HRA exemption in India with RupeeKit's free calculator! Input salary, HRA, rent, & city type to see potential tax savings. Quick & easy... https://www.rupeekit.co.in/tools/hra-exemption-calculator-india #HRAExemption #TaxIndia #RupeeKit",
+      "hashtags": [
+        "#HRAExemption",
+        "#TaxIndia",
+        "#RupeeKit",
+        "#FinanceIndia",
+        "#RentAllowance"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/facebook.png",
+      "manualInstructions": [
+        "Create an X/Twitter post under the RupeeKit brand.",
+        "Attach the Facebook final PNG image.",
+        "Paste the short post and hashtags.",
+        "Verify character length before posting.",
+        "Avoid engagement bait or clickbait."
+      ]
+    }
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "noPaidTraffic": true,
+    "noAdClickLanguage": true,
+    "noFakeTraffic": true,
+    "manualReviewRequired": true,
+    "finalImagesArePng": true
+  }
+}
