@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-05-18T18:58:01.796Z",
+  "workflow": "RupeeKit Workflow 8D-G2 - Logo Overlay Finalizer",
+  "status": "FINAL_IMAGES_CREATED",
+  "mode": "official_logo_overlay_no_auto_posting",
+  "slug": "hra-exemption-calculator-india",
+  "toolName": "HRA Exemption Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+  "sourceManifest": {
+    "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+    "generatedAt": "2026-05-18T18:29:25.533Z",
+    "model": "gemini-2.5-flash-image",
+    "status": "AI_IMAGES_CREATED"
+  },
+  "logo": {
+    "officialLogoPath": "public/brand/rupeekit_logo_horizontal_transparent.png",
+    "officialLogoUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/public/brand/rupeekit_logo_horizontal_transparent.png",
+    "overlayPosition": "top-right",
+    "logoRepair": {
+      "repaired": false,
+      "reason": "",
+      "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+      "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+    }
+  },
+  "images": [
+    {
+      "platform": "facebook",
+      "width": 1200,
+      "height": 675,
+      "sourceFilePath": "automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/facebook.png",
+      "sourceRawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/facebook.png",
+      "filePath": "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 244686,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/facebook.png",
+      "sourceImageRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "logoOverlay": {
+        "logoPath": "public/brand/rupeekit_logo_horizontal_transparent.png",
+        "logoUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/public/brand/rupeekit_logo_horizontal_transparent.png",
+        "position": "top-right",
+        "logoWidth": 192,
+        "paddingX": 42,
+        "paddingY": 24,
+        "backing": "white translucent rounded rectangle",
+        "officialLogoUsed": true
+      }
+    },
+    {
+      "platform": "instagram",
+      "width": 1080,
+      "height": 1080,
+      "sourceFilePath": "automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/instagram.png",
+      "sourceRawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/instagram.png",
+      "filePath": "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 923742,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/instagram.png",
+      "sourceImageRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "logoOverlay": {
+        "logoPath": "public/brand/rupeekit_logo_horizontal_transparent.png",
+        "logoUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/public/brand/rupeekit_logo_horizontal_transparent.png",
+        "position": "top-right",
+        "logoWidth": 173,
+        "paddingX": 43,
+        "paddingY": 38,
+        "backing": "white translucent rounded rectangle",
+        "officialLogoUsed": true
+      }
+    },
+    {
+      "platform": "pinterest",
+      "width": 1000,
+      "height": 1500,
+      "sourceFilePath": "automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/pinterest.png",
+      "sourceRawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/pinterest.png",
+      "filePath": "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 824599,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/pinterest.png",
+      "sourceImageRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "logoOverlay": {
+        "logoPath": "public/brand/rupeekit_logo_horizontal_transparent.png",
+        "logoUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/public/brand/rupeekit_logo_horizontal_transparent.png",
+        "position": "bottom-right",
+        "logoWidth": 140,
+        "paddingX": 45,
+        "paddingY": 68,
+        "backing": "white translucent rounded rectangle",
+        "officialLogoUsed": true
+      }
+    }
+  ],
+  "safety": {
+    "officialRupeeKitLogoUsed": true,
+    "noAiGeneratedLogo": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "platformReadyPng": true,
+    "strictPngHeaderRepairOnly": true
+  }
+}
