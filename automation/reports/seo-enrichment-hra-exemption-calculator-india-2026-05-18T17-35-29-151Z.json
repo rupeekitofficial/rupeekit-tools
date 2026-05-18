@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-18T17:35:29.151Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "MANUAL_SINGLE_PAGE_TEST",
+  "slug": "hra-exemption-calculator-india",
+  "name": "HRA Exemption Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Calculate monthly and annual HRA exemption using salary, HRA received, rent paid, and city rate rules.",
+    "metaDescription": "Calculate HRA exemption in India using salary, HRA received, rent paid, and metro or non-metro city rules.",
+    "faqCount": 6
+  },
+  "after": {
+    "shortDescription": "Calculate your monthly and annual HRA exemption in India using salary, HRA received, rent paid, and city type. Get an estimate of your taxable HRA.",
+    "metaDescription": "Estimate your HRA exemption in India with RupeeKit's calculator. Input salary, HRA, rent, and city to understand potential tax savings. For...",
+    "faqCount": 7,
+    "howToUseCount": 6,
+    "assumptionsCount": 6,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 3,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Updated shortDescription and metaDescription for clarity and character limits.",
+    "Rewrote formulaExplanation for better understanding and added disclaimers.",
+    "Refined example for improved clarity and word count adherence.",
+    "Expanded FAQs to include more common queries and added disclaimers.",
+    "Introduced 'howToUse' section with step-by-step instructions.",
+    "Added 'assumptions' section to clarify calculator's basis.",
+    "Created 'commonMistakes' section to guide users away from errors.",
+    "Developed 'contentSections' with specific, India-focused HRA information."
+  ]
+}
