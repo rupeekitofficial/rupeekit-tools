@@ -774,5 +774,113 @@
       }
     ],
     "lastReviewed": "May 2026"
+  },
+  {
+    "slug": "80c-deduction-calculator-india",
+    "name": "Section 80C Deduction Calculator India",
+    "category": "Tax",
+    "status": "live",
+    "targetKeyword": "80C deduction calculator India",
+    "shortDescription": "Use RupeeKit's 80C deduction calculator to estimate your eligible tax savings from EPF, PPF, ELSS, home loan principal, and more in India. Maximize your tax planning.",
+    "metaDescription": "Estimate your eligible tax savings from EPF, PPF, ELSS, home loan principal, and more with RupeeKit's 80C deduction calculator. Maximize your tax",
+    "inputs": [
+      {
+        "key": "epfContribution",
+        "label": "Employee Provident Fund (EPF) Contribution",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 1000,
+        "help": "Enter your annual contribution to EPF."
+      },
+      {
+        "key": "ppfContribution",
+        "label": "Public Provident Fund (PPF) Contribution",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 1000,
+        "help": "Enter your annual contribution to PPF."
+      },
+      {
+        "key": "elssInvestment",
+        "label": "Equity Linked Savings Scheme (ELSS) Investment",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 1000,
+        "help": "Enter your annual investment in ELSS funds."
+      },
+      {
+        "key": "lifeInsurancePremium",
+        "label": "Life Insurance Premium Paid",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 1000,
+        "help": "Enter the annual premium paid for life insurance policies."
+      },
+      {
+        "key": "homeLoanPrincipal",
+        "label": "Home Loan Principal Repayment",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 1000,
+        "help": "Enter the principal amount repaid on your home loan annually."
+      },
+      {
+        "key": "tuitionFees",
+        "label": "Children's School Tuition Fees",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 1000,
+        "help": "Enter tuition fees paid for up to two children (excluding development fees, donations)."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "total80cInvestments",
+        "label": "Total 80C Investments",
+        "formula": "epfContribution + ppfContribution + elssInvestment + lifeInsurancePremium + homeLoanPrincipal + tuitionFees",
+        "format": "currency"
+      },
+      {
+        "key": "eligible80cDeduction",
+        "label": "Eligible 80C Deduction",
+        "formula": "min(total80cInvestments, 150000)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "The RupeeKit 80C Deduction Calculator simplifies the estimation of your tax-saving investments and expenses under Section 80C of the Income Tax Act, 1961. It works by aggregating your contributions to various eligible instruments such as Employee Provident Fund (EPF), Public Provident Fund (PPF), Equity Linked Savings Schemes (ELSS), life insurance premiums, principal repayment of home loans, and children's tuition fees. Once all these amounts are summed up, the calculator applies the statutory maximum deduction limit. According to current tax laws, the total eligible deduction under Section 80C is capped at ₹1,50,000 for a financial year. This means that even if your combined investments and expenses exceed this threshold, the maximum amount you can claim as a deduction will be ₹1,50,000. This tool helps you quickly understand how much of your savings can be considered for tax benefits under this crucial section, aiding in effective tax planning.",
+    "example": "Meet Priya, a salaried professional in India, who is planning her taxes for the current financial year. She wants to maximize her Section 80C deductions. Priya has contributed ₹70,000 to her EPF, invested ₹30,000 in ELSS funds, paid ₹25,000 as life insurance premiums, and repaid ₹40,000 towards the principal of her home loan. Additionally, she paid ₹15,000 for her child's school tuition fees. To quickly estimate her total eligible deduction, Priya uses the RupeeKit 80C Deduction Calculator. She inputs each of these amounts into the respective fields. The calculator then sums her total investments and shows her the eligible deduction, capped at ₹1,50,000, helping her understand her tax-saving position instantly.",
+    "faqs": [
+      {
+        "question": "What is the maximum deduction allowed under Section 80C?",
+        "answer": "The maximum deduction allowed under Section 80C of the Income Tax Act, 1961, is ₹1,50,000 for a financial year. This limit applies to the combined total of all eligible investments and expenses."
+      },
+      {
+        "question": "Which investments are eligible for 80C deduction?",
+        "answer": "Common eligible investments and expenses include contributions to Employee Provident Fund (EPF), Public Provident Fund (PPF), Equity Linked Savings Schemes (ELSS), life insurance premiums, principal repayment of home loans, and children's school tuition fees."
+      },
+      {
+        "question": "Is EPF contribution covered under Section 80C?",
+        "answer": "Yes, contributions made by an employee to the Employee Provident Fund (EPF) are eligible for deduction under Section 80C, subject to the overall limit of ₹1,50,000."
+      },
+      {
+        "question": "Can I claim 80C deduction for my child's tuition fees?",
+        "answer": "Yes, tuition fees paid for up to two children for full-time education in any university, college, school, or other educational institution situated in India are eligible for deduction under Section 80C. This excludes development fees or donations."
+      },
+      {
+        "question": "Are all life insurance premiums eligible for 80C deduction?",
+        "answer": "No, not all life insurance premiums are eligible. For policies issued on or after April 1, 2012, the premium paid should not exceed 10% of the actual capital sum assured. For policies issued before April 1, 2012, the limit is 20%."
+      }
+    ],
+    "related": [
+      "income-tax-calculator-old-vs-new-regime-india",
+      "hra-exemption-calculator-india",
+      "salary-in-hand-calculator-india"
+    ]
   }
 ]
