@@ -1,0 +1,125 @@
+{
+  "generatedAt": "2026-05-19T03:37:12.003Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_image_generation_ready",
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "creativePack": {
+    "slug": "80c-deduction-calculator-india",
+    "toolName": "Section 80C Deduction Calculator India",
+    "pageUrl": "https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+    "angle": "step_by_step",
+    "hookType": "myth_fact",
+    "visualStyle": "checklist_card",
+    "hook": "Myth: 80C tax planning is complicated. Fact: Estimate your deductions step-by-step!",
+    "cta": "Compare your inputs",
+    "keywords": [
+      "80C deduction",
+      "tax savings",
+      "income tax India",
+      "EPF PPF ELSS",
+      "tax planning",
+      "financial calculator"
+    ],
+    "facebook": {
+      "caption": "Myth: 80C tax planning is complicated. Fact: Estimating your deductions can be simple and straightforward! Unlock potential tax savings under Section 80C with RupeeKit's easy-to-use calculator. Understand how contributions to EPF, PPF, ELSS, home loan principal, and even children's tuition fees can help reduce your taxable income, up to the ₹1,50,000 limit. Our tool guides you step-by-step to input your details and provides an educational estimate of your eligible deductions. Don't leave your tax planning to chance. Compare your inputs and plan smarter. Get started today: https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+      "hashtags": [
+        "80CDeduction",
+        "TaxSavings",
+        "IncomeTaxIndia",
+        "RupeeKit"
+      ]
+    },
+    "instagram": {
+      "caption": "Myth: 80C tax planning is complicated. Fact: Estimate your deductions step-by-step! 💡 RupeeKit's 80C Deduction Calculator makes it simple to understand your potential tax savings. Input your EPF, PPF, ELSS, home loan principal, and tuition fee contributions to get an educational estimate. Maximize your ₹1,50,000 deduction limit with ease. Plan your finances effectively and compare your inputs. Try it now! 👉 https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+      "hashtags": [
+        "80C",
+        "TaxPlanning",
+        "FinancialFreedom",
+        "SavingsGoals",
+        "InvestSmart",
+        "RupeeKitCalculator",
+        "IndiaTax",
+        "MoneyMatters"
+      ]
+    },
+    "pinterest": {
+      "title": "Estimate Your 80C Tax Deductions Step-by-Step with RupeeKit",
+      "description": "Think 80C tax planning is complex? Myth debunked! RupeeKit's 80C Deduction Calculator offers a simple, step-by-step way to estimate your potential tax savings. Easily input your contributions to EPF, PPF, ELSS, home loan principal, and children's tuition fees. Get an educational estimate of your eligible deductions up to the ₹1,50,000 limit. Start planning your taxes smarter... https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+      "hashtags": [
+        "80CDeduction",
+        "TaxCalculator",
+        "FinancialPlanning",
+        "IndiaFinance"
+      ]
+    },
+    "x": {
+      "post": "Myth: 80C tax planning is complicated. Fact: Estimate your deductions step-by-step! Easily calculate potential tax savings from EPF, PPF, ELSS, home loan... https://www.rupeekit.co.in/tools/80c-deduction-calculator-india 80C TaxSavings RupeeKit",
+      "hashtags": [
+        "80C",
+        "TaxSavings",
+        "RupeeKit"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A modern, clean digital card in landscape orientation, with a white background and deep blue and fresh green accents. The card features the bold, readable text 'Estimate Your 80C Deductions' at the top. Below, there's a clear, step-by-step visual guide. Each step is numbered and includes a simple, abstract icon: '1. EPF & PPF' with a piggy bank icon, '2. ELSS & Insurance' with a shield icon, '3. Home Loan & Tuition' with a house icon and a book icon. The overall aesthetic is a finance utility brand look, not a bank ad. Ensure the top-right corner is clean and uncluttered. No human faces or personal identity. Output as PNG or JPG. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A square, minimalist digital card with a white background, accented with deep blue and fresh green. The central, large, readable text reads '80C Deductions Made Easy: Your Step-by-Step Guide'. Around this text, arrange a few simple, abstract icons representing 80C components: a stack of coins for savings, a house outline for home loans, and a small graduation cap for tuition. The design should be clean, modern, and convey a finance utility brand feel. Keep the top-right corner completely clear. No human figures or personal elements. Output as PNG or JPG. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A tall, infographic-style digital card with a clean white background, featuring deep blue and fresh green accents. The prominent, large text at the top reads 'Unlock 80C Savings: A Step-by-Step Estimator'. Below, present a vertical checklist or numbered list with clear, readable text for each item, accompanied by simple, abstract icons: 'EPF/PPF Contributions' with a coin stack, 'ELSS Investments' with an upward arrow chart, 'Life Insurance Premiums' with a heart shield, 'Home Loan Principal' with a house key, 'Children's Tuition Fees' with an open book. The design should be professional, visually attractive, and reflect a finance utility brand. Ensure the top-right corner is free of any design elements. No people or personal identifiers. Output as PNG or JPG. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, clutter, misleading claims, bank/loan ad look, watermark, tiny unreadable text, fake RupeeKit logo, fake RupeeKit wordmark, fake website URL, important elements in top-right corner",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "Use a clean, sans-serif font for any on-image text. Ensure high contrast for readability."
+    },
+    "safetyNotes": [
+      "Ensure all visual elements are abstract and do not represent specific financial products or institutions.",
+      "Double-check that no text implies guarantees or specific educational information."
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-19T03:37:12.003Z",
+    "slug": "80c-deduction-calculator-india",
+    "toolName": "Section 80C Deduction Calculator India",
+    "angle": "step_by_step",
+    "hookType": "myth_fact",
+    "visualStyle": "checklist_card",
+    "hook": "Myth: 80C tax planning is complicated. Fact: Estimate your deductions step-by-step!",
+    "cta": "Compare your inputs",
+    "firstCaptionLine": "myth: 80c tax planning is complicated",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "80C deduction",
+      "tax savings",
+      "income tax India",
+      "EPF PPF ELSS",
+      "tax planning",
+      "financial calculator"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

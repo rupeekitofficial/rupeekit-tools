@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-19T03:37:12.003Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "slug": "80c-deduction-calculator-india",
+  "toolName": "Section 80C Deduction Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+  "angle": "step_by_step",
+  "hookType": "myth_fact",
+  "visualStyle": "checklist_card",
+  "hook": "Myth: 80C tax planning is complicated. Fact: Estimate your deductions step-by-step!",
+  "cta": "Compare your inputs",
+  "historyLengthBefore": 4,
+  "historyLengthAfter": 5,
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

@@ -103,5 +103,30 @@
       "tax benefits",
       "income tax"
     ]
+  },
+  {
+    "generatedAt": "2026-05-19T03:37:12.003Z",
+    "slug": "80c-deduction-calculator-india",
+    "toolName": "Section 80C Deduction Calculator India",
+    "angle": "step_by_step",
+    "hookType": "myth_fact",
+    "visualStyle": "checklist_card",
+    "hook": "Myth: 80C tax planning is complicated. Fact: Estimate your deductions step-by-step!",
+    "cta": "Compare your inputs",
+    "firstCaptionLine": "myth: 80c tax planning is complicated",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "80C deduction",
+      "tax savings",
+      "income tax India",
+      "EPF PPF ELSS",
+      "tax planning",
+      "financial calculator"
+    ]
   }
 ]
