@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "brand": "RupeeKit",
+  "purpose": "Daily Nano Banana Pro / Gemini image enhancement prompts for manual-review social posting.",
+  "recommendedGithubPath": "automation/prompt-packs/social-image-enhancement-prompts.json",
+  "usage": {
+    "dailyWorkflow": "Use after Workflow 8D-G2 final images are created and before manual posting.",
+    "bestPractice": "For best logo consistency, enhance pre-logo images first, then run official RupeeKit logo overlay again. If using final logo-overlaid images, use logo-lock prompts.",
+    "manualReview": "Always review spelling, logo, ratio, and finance claims before posting."
+  },
+  "globalRules": {
+    "brandPalette": [
+      "#0F2A44",
+      "#08213A",
+      "#1E5B8F",
+      "#20A66A",
+      "#EAF8F1",
+      "#EEF6FF",
+      "#FFFFFF",
+      "#DCE7F2",
+      "#102033"
+    ],
+    "forbiddenColors": [
+      "orange",
+      "red",
+      "yellow",
+      "purple",
+      "pink",
+      "neon",
+      "rainbow",
+      "multicolor gradients"
+    ],
+    "forbiddenContent": [
+      "humans",
+      "faces",
+      "mascots",
+      "fake logos",
+      "fake URLs",
+      "watermarks",
+      "guaranteed savings",
+      "guaranteed returns",
+      "official government calculator",
+      "tax advice"
+    ],
+    "spellingMustBeCorrect": [
+      "Tuition",
+      "Insurance",
+      "Principal",
+      "Investments",
+      "Contributions",
+      "Deductions",
+      "Calculator",
+      "Estimate"
+    ]
+  },
+  "prompts": {
+    "pinterest": {
+      "title": "Pinterest 2:3 high-engagement enhancement prompt",
+      "targetAspectRatio": "2:3",
+      "targetSize": "1000x1500 or 1024x1536",
+      "prompt": "Enhance this uploaded RupeeKit finance calculator image into a premium Pinterest pin.\n\nPLATFORM GOAL:\nCreate a 2:3 vertical Pinterest image that is save-worthy, click-worthy, clean, and mobile-readable.\n\nVERY IMPORTANT BRAND RULE:\nKeep the RupeeKit logo exactly as it appears in the uploaded image.\nDo not redraw it, recreate it, simplify it, recolor it, move it, resize it, or replace it.\nDo not replace the logo with an R icon.\nIf exact logo preservation is not possible, keep the logo area clean and blank so the official RupeeKit logo can be overlaid later.\n\nDESIGN DIRECTION:\nMake the image look like a professional Indian fintech calculator brand graphic.\nUse a strong vertical flow:\n1. Large readable headline at the top\n2. 3 to 5 clean finance cards/checklist items in the middle\n3. Calculator/estimate panel or soft CTA near the bottom\n\nVISUAL ENHANCEMENT:\nMake visible improvements to spacing, alignment, hierarchy, card design, icon consistency, shadows, borders, and mobile readability.\nUse rounded cards, thin borders, subtle shadows, clean calculator UI panels, and premium white space.\nThe result should look clearly better than the uploaded image, not just filtered.\n\nCOLOR CONTROL:\nUse only RupeeKit navy blue, deep blue, green, pale green, pale blue, white, and soft grey.\nDo not add orange, red, yellow, purple, pink, neon, rainbow, or multicolor effects.\nDo not make the design louder with extra colors.\n\nTEXT RULES:\nKeep text short and readable.\nCorrect spelling mistakes only.\nDo not add long paragraphs or tiny unreadable text.\nDo not add random numbers or fake calculator results.\nCheck every visible word letter-by-letter before final output.\nTuition, Insurance, Principal, Investments, Contributions, Deductions, Calculator, and Estimate must be spelled correctly.\n\nFINANCE SAFETY:\nDo not say guaranteed savings, guaranteed returns, official government calculator, tax advice, assured benefits, or maximize guaranteed tax saving.\nKeep the image educational and estimate-based.\n\nDO NOT ADD:\nHumans, faces, mascots, stock photos, fake logos, fake URLs, watermarks, extra brand names, clickbait badges, or noisy background decoration.\n\nFINAL OUTPUT:\nA clean 2:3 vertical Pinterest-ready image with premium RupeeKit fintech styling, correct spelling, controlled brand colors, and the RupeeKit logo preserved exactly."
+    },
+    "instagram": {
+      "title": "Instagram 1:1 feed enhancement prompt",
+      "targetAspectRatio": "1:1",
+      "targetSize": "1080x1080",
+      "prompt": "Enhance this uploaded RupeeKit finance calculator image for an Instagram square post.\n\nPLATFORM GOAL:\nCreate a clean 1:1 Instagram feed image that is scroll-stopping, premium, readable on mobile, and brand-safe.\n\nLOGO RULE:\nKeep the RupeeKit logo exactly unchanged.\nDo not redraw, recreate, recolor, move, resize, simplify, remove, or replace the logo.\nDo not replace it with an R icon.\nIf exact logo preservation is not possible, leave the logo area clean and blank for official overlay later.\n\nDESIGN DIRECTION:\nMake the image look like a premium Indian fintech calculator graphic.\nImprove the headline, card layout, spacing, icon consistency, shadows, and readability.\nKeep the design minimal, trusted, and professional.\n\nCOLOR CONTROL:\nUse only RupeeKit navy blue, deep blue, green, pale green, pale blue, white, and soft grey.\nDo not add orange, red, yellow, purple, pink, neon, rainbow, or extra bright colors.\n\nTEXT RULES:\nCorrect spelling mistakes only.\nDo not add long sentences.\nDo not add tiny text.\nDo not add fake results or random numbers.\nCheck every visible word letter-by-letter.\nTuition, Insurance, Principal, Investments, Contributions, Deductions, Calculator, and Estimate must be spelled correctly.\n\nFINANCE SAFETY:\nDo not say guaranteed savings, guaranteed returns, official government calculator, tax advice, or assured benefits.\nKeep the message educational and estimate-based.\n\nDO NOT ADD:\nHumans, faces, mascots, fake logos, fake URLs, watermarks, stock photos, or clickbait elements.\n\nFINAL OUTPUT:\nA high-resolution 1080x1080 Instagram-ready image that looks cleaner, sharper, more premium, and still consistent with RupeeKit brand identity."
+    },
+    "facebook_x": {
+      "title": "Facebook/X 16:9 landscape enhancement prompt",
+      "targetAspectRatio": "16:9",
+      "targetSize": "1200x675",
+      "prompt": "Enhance this uploaded RupeeKit finance calculator image for Facebook and X landscape posting.\n\nPLATFORM GOAL:\nCreate a clean 16:9 social image that is readable in Facebook/X feeds, balanced, professional, and brand-safe.\n\nLOGO RULE:\nKeep the RupeeKit logo exactly unchanged.\nDo not redraw, recreate, recolor, move, resize, simplify, remove, or replace the logo.\nDo not replace it with an R icon.\nIf exact logo preservation is not possible, leave the logo area clean and blank for official overlay later.\n\nDESIGN DIRECTION:\nImprove the image as a premium Indian fintech calculator graphic.\nMake the headline clear, the central value proposition readable, and the cards/calculator panel balanced across the wide canvas.\nUse clean horizontal spacing and avoid crowding.\n\nCOLOR CONTROL:\nUse only RupeeKit navy blue, deep blue, green, pale green, pale blue, white, and soft grey.\nDo not add orange, red, yellow, purple, pink, neon, rainbow, or multicolor gradients.\n\nTEXT RULES:\nCorrect spelling mistakes only.\nDo not add long copy, tiny labels, random numbers, fake results, or new finance claims.\nCheck every visible word letter-by-letter.\nTuition, Insurance, Principal, Investments, Contributions, Deductions, Calculator, and Estimate must be spelled correctly.\n\nFINANCE SAFETY:\nDo not say guaranteed savings, guaranteed returns, official government calculator, tax advice, or assured benefits.\nKeep the message educational and estimate-based.\n\nDO NOT ADD:\nHumans, faces, mascots, fake logos, fake URLs, watermarks, stock photos, or clickbait badges.\n\nFINAL OUTPUT:\nA high-resolution 1200x675 Facebook/X-ready image that is crisp, professional, readable, and consistent with RupeeKit brand identity."
+    },
+    "spelling_fix_only": {
+      "title": "Fix-only prompt for spelling mistakes",
+      "targetAspectRatio": "same as uploaded image",
+      "targetSize": "same as uploaded image",
+      "prompt": "Edit this uploaded image with one type of change only: fix spelling mistakes.\n\nCorrect only visible spelling errors.\nDo not redesign the image.\nDo not change layout, colors, icons, cards, spacing, background, calculator panel, or logo.\nDo not move, redraw, resize, recolor, remove, or replace the RupeeKit logo.\nDo not add any new text, icons, colors, badges, URLs, or watermarks.\nKeep the same aspect ratio and same design.\n\nKnown corrections:\nTuiction -> Tuition\nTution -> Tuition\nTuittition -> Tuition\nInsurence -> Insurance\nPrincial -> Principal\nInvestements -> Investments\n\nBefore final output, inspect every visible word letter-by-letter and ensure all spelling is correct."
+    }
+  },
+  "emailInsertion": {
+    "headline": "Nano Banana Pro Enhancement Prompts",
+    "instruction": "Use these only if the image needs manual enhancement before posting. Upload the final or pre-logo image to Gemini/Nano Banana Pro, paste the relevant platform prompt, review output, then post manually."
+  }
+}
