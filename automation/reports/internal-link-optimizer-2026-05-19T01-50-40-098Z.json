@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-05-19T01:50:40.098Z",
+  "workflow": "RupeeKit Workflow 7 - Homepage Internal Link Optimizer",
+  "status": "UPDATED",
+  "liveToolCount": 8,
+  "eligibleToolCount": 7,
+  "excludedNotReadyToolCount": 1,
+  "categories": [
+    "Salary",
+    "Loans",
+    "Investments",
+    "Tax",
+    "Savings"
+  ],
+  "homepageCoverage": [
+    {
+      "slug": "salary-in-hand-calculator-india",
+      "name": "Salary In-Hand Calculator India",
+      "category": "Salary"
+    },
+    {
+      "slug": "emi-calculator-india",
+      "name": "EMI Calculator India",
+      "category": "Loans"
+    },
+    {
+      "slug": "sip-calculator-india",
+      "name": "SIP Calculator India",
+      "category": "Investments"
+    },
+    {
+      "slug": "gst-calculator-india",
+      "name": "GST Calculator India",
+      "category": "Tax"
+    },
+    {
+      "slug": "fd-calculator-india",
+      "name": "FD Calculator India",
+      "category": "Savings"
+    },
+    {
+      "slug": "hra-exemption-calculator-india",
+      "name": "HRA Exemption Calculator India",
+      "category": "Tax"
+    },
+    {
+      "slug": "80c-deduction-calculator-india",
+      "name": "Section 80C Deduction Calculator India",
+      "category": "Tax"
+    }
+  ],
+  "changedToolCount": 1,
+  "changes": [
+    {
+      "slug": "80c-deduction-calculator-india",
+      "name": "Section 80C Deduction Calculator India",
+      "oldRelated": [
+        "income-tax-calculator-old-vs-new-regime-india",
+        "hra-exemption-calculator-india",
+        "salary-in-hand-calculator-india"
+      ],
+      "newRelated": [
+        "hra-exemption-calculator-india",
+        "salary-in-hand-calculator-india",
+        "gst-calculator-india"
+      ],
+      "invalidRemoved": [
+        "income-tax-calculator-old-vs-new-regime-india"
+      ]
+    }
+  ],
+  "invalidRelatedBefore": [
+    {
+      "slug": "80c-deduction-calculator-india",
+      "invalidRelated": [
+        "income-tax-calculator-old-vs-new-regime-india"
+      ]
+    }
+  ],
+  "notReadyTools": [
+    {
+      "slug": "income-tax-calculator-old-vs-new-regime-india",
+      "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+      "reason": "Excluded from internal linking because it has incomplete/truncated metadata, too little content, or invalid tool shape."
+    }
+  ],
+  "safety": {
+    "formulasPreserved": true,
+    "inputsPreserved": true,
+    "outputsPreserved": true,
+    "onlyRelatedFieldUpdated": true,
+    "notReadyLiveToolsExcludedFromRelatedLinks": true,
+    "homepageAlreadyDynamic": true
+  }
+}
