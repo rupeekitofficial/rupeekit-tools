@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-05-19T04:30:18.434Z",
+  "workflow": "RupeeKit Workflow 9 Scheduler - Daily Final Social Posting Pack",
+  "status": "POSTING_PACK_CREATED",
+  "mode": "daily_scheduler_manual_review_only_no_auto_posting",
+  "slug": "80c-deduction-calculator-india",
+  "toolName": "Section 80C Deduction Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+  "finalImageBatch": {
+    "manifestPath": "automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix/manifest.json",
+    "folderPath": "automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix",
+    "sourceWorkflow": "RupeeKit Workflow 8D-G2 - Logo Overlay Finalizer",
+    "generatedAt": "2026-05-19T04:20:14.767Z"
+  },
+  "creativeSource": {
+    "found": true,
+    "sourcePath": "automation/ai-social-creatives/80c-deduction-calculator-india/2026-05-19T03-37-12-003Z-rea8q2/creative-pack.json",
+    "sourceType": "ai-social-creatives"
+  },
+  "platforms": {
+    "facebook": {
+      "copy": "Myth: 80C tax planning is complicated. Fact: Estimating your deductions can be simple and straightforward! Unlock potential tax savings under Section 80C with RupeeKit's easy-to-use calculator. Understand how contributions to EPF, PPF, ELSS, home loan principal, and even children's tuition fees can help reduce your taxable income, up to the ₹1,50,000 limit. Our tool guides you step-by-step to input your details and provides an educational estimate of your eligible deductions. Don't leave your tax planning to chance. Compare your inputs and plan smarter. Get started today: https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+      "hashtags": [
+        "80CDeduction",
+        "TaxSavings",
+        "IncomeTaxIndia",
+        "RupeeKit"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix/facebook.png",
+      "manualInstructions": [
+        "Create a RupeeKit Facebook Page post.",
+        "Attach the Facebook final PNG image.",
+        "Paste the copy and hashtags.",
+        "Use the calculator URL once.",
+        "Do not boost or buy traffic during test phase."
+      ]
+    },
+    "instagram": {
+      "caption": "Myth: 80C tax planning is complicated. Fact: Estimate your deductions step-by-step! 💡 RupeeKit's 80C Deduction Calculator makes it simple to understand your potential tax savings. Input your EPF, PPF, ELSS, home loan principal, and tuition fee contributions to get an educational estimate. Maximize your ₹1,50,000 deduction limit with ease. Plan your finances effectively and compare your inputs. Try it now! 👉 https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+      "hashtags": [
+        "80C",
+        "TaxPlanning",
+        "FinancialFreedom",
+        "SavingsGoals",
+        "InvestSmart",
+        "RupeeKitCalculator",
+        "IndiaTax",
+        "MoneyMatters"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix/instagram.png",
+      "manualInstructions": [
+        "Create an Instagram image post under the RupeeKit brand.",
+        "Upload the Instagram final PNG image.",
+        "Paste the caption and hashtags.",
+        "Use website link in bio or plain caption text where allowed.",
+        "Do not use personal identity or personal profile."
+      ]
+    },
+    "pinterest": {
+      "title": "Estimate Your 80C Tax Deductions Step-by-Step with RupeeKit",
+      "description": "Think 80C tax planning is complex? Myth debunked! RupeeKit's 80C Deduction Calculator offers a simple, step-by-step way to estimate your potential tax savings. Easily input your contributions to EPF, PPF, ELSS, home loan principal, and children's tuition fees. Get an educational estimate of your eligible deductions up to the ₹1,50,000 limit. Start planning your taxes smarter... https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+      "destinationLink": "https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+      "hashtags": [
+        "80CDeduction",
+        "TaxCalculator",
+        "FinancialPlanning",
+        "IndiaFinance"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix/pinterest.png",
+      "manualInstructions": [
+        "Create a Pinterest pin under the RupeeKit brand.",
+        "Upload the Pinterest final PNG image.",
+        "Use https://www.rupeekit.co.in/tools/80c-deduction-calculator-india as the destination link.",
+        "Paste the title and description.",
+        "Keep board/category finance-education focused."
+      ]
+    },
+    "x": {
+      "post": "Myth: 80C tax planning is complicated. Fact: Estimate your deductions step-by-step! Easily calculate potential tax savings from EPF, PPF, ELSS, home loan... https://www.rupeekit.co.in/tools/80c-deduction-calculator-india 80C TaxSavings RupeeKit",
+      "hashtags": [
+        "80C",
+        "TaxSavings",
+        "RupeeKit"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix/facebook.png",
+      "manualInstructions": [
+        "Create an X/Twitter post under the RupeeKit brand.",
+        "Attach the Facebook final PNG image.",
+        "Paste the short post and hashtags.",
+        "Verify character length before posting.",
+        "Avoid engagement bait or clickbait."
+      ]
+    }
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "noPaidTraffic": true,
+    "noAdClickLanguage": true,
+    "noFakeTraffic": true,
+    "manualReviewRequired": true,
+    "finalImagesArePng": true
+  }
+}
