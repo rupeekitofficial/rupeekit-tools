@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-19T01:30:41.716Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "AUTO_LATEST_LIVE_TOOL",
+  "slug": "80c-deduction-calculator-india",
+  "name": "Section 80C Deduction Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Use RupeeKit's 80C deduction calculator to estimate your eligible tax savings from EPF, PPF, ELSS, home loan principal, and more in India. Maximize your tax planning.",
+    "metaDescription": "Estimate your eligible tax savings from EPF, PPF, ELSS, home loan principal, and more with RupeeKit's 80C deduction calculator. Maximize your tax",
+    "faqCount": 5
+  },
+  "after": {
+    "shortDescription": "Estimate your potential tax savings under Section 80C with RupeeKit's calculator. Maximize deductions from EPF, PPF, ELSS, home loan principal, and more.",
+    "metaDescription": "Use RupeeKit's 80C deduction calculator to estimate tax savings from EPF, PPF, ELSS, and other eligible investments. Plan your finances effectively",
+    "faqCount": 7,
+    "howToUseCount": 6,
+    "assumptionsCount": 5,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 3,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Updated shortDescription and metaDescription for clarity and SEO compliance.",
+    "Rewrote formulaExplanation to be more detailed, within word count, and emphasize educational estimates.",
+    "Rewrote example to be more practical and within word count, mentioning educational estimates.",
+    "Expanded FAQs to 7 items, adding more common questions and India-specific context.",
+    "Added 'howToUse' section with 6 clear steps.",
+    "Added 'assumptions' section with 5 practical assumptions.",
+    "Added 'commonMistakes' section with 6 common errors.",
+    "Added 'contentSections' with 3 detailed sections, specific to 80C in India, including bullet points."
+  ]
+}
