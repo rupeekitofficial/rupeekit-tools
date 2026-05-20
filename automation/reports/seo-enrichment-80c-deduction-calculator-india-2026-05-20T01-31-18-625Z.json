@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-20T01:31:18.625Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "AUTO_LATEST_LIVE_TOOL",
+  "slug": "80c-deduction-calculator-india",
+  "name": "Section 80C Deduction Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Estimate your potential tax savings under Section 80C with RupeeKit's calculator. Maximize deductions from EPF, PPF, ELSS, home loan principal, and more.",
+    "metaDescription": "Use RupeeKit's 80C deduction calculator to estimate tax savings from EPF, PPF, ELSS, and other eligible investments. Plan your finances effectively",
+    "faqCount": 7
+  },
+  "after": {
+    "shortDescription": "Estimate your potential tax savings under Section 80C with RupeeKit's calculator. Maximize deductions from EPF, PPF, ELSS, home loan principal, and more.",
+    "metaDescription": "Use RupeeKit's 80C deduction calculator to estimate tax savings from EPF, PPF, ELSS, and other eligible investments. Plan your finances effectively",
+    "faqCount": 7,
+    "howToUseCount": 6,
+    "assumptionsCount": 5,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 3,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Reviewed and confirmed 'shortDescription' to be under 180 characters.",
+    "Reviewed and confirmed 'metaDescription' to be between 130-155 characters and complete.",
+    "Reviewed and confirmed 'formulaExplanation' to be 120-240 words, helpful, conservative, and emphasize educational estimates.",
+    "Reviewed and confirmed 'example' to be 80-180 words, clear, practical, and mention educational estimates.",
+    "Reviewed and confirmed 'faqs' to contain 6-8 items with conservative and finance-safe answers.",
+    "Reviewed and confirmed 'howToUse' to contain 4-6 clear steps.",
+    "Reviewed and confirmed 'assumptions' to contain 4-6 practical assumptions emphasizing educational estimates.",
+    "Reviewed and confirmed 'commonMistakes' to contain 4-6 relevant mistakes."
+  ]
+}
