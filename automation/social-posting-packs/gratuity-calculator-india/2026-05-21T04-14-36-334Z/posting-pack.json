@@ -1,0 +1,106 @@
+{
+  "generatedAt": "2026-05-21T04:14:36.334Z",
+  "workflow": "RupeeKit Workflow 9 Scheduler - Daily Final Social Posting Pack",
+  "status": "POSTING_PACK_CREATED",
+  "mode": "daily_scheduler_manual_review_only_no_auto_posting",
+  "slug": "gratuity-calculator-india",
+  "toolName": "Gratuity Calculator India: Estimate Your Gratuity Online",
+  "pageUrl": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+  "finalImageBatch": {
+    "manifestPath": "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/manifest.json",
+    "folderPath": "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14",
+    "sourceWorkflow": "RupeeKit Workflow 8D-G2 - Logo Overlay Finalizer",
+    "generatedAt": "2026-05-21T04:13:41.101Z"
+  },
+  "creativeSource": {
+    "found": true,
+    "sourcePath": "automation/ai-social-creatives/gratuity-calculator-india/2026-05-21T04-10-58-941Z-iv5v3i/creative-pack.json",
+    "sourceType": "ai-social-creatives"
+  },
+  "platforms": {
+    "facebook": {
+      "copy": "Planning for retirement or a career transition? Understanding your potential gratuity payout is a key part of your financial future. RupeeKit's Gratuity Calculator India helps you estimate this important employee benefit. Simply input your last drawn salary and years of service, and our tool provides an educational estimate. Whether your employer is covered under the Gratuity Act, 1972, or not, get clarity for your financial planning today. Get an educational estimate: https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+      "hashtags": [
+        "GratuityCalculator",
+        "IndiaFinance",
+        "RetirementPlanning",
+        "EmployeeBenefits",
+        "FinancialPlanning"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/facebook.png",
+      "manualInstructions": [
+        "Create a RupeeKit Facebook Page post.",
+        "Attach the Facebook final PNG image.",
+        "Paste the copy and hashtags.",
+        "Use the calculator URL once.",
+        "Do not boost or buy traffic during test phase."
+      ]
+    },
+    "instagram": {
+      "caption": "Dedicated years to your career? Your gratuity is a significant benefit for your long-term service. RupeeKit's Gratuity Calculator India makes it easy to get an educational estimate of your potential payout. Just enter your last drawn salary and service years to understand how the Gratuity Act, 1972, or company policies might affect your estimate. Plan confidently for your future financial well-being. Visit: https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+      "hashtags": [
+        "Gratuity",
+        "India",
+        "FinanceTools",
+        "CareerPlanning",
+        "RetirementBenefits",
+        "EstimateYourGratuity",
+        "RupeeKit"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/instagram.png",
+      "manualInstructions": [
+        "Create an Instagram image post under the RupeeKit brand.",
+        "Upload the Instagram final PNG image.",
+        "Paste the caption and hashtags.",
+        "Use website link in bio or plain caption text where allowed.",
+        "Do not use personal identity or personal profile."
+      ]
+    },
+    "pinterest": {
+      "title": "Gratuity Calculator India: Estimate Your Payout",
+      "description": "Curious about your potential gratuity? RupeeKit's Gratuity Calculator India helps you estimate this crucial employee benefit. Input your salary and service years to get an educational estimate, whether your employer is covered by the Gratuity Act or not. Plan your future with clarity. Get an educational estimate today: https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+      "destinationLink": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+      "hashtags": [
+        "GratuityEstimate",
+        "IndiaFinance",
+        "RetirementPlanning",
+        "EmployeeBenefits",
+        "FinancialTools"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/pinterest.png",
+      "manualInstructions": [
+        "Create a Pinterest pin under the RupeeKit brand.",
+        "Upload the Pinterest final PNG image.",
+        "Use https://www.rupeekit.co.in/tools/gratuity-calculator-india as the destination link.",
+        "Paste the title and description.",
+        "Keep board/category finance-education focused."
+      ]
+    },
+    "x": {
+      "post": "Planning your retirement or career change? Estimate your potential gratuity payout easily with RupeeKit's Gratuity Calculator India. Get an educational estimate... https://www.rupeekit.co.in/tools/gratuity-calculator-india Gratuity India Finance",
+      "hashtags": [
+        "Gratuity",
+        "India",
+        "Finance"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/facebook.png",
+      "manualInstructions": [
+        "Create an X/Twitter post under the RupeeKit brand.",
+        "Attach the Facebook final PNG image.",
+        "Paste the short post and hashtags.",
+        "Verify character length before posting.",
+        "Avoid engagement bait or clickbait."
+      ]
+    }
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "noPaidTraffic": true,
+    "noAdClickLanguage": true,
+    "noFakeTraffic": true,
+    "manualReviewRequired": true,
+    "finalImagesArePng": true
+  }
+}
