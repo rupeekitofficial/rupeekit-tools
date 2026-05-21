@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-05-21T04:07:42.680Z",
+  "workflow": "RupeeKit Workflow 3 - Technical SEO Checker",
+  "status": "PASS",
+  "targetUrl": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+  "tool": {
+    "slug": "gratuity-calculator-india",
+    "name": "Gratuity Calculator India: Estimate Your Gratuity Online",
+    "category": "Retirement",
+    "targetKeyword": "gratuity calculator India",
+    "metaDescription": "Use RupeeKit's Gratuity Calculator to estimate your gratuity in India. Get an accurate calculation based on your last drawn salary and years of service."
+  },
+  "extracted": {
+    "title": "Gratuity Calculator India: Estimate Your Gratuity Online | RupeeKit",
+    "metaDescription": "Use RupeeKit&#x27;s Gratuity Calculator to estimate your gratuity in India. Get an accurate calculation based on your last drawn salary and years of service.",
+    "canonicalDetected": true
+  },
+  "checks": [
+    {
+      "name": "Live page fetched",
+      "pass": true,
+      "detail": "HTML length: 51904"
+    },
+    {
+      "name": "Tool name visible in page",
+      "pass": true,
+      "detail": "Gratuity Calculator India: Estimate Your Gratuity Online"
+    },
+    {
+      "name": "Page title exists",
+      "pass": true,
+      "detail": "Gratuity Calculator India: Estimate Your Gratuity Online | RupeeKit"
+    },
+    {
+      "name": "Meta description exists",
+      "pass": true,
+      "detail": "Use RupeeKit&#x27;s Gratuity Calculator to estimate your gratuity in India. Get an accurate calculation based on your last drawn salary and years of service."
+    },
+    {
+      "name": "Canonical appears valid",
+      "pass": true,
+      "detail": "/tools/gratuity-calculator-india"
+    },
+    {
+      "name": "Calculator UI appears",
+      "pass": true,
+      "detail": "Checks for calculator section text"
+    },
+    {
+      "name": "No default calculation error visible",
+      "pass": true,
+      "detail": "No Check inputs text found"
+    },
+    {
+      "name": "robots.txt reachable",
+      "pass": true,
+      "detail": "robots.txt length: 72"
+    },
+    {
+      "name": "sitemap.xml reachable",
+      "pass": true,
+      "detail": "sitemap.xml length: 2741"
+    },
+    {
+      "name": "Sitemap contains target URL",
+      "pass": true,
+      "detail": "Target URL found"
+    }
+  ],
+  "failed": [],
+  "recommendation": "No immediate technical action needed. Continue monitoring indexing and analytics."
+}
