@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-05-21T08:49:35.445Z",
+  "workflow": "RupeeKit Workflow 9 Scheduler - Daily Final Social Posting Pack",
+  "status": "POSTING_PACK_CREATED",
+  "mode": "daily_scheduler_manual_review_only_no_auto_posting",
+  "slug": "gst-calculator-india",
+  "toolName": "GST Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/gst-calculator-india",
+  "finalImageBatch": {
+    "manifestPath": "automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6/manifest.json",
+    "folderPath": "automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6",
+    "sourceWorkflow": "RupeeKit Workflow 8D-G2 - Logo Overlay Finalizer",
+    "generatedAt": "2026-05-21T08:39:30.847Z"
+  },
+  "creativeSource": {
+    "found": true,
+    "sourcePath": "automation/ai-social-creatives/gst-calculator-india/2026-05-21T07-51-06-254Z-8zzvdp/creative-pack.json",
+    "sourceType": "ai-social-creatives"
+  },
+  "platforms": {
+    "facebook": {
+      "copy": "Ever wondered how much GST truly impacts your purchase or sale price? Our GST Calculator helps you quickly compare values by adding or removing GST from any amount. Whether you're a business owner or a consumer, understanding the GST component is key for clear financial planning. Get an educational estimate of CGST, SGST, or total GST amount. Simplify your calculations today! Check your estimate at: https://www.rupeekit.co.in/tools/gst-calculator-india",
+      "hashtags": [
+        "GSTIndia",
+        "GSTCalculator",
+        "TaxTools",
+        "RupeeKit",
+        "FinanceCalculators",
+        "IndianTax"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6/facebook.png",
+      "manualInstructions": [
+        "Create a RupeeKit Facebook Page post.",
+        "Attach the Facebook final PNG image.",
+        "Paste the copy and hashtags.",
+        "Use the calculator URL once.",
+        "Do not boost or buy traffic during test phase."
+      ]
+    },
+    "instagram": {
+      "caption": "Navigating GST calculations can be tricky, but it doesn't have to be! Our free GST Calculator helps you instantly understand the impact of GST on your transactions. Easily add or remove GST from a base price to see the total amount, or break down the CGST and SGST components. It's perfect for quick checks and informational planning. Simplify your numbers today! Try it now: https://www.rupeekit.co.in/tools/gst-calculator-india",
+      "hashtags": [
+        "GST",
+        "IndiaGST",
+        "TaxCalculation",
+        "InvoiceValue",
+        "RupeeKitTools",
+        "FinanceSimplified",
+        "BusinessIndia",
+        "PersonalFinance",
+        "Calculator"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6/instagram.png",
+      "manualInstructions": [
+        "Create an Instagram image post under the RupeeKit brand.",
+        "Upload the Instagram final PNG image.",
+        "Paste the caption and hashtags.",
+        "Use website link in bio or plain caption text where allowed.",
+        "Do not use personal identity or personal profile."
+      ]
+    },
+    "pinterest": {
+      "title": "GST Calculator India: Add or Remove GST with Ease",
+      "description": "Quickly compare prices with and without GST using RupeeKit's free GST Calculator for India. Understand the breakdown of CGST, SGST, or total GST amount for any value. Perfect for businesses and consumers needing fast, educational estimates for financial planning. Simplify your tax calculations today! Explore the tool at: https://www.rupeekit.co.in/tools/gst-calculator-india",
+      "destinationLink": "https://www.rupeekit.co.in/tools/gst-calculator-india",
+      "hashtags": [
+        "GSTIndia",
+        "GSTCalculator",
+        "TaxTools",
+        "RupeeKit"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6/pinterest.png",
+      "manualInstructions": [
+        "Create a Pinterest pin under the RupeeKit brand.",
+        "Upload the Pinterest final PNG image.",
+        "Use https://www.rupeekit.co.in/tools/gst-calculator-india as the destination link.",
+        "Paste the title and description.",
+        "Keep board/category finance-education focused."
+      ]
+    },
+    "x": {
+      "post": "Price with GST vs. Price without? Our GST Calculator helps you instantly compare & understand the impact. Add or remove GST, see CGST/SGST estimates. Simplify... https://www.rupeekit.co.in/tools/gst-calculator-india GSTIndia GSTCalculator TaxTools",
+      "hashtags": [
+        "GSTIndia",
+        "GSTCalculator",
+        "TaxTools"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6/facebook.png",
+      "manualInstructions": [
+        "Create an X/Twitter post under the RupeeKit brand.",
+        "Attach the Facebook final PNG image.",
+        "Paste the short post and hashtags.",
+        "Verify character length before posting.",
+        "Avoid engagement bait or clickbait."
+      ]
+    }
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "noPaidTraffic": true,
+    "noAdClickLanguage": true,
+    "noFakeTraffic": true,
+    "manualReviewRequired": true,
+    "finalImagesArePng": true
+  }
+}
