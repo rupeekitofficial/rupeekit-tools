@@ -1,0 +1,177 @@
+{
+  "generatedAt": "2026-05-21T04:11:52.644Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "mode": "gemini_low_cost_image_api_no_auto_posting",
+  "model": "gemini-2.5-flash-image",
+  "slug": "gratuity-calculator-india",
+  "toolName": "Gratuity Calculator India: Estimate Your Gratuity Online",
+  "pageUrl": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+  "sourceCreative": {
+    "generatedAt": "2026-05-21T04:10:58.941Z",
+    "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+    "status": "CREATIVE_PACK_CREATED"
+  },
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 490336,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/facebook.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "expectedWidth": 1080,
+      "expectedHeight": 1080,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 725639,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/instagram.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 653961,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/pinterest.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    }
+  ],
+  "promptsUsed": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "sourcePrompt": "A clean, modern graphic design with a white background. At the center, a stylized card or panel in deep blue with fresh green accents. On the card, display a simplified, visually appealing representation of a gratuity calculation formula or key inputs like 'Last Salary + DA', 'Years of Service', and 'Estimated Gratuity' using large, readable, brand-style text. Use abstract financial icons (e.g., stacked coins, growth arrow, calendar) subtly integrated. The overall aesthetic should be professional and convey financial utility, not a bank ad. Ensure the top-right corner is clear. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\nfacebook\n\nRequired aspect ratio:\n16:9\n\nUse this visual concept:\nA clean, modern graphic design with a white background. At the center, a stylized card or panel in deep blue with fresh green accents. On the card, display a simplified, visually appealing representation of a gratuity calculation formula or key inputs like 'Last Salary + DA', 'Years of Service', and 'Estimated Gratuity' using large, readable, brand-style text. Use abstract financial icons (e.g., stacked coins, growth arrow, calendar) subtly integrated. The overall aesthetic should be professional and convey financial utility, not a bank ad. Ensure the top-right corner is clear.  No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "sourcePrompt": "A square, modern graphic design with a light background. A central, clean 'formula card' element in deep blue with fresh green highlights. The card should clearly display short, readable text such as 'Estimate Your Gratuity' and key calculation inputs (e.g., 'Salary', 'Service Years'). Incorporate subtle, abstract financial graphics like a gentle upward curve or a calendar icon. The design should be simple, uncluttered, and convey a reliable finance utility. Keep the top-right corner empty. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\ninstagram\n\nRequired aspect ratio:\n1:1\n\nUse this visual concept:\nA square, modern graphic design with a light background. A central, clean 'formula card' element in deep blue with fresh green highlights. The card should clearly display short, readable text such as 'Estimate Your Gratuity' and key calculation inputs (e.g., 'Salary', 'Service Years'). Incorporate subtle, abstract financial graphics like a gentle upward curve or a calendar icon. The design should be simple, uncluttered, and convey a reliable finance utility. Keep the top-right corner empty.  No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "sourcePrompt": "A tall, elegant graphic design on a white background. Feature a prominent, vertically oriented 'formula card' in deep blue with fresh green accents. The card should present the concept of gratuity estimation with clear, large text like 'Gratuity Calculator India' at the top and 'Estimate Your Payout' below. Below that, visually represent the core components: 'Last Salary + DA', 'Service Years', and 'Your Estimate' with simple icons or progress bars. Use clean lines and a professional, finance-utility aesthetic. Ensure the top-right area is free of any design elements. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\npinterest\n\nRequired aspect ratio:\n2:3\n\nUse this visual concept:\nA tall, elegant graphic design on a white background. Feature a prominent, vertically oriented 'formula card' in deep blue with fresh green accents. The card should present the concept of gratuity estimation with clear, large text like 'Gratuity Calculator India' at the top and 'Estimate Your Payout' below. Below that, visually represent the core components: 'Last Salary + DA', 'Service Years', and 'Your Estimate' with simple icons or progress bars. Use clean lines and a professional, finance-utility aesthetic. Ensure the top-right area is free of any design elements.  No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 490336,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 725639,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 653961,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "officialLogoHandledBy8DG2": true,
+    "sanitizedBeforeGemini": true,
+    "generatedImageValidatedBeforeCommit": true,
+    "reEncodedToCleanPngBeforeCommit": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}
