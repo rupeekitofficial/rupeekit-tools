@@ -128,5 +128,31 @@
       "tax planning",
       "financial calculator"
     ]
+  },
+  {
+    "generatedAt": "2026-05-21T04:10:58.941Z",
+    "slug": "gratuity-calculator-india",
+    "toolName": "Gratuity Calculator India: Estimate Your Gratuity Online",
+    "angle": "example_scenario",
+    "hookType": "simple_explainer",
+    "visualStyle": "formula_card",
+    "hook": "Imagine you're nearing retirement or a career change. How much gratuity could you expect?",
+    "cta": "Get an educational estimate",
+    "firstCaptionLine": "planning for retirement or a career transition",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "gratuity",
+      "India",
+      "calculator",
+      "retirement",
+      "service",
+      "estimate",
+      "financial planning"
+    ]
   }
 ]

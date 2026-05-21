@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-05-21T04:10:58.941Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_image_generation_ready",
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "creativePack": {
+    "slug": "gratuity-calculator-india",
+    "toolName": "Gratuity Calculator India: Estimate Your Gratuity Online",
+    "pageUrl": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+    "angle": "example_scenario",
+    "hookType": "simple_explainer",
+    "visualStyle": "formula_card",
+    "hook": "Imagine you're nearing retirement or a career change. How much gratuity could you expect?",
+    "cta": "Get an educational estimate",
+    "keywords": [
+      "gratuity",
+      "India",
+      "calculator",
+      "retirement",
+      "service",
+      "estimate",
+      "financial planning"
+    ],
+    "facebook": {
+      "caption": "Planning for retirement or a career transition? Understanding your potential gratuity payout is a key part of your financial future. RupeeKit's Gratuity Calculator India helps you estimate this important employee benefit. Simply input your last drawn salary and years of service, and our tool provides an educational estimate. Whether your employer is covered under the Gratuity Act, 1972, or not, get clarity for your financial planning today. Get an educational estimate: https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+      "hashtags": [
+        "GratuityCalculator",
+        "IndiaFinance",
+        "RetirementPlanning",
+        "EmployeeBenefits",
+        "FinancialPlanning"
+      ]
+    },
+    "instagram": {
+      "caption": "Dedicated years to your career? Your gratuity is a significant benefit for your long-term service. RupeeKit's Gratuity Calculator India makes it easy to get an educational estimate of your potential payout. Just enter your last drawn salary and service years to understand how the Gratuity Act, 1972, or company policies might affect your estimate. Plan confidently for your future financial well-being. Visit: https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+      "hashtags": [
+        "Gratuity",
+        "India",
+        "FinanceTools",
+        "CareerPlanning",
+        "RetirementBenefits",
+        "EstimateYourGratuity",
+        "RupeeKit"
+      ]
+    },
+    "pinterest": {
+      "title": "Gratuity Calculator India: Estimate Your Payout",
+      "description": "Curious about your potential gratuity? RupeeKit's Gratuity Calculator India helps you estimate this crucial employee benefit. Input your salary and service years to get an educational estimate, whether your employer is covered by the Gratuity Act or not. Plan your future with clarity. Get an educational estimate today: https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+      "hashtags": [
+        "GratuityEstimate",
+        "IndiaFinance",
+        "RetirementPlanning",
+        "EmployeeBenefits",
+        "FinancialTools"
+      ]
+    },
+    "x": {
+      "post": "Planning your retirement or career change? Estimate your potential gratuity payout easily with RupeeKit's Gratuity Calculator India. Get an educational estimate... https://www.rupeekit.co.in/tools/gratuity-calculator-india Gratuity India Finance",
+      "hashtags": [
+        "Gratuity",
+        "India",
+        "Finance"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A clean, modern graphic design with a white background. At the center, a stylized card or panel in deep blue with fresh green accents. On the card, display a simplified, visually appealing representation of a gratuity calculation formula or key inputs like 'Last Salary + DA', 'Years of Service', and 'Estimated Gratuity' using large, readable, brand-style text. Use abstract financial icons (e.g., stacked coins, growth arrow, calendar) subtly integrated. The overall aesthetic should be professional and convey financial utility, not a bank ad. Ensure the top-right corner is clear. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A square, modern graphic design with a light background. A central, clean 'formula card' element in deep blue with fresh green highlights. The card should clearly display short, readable text such as 'Estimate Your Gratuity' and key calculation inputs (e.g., 'Salary', 'Service Years'). Incorporate subtle, abstract financial graphics like a gentle upward curve or a calendar icon. The design should be simple, uncluttered, and convey a reliable finance utility. Keep the top-right corner empty. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A tall, elegant graphic design on a white background. Feature a prominent, vertically oriented 'formula card' in deep blue with fresh green accents. The card should present the concept of gratuity estimation with clear, large text like 'Gratuity Calculator India' at the top and 'Estimate Your Payout' below. Below that, visually represent the core components: 'Last Salary + DA', 'Service Years', and 'Your Estimate' with simple icons or progress bars. Use clean lines and a professional, finance-utility aesthetic. Ensure the top-right area is free of any design elements. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, clutter, misleading claims, bank/loan ad look, watermark, tiny unreadable text, fake RupeeKit logo, fake RupeeKit wordmark, fake website URL, important elements in top-right corner",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "short setup notes"
+    },
+    "safetyNotes": [
+      "short internal safety notes"
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-21T04:10:58.941Z",
+    "slug": "gratuity-calculator-india",
+    "toolName": "Gratuity Calculator India: Estimate Your Gratuity Online",
+    "angle": "example_scenario",
+    "hookType": "simple_explainer",
+    "visualStyle": "formula_card",
+    "hook": "Imagine you're nearing retirement or a career change. How much gratuity could you expect?",
+    "cta": "Get an educational estimate",
+    "firstCaptionLine": "planning for retirement or a career transition",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "gratuity",
+      "India",
+      "calculator",
+      "retirement",
+      "service",
+      "estimate",
+      "financial planning"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

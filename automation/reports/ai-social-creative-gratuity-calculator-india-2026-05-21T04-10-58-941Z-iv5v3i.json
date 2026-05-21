@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-21T04:10:58.941Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "slug": "gratuity-calculator-india",
+  "toolName": "Gratuity Calculator India: Estimate Your Gratuity Online",
+  "pageUrl": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+  "angle": "example_scenario",
+  "hookType": "simple_explainer",
+  "visualStyle": "formula_card",
+  "hook": "Imagine you're nearing retirement or a career change. How much gratuity could you expect?",
+  "cta": "Get an educational estimate",
+  "historyLengthBefore": 5,
+  "historyLengthAfter": 6,
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}
