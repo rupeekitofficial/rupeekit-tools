@@ -1,0 +1,170 @@
+{
+  "generatedAt": "2026-05-21T04:06:03.640Z",
+  "workflow": "RupeeKit Workflow 1 - Keyword Research and Content Plan",
+  "status": "approved-plan",
+  "plan": {
+    "dayNumber": 4,
+    "date": "2026-05-21",
+    "keyword": "gratuity calculator India",
+    "slug": "gratuity-calculator-india",
+    "searchIntent": "Help employees estimate gratuity based on last drawn salary and completed years of service.",
+    "targetPersona": "Indian employees, HR professionals, individuals planning their finances and retirement benefits.",
+    "pageType": "calculator",
+    "seoPriority": "high",
+    "riskLevel": "medium",
+    "primaryGoal": "Provide an accurate and easy-to-use gratuity calculator for Indian employees, increasing site engagement and organic traffic.",
+    "titleOptions": [
+      "Gratuity Calculator India: Estimate Your Gratuity Online",
+      "Calculate Gratuity in India | RupeeKit Gratuity Tool",
+      "India Gratuity Calculator: Easy & Accurate Gratuity Estimate"
+    ],
+    "recommendedMetaTitle": "Gratuity Calculator India: Estimate Your Gratuity Online",
+    "recommendedMetaDescription": "Use RupeeKit's Gratuity Calculator to estimate your gratuity in India. Get an accurate calculation based on your last drawn salary and years of",
+    "h1": "Gratuity Calculator India: Estimate Your Gratuity Online",
+    "calculatorSpec": {
+      "inputs": [
+        {
+          "name": "lastDrawnBasicPlusDA",
+          "label": "Last Drawn Basic Salary + Dearness Allowance (per month)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "50000",
+          "helpText": "Enter your last drawn monthly Basic Salary plus Dearness Allowance."
+        },
+        {
+          "name": "totalYearsOfService",
+          "label": "Total Years of Service (e.g., 5.75 for 5 years 9 months)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "7.8",
+          "helpText": "Enter your total service period in years, including months as decimals (e.g., 7 years 8 months is 7.67)."
+        },
+        {
+          "name": "isCoveredUnderGratuityAct",
+          "label": "Is your employer covered under the Gratuity Act, 1972? (1 for Yes, 0 for No)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "1",
+          "helpText": "Enter 1 if your employer is covered under the Payment of Gratuity Act, 1972, otherwise enter 0."
+        },
+        {
+          "name": "effectiveYearsForCovered",
+          "label": "Effective Years for Gratuity (if covered under Act)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "8",
+          "helpText": "If covered under the Act: Service of 5 years and 6 months or more counts as a full year (e.g., 5 years 7 months = 6 years, 5 years 5 months = 5 years). Enter this rounded value."
+        },
+        {
+          "name": "effectiveYearsForNonCovered",
+          "label": "Effective Years for Gratuity (if NOT covered under Act)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "7",
+          "helpText": "If NOT covered under the Act: Usually based on completed years (e.g., 5 years 9 months = 5 years). Enter this truncated value."
+        }
+      ],
+      "formulaPlainEnglish": "The gratuity calculation depends on whether the employer is covered under the Payment of Gratuity Act, 1972. If covered, the formula is (Last Drawn Basic + DA / 26) * 15 * Effective Years of Service (rounded up if months >= 6). If not covered, the common practice is (Last Drawn Basic + DA / 30) * 15 * Effective Years of Service (usually truncated). The calculator uses the 'isCoveredUnderGratuityAct' input to switch between these two methods.",
+      "formula": "((isCoveredUnderGratuityAct * (lastDrawnBasicPlusDA / 26) * 15 * effectiveYearsForCovered) + ((1 - isCoveredUnderGratuityAct) * (lastDrawnBasicPlusDA / 30) * 15 * effectiveYearsForNonCovered))",
+      "outputFields": [
+        "Estimated Gratuity Amount"
+      ]
+    },
+    "contentBrief": {
+      "introAngle": "Understand the importance of gratuity as a valuable employee benefit in India. Our Gratuity Calculator helps you quickly estimate your potential payout.",
+      "mustCover": [
+        "What is Gratuity and its significance in India?",
+        "Eligibility criteria for Gratuity under the Payment of Gratuity Act, 1972 (5 years continuous service).",
+        "Detailed explanation of how Gratuity is calculated for employers covered under the Act.",
+        "Common practices for Gratuity calculation for employers not covered under the Act.",
+        "Key provisions of the Payment of Gratuity Act, 1972.",
+        "Taxability of Gratuity in India for government and non-government employees.",
+        "Maximum Gratuity limit as per current regulations.",
+        "Factors affecting gratuity payment (resignation, termination, death, disability)."
+      ],
+      "exampleScenario": "An employee, Mr. Sharma, has completed 7 years and 8 months of service. His last drawn Basic Salary + Dearness Allowance is ₹50,000 per month. His employer is covered under the Gratuity Act, 1972. Calculate his estimated gratuity.",
+      "faqQuestions": [
+        "Who is eligible for gratuity in India?",
+        "How is gratuity calculated if my employer is not covered under the Gratuity Act?",
+        "Is gratuity taxable in India?",
+        "What is the maximum gratuity amount an employee can receive?",
+        "Does resignation affect gratuity payment?",
+        "What is the difference between gratuity and provident fund (PF)?"
+      ],
+      "internalLinks": [
+        {
+          "label": "Salary Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india"
+        },
+        {
+          "label": "EMI Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/emi-calculator-india"
+        },
+        {
+          "label": "SIP Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/sip-calculator-india"
+        },
+        {
+          "label": "GST Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/gst-calculator-india"
+        },
+        {
+          "label": "FD Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/fd-calculator-india"
+        }
+      ],
+      "trustNotes": [
+        "Uses commonly followed Indian HRA exemption calculation rules for educational purposes.",
+        "Explains assumptions clearly so users can understand how the estimate is calculated.",
+        "Designed as an informational calculator, not as personalized tax or financial advice.",
+        "Users should verify final tax treatment with official guidance or a qualified tax professional."
+      ],
+      "disclaimer": "This calculator is for educational and informational purposes only. It provides an estimate based on the inputs and assumptions shown. It is not tax, legal, investment, or financial advice. Please verify with official sources or consult a qualified professional before making tax or financial decisions."
+    },
+    "qualityGate": {
+      "shouldPublish": true,
+      "checks": [
+        {
+          "name": "clear search intent",
+          "pass": true,
+          "note": "The page directly addresses the user's intent to calculate gratuity in India."
+        },
+        {
+          "name": "calculator utility",
+          "pass": true,
+          "note": "The calculator provides a functional tool for estimating gratuity based on key inputs and legal provisions."
+        },
+        {
+          "name": "India context",
+          "pass": true,
+          "note": "All content and calculations are specifically tailored to the Indian legal and financial context, including the Gratuity Act, 1972."
+        },
+        {
+          "name": "no financial advice",
+          "pass": true,
+          "note": "Clear disclaimers are included to state that the tool provides estimates and not financial advice."
+        },
+        {
+          "name": "no guaranteed claims",
+          "pass": true,
+          "note": "Language uses 'estimate' and 'approximate' to avoid guaranteeing specific outcomes."
+        },
+        {
+          "name": "unique page angle",
+          "pass": true,
+          "note": "The calculator uniquely handles both employers covered and not covered under the Gratuity Act, which is a critical distinction for Indian users."
+        }
+      ]
+    },
+    "publishingPlan": {
+      "targetPath": "data/tools/gratuity-calculator-india.json",
+      "targetUrl": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+      "nextWorkflow": "Daily Page Publisher"
+    }
+  },
+  "nextStep": {
+    "workflow": "Workflow 2 - Daily Page Publisher",
+    "publishTarget": "data/tools/gratuity-calculator-india.json",
+    "liveUrl": "https://www.rupeekit.co.in/tools/gratuity-calculator-india"
+  }
+}
