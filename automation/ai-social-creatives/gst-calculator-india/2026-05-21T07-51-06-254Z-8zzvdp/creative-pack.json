@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-05-21T07:51:06.254Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_image_generation_ready",
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "creativePack": {
+    "slug": "gst-calculator-india",
+    "toolName": "GST Calculator India",
+    "pageUrl": "https://www.rupeekit.co.in/tools/gst-calculator-india",
+    "angle": "comparison",
+    "hookType": "question",
+    "visualStyle": "premium_minimal_card",
+    "hook": "Price with GST vs. Price without? Know the difference.",
+    "cta": "Check your estimate",
+    "keywords": [
+      "GST calculator",
+      "GST India",
+      "tax calculation",
+      "invoice value",
+      "CGST",
+      "SGST",
+      "IGST",
+      "online tool"
+    ],
+    "facebook": {
+      "caption": "Ever wondered how much GST truly impacts your purchase or sale price? Our GST Calculator helps you quickly compare values by adding or removing GST from any amount. Whether you're a business owner or a consumer, understanding the GST component is key for clear financial planning. Get an educational estimate of CGST, SGST, or total GST amount. Simplify your calculations today! Check your estimate at: https://www.rupeekit.co.in/tools/gst-calculator-india",
+      "hashtags": [
+        "GSTIndia",
+        "GSTCalculator",
+        "TaxTools",
+        "RupeeKit",
+        "FinanceCalculators",
+        "IndianTax"
+      ]
+    },
+    "instagram": {
+      "caption": "Navigating GST calculations can be tricky, but it doesn't have to be! Our free GST Calculator helps you instantly understand the impact of GST on your transactions. Easily add or remove GST from a base price to see the total amount, or break down the CGST and SGST components. It's perfect for quick checks and informational planning. Simplify your numbers today! Try it now: https://www.rupeekit.co.in/tools/gst-calculator-india",
+      "hashtags": [
+        "GST",
+        "IndiaGST",
+        "TaxCalculation",
+        "InvoiceValue",
+        "RupeeKitTools",
+        "FinanceSimplified",
+        "BusinessIndia",
+        "PersonalFinance",
+        "Calculator"
+      ]
+    },
+    "pinterest": {
+      "title": "GST Calculator India: Add or Remove GST with Ease",
+      "description": "Quickly compare prices with and without GST using RupeeKit's free GST Calculator for India. Understand the breakdown of CGST, SGST, or total GST amount for any value. Perfect for businesses and consumers needing fast, educational estimates for financial planning. Simplify your tax calculations today! Explore the tool at: https://www.rupeekit.co.in/tools/gst-calculator-india",
+      "hashtags": [
+        "GSTIndia",
+        "GSTCalculator",
+        "TaxTools",
+        "RupeeKit"
+      ]
+    },
+    "x": {
+      "post": "Price with GST vs. Price without? Our GST Calculator helps you instantly compare & understand the impact. Add or remove GST, see CGST/SGST estimates. Simplify... https://www.rupeekit.co.in/tools/gst-calculator-india GSTIndia GSTCalculator TaxTools",
+      "hashtags": [
+        "GSTIndia",
+        "GSTCalculator",
+        "TaxTools"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A premium, minimal card design with a white/light background. Feature two distinct, large numerical values side-by-side, one labeled 'Price (Excl. GST)' in deep blue and the other 'Price (Incl. GST)' in fresh green. A subtle, modern arrow or equals sign graphic connects them. Below, in clean, readable text, display 'Understand the Difference' or 'Calculate GST Instantly'. Use a clean, sans-serif font. Ensure the top-right corner is clear for logo overlay. The overall aesthetic is a finance utility brand, not a bank ad. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A square, premium minimal card on a white/light background. Dominant visual elements are two large, stylized number blocks, one in deep blue showing 'Base Price' and another in fresh green showing 'Final Price'. A small, elegant '+' or 'GST' icon sits between them. Below, in clear, readable text, place 'GST Calculator' or 'Add/Remove GST'. Maintain a clean, uncluttered look, especially in the top-right. The style is modern, trustworthy finance utility. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A tall, elegant pin image with a white/light background. The design should be a premium minimal card focusing on comparison. At the top, a large, bold question: 'Price with GST or without?' in deep blue. Below, two distinct sections: one with a numerical display for 'Excluding GST' in a deep blue accent, and another for 'Including GST' in a fresh green accent. A subtle, modern graphic element like a divider or an arrow could separate them. At the bottom, in clean, readable text, 'Estimate with RupeeKit'. Ensure the top-right corner is kept clean. The overall feel should be a sophisticated finance utility tool. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, clutter, misleading claims, bank/loan ad look, watermark, tiny unreadable text, fake RupeeKit logo, fake RupeeKit wordmark, fake website URL, important elements in top-right corner",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "Focus on clean lines, clear typography, and a balanced layout. Ensure color accents (deep blue, fresh green) are distinct against the light background. Maintain ample negative space."
+    },
+    "safetyNotes": [
+      "Ensure all text on the image is strictly informational and does not imply guarantees.",
+      "Verify no personal or brand-specific logos/watermarks are generated.",
+      "Confirm the top-right corner is free of any generated design elements for logo overlay."
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-21T07:51:06.254Z",
+    "slug": "gst-calculator-india",
+    "toolName": "GST Calculator India",
+    "angle": "comparison",
+    "hookType": "question",
+    "visualStyle": "premium_minimal_card",
+    "hook": "Price with GST vs. Price without? Know the difference.",
+    "cta": "Check your estimate",
+    "firstCaptionLine": "ever wondered how much gst truly impacts your purchase or sale price",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "GST calculator",
+      "GST India",
+      "tax calculation",
+      "invoice value",
+      "CGST",
+      "SGST",
+      "IGST",
+      "online tool"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

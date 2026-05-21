@@ -154,5 +154,32 @@
       "estimate",
       "financial planning"
     ]
+  },
+  {
+    "generatedAt": "2026-05-21T07:51:06.254Z",
+    "slug": "gst-calculator-india",
+    "toolName": "GST Calculator India",
+    "angle": "comparison",
+    "hookType": "question",
+    "visualStyle": "premium_minimal_card",
+    "hook": "Price with GST vs. Price without? Know the difference.",
+    "cta": "Check your estimate",
+    "firstCaptionLine": "ever wondered how much gst truly impacts your purchase or sale price",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "GST calculator",
+      "GST India",
+      "tax calculation",
+      "invoice value",
+      "CGST",
+      "SGST",
+      "IGST",
+      "online tool"
+    ]
   }
 ]
