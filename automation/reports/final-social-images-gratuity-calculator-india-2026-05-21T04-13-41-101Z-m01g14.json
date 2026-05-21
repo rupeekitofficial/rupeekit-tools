@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-05-21T04:13:41.101Z",
+  "workflow": "RupeeKit Workflow 8D-G2 - Logo Overlay Finalizer",
+  "status": "FINAL_IMAGES_CREATED",
+  "slug": "gratuity-calculator-india",
+  "toolName": "Gratuity Calculator India: Estimate Your Gratuity Online",
+  "pageUrl": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+  "imageCount": 3,
+  "images": [
+    {
+      "platform": "facebook",
+      "width": 1200,
+      "height": 675,
+      "sourceFilePath": "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/facebook.png",
+      "sourceRawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/facebook.png",
+      "filePath": "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 292928,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/facebook.png",
+      "sourceImageRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "logoOverlay": {
+        "logoPath": "public/brand/rupeekit_logo_horizontal_transparent.png",
+        "logoUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/public/brand/rupeekit_logo_horizontal_transparent.png",
+        "position": "top-right",
+        "logoWidth": 192,
+        "paddingX": 42,
+        "paddingY": 24,
+        "backing": "white translucent rounded rectangle",
+        "officialLogoUsed": true
+      }
+    },
+    {
+      "platform": "instagram",
+      "width": 1080,
+      "height": 1080,
+      "sourceFilePath": "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/instagram.png",
+      "sourceRawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/instagram.png",
+      "filePath": "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 895791,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/instagram.png",
+      "sourceImageRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "logoOverlay": {
+        "logoPath": "public/brand/rupeekit_logo_horizontal_transparent.png",
+        "logoUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/public/brand/rupeekit_logo_horizontal_transparent.png",
+        "position": "top-right",
+        "logoWidth": 173,
+        "paddingX": 43,
+        "paddingY": 38,
+        "backing": "white translucent rounded rectangle",
+        "officialLogoUsed": true
+      }
+    },
+    {
+      "platform": "pinterest",
+      "width": 1000,
+      "height": 1500,
+      "sourceFilePath": "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/pinterest.png",
+      "sourceRawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/pinterest.png",
+      "filePath": "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 732154,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/pinterest.png",
+      "sourceImageRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "logoOverlay": {
+        "logoPath": "public/brand/rupeekit_logo_horizontal_transparent.png",
+        "logoUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/public/brand/rupeekit_logo_horizontal_transparent.png",
+        "position": "bottom-right",
+        "logoWidth": 140,
+        "paddingX": 45,
+        "paddingY": 68,
+        "backing": "white translucent rounded rectangle",
+        "officialLogoUsed": true
+      }
+    }
+  ],
+  "safety": {
+    "officialRupeeKitLogoUsed": true,
+    "noAiGeneratedLogo": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "platformReadyPng": true,
+    "strictPngHeaderRepairOnly": true
+  }
+}
