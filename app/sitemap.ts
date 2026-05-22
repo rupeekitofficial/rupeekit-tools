@@ -16,7 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/affiliate-disclosure',
     '/money-health-check',
     '/resources/30-day-budget-challenge',
-    '/start-here'
+    '/start-here',
+    '/government-salary-updates'
   ];
   const now = new Date();
 

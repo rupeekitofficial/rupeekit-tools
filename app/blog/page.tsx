@@ -35,6 +35,8 @@ export default function BlogListingPage() {
               date={post.date}
               readTime={post.readTime}
               intro={post.intro}
+              visualType={post.visualType}
+              visualAlt={post.visualAlt}
             />
           ))}
         </div>

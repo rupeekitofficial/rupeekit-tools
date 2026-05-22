@@ -88,7 +88,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* Main Sections Grid */}
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-3">
         {/* Start Here / 30-Day Challenge Block */}
         <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
           <div>
@@ -138,6 +138,29 @@ export default function ResourcesPage() {
               className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
             >
               Explore All Tools <span className="ml-1">→</span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Government Salary Updates Block */}
+        <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <span className="inline-block rounded-full bg-amber-50 border border-amber-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
+              Updates
+            </span>
+            <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
+              Government Salary Updates
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-brandMuted">
+              Track state-wise DA, DR, pay revisions, allowances, and official employee salary circulars in a transparent educational format.
+            </p>
+          </div>
+          <div className="mt-6 pt-4 border-t border-brandBorder">
+            <Link
+              href="/government-salary-updates"
+              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
+            >
+              Track Salary Updates <span className="ml-1">→</span>
             </Link>
           </div>
         </section>

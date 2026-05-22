@@ -34,11 +34,19 @@ export interface BlogPost {
   faqs: FAQItem[];
   amazonDisclosure?: boolean;
   books?: BookItem[];
+  visualType?: 'monthly-budget' | '50-30-20' | 'emergency-fund' | 'bookshelf' | 'expense-tracking' | 'saving-vs-investing' | 'family-expense' | 'debt-ladder' | 'habit-tracker' | 'salary-checklist';
+  visualTitle?: string;
+  visualSubtitle?: string;
+  visualAlt?: string;
 }
 
 export const blogPosts: BlogPost[] = [
   {
     slug: 'how-to-create-a-monthly-budget',
+    visualType: 'monthly-budget',
+    visualTitle: 'Monthly Budget Allocation',
+    visualSubtitle: 'Income routing: Needs, Wants, and Savings',
+    visualAlt: 'Flowchart showing monthly income distributed into 50 percent needs, 30 percent wants, and 20 percent savings.',
     title: 'How to Create a Monthly Budget: A Step-by-Step Guide for Beginners',
     metaDescription: 'Learn how to create a monthly budget from scratch. Follow our step-by-step beginner guide with practical Indian examples and tools.',
     category: 'Budgeting',
@@ -117,6 +125,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: '50-30-20-budget-rule',
+    visualType: '50-30-20',
+    visualTitle: 'The 50/30/20 Budget Split',
+    visualSubtitle: 'Simple percentage breakdown of your net income',
+    visualAlt: 'Visual breakdown showing 50 percent for needs, 30 percent for wants, and 20 percent for savings.',
     title: 'The 50/30/20 Budget Rule: How to Allocate Your Income in India',
     metaDescription: 'Discover the 50/30/20 budget rule. Learn how to divide your salary into needs, wants, and savings with examples tailored for Indian earners.',
     category: 'Budgeting',
@@ -182,6 +194,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'how-much-emergency-fund',
+    visualType: 'emergency-fund',
+    visualTitle: 'Emergency Fund Goals',
+    visualSubtitle: 'Building a 3 to 6 month safety cushion',
+    visualAlt: 'Progress bar and target milestones for 3-month and 6-month emergency expense funds.',
     title: 'How Much Emergency Fund Do You Need? A Guide for Indian Households',
     metaDescription: 'Discover how to calculate and build an emergency fund. Learn where to keep your emergency money in India for high safety and liquidity.',
     category: 'Savings',
@@ -259,6 +275,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'best-personal-finance-books-for-beginners',
+    visualType: 'bookshelf',
+    visualTitle: 'Beginner Reading List',
+    visualSubtitle: 'Top personal finance books to build money habits',
+    visualAlt: 'Bookshelf illustration containing personal finance books.',
     title: '5 Best Personal Finance Books for Beginners (India Edition)',
     metaDescription: 'Discover the top personal finance books for beginners. Learn critical money habits, investing rules, and wealth creation strategies.',
     category: 'Resources',
@@ -316,6 +336,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'how-to-track-expenses',
+    visualType: 'expense-tracking',
+    visualTitle: 'Expense Tracking Categories',
+    visualSubtitle: 'Common buckets to group and analyze spending',
+    visualAlt: 'Grid of key spending categories including housing, food, utilities, transport, and leisure.',
     title: 'How to Track Expenses: The Key to Taking Control of Your Money',
     metaDescription: 'Master expense tracking with our comprehensive guide. Explore methods like spreadsheets and envelope budgeting to plug spending leaks.',
     category: 'Budgeting',
@@ -389,6 +413,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'saving-vs-investing-for-beginners',
+    visualType: 'saving-vs-investing',
+    visualTitle: 'Saving vs. Investing Scale',
+    visualSubtitle: 'Balancing safety and growth for your goals',
+    visualAlt: 'Comparison balance scale showing saving (safety/liquidity) on one side and investing (growth/inflation-beating) on the other.',
     title: 'Saving vs Investing: Key Differences and When to Use Which',
     metaDescription: 'Learn the critical differences between saving and investing. Understand when to keep money in FDs and when to invest in mutual funds.',
     category: 'Investing',
@@ -455,6 +483,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'monthly-expense-planning-for-family',
+    visualType: 'family-expense',
+    visualTitle: 'Family Expense Framework',
+    visualSubtitle: 'Structuring budget for household needs and goals',
+    visualAlt: 'Diagram of a house with shared expense buckets: rent, groceries, school fees, medical bills, and sinking funds.',
     title: 'Monthly Expense Planning for Indian Families: A Practical Guide',
     metaDescription: 'Learn how to plan and manage monthly family expenses in India. Budget for rent, child education, groceries, and medical bills.',
     category: 'Budgeting',
@@ -520,6 +552,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'debt-repayment-planning-for-beginners',
+    visualType: 'debt-ladder',
+    visualTitle: 'Debt Reduction Plan',
+    visualSubtitle: 'Comparing Snowball and Avalanche repayment methods',
+    visualAlt: 'Staircase ladder showing debt reduction strategies: Snowball (smallest balance first) vs Avalanche (highest interest first).',
     title: 'Debt Repayment Planning: Snowball vs. Avalanche Methods',
     metaDescription: 'Struggling with debt? Learn how to build a debt repayment plan. Compare the Debt Snowball and Debt Avalanche methods to pay off loans faster.',
     category: 'Debt Management',
@@ -592,6 +628,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'build-better-money-habits',
+    visualType: 'habit-tracker',
+    visualTitle: '30-Day Money Habit Tracker',
+    visualSubtitle: 'Building consistency through small daily actions',
+    visualAlt: '30-day habit tracker grid showing checkmarks for positive daily financial routines.',
     title: 'How to Build Better Money Habits: A Guide to Financial Discipline',
     metaDescription: 'Build lasting wealth with better money habits. Learn how to automate investments, avoid lifestyle creep, and practice mindful spending.',
     category: 'Mindset',
@@ -651,6 +691,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'personal-finance-checklist-for-salaried-people',
+    visualType: 'salary-checklist',
+    visualTitle: 'Salaried Finance Checklist',
+    visualSubtitle: 'Key tax planning and investment steps',
+    visualAlt: 'Checklist of 5 crucial personal finance actions for Indian salaried employees.',
     title: 'Personal Finance Checklist for Salaried People in India',
     metaDescription: 'A complete personal finance checklist for salaried employees in India. Optimize your HRA, EPF, 80C deductions, and investments.',
     category: 'Checklists',
