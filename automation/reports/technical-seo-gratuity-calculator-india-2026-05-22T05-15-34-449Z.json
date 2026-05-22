@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-05-22T05:15:34.449Z",
+  "workflow": "RupeeKit Workflow 3 - Technical SEO Checker",
+  "status": "PASS",
+  "targetUrl": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+  "tool": {
+    "slug": "gratuity-calculator-india",
+    "name": "Gratuity Calculator India",
+    "category": "Retirement",
+    "targetKeyword": "gratuity calculator India",
+    "metaDescription": "Calculate your potential gratuity in India using RupeeKit's free online tool. Understand how your last drawn salary, service years, and Gratuity Act"
+  },
+  "extracted": {
+    "title": "Gratuity Calculator India | RupeeKit",
+    "metaDescription": "Calculate your potential gratuity in India using RupeeKit&#x27;s free online tool. Understand how your last drawn salary, service years, and Gratuity Act",
+    "canonicalDetected": true
+  },
+  "checks": [
+    {
+      "name": "Live page fetched",
+      "pass": true,
+      "detail": "HTML length: 80911"
+    },
+    {
+      "name": "Tool name visible in page",
+      "pass": true,
+      "detail": "Gratuity Calculator India"
+    },
+    {
+      "name": "Page title exists",
+      "pass": true,
+      "detail": "Gratuity Calculator India | RupeeKit"
+    },
+    {
+      "name": "Meta description exists",
+      "pass": true,
+      "detail": "Calculate your potential gratuity in India using RupeeKit&#x27;s free online tool. Understand how your last drawn salary, service years, and Gratuity Act"
+    },
+    {
+      "name": "Canonical appears valid",
+      "pass": true,
+      "detail": "/tools/gratuity-calculator-india"
+    },
+    {
+      "name": "Calculator UI appears",
+      "pass": true,
+      "detail": "Checks for calculator section text"
+    },
+    {
+      "name": "No default calculation error visible",
+      "pass": true,
+      "detail": "No Check inputs text found"
+    },
+    {
+      "name": "robots.txt reachable",
+      "pass": true,
+      "detail": "robots.txt length: 72"
+    },
+    {
+      "name": "sitemap.xml reachable",
+      "pass": true,
+      "detail": "sitemap.xml length: 2741"
+    },
+    {
+      "name": "Sitemap contains target URL",
+      "pass": true,
+      "detail": "Target URL found"
+    }
+  ],
+  "failed": [],
+  "recommendation": "No immediate technical action needed. Continue monitoring indexing and analytics."
+}
