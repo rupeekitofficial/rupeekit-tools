@@ -1,0 +1,177 @@
+{
+  "generatedAt": "2026-05-22T03:45:21.924Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "mode": "gemini_low_cost_image_api_no_auto_posting",
+  "model": "gemini-2.5-flash-image",
+  "slug": "fd-calculator-india",
+  "toolName": "FD Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/fd-calculator-india",
+  "sourceCreative": {
+    "generatedAt": "2026-05-22T03:31:58.819Z",
+    "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+    "status": "CREATIVE_PACK_CREATED"
+  },
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 815152,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/facebook.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "expectedWidth": 1080,
+      "expectedHeight": 1080,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 862930,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/instagram.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 893309,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/pinterest.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    }
+  ],
+  "promptsUsed": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "sourcePrompt": "A bold, clean, modern social media graphic for a finance utility brand. The central design features a prominent, readable text overlay in a deep blue font: 'Are you overlooking key details in your FD calculations?'. Below this, in a fresh green font, smaller text reads: 'Estimate it on RupeeKit.'. The background is a clean white/light grey, with subtle geometric patterns or abstract financial elements in deep blue and fresh green, hinting at data analysis or planning. A stylized, minimalist icon representing a checklist or a magnifying glass over a document is subtly integrated to reinforce the 'document_checklist' and 'mistake_warning' theme. The overall aesthetic is professional, trustworthy, and visually appealing, avoiding any human figures, faces, or personal branding. Ensure the top-right corner is clear and uncluttered. Output as a PNG or JPG. No humans, no human faces, no people, no personal identity, no mascot.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\nfacebook\n\nRequired aspect ratio:\n16:9\n\nUse this visual concept:\nA bold, clean, modern social media graphic for a finance utility brand. The central design features a prominent, readable text overlay in a deep blue font: 'Are you overlooking key details in your FD calculations?'. Below this, in a fresh green font, smaller text reads: 'Estimate it on finance calculator.'. The background is a clean white/light grey, with subtle geometric patterns or abstract financial elements in deep blue and fresh green, hinting at data analysis or planning. A stylized, minimalist icon representing a checklist or a magnifying glass over a document is subtly integrated to reinforce the 'document_checklist' and 'mistake_warning' theme. The overall aesthetic is professional, trustworthy, and visually appealing, avoiding any human figures, faces, or personal branding. Ensure the top-right corner is clear and uncluttered. Output as a PNG or JPG. No humans, no human faces, no people, no personal identity, no mascot.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "sourcePrompt": "A square, bold, and clean social media graphic for a finance utility brand. The primary focus is a large, easy-to-read text overlay in deep blue: 'Are you overlooking key details in your FD calculations?'. Below this, in fresh green, smaller text states: 'Estimate it on RupeeKit.'. The background is pristine white, with abstract, minimalist financial shapes or data points in deep blue and fresh green creating a dynamic yet clean composition. A subtle, modern icon of a checklist or a magnifying glass examining a document is incorporated, reinforcing the theme of careful review and planning. The design is professional, engaging, and free of any human elements or personal branding. Ensure the top-right corner is kept clean for logo placement. Output as a PNG or JPG. No humans, no human faces, no people, no personal identity, no mascot.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\ninstagram\n\nRequired aspect ratio:\n1:1\n\nUse this visual concept:\nA square, bold, and clean social media graphic for a finance utility brand. The primary focus is a large, easy-to-read text overlay in deep blue: 'Are you overlooking key details in your FD calculations?'. Below this, in fresh green, smaller text states: 'Estimate it on finance calculator.'. The background is pristine white, with abstract, minimalist financial shapes or data points in deep blue and fresh green creating a dynamic yet clean composition. A subtle, modern icon of a checklist or a magnifying glass examining a document is incorporated, reinforcing the theme of careful review and planning. The design is professional, engaging, and free of any human elements or personal branding. Ensure the top-right corner is kept clean for logo placement. Output as a PNG or JPG. No humans, no human faces, no people, no personal identity, no mascot.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "sourcePrompt": "A tall, vertical, bold, and clean Pinterest graphic for a finance utility brand. The central focus is a prominent, readable text overlay in deep blue: 'Are you overlooking key details in your FD calculations?'. Below this, in fresh green, smaller text clearly states: 'Estimate it on RupeeKit.'. The background is a bright white, with elegant, abstract financial graphics or subtle growth curves in deep blue and fresh green flowing vertically. A minimalist icon depicting a checklist or a stylized document with a magnifying glass is placed to enhance the 'document_checklist' and 'mistake_warning' theme. The design is professional, visually appealing, and ensures no human figures, faces, or personal branding. The top-right corner must remain clear and uncluttered. Output as a PNG or JPG.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\npinterest\n\nRequired aspect ratio:\n2:3\n\nUse this visual concept:\nA tall, vertical, bold, and clean Pinterest graphic for a finance utility brand. The central focus is a prominent, readable text overlay in deep blue: 'Are you overlooking key details in your FD calculations?'. Below this, in fresh green, smaller text clearly states: 'Estimate it on finance calculator.'. The background is a bright white, with elegant, abstract financial graphics or subtle growth curves in deep blue and fresh green flowing vertically. A minimalist icon depicting a checklist or a stylized document with a magnifying glass is placed to enhance the 'document_checklist' and 'mistake_warning' theme. The design is professional, visually appealing, and ensures no human figures, faces, or personal branding. The top-right corner must remain clear and uncluttered. Output as a PNG or JPG.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 815152,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 862930,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 893309,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "officialLogoHandledBy8DG2": true,
+    "sanitizedBeforeGemini": true,
+    "generatedImageValidatedBeforeCommit": true,
+    "reEncodedToCleanPngBeforeCommit": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}

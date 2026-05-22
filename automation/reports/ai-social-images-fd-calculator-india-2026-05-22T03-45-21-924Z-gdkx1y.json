@@ -1,0 +1,152 @@
+{
+  "generatedAt": "2026-05-22T03:45:21.924Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "slug": "fd-calculator-india",
+  "toolName": "FD Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/fd-calculator-india",
+  "model": "gemini-2.5-flash-image",
+  "imageCount": 3,
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 815152,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/facebook.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "1:1",
+      "expectedWidth": 1080,
+      "expectedHeight": 1080,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 862930,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/instagram.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1024,
+      "actualHeight": 1024,
+      "filePath": "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 893309,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/pinterest.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "attemptsUsed": 1,
+        "width": 1024,
+        "height": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 815152,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 862930,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 893309,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "attemptsUsed": 1,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "officialLogoHandledBy8DG2": true,
+    "sanitizedBeforeGemini": true,
+    "generatedImageValidatedBeforeCommit": true,
+    "reEncodedToCleanPngBeforeCommit": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}
