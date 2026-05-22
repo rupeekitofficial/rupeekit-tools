@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-22T03:31:58.819Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "slug": "fd-calculator-india",
+  "toolName": "FD Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/fd-calculator-india",
+  "angle": "document_checklist",
+  "hookType": "mistake_warning",
+  "visualStyle": "bold_question_card",
+  "hook": "Are you overlooking key details in your FD calculations?",
+  "cta": "Estimate it on RupeeKit",
+  "historyLengthBefore": 7,
+  "historyLengthAfter": 8,
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-05-22T03:31:58.819Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_image_generation_ready",
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "creativePack": {
+    "slug": "fd-calculator-india",
+    "toolName": "FD Calculator India",
+    "pageUrl": "https://www.rupeekit.co.in/tools/fd-calculator-india",
+    "angle": "document_checklist",
+    "hookType": "mistake_warning",
+    "visualStyle": "bold_question_card",
+    "hook": "Are you overlooking key details in your FD calculations?",
+    "cta": "Estimate it on RupeeKit",
+    "keywords": [
+      "fd calculator india",
+      "fixed deposit",
+      "maturity amount",
+      "interest earned",
+      "savings planning",
+      "financial tool"
+    ],
+    "facebook": {
+      "caption": "Are you overlooking key details in your FD calculations? Many focus only on the interest rate, but understanding other factors can give you a clearer picture of your potential returns. Our FD Calculator helps you estimate your fixed deposit maturity amount and interest earned based on your principal, interest rate, and tenure. Remember, compounding frequency can make a slight difference, and our calculator provides a pre-tax estimate. It's an essential tool for informational planning, helping you understand how your savings could grow. Use it to compare different scenarios and make informed decisions. Get your educational estimate today at https://www.rupeekit.co.in/tools/fd-calculator-india",
+      "hashtags": [
+        "#FDCalculator",
+        "#FixedDeposit",
+        "#SavingsIndia",
+        "#FinancialPlanning",
+        "#RupeeKit"
+      ]
+    },
+    "instagram": {
+      "caption": "Don't let hidden details surprise you when planning your Fixed Deposit! Our FD Calculator helps you estimate your maturity amount and interest earned, giving you a clearer view of your savings growth. It considers your deposit, rate, and tenure. Did you know compounding frequency can impact your final sum? Plus, our estimates are pre-tax, helping you plan for potential TDS. Avoid common oversights and get a better understanding of your FD potential. Plan smarter with RupeeKit. https://www.rupeekit.co.in/tools/fd-calculator-india",
+      "hashtags": [
+        "#FDCalculatorIndia",
+        "#FixedDeposit",
+        "#SavingsGoals",
+        "#InterestRates",
+        "#FinancialTools",
+        "#MoneyMatters",
+        "#RupeeKit"
+      ]
+    },
+    "pinterest": {
+      "title": "FD Calculator: Avoid These Common Fixed Deposit Calculation Mistakes",
+      "description": "Are you making common mistakes when estimating your Fixed Deposit returns? Our FD Calculator helps you understand how factors like compounding frequency, interest rate, and tenure influence your maturity amount. Get a clear, pre-tax estimate to plan your savings effectively. Understand your potential earnings with this easy-to-use tool. Plan smarter with RupeeKit. https://www.rupeekit.co.in/tools/fd-calculator-india",
+      "hashtags": [
+        "#FDCalculator",
+        "#FixedDeposit",
+        "#SavingsTips",
+        "#FinancialLiteracy"
+      ]
+    },
+    "x": {
+      "post": "Planning an FD? Don't miss crucial details! Our FD Calculator helps estimate maturity & interest, considering compounding frequency. Get your pre-tax estimate... https://www.rupeekit.co.in/tools/fd-calculator-india #FDCalculator #Savings #RupeeKit",
+      "hashtags": [
+        "#FDCalculator",
+        "#Savings",
+        "#RupeeKit"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A bold, clean, modern social media graphic for a finance utility brand. The central design features a prominent, readable text overlay in a deep blue font: 'Are you overlooking key details in your FD calculations?'. Below this, in a fresh green font, smaller text reads: 'Estimate it on RupeeKit.'. The background is a clean white/light grey, with subtle geometric patterns or abstract financial elements in deep blue and fresh green, hinting at data analysis or planning. A stylized, minimalist icon representing a checklist or a magnifying glass over a document is subtly integrated to reinforce the 'document_checklist' and 'mistake_warning' theme. The overall aesthetic is professional, trustworthy, and visually appealing, avoiding any human figures, faces, or personal branding. Ensure the top-right corner is clear and uncluttered. Output as a PNG or JPG. No humans, no human faces, no people, no personal identity, no mascot."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A square, bold, and clean social media graphic for a finance utility brand. The primary focus is a large, easy-to-read text overlay in deep blue: 'Are you overlooking key details in your FD calculations?'. Below this, in fresh green, smaller text states: 'Estimate it on RupeeKit.'. The background is pristine white, with abstract, minimalist financial shapes or data points in deep blue and fresh green creating a dynamic yet clean composition. A subtle, modern icon of a checklist or a magnifying glass examining a document is incorporated, reinforcing the theme of careful review and planning. The design is professional, engaging, and free of any human elements or personal branding. Ensure the top-right corner is kept clean for logo placement. Output as a PNG or JPG. No humans, no human faces, no people, no personal identity, no mascot."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A tall, vertical, bold, and clean Pinterest graphic for a finance utility brand. The central focus is a prominent, readable text overlay in deep blue: 'Are you overlooking key details in your FD calculations?'. Below this, in fresh green, smaller text clearly states: 'Estimate it on RupeeKit.'. The background is a bright white, with elegant, abstract financial graphics or subtle growth curves in deep blue and fresh green flowing vertically. A minimalist icon depicting a checklist or a stylized document with a magnifying glass is placed to enhance the 'document_checklist' and 'mistake_warning' theme. The design is professional, visually appealing, and ensures no human figures, faces, or personal branding. The top-right corner must remain clear and uncluttered. Output as a PNG or JPG."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, clutter, misleading claims, bank/loan ad look, watermark, tiny unreadable text, fake RupeeKit logo, fake RupeeKit wordmark, fake website URL, important elements in top-right corner",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "Ensure text is crisp and readable. Maintain brand colors (deep blue, fresh green) on a light background. Keep top-right clear."
+    },
+    "safetyNotes": [
+      "Verify no personal identifiers or misleading financial guarantees are present in generated images or text.",
+      "Confirm adherence to brand guidelines for conservative language and visual style.",
+      "Ensure top-right corner of images is consistently clear for logo overlay."
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-22T03:31:58.819Z",
+    "slug": "fd-calculator-india",
+    "toolName": "FD Calculator India",
+    "angle": "document_checklist",
+    "hookType": "mistake_warning",
+    "visualStyle": "bold_question_card",
+    "hook": "Are you overlooking key details in your FD calculations?",
+    "cta": "Estimate it on RupeeKit",
+    "firstCaptionLine": "are you overlooking key details in your fd calculations",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "fd calculator india",
+      "fixed deposit",
+      "maturity amount",
+      "interest earned",
+      "savings planning",
+      "financial tool"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

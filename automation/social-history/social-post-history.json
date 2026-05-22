@@ -181,5 +181,30 @@
       "IGST",
       "online tool"
     ]
+  },
+  {
+    "generatedAt": "2026-05-22T03:31:58.819Z",
+    "slug": "fd-calculator-india",
+    "toolName": "FD Calculator India",
+    "angle": "document_checklist",
+    "hookType": "mistake_warning",
+    "visualStyle": "bold_question_card",
+    "hook": "Are you overlooking key details in your FD calculations?",
+    "cta": "Estimate it on RupeeKit",
+    "firstCaptionLine": "are you overlooking key details in your fd calculations",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "fd calculator india",
+      "fixed deposit",
+      "maturity amount",
+      "interest earned",
+      "savings planning",
+      "financial tool"
+    ]
   }
 ]
