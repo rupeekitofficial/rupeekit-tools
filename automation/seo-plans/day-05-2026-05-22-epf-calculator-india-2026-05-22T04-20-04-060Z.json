@@ -1,0 +1,189 @@
+{
+  "generatedAt": "2026-05-22T04:20:04.061Z",
+  "workflow": "RupeeKit Workflow 1 - Keyword Research and Content Plan",
+  "status": "approved-plan",
+  "plan": {
+    "dayNumber": 5,
+    "date": "2026-05-22",
+    "keyword": "EPF calculator India",
+    "slug": "epf-calculator-india",
+    "searchIntent": "Help employees estimate EPF monthly contribution and long-term corpus with employer and employee contribution assumptions.",
+    "targetPersona": "Salaried individuals in India, employees planning for retirement, individuals seeking to understand their EPF savings.",
+    "pageType": "calculator",
+    "seoPriority": "high",
+    "riskLevel": "medium",
+    "primaryGoal": "Provide an accurate, user-friendly EPF calculator for Indian users to estimate monthly contributions and project their retirement corpus.",
+    "titleOptions": [
+      "EPF Calculator India: Estimate Your PF Contributions & Corpus",
+      "Calculate EPF Online: Employee Provident Fund Calculator India",
+      "RupeeKit EPF Calculator: Your Retirement Savings in India"
+    ],
+    "recommendedMetaTitle": "EPF Calculator India: Estimate PF Contributions & Corpus",
+    "recommendedMetaDescription": "Use RupeeKit's free EPF Calculator India to estimate your monthly Employee Provident Fund contributions and project your retirement corpus. Plan your",
+    "h1": "EPF Calculator India: Estimate Your Provident Fund Corpus",
+    "calculatorSpec": {
+      "inputs": [
+        {
+          "name": "monthlyBasicDA",
+          "label": "Monthly Basic Salary + DA (₹)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "30000",
+          "helpText": "Enter your combined monthly Basic Salary and Dearness Allowance."
+        },
+        {
+          "name": "employeeContributionRatePercent",
+          "label": "Employee EPF Contribution Rate (%)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "12",
+          "helpText": "Standard employee contribution rate is 12% of Basic + DA."
+        },
+        {
+          "name": "employerContributionRatePercent",
+          "label": "Employer EPF Contribution Rate (%)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "12",
+          "helpText": "Standard employer contribution rate is 12% of Basic + DA."
+        },
+        {
+          "name": "currentAge",
+          "label": "Your Current Age (Years)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "25",
+          "helpText": "Your age in years."
+        },
+        {
+          "name": "retirementAge",
+          "label": "Expected Retirement Age (Years)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "58",
+          "helpText": "The age at which you plan to retire."
+        },
+        {
+          "name": "annualSalaryIncrementPercent",
+          "label": "Annual Salary Increment (%)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "5",
+          "helpText": "Expected average annual increase in your Basic + DA."
+        },
+        {
+          "name": "epfInterestRatePercent",
+          "label": "EPF Interest Rate (%)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "8.15",
+          "helpText": "Current EPF interest rate. This rate is declared annually by the government and is subject to change."
+        }
+      ],
+      "formulaPlainEnglish": "The calculator first determines the monthly employee and employer contributions based on the monthly Basic Salary + DA and respective contribution rates. It then iteratively projects the total EPF corpus at retirement, considering annual salary increments and the compounding effect of the EPF interest rate over the working years until retirement.",
+      "formula": "monthlyBasicDA * (employeeContributionRatePercent / 100) + monthlyBasicDA * (employerContributionRatePercent / 100)",
+      "outputFields": [
+        "Monthly Employee Contribution",
+        "Monthly Employer Contribution",
+        "Total Monthly EPF Contribution",
+        "Estimated EPF Corpus at Retirement"
+      ]
+    },
+    "contentBrief": {
+      "introAngle": "Start by highlighting the importance of EPF as a crucial retirement savings scheme in India and how the calculator simplifies understanding contributions and future corpus.",
+      "mustCover": [
+        "What is EPF (Employee Provident Fund) and its significance in India.",
+        "Who is eligible for EPF?",
+        "How EPF contributions are calculated (employee and employer shares).",
+        "Current EPF interest rates and how they are applied.",
+        "Understanding the VPF (Voluntary Provident Fund) option.",
+        "How to use the RupeeKit EPF calculator effectively.",
+        "Factors affecting your EPF corpus (salary growth, interest rates, contribution period).",
+        "Benefits of EPF (tax savings, retirement security)."
+      ],
+      "exampleScenario": "Rohan, 30 years old, has a monthly Basic + DA of ₹40,000. He expects a 6% annual salary increment and plans to retire at 58. Using the calculator, he can see his current monthly EPF contribution and an estimated corpus at retirement, assuming a consistent 8.15% interest rate.",
+      "faqQuestions": [
+        "What is the current EPF interest rate in India?",
+        "Can I contribute more than 12% to my EPF account?",
+        "How is EPF interest calculated?",
+        "What is the difference between EPF and PPF?",
+        "When can I withdraw money from my EPF account?",
+        "Is EPF contribution mandatory for all employees?"
+      ],
+      "internalLinks": [
+        {
+          "label": "Salary Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india"
+        },
+        {
+          "label": "EMI Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/emi-calculator-india"
+        },
+        {
+          "label": "SIP Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/sip-calculator-india"
+        },
+        {
+          "label": "GST Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/gst-calculator-india"
+        },
+        {
+          "label": "FD Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/fd-calculator-india"
+        }
+      ],
+      "trustNotes": [
+        "Uses commonly followed Indian HRA exemption calculation rules for educational purposes.",
+        "Explains assumptions clearly so users can understand how the estimate is calculated.",
+        "Designed as an informational calculator, not as personalized tax or financial advice.",
+        "Users should verify final tax treatment with official guidance or a qualified tax professional."
+      ],
+      "disclaimer": "This calculator is for educational and informational purposes only. It provides an estimate based on the inputs and assumptions shown. It is not tax, legal, investment, or financial advice. Please verify with official sources or consult a qualified professional before making tax or financial decisions."
+    },
+    "qualityGate": {
+      "shouldPublish": true,
+      "checks": [
+        {
+          "name": "clear search intent",
+          "pass": true,
+          "note": "The page directly addresses the user's need to calculate EPF contributions and corpus."
+        },
+        {
+          "name": "calculator utility",
+          "pass": true,
+          "note": "The calculator provides essential inputs and outputs for EPF estimation, making it highly useful."
+        },
+        {
+          "name": "India context",
+          "pass": true,
+          "note": "All content, terminology, and regulations are specific to India's EPF scheme."
+        },
+        {
+          "name": "no financial advice",
+          "pass": true,
+          "note": "Explicit disclaimer and content avoid offering personalized financial advice."
+        },
+        {
+          "name": "no guaranteed claims",
+          "pass": true,
+          "note": "Uses 'estimate' and 'projected' for corpus, acknowledging variability in interest rates and regulations."
+        },
+        {
+          "name": "unique page angle",
+          "pass": true,
+          "note": "Focuses on a comprehensive, easy-to-use calculator with detailed explanations relevant to Indian users."
+        }
+      ]
+    },
+    "publishingPlan": {
+      "targetPath": "data/tools/epf-calculator-india.json",
+      "targetUrl": "https://www.rupeekit.co.in/tools/epf-calculator-india",
+      "nextWorkflow": "Daily Page Publisher"
+    }
+  },
+  "nextStep": {
+    "workflow": "Workflow 2 - Daily Page Publisher",
+    "publishTarget": "data/tools/epf-calculator-india.json",
+    "liveUrl": "https://www.rupeekit.co.in/tools/epf-calculator-india"
+  }
+}
