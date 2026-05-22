@@ -5,6 +5,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brandNavy: "#003080",
+        brandDeepNavy: "#002070",
+        brandGrowthGreen: "#43A047",
+        brandBrightGreen: "#50B040",
+        brandBgSoft: "#F8FAFC",
+        brandBorder: "#E5EAF0",
+        brandText: "#0F172A",
+        brandMuted: "#64748B",
+        // Retain original for safety
         brand: {
           50: '#eef9ff',
           100: '#d9f1ff',
@@ -18,3 +27,4 @@ const config: Config = {
   plugins: [],
 };
 export default config;
+

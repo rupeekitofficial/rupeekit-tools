@@ -5,6 +5,14 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  --brand-navy: #003080;
+  --brand-deep-navy: #002070;
+  --brand-growth-green: #43A047;
+  --brand-bright-green: #50B040;
+  --brand-bg-soft: #f8fafc;
+  --brand-border: #e5eaf0;
+  --brand-text: #0f172a;
+  --brand-muted: #64748b;
 }
 
 html {

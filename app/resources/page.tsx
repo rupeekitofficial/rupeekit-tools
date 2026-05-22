@@ -1,0 +1,199 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import PersonalFinanceRoadmap from '@/components/PersonalFinanceRoadmap';
+
+export const metadata: Metadata = {
+  title: 'Free Personal Finance Resources and Money Tools | RupeeKit',
+  description: 'Explore our library of free personal finance resources. Discover our Money Health Check, the 30-Day Budget Challenge, recommended books, and educational guides.',
+};
+
+export default function ResourcesPage() {
+  const guideLinks = [
+    {
+      title: 'How to Create a Monthly Budget',
+      description: 'Learn the step-by-step process of creating a monthly budget, using the 50/30/20 rule, and automating investments.',
+      href: '/blog/how-to-create-a-monthly-budget',
+    },
+    {
+      title: 'How to Track Expenses',
+      description: 'Master expense tracking with our guide. Explore spreadsheets and envelope budgeting to plug spending leaks.',
+      href: '/blog/how-to-track-expenses',
+    },
+    {
+      title: 'How Much Emergency Fund Do You Need?',
+      description: 'Discover how to calculate and build an emergency cushion. Understand safety, liquidity, and asset parking rules.',
+      href: '/blog/how-much-emergency-fund',
+    },
+    {
+      title: 'Saving vs Investing for Beginners',
+      description: 'Learn the critical differences between saving and investing. Understand when to save and when to compound wealth.',
+      href: '/blog/saving-vs-investing-for-beginners',
+    },
+    {
+      title: 'Debt Repayment Planning Guide',
+      description: 'Struggling with debt? Compare the Debt Snowball and Debt Avalanche methods to pay off loans faster.',
+      href: '/blog/debt-repayment-planning-for-beginners',
+    },
+    {
+      title: 'Curated Personal Finance Reading List',
+      description: 'Discover the top personal finance books for beginners, hand-selected to build your financial literacy.',
+      href: '/blog/best-personal-finance-books-for-beginners',
+    },
+  ];
+
+  const calculatorLinks = [
+    { name: 'Loan Payment Calculator', href: '/tools/emi-calculator-india' },
+    { name: 'Savings & Compound Calculator', href: '/tools/sip-calculator-india' },
+    { name: 'Savings Growth Calculator', href: '/tools/fd-calculator-india' },
+    { name: 'Salary & Take-Home Estimator', href: '/tools/salary-in-hand-calculator-india' },
+  ];
+
+  return (
+    <div className="mx-auto max-w-4xl px-4 py-12 space-y-12">
+      {/* Page Header */}
+      <header className="text-center max-w-2xl mx-auto">
+        <span className="rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-brandNavy">
+          RupeeKit Hub
+        </span>
+        <h1 className="mt-4 text-4xl font-black tracking-tight text-brandNavy md:text-5xl">
+          Financial Resources & Library
+        </h1>
+        <p className="mt-4 text-brandMuted text-lg leading-relaxed">
+          High-quality educational tools, interactive challenges, and structured guides to help you build a solid financial foundation.
+        </p>
+      </header>
+
+      {/* Prominent Money Health Check CTA at the top */}
+      <section className="rounded-3xl border border-brandBorder bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 p-8 text-white shadow-md relative overflow-hidden">
+        <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none" />
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="max-w-xl">
+            <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-white/20">
+              Interactive Assessment
+            </span>
+            <h3 className="mt-4 text-2xl font-bold tracking-tight">
+              What is your Money Health Score?
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-200">
+              Take our free 60-second self-reflection quiz. Answer 8 simple questions to assess your savings, debt, tracking habits, and get your personalized score.
+            </p>
+          </div>
+          <Link
+            href="/money-health-check"
+            className="mt-4 md:mt-0 whitespace-nowrap rounded-full bg-brandGrowthGreen px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-brandBrightGreen hover:shadow-md transition text-center"
+          >
+            Start Health Check
+          </Link>
+        </div>
+      </section>
+
+      {/* Main Sections Grid */}
+      <div className="grid gap-8 md:grid-cols-2">
+        {/* Start Here / 30-Day Challenge Block */}
+        <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <span className="inline-block rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-700">
+              Start Here
+            </span>
+            <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
+              30-Day Budget Challenge
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-brandMuted">
+              Ready to build strong savings habits? Join our free challenge. Log fixed and variable expenses, track daily tasks, and watch your progress score increase.
+            </p>
+          </div>
+          <div className="mt-6 pt-4 border-t border-brandBorder">
+            <Link
+              href="/resources/30-day-budget-challenge"
+              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
+            >
+              Join the Challenge <span className="ml-1">→</span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Free Money Tools Block */}
+        <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <span className="inline-block rounded-full bg-emerald-50 border border-emerald-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+              Free Money Tools
+            </span>
+            <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
+              Calculators & Estimators
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-brandMuted">
+              Estimate loan repayments, savings compound schedules, fixed deposits, and salary take-home amounts with transparent visual breakdowns.
+            </p>
+            <div className="mt-4 grid grid-cols-2 gap-2 text-xs font-semibold text-brandNavy">
+              {calculatorLinks.map((calc) => (
+                <Link key={calc.name} href={calc.href} className="hover:underline">
+                  • {calc.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="mt-6 pt-4 border-t border-brandBorder">
+            <Link
+              href="/#calculators"
+              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
+            >
+              Explore All Tools <span className="ml-1">→</span>
+            </Link>
+          </div>
+        </section>
+      </div>
+
+      {/* Roadmap Center Section */}
+      <section className="rounded-3xl border border-brandBorder bg-white p-6 md:p-8 shadow-sm">
+        <div className="max-w-xl mb-8">
+          <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brandNavy">
+            Path to Discipline
+          </span>
+          <h3 className="mt-4 text-2xl font-black text-brandDeepNavy">
+            Personal Finance Roadmap
+          </h3>
+          <p className="mt-2 text-sm text-brandMuted">
+            Review these six basic milestones to establish financial security. Adjust your focus stage systematically.
+          </p>
+        </div>
+        <PersonalFinanceRoadmap />
+      </section>
+
+      {/* Personal Finance Guides list */}
+      <section className="space-y-6">
+        <div className="max-w-xl">
+          <h3 className="text-2xl font-black text-brandDeepNavy">Personal Finance Guides</h3>
+          <p className="mt-2 text-sm text-brandMuted">
+            Comprehensive, educational guides covering savings buffers, budget structures, mindset shifts, and debt strategies.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {guideLinks.map((guide) => (
+            <div
+              key={guide.title}
+              className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between"
+            >
+              <div>
+                <h4 className="text-base font-bold text-brandDeepNavy tracking-tight">
+                  {guide.title}
+                </h4>
+                <p className="mt-2 text-xs leading-relaxed text-brandMuted">
+                  {guide.description}
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-100">
+                <Link
+                  href={guide.href}
+                  className="text-xs font-bold text-brandNavy hover:text-brandDeepNavy flex items-center gap-0.5"
+                >
+                  Read Guide <span className="text-brandMuted">→</span>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}

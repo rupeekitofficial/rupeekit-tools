@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "RupeeKit";
 const siteUrl =
@@ -46,6 +48,10 @@ export const metadata: Metadata = {
     "FD calculator India",
     "finance calculators India",
   ],
+  icons: {
+    icon: "/brand/rupeekit_icon_from_social_logo_transparent_square.png",
+    apple: "/brand/rupeekit_icon_from_social_logo_transparent_square.png",
+  },
   alternates: {
     canonical: siteUrl,
   },
@@ -82,7 +88,7 @@ export default function RootLayout({
 
   return (
     <html lang="en-IN">
-      <body>
+      <body className="bg-brandBgSoft text-brandText min-h-screen flex flex-col">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -107,84 +113,13 @@ export default function RootLayout({
           </>
         ) : null}
 
-        <header className="border-b bg-white">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-            <a href="/" className="text-xl font-bold text-slate-900">
-              {siteName}
-            </a>
+        <SiteHeader />
 
-            <nav className="flex gap-4 text-sm text-slate-700">
-              <a href="/" className="hover:text-slate-950">
-                Home
-              </a>
-              <a href="/about" className="hover:text-slate-950">
-                About
-              </a>
-              <a href="/contact" className="hover:text-slate-950">
-                Contact
-              </a>
-            </nav>
-          </div>
-        </header>
+        <main className="flex-grow">{children}</main>
 
-        <main>{children}</main>
-
-        <footer className="mt-12 border-t bg-slate-50">
-          <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-600">
-            <div className="mb-4 font-semibold text-slate-900">
-              {siteName}
-            </div>
-
-            <p className="mb-4 max-w-3xl">
-              Free India-focused calculators for salary, EMI, SIP, GST, FD, and
-              personal finance planning. Results are for educational and
-              informational purposes only.
-            </p>
-
-            <div className="mb-4 flex flex-wrap gap-4">
-              <a href="/about" className="hover:text-slate-950">
-                About
-              </a>
-              <a href="/contact" className="hover:text-slate-950">
-                Contact
-              </a>
-              <a href="/privacy-policy" className="hover:text-slate-950">
-                Privacy Policy
-              </a>
-              <a href="/terms" className="hover:text-slate-950">
-                Terms
-              </a>
-              <a href="/disclaimer" className="hover:text-slate-950">
-                Disclaimer
-              </a>
-            </div>
-
-            <div className="mb-4">
-              <p className="mb-2 font-semibold text-slate-900">
-                Follow RupeeKit
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-slate-950"
-                  >
-                    {link.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <p className="mb-2">Contact: {contactEmail}</p>
-            <p>
-              © {new Date().getFullYear()} {siteName}. All rights reserved.
-            </p>
-          </div>
-        </footer>
+        <SiteFooter />
       </body>
     </html>
   );
 }
+
