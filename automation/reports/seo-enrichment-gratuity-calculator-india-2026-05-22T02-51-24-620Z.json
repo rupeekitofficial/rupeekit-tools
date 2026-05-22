@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-22T02:51:24.685Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "AUTO_LATEST_LIVE_TOOL",
+  "slug": "gratuity-calculator-india",
+  "name": "Gratuity Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Use RupeeKit's Gratuity Calculator to estimate your gratuity in India. Get an accurate calculation based on your last drawn salary and years of service.",
+    "metaDescription": "Use RupeeKit's Gratuity Calculator to estimate your gratuity in India. Get an accurate calculation based on your last drawn salary and years of service.",
+    "faqCount": 6
+  },
+  "after": {
+    "shortDescription": "Estimate your gratuity in India with RupeeKit's calculator. Get an accurate estimate based on your last drawn salary and years of service, considering the Gratuity Act, 1972.",
+    "metaDescription": "Calculate your potential gratuity in India using RupeeKit's free online tool. Understand how your last drawn salary, service years, and Gratuity Act",
+    "faqCount": 8,
+    "howToUseCount": 6,
+    "assumptionsCount": 6,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 4,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Refined shortDescription and metaDescription for clarity and SEO compliance.",
+    "Expanded formulaExplanation and example for better user understanding and word count.",
+    "Added two new FAQs to provide more comprehensive information.",
+    "Introduced 'howToUse' section with clear, step-by-step instructions.",
+    "Added 'assumptions' section to clarify the basis of calculations.",
+    "Included 'commonMistakes' section to help users avoid errors.",
+    "Created four 'contentSections' to enrich the page with relevant information on gratuity in India, its factors, tax implications, and calculator benefits.",
+    "Ensured all content adheres to brand, privacy, and output rules, focusing on India context and conservative, finance-safe language."
+  ]
+}
