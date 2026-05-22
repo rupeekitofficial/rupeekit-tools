@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-05-22T04:30:21.143Z",
+  "workflow": "RupeeKit Workflow 9 Scheduler - Daily Final Social Posting Pack",
+  "status": "POSTING_PACK_CREATED",
+  "mode": "daily_scheduler_manual_review_only_no_auto_posting",
+  "slug": "fd-calculator-india",
+  "toolName": "FD Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/fd-calculator-india",
+  "finalImageBatch": {
+    "manifestPath": "automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6/manifest.json",
+    "folderPath": "automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6",
+    "sourceWorkflow": "RupeeKit Workflow 8D-G2 - Logo Overlay Finalizer",
+    "generatedAt": "2026-05-22T04:20:20.015Z"
+  },
+  "creativeSource": {
+    "found": true,
+    "sourcePath": "automation/ai-social-creatives/fd-calculator-india/2026-05-22T03-31-58-819Z-vps9id/creative-pack.json",
+    "sourceType": "ai-social-creatives"
+  },
+  "platforms": {
+    "facebook": {
+      "copy": "Are you overlooking key details in your FD calculations? Many focus only on the interest rate, but understanding other factors can give you a clearer picture of your potential returns. Our FD Calculator helps you estimate your fixed deposit maturity amount and interest earned based on your principal, interest rate, and tenure. Remember, compounding frequency can make a slight difference, and our calculator provides a pre-tax estimate. It's an essential tool for informational planning, helping you understand how your savings could grow. Use it to compare different scenarios and make informed decisions. Get your educational estimate today at https://www.rupeekit.co.in/tools/fd-calculator-india",
+      "hashtags": [
+        "#FDCalculator",
+        "#FixedDeposit",
+        "#SavingsIndia",
+        "#FinancialPlanning",
+        "#RupeeKit"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6/facebook.png",
+      "manualInstructions": [
+        "Create a RupeeKit Facebook Page post.",
+        "Attach the Facebook final PNG image.",
+        "Paste the copy and hashtags.",
+        "Use the calculator URL once.",
+        "Do not boost or buy traffic during test phase."
+      ]
+    },
+    "instagram": {
+      "caption": "Don't let hidden details surprise you when planning your Fixed Deposit! Our FD Calculator helps you estimate your maturity amount and interest earned, giving you a clearer view of your savings growth. It considers your deposit, rate, and tenure. Did you know compounding frequency can impact your final sum? Plus, our estimates are pre-tax, helping you plan for potential TDS. Avoid common oversights and get a better understanding of your FD potential. Plan smarter with RupeeKit. https://www.rupeekit.co.in/tools/fd-calculator-india",
+      "hashtags": [
+        "#FDCalculatorIndia",
+        "#FixedDeposit",
+        "#SavingsGoals",
+        "#InterestRates",
+        "#FinancialTools",
+        "#MoneyMatters",
+        "#RupeeKit"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6/instagram.png",
+      "manualInstructions": [
+        "Create an Instagram image post under the RupeeKit brand.",
+        "Upload the Instagram final PNG image.",
+        "Paste the caption and hashtags.",
+        "Use website link in bio or plain caption text where allowed.",
+        "Do not use personal identity or personal profile."
+      ]
+    },
+    "pinterest": {
+      "title": "FD Calculator: Avoid These Common Fixed Deposit Calculation Mistakes",
+      "description": "Are you making common mistakes when estimating your Fixed Deposit returns? Our FD Calculator helps you understand how factors like compounding frequency, interest rate, and tenure influence your maturity amount. Get a clear, pre-tax estimate to plan your savings effectively. Understand your potential earnings with this easy-to-use tool. Plan smarter with RupeeKit. https://www.rupeekit.co.in/tools/fd-calculator-india",
+      "destinationLink": "https://www.rupeekit.co.in/tools/fd-calculator-india",
+      "hashtags": [
+        "#FDCalculator",
+        "#FixedDeposit",
+        "#SavingsTips",
+        "#FinancialLiteracy"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6/pinterest.png",
+      "manualInstructions": [
+        "Create a Pinterest pin under the RupeeKit brand.",
+        "Upload the Pinterest final PNG image.",
+        "Use https://www.rupeekit.co.in/tools/fd-calculator-india as the destination link.",
+        "Paste the title and description.",
+        "Keep board/category finance-education focused."
+      ]
+    },
+    "x": {
+      "post": "Planning an FD? Don't miss crucial details! Our FD Calculator helps estimate maturity & interest, considering compounding frequency. Get your pre-tax estimate... https://www.rupeekit.co.in/tools/fd-calculator-india #FDCalculator #Savings #RupeeKit",
+      "hashtags": [
+        "#FDCalculator",
+        "#Savings",
+        "#RupeeKit"
+      ],
+      "image": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6/facebook.png",
+      "manualInstructions": [
+        "Create an X/Twitter post under the RupeeKit brand.",
+        "Attach the Facebook final PNG image.",
+        "Paste the short post and hashtags.",
+        "Verify character length before posting.",
+        "Avoid engagement bait or clickbait."
+      ]
+    }
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noAutoPosting": true,
+    "noPaidTraffic": true,
+    "noAdClickLanguage": true,
+    "noFakeTraffic": true,
+    "manualReviewRequired": true,
+    "finalImagesArePng": true
+  }
+}
