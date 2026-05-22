@@ -949,20 +949,20 @@
   },
   {
     "slug": "gratuity-calculator-india",
-    "name": "Gratuity Calculator India: Estimate Your Gratuity Online",
+    "name": "Gratuity Calculator India",
     "category": "Retirement",
     "status": "live",
     "targetKeyword": "gratuity calculator India",
-    "shortDescription": "Estimate your potential gratuity in India with RupeeKit's online calculator. Get an instant estimate based on your last drawn salary and years of service, considering the Gratuity",
-    "metaDescription": "Calculate your potential gratuity in India using RupeeKit's online tool. Estimate based on your last drawn salary and service years, adhering to Indian",
+    "shortDescription": "Use RupeeKit's Gratuity Calculator to estimate your gratuity in India. Get an accurate calculation based on your last drawn salary and years of service.",
+    "metaDescription": "Use RupeeKit's Gratuity Calculator to estimate your gratuity in India. Get an accurate calculation based on your last drawn salary and years of service.",
     "inputs": [
       {
         "key": "lastDrawnBasicPlusDA",
         "label": "Last Drawn Basic Salary + Dearness Allowance (per month)",
         "unit": "₹",
         "default": 50000,
-        "min": 1000,
-        "max": 1000000,
+        "min": 10000,
+        "max": 500000,
         "step": 1000,
         "help": "Enter your last drawn monthly Basic Salary plus Dearness Allowance."
       },
@@ -971,9 +971,9 @@
         "label": "Total Years of Service (e.g., 5.75 for 5 years 9 months)",
         "unit": "years",
         "default": 7.8,
-        "min": 0,
-        "max": 60,
-        "step": 0.01,
+        "min": 0.5,
+        "max": 40,
+        "step": 0.1,
         "help": "Enter your total service period in years, including months as decimals (e.g., 7 years 8 months is 7.67)."
       },
       {
@@ -992,7 +992,7 @@
         "unit": "years",
         "default": 8,
         "min": 0,
-        "max": 60,
+        "max": 40,
         "step": 1,
         "help": "If covered under the Act: Service of 5 years and 6 months or more counts as a full year (e.g., 5 years 7 months = 6 years, 5 years 5 months = 5 years). Enter this rounded value."
       },
@@ -1002,117 +1002,57 @@
         "unit": "years",
         "default": 7,
         "min": 0,
-        "max": 60,
+        "max": 40,
         "step": 1,
         "help": "If NOT covered under the Act: Usually based on completed years (e.g., 5 years 9 months = 5 years). Enter this truncated value."
       }
     ],
     "outputs": [
       {
-        "key": "gratuityIfCovered",
-        "label": "Gratuity (if covered under Act)",
-        "formula": "(lastDrawnBasicPlusDA / 26) * 15 * effectiveYearsForCovered",
-        "format": "currency"
-      },
-      {
-        "key": "gratuityIfNotCovered",
-        "label": "Gratuity (if NOT covered under Act)",
-        "formula": "(lastDrawnBasicPlusDA / 30) * 15 * effectiveYearsForNonCovered",
-        "format": "currency"
-      },
-      {
         "key": "estimatedGratuityAmount",
         "label": "Estimated Gratuity Amount",
-        "formula": "((isCoveredUnderGratuityAct * gratuityIfCovered) + ((1 - isCoveredUnderGratuityAct) * gratuityIfNotCovered))",
+        "formula": "((isCoveredUnderGratuityAct * (lastDrawnBasicPlusDA / 26) * 15 * effectiveYearsForCovered) + ((1 - isCoveredUnderGratuityAct) * (lastDrawnBasicPlusDA / 30) * 15 * effectiveYearsForNonCovered))",
+        "format": "currency"
+      },
+      {
+        "key": "finalGratuityPayable",
+        "label": "Final Gratuity Payable (Max ₹20 Lakh)",
+        "formula": "min(estimatedGratuityAmount, 2000000)",
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The gratuity calculation in India is primarily governed by the Payment of Gratuity Act, 1972, for covered employers, and by common practice or company policy for those not covered. RupeeKit's calculator helps you estimate this amount by allowing you to specify your employer's status. If your employer is covered under the Act, the gratuity is estimated using the formula: (Last Drawn Basic Salary + Dearness Allowance / 26) multiplied by 15, and then by the effective years of service. For this, service of five years and six months or more is typically rounded up to the next full year. Conversely, if your employer is not covered under the Act, the common practice often involves a slightly different divisor and usually considers only completed years of service, without rounding up for months. The formula then becomes: (Last Drawn Basic Salary + Dearness Allowance / 30) multiplied by 15, and then by the effective years of service (truncated). The 'isCoveredUnderGratuityAct' input acts as a switch, ensuring the appropriate method is applied to provide an estimated gratuity payout. This tool offers an educational estimate and should not be considered final financial advice.",
-    "example": "Consider Mr. Sharma, an employee who has dedicated 7 years and 8 months of service to his organization. His last drawn Basic Salary combined with Dearness Allowance amounts to ₹50,000 per month. His employer operates under the purview of the Payment of Gratuity Act, 1972. To use the RupeeKit calculator, Mr. Sharma would input ₹50,000 for his Basic Salary + DA, 7.67 (for 7 years and 8 months) for total years of service, and '1' for 'is covered under Gratuity Act'. Since he is covered and has served 7 years and 8 months (more than 7 years 6 months), his effective years for gratuity would be rounded up to 8 years. The calculator would then process these inputs to provide an estimated gratuity amount based on the Act's provisions. This example illustrates how to use the tool for an educational estimate.",
+    "formulaExplanation": "The gratuity calculation in India is primarily governed by the Payment of Gratuity Act, 1972, but also considers employers not covered under the Act. If your employer is covered, the gratuity is calculated using the formula: (Last Drawn Basic Salary + Dearness Allowance / 26) * 15 * Effective Years of Service. Here, 'Effective Years of Service' is rounded up if the service period includes six months or more (e.g., 5 years 7 months counts as 6 years). For employers not covered by the Act, the common practice is to use the formula: (Last Drawn Basic Salary + Dearness Allowance / 30) * 15 * Effective Years of Service, where 'Effective Years of Service' is typically truncated to completed years. This calculator uses your input for 'isCoveredUnderGratuityAct' (1 for Yes, 0 for No) to apply the appropriate calculation method. It also considers the maximum gratuity limit of ₹20 Lakh as stipulated by the Act, ensuring your estimated payout does not exceed this cap.",
+    "example": "Consider Mr. Sharma, an employee with 7 years and 8 months of service. His last drawn Basic Salary plus Dearness Allowance is ₹50,000 per month. Assuming his employer is covered under the Gratuity Act, 1972, his service period of 7 years and 8 months would be rounded up to 8 effective years for gratuity calculation. The calculator would use these inputs: Last Drawn Basic + DA = ₹50,000, isCoveredUnderGratuityAct = 1, and effectiveYearsForCovered = 8. Plugging these values into the formula for covered employers, the tool will provide an estimated gratuity amount, subject to the maximum limit.",
     "faqs": [
       {
         "question": "Who is eligible for gratuity in India?",
-        "answer": "Generally, an employee is eligible for gratuity if they have completed at least five years of continuous service with an employer. This eligibility is primarily governed by the Payment of Gratuity Act, 1972. However, in cases of death or disablement, the five-year service condition may not apply."
+        "answer": "Generally, an employee is eligible for gratuity if they have completed at least five years of continuous service with an employer, as per the Payment of Gratuity Act, 1972. This period may be relaxed in cases of death or disablement."
       },
       {
         "question": "How is gratuity calculated if my employer is not covered under the Gratuity Act?",
-        "answer": "If an employer is not covered under the Payment of Gratuity Act, 1972, the calculation is typically based on the terms of employment or company policy. A common practice is to calculate gratuity as (Last Drawn Basic Salary + Dearness Allowance / 30) * 15 * Completed Years of Service, where only full years of service are considered."
+        "answer": "If your employer is not covered by the Gratuity Act, the calculation is typically based on your completed years of service (months are usually not rounded up) and a formula often similar to (Last Drawn Basic + DA / 30) * 15 * Completed Years of Service."
       },
       {
         "question": "Is gratuity taxable in India?",
-        "answer": "The taxability of gratuity in India depends on the type of employee. Gratuity received by government employees is fully exempt from income tax. For non-government employees, a portion of the gratuity is exempt, subject to certain limits and conditions specified under Section 10(10) of the Income Tax Act, 1961."
+        "answer": "Gratuity is taxable in India, but there are exemptions. For government employees, it's fully exempt. For non-government employees, a portion is exempt based on specific rules, with the balance being taxable."
       },
       {
         "question": "What is the maximum gratuity amount an employee can receive?",
-        "answer": "As per the Payment of Gratuity Act, 1972, the maximum gratuity amount an employee can receive is currently capped at ₹20 Lakhs. This limit applies to employees covered under the Act. Any amount exceeding this limit may be subject to tax."
+        "answer": "As per the Payment of Gratuity Act, 1972, the maximum gratuity amount an employee can receive is capped at ₹20,00,000 (Twenty Lakhs)."
       },
       {
         "question": "Does resignation affect gratuity payment?",
-        "answer": "Yes, resignation can affect gratuity payment. To be eligible for gratuity under the Payment of Gratuity Act, 1972, an employee must complete at least five years of continuous service. If an employee resigns before completing this minimum service period, they typically forfeit their right to gratuity, unless specific company policies state otherwise."
+        "answer": "Yes, resignation generally affects gratuity payment. An employee must complete at least five years of continuous service to be eligible for gratuity upon resignation. If service is less than five years, gratuity is typically not paid."
       },
       {
         "question": "Is this calculator financial or tax advice?",
         "answer": "No. This calculator is for educational and informational purposes only. It provides an estimate based on the values entered and should not be treated as tax, legal, investment, or financial advice."
-      },
-      {
-        "question": "What is 'continuous service' for gratuity eligibility?",
-        "answer": "For gratuity purposes, 'continuous service' generally means uninterrupted service, including service interrupted by sickness, accident, leave, absence without leave (not exceeding a certain period), lay-off, strike, lockout, or cessation of work not due to the employee's fault. The specific definition can be found in the Payment of Gratuity Act, 1972."
-      },
-      {
-        "question": "Can an employer deny gratuity payment?",
-        "answer": "An employer may forfeit the gratuity of an employee if the service has been terminated for any act of willful omission or negligence causing damage or loss to the employer's property, or for riotous or disorderly conduct or any act of violence on the part of the employee. However, such forfeiture is subject to specific conditions and legal provisions."
       }
     ],
     "related": [
       "salary-in-hand-calculator-india",
-      "emi-calculator-india",
-      "sip-calculator-india"
-    ],
-    "howToUse": [
-      "Enter your 'Last Drawn Basic Salary + Dearness Allowance' per month in the designated field.",
-      "Input your 'Total Years of Service', including months as decimals (e.g., 7.5 for 7 years 6 months).",
-      "Select whether your employer is 'covered under the Gratuity Act, 1972' (1 for Yes, 0 for No).",
-      "Adjust the 'Effective Years for Gratuity' based on whether your employer is covered under the Act and the specific rounding rules.",
-      "View your 'Estimated Gratuity Amount' calculated instantly by RupeeKit."
-    ],
-    "assumptions": [
-      "The 'Last Drawn Basic Salary + Dearness Allowance' entered is accurate and represents your final monthly earnings for gratuity calculation.",
-      "The 'Total Years of Service' accurately reflects your continuous service period with the employer.",
-      "For employers covered under the Gratuity Act, 1972, the calculation adheres to its provisions, including the 15 days' wages for every completed year of service.",
-      "For employers not covered under the Act, the calculation follows common industry practice of 15 days' wages for every completed year of service, considering only full years.",
-      "The maximum gratuity limit of ₹20 Lakhs (as per current Act provisions) is a general cap, and this calculator provides an estimate before considering this statutory limit or any tax implications.",
-      "The information provided by the user is complete and correct for the purpose of estimation."
-    ],
-    "commonMistakes": [
-      "Incorrectly rounding service years: Users might not apply the correct rounding rules for 'effective years' based on whether their employer is covered under the Gratuity Act (e.g., 5 years 5 months vs. 5 years 6 months).",
-      "Not distinguishing between covered/non-covered employers: Failing to correctly identify if the employer falls under the Gratuity Act, 1972, can lead to a significantly different calculation.",
-      "Excluding Dearness Allowance: Gratuity calculation typically includes both Basic Salary and Dearness Allowance, but users might mistakenly input only Basic Salary.",
-      "Assuming full tax exemption: While a portion of gratuity is exempt from tax, many users mistakenly assume the entire amount is tax-free, especially for non-government employees.",
-      "Not considering company-specific policies: For employers not covered by the Act, company policies can vary, and relying solely on the common practice might not reflect the actual payout.",
-      "Ignoring the maximum gratuity limit: The Gratuity Act specifies a maximum limit (currently ₹20 Lakhs) which might not be explicitly factored into initial personal estimates."
-    ],
-    "contentSections": [
-      {
-        "heading": "Understanding Gratuity in India",
-        "body": "Gratuity is a lump sum payment made by an employer to an employee as a token of appreciation for their long-term service. It is a statutory right for eligible employees in India, primarily governed by the Payment of Gratuity Act, 1972. This payment is typically made upon retirement, resignation, death, disablement, or termination, provided certain conditions regarding the length of service are met. It serves as a crucial financial benefit, offering support to employees after their tenure with an organization. RupeeKit's Gratuity Calculator helps you understand and estimate this important component of your financial planning.",
-        "bullets": []
-      },
-      {
-        "heading": "The Payment of Gratuity Act, 1972: Key Provisions",
-        "body": "The Payment of Gratuity Act, 1972, mandates gratuity payments for establishments employing 10 or more persons. Under this Act, an employee generally becomes eligible for gratuity after completing five years of continuous service. The Act specifies the formula for calculation, which involves 15 days' wages for every completed year of service or part thereof exceeding six months. For employers not covered under this Act, gratuity payment is often based on the terms of employment contract or company policy, which typically considers only completed years of service. Our calculator distinguishes between these two scenarios to provide a more relevant estimate.",
-        "bullets": []
-      },
-      {
-        "heading": "Tax Implications of Gratuity in India",
-        "body": "The taxability of gratuity in India is an important aspect to consider. For government employees, the entire gratuity amount received is exempt from income tax. However, for non-government employees, a portion of the gratuity is exempt from tax, subject to certain limits and conditions as per Section 10(10) of the Income Tax Act, 1961. These limits are periodically updated by the government. Any amount received above the specified exemption limit becomes taxable. It is advisable to consult a tax professional for personalized advice regarding your specific tax liability, as this calculator provides only an estimation of the gross gratuity amount.",
-        "bullets": []
-      },
-      {
-        "heading": "Why Use RupeeKit's Gratuity Calculator?",
-        "body": "RupeeKit's Gratuity Calculator is designed to simplify the complex process of estimating your gratuity in India. By providing a user-friendly interface, it allows you to quickly input your last drawn salary, years of service, and employer's coverage status under the Gratuity Act. The tool then applies the relevant formula to provide an instant, estimated gratuity amount. This helps in better financial planning for retirement or career transitions. Remember, the results are educational estimates to guide your understanding and should not be considered as final financial or legal advice.",
-        "bullets": []
-      }
-    ],
-    "lastReviewed": "May 2026"
+      "income-tax-calculator-old-vs-new-regime-india",
+      "hra-exemption-calculator-india"
+    ]
   }
 ]
