@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-05-24T01:50:40.393Z",
+  "workflow": "RupeeKit Workflow 7 - Homepage Internal Link Optimizer",
+  "status": "NO_ACTION",
+  "liveToolCount": 10,
+  "eligibleToolCount": 9,
+  "excludedNotReadyToolCount": 1,
+  "categories": [
+    "Salary",
+    "Loans",
+    "Investments",
+    "Tax",
+    "Savings",
+    "Retirement"
+  ],
+  "homepageCoverage": [
+    {
+      "slug": "salary-in-hand-calculator-india",
+      "name": "Salary In-Hand Calculator India",
+      "category": "Salary"
+    },
+    {
+      "slug": "emi-calculator-india",
+      "name": "EMI Calculator India",
+      "category": "Loans"
+    },
+    {
+      "slug": "sip-calculator-india",
+      "name": "SIP Calculator India",
+      "category": "Investments"
+    },
+    {
+      "slug": "gst-calculator-india",
+      "name": "GST Calculator India",
+      "category": "Tax"
+    },
+    {
+      "slug": "fd-calculator-india",
+      "name": "FD Calculator India",
+      "category": "Savings"
+    },
+    {
+      "slug": "hra-exemption-calculator-india",
+      "name": "HRA Exemption Calculator India",
+      "category": "Tax"
+    },
+    {
+      "slug": "80c-deduction-calculator-india",
+      "name": "Section 80C Deduction Calculator India",
+      "category": "Tax"
+    },
+    {
+      "slug": "gratuity-calculator-india",
+      "name": "Gratuity Calculator India",
+      "category": "Retirement"
+    },
+    {
+      "slug": "recurring-deposit-calculator-india",
+      "name": "Recurring Deposit (RD) Calculator India",
+      "category": "Investments"
+    }
+  ],
+  "changedToolCount": 0,
+  "changes": [],
+  "invalidRelatedBefore": [],
+  "notReadyTools": [
+    {
+      "slug": "income-tax-calculator-old-vs-new-regime-india",
+      "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+      "reason": "Excluded from internal linking because it has incomplete/truncated metadata, too little content, or invalid tool shape."
+    }
+  ],
+  "safety": {
+    "formulasPreserved": true,
+    "inputsPreserved": true,
+    "outputsPreserved": true,
+    "onlyRelatedFieldUpdated": true,
+    "notReadyLiveToolsExcludedFromRelatedLinks": true,
+    "homepageAlreadyDynamic": true
+  }
+}
