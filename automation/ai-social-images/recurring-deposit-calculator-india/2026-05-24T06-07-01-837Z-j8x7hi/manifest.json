@@ -1,0 +1,221 @@
+{
+  "generatedAt": "2026-05-24T06:07:01.837Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "mode": "gemini_low_cost_image_api_no_auto_posting",
+  "model": "gemini-2.5-flash-image",
+  "slug": "recurring-deposit-calculator-india",
+  "toolName": "Recurring Deposit (RD) Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india",
+  "sourceCreative": {
+    "generatedAt": "2026-05-24T03:31:36.080Z",
+    "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+    "status": "CREATIVE_PACK_CREATED"
+  },
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1200,
+      "actualHeight": 675,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "filePath": "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 347107,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/facebook.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "resizedToExpectedDimensions": true,
+        "attemptsUsed": 1,
+        "width": 1200,
+        "height": 675,
+        "expectedWidth": 1200,
+        "expectedHeight": 675,
+        "originalWidth": 1024,
+        "originalHeight": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "4:5",
+      "expectedWidth": 1080,
+      "expectedHeight": 1350,
+      "actualWidth": 1080,
+      "actualHeight": 1350,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "filePath": "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 262585,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/instagram.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "resizedToExpectedDimensions": true,
+        "attemptsUsed": 1,
+        "width": 1080,
+        "height": 1350,
+        "expectedWidth": 1080,
+        "expectedHeight": 1350,
+        "originalWidth": 1024,
+        "originalHeight": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1000,
+      "actualHeight": 1500,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "filePath": "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 779443,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/pinterest.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "resizedToExpectedDimensions": true,
+        "attemptsUsed": 1,
+        "width": 1000,
+        "height": 1500,
+        "expectedWidth": 1000,
+        "expectedHeight": 1500,
+        "originalWidth": 1024,
+        "originalHeight": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    }
+  ],
+  "promptsUsed": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "sourcePrompt": "A clean, modern infographic on a white background. The design should clearly illustrate the 'formula breakdown' of a Recurring Deposit (RD). Feature three distinct, visually connected sections or cards, each representing a key factor: 1. 'Monthly Deposit' with a small icon of stacked coins or currency notes. 2. 'Interest Rate' with a percentage symbol or a growing arrow. 3. 'Tenure (Months/Years)' with a calendar or clock icon. These three elements should visually flow into a central, larger element labeled 'RD Maturity Amount' or 'Your Estimated Savings', perhaps represented by a growing bar chart or a larger coin stack. Use deep blue and fresh green as primary accent colors for icons, text highlights, and connecting lines. The text for each section should be large, clean, and readable. Ensure the top-right corner is kept completely clean and uncluttered. Finance utility brand look, not a bank ad. PNG/JPG ready. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\nfacebook\n\nRequired aspect ratio:\n16:9\n\nTarget output size:\n1200px wide × 675px tall\n\n\n\nUse this visual concept:\nA clean, modern infographic on a white background. The design should clearly illustrate the 'formula breakdown' of a Recurring Deposit (RD). Feature three distinct, visually connected sections or cards, each representing a key factor: 1. 'Monthly Deposit' with a small icon of stacked coins or currency notes. 2. 'Interest Rate' with a percentage symbol or a growing arrow. 3. 'Tenure (Months/Years)' with a calendar or clock icon. These three elements should visually flow into a central, larger element labeled 'RD Maturity Amount' or 'Your Estimated Savings', perhaps represented by a growing bar chart or a larger coin stack. Use deep blue and fresh green as primary accent colors for icons, text highlights, and connecting lines. The text for each section should be large, clean, and readable. Ensure the top-right corner is kept completely clean and uncluttered. Finance utility brand look, not a bank ad. PNG/JPG ready.  No humans, no human faces, no people, no personal identity, no mascot.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "4:5",
+      "sourcePrompt": "A square, clean, and minimalist infographic on a light background. Design should visually break down the components of a Recurring Deposit (RD) calculation. Create a central graphic that represents 'RD Maturity' or 'Total Returns'. Around this central graphic, arrange three distinct, interconnected visual elements: one for 'Monthly Deposit' (e.g., a stack of coins), one for 'Interest Rate' (e.g., an upward trend arrow with a percentage), and one for 'Tenure' (e.g., a simple calendar icon). Use deep blue and fresh green for accents, highlights, and subtle connecting lines. All text on the image should be short, large, and highly readable, e.g., '1. Monthly Deposit', '2. Interest Rate', '3. Tenure'. Keep the top-right corner empty and clean. Finance utility brand aesthetic, no human faces. PNG/JPG ready. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\ninstagram\n\nRequired aspect ratio:\n4:5\n\nTarget output size:\n1080px wide × 1350px tall\n\n\nInstagram-specific requirement:\n- Create a portrait feed image, not a square image.\n- Required final layout is 4:5 portrait.\n- Target dimensions are 1080px wide and 1350px tall.\n- Do NOT create 1:1.\n- Do NOT create 1024x1024.\n- Keep the most important content vertically centered.\n- Avoid placing key text near extreme top/bottom edges.\n\n\nUse this visual concept:\nA square, clean, and minimalist infographic on a light background. Design should visually break down the components of a Recurring Deposit (RD) calculation. Create a central graphic that represents 'RD Maturity' or 'Total Returns'. Around this central graphic, arrange three distinct, interconnected visual elements: one for 'Monthly Deposit' (e.g., a stack of coins), one for 'Interest Rate' (e.g., an upward trend arrow with a percentage), and one for 'Tenure' (e.g., a simple calendar icon). Use deep blue and fresh green for accents, highlights, and subtle connecting lines. All text on the image should be short, large, and highly readable, e.g., '1. Monthly Deposit', '2. Interest Rate', '3. Tenure'. Keep the top-right corner empty and clean. Finance utility brand aesthetic, no human faces. PNG/JPG ready. \n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "sourcePrompt": "A tall, clean, and elegant infographic pin on a white background, focusing on the 'formula breakdown' of a Recurring Deposit (RD). The design should be structured vertically, with clear sections. At the top, a bold, readable title like 'How Your RD Grows: 3 Key Factors'. Below this, present three numbered steps or distinct panels. Panel 1: 'Monthly Deposit' with an icon of currency flowing into a savings jar. Panel 2: 'Interest Rate' with a visual of compounding growth (e.g., a curve or expanding circles) and a percentage. Panel 3: 'Tenure' with a timeline or a series of calendar months. All these elements should visually lead down to a final, prominent section at the bottom, labeled 'Estimated Maturity Amount' with a larger, prosperous icon. Use deep blue and fresh green for all graphical elements and text highlights. Ensure text is large, clean, and easily readable. The top-right corner must be kept completely free of any design elements. Finance utility brand style, no human faces. PNG/JPG ready. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\npinterest\n\nRequired aspect ratio:\n2:3\n\nTarget output size:\n1000px wide × 1500px tall\n\n\n\nUse this visual concept:\nA tall, clean, and elegant infographic pin on a white background, focusing on the 'formula breakdown' of a Recurring Deposit (RD). The design should be structured vertically, with clear sections. At the top, a bold, readable title like 'How Your RD Grows: 3 Key Factors'. Below this, present three numbered steps or distinct panels. Panel 1: 'Monthly Deposit' with an icon of currency flowing into a savings jar. Panel 2: 'Interest Rate' with a visual of compounding growth (e.g., a curve or expanding circles) and a percentage. Panel 3: 'Tenure' with a timeline or a series of calendar months. All these elements should visually lead down to a final, prominent section at the bottom, labeled 'Estimated Maturity Amount' with a larger, prosperous icon. Use deep blue and fresh green for all graphical elements and text highlights. Ensure text is large, clean, and easily readable. The top-right corner must be kept completely free of any design elements. Finance utility brand style, no human faces. PNG/JPG ready. \n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 347107,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "resizedToExpectedDimensions": true,
+      "attemptsUsed": 1,
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1200,
+      "actualHeight": 675,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 262585,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "resizedToExpectedDimensions": true,
+      "attemptsUsed": 1,
+      "expectedWidth": 1080,
+      "expectedHeight": 1350,
+      "actualWidth": 1080,
+      "actualHeight": 1350,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 779443,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "resizedToExpectedDimensions": true,
+      "attemptsUsed": 1,
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1000,
+      "actualHeight": 1500,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "officialLogoHandledBy8DG2": true,
+    "sanitizedBeforeGemini": true,
+    "generatedImageValidatedBeforeCommit": true,
+    "reEncodedToCleanPngBeforeCommit": true,
+    "resizedToPlatformDimensionsBeforeCommit": true,
+    "instagramPortrait4x5": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}
