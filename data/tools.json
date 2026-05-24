@@ -1126,5 +1126,99 @@
       }
     ],
     "lastReviewed": "May 2026"
+  },
+  {
+    "slug": "recurring-deposit-calculator-india",
+    "name": "Recurring Deposit (RD) Calculator India",
+    "category": "Investments",
+    "status": "live",
+    "targetKeyword": "recurring deposit calculator India",
+    "shortDescription": "Use RupeeKit's free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively.",
+    "metaDescription": "Use RupeeKit's free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively.",
+    "inputs": [
+      {
+        "key": "monthlyDeposit",
+        "label": "Monthly Deposit Amount",
+        "unit": "₹",
+        "default": 5000,
+        "min": 100,
+        "max": 100000,
+        "step": 100,
+        "help": "Enter the fixed amount you plan to deposit every month."
+      },
+      {
+        "key": "annualInterestRate",
+        "label": "Annual Interest Rate",
+        "unit": "%",
+        "default": 6.5,
+        "min": 1,
+        "max": 15,
+        "step": 0.1,
+        "help": "Enter the annual interest rate offered by your bank (e.5 for 6.5%)."
+      },
+      {
+        "key": "tenureMonths",
+        "label": "Tenure",
+        "unit": "months",
+        "default": 60,
+        "min": 6,
+        "max": 120,
+        "step": 1,
+        "help": "Enter the total duration of your RD in months (e.g., 60 months for 5 years)."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "maturityAmount",
+        "label": "Maturity Amount",
+        "formula": "monthlyDeposit * (((1 + (annualInterestRate / 1200)) ^ tenureMonths - 1) / (annualInterestRate / 1200)) * (1 + (annualInterestRate / 1200))",
+        "format": "currency"
+      },
+      {
+        "key": "totalAmountInvested",
+        "label": "Total Amount Invested",
+        "formula": "monthlyDeposit * tenureMonths",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterestEarned",
+        "label": "Total Interest Earned",
+        "formula": "maturityAmount - totalAmountInvested",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "The Recurring Deposit (RD) maturity amount is calculated using a formula based on the future value of an annuity due. This formula considers your fixed monthly deposit, the annual interest rate offered by the bank, and the total tenure of your deposit in months. Each monthly deposit earns compound interest at a monthly rate, which is derived from the annual interest rate. The interest is compounded, meaning interest earned in previous periods also starts earning interest. The calculator first determines the total amount you will invest by multiplying your monthly deposit by the total number of months. Then, it calculates the final maturity amount, which includes both your principal investments and the accumulated compound interest over the entire tenure. Finally, the total interest earned is simply the difference between the maturity amount and the total amount you invested, providing a clear picture of your returns.",
+    "example": "Consider Priya, who aims to build a disciplined savings habit. She decides to open a Recurring Deposit account, committing to deposit ₹5,000 every month. The bank offers an annual interest rate of 6.5% for a tenure of 5 years, which translates to 60 months. Using this calculator, Priya can easily determine her financial outcome. By inputting her monthly deposit, interest rate, and tenure, she can instantly see that her total investment will be ₹3,00,000. The calculator will then reveal her estimated maturity amount, including the compound interest, and the total interest she will earn over the five-year period, helping her plan her savings effectively.",
+    "faqs": [
+      {
+        "question": "What is the minimum and maximum tenure for an RD in India?",
+        "answer": "Typically, the minimum tenure for an RD in India is 6 months, and the maximum tenure can go up to 10 years (120 months). These tenures may vary slightly across different banks."
+      },
+      {
+        "question": "Is RD interest taxable in India?",
+        "answer": "Yes, the interest earned on Recurring Deposits is fully taxable in India. It is added to your 'Income from Other Sources' and taxed as per your applicable income tax slab rate. Banks also deduct TDS (Tax Deducted at Source) if the interest exceeds a certain threshold in a financial year."
+      },
+      {
+        "question": "Can I withdraw money from an RD before maturity?",
+        "answer": "Yes, premature withdrawal from an RD is generally allowed, but it usually comes with a penalty. Banks might deduct a small percentage from the interest earned or charge a penalty fee. It's advisable to check your bank's specific terms and conditions."
+      },
+      {
+        "question": "How is RD interest calculated by banks?",
+        "answer": "Banks typically calculate RD interest using a compound interest formula, similar to how a fixed deposit works, but applied to monthly installments. The interest is usually compounded quarterly or monthly, depending on the bank's policy, on the accumulated balance."
+      },
+      {
+        "question": "What is the difference between an RD and an FD?",
+        "answer": "The main difference is the deposit pattern. In an RD, you make regular, fixed monthly deposits over a chosen tenure. In a Fixed Deposit (FD), you make a single lump-sum deposit at the beginning for a fixed period. Both offer fixed interest rates and are generally considered low-risk savings options."
+      },
+      {
+        "question": "Is this calculator financial or tax advice?",
+        "answer": "No. This calculator is for educational and informational purposes only. It provides an estimate based on the values entered and should not be treated as tax, legal, investment, or financial advice."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "fd-calculator-india",
+      "emi-calculator-india"
+    ]
   }
 ]
