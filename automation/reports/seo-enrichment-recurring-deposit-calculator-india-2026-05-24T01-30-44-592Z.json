@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-24T01:30:44.592Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "AUTO_LATEST_LIVE_TOOL",
+  "slug": "recurring-deposit-calculator-india",
+  "name": "Recurring Deposit (RD) Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Use RupeeKit's free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively.",
+    "metaDescription": "Use RupeeKit's free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively.",
+    "faqCount": 6
+  },
+  "after": {
+    "shortDescription": "Estimate your Recurring Deposit (RD) maturity amount and total interest earned in India with RupeeKit's free calculator. Plan your savings effectively.",
+    "metaDescription": "Use RupeeKit's free Recurring Deposit (RD) Calculator to accurately estimate your maturity amount and total interest earned in India. Plan your savings",
+    "faqCount": 7,
+    "howToUseCount": 4,
+    "assumptionsCount": 5,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 4,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Enhanced short and meta descriptions for clarity and SEO.",
+    "Expanded formula explanation for better user understanding.",
+    "Refined example to be more practical and within word count.",
+    "Reviewed and expanded FAQs, ensuring India-specific and conservative answers.",
+    "Added 'How To Use' section for clear calculator guidance.",
+    "Introduced 'Assumptions' to clarify calculator's basis.",
+    "Included 'Common Mistakes' to help users avoid pitfalls.",
+    "Developed specific 'Content Sections' to enrich page content and provide valuable information on RDs in India."
+  ]
+}
