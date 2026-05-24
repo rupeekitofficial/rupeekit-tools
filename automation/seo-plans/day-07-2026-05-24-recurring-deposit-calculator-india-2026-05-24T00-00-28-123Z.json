@@ -1,0 +1,154 @@
+{
+  "generatedAt": "2026-05-24T00:00:28.123Z",
+  "workflow": "RupeeKit Workflow 1 - Keyword Research and Content Plan",
+  "status": "approved-plan",
+  "plan": {
+    "dayNumber": 7,
+    "date": "2026-05-24",
+    "keyword": "recurring deposit calculator India",
+    "slug": "recurring-deposit-calculator-india",
+    "searchIntent": "Help users estimate RD maturity amount for monthly deposits and fixed interest rates.",
+    "targetPersona": "Indian individuals and families looking to plan their savings and understand Recurring Deposit returns.",
+    "pageType": "calculator",
+    "seoPriority": "medium",
+    "riskLevel": "low",
+    "primaryGoal": "Provide an accurate and easy-to-use Recurring Deposit (RD) maturity calculator for Indian users.",
+    "titleOptions": [
+      "Recurring Deposit Calculator India - Estimate RD Maturity",
+      "RD Calculator India: Calculate Your Recurring Deposit Returns",
+      "Online Recurring Deposit Calculator for India - RupeeKit"
+    ],
+    "recommendedMetaTitle": "Recurring Deposit Calculator India - Estimate RD Maturity",
+    "recommendedMetaDescription": "Use RupeeKit's free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively.",
+    "h1": "Recurring Deposit (RD) Calculator India",
+    "calculatorSpec": {
+      "inputs": [
+        {
+          "name": "monthlyDeposit",
+          "label": "Monthly Deposit Amount (₹)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "5000",
+          "helpText": "Enter the fixed amount you plan to deposit every month."
+        },
+        {
+          "name": "annualInterestRate",
+          "label": "Annual Interest Rate (%)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "6.5",
+          "helpText": "Enter the annual interest rate offered by your bank (e.g., 6.5 for 6.5%)."
+        },
+        {
+          "name": "tenureMonths",
+          "label": "Tenure (in Months)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "60",
+          "helpText": "Enter the total duration of your RD in months (e.g., 60 months for 5 years)."
+        }
+      ],
+      "formulaPlainEnglish": "The Recurring Deposit maturity amount is calculated using the future value of an annuity due formula, where monthly deposits earn compound interest at a monthly rate over the specified tenure.",
+      "formula": "monthlyDeposit * (((1 + (annualInterestRate / 1200)) ^ tenureMonths - 1) / (annualInterestRate / 1200)) * (1 + (annualInterestRate / 1200))",
+      "outputFields": [
+        "Maturity Amount",
+        "Total Amount Invested",
+        "Total Interest Earned"
+      ]
+    },
+    "contentBrief": {
+      "introAngle": "Start by highlighting the simplicity and benefits of Recurring Deposits as a disciplined savings instrument for Indian users, and how the calculator helps in financial planning.",
+      "mustCover": [
+        "What is a Recurring Deposit (RD) and how it works in India.",
+        "Benefits of RDs: disciplined savings, fixed returns, lower risk.",
+        "Key factors affecting RD returns: monthly deposit, interest rate, tenure.",
+        "How to use the RupeeKit RD calculator effectively.",
+        "Comparison of RD with other savings options like FD and SIP (briefly).",
+        "Tax implications on RD interest (TDS, taxable income)."
+      ],
+      "exampleScenario": "Priya wants to save ₹5,000 every month for 5 years (60 months) in an RD account offering an annual interest rate of 6.5%. Use the calculator to find out her maturity amount and total interest earned.",
+      "faqQuestions": [
+        "What is the minimum and maximum tenure for an RD in India?",
+        "Is RD interest taxable in India?",
+        "Can I withdraw money from an RD before maturity?",
+        "How is RD interest calculated by banks?",
+        "What is the difference between an RD and an FD?",
+        "Are there any penalties for missing an RD installment?"
+      ],
+      "internalLinks": [
+        {
+          "label": "Salary Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india"
+        },
+        {
+          "label": "EMI Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/emi-calculator-india"
+        },
+        {
+          "label": "SIP Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/sip-calculator-india"
+        },
+        {
+          "label": "GST Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/gst-calculator-india"
+        },
+        {
+          "label": "FD Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/fd-calculator-india"
+        }
+      ],
+      "trustNotes": [
+        "Uses commonly followed Indian HRA exemption calculation rules for educational purposes.",
+        "Explains assumptions clearly so users can understand how the estimate is calculated.",
+        "Designed as an informational calculator, not as personalized tax or financial advice.",
+        "Users should verify final tax treatment with official guidance or a qualified tax professional."
+      ],
+      "disclaimer": "This calculator is for educational and informational purposes only. It provides an estimate based on the inputs and assumptions shown. It is not tax, legal, investment, or financial advice. Please verify with official sources or consult a qualified professional before making tax or financial decisions."
+    },
+    "qualityGate": {
+      "shouldPublish": true,
+      "checks": [
+        {
+          "name": "clear search intent",
+          "pass": true,
+          "note": "The content directly addresses the user's need to calculate RD maturity."
+        },
+        {
+          "name": "calculator utility",
+          "pass": true,
+          "note": "The page provides a functional and accurate RD calculator as its primary utility."
+        },
+        {
+          "name": "India context",
+          "pass": true,
+          "note": "All content, examples, and internal links are tailored for the Indian financial landscape."
+        },
+        {
+          "name": "no financial advice",
+          "pass": true,
+          "note": "Explicit disclaimers and trust notes ensure no financial advice is given."
+        },
+        {
+          "name": "no guaranteed claims",
+          "pass": true,
+          "note": "The content avoids guaranteeing returns, emphasizing estimations and variable rates."
+        },
+        {
+          "name": "unique page angle",
+          "pass": true,
+          "note": "Focuses on ease of use and comprehensive information specific to Indian RDs."
+        }
+      ]
+    },
+    "publishingPlan": {
+      "targetPath": "data/tools/recurring-deposit-calculator-india.json",
+      "targetUrl": "https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india",
+      "nextWorkflow": "Daily Page Publisher"
+    }
+  },
+  "nextStep": {
+    "workflow": "Workflow 2 - Daily Page Publisher",
+    "publishTarget": "data/tools/recurring-deposit-calculator-india.json",
+    "liveUrl": "https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india"
+  }
+}

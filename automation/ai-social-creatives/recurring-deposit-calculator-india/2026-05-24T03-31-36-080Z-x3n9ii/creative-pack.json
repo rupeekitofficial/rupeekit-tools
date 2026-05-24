@@ -1,0 +1,129 @@
+{
+  "generatedAt": "2026-05-24T03:31:36.080Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_image_generation_ready",
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "creativePack": {
+    "slug": "recurring-deposit-calculator-india",
+    "toolName": "Recurring Deposit (RD) Calculator India",
+    "pageUrl": "https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india",
+    "angle": "formula_breakdown",
+    "hookType": "numbered_tip",
+    "visualStyle": "clean_infographic",
+    "hook": "RD Growth Unpacked: See the 3 elements of your maturity amount.",
+    "cta": "Try the calculator",
+    "keywords": [
+      "Recurring Deposit",
+      "RD Calculator",
+      "Savings India",
+      "Investment",
+      "Interest",
+      "Maturity",
+      "Financial Planning"
+    ],
+    "facebook": {
+      "caption": "Ever wondered how your Recurring Deposit (RD) truly grows? It's all about understanding the core elements that build your maturity amount. Our RD Calculator helps you break down the formula into three key factors: your monthly deposit, the annual interest rate, and the total tenure. See how compound interest works its magic over time, turning disciplined savings into a substantial sum. Plan your financial future by estimating your potential returns with ease. Discover the power of systematic savings and make informed decisions for your goals. Visit https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india to try it now!",
+      "hashtags": [
+        "#RDCalculator",
+        "#RecurringDeposit",
+        "#SavingsGoals",
+        "#FinancialPlanning",
+        "#InvestmentsIndia",
+        "#CompoundInterest"
+      ]
+    },
+    "instagram": {
+      "caption": "Curious about your Recurring Deposit (RD) growth? Our calculator simplifies the formula! Understand how your monthly deposits, the interest rate, and the tenure combine to build your maturity amount. It's a clear breakdown of how compound interest helps your money grow systematically. Plan your savings goals effectively and visualize your potential returns. Get an educational estimate today! Try it at https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india",
+      "hashtags": [
+        "#RDCalculatorIndia",
+        "#RecurringDeposit",
+        "#SaveSmart",
+        "#FinancialLiteracy",
+        "#InvestmentTips",
+        "#GrowYourMoney",
+        "#PersonalFinance",
+        "#RupeeKit"
+      ]
+    },
+    "pinterest": {
+      "title": "Recurring Deposit (RD) Calculator: See Your Savings Grow",
+      "description": "Unlock the mystery of your Recurring Deposit (RD) growth. Our free RD calculator helps you understand the formula behind your maturity amount by breaking down the impact of your monthly deposits, interest rate, and tenure. Visualize how compound interest works and plan your savings goals effectively. Get an educational estimate for your financial future. Try the calculator at... https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india",
+      "hashtags": [
+        "#RDCalculator",
+        "#SavingsPlan",
+        "#FinancialGoals",
+        "#InvestmentTools",
+        "#IndiaFinance"
+      ]
+    },
+    "x": {
+      "post": "How does your Recurring Deposit (RD) grow? Our calculator breaks down the formula: monthly deposit + interest rate + tenure = your... https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india #RDCalculator #SavingsIndia #FinanceTools",
+      "hashtags": [
+        "#RDCalculator",
+        "#SavingsIndia",
+        "#FinanceTools"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A clean, modern infographic on a white background. The design should clearly illustrate the 'formula breakdown' of a Recurring Deposit (RD). Feature three distinct, visually connected sections or cards, each representing a key factor: 1. 'Monthly Deposit' with a small icon of stacked coins or currency notes. 2. 'Interest Rate' with a percentage symbol or a growing arrow. 3. 'Tenure (Months/Years)' with a calendar or clock icon. These three elements should visually flow into a central, larger element labeled 'RD Maturity Amount' or 'Your Estimated Savings', perhaps represented by a growing bar chart or a larger coin stack. Use deep blue and fresh green as primary accent colors for icons, text highlights, and connecting lines. The text for each section should be large, clean, and readable. Ensure the top-right corner is kept completely clean and uncluttered. Finance utility brand look, not a bank ad. PNG/JPG ready. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A square, clean, and minimalist infographic on a light background. Design should visually break down the components of a Recurring Deposit (RD) calculation. Create a central graphic that represents 'RD Maturity' or 'Total Returns'. Around this central graphic, arrange three distinct, interconnected visual elements: one for 'Monthly Deposit' (e.g., a stack of coins), one for 'Interest Rate' (e.g., an upward trend arrow with a percentage), and one for 'Tenure' (e.g., a simple calendar icon). Use deep blue and fresh green for accents, highlights, and subtle connecting lines. All text on the image should be short, large, and highly readable, e.g., '1. Monthly Deposit', '2. Interest Rate', '3. Tenure'. Keep the top-right corner empty and clean. Finance utility brand aesthetic, no human faces. PNG/JPG ready. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A tall, clean, and elegant infographic pin on a white background, focusing on the 'formula breakdown' of a Recurring Deposit (RD). The design should be structured vertically, with clear sections. At the top, a bold, readable title like 'How Your RD Grows: 3 Key Factors'. Below this, present three numbered steps or distinct panels. Panel 1: 'Monthly Deposit' with an icon of currency flowing into a savings jar. Panel 2: 'Interest Rate' with a visual of compounding growth (e.g., a curve or expanding circles) and a percentage. Panel 3: 'Tenure' with a timeline or a series of calendar months. All these elements should visually lead down to a final, prominent section at the bottom, labeled 'Estimated Maturity Amount' with a larger, prosperous icon. Use deep blue and fresh green for all graphical elements and text highlights. Ensure text is large, clean, and easily readable. The top-right corner must be kept completely free of any design elements. Finance utility brand style, no human faces. PNG/JPG ready. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, clutter, misleading claims, bank/loan ad look, watermark, tiny unreadable text, fake RupeeKit logo, fake RupeeKit wordmark, fake website URL, important elements in top-right corner",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "short setup notes"
+    },
+    "safetyNotes": [
+      "short internal safety notes"
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-24T03:31:36.080Z",
+    "slug": "recurring-deposit-calculator-india",
+    "toolName": "Recurring Deposit (RD) Calculator India",
+    "angle": "formula_breakdown",
+    "hookType": "numbered_tip",
+    "visualStyle": "clean_infographic",
+    "hook": "RD Growth Unpacked: See the 3 elements of your maturity amount.",
+    "cta": "Try the calculator",
+    "firstCaptionLine": "ever wondered how your recurring deposit (rd) truly grows",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "Recurring Deposit",
+      "RD Calculator",
+      "Savings India",
+      "Investment",
+      "Interest",
+      "Maturity",
+      "Financial Planning"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

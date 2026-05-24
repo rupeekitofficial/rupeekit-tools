@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-24T03:31:36.080Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "slug": "recurring-deposit-calculator-india",
+  "toolName": "Recurring Deposit (RD) Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india",
+  "angle": "formula_breakdown",
+  "hookType": "numbered_tip",
+  "visualStyle": "clean_infographic",
+  "hook": "RD Growth Unpacked: See the 3 elements of your maturity amount.",
+  "cta": "Try the calculator",
+  "historyLengthBefore": 8,
+  "historyLengthAfter": 9,
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}
