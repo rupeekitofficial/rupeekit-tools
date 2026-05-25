@@ -1,0 +1,174 @@
+{
+  "generatedAt": "2026-05-25T06:06:59.009Z",
+  "workflow": "RupeeKit Workflow 1 - Keyword Research and Content Plan",
+  "status": "approved-plan",
+  "plan": {
+    "dayNumber": 8,
+    "date": "2026-05-25",
+    "keyword": "home loan prepayment calculator India",
+    "slug": "home-loan-prepayment-calculator-india",
+    "searchIntent": "Help borrowers estimate how prepayment may reduce home loan interest or tenure.",
+    "targetPersona": "Indian home loan borrowers looking to reduce their interest burden or loan tenure, financially conscious individuals planning their finances.",
+    "pageType": "calculator",
+    "seoPriority": "medium",
+    "riskLevel": "medium",
+    "primaryGoal": "Provide a user-friendly calculator to estimate the impact of home loan prepayments on EMI, tenure, and total interest paid.",
+    "titleOptions": [
+      "Home Loan Prepayment Calculator India - RupeeKit",
+      "Calculate Home Loan Prepayment Benefits in India | RupeeKit",
+      "Home Loan Prepayment Calculator: Save Interest & Reduce Tenure"
+    ],
+    "recommendedMetaTitle": "Home Loan Prepayment Calculator India | RupeeKit",
+    "recommendedMetaDescription": "Estimate how home loan prepayment can reduce your EMI, shorten tenure, and save interest in India. Use RupeeKit's free online calculator.",
+    "h1": "Home Loan Prepayment Calculator India",
+    "calculatorSpec": {
+      "inputs": [
+        {
+          "name": "outstandingPrincipal",
+          "label": "Outstanding Loan Amount (₹)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "5000000",
+          "helpText": "Enter your current outstanding home loan principal."
+        },
+        {
+          "name": "annualInterestRate",
+          "label": "Annual Interest Rate (%)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "8.5",
+          "helpText": "Enter your current annual home loan interest rate."
+        },
+        {
+          "name": "remainingTenureMonths",
+          "label": "Remaining Loan Tenure (Months)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "240",
+          "helpText": "Enter the remaining tenure of your home loan in months."
+        },
+        {
+          "name": "oneTimePrepaymentAmount",
+          "label": "One-Time Prepayment Amount (₹)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "100000",
+          "helpText": "Enter the lump sum amount you wish to prepay."
+        },
+        {
+          "name": "additionalMonthlyPrepaymentAmount",
+          "label": "Additional Monthly Prepayment (₹)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Enter any additional amount you plan to pay monthly (e.g., ₹5000)."
+        }
+      ],
+      "formulaPlainEnglish": "Calculates the new Equated Monthly Installment (EMI) if a one-time prepayment is made and the remaining loan tenure is kept the same. This is a core component for deriving interest savings and tenure reduction.",
+      "formula": "(outstandingPrincipal - oneTimePrepaymentAmount) * (annualInterestRate / 12 / 100) * (1 + (annualInterestRate / 12 / 100))^remainingTenureMonths / ((1 + (annualInterestRate / 12 / 100))^remainingTenureMonths - 1)",
+      "outputFields": [
+        "Original EMI",
+        "New EMI (if tenure is kept same)",
+        "Interest Saved (if tenure is kept same)",
+        "New Tenure (if EMI is kept same)",
+        "Total Interest Saved (if EMI is kept same, considering both one-time and additional monthly prepayments)"
+      ]
+    },
+    "contentBrief": {
+      "introAngle": "Start by highlighting the significant financial benefits of home loan prepayment in India, such as reducing total interest paid and shortening loan tenure. Introduce the calculator as a tool to visualize these savings.",
+      "mustCover": [
+        "What is home loan prepayment and why it's beneficial.",
+        "Types of prepayment: one-time lump sum vs. additional monthly payments.",
+        "How prepayment reduces interest burden and loan tenure.",
+        "Factors to consider before prepaying (e.g., opportunity cost, tax benefits, liquidity).",
+        "Impact of prepayment on tax deductions (Section 80C and 24b).",
+        "Step-by-step guide on how to use the RupeeKit Home Loan Prepayment Calculator.",
+        "Real-life examples demonstrating savings.",
+        "Common myths about home loan prepayment."
+      ],
+      "exampleScenario": "Mr. Sharma has an outstanding home loan of ₹50 Lakhs at 8.5% interest with 20 years (240 months) remaining. He receives an annual bonus of ₹1 Lakh and considers prepaying it. Use the calculator to show him the impact on his EMI, tenure, and total interest saved if he makes this one-time prepayment.",
+      "faqQuestions": [
+        "Is it always advisable to prepay a home loan?",
+        "How does prepayment affect my tax benefits?",
+        "Can I make partial prepayments?",
+        "What is the difference between reducing EMI and reducing tenure after prepayment?",
+        "Are there any charges for home loan prepayment in India?",
+        "When is the best time to prepay a home loan?"
+      ],
+      "internalLinks": [
+        {
+          "label": "Salary Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india"
+        },
+        {
+          "label": "EMI Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/emi-calculator-india"
+        },
+        {
+          "label": "SIP Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/sip-calculator-india"
+        },
+        {
+          "label": "GST Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/gst-calculator-india"
+        },
+        {
+          "label": "FD Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/fd-calculator-india"
+        }
+      ],
+      "trustNotes": [
+        "Uses commonly followed Indian HRA exemption calculation rules for educational purposes.",
+        "Explains assumptions clearly so users can understand how the estimate is calculated.",
+        "Designed as an informational calculator, not as personalized tax or financial advice.",
+        "Users should verify final tax treatment with official guidance or a qualified tax professional."
+      ],
+      "disclaimer": "This calculator is for educational and informational purposes only. It provides an estimate based on the inputs and assumptions shown. It is not tax, legal, investment, or financial advice. Please verify with official sources or consult a qualified professional before making tax or financial decisions."
+    },
+    "qualityGate": {
+      "shouldPublish": true,
+      "checks": [
+        {
+          "name": "clear search intent",
+          "pass": true,
+          "note": "Calculator directly addresses user intent to estimate prepayment benefits."
+        },
+        {
+          "name": "calculator utility",
+          "pass": true,
+          "note": "Provides clear inputs and outputs for home loan prepayment analysis."
+        },
+        {
+          "name": "India context",
+          "pass": true,
+          "note": "Content brief and examples are tailored for Indian users, including tax implications and bank policies."
+        },
+        {
+          "name": "no financial advice",
+          "pass": true,
+          "note": "Explicit disclaimers and trust notes are included to avoid providing financial advice."
+        },
+        {
+          "name": "no guaranteed claims",
+          "pass": true,
+          "note": "Language avoids guaranteeing specific outcomes, focusing on estimates and potential savings."
+        },
+        {
+          "name": "unique page angle",
+          "pass": true,
+          "note": "Focuses specifically on prepayment impact, distinct from a general EMI calculator."
+        }
+      ]
+    },
+    "publishingPlan": {
+      "targetPath": "data/tools/home-loan-prepayment-calculator-india.json",
+      "targetUrl": "https://www.rupeekit.co.in/tools/home-loan-prepayment-calculator-india",
+      "nextWorkflow": "Daily Page Publisher"
+    }
+  },
+  "nextStep": {
+    "workflow": "Workflow 2 - Daily Page Publisher",
+    "publishTarget": "data/tools/home-loan-prepayment-calculator-india.json",
+    "liveUrl": "https://www.rupeekit.co.in/tools/home-loan-prepayment-calculator-india"
+  }
+}
