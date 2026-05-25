@@ -1,0 +1,196 @@
+{
+  "generatedAt": "2026-05-25T03:45:21.879Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "slug": "income-tax-calculator-old-vs-new-regime-india",
+  "toolName": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+  "pageUrl": "https://www.rupeekit.co.in/tools/income-tax-calculator-old-vs-new-regime-india",
+  "model": "gemini-2.5-flash-image",
+  "imageCount": 3,
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1200,
+      "actualHeight": 675,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "filePath": "automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 500628,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/facebook.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "resizedToExpectedDimensions": true,
+        "attemptsUsed": 1,
+        "width": 1200,
+        "height": 675,
+        "expectedWidth": 1200,
+        "expectedHeight": 675,
+        "originalWidth": 1024,
+        "originalHeight": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "4:5",
+      "expectedWidth": 1080,
+      "expectedHeight": 1350,
+      "actualWidth": 1080,
+      "actualHeight": 1350,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "filePath": "automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 1039204,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/instagram.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "resizedToExpectedDimensions": true,
+        "attemptsUsed": 1,
+        "width": 1080,
+        "height": 1350,
+        "expectedWidth": 1080,
+        "expectedHeight": 1350,
+        "originalWidth": 1024,
+        "originalHeight": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1000,
+      "actualHeight": 1500,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "filePath": "automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 792103,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/pinterest.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "resizedToExpectedDimensions": true,
+        "attemptsUsed": 1,
+        "width": 1000,
+        "height": 1500,
+        "expectedWidth": 1000,
+        "expectedHeight": 1500,
+        "originalWidth": 1024,
+        "originalHeight": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 500628,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "resizedToExpectedDimensions": true,
+      "attemptsUsed": 1,
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1200,
+      "actualHeight": 675,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 1039204,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "resizedToExpectedDimensions": true,
+      "attemptsUsed": 1,
+      "expectedWidth": 1080,
+      "expectedHeight": 1350,
+      "actualWidth": 1080,
+      "actualHeight": 1350,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 792103,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "resizedToExpectedDimensions": true,
+      "attemptsUsed": 1,
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1000,
+      "actualHeight": 1500,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": ""
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "officialLogoHandledBy8DG2": true,
+    "sanitizedBeforeGemini": true,
+    "generatedImageValidatedBeforeCommit": true,
+    "reEncodedToCleanPngBeforeCommit": true,
+    "resizedToPlatformDimensionsBeforeCommit": true,
+    "instagramPortrait4x5": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}
