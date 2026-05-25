@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-25T03:31:38.837Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "slug": "income-tax-calculator-old-vs-new-regime-india",
+  "toolName": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+  "pageUrl": "https://www.rupeekit.co.in/tools/income-tax-calculator-old-vs-new-regime-india",
+  "angle": "explainer",
+  "hookType": "checklist",
+  "visualStyle": "calculator_ui_mockup",
+  "hook": "Tax Regime Choice: Your Essential Checklist.",
+  "cta": "Understand your numbers",
+  "historyLengthBefore": 9,
+  "historyLengthAfter": 10,
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

@@ -232,5 +232,31 @@
       "Maturity",
       "Financial Planning"
     ]
+  },
+  {
+    "generatedAt": "2026-05-25T03:31:38.837Z",
+    "slug": "income-tax-calculator-old-vs-new-regime-india",
+    "toolName": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+    "angle": "explainer",
+    "hookType": "checklist",
+    "visualStyle": "calculator_ui_mockup",
+    "hook": "Tax Regime Choice: Your Essential Checklist.",
+    "cta": "Understand your numbers",
+    "firstCaptionLine": "navigating india's income tax regimes can be complex",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "income tax",
+      "tax regime",
+      "old vs new",
+      "tax planning",
+      "India tax",
+      "FY 2023-24",
+      "tax comparison"
+    ]
   }
 ]
