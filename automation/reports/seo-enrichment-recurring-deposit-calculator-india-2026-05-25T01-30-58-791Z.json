@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-05-25T01:30:58.791Z",
+  "workflow": "RupeeKit Workflow 6 - SEO Content Enrichment",
+  "status": "ENRICHED",
+  "mode": "AUTO_LATEST_LIVE_TOOL",
+  "slug": "recurring-deposit-calculator-india",
+  "name": "Recurring Deposit (RD) Calculator India",
+  "changedFields": [
+    "shortDescription",
+    "metaDescription",
+    "formulaExplanation",
+    "example",
+    "faqs",
+    "howToUse",
+    "assumptions",
+    "commonMistakes",
+    "contentSections",
+    "lastReviewed"
+  ],
+  "preservedFields": [
+    "slug",
+    "name",
+    "category",
+    "status",
+    "targetKeyword",
+    "inputs",
+    "outputs",
+    "related"
+  ],
+  "before": {
+    "shortDescription": "Use RupeeKit's free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively.",
+    "metaDescription": "Use RupeeKit's free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively.",
+    "faqCount": 6
+  },
+  "after": {
+    "shortDescription": "Estimate your RD maturity amount and total interest with RupeeKit's free Recurring Deposit Calculator for India. Plan your savings effectively.",
+    "metaDescription": "Use RupeeKit's free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively",
+    "faqCount": 7,
+    "howToUseCount": 6,
+    "assumptionsCount": 6,
+    "commonMistakesCount": 6,
+    "contentSectionsCount": 4,
+    "lastReviewed": "May 2026"
+  },
+  "changeSummary": [
+    "Updated short and meta descriptions for clarity and SEO.",
+    "Expanded formula explanation for better user understanding.",
+    "Refined example for practical application and word count.",
+    "Added new FAQs covering TDS threshold and detailed premature withdrawal penalties.",
+    "Introduced 'How To Use' section for step-by-step guidance.",
+    "Included 'Assumptions' and 'Common Mistakes' for user awareness.",
+    "Added specific 'Content Sections' to enrich the page with relevant information on RDs in India and taxation."
+  ]
+}
