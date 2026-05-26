@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-05-26T00:55:55.098Z",
+  "workflow": "RupeeKit Workflow 3 - Technical SEO Checker",
+  "status": "PASS",
+  "targetUrl": "https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india",
+  "tool": {
+    "slug": "recurring-deposit-calculator-india",
+    "name": "Recurring Deposit (RD) Calculator India",
+    "category": "Savings",
+    "targetKeyword": "recurring deposit calculator India",
+    "metaDescription": "Use RupeeKit's free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively"
+  },
+  "extracted": {
+    "title": "Recurring Deposit (RD) Calculator India | RupeeKit",
+    "metaDescription": "Use RupeeKit&#x27;s free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively",
+    "canonicalDetected": true
+  },
+  "checks": [
+    {
+      "name": "Live page fetched",
+      "pass": true,
+      "detail": "HTML length: 80952"
+    },
+    {
+      "name": "Tool name visible in page",
+      "pass": true,
+      "detail": "Recurring Deposit (RD) Calculator India"
+    },
+    {
+      "name": "Page title exists",
+      "pass": true,
+      "detail": "Recurring Deposit (RD) Calculator India | RupeeKit"
+    },
+    {
+      "name": "Meta description exists",
+      "pass": true,
+      "detail": "Use RupeeKit&#x27;s free RD calculator to estimate your Recurring Deposit maturity amount and total interest earned in India. Plan your savings effectively"
+    },
+    {
+      "name": "Canonical appears valid",
+      "pass": true,
+      "detail": "/tools/recurring-deposit-calculator-india"
+    },
+    {
+      "name": "Calculator UI appears",
+      "pass": true,
+      "detail": "Checks for calculator section text"
+    },
+    {
+      "name": "No default calculation error visible",
+      "pass": true,
+      "detail": "No Check inputs text found"
+    },
+    {
+      "name": "robots.txt reachable",
+      "pass": true,
+      "detail": "robots.txt length: 72"
+    },
+    {
+      "name": "sitemap.xml reachable",
+      "pass": true,
+      "detail": "sitemap.xml length: 6022"
+    },
+    {
+      "name": "Sitemap contains target URL",
+      "pass": true,
+      "detail": "Target URL found"
+    }
+  ],
+  "failed": [],
+  "recommendation": "No immediate technical action needed. Continue monitoring indexing and analytics."
+}
