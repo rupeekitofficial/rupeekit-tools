@@ -6,6 +6,7 @@ export default function HomePage() {
   const tools = getLiveTools();
   const categories = Array.from(new Set(tools.map((tool) => tool.category)));
   const showUpdates = false;
+  const featuredTaxGuideHref = '/blog/itr-2-ay-2026-27-filing-guide';
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 md:py-12 space-y-12 md:space-y-16">
@@ -182,6 +183,28 @@ export default function HomePage() {
         </div>
       </section>
       )}
+
+      <section className="rounded-2xl border border-brandBorder bg-white p-5 shadow-sm">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-wide text-brandNavy">
+              Featured Tax Guide
+            </p>
+            <h2 className="mt-1 text-lg font-bold text-brandDeepNavy">
+              ITR-2 AY 2026-27: Who Must File, Due Date & Preparation Guide
+            </h2>
+            <p className="mt-1 text-xs text-brandMuted">
+              Understand eligibility, deadlines, documents, and filing checkpoints before you submit.
+            </p>
+          </div>
+          <Link
+            href={featuredTaxGuideHref}
+            className="inline-flex items-center rounded-full border border-brandNavy/20 bg-brandNavy/5 px-4 py-2 text-xs font-bold text-brandNavy transition hover:bg-brandNavy hover:text-white"
+          >
+            Read Guide →
+          </Link>
+        </div>
+      </section>
 
       {/* Popular Tools Preview Section */}
       <section className="space-y-6">

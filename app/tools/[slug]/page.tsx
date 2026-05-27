@@ -47,6 +47,13 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   if (!tool) notFound();
 
   const related = getRelatedTools(tool);
+  const taxGuideHref = '/blog/itr-2-ay-2026-27-filing-guide';
+  const taxGuideToolSlugs = new Set([
+    'income-tax-calculator-old-vs-new-regime-india',
+    'hra-exemption-calculator-india',
+    '80c-deduction-calculator-india',
+  ]);
+  const showTaxGuideLink = taxGuideToolSlugs.has(tool.slug);
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -106,6 +113,26 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       <div className="mt-10">
         <Calculator tool={tool} />
       </div>
+
+      {showTaxGuideLink ? (
+        <section className="mt-8 rounded-2xl border border-sky-200 bg-sky-50 p-5">
+          <p className="text-[11px] font-bold uppercase tracking-wide text-sky-800">
+            Tax Filing Resource
+          </p>
+          <h2 className="mt-1 text-lg font-bold text-slate-900">
+            ITR-2 AY 2026-27: Who Must File, Due Date & Preparation Guide
+          </h2>
+          <p className="mt-2 text-sm text-slate-700">
+            Use this guide to verify ITR-2 applicability, required documents, and filing steps.
+          </p>
+          <Link
+            href={taxGuideHref}
+            className="mt-4 inline-flex items-center rounded-full bg-sky-700 px-4 py-2 text-xs font-bold text-white transition hover:bg-sky-800"
+          >
+            Read ITR-2 Guide →
+          </Link>
+        </section>
+      ) : null}
 
       <section className="mt-12 grid gap-6 lg:grid-cols-[1fr_0.7fr]">
         <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">

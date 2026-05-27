@@ -41,6 +41,11 @@ export default function ResourcesPage() {
       description: 'Discover the top personal finance books for beginners, hand-selected to build your financial literacy.',
       href: '/blog/best-personal-finance-books-for-beginners',
     },
+    {
+      title: 'ITR-2 AY 2026-27 Filing Guide',
+      description: 'Get a practical walkthrough on who should file ITR-2, due dates, document preparation, and regime selection.',
+      href: '/blog/itr-2-ay-2026-27-filing-guide',
+    },
   ];
 
   const calculatorLinks = [
