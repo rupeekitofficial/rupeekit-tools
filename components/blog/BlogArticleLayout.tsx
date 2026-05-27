@@ -11,6 +11,13 @@ import FinanceDisclaimer from './FinanceDisclaimer';
 import AffiliateDisclosure from './AffiliateDisclosure';
 import BookRecommendationCard from './BookRecommendationCard';
 import { BlogInlineVisual, BlogSharePreviewCard } from './BlogVisuals';
+import {
+  FilingDeadlineTimeline,
+  CapitalGainsRateShift,
+  OldVsNewRegimeSlabSnapshot,
+  RebateComparison,
+  ITR2TriggerMatrix
+} from './ITR2DataVisuals';
 
 interface BlogArticleLayoutProps {
   post: BlogPost;
@@ -50,6 +57,10 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
         description={post.metaDescription}
         visualType={post.visualType}
         visualAlt={post.visualAlt}
+        heroImage={post.heroImage}
+        heroImageAlt={post.heroImageAlt}
+        heroImageWidth={post.heroImageWidth}
+        heroImageHeight={post.heroImageHeight}
       />
 
       {/* Main Grid Layout */}
@@ -66,6 +77,18 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
             <p className="text-base md:text-lg leading-relaxed text-slate-800 font-medium">
               {post.intro}
             </p>
+
+            {post.slug === 'itr-2-ay-2026-27-filing-guide' && (
+              <div className="mt-6 rounded-2xl border border-brandBorder bg-brandBgSoft p-4">
+                <p className="text-xs font-bold uppercase tracking-wide text-brandDeepNavy">
+                  Editorial Note
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-slate-600">
+                  This page is educational and does not guarantee tax savings or filing outcomes.
+                  Always verify dates, rates, and eligibility from official government sources before filing.
+                </p>
+              </div>
+            )}
 
             {/* Sections */}
             <div className="mt-8 space-y-10">
@@ -98,7 +121,7 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                       {section.example && (
                         <div className="mt-5 rounded-2xl border border-brandNavy/10 bg-brandNavy/[0.02] p-5">
                           <h4 className="text-sm font-bold text-brandDeepNavy uppercase tracking-wider">
-                            💡 Practical Example: {section.example.title}
+                            Practical Example: {section.example.title}
                           </h4>
                           <p className="mt-2 text-xs md:text-sm leading-relaxed text-slate-700">
                             {section.example.details}
@@ -113,6 +136,15 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                         subtitle={post.visualSubtitle || ''}
                         alt={post.visualAlt || ''}
                       />
+                    )}
+                    {post.slug === 'itr-2-ay-2026-27-filing-guide' && section.title === 'Who must file ITR-2 for AY 2026-27?' && <ITR2TriggerMatrix />}
+                    {post.slug === 'itr-2-ay-2026-27-filing-guide' && section.title === 'What changed in ITR-2 AY 2026-27?' && <CapitalGainsRateShift />}
+                    {post.slug === 'itr-2-ay-2026-27-filing-guide' && section.title === 'ITR-2 due date and key deadlines' && <FilingDeadlineTimeline />}
+                    {post.slug === 'itr-2-ay-2026-27-filing-guide' && section.title === 'Old vs new tax regime quick reminder' && (
+                      <>
+                        <OldVsNewRegimeSlabSnapshot />
+                        <RebateComparison />
+                      </>
                     )}
                   </Fragment>
                 );

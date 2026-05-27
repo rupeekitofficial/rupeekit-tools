@@ -5,6 +5,7 @@ import PersonalFinanceRoadmap from '@/components/PersonalFinanceRoadmap';
 export default function HomePage() {
   const tools = getLiveTools();
   const categories = Array.from(new Set(tools.map((tool) => tool.category)));
+  const showUpdates = false;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 md:py-12 space-y-12 md:space-y-16">
@@ -98,6 +99,89 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      {/* Latest Updates Section */}
+      {showUpdates && (
+      <section className="space-y-5">
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h2 className="text-2xl font-black tracking-tight text-brandDeepNavy md:text-3xl">
+              Latest Updates
+            </h2>
+            <p className="mt-1 text-sm text-brandMuted">
+              Finance, tax, and government salary updates explained for everyday Indians.
+            </p>
+          </div>
+          <Link
+            href="/updates"
+            className="text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
+          >
+            View all updates →
+          </Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {/* Financial Updates card */}
+          <Link
+            href="/financial-updates"
+            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
+          >
+            <div>
+              <span className="inline-block rounded-full bg-blue-50 border border-blue-200 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-blue-800">
+                Finance &amp; Tax
+              </span>
+              <h3 className="mt-3 text-sm font-bold tracking-tight text-brandDeepNavy group-hover:text-brandNavy transition">
+                Financial Updates
+              </h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-brandMuted">
+                RBI, income tax, GST, SEBI, and banking updates explained simply.
+              </p>
+            </div>
+            <p className="mt-4 pt-3 border-t border-brandBorder text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
+              Explore →
+            </p>
+          </Link>
+          {/* Government Salary card */}
+          <Link
+            href="/government-salary-updates"
+            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
+          >
+            <div>
+              <span className="inline-block rounded-full bg-amber-50 border border-amber-200 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-800">
+                Govt Salary
+              </span>
+              <h3 className="mt-3 text-sm font-bold tracking-tight text-brandDeepNavy group-hover:text-brandNavy transition">
+                Government Salary Updates
+              </h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-brandMuted">
+                DA, DR, pay commission, pension, and salary circular formats.
+              </p>
+            </div>
+            <p className="mt-4 pt-3 border-t border-brandBorder text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
+              Explore →
+            </p>
+          </Link>
+          {/* State-wise card */}
+          <Link
+            href="/government-salary-updates#state-wise"
+            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
+          >
+            <div>
+              <span className="inline-block rounded-full bg-indigo-50 border border-indigo-200 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-indigo-800">
+                State Updates
+              </span>
+              <h3 className="mt-3 text-sm font-bold tracking-tight text-brandDeepNavy group-hover:text-brandNavy transition">
+                State-wise Employee Updates
+              </h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-brandMuted">
+                Track DA and pay news for state government employees across India.
+              </p>
+            </div>
+            <p className="mt-4 pt-3 border-t border-brandBorder text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
+              Explore →
+            </p>
+          </Link>
+        </div>
+      </section>
+      )}
 
       {/* Popular Tools Preview Section */}
       <section className="space-y-6">

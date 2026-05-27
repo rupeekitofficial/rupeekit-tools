@@ -484,6 +484,36 @@ export function BlogVisualRenderer({ type, mode, title, subtitle }: VisualProps)
           </svg>
         );
 
+      case 'process-timeline':
+        return (
+          <svg viewBox="0 0 400 220" className="w-full h-full select-none" aria-label="ITR-2 process timeline flow">
+            <title>ITR-2 Filing Flow</title>
+            {/* Background connection line */}
+            <line x1="40" y1="110" x2="360" y2="110" stroke={isDark ? "#334155" : "#E2E8F0"} strokeWidth="4" />
+            
+            {/* Animated progress line */}
+            <line x1="40" y1="110" x2="360" y2="110" stroke={growthGreenColor} strokeWidth="4" strokeDasharray="6 6" className="timeline-progress-path" />
+
+            {/* Nodes */}
+            {[
+              { x: 40, label: "Collect Docs", sub: "Form 16 & CG" },
+              { x: 120, label: "Reconcile AIS", sub: "Match 26AS" },
+              { x: 200, label: "Capital Gains", sub: "Aggregate data" },
+              { x: 280, label: "Choose Regime", sub: "Compare taxes" },
+              { x: 360, label: "E-verify", sub: "Submit ITR-2" },
+            ].map((step, idx) => (
+              <g key={idx} className="timeline-node-group">
+                <circle cx={step.x} cy="110" r="10" fill={isDark ? '#1e293b' : '#f8fafc'} stroke={growthGreenColor} strokeWidth="2.5" className="timeline-node" />
+                <circle cx={step.x} cy="110" r="4" fill={growthGreenColor} className="timeline-dot" />
+                <text x={step.x} y={idx % 2 === 0 ? 80 : 140} textAnchor="middle" className={textClass} fontSize="10">{step.label}</text>
+                <text x={step.x} y={idx % 2 === 0 ? 92 : 152} textAnchor="middle" className={subtextClass} fontSize="8">{step.sub}</text>
+                {/* Connecting subtle line to text */}
+                <line x1={step.x} y1={idx % 2 === 0 ? 96 : 124} x2={step.x} y2={idx % 2 === 0 ? 98 : 130} stroke={growthGreenColor} strokeWidth="1" strokeDasharray="1 2" />
+              </g>
+            ))}
+          </svg>
+        );
+
       default:
         return null;
     }
@@ -636,6 +666,23 @@ export function BlogVisualRenderer({ type, mode, title, subtitle }: VisualProps)
       transition: transform 0.3s ease;
     }
 
+    .timeline-progress-path {
+      animation: flow-dash 10s linear infinite;
+    }
+    .timeline-node-group {
+      cursor: pointer;
+    }
+    .timeline-node {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), stroke-width 0.3s ease;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+    .timeline-dot {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
     .habit-cell {
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: center;
@@ -722,6 +769,14 @@ export function BlogVisualRenderer({ type, mode, title, subtitle }: VisualProps)
         filter: drop-shadow(0 2px 4px rgba(67, 160, 71, 0.15));
       }
       
+      .timeline-node-group:hover .timeline-node {
+        transform: scale(1.4);
+        stroke-width: 2px;
+      }
+      .timeline-node-group:hover .timeline-dot {
+        transform: scale(1.2);
+      }
+
       .habit-cell:hover {
         transform: scale(1.15);
       }

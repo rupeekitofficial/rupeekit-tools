@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 };
 
 export default function ResourcesPage() {
+  const showUpdates = false;
+
   const guideLinks = [
     {
       title: 'How to Create a Monthly Budget',
@@ -143,6 +145,7 @@ export default function ResourcesPage() {
         </section>
 
         {/* Government Salary Updates Block */}
+        {showUpdates && (
         <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
           <div>
             <span className="inline-block rounded-full bg-amber-50 border border-amber-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
@@ -164,7 +167,59 @@ export default function ResourcesPage() {
             </Link>
           </div>
         </section>
+        )}
       </div>
+
+      {/* Updates Row — new cards below existing grid */}
+      {showUpdates && (
+      <div className="grid gap-8 md:grid-cols-2">
+        {/* Financial Updates Card */}
+        <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <span className="inline-block rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-800">
+              Finance &amp; Tax
+            </span>
+            <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
+              Financial &amp; Tax Updates
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-brandMuted">
+              Follow RBI policy changes, income tax updates, GST council decisions, SEBI rules, and banking news with plain-language RupeeKit educational summaries.
+            </p>
+          </div>
+          <div className="mt-6 pt-4 border-t border-brandBorder">
+            <Link
+              href="/financial-updates"
+              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
+            >
+              View Financial Updates <span className="ml-1">→</span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Updates Hub Card */}
+        <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
+          <div>
+            <span className="inline-block rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-800">
+              All Updates
+            </span>
+            <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
+              Updates Hub
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-brandMuted">
+              Your central dashboard for all RupeeKit educational updates — financial, government salary, state-wise employee, pension, DA/DR, and more.
+            </p>
+          </div>
+          <div className="mt-6 pt-4 border-t border-brandBorder">
+            <Link
+              href="/updates"
+              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
+            >
+              Browse All Updates <span className="ml-1">→</span>
+            </Link>
+          </div>
+        </section>
+      </div>
+      )}
 
       {/* Roadmap Center Section */}
       <section className="rounded-3xl border border-brandBorder bg-white p-6 md:p-8 shadow-sm">

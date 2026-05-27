@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { getLiveTools } from '@/lib/tools';
 import { blogPosts } from '@/data/blog-posts';
+import { financialUpdates } from '@/data/financial-updates';
+import { governmentSalaryUpdates } from '@/data/government-salary-updates';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
@@ -17,7 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/money-health-check',
     '/resources/30-day-budget-challenge',
     '/start-here',
-    '/government-salary-updates'
+    '/government-salary-updates',
+    '/financial-updates',
   ];
   const now = new Date();
 
@@ -39,6 +42,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 0.7,
+    })),
+    ...financialUpdates.map((u) => ({
+      url: `${baseUrl}/financial-updates/${u.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
+    ...governmentSalaryUpdates.map((u) => ({
+      url: `${baseUrl}/government-salary-updates/${u.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     })),
   ];
 }

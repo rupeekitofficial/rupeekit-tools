@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { BlogHeroVisual } from './BlogVisuals';
 
 interface BlogHeroProps {
@@ -10,6 +11,10 @@ interface BlogHeroProps {
   description: string;
   visualType?: string;
   visualAlt?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+  heroImageWidth?: number;
+  heroImageHeight?: number;
 }
 
 export default function BlogHero({
@@ -20,8 +25,12 @@ export default function BlogHero({
   description,
   visualType,
   visualAlt,
+  heroImage,
+  heroImageAlt,
+  heroImageWidth,
+  heroImageHeight,
 }: BlogHeroProps) {
-  const hasVisual = !!visualType;
+  const hasVisual = !!heroImage || !!visualType;
 
   return (
     <section className="relative rounded-[2rem] bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 p-8 text-white shadow-xl md:p-12 overflow-hidden">
@@ -46,9 +55,22 @@ export default function BlogHero({
           </div>
         </div>
 
-        {hasVisual && visualType && (
+        {hasVisual && (heroImage || visualType) && (
           <div className="w-full flex justify-center">
-            <BlogHeroVisual type={visualType} alt={visualAlt || title} />
+            {heroImage ? (
+              <div className="relative w-full max-w-sm md:max-w-md mx-auto aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 blog-hero-float">
+                <Image
+                  src={heroImage}
+                  alt={heroImageAlt || title}
+                  width={heroImageWidth || 1600}
+                  height={heroImageHeight || 900}
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            ) : (
+              <BlogHeroVisual type={visualType!} alt={visualAlt || title} />
+            )}
           </div>
         )}
       </div>

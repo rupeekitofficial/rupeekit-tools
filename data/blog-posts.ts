@@ -34,10 +34,17 @@ export interface BlogPost {
   faqs: FAQItem[];
   amazonDisclosure?: boolean;
   books?: BookItem[];
-  visualType?: 'monthly-budget' | '50-30-20' | 'emergency-fund' | 'bookshelf' | 'expense-tracking' | 'saving-vs-investing' | 'family-expense' | 'debt-ladder' | 'habit-tracker' | 'salary-checklist';
+  visualType?: 'monthly-budget' | '50-30-20' | 'emergency-fund' | 'bookshelf' | 'expense-tracking' | 'saving-vs-investing' | 'family-expense' | 'debt-ladder' | 'habit-tracker' | 'salary-checklist' | 'process-timeline';
   visualTitle?: string;
   visualSubtitle?: string;
   visualAlt?: string;
+  seoTitle?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+  heroImageWidth?: number;
+  heroImageHeight?: number;
+  publishedDateISO?: string;
+  modifiedDateISO?: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -762,6 +769,173 @@ export const blogPosts: BlogPost[] = [
       {
         question: 'Can I claim both HRA exemption and Home Loan deduction?',
         answer: 'Yes, if you live in a rented house in one city (claiming HRA) and own a home in another city (claiming home loan interest and principal deductions), you can claim both benefits.'
+      }
+    ]
+  },
+  {
+    slug: 'itr-2-ay-2026-27-filing-guide',
+    visualType: 'process-timeline',
+    visualTitle: 'ITR-2 Filing Preparation Flow',
+    visualSubtitle: 'Step-by-step checklist for AY 2026-27',
+    visualAlt: 'ITR-2 filing flow with steps from Form 16 to final submission',
+    seoTitle: 'ITR-2 AY 2026-27 Guide: Due Date, Eligibility, Checklist',
+    heroImage: '/blog/itr-2-ay-2026-27-hero-1600x900.jpg',
+    heroImageAlt: 'Desk workspace with laptop, calculator, checklist icons, and rupee symbols representing ITR-2 tax filing preparation in India',
+    heroImageWidth: 1600,
+    heroImageHeight: 900,
+    publishedDateISO: '2026-05-27T08:00:00Z',
+    modifiedDateISO: '2026-05-27T08:00:00Z',
+    title: 'ITR-2 AY 2026-27: Who Must File, Due Date & Preparation Guide',
+    metaDescription: 'Filing ITR-2 for AY 2026-27? Learn who must file, the latest capital gains tax changes, deadlines, and a preparation checklist for salaried Indians.',
+    category: 'Tax',
+    date: 'May 2026',
+    readTime: '8 min read',
+    h1: 'ITR-2 AY 2026-27: Who Must File, Major Changes, Due Date, and How to Prepare',
+    intro: 'Tax season can bring anxiety, especially if your income sources have grown over the last year. If you recently started investing in mutual funds, sold some company stocks, or bought a second house, the basic ITR-1 form might no longer apply to you. Instead, you will need to step up to ITR-2.',
+    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india'],
+    sections: [
+      {
+        title: 'Who should read this?',
+        paragraphs: [
+          'This guide is designed for salaried individuals, NRIs, and Hindu Undivided Families (HUFs) in India who have income from salary, multiple house properties, or capital gains, but do not have income from a business or profession. If you are unsure which form to use or how the new tax rules affect you this year, this educational guide is for you.'
+        ]
+      },
+      {
+        title: 'Why this matters now (AY 2026-27 filing window)',
+        paragraphs: [
+          'The Income Tax Department is heavily relying on the Annual Information Statement (AIS) to track financial transactions automatically. With the filing deadline approaching and tax notices becoming data-driven, early preparation ensures you have ample time to rectify any mismatches between your Form 26AS, AIS, and actual transactions without the last-minute rush.'
+        ]
+      },
+      {
+        title: 'What is ITR-2?',
+        paragraphs: [
+          'ITR-2 is a comprehensive Income Tax Return form issued by the Income Tax Department of India. It is used by individuals and HUFs who earn money from a salary, pension, house property, capital gains (like selling shares or real estate), or foreign assets. Because it handles investments and capital gains, it is significantly more detailed than the simpler ITR-1 (Sahaj) form.'
+        ]
+      },
+      {
+        title: 'Who must file ITR-2 for AY 2026-27?',
+        paragraphs: [
+          'You must file your return using ITR-2 if your financial profile matches any of the following conditions for the financial year:'
+        ],
+        bullets: [
+          'Capital Gains: You made a profit (or loss) from selling equity shares, mutual funds, real estate, or gold.',
+          'High Income: Your total income for the financial year exceeded ₹50 Lakhs.',
+          'Multiple Properties: You own and earn income from more than one house property.',
+          'Foreign Income/Assets: You hold foreign bank accounts, foreign stocks (like RSUs from your employer), or earn income from outside India.',
+          'Company Directorship: You are a Director in a company.',
+          'Unlisted Shares: You held unlisted equity shares at any point during the financial year.',
+          'Agricultural Income: Your agricultural income is more than ₹5,000.'
+        ]
+      },
+      {
+        title: 'What changed in ITR-2 AY 2026-27?',
+        paragraphs: [
+          'Every year, the tax department updates forms to reflect the latest Budget announcements. For Assessment Year 2026-27 (which covers income earned from April 1, 2025, to March 31, 2026), keep these major shifts in mind:'
+        ],
+        bullets: [
+          'Capital Gains Tax Rates: The taxation on equity and mutual funds has been rationalized. Short-Term Capital Gains (STCG) on specified equity is taxed at 20%, while Long-Term Capital Gains (LTCG) is taxed at 12.5% (with an exemption limit of ₹1.25 Lakhs per year).',
+          'Buyback of Shares: Income from the buyback of shares is now taxable in the hands of the investor as a dividend, taxed at your applicable slab rate.',
+          'New Tax Regime Default: The New Tax Regime remains the default option. If you wish to use the Old Tax Regime to claim deductions like 80C, HRA, and home loan interest, you must specifically opt out of the new regime before filing.'
+        ]
+      },
+      {
+        title: 'ITR-2 due date and key deadlines',
+        paragraphs: [
+          'For individuals whose accounts do not require a tax audit, the due date to file ITR-2 for AY 2026-27 is generally July 31, 2026.',
+          'Filing after this deadline can attract a late fee of up to ₹5,000 under Section 234F, along with penal interest on any unpaid tax dues. Furthermore, if you file late, you lose the right to carry forward capital losses to offset future gains.'
+        ]
+      },
+      {
+        title: 'Documents you should keep ready',
+        paragraphs: [
+          'Do not sit down to file your ITR-2 without gathering these essential documents:'
+        ],
+        bullets: [
+          'Form 16: Issued by your employer, detailing your salary and TDS.',
+          'Capital Gains Statements: Download these from your stockbrokers (Zerodha, Groww, Upstox) or mutual fund RTAs (CAMS, KFintech).',
+          'Form 26AS & AIS/TIS: Download the Annual Information Statement from the Income Tax Portal. It contains records of all your high-value transactions, dividends, and TDS.',
+          'Bank Statements: To track interest income from savings accounts and fixed deposits.',
+          'Home Loan Certificate: If you are claiming interest deductions under Section 24(b).'
+        ]
+      },
+      {
+        title: 'Step-by-step preparation checklist',
+        paragraphs: [
+          'Filing ITR-2 requires patience. Follow this checklist to ensure accuracy:'
+        ],
+        bullets: [
+          'Download AIS: Log into the Income Tax portal and download your Annual Information Statement.',
+          'Reconcile TDS: Match the tax deducted in your Form 16 and Capital Gains statements with Form 26AS.',
+          'Consolidate Capital Gains: If you use multiple brokers, aggregate your short-term and long-term capital gains cleanly.',
+          'Choose Your Tax Regime: Compare your tax outgo under the Old vs. New regime.',
+          'Fill the Schedules: ITR-2 has multiple schedules (Schedule S for Salary, Schedule CG for Capital Gains, Schedule FA for Foreign Assets). Fill them accurately.',
+          'Validate and File: Use the portal’s validation tool to check for errors, then file and e-verify your return using an Aadhaar OTP.'
+        ]
+      },
+      {
+        title: 'Document readiness checkpoints',
+        paragraphs: [
+          'Before logging into the portal, ensure your documents are perfectly aligned to avoid last-minute panic.'
+        ],
+        example: {
+          title: 'Filing Flow Readiness',
+          details: '1. Form 16 Part A & B ready | 2. Capital gains reports downloaded from all brokers (Zerodha, Groww, etc.) | 3. AIS cross-checked for unrecorded high-value transactions | 4. Aadhaar linked to PAN and mobile active for e-verification.'
+        }
+      },
+      {
+        title: 'Old vs new tax regime quick reminder',
+        paragraphs: [
+          'Before hitting submit, ensure you have chosen the best tax regime for your situation:'
+        ],
+        bullets: [
+          'New Tax Regime: Offers lower tax rates and a ₹50,000 standard deduction, but you must surrender almost all other deductions (like HRA, 80C, LTA). It is highly beneficial if your investments are low.',
+          'Old Tax Regime: Has higher slab rates but allows you to reduce your taxable income using HRA, home loan interest, Section 80C (EPF, PPF, ELSS), and health insurance premiums (80D).'
+        ],
+        example: {
+          title: 'Regime Comparison Snapshot',
+          details: 'New Regime is generally best if you have less than ₹2-3 Lakhs in total deductions. Old Regime often wins if you maximize 80C (₹1.5L), have a large home loan interest deduction, and claim significant HRA.'
+        }
+      },
+      {
+        title: 'Common mistakes to avoid',
+        paragraphs: [
+          'Make sure you avoid these frequent errors while filing your ITR-2:'
+        ],
+        bullets: [
+          'Ignoring the AIS: The tax department already knows about your mutual fund redemptions, dividends, and high-value FD transactions. Failing to report them will trigger an automatic defect notice.',
+          'Forgetting to carry forward losses: If you had a net loss in the stock market, you must file your ITR-2 on time to carry those losses forward to set off against future gains.',
+          'Missing Foreign Asset Disclosure (Schedule FA): Holding RSUs (Restricted Stock Units) of a foreign parent company (like Google, Amazon, or Microsoft) means you hold foreign assets. This is mandatory to disclose in ITR-2, even if you did not sell them.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Can I file ITR-1 if I only sold a few mutual funds?',
+        answer: 'No. Even if you sold a single mutual fund unit or stock, it constitutes a Capital Gain (or loss). Capital gains cannot be reported in ITR-1; you must file ITR-2.'
+      },
+      {
+        question: 'Which tax regime is better if my salary is ₹12 Lakhs?',
+        answer: 'It depends purely on your deductions. If you pay high rent (HRA) and maximize your ₹1.5 Lakh 80C limit, the Old Regime might be better. Without deductions, the New Regime is more tax-efficient. Use our Income Tax Calculator to compare.'
+      },
+      {
+        question: 'What happens if I miss the July 31 deadline for ITR-2?',
+        answer: 'You can file a belated return until December 31, but you will face a late fee of up to ₹5,000. Additionally, you will not be allowed to carry forward any capital losses.'
+      },
+      {
+        question: 'Do I need to attach my broker\'s capital gains statement to the ITR?',
+        answer: 'No documents need to be attached or uploaded while filing ITR-2 online. However, you must keep the statements safely in your records for up to 7 years in case the assessing officer requests them.'
+      },
+      {
+        question: 'How do I report dividend income in ITR-2?',
+        answer: 'Dividend income is taxable at your applicable slab rate. It must be reported under the schedule "Income from Other Sources" and broken down quarter-wise for accurate advance tax calculation.'
+      },
+      {
+        question: 'Is standard deduction available in the New Tax Regime?',
+        answer: 'Yes, a standard deduction of ₹50,000 is available for salaried individuals under both the Old and New Tax Regimes for AY 2026-27.'
+      },
+      {
+        question: 'I changed jobs this year and have two Form 16s. Can I file ITR-2?',
+        answer: 'Yes. You must aggregate the income and TDS from both employers and report them under Schedule S (Salary) in your ITR-2 form.'
       }
     ]
   }

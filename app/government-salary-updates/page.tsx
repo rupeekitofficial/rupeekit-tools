@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { governmentSalaryUpdates, GovernmentSalaryUpdate } from '@/data/government-salary-updates';
+import { governmentSalaryUpdates } from '@/data/government-salary-updates';
+import UpdateVisual from '@/components/updates/UpdateVisual';
 
 const STATES_LIST = [
   'All India',
@@ -60,8 +61,8 @@ export default function GovernmentSalaryUpdatesPage() {
         </div>
       </section>
 
-      {/* State Filter Chips Section */}
-      <section className="space-y-4">
+      {/* State Filter Chips Section — id for deep-linking from /updates and /resources */}
+      <section id="state-wise" className="space-y-4 scroll-mt-24">
         <div>
           <h2 className="text-xl font-bold tracking-tight text-brandDeepNavy">Filter Updates by State</h2>
           <p className="text-xs text-brandMuted mt-1">Select a state to view related educational tracking formats and update summaries.</p>
@@ -100,28 +101,39 @@ export default function GovernmentSalaryUpdatesPage() {
 
         {filteredUpdates.length > 0 ? (
           <div className="grid gap-6 md:grid-cols-2">
-            {filteredUpdates.map((update) => (
+            {filteredUpdates.map((update) => {
+              // Map category to visual type
+              const visualTypeMap: Record<string, 'da-dr' | 'pay-commission' | 'pension' | 'government-salary'> = {
+                'DA Update': 'da-dr',
+                'Pay Revision': 'pay-commission',
+                'Pension': 'pension',
+                'Allowances': 'government-salary',
+                'Arrears': 'da-dr',
+                'Circular': 'pay-commission',
+              };
+              const visualType = visualTypeMap[update.category] ?? 'government-salary';
+              return (
               <div
                 key={update.id}
-                className="flex flex-col justify-between rounded-3xl border border-brandBorder bg-white p-6 shadow-sm hover:shadow-md transition duration-300 relative overflow-hidden"
+                className="flex flex-col justify-between rounded-3xl border border-brandBorder bg-white shadow-sm hover:shadow-md transition duration-300 relative overflow-hidden"
               >
-                {/* Demo status label */}
-                {update.status === 'sample' && (
-                  <div className="absolute top-0 right-0 bg-amber-500/10 border-b border-l border-amber-500/25 px-3 py-1 rounded-bl-xl">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wide text-amber-700">
-                      Sample / Demo Format
+                {/* Visual thumbnail header */}
+                <div className="bg-gradient-to-br from-brandDeepNavy to-slate-900 px-5 pt-4 pb-3 flex items-center gap-3">
+                  <UpdateVisual type={visualType} size="sm" />
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full bg-brandNavy/80 border border-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                      {update.category}
+                    </span>
+                    <span className="rounded-full bg-white/10 border border-white/20 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white/70">
+                      Educational Summary
                     </span>
                   </div>
-                )}
-
-                <div className="space-y-4">
+                </div>
+                <div className="p-5 flex flex-col gap-3">
                   {/* Badges row */}
                   <div className="flex flex-wrap gap-2 items-center">
                     <span className="rounded-full bg-brandNavy/10 border border-brandNavy/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandNavy">
                       {update.state}
-                    </span>
-                    <span className="rounded-full bg-emerald-50 border border-emerald-100 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandGrowthGreen">
-                      {update.category}
                     </span>
                     <span className="text-[10px] font-semibold text-brandMuted">
                       {update.employeeGroup}
@@ -129,60 +141,47 @@ export default function GovernmentSalaryUpdatesPage() {
                   </div>
 
                   {/* Title */}
-                  <div>
-                    <h4 className="text-base font-bold tracking-tight text-brandDeepNavy line-clamp-2">
-                      {update.title}
-                    </h4>
-                  </div>
+                  <h4 className="text-sm font-bold tracking-tight text-brandDeepNavy line-clamp-2 leading-snug">
+                    {update.title}
+                  </h4>
 
-                  {/* Meta data */}
-                  <div className="grid grid-cols-2 gap-2 rounded-xl bg-brandBgSoft p-3 text-[11px] text-brandMuted border border-brandBorder/60">
-                    <div>
-                      <span className="block font-semibold text-brandDeepNavy">Source Dept:</span>
-                      <span className="truncate block">{update.sourceName}</span>
-                    </div>
-                    <div>
-                      <span className="block font-semibold text-brandDeepNavy">Effective Date:</span>
-                      <span>{update.effectiveDate}</span>
-                    </div>
+                  {/* Meta: source + effective date */}
+                  <div className="flex flex-wrap items-center gap-2 text-[11px] text-brandMuted">
+                    <span className="truncate max-w-[180px]">{update.sourceName}</span>
+                    {update.effectiveDate && (
+                      <>
+                        <span>·</span>
+                        <span>Effective: {update.effectiveDate}</span>
+                      </>
+                    )}
                   </div>
 
                   {/* Summary */}
-                  <div>
-                    <p className="text-xs leading-relaxed text-brandText">
-                      {update.summary}
+                  <p className="text-xs leading-relaxed text-slate-600 line-clamp-3">
+                    {update.summary}
+                  </p>
+
+                  {/* Verify one-liner */}
+                  <div className="rounded-xl bg-green-50 border border-green-100 px-3 py-2">
+                    <p className="text-[11px] font-semibold text-green-800 line-clamp-2">
+                      <span className="font-bold">Verify: </span>{update.actionToVerify.split('.')[0]}.
                     </p>
                   </div>
 
-                  {/* Specific education boxes */}
-                  <div className="space-y-2 border-t border-dashed border-brandBorder pt-3">
-                    <div>
-                      <strong className="block text-[11px] uppercase tracking-wider text-brandDeepNavy">Who May Be Affected:</strong>
-                      <p className="text-[11px] text-brandMuted leading-relaxed">{update.whoMayBeAffected}</p>
-                    </div>
-                    <div>
-                      <strong className="block text-[11px] uppercase tracking-wider text-brandDeepNavy">What to Verify:</strong>
-                      <p className="text-[11px] text-brandMuted leading-relaxed">{update.actionToVerify}</p>
-                    </div>
+                  {/* CTAs */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-brandBorder">
+                    <Link
+                      href={`/government-salary-updates/${update.slug}`}
+                      className="rounded-full bg-brandNavy px-4 py-1.5 text-xs font-bold text-white hover:bg-brandDeepNavy transition"
+                    >
+                      Read update →
+                    </Link>
+                    <span className="text-[10px] text-brandMuted italic">Verify from official source</span>
                   </div>
                 </div>
-
-                {/* Footer Link Button */}
-                {update.sourceUrl && (
-                  <div className="mt-6 pt-4 border-t border-brandBorder flex justify-between items-center">
-                    <a
-                      href={update.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full bg-brandNavy/5 border border-brandNavy/15 px-4 py-1.5 text-xs font-bold text-brandNavy hover:bg-brandNavy hover:text-white transition duration-200"
-                    >
-                      View official department source
-                    </a>
-                    <span className="text-[10px] text-brandMuted">Published: {update.publishedDate}</span>
-                  </div>
-                )}
               </div>
-            ))}
+              );
+            })}
           </div>
         ) : (
           <div className="rounded-3xl border border-brandBorder bg-white p-8 text-center max-w-lg mx-auto space-y-3">
@@ -197,6 +196,71 @@ export default function GovernmentSalaryUpdatesPage() {
             </p>
           </div>
         )}
+      </section>
+
+      {/* Pension anchor section for deep-linking */}
+      <div id="pension" className="scroll-mt-24" />
+
+      {/* Explainer Blocks: Key Terms */}
+      <section className="rounded-3xl border border-brandBorder bg-white p-6 md:p-8 shadow-sm space-y-6">
+        <div>
+          <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brandNavy">
+            Key Terms Explained
+          </span>
+          <h2 className="mt-4 text-2xl font-black text-brandDeepNavy md:text-3xl">
+            Government Pay: Concepts Explained Simply
+          </h2>
+          <p className="mt-2 text-sm text-brandMuted">
+            Understanding these terms helps you interpret official circulars, pay slips, and government announcements correctly.
+          </p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          <div className="rounded-2xl bg-brandBgSoft border border-brandBorder p-5 space-y-2">
+            <h3 className="text-sm font-bold text-brandDeepNavy">What is Dearness Allowance (DA)?</h3>
+            <p className="text-xs leading-relaxed text-slate-600">
+              Dearness Allowance is a cost-of-living adjustment paid to active government employees and public sector workers. It is calculated as a percentage of basic pay and revised biannually (typically January and July) based on the All India Consumer Price Index for Industrial Workers (AICPI-IW). DA compensates employees for inflation erosion of their purchasing power.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-brandBgSoft border border-brandBorder p-5 space-y-2">
+            <h3 className="text-sm font-bold text-brandDeepNavy">What is Dearness Relief (DR)?</h3>
+            <p className="text-xs leading-relaxed text-slate-600">
+              Dearness Relief is the equivalent of Dearness Allowance but paid to retired employees (pensioners) and family pension recipients. It is added to the basic pension amount and revised similarly to DA for active employees. DR ensures retirees&apos; fixed pension income maintains some purchasing power against rising prices.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-brandBgSoft border border-brandBorder p-5 space-y-2">
+            <h3 className="text-sm font-bold text-brandDeepNavy">What is a Pay Commission?</h3>
+            <p className="text-xs leading-relaxed text-slate-600">
+              A Pay Commission is a government-appointed body that reviews and recommends revisions to the salary structure of central or state government employees. Central Pay Commissions (e.g., 7th CPC) are set up roughly every 10 years and their recommendations, once accepted by the Cabinet, reshape basic pay, grade pay, allowances, and retirement benefits for millions of employees.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-brandBgSoft border border-brandBorder p-5 space-y-2">
+            <h3 className="text-sm font-bold text-brandDeepNavy">What is a Pay Matrix?</h3>
+            <p className="text-xs leading-relaxed text-slate-600">
+              A Pay Matrix is a structured table introduced by the 7th Pay Commission that determines basic pay for government employees based on their Level (job grade) and Cell (incremental step within that grade). It replaced the earlier Grade Pay + Basic Pay system with a single consolidated Pay Level system that is simpler to understand and apply for salary fixation.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-brandBgSoft border border-brandBorder p-5 space-y-2 md:col-span-2">
+            <h3 className="text-sm font-bold text-brandDeepNavy">Announcement vs Order vs Effective Date vs Payment Date</h3>
+            <div className="grid gap-3 sm:grid-cols-2 mt-2">
+              <div>
+                <p className="text-[11px] font-bold text-brandNavy uppercase tracking-wide">Announcement Date</p>
+                <p className="text-xs leading-relaxed text-slate-600 mt-1">The date when the Cabinet or government publicly announces a revision (e.g., press release, media briefing). This is not legally binding until an official order is issued.</p>
+              </div>
+              <div>
+                <p className="text-[11px] font-bold text-brandNavy uppercase tracking-wide">Official Order Date</p>
+                <p className="text-xs leading-relaxed text-slate-600 mt-1">The date the signed Office Memorandum (OM) or Government Order (GO) is issued by the Finance Department. This is the legally binding document that authorises implementation.</p>
+              </div>
+              <div>
+                <p className="text-[11px] font-bold text-brandNavy uppercase tracking-wide">Effective Date</p>
+                <p className="text-xs leading-relaxed text-slate-600 mt-1">The date from which the revised rate is applicable for salary or pension calculation — this is often retrospective (e.g., effective from January 1 even if the order is issued in March).</p>
+              </div>
+              <div>
+                <p className="text-[11px] font-bold text-brandNavy uppercase tracking-wide">Payment Date</p>
+                <p className="text-xs leading-relaxed text-slate-600 mt-1">The actual date when the revised salary or arrears are credited to the employee&apos;s bank account. Payment dates can differ from effective dates due to payroll processing cycles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Guide Section: How to verify state-wise salary updates */}
