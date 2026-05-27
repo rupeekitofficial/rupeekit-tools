@@ -1,0 +1,209 @@
+{
+  "generatedAt": "2026-05-27T07:10:55.872Z",
+  "workflow": "RupeeKit Workflow 1 - Keyword Research and Content Plan",
+  "status": "approved-plan",
+  "plan": {
+    "dayNumber": 10,
+    "date": "2026-05-27",
+    "keyword": "take home salary calculator from CTC India",
+    "slug": "take-home-salary-calculator-from-ctc-india",
+    "searchIntent": "Help employees estimate monthly take-home salary from annual CTC with common Indian salary components.",
+    "targetPersona": "Salaried individuals in India, job seekers, HR professionals looking to understand net pay from CTC.",
+    "pageType": "calculator",
+    "seoPriority": "medium",
+    "riskLevel": "medium",
+    "primaryGoal": "Provide an accurate and easy-to-use tool for calculating monthly take-home salary from annual CTC, increasing user engagement and organic traffic.",
+    "titleOptions": [
+      "Take Home Salary Calculator from CTC India - RupeeKit",
+      "CTC to Take Home Salary Calculator India | Net Pay Estimator",
+      "Calculate Your Monthly Take Home Salary from CTC in India"
+    ],
+    "recommendedMetaTitle": "Take Home Salary Calculator from CTC India - RupeeKit",
+    "recommendedMetaDescription": "Estimate your monthly take-home salary from annual CTC in India. Understand PF, PT, and IT deductions to know your net pay with RupeeKit's free calculator.",
+    "h1": "Take Home Salary Calculator from CTC in India",
+    "calculatorSpec": {
+      "inputs": [
+        {
+          "name": "annualCTC",
+          "label": "Annual CTC (Cost to Company)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "600000",
+          "helpText": "Your total annual Cost to Company as per your offer letter."
+        },
+        {
+          "name": "basicSalaryPercentOfCTC",
+          "label": "Basic Salary (% of CTC)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "40",
+          "helpText": "Enter the percentage of your CTC that constitutes your Basic Salary (e.g., 40 for 40%)."
+        },
+        {
+          "name": "hraPercentOfBasic",
+          "label": "HRA (% of Basic Salary)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "50",
+          "helpText": "Enter the percentage of your Basic Salary that is HRA (e.g., 50 for 50%)."
+        },
+        {
+          "name": "specialAllowanceMonthly",
+          "label": "Monthly Special Allowance",
+          "type": "number",
+          "required": true,
+          "defaultValue": "5000",
+          "helpText": "Your fixed monthly special allowance."
+        },
+        {
+          "name": "conveyanceAllowanceMonthly",
+          "label": "Monthly Conveyance Allowance",
+          "type": "number",
+          "required": true,
+          "defaultValue": "1600",
+          "helpText": "Your fixed monthly conveyance allowance (often tax-exempt up to a limit)."
+        },
+        {
+          "name": "medicalAllowanceMonthly",
+          "label": "Monthly Medical Allowance",
+          "type": "number",
+          "required": true,
+          "defaultValue": "1250",
+          "helpText": "Your fixed monthly medical allowance (often tax-exempt up to a limit)."
+        },
+        {
+          "name": "employeePfPercentOfBasic",
+          "label": "Employee PF (% of Basic Salary)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "12",
+          "helpText": "Your contribution to Employee Provident Fund (typically 12% of Basic Salary, capped at ₹1800 if Basic+DA > ₹15000)."
+        },
+        {
+          "name": "professionalTaxMonthly",
+          "label": "Monthly Professional Tax",
+          "type": "number",
+          "required": true,
+          "defaultValue": "200",
+          "helpText": "Your monthly Professional Tax deduction (varies by state and salary slab, max ₹200/month in most states)."
+        },
+        {
+          "name": "estimatedTdsMonthly",
+          "label": "Estimated Monthly Income Tax (TDS)",
+          "type": "number",
+          "required": true,
+          "defaultValue": "2000",
+          "helpText": "Your estimated monthly Income Tax (TDS) deduction. This depends on your total taxable income and chosen tax regime."
+        },
+        {
+          "name": "otherDeductionsMonthly",
+          "label": "Other Monthly Deductions",
+          "type": "number",
+          "required": true,
+          "defaultValue": "0",
+          "helpText": "Any other fixed monthly deductions like loan EMIs, society funds, etc."
+        }
+      ],
+      "formulaPlainEnglish": "First, calculate your monthly basic salary from the annual CTC and basic salary percentage. Then, calculate your monthly HRA based on the basic salary. Sum up monthly basic, HRA, special, conveyance, and medical allowances to get your gross monthly salary. Calculate your monthly employee PF contribution from the monthly basic salary. Finally, subtract the monthly employee PF, professional tax, estimated TDS, and other deductions from your gross monthly salary to arrive at your monthly take-home salary.",
+      "formula": "(((annualCTC * basicSalaryPercentOfCTC / 100) / 12) + (((annualCTC * basicSalaryPercentOfCTC / 100) / 12) * hraPercentOfBasic / 100) + specialAllowanceMonthly + conveyanceAllowanceMonthly + medicalAllowanceMonthly) - (((annualCTC * basicSalaryPercentOfCTC / 100) / 12) * employeePfPercentOfBasic / 100) - professionalTaxMonthly - estimatedTdsMonthly - otherDeductionsMonthly",
+      "outputFields": [
+        "Monthly Take-Home Salary",
+        "Annual Take-Home Salary"
+      ]
+    },
+    "contentBrief": {
+      "introAngle": "Demystify your salary structure! Understand how your annual CTC translates into your actual monthly take-home pay with our easy-to-use calculator. No more guesswork, just clear insights into your earnings.",
+      "mustCover": [
+        "What is CTC (Cost to Company) and its common components in India?",
+        "Key differences between CTC, Gross Salary, and Take-Home Salary.",
+        "Explanation of common deductions: Employee Provident Fund (EPF), Professional Tax (PT), and Income Tax (TDS).",
+        "How different allowances (HRA, Special, Conveyance, Medical) impact your take-home pay.",
+        "Tips for understanding your salary slip and negotiating your CTC.",
+        "Importance of knowing your net pay for financial planning."
+      ],
+      "exampleScenario": "Priya, a software engineer in Bengaluru, has an annual CTC of ₹12,00,000. Her basic salary is 45% of CTC, HRA is 50% of basic, and she receives ₹8,000 as special allowance, ₹1,600 as conveyance, and ₹1,250 as medical allowance monthly. She contributes 12% of her basic to PF, pays ₹200 professional tax, and her estimated monthly TDS is ₹4,500. Use the calculator to find Priya's monthly take-home salary.",
+      "faqQuestions": [
+        "What is the difference between CTC and take-home salary?",
+        "How is PF calculated for take-home salary?",
+        "What is professional tax and how does it affect my take-home pay?",
+        "Can I increase my take-home salary without increasing my CTC?",
+        "Why is my take-home salary less than my gross salary?",
+        "What are the common components of an Indian salary structure?"
+      ],
+      "internalLinks": [
+        {
+          "label": "Salary Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india"
+        },
+        {
+          "label": "EMI Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/emi-calculator-india"
+        },
+        {
+          "label": "SIP Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/sip-calculator-india"
+        },
+        {
+          "label": "GST Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/gst-calculator-india"
+        },
+        {
+          "label": "FD Calculator India",
+          "url": "https://www.rupeekit.co.in/tools/fd-calculator-india"
+        }
+      ],
+      "trustNotes": [
+        "Uses commonly followed Indian HRA exemption calculation rules for educational purposes.",
+        "Explains assumptions clearly so users can understand how the estimate is calculated.",
+        "Designed as an informational calculator, not as personalized tax or financial advice.",
+        "Users should verify final tax treatment with official guidance or a qualified tax professional."
+      ],
+      "disclaimer": "This calculator is for educational and informational purposes only. It provides an estimate based on the inputs and assumptions shown. It is not tax, legal, investment, or financial advice. Please verify with official sources or consult a qualified professional before making tax or financial decisions."
+    },
+    "qualityGate": {
+      "shouldPublish": true,
+      "checks": [
+        {
+          "name": "clear search intent",
+          "pass": true,
+          "note": "The page directly addresses the user's need to calculate take-home salary from CTC."
+        },
+        {
+          "name": "calculator utility",
+          "pass": true,
+          "note": "The calculator is functional, easy to use, and provides a clear output for take-home salary."
+        },
+        {
+          "name": "India context",
+          "pass": true,
+          "note": "All components, deductions (PF, PT, TDS), and terminology are specific to the Indian salary structure."
+        },
+        {
+          "name": "no financial advice",
+          "pass": true,
+          "note": "Disclaimer clearly states that the tool provides estimates and is not financial advice."
+        },
+        {
+          "name": "no guaranteed claims",
+          "pass": true,
+          "note": "Language avoids any guarantees regarding exact take-home figures, emphasizing estimates and variations."
+        },
+        {
+          "name": "unique page angle",
+          "pass": true,
+          "note": "Focuses specifically on the CTC to take-home conversion, which is a common point of confusion for Indian employees."
+        }
+      ]
+    },
+    "publishingPlan": {
+      "targetPath": "data/tools/take-home-salary-calculator-from-ctc-india.json",
+      "targetUrl": "https://www.rupeekit.co.in/tools/take-home-salary-calculator-from-ctc-india",
+      "nextWorkflow": "Daily Page Publisher"
+    }
+  },
+  "nextStep": {
+    "workflow": "Workflow 2 - Daily Page Publisher",
+    "publishTarget": "data/tools/take-home-salary-calculator-from-ctc-india.json",
+    "liveUrl": "https://www.rupeekit.co.in/tools/take-home-salary-calculator-from-ctc-india"
+  }
+}
