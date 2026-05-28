@@ -1,0 +1,16 @@
+{
+  "date": "2026-05-28",
+  "postNo": 2,
+  "source": "trend-scorecard",
+  "trendTitle": "sip calculator monthly investment",
+  "trendQuery": "sip calculator monthly investment",
+  "score": 68,
+  "mappedCalculatorSlug": "sip-calculator-india",
+  "mappedCalculatorName": "SIP Calculator India",
+  "opportunityType": "support_existing_calculator",
+  "suggestedSlug": "sip-calculator-monthly-investment-calculator-guide",
+  "discoverAngle": "Explain sip calculator monthly investment with a simple India-focused RupeeKit calculator example",
+  "primaryUserProblem": "Users searching sip calculator monthly investment need a simple, trustworthy calculator-backed explanation for India.",
+  "requiredAssetPolicy": "No Gemini image API. Generate blank RupeeKit logo templates and image prompts only.",
+  "status": "READY_FOR_DEEP_BRIEF"
+}
