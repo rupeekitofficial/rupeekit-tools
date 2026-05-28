@@ -1,0 +1,57 @@
+{
+  "workflow": "RupeeKit v3 - 07 Internal Link Suggestion Pack",
+  "generatedAt": "2026-05-28T03:04:33.009Z",
+  "date": "2026-05-28",
+  "postNo": 1,
+  "targetSlug": "income-tax-calculator-2026-calculator-guide",
+  "targetCalculatorSlug": "income-tax-calculator-old-vs-new-regime-india",
+  "suggestedInternalLinks": [
+    {
+      "slug": "income-tax-calculator-old-vs-new-regime-india",
+      "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+      "score": 18
+    },
+    {
+      "slug": "gst-calculator-india",
+      "name": "GST Calculator India",
+      "score": 11
+    },
+    {
+      "slug": "hra-exemption-calculator-india",
+      "name": "HRA Exemption Calculator India",
+      "score": 11
+    },
+    {
+      "slug": "80c-deduction-calculator-india",
+      "name": "Section 80C Deduction Calculator India",
+      "score": 11
+    },
+    {
+      "slug": "salary-in-hand-calculator-india",
+      "name": "Salary In-Hand Calculator India",
+      "score": 6
+    },
+    {
+      "slug": "emi-calculator-india",
+      "name": "EMI Calculator India",
+      "score": 6
+    },
+    {
+      "slug": "sip-calculator-india",
+      "name": "SIP Calculator India",
+      "score": 6
+    },
+    {
+      "slug": "fd-calculator-india",
+      "name": "FD Calculator India",
+      "score": 6
+    }
+  ],
+  "homepagePrompt": "Add or review a homepage/category link for Income Tax Calculator 2026: Prepare for Future Tax Planning with RupeeKit. Anchor text should be helpful, not keyword-stuffed. Suggested anchor: Income Tax Calculator: Old vs New Regime India (FY 2023-24). Link to /tools/income-tax-calculator-old-vs-new-regime-india or the reviewed content page after manual publish.",
+  "guardrails": [
+    "Do not add too many homepage links",
+    "Use descriptive anchors",
+    "Only link to live, useful pages",
+    "Manual review before commit"
+  ]
+}
