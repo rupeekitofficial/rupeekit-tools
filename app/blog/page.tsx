@@ -1,46 +1,41 @@
 import type { Metadata } from 'next';
 import { blogPosts } from '@/data/blog-posts';
-import BlogCard from '@/components/blog/BlogCard';
+import BlogListingClient from '@/components/blog/BlogListingClient';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
 export const metadata: Metadata = {
-  title: 'Personal Finance Blog & Money Guides',
+  title: 'Personal Finance Blog & Money Guides | RupeeKit',
   description: 'Explore free, practical personal finance articles, budgeting advice, investment strategies, and checklist guides for Indian salaried employees.',
+  alternates: { canonical: `${SITE_URL}/blog` },
+  openGraph: {
+    title: 'Personal Finance Blog & Money Guides | RupeeKit',
+    description: 'Explore free, practical personal finance articles for Indian salaried employees.',
+    url: `${SITE_URL}/blog`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
 };
 
 export default function BlogListingPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      {/* Blog Listing Header */}
+      {/* Blog Listing Header — server-rendered for SEO */}
       <section className="text-center max-w-3xl mx-auto">
         <span className="rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-brandNavy">
           RupeeKit Library
         </span>
         <h1 className="mt-4 text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl">
-          Personal Finance Guides & Resources
+          Personal Finance Guides &amp; Resources
         </h1>
         <p className="mt-4 text-brandMuted text-lg leading-relaxed">
           Master budgeting, savings, investing, and tax planning in India with simple, educational, and formula-backed explanations.
         </p>
       </section>
 
-      {/* Grid of Articles */}
-      <section className="mt-16">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post) => (
-            <BlogCard
-              key={post.slug}
-              slug={post.slug}
-              title={post.title}
-              category={post.category}
-              date={post.date}
-              readTime={post.readTime}
-              intro={post.intro}
-              visualType={post.visualType}
-              visualAlt={post.visualAlt}
-            />
-          ))}
-        </div>
-      </section>
+      {/* Client component handles search, filter, featured badge */}
+      <BlogListingClient posts={blogPosts} />
 
       {/* Bottom Educational Banner */}
       <section className="mt-16 rounded-[2rem] border border-brandBorder bg-white p-8 text-center shadow-sm max-w-4xl mx-auto">
@@ -53,7 +48,7 @@ export default function BlogListingPage() {
             href="/#calculators"
             className="rounded-full bg-brandNavy px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-brandDeepNavy hover:shadow-md transition"
           >
-            Go to Free Calculators
+            Explore All Calculators
           </a>
         </div>
       </section>

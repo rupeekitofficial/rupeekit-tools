@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { getLiveTools } from '@/lib/tools';
-import PersonalFinanceRoadmap from '@/components/PersonalFinanceRoadmap';
 
 export default function HomePage() {
   const tools = getLiveTools();
@@ -434,20 +433,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Reusable Roadmap Timeline on Homepage */}
+      {/* Personal Finance Roadmap — Compact Preview */}
       <section className="rounded-3xl border border-brandBorder bg-white p-6 md:p-10 shadow-sm">
-        <div className="max-w-xl mb-8">
-          <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brandNavy">
-            Financial Milestones
-          </span>
-          <h2 className="mt-4 text-2xl font-black text-brandDeepNavy md:text-3xl">
-            Your Personal Finance Roadmap
-          </h2>
-          <p className="mt-2 text-sm text-brandMuted">
-            Follow these six foundational stages systematically to secure your financial future.
-          </p>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-8">
+          <div className="max-w-xl">
+            <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brandNavy">
+              Financial Milestones
+            </span>
+            <h2 className="mt-4 text-2xl font-black text-brandDeepNavy md:text-3xl">
+              Your Personal Finance Roadmap
+            </h2>
+            <p className="mt-2 text-sm text-brandMuted">
+              Six foundational milestones to build lasting financial security. Start with the basics.
+            </p>
+          </div>
+          <Link
+            href="/resources"
+            className="shrink-0 self-start rounded-full border border-brandNavy/20 bg-brandNavy/5 px-4 py-2 text-xs font-bold text-brandNavy hover:bg-brandNavy hover:text-white transition"
+          >
+            See Full Roadmap →
+          </Link>
         </div>
-        <PersonalFinanceRoadmap />
+
+        {/* Compact 3-step preview */}
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-xs font-black text-white">1</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">Foundation</span>
+            </div>
+            <p className="text-sm font-bold text-brandDeepNavy">Track &amp; Budget</p>
+            <p className="mt-1 text-xs leading-relaxed text-brandMuted">Know your in-hand income and track where every rupee goes each month.</p>
+          </div>
+          <div className="rounded-2xl border border-sky-100 bg-sky-50 p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-500 text-xs font-black text-white">2</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-sky-700">Safety Net</span>
+            </div>
+            <p className="text-sm font-bold text-brandDeepNavy">Emergency Fund</p>
+            <p className="mt-1 text-xs leading-relaxed text-brandMuted">Build 3–6 months of expenses in a liquid, accessible account before investing.</p>
+          </div>
+          <div className="rounded-2xl border border-indigo-100 bg-indigo-50 p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-500 text-xs font-black text-white">3</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-700">Growth</span>
+            </div>
+            <p className="text-sm font-bold text-brandDeepNavy">Pay Off Debt</p>
+            <p className="mt-1 text-xs leading-relaxed text-brandMuted">Eliminate high-interest debt using Snowball or Avalanche strategy before compounding.</p>
+          </div>
+        </div>
+
+        <p className="mt-5 text-center text-xs text-brandMuted">
+          Stages 4–6 cover investing, insurance, and wealth compounding.{' '}
+          <Link href="/resources" className="font-bold text-brandNavy hover:underline">
+            View the complete roadmap →
+          </Link>
+        </p>
       </section>
 
       {/* Calculators Grid Section */}

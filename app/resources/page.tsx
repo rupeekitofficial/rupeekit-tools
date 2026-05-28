@@ -13,64 +13,78 @@ export default function ResourcesPage() {
   const guideLinks = [
     {
       title: 'How to Create a Monthly Budget',
+      category: 'Budgeting',
+      categoryColor: 'bg-indigo-50 border-indigo-100 text-indigo-700',
       description: 'Learn the step-by-step process of creating a monthly budget, using the 50/30/20 rule, and automating investments.',
       href: '/blog/how-to-create-a-monthly-budget',
     },
     {
       title: 'How to Track Expenses',
+      category: 'Budgeting',
+      categoryColor: 'bg-indigo-50 border-indigo-100 text-indigo-700',
       description: 'Master expense tracking with our guide. Explore spreadsheets and envelope budgeting to plug spending leaks.',
       href: '/blog/how-to-track-expenses',
     },
     {
       title: 'How Much Emergency Fund Do You Need?',
+      category: 'Savings',
+      categoryColor: 'bg-emerald-50 border-emerald-100 text-emerald-700',
       description: 'Discover how to calculate and build an emergency cushion. Understand safety, liquidity, and asset parking rules.',
       href: '/blog/how-much-emergency-fund',
     },
     {
       title: 'Saving vs Investing for Beginners',
+      category: 'Investing',
+      categoryColor: 'bg-sky-50 border-sky-100 text-sky-700',
       description: 'Learn the critical differences between saving and investing. Understand when to save and when to compound wealth.',
       href: '/blog/saving-vs-investing-for-beginners',
     },
     {
       title: 'Debt Repayment Planning Guide',
+      category: 'Debt',
+      categoryColor: 'bg-rose-50 border-rose-100 text-rose-700',
       description: 'Struggling with debt? Compare the Debt Snowball and Debt Avalanche methods to pay off loans faster.',
       href: '/blog/debt-repayment-planning-for-beginners',
     },
     {
       title: 'Curated Personal Finance Reading List',
+      category: 'Resources',
+      categoryColor: 'bg-amber-50 border-amber-100 text-amber-700',
       description: 'Discover the top personal finance books for beginners, hand-selected to build your financial literacy.',
       href: '/blog/best-personal-finance-books-for-beginners',
     },
     {
       title: 'ITR-2 AY 2026-27 Filing Guide',
+      category: 'Tax',
+      categoryColor: 'bg-violet-50 border-violet-100 text-violet-700',
       description: 'Get a practical walkthrough on who should file ITR-2, due dates, document preparation, and regime selection.',
       href: '/blog/itr-2-ay-2026-27-filing-guide',
     },
   ];
 
   const calculatorLinks = [
-    { name: 'Loan Payment Calculator', href: '/tools/emi-calculator-india' },
-    { name: 'Savings & Compound Calculator', href: '/tools/sip-calculator-india' },
-    { name: 'Savings Growth Calculator', href: '/tools/fd-calculator-india' },
-    { name: 'Salary & Take-Home Estimator', href: '/tools/salary-in-hand-calculator-india' },
+    { name: 'Loan EMI Calculator', href: '/tools/emi-calculator-india' },
+    { name: 'SIP / Savings Calculator', href: '/tools/sip-calculator-india' },
+    { name: 'FD / Savings Growth', href: '/tools/fd-calculator-india' },
+    { name: 'Salary In-Hand Estimator', href: '/tools/salary-in-hand-calculator-india' },
   ];
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 space-y-12">
+    <div className="mx-auto max-w-4xl px-4 pt-8 pb-12 space-y-10">
       {/* Page Header */}
       <header className="text-center max-w-2xl mx-auto">
         <span className="rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-brandNavy">
           RupeeKit Hub
         </span>
         <h1 className="mt-4 text-4xl font-black tracking-tight text-brandNavy md:text-5xl">
-          Financial Resources & Library
+          Financial Resources &amp; Library
         </h1>
         <p className="mt-4 text-brandMuted text-lg leading-relaxed">
           High-quality educational tools, interactive challenges, and structured guides to help you build a solid financial foundation.
         </p>
       </header>
 
-      {/* Prominent Money Health Check CTA at the top */}
+      {/* Prominent Money Health Check CTA */}
       <section className="rounded-3xl border border-brandBorder bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 p-8 text-white shadow-md relative overflow-hidden">
         <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -78,25 +92,25 @@ export default function ResourcesPage() {
             <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-white/20">
               Interactive Assessment
             </span>
-            <h3 className="mt-4 text-2xl font-bold tracking-tight">
+            <h2 className="mt-4 text-2xl font-bold tracking-tight">
               What is your Money Health Score?
-            </h3>
+            </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-200">
               Take our free 60-second self-reflection quiz. Answer 8 simple questions to assess your savings, debt, tracking habits, and get your personalized score.
             </p>
           </div>
           <Link
             href="/money-health-check"
-            className="mt-4 md:mt-0 whitespace-nowrap rounded-full bg-brandGrowthGreen px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-brandBrightGreen hover:shadow-md transition text-center"
+            className="mt-4 md:mt-0 whitespace-nowrap rounded-full bg-brandGrowthGreen px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-emerald-600 hover:shadow-md transition text-center"
           >
             Start Health Check
           </Link>
         </div>
       </section>
 
-      {/* Main Sections Grid */}
-      <div className="grid gap-8 md:grid-cols-3">
-        {/* Start Here / 30-Day Challenge Block */}
+      {/* Main Sections Grid — balanced 2 columns when showUpdates is false */}
+      <div className={`grid gap-6 ${showUpdates ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+        {/* 30-Day Budget Challenge */}
         <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
           <div>
             <span className="inline-block rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-700">
@@ -106,35 +120,40 @@ export default function ResourcesPage() {
               30-Day Budget Challenge
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-brandMuted">
-              Ready to build strong savings habits? Join our free challenge. Log fixed and variable expenses, track daily tasks, and watch your progress score increase.
+              Ready to build strong savings habits? Join our free challenge. Log fixed and variable expenses, track daily tasks, and watch your progress score increase over 30 days.
             </p>
           </div>
           <div className="mt-6 pt-4 border-t border-brandBorder">
             <Link
               href="/resources/30-day-budget-challenge"
-              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
+              className="inline-flex items-center rounded-full bg-indigo-600 hover:bg-indigo-700 px-5 py-2.5 text-sm font-bold text-white transition"
             >
-              Join the Challenge <span className="ml-1">→</span>
+              Join the Challenge →
             </Link>
           </div>
         </section>
 
-        {/* Free Money Tools Block */}
+        {/* Free Money Tools */}
         <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
           <div>
             <span className="inline-block rounded-full bg-emerald-50 border border-emerald-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-700">
               Free Money Tools
             </span>
             <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
-              Calculators & Estimators
+              Calculators &amp; Estimators
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-brandMuted">
               Estimate loan repayments, savings compound schedules, fixed deposits, and salary take-home amounts with transparent visual breakdowns.
             </p>
-            <div className="mt-4 grid grid-cols-2 gap-2 text-xs font-semibold text-brandNavy">
+            {/* Pill links */}
+            <div className="mt-4 flex flex-wrap gap-2">
               {calculatorLinks.map((calc) => (
-                <Link key={calc.name} href={calc.href} className="hover:underline">
-                  • {calc.name}
+                <Link
+                  key={calc.name}
+                  href={calc.href}
+                  className="rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3 py-1 text-xs font-bold text-brandNavy hover:bg-brandNavy hover:text-white transition"
+                >
+                  {calc.name}
                 </Link>
               ))}
             </div>
@@ -142,99 +161,88 @@ export default function ResourcesPage() {
           <div className="mt-6 pt-4 border-t border-brandBorder">
             <Link
               href="/#calculators"
-              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
+              className="inline-flex items-center rounded-full bg-brandNavy hover:bg-brandDeepNavy px-5 py-2.5 text-sm font-bold text-white transition"
             >
-              Explore All Tools <span className="ml-1">→</span>
+              Explore All Tools →
             </Link>
           </div>
         </section>
 
-        {/* Government Salary Updates Block */}
+        {/* Government Salary Updates — shown only when showUpdates = true */}
         {showUpdates && (
-        <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
-          <div>
-            <span className="inline-block rounded-full bg-amber-50 border border-amber-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
-              Updates
-            </span>
-            <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
-              Government Salary Updates
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-brandMuted">
-              Track state-wise DA, DR, pay revisions, allowances, and official employee salary circulars in a transparent educational format.
-            </p>
-          </div>
-          <div className="mt-6 pt-4 border-t border-brandBorder">
-            <Link
-              href="/government-salary-updates"
-              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
-            >
-              Track Salary Updates <span className="ml-1">→</span>
-            </Link>
-          </div>
-        </section>
+          <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <span className="inline-block rounded-full bg-amber-50 border border-amber-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-700">
+                Updates
+              </span>
+              <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
+                Government Salary Updates
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-brandMuted">
+                Track state-wise DA, DR, pay revisions, allowances, and official employee salary circulars in a transparent educational format.
+              </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-brandBorder">
+              <Link
+                href="/government-salary-updates"
+                className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
+              >
+                Track Salary Updates <span className="ml-1">→</span>
+              </Link>
+            </div>
+          </section>
         )}
       </div>
 
-      {/* Updates Row — new cards below existing grid */}
+      {/* Updates Row */}
       {showUpdates && (
-      <div className="grid gap-8 md:grid-cols-2">
-        {/* Financial Updates Card */}
-        <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
-          <div>
-            <span className="inline-block rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-800">
-              Finance &amp; Tax
-            </span>
-            <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
-              Financial &amp; Tax Updates
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-brandMuted">
-              Follow RBI policy changes, income tax updates, GST council decisions, SEBI rules, and banking news with plain-language RupeeKit educational summaries.
-            </p>
-          </div>
-          <div className="mt-6 pt-4 border-t border-brandBorder">
-            <Link
-              href="/financial-updates"
-              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
-            >
-              View Financial Updates <span className="ml-1">→</span>
-            </Link>
-          </div>
-        </section>
-
-        {/* Updates Hub Card */}
-        <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
-          <div>
-            <span className="inline-block rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-800">
-              All Updates
-            </span>
-            <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
-              Updates Hub
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-brandMuted">
-              Your central dashboard for all RupeeKit educational updates — financial, government salary, state-wise employee, pension, DA/DR, and more.
-            </p>
-          </div>
-          <div className="mt-6 pt-4 border-t border-brandBorder">
-            <Link
-              href="/updates"
-              className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition"
-            >
-              Browse All Updates <span className="ml-1">→</span>
-            </Link>
-          </div>
-        </section>
-      </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <span className="inline-block rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-blue-800">
+                Finance &amp; Tax
+              </span>
+              <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">
+                Financial &amp; Tax Updates
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-brandMuted">
+                Follow RBI policy changes, income tax updates, GST council decisions, SEBI rules, and banking news with plain-language RupeeKit educational summaries.
+              </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-brandBorder">
+              <Link href="/financial-updates" className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition">
+                View Financial Updates <span className="ml-1">→</span>
+              </Link>
+            </div>
+          </section>
+          <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <span className="inline-block rounded-full bg-indigo-50 border border-indigo-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-800">
+                All Updates
+              </span>
+              <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy">Updates Hub</h3>
+              <p className="mt-3 text-sm leading-relaxed text-brandMuted">
+                Your central dashboard for all RupeeKit educational updates — financial, government salary, state-wise employee, pension, DA/DR, and more.
+              </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-brandBorder">
+              <Link href="/updates" className="inline-flex items-center text-sm font-bold text-brandNavy hover:text-brandDeepNavy transition">
+                Browse All Updates <span className="ml-1">→</span>
+              </Link>
+            </div>
+          </section>
+        </div>
       )}
 
-      {/* Roadmap Center Section */}
+      {/* Personal Finance Roadmap */}
       <section className="rounded-3xl border border-brandBorder bg-white p-6 md:p-8 shadow-sm">
         <div className="max-w-xl mb-8">
           <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brandNavy">
             Path to Discipline
           </span>
-          <h3 className="mt-4 text-2xl font-black text-brandDeepNavy">
+          <h2 className="mt-4 text-2xl font-black text-brandDeepNavy">
             Personal Finance Roadmap
-          </h3>
+          </h2>
           <p className="mt-2 text-sm text-brandMuted">
             Review these six basic milestones to establish financial security. Adjust your focus stage systematically.
           </p>
@@ -242,26 +250,29 @@ export default function ResourcesPage() {
         <PersonalFinanceRoadmap />
       </section>
 
-      {/* Personal Finance Guides list */}
+      {/* Personal Finance Guides */}
       <section className="space-y-6">
         <div className="max-w-xl">
-          <h3 className="text-2xl font-black text-brandDeepNavy">Personal Finance Guides</h3>
+          <h2 className="text-2xl font-black text-brandDeepNavy">Personal Finance Guides</h2>
           <p className="mt-2 text-sm text-brandMuted">
             Comprehensive, educational guides covering savings buffers, budget structures, mindset shifts, and debt strategies.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2">
           {guideLinks.map((guide) => (
             <div
               key={guide.title}
               className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between"
             >
               <div>
-                <h4 className="text-base font-bold text-brandDeepNavy tracking-tight">
+                <span className={`inline-block rounded-full border px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${guide.categoryColor}`}>
+                  {guide.category}
+                </span>
+                <h3 className="mt-4 text-base font-bold text-brandDeepNavy tracking-tight">
                   {guide.title}
-                </h4>
-                <p className="mt-2 text-xs leading-relaxed text-brandMuted">
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-brandMuted">
                   {guide.description}
                 </p>
               </div>
@@ -270,7 +281,7 @@ export default function ResourcesPage() {
                   href={guide.href}
                   className="text-xs font-bold text-brandNavy hover:text-brandDeepNavy flex items-center gap-0.5"
                 >
-                  Read Guide <span className="text-brandMuted">→</span>
+                  Read Guide <span className="text-brandMuted ml-0.5">→</span>
                 </Link>
               </div>
             </div>

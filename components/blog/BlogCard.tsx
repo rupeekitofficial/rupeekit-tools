@@ -12,6 +12,9 @@ interface BlogCardProps {
   intro: string;
   visualType?: string;
   visualAlt?: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+  isFeatured?: boolean;
 }
 
 export default function BlogCard({
@@ -23,6 +26,9 @@ export default function BlogCard({
   intro,
   visualType,
   visualAlt,
+  heroImage,
+  heroImageAlt,
+  isFeatured,
 }: BlogCardProps) {
   return (
     <Link
@@ -31,17 +37,36 @@ export default function BlogCard({
     >
       <div>
         {/* Visual Thumbnail */}
-        {visualType ? (
-          <div className="relative w-full aspect-[1.91/1] bg-gradient-to-br from-brandDeepNavy to-slate-900 p-4 flex items-center justify-center border-b border-brandBorder overflow-hidden">
-            <div className="w-[70%] max-w-[180px] aspect-[16/10] bg-slate-900/60 border border-slate-800/80 rounded-xl p-2 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transform-none">
-              <BlogVisualRenderer type={visualType} mode="thumbnail" />
+        <div className="relative">
+          {heroImage ? (
+            <div className="relative w-full aspect-[1.91/1] overflow-hidden border-b border-brandBorder">
+              <img
+                src={heroImage}
+                alt={heroImageAlt || title}
+                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
+              />
             </div>
-          </div>
-        ) : (
-          <div className="w-full aspect-[1.91/1] bg-brandBgSoft border-b border-brandBorder flex items-center justify-center text-brandNavy/20 font-black">
-            RupeeKit
-          </div>
-        )}
+          ) : visualType ? (
+            <div className="relative w-full aspect-[1.91/1] bg-gradient-to-br from-brandDeepNavy to-slate-900 p-4 flex items-center justify-center border-b border-brandBorder overflow-hidden">
+              <div className="w-[70%] max-w-[180px] aspect-[16/10] bg-slate-900/60 border border-slate-800/80 rounded-xl p-2 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transform-none">
+                <BlogVisualRenderer type={visualType} mode="thumbnail" />
+              </div>
+            </div>
+          ) : (
+            <div className="w-full aspect-[1.91/1] bg-brandBgSoft border-b border-brandBorder flex items-center justify-center text-brandNavy/20 font-black">
+              RupeeKit
+            </div>
+          )}
+
+          {/* Featured badge overlay */}
+          {isFeatured && (
+            <div className="absolute top-3 left-3">
+              <span className="inline-flex items-center gap-1 rounded-full bg-brandGrowthGreen px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm">
+                ✦ Featured
+              </span>
+            </div>
+          )}
+        </div>
 
         <div className="p-6">
           <div className="flex items-center justify-between gap-2">
@@ -50,7 +75,7 @@ export default function BlogCard({
             </span>
             <span className="text-[11px] text-brandMuted">{readTime}</span>
           </div>
-          <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy group-hover:text-brandNavy transition line-clamp-2">
+          <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy group-hover:text-brandNavy transition line-clamp-3 md:line-clamp-none">
             {title}
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-brandMuted line-clamp-2">
@@ -58,7 +83,7 @@ export default function BlogCard({
           </p>
         </div>
       </div>
-      
+
       <div className="mx-6 mb-6 pt-4 border-t border-brandBorder flex items-center justify-between text-xs">
         <span className="text-brandMuted">{date}</span>
         <span className="font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
@@ -68,4 +93,3 @@ export default function BlogCard({
     </Link>
   );
 }
-

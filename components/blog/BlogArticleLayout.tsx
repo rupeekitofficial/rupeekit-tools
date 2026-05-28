@@ -11,6 +11,7 @@ import FinanceDisclaimer from './FinanceDisclaimer';
 import AffiliateDisclosure from './AffiliateDisclosure';
 import BookRecommendationCard from './BookRecommendationCard';
 import { BlogInlineVisual, BlogSharePreviewCard } from './BlogVisuals';
+import { Tax2026Stats, Tax2026CTA, Tax2026CompactCTA, CommonMistakesCards } from './Tax2026Visuals';
 import {
   FilingDeadlineTimeline,
   CapitalGainsRateShift,
@@ -90,6 +91,20 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
               </div>
             )}
 
+            {post.slug === 'income-tax-calculator-2026-calculator-guide' && (
+              <>
+                <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4">
+                  <p className="text-xs font-bold uppercase tracking-wide text-amber-900">
+                    ⚠️ Educational Estimate Only
+                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-amber-800">
+                    Tax rules can change by financial year. This guide is for educational planning only. Verify the latest slabs, deductions, rebates, and filing rules before making tax decisions.
+                  </p>
+                </div>
+                <Tax2026CompactCTA />
+              </>
+            )}
+
             {/* Sections */}
             <div className="mt-8 space-y-10">
               {post.sections.map((section, idx) => {
@@ -145,6 +160,17 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                         <OldVsNewRegimeSlabSnapshot />
                         <RebateComparison />
                       </>
+                    )}
+                    {post.slug === 'income-tax-calculator-2026-calculator-guide' && section.title === 'Why Use an Income Tax Calculator for 2026?' && (
+                      <Tax2026Stats />
+                    )}
+                    {post.slug === 'income-tax-calculator-2026-calculator-guide' && section.title === 'Common Mistakes to Avoid' && (
+                      <CommonMistakesCards />
+                    )}
+                    {post.slug === 'income-tax-calculator-2026-calculator-guide' && section.title === 'How to Project Your Future Taxes' && (
+                      <div className="mt-8 mb-8">
+                        <Tax2026CTA />
+                      </div>
                     )}
                   </Fragment>
                 );

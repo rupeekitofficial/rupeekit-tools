@@ -59,6 +59,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  robots: {
+    "max-image-preview": "large",
+  },
   openGraph: {
     title: `${siteName} - Free India Salary & Finance Calculators`,
     description:

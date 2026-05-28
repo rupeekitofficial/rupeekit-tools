@@ -33,11 +33,18 @@ export default function MoneyHealthCheckQuiz() {
   ];
 
   const handleAnswer = (val: boolean) => {
-    setAnswers((prev) => ({ ...prev, [questions[currentIdx].id]: val }));
+    const newAnswers = { ...answers, [questions[currentIdx].id]: val };
+    setAnswers(newAnswers);
     if (currentIdx < questions.length - 1) {
       setCurrentIdx((prev) => prev + 1);
     } else {
       setShowResults(true);
+    }
+  };
+
+  const handleBack = () => {
+    if (currentIdx > 0) {
+      setCurrentIdx((prev) => prev - 1);
     }
   };
 
@@ -140,9 +147,7 @@ export default function MoneyHealthCheckQuiz() {
               <span className="text-4xl font-black text-brandNavy">{score}</span>
               <span className="absolute bottom-4 text-xs font-bold text-brandMuted">/100</span>
             </div>
-            <span
-              className={`mt-4 rounded-full border px-4 py-1 text-sm font-bold uppercase tracking-wide ${details.colorClass}`}
-            >
+            <span className={`mt-4 rounded-full border px-4 py-1 text-sm font-bold uppercase tracking-wide ${details.colorClass}`}>
               {details.category}
             </span>
           </div>
@@ -173,18 +178,21 @@ export default function MoneyHealthCheckQuiz() {
             Recommended Action Plan
           </h3>
           <p className="mt-2 text-xs text-brandMuted">
-            Here are three education-focused actions selected based on your responses:
+            Three education-focused next steps based on your score:
           </p>
 
           <ul className="mt-5 space-y-3">
             {details.actions.map((act, i) => (
-              <li key={i}>
+              <li key={i} className="flex items-start gap-3">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brandNavy/10 text-xs font-black text-brandNavy mt-0.5">
+                  {i + 1}
+                </span>
                 <Link
                   href={act.href}
-                  className="flex items-center justify-between rounded-xl border border-brandBorder bg-brandBgSoft p-4 hover:border-slate-300 hover:bg-white transition"
+                  className="flex flex-1 items-center justify-between rounded-xl border border-brandBorder bg-brandBgSoft p-4 hover:border-slate-300 hover:bg-white transition"
                 >
                   <span className="text-sm font-bold text-brandDeepNavy">{act.text}</span>
-                  <span className="text-brandGrowthGreen text-lg font-black">→</span>
+                  <span className="text-brandGrowthGreen text-lg font-black ml-3 shrink-0">→</span>
                 </Link>
               </li>
             ))}
@@ -211,53 +219,108 @@ export default function MoneyHealthCheckQuiz() {
   }
 
   // Quiz Mode
-  const progressPercent = Math.round((currentIdx / questions.length) * 100);
+  // Progress: how many questions have been answered
+  const answeredCount = Object.keys(answers).length;
+  const progressPercent = Math.round((answeredCount / questions.length) * 100);
+  const currentQuestion = questions[currentIdx];
+  const existingAnswer = answers[currentQuestion.id]; // undefined | true | false
 
   return (
-    <div className="mx-auto max-w-xl rounded-3xl border border-brandBorder bg-white p-8 shadow-sm relative overflow-hidden">
-      {/* Progress Bar */}
-      <div className="absolute top-0 left-0 right-0 h-1.5 bg-slate-100">
-        <div
-          className="h-full bg-brandGrowthGreen transition-all duration-300"
-          style={{ width: `${progressPercent}%` }}
-        />
+    <div className="mx-auto max-w-xl rounded-3xl border border-brandBorder bg-white shadow-sm overflow-hidden">
+      {/* Progress bar header */}
+      <div className="bg-brandBgSoft border-b border-brandBorder px-6 pt-5 pb-4">
+        <div className="flex items-center justify-between text-xs font-semibold text-brandMuted mb-2">
+          <span className="text-brandDeepNavy font-bold">
+            Question {currentIdx + 1} <span className="font-normal text-brandMuted">of {questions.length}</span>
+          </span>
+          <span>{progressPercent}% complete</span>
+        </div>
+        {/* Progress bar */}
+        <div className="h-2 w-full rounded-full bg-slate-200 overflow-hidden">
+          <div
+            className="h-full rounded-full bg-brandGrowthGreen transition-all duration-300"
+            style={{ width: `${progressPercent}%` }}
+            role="progressbar"
+            aria-valuenow={progressPercent}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label={`${progressPercent}% complete`}
+          />
+        </div>
+        {/* Step dots */}
+        <div className="mt-2.5 flex gap-1">
+          {questions.map((q, i) => (
+            <div
+              key={q.id}
+              className={`flex-1 h-1 rounded-full transition-colors duration-200 ${
+                answers[q.id] !== undefined
+                  ? 'bg-brandGrowthGreen'
+                  : i === currentIdx
+                  ? 'bg-brandNavy/40'
+                  : 'bg-slate-200'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="mt-2 flex items-center justify-between text-xs font-semibold text-brandMuted">
-        <span>Self-Assessment</span>
-        <span>
-          Question {currentIdx + 1} of {questions.length}
-        </span>
-      </div>
+      <div className="p-6 md:p-8">
+        {/* Question */}
+        <div className="min-h-[120px] flex flex-col justify-center text-center">
+          <span className="text-xs font-bold text-brandGrowthGreen uppercase tracking-wider">
+            {currentQuestion.category}
+          </span>
+          <h3 className="mt-3 text-xl font-bold tracking-tight text-brandDeepNavy leading-snug px-2">
+            {currentQuestion.text}
+          </h3>
+          {/* Show if previously answered */}
+          {existingAnswer !== undefined && (
+            <p className="mt-2 text-xs text-brandMuted">
+              You previously answered: <strong>{existingAnswer ? 'Yes' : 'No'}</strong> — change your answer below.
+            </p>
+          )}
+        </div>
 
-      <div className="mt-8 min-h-[140px] flex flex-col justify-center text-center">
-        <span className="text-xs font-bold text-brandGrowthGreen uppercase tracking-wider">
-          {questions[currentIdx].category}
-        </span>
-        <h3 className="mt-3 text-xl font-bold tracking-tight text-brandDeepNavy leading-snug px-4">
-          {questions[currentIdx].text}
-        </h3>
-      </div>
-
-      <div className="mt-8 grid grid-cols-2 gap-4">
-        <button
-          onClick={() => handleAnswer(true)}
-          className="rounded-full bg-brandNavy py-3 text-sm font-bold text-white shadow-sm hover:bg-brandDeepNavy transition focus:outline-none focus:ring-2 focus:ring-brandNavy focus:ring-offset-2"
-        >
-          Yes
-        </button>
-        <button
-          onClick={() => handleAnswer(false)}
-          className="rounded-full border border-brandBorder bg-white py-3 text-sm font-bold text-brandText hover:bg-brandBgSoft transition focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2"
-        >
-          No
-        </button>
-      </div>
-
-      <div className="mt-8 border-t border-brandBorder pt-4 text-center">
-        <p className="text-[11px] text-brandMuted leading-relaxed">
-          No logs are saved. Your choices remain strictly confidential in your temporary browser state.
+        {/* Privacy note — above buttons */}
+        <p className="mt-4 mb-4 text-center text-[11px] text-brandMuted leading-relaxed rounded-lg bg-brandBgSoft border border-brandBorder/60 px-4 py-2.5">
+          🔒 Your answers stay in this browser. RupeeKit does not store personal data.
         </p>
+
+        {/* Yes / No Buttons */}
+        <div className="grid grid-cols-2 gap-4">
+          <button
+            onClick={() => handleAnswer(true)}
+            className={`rounded-full py-3 text-sm font-bold shadow-sm transition focus:outline-none focus:ring-2 focus:ring-brandNavy focus:ring-offset-2 ${
+              existingAnswer === true
+                ? 'bg-brandGrowthGreen text-white ring-2 ring-brandGrowthGreen ring-offset-2'
+                : 'bg-brandNavy text-white hover:bg-brandDeepNavy'
+            }`}
+          >
+            ✓ Yes
+          </button>
+          <button
+            onClick={() => handleAnswer(false)}
+            className={`rounded-full border py-3 text-sm font-bold transition focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2 ${
+              existingAnswer === false
+                ? 'border-brandDeepNavy bg-brandDeepNavy text-white ring-2 ring-brandDeepNavy ring-offset-2'
+                : 'border-brandBorder bg-white text-brandText hover:bg-brandBgSoft'
+            }`}
+          >
+            ✗ No
+          </button>
+        </div>
+
+        {/* Back button */}
+        {currentIdx > 0 && (
+          <div className="mt-4 text-center">
+            <button
+              onClick={handleBack}
+              className="text-xs font-semibold text-brandMuted hover:text-brandNavy transition underline-offset-2 hover:underline"
+            >
+              ← Back to previous question
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

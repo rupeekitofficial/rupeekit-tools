@@ -3,6 +3,7 @@
 export const ADVANCED_CALCULATORS = {
   SALARY: 'salary-in-hand-calculator-india',
   GST: 'gst-calculator-india',
+  INCOME_TAX: 'income-tax-calculator-old-vs-new-regime-india',
 } as const;
 
 export type AdvancedCalculatorSlug = typeof ADVANCED_CALCULATORS[keyof typeof ADVANCED_CALCULATORS];
