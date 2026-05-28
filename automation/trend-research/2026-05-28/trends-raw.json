@@ -1,39 +1,111 @@
 {
   "workflow": "RupeeKit v3 - 01A Google Trends Collector",
-  "generatedAt": "2026-05-28T02:43:24.387Z",
+  "generatedAt": "2026-05-28T03:00:25.305Z",
   "date": "2026-05-28",
   "source": "https://trends.google.com/trending/rss?geo=IN",
   "geo": "IN",
-  "collectorStatus": "FALLBACK_USED",
-  "totalTrends": 4,
+  "collectorStatus": "PASS",
+  "totalTrends": 10,
   "trends": [
     {
-      "title": "income tax calculator",
-      "query": "income tax calculator",
-      "approxTraffic": "fallback",
-      "approxTrafficNumber": 1000,
-      "reason": "seed finance topic"
+      "title": "today share market open",
+      "query": "today share market open",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:40:00 -0700",
+      "approxTraffic": "100+",
+      "approxTrafficNumber": 100,
+      "newsTitle": "Is the Stock Market Open Today? Here Are the Trading Hours for Memorial Day.",
+      "newsSource": "Barron&apos;s"
     },
     {
-      "title": "sip calculator",
-      "query": "sip calculator",
-      "approxTraffic": "fallback",
-      "approxTrafficNumber": 900,
-      "reason": "seed finance topic"
+      "title": "মেষ",
+      "query": "মেষ",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:40:00 -0700",
+      "approxTraffic": "100+",
+      "approxTrafficNumber": 100,
+      "newsTitle": "আজকের দিন বৃশ্চিক রাশি- ২৮ মে, ২০২৬",
+      "newsSource": "Anandabazar Patrika"
     },
     {
-      "title": "gst calculator",
-      "query": "gst calculator",
-      "approxTraffic": "fallback",
-      "approxTrafficNumber": 800,
-      "reason": "seed finance topic"
+      "title": "may 28",
+      "query": "may 28",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:30:00 -0700",
+      "approxTraffic": "200+",
+      "approxTrafficNumber": 200,
+      "newsTitle": "Horoscope Today: May 28, 2026",
+      "newsSource": "Vogue India"
     },
     {
-      "title": "fd calculator",
-      "query": "fd calculator",
-      "approxTraffic": "fallback",
-      "approxTrafficNumber": 700,
-      "reason": "seed finance topic"
+      "title": "women&apos;s t20i asian games qualifier",
+      "query": "women&apos;s t20i asian games qualifier",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:30:00 -0700",
+      "approxTraffic": "100+",
+      "approxTrafficNumber": 100,
+      "newsTitle": "HKC W vs THAIW, 1st Match, Group A, Asian Games Women&apos;s T20I Qualifier 2026 - Commentary",
+      "newsSource": "Cricbuzz"
+    },
+    {
+      "title": "share market today",
+      "query": "share market today",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:30:00 -0700",
+      "approxTraffic": "100+",
+      "approxTrafficNumber": 100,
+      "newsTitle": "Stock markets decline for second day on selling in oil and gas, banking shares; Sensex down 142 points",
+      "newsSource": "The Hindu"
+    },
+    {
+      "title": "stock market today",
+      "query": "stock market today",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:20:00 -0700",
+      "approxTraffic": "500+",
+      "approxTrafficNumber": 500,
+      "newsTitle": "Stocks Extend Highs on AI Optimism as Oil Slides: Markets Wrap",
+      "newsSource": "Bloomberg.com"
+    },
+    {
+      "title": "బక్రీద్ శుభాకాంక్షలు",
+      "query": "బక్రీద్ శుభాకాంక్షలు",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:20:00 -0700",
+      "approxTraffic": "100+",
+      "approxTrafficNumber": 100,
+      "newsTitle": "Eid-Al-Adha 2026 Celebrations: దేశవ్యాప్తంగా ఘనంగా బక్రీద్ ప్రార్థనలు..",
+      "newsSource": "News18 Telugu"
+    },
+    {
+      "title": "eid al-adha ki namaz",
+      "query": "eid al-adha ki namaz",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:20:00 -0700",
+      "approxTraffic": "100+",
+      "approxTrafficNumber": 100,
+      "newsTitle": "जम्मू-कश्मीर: प्रशासन ने ईदगाह और जामिया मस्जिद में सामूहिक ईद नमाज़ की अनुमति नहीं दी",
+      "newsSource": "The Wire - Hindi"
+    },
+    {
+      "title": "fluminense vs deportivo la guaira",
+      "query": "fluminense vs deportivo la guaira",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:20:00 -0700",
+      "approxTraffic": "100+",
+      "approxTrafficNumber": 100,
+      "newsTitle": "📋 ¡Con SORPRESA! Fluminense DEFINIDO para el PARTIDO DEL AÑO",
+      "newsSource": "OneFootball"
+    },
+    {
+      "title": "eid ul adha ki namaz",
+      "query": "eid ul adha ki namaz",
+      "link": "https://trends.google.com/trending/rss?geo=IN",
+      "pubDate": "Wed, 27 May 2026 19:10:00 -0700",
+      "approxTraffic": "100+",
+      "approxTrafficNumber": 100,
+      "newsTitle": "Eid-ul-Azha: Check out prayer timings & Waqf Board advisory",
+      "newsSource": "The Times of India"
     }
   ],
   "notes": [
