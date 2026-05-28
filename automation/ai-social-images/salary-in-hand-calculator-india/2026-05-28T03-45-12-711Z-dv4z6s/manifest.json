@@ -1,0 +1,221 @@
+{
+  "generatedAt": "2026-05-28T03:45:12.711Z",
+  "workflow": "RupeeKit Workflow 8D-G - Gemini Low-Cost Image Generator",
+  "status": "AI_IMAGES_CREATED",
+  "mode": "gemini_low_cost_image_api_no_auto_posting",
+  "model": "gemini-2.5-flash-image",
+  "slug": "salary-in-hand-calculator-india",
+  "toolName": "Salary In-Hand Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+  "sourceCreative": {
+    "generatedAt": "2026-05-28T03:31:21.237Z",
+    "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+    "status": "CREATIVE_PACK_CREATED"
+  },
+  "images": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1200,
+      "actualHeight": 675,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "filePath": "automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/facebook.png",
+      "mimeType": "image/png",
+      "sizeBytes": 301072,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/facebook.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "resizedToExpectedDimensions": true,
+        "attemptsUsed": 1,
+        "width": 1200,
+        "height": 675,
+        "expectedWidth": 1200,
+        "expectedHeight": 675,
+        "originalWidth": 1024,
+        "originalHeight": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "4:5",
+      "expectedWidth": 1080,
+      "expectedHeight": 1350,
+      "actualWidth": 1080,
+      "actualHeight": 1350,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "filePath": "automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/instagram.png",
+      "mimeType": "image/png",
+      "sizeBytes": 738942,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/instagram.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "resizedToExpectedDimensions": true,
+        "attemptsUsed": 1,
+        "width": 1080,
+        "height": 1350,
+        "expectedWidth": 1080,
+        "expectedHeight": 1350,
+        "originalWidth": 1024,
+        "originalHeight": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1000,
+      "actualHeight": 1500,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "filePath": "automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/pinterest.png",
+      "mimeType": "image/png",
+      "sizeBytes": 817549,
+      "rawUrl": "https://raw.githubusercontent.com/rupeekitofficial/rupeekit-tools/main/automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/pinterest.png",
+      "sourceImageValidation": {
+        "sharpReadable": true,
+        "reEncodedToCleanPng": true,
+        "resizedToExpectedDimensions": true,
+        "attemptsUsed": 1,
+        "width": 1000,
+        "height": 1500,
+        "expectedWidth": 1000,
+        "expectedHeight": 1500,
+        "originalWidth": 1024,
+        "originalHeight": 1024,
+        "repair": {
+          "repaired": false,
+          "reason": "",
+          "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+          "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+        }
+      }
+    }
+  ],
+  "promptsUsed": [
+    {
+      "platform": "facebook",
+      "aspectRatio": "16:9",
+      "sourcePrompt": "A clean, modern comparison card design with a white background. On the left side, a section titled 'Myth: CTC = Take-Home Pay' in deep blue, with a subtle graphic representing a large sum (CTC) being visually reduced by a red 'X' or a 'minus' symbol. On the right side, a section titled 'Fact: Deductions Matter' in fresh green, with a graphic showing a smaller, but clearly defined, amount (In-Hand Salary) emerging from a calculation process, perhaps with small icons representing PF, Tax, etc. The overall aesthetic is professional, finance utility brand look. No human faces, no personal identity. Ensure the top-right corner is clear of any design elements or text. Text on card: 'CTC vs. In-Hand: Know the Difference'. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\nfacebook\n\nRequired aspect ratio:\n16:9\n\nTarget output size:\n1200px wide × 675px tall\n\n\n\nUse this visual concept:\nA clean, modern comparison card design with a white background. On the left side, a section titled 'Myth: CTC = Take-Home Pay' in deep blue, with a subtle graphic representing a large sum (CTC) being visually reduced by a red 'X' or a 'minus' symbol. On the right side, a section titled 'Fact: Deductions Matter' in fresh green, with a graphic showing a smaller, but clearly defined, amount (In-Hand Salary) emerging from a calculation process, perhaps with small icons representing PF, Tax, etc. The overall aesthetic is professional, finance utility brand look. No human faces, no personal identity. Ensure the top-right corner is clear of any design elements or text. Text on card: 'CTC vs. In-Hand: Know the Difference'.  Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "instagram",
+      "aspectRatio": "4:5",
+      "sourcePrompt": "A square, visually balanced comparison card. The background is light grey or white. A prominent vertical line or subtle divider splits the image. On the left, a deep blue panel or section with the text 'Myth: CTC is your Take-Home Pay' in a clean, bold font. Below it, a simple, abstract graphic implying a large initial amount. On the right, a fresh green panel or section with the text 'Fact: Deductions Impact In-Hand Salary' in a similar font. Below it, an abstract graphic showing a refined, smaller amount with subtle calculator elements. The design is minimalist, clear, and professional, avoiding any human elements. Top-right corner must be empty. Text on card: 'CTC ≠ In-Hand Pay'. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\ninstagram\n\nRequired aspect ratio:\n4:5\n\nTarget output size:\n1080px wide × 1350px tall\n\n\nInstagram-specific requirement:\n- Create a portrait feed image, not a square image.\n- Required final layout is 4:5 portrait.\n- Target dimensions are 1080px wide and 1350px tall.\n- Do NOT create 1:1.\n- Do NOT create 1024x1024.\n- Keep the most important content vertically centered.\n- Avoid placing key text near extreme top/bottom edges.\n\n\nUse this visual concept:\nA square, visually balanced comparison card. The background is light grey or white. A prominent vertical line or subtle divider splits the image. On the left, a deep blue panel or section with the text 'Myth: CTC is your Take-Home Pay' in a clean, bold font. Below it, a simple, abstract graphic implying a large initial amount. On the right, a fresh green panel or section with the text 'Fact: Deductions Impact In-Hand Salary' in a similar font. Below it, an abstract graphic showing a refined, smaller amount with subtle calculator elements. The design is minimalist, clear, and professional, avoiding any human elements. Top-right corner must be empty. Text on card: 'CTC ≠ In-Hand Pay'.  No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    },
+    {
+      "platform": "pinterest",
+      "aspectRatio": "2:3",
+      "sourcePrompt": "A tall, elegant comparison card for Pinterest. The design features a clean white background. A large, readable header at the top (not in the top-right corner) saying 'CTC vs. In-Hand Salary: The Real Difference'. Below this, two distinct vertical sections or columns. The left column, with deep blue accents, illustrates 'Myth: CTC is Final' with a graphic of a large, unchecked number. The right column, with fresh green accents, illustrates 'Fact: Deductions Are Key' with a graphic showing a calculation process leading to a smaller, clear number representing in-hand pay. Use subtle, abstract finance-related icons or shapes. No human figures or faces. The top-right corner is kept completely clear for logo overlay. Text on card: 'Understand Your Actual Pay'. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.",
+      "sanitizedPrompt": "Create exactly one clean, premium social media finance image.\n\nPlatform:\npinterest\n\nRequired aspect ratio:\n2:3\n\nTarget output size:\n1000px wide × 1500px tall\n\n\n\nUse this visual concept:\nA tall, elegant comparison card for Pinterest. The design features a clean white background. A large, readable header at the top (not in the top-right corner) saying 'CTC vs. In-Hand Salary: The Real Difference'. Below this, two distinct vertical sections or columns. The left column, with deep blue accents, illustrates 'Myth: CTC is Final' with a graphic of a large, unchecked number. The right column, with fresh green accents, illustrates 'Fact: Deductions Are Key' with a graphic showing a calculation process leading to a smaller, clear number representing in-hand pay. Use subtle, abstract finance-related icons or shapes. No human figures or faces. The top-right corner is kept completely clear for plain background area. Text on card: 'Understand Your Actual Pay'.  Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB.\n\nStrict brand and layout rules:\n- Do NOT generate the RupeeKit logo.\n- Do NOT generate the word RupeeKit.\n- Do NOT generate RupeKit or any similar brand spelling.\n- Do NOT generate any website URL.\n- Do NOT generate a watermark.\n- Do NOT generate a fake app brand header.\n- Do NOT generate a blank white square placeholder for the logo.\n- Do NOT draw any visible placeholder box in the top-right corner.\n- The top-right corner must remain natural plain background only.\n- Do NOT place any text, icon, chart, button, UI object, circle, callout, or badge in the top-right corner.\n- The official logo will be added later by another workflow, so do not draw it.\n\nAllowed design elements:\n- Short readable finance text is allowed in the main content area only.\n- Calculator UI mockup is allowed.\n- Large readable headings are allowed.\n- Input labels like Monthly SIP Amount, Investment Duration, Expected Return, Estimated Future Value are allowed.\n- Charts, calculator cards, rupee symbols, growth arrows, and finance UI elements are allowed.\n- Use white or very light background with deep blue and fresh green accents.\n- Keep the design clean, modern, premium, uncluttered, and social-media friendly.\n- No people, no human faces, no mascot, no personal identity.\n- Finance calculator utility look, not a bank ad, not a loan ad, not an investment promise.\n\nOutput:\nReturn image output only.\nThe image must be suitable for social media upload as PNG or JPG."
+    }
+  ],
+  "generationNotes": [
+    {
+      "platform": "facebook",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 301072,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "resizedToExpectedDimensions": true,
+      "attemptsUsed": 1,
+      "expectedWidth": 1200,
+      "expectedHeight": 675,
+      "actualWidth": 1200,
+      "actualHeight": 675,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    },
+    {
+      "platform": "instagram",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 738942,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "resizedToExpectedDimensions": true,
+      "attemptsUsed": 1,
+      "expectedWidth": 1080,
+      "expectedHeight": 1350,
+      "actualWidth": 1080,
+      "actualHeight": 1350,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    },
+    {
+      "platform": "pinterest",
+      "returnedMimeType": "image/png",
+      "sizeBytes": 817549,
+      "model": "gemini-2.5-flash-image",
+      "promptWasSanitized": true,
+      "sharpReadable": true,
+      "reEncodedToCleanPng": true,
+      "resizedToExpectedDimensions": true,
+      "attemptsUsed": 1,
+      "expectedWidth": 1000,
+      "expectedHeight": 1500,
+      "actualWidth": 1000,
+      "actualHeight": 1500,
+      "originalWidth": 1024,
+      "originalHeight": 1024,
+      "validationRepair": {
+        "repaired": false,
+        "reason": "",
+        "firstBytesBefore": "89504e470d0a1a0a0000000d49484452",
+        "firstBytesAfter": "89504e470d0a1a0a0000000d49484452"
+      },
+      "textResponse": "`"
+    }
+  ],
+  "safety": {
+    "brandOnly": true,
+    "officialLogoHandledBy8DG2": true,
+    "sanitizedBeforeGemini": true,
+    "generatedImageValidatedBeforeCommit": true,
+    "reEncodedToCleanPngBeforeCommit": true,
+    "resizedToPlatformDimensionsBeforeCommit": true,
+    "instagramPortrait4x5": true,
+    "noPersonalIdentity": true,
+    "lowCostPaidApi": true,
+    "noLocalGpuRequired": true,
+    "noAutoPosting": true,
+    "pngOrJpgReady": true
+  }
+}
