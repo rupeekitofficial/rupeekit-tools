@@ -1,0 +1,154 @@
+{
+  "workflow": "RupeeKit v3 - 03 Technical SEO Checker",
+  "generatedAt": "2026-05-28T03:04:15.910Z",
+  "siteUrl": "https://www.rupeekit.co.in",
+  "date": "2026-05-28",
+  "checks": [
+    {
+      "name": "robots.txt reachable",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "name": "sitemap.xml reachable",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "name": "max-image-preview large hint",
+      "status": "REVIEW",
+      "detail": "Confirm max-image-preview:large via robots/meta for Discover eligibility."
+    },
+    {
+      "name": "page reachable recurring-deposit-calculator-india",
+      "url": "https://www.rupeekit.co.in/tools/recurring-deposit-calculator-india",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "name": "title present recurring-deposit-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "meta description present recurring-deposit-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "canonical present recurring-deposit-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "calculator visible recurring-deposit-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "sitemap contains recurring-deposit-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "page reachable gratuity-calculator-india",
+      "url": "https://www.rupeekit.co.in/tools/gratuity-calculator-india",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "name": "title present gratuity-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "meta description present gratuity-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "canonical present gratuity-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "calculator visible gratuity-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "sitemap contains gratuity-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "page reachable 80c-deduction-calculator-india",
+      "url": "https://www.rupeekit.co.in/tools/80c-deduction-calculator-india",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "name": "title present 80c-deduction-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "meta description present 80c-deduction-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "canonical present 80c-deduction-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "calculator visible 80c-deduction-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "sitemap contains 80c-deduction-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "page reachable hra-exemption-calculator-india",
+      "url": "https://www.rupeekit.co.in/tools/hra-exemption-calculator-india",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "name": "title present hra-exemption-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "meta description present hra-exemption-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "canonical present hra-exemption-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "calculator visible hra-exemption-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "sitemap contains hra-exemption-calculator-india",
+      "status": "PASS"
+    },
+    {
+      "name": "page reachable income-tax-calculator-old-vs-new-regime-india",
+      "url": "https://www.rupeekit.co.in/tools/income-tax-calculator-old-vs-new-regime-india",
+      "status": "PASS",
+      "detail": "OK"
+    },
+    {
+      "name": "title present income-tax-calculator-old-vs-new-regime-india",
+      "status": "PASS"
+    },
+    {
+      "name": "meta description present income-tax-calculator-old-vs-new-regime-india",
+      "status": "PASS"
+    },
+    {
+      "name": "canonical present income-tax-calculator-old-vs-new-regime-india",
+      "status": "PASS"
+    },
+    {
+      "name": "calculator visible income-tax-calculator-old-vs-new-regime-india",
+      "status": "PASS"
+    },
+    {
+      "name": "sitemap contains income-tax-calculator-old-vs-new-regime-india",
+      "status": "PASS"
+    }
+  ],
+  "overallStatus": "PASS_WITH_REVIEW_ITEMS"
+}
