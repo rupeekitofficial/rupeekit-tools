@@ -1,0 +1,44 @@
+{
+  "workflow": "RupeeKit v3 - 01A Google Trends Collector",
+  "generatedAt": "2026-05-28T02:43:24.387Z",
+  "date": "2026-05-28",
+  "source": "https://trends.google.com/trending/rss?geo=IN",
+  "geo": "IN",
+  "collectorStatus": "FALLBACK_USED",
+  "totalTrends": 4,
+  "trends": [
+    {
+      "title": "income tax calculator",
+      "query": "income tax calculator",
+      "approxTraffic": "fallback",
+      "approxTrafficNumber": 1000,
+      "reason": "seed finance topic"
+    },
+    {
+      "title": "sip calculator",
+      "query": "sip calculator",
+      "approxTraffic": "fallback",
+      "approxTrafficNumber": 900,
+      "reason": "seed finance topic"
+    },
+    {
+      "title": "gst calculator",
+      "query": "gst calculator",
+      "approxTraffic": "fallback",
+      "approxTrafficNumber": 800,
+      "reason": "seed finance topic"
+    },
+    {
+      "title": "fd calculator",
+      "query": "fd calculator",
+      "approxTraffic": "fallback",
+      "approxTrafficNumber": 700,
+      "reason": "seed finance topic"
+    }
+  ],
+  "notes": [
+    "Uses Google Trends public Trending RSS for India unless GOOGLE_TRENDS_RSS_URL is overridden.",
+    "Official Google Trends API can replace this collector when alpha access is available.",
+    "Downstream workflow filters for RupeeKit finance/calculator relevance."
+  ]
+}
