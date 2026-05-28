@@ -1,0 +1,53 @@
+{
+  "workflow": "RupeeKit v3 - 06 Content Enrichment",
+  "generatedAt": "2026-05-28T03:04:29.091Z",
+  "date": "2026-05-28",
+  "postNo": 2,
+  "targetCalculatorSlug": "sip-calculator-india",
+  "contentTitle": "SIP Calculator Monthly Investment: Plan Your Wealth Growth in India with RupeeKit",
+  "enrichmentPlan": {
+    "quickAnswer": "Explain SIP Calculator Monthly Investment: Plan Your Wealth Growth in India with RupeeKit in 2-3 plain-language lines before the calculator.",
+    "calculatorPlacement": "Place the calculator near the top, before long explanation.",
+    "exampleTable": "Add 2-3 realistic India examples with assumptions and result interpretation.",
+    "trustBox": "Add a small note: estimates only; check official rules or a professional for final tax/finance decisions.",
+    "faqQuestions": [
+      "How is SIP Calculator India calculated?",
+      "Which inputs should I enter?",
+      "Why can my final amount differ from the estimate?",
+      "Is this result financial or tax advice?"
+    ],
+    "relatedTools": [
+      {
+        "slug": "salary-in-hand-calculator-india",
+        "name": "Salary In-Hand Calculator India"
+      },
+      {
+        "slug": "emi-calculator-india",
+        "name": "EMI Calculator India"
+      },
+      {
+        "slug": "sip-calculator-india",
+        "name": "SIP Calculator India"
+      },
+      {
+        "slug": "gst-calculator-india",
+        "name": "GST Calculator India"
+      },
+      {
+        "slug": "fd-calculator-india",
+        "name": "FD Calculator India"
+      },
+      {
+        "slug": "income-tax-calculator-old-vs-new-regime-india",
+        "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)"
+      }
+    ]
+  },
+  "mustNotChange": [
+    "calculator formulas",
+    "input keys",
+    "output keys",
+    "existing slugs"
+  ],
+  "manualReviewRequired": true
+}
