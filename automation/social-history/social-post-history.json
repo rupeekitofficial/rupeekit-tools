@@ -258,5 +258,31 @@
       "FY 2023-24",
       "tax comparison"
     ]
+  },
+  {
+    "generatedAt": "2026-05-28T03:31:21.237Z",
+    "slug": "salary-in-hand-calculator-india",
+    "toolName": "Salary In-Hand Calculator India",
+    "angle": "common_mistake",
+    "hookType": "myth_fact",
+    "visualStyle": "comparison_card",
+    "hook": "Myth: Your CTC is your take-home pay. Fact: Deductions matter more than you think!",
+    "cta": "Compare your inputs",
+    "firstCaptionLine": "it's a common misconception: many believe their cost-to-company (ctc) is the amount they'll actually receive",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "Salary",
+      "In-Hand Pay",
+      "CTC",
+      "Deductions",
+      "Take-Home",
+      "Calculator",
+      "India"
+    ]
   }
 ]

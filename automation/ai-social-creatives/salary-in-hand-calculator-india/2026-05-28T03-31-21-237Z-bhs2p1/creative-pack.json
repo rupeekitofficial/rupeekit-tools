@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-05-28T03:31:21.237Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "mode": "prompt_and_caption_only_image_generation_ready",
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "creativePack": {
+    "slug": "salary-in-hand-calculator-india",
+    "toolName": "Salary In-Hand Calculator India",
+    "pageUrl": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+    "angle": "common_mistake",
+    "hookType": "myth_fact",
+    "visualStyle": "comparison_card",
+    "hook": "Myth: Your CTC is your take-home pay. Fact: Deductions matter more than you think!",
+    "cta": "Compare your inputs",
+    "keywords": [
+      "Salary",
+      "In-Hand Pay",
+      "CTC",
+      "Deductions",
+      "Take-Home",
+      "Calculator",
+      "India"
+    ],
+    "facebook": {
+      "caption": "It's a common misconception: many believe their Cost-to-Company (CTC) is the amount they'll actually receive. But the reality of your 'in-hand' salary is often quite different! From Provident Fund (PF) to professional tax and income tax, various deductions play a significant role in shaping your monthly take-home pay. Understanding these differences is key for smart financial planning. Don't get surprised on payday. Use RupeeKit's Salary In-Hand Calculator to get an educational estimate of your actual earnings and compare the impact of different deductions. Plan better for your financial future. Find it here: https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+      "hashtags": [
+        "#SalaryIndia",
+        "#TakeHomePay",
+        "#CTCVsInHand",
+        "#FinancialPlanning",
+        "#RupeeKitCalculator"
+      ]
+    },
+    "instagram": {
+      "caption": "Myth: Your CTC is your take-home pay. Fact: Deductions matter more than you think! 🤯 Many of us equate our CTC with what we'll actually receive, but that's a common mistake. Your in-hand salary is what hits your bank account after essential deductions like PF, professional tax, and income tax. Knowing this difference is crucial for budgeting and financial planning. Get a clear educational estimate of your monthly take-home pay with RupeeKit's Salary In-Hand Calculator. Understand your numbers and plan confidently. Ready to compare your inputs? Visit: https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+      "hashtags": [
+        "#SalaryInHand",
+        "#CTCDeductions",
+        "#TakeHomeSalary",
+        "#FinancialLiteracy",
+        "#IndianJobs",
+        "#PersonalFinance",
+        "#RupeeKit",
+        "#SmartMoney"
+      ]
+    },
+    "pinterest": {
+      "title": "Salary In-Hand vs. CTC: Understand Your Actual Take-Home Pay",
+      "description": "Don't fall for the common myth that your CTC is your final take-home salary. Your actual in-hand pay is influenced by crucial deductions like PF, income tax, and professional tax. Use RupeeKit's Salary In-Hand Calculator to get an educational estimate of your monthly earnings after all deductions. This tool helps you compare your inputs and understand the real impact on your... https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+      "hashtags": [
+        "#SalaryCalculator",
+        "#InHandSalary",
+        "#CTC",
+        "#Deductions",
+        "#FinancialTools",
+        "#BudgetingTips",
+        "#IndiaFinance"
+      ]
+    },
+    "x": {
+      "post": "Myth: CTC = Take-home pay. Fact: Deductions significantly change your in-hand salary! Don't get surprised. Use RupeeKit's Salary In-Hand... https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india #SalaryIndia #TakeHomePay #FinancialPlanning",
+      "hashtags": [
+        "#SalaryIndia",
+        "#TakeHomePay",
+        "#FinancialPlanning"
+      ]
+    },
+    "imagePrompts": {
+      "facebook": {
+        "size": "1200x675",
+        "prompt": "A clean, modern comparison card design with a white background. On the left side, a section titled 'Myth: CTC = Take-Home Pay' in deep blue, with a subtle graphic representing a large sum (CTC) being visually reduced by a red 'X' or a 'minus' symbol. On the right side, a section titled 'Fact: Deductions Matter' in fresh green, with a graphic showing a smaller, but clearly defined, amount (In-Hand Salary) emerging from a calculation process, perhaps with small icons representing PF, Tax, etc. The overall aesthetic is professional, finance utility brand look. No human faces, no personal identity. Ensure the top-right corner is clear of any design elements or text. Text on card: 'CTC vs. In-Hand: Know the Difference'. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "instagram": {
+        "size": "1080x1080",
+        "prompt": "A square, visually balanced comparison card. The background is light grey or white. A prominent vertical line or subtle divider splits the image. On the left, a deep blue panel or section with the text 'Myth: CTC is your Take-Home Pay' in a clean, bold font. Below it, a simple, abstract graphic implying a large initial amount. On the right, a fresh green panel or section with the text 'Fact: Deductions Impact In-Hand Salary' in a similar font. Below it, an abstract graphic showing a refined, smaller amount with subtle calculator elements. The design is minimalist, clear, and professional, avoiding any human elements. Top-right corner must be empty. Text on card: 'CTC ≠ In-Hand Pay'. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. No humans, no human faces, no people, no personal identity, no mascot. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      },
+      "pinterest": {
+        "size": "1000x1500",
+        "prompt": "A tall, elegant comparison card for Pinterest. The design features a clean white background. A large, readable header at the top (not in the top-right corner) saying 'CTC vs. In-Hand Salary: The Real Difference'. Below this, two distinct vertical sections or columns. The left column, with deep blue accents, illustrates 'Myth: CTC is Final' with a graphic of a large, unchecked number. The right column, with fresh green accents, illustrates 'Fact: Deductions Are Key' with a graphic showing a calculation process leading to a smaller, clear number representing in-hand pay. Use subtle, abstract finance-related icons or shapes. No human figures or faces. The top-right corner is kept completely clear for logo overlay. Text on card: 'Understand Your Actual Pay'. Brand context: RupeeKit, an India-focused finance calculator utility brand using deep blue and fresh green accents. Final output should be a sharp, social-media-ready PNG or JPG image under 10 MB."
+      }
+    },
+    "negativePrompt": "avoid humans, faces, personal identity, clutter, misleading claims, bank/loan ad look, watermark, tiny unreadable text, fake RupeeKit logo, fake RupeeKit wordmark, fake website URL, important elements in top-right corner, dark or busy backgrounds",
+    "comfyUiNotes": {
+      "recommendedFreeModels": [
+        "FLUX.1 Schnell",
+        "SDXL"
+      ],
+      "outputFormat": "PNG or JPG under 10 MB",
+      "notes": "Simple composition, focus on clear text and color contrast for comparison. Use a clean, sans-serif font for any text on the image."
+    },
+    "safetyNotes": [
+      "Ensure no implied guarantees or 'advice'. Stick to 'estimate' and 'understand'. Verify no forbidden phrases appear in captions or image text."
+    ]
+  },
+  "historyRecord": {
+    "generatedAt": "2026-05-28T03:31:21.237Z",
+    "slug": "salary-in-hand-calculator-india",
+    "toolName": "Salary In-Hand Calculator India",
+    "angle": "common_mistake",
+    "hookType": "myth_fact",
+    "visualStyle": "comparison_card",
+    "hook": "Myth: Your CTC is your take-home pay. Fact: Deductions matter more than you think!",
+    "cta": "Compare your inputs",
+    "firstCaptionLine": "it's a common misconception: many believe their cost-to-company (ctc) is the amount they'll actually receive",
+    "platforms": [
+      "facebook",
+      "instagram",
+      "pinterest",
+      "x"
+    ],
+    "keywords": [
+      "Salary",
+      "In-Hand Pay",
+      "CTC",
+      "Deductions",
+      "Take-Home",
+      "Calculator",
+      "India"
+    ]
+  },
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}

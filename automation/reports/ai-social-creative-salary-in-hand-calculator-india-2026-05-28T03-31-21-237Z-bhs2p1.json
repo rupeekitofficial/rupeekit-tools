@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-05-28T03:31:21.237Z",
+  "workflow": "RupeeKit Workflow 8C - Anti-Repetition AI Social Creative Generator",
+  "status": "CREATIVE_PACK_CREATED",
+  "slug": "salary-in-hand-calculator-india",
+  "toolName": "Salary In-Hand Calculator India",
+  "pageUrl": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+  "angle": "common_mistake",
+  "hookType": "myth_fact",
+  "visualStyle": "comparison_card",
+  "hook": "Myth: Your CTC is your take-home pay. Fact: Deductions matter more than you think!",
+  "cta": "Compare your inputs",
+  "historyLengthBefore": 10,
+  "historyLengthAfter": 11,
+  "freeImageGenerationTarget": "Workflow 8D-G image generation",
+  "safety": {
+    "brandOnly": true,
+    "noPersonalIdentity": true,
+    "noPaidImageApiRequired": true,
+    "noAutoPosting": true,
+    "antiRepetitionChecked": true,
+    "workflow8DGImageGenerationReady": true
+  }
+}
