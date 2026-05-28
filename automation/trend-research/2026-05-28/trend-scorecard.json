@@ -1,0 +1,196 @@
+{
+  "workflow": "RupeeKit v3 - 01B Trend Scorer and Two Daily Topics",
+  "generatedAt": "2026-05-28T03:03:01.363Z",
+  "date": "2026-05-28",
+  "rawSourcePath": "automation/trend-research/2026-05-28/trends-raw.json",
+  "scoringRules": {
+    "financeKeywords": [
+      "tax",
+      "income tax",
+      "gst",
+      "salary",
+      "emi",
+      "loan",
+      "sip",
+      "fd",
+      "ppf",
+      "epf",
+      "hra",
+      "gratuity",
+      "budget",
+      "saving",
+      "savings",
+      "interest",
+      "investment",
+      "credit card",
+      "upi",
+      "bank",
+      "insurance",
+      "calculator",
+      "deduction",
+      "80c",
+      "itr",
+      "tds"
+    ],
+    "banned": [
+      "election",
+      "party",
+      "celebrity",
+      "cricket",
+      "movie",
+      "adult",
+      "betting",
+      "casino",
+      "crypto tips",
+      "stock buy",
+      "guaranteed return"
+    ],
+    "dailyPostCount": 2
+  },
+  "selected": [
+    {
+      "trend": {
+        "title": "income tax calculator 2026",
+        "query": "income tax calculator 2026",
+        "approxTraffic": "seed",
+        "approxTrafficNumber": 1000
+      },
+      "score": 68,
+      "matchedKeywords": [
+        "tax",
+        "income tax",
+        "calculator"
+      ],
+      "mappedCalculatorSlug": "income-tax-calculator-old-vs-new-regime-india",
+      "mappedCalculatorName": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+      "contentOpportunityType": "support_existing_calculator",
+      "discoverAngle": "Explain income tax calculator 2026 with a simple India-focused RupeeKit calculator example",
+      "suggestedSlug": "income-tax-calculator-2026-calculator-guide",
+      "whyRupeeKitCanWin": "Add a calculator, example table, common mistakes, and India-specific assumptions instead of a generic AI article."
+    },
+    {
+      "trend": {
+        "title": "sip calculator monthly investment",
+        "query": "sip calculator monthly investment",
+        "approxTraffic": "seed",
+        "approxTrafficNumber": 1000
+      },
+      "score": 68,
+      "matchedKeywords": [
+        "sip",
+        "investment",
+        "calculator"
+      ],
+      "mappedCalculatorSlug": "sip-calculator-india",
+      "mappedCalculatorName": "SIP Calculator India",
+      "contentOpportunityType": "support_existing_calculator",
+      "discoverAngle": "Explain sip calculator monthly investment with a simple India-focused RupeeKit calculator example",
+      "suggestedSlug": "sip-calculator-monthly-investment-calculator-guide",
+      "whyRupeeKitCanWin": "Add a calculator, example table, common mistakes, and India-specific assumptions instead of a generic AI article."
+    }
+  ],
+  "allScored": [
+    {
+      "trend": {
+        "title": "income tax calculator 2026",
+        "query": "income tax calculator 2026",
+        "approxTraffic": "seed",
+        "approxTrafficNumber": 1000
+      },
+      "score": 68,
+      "matchedKeywords": [
+        "tax",
+        "income tax",
+        "calculator"
+      ],
+      "mappedCalculatorSlug": "income-tax-calculator-old-vs-new-regime-india",
+      "mappedCalculatorName": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+      "contentOpportunityType": "support_existing_calculator",
+      "discoverAngle": "Explain income tax calculator 2026 with a simple India-focused RupeeKit calculator example",
+      "suggestedSlug": "income-tax-calculator-2026-calculator-guide",
+      "whyRupeeKitCanWin": "Add a calculator, example table, common mistakes, and India-specific assumptions instead of a generic AI article."
+    },
+    {
+      "trend": {
+        "title": "sip calculator monthly investment",
+        "query": "sip calculator monthly investment",
+        "approxTraffic": "seed",
+        "approxTrafficNumber": 1000
+      },
+      "score": 68,
+      "matchedKeywords": [
+        "sip",
+        "investment",
+        "calculator"
+      ],
+      "mappedCalculatorSlug": "sip-calculator-india",
+      "mappedCalculatorName": "SIP Calculator India",
+      "contentOpportunityType": "support_existing_calculator",
+      "discoverAngle": "Explain sip calculator monthly investment with a simple India-focused RupeeKit calculator example",
+      "suggestedSlug": "sip-calculator-monthly-investment-calculator-guide",
+      "whyRupeeKitCanWin": "Add a calculator, example table, common mistakes, and India-specific assumptions instead of a generic AI article."
+    },
+    {
+      "trend": {
+        "title": "fd calculator interest 2026",
+        "query": "fd calculator interest 2026",
+        "approxTraffic": "seed",
+        "approxTrafficNumber": 1000
+      },
+      "score": 68,
+      "matchedKeywords": [
+        "fd",
+        "interest",
+        "calculator"
+      ],
+      "mappedCalculatorSlug": "emi-calculator-india",
+      "mappedCalculatorName": "EMI Calculator India",
+      "contentOpportunityType": "support_existing_calculator",
+      "discoverAngle": "Explain fd calculator interest 2026 with a simple India-focused RupeeKit calculator example",
+      "suggestedSlug": "fd-calculator-interest-2026-calculator-guide",
+      "whyRupeeKitCanWin": "Add a calculator, example table, common mistakes, and India-specific assumptions instead of a generic AI article."
+    },
+    {
+      "trend": {
+        "title": "gst calculator for small business",
+        "query": "gst calculator for small business",
+        "approxTraffic": "seed",
+        "approxTrafficNumber": 1000
+      },
+      "score": 56,
+      "matchedKeywords": [
+        "gst",
+        "calculator"
+      ],
+      "mappedCalculatorSlug": "gst-calculator-india",
+      "mappedCalculatorName": "GST Calculator India",
+      "contentOpportunityType": "support_existing_calculator",
+      "discoverAngle": "Explain gst calculator for small business with a simple India-focused RupeeKit calculator example",
+      "suggestedSlug": "gst-calculator-for-small-business-calculator-guide",
+      "whyRupeeKitCanWin": "Add a calculator, example table, common mistakes, and India-specific assumptions instead of a generic AI article."
+    },
+    {
+      "trend": {
+        "title": "share market today",
+        "query": "share market today",
+        "link": "https://trends.google.com/trending/rss?geo=IN",
+        "pubDate": "Wed, 27 May 2026 19:30:00 -0700",
+        "approxTraffic": "100+",
+        "approxTrafficNumber": 100,
+        "newsTitle": "Stock markets decline for second day on selling in oil and gas, banking shares; Sensex down 142 points",
+        "newsSource": "The Hindu"
+      },
+      "score": 42,
+      "matchedKeywords": [
+        "bank"
+      ],
+      "mappedCalculatorSlug": "fd-calculator-india",
+      "mappedCalculatorName": "FD Calculator India",
+      "contentOpportunityType": "support_existing_calculator",
+      "discoverAngle": "Explain share market today with a simple India-focused RupeeKit calculator example",
+      "suggestedSlug": "share-market-today-calculator-guide",
+      "whyRupeeKitCanWin": "Add a calculator, example table, common mistakes, and India-specific assumptions instead of a generic AI article."
+    }
+  ],
+  "manualReviewRequired": true
+}
