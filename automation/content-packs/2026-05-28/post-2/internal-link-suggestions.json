@@ -1,0 +1,57 @@
+{
+  "workflow": "RupeeKit v3 - 07 Internal Link Suggestion Pack",
+  "generatedAt": "2026-05-28T03:04:38.291Z",
+  "date": "2026-05-28",
+  "postNo": 2,
+  "targetSlug": "sip-calculator-monthly-investment-calculator-guide",
+  "targetCalculatorSlug": "sip-calculator-india",
+  "suggestedInternalLinks": [
+    {
+      "slug": "sip-calculator-india",
+      "name": "SIP Calculator India",
+      "score": 9
+    },
+    {
+      "slug": "salary-in-hand-calculator-india",
+      "name": "Salary In-Hand Calculator India",
+      "score": 4
+    },
+    {
+      "slug": "emi-calculator-india",
+      "name": "EMI Calculator India",
+      "score": 4
+    },
+    {
+      "slug": "gst-calculator-india",
+      "name": "GST Calculator India",
+      "score": 4
+    },
+    {
+      "slug": "fd-calculator-india",
+      "name": "FD Calculator India",
+      "score": 4
+    },
+    {
+      "slug": "income-tax-calculator-old-vs-new-regime-india",
+      "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+      "score": 4
+    },
+    {
+      "slug": "hra-exemption-calculator-india",
+      "name": "HRA Exemption Calculator India",
+      "score": 4
+    },
+    {
+      "slug": "80c-deduction-calculator-india",
+      "name": "Section 80C Deduction Calculator India",
+      "score": 4
+    }
+  ],
+  "homepagePrompt": "Add or review a homepage/category link for SIP Calculator Monthly Investment: Plan Your Wealth Growth in India with RupeeKit. Anchor text should be helpful, not keyword-stuffed. Suggested anchor: SIP Calculator India. Link to /tools/sip-calculator-india or the reviewed content page after manual publish.",
+  "guardrails": [
+    "Do not add too many homepage links",
+    "Use descriptive anchors",
+    "Only link to live, useful pages",
+    "Manual review before commit"
+  ]
+}
