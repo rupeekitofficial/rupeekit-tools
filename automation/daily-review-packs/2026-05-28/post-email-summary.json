@@ -1,0 +1,22 @@
+[
+  {
+    "postNo": 1,
+    "title": "Income Tax Calculator 2026: Prepare for Future Tax Planning with RupeeKit",
+    "targetUrl": "https://www.rupeekit.co.in/tools/income-tax-calculator-old-vs-new-regime-india",
+    "codeAssistPromptPath": "automation/content-packs/2026-05-28/post-1/gemini-code-assist-prompt.md",
+    "websiteImagePromptPath": "automation/content-packs/2026-05-28/post-1/website-image-prompt.md",
+    "socialPromptPackPath": "automation/content-packs/2026-05-28/post-1/social-image-prompt-pack.json",
+    "blankManifestPath": "automation/blank-logo-images/2026-05-28/post-1/manifest.json",
+    "checklistPath": "automation/content-packs/2026-05-28/post-1/manual-review-checklist.md"
+  },
+  {
+    "postNo": 2,
+    "title": "SIP Calculator Monthly Investment: Plan Your Wealth Growth in India with RupeeKit",
+    "targetUrl": "https://www.rupeekit.co.in/tools/sip-calculator-india",
+    "codeAssistPromptPath": "automation/content-packs/2026-05-28/post-2/gemini-code-assist-prompt.md",
+    "websiteImagePromptPath": "automation/content-packs/2026-05-28/post-2/website-image-prompt.md",
+    "socialPromptPackPath": "automation/content-packs/2026-05-28/post-2/social-image-prompt-pack.json",
+    "blankManifestPath": "automation/blank-logo-images/2026-05-28/post-2/manifest.json",
+    "checklistPath": "automation/content-packs/2026-05-28/post-2/manual-review-checklist.md"
+  }
+]
