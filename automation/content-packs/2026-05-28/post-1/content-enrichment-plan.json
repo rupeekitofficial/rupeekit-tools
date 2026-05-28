@@ -1,0 +1,33 @@
+{
+  "workflow": "RupeeKit v3 - 06 Content Enrichment",
+  "generatedAt": "2026-05-28T03:04:26.533Z",
+  "date": "2026-05-28",
+  "postNo": 1,
+  "targetCalculatorSlug": "income-tax-calculator-old-vs-new-regime-india",
+  "contentTitle": "Income Tax Calculator 2026: Prepare for Future Tax Planning with RupeeKit",
+  "enrichmentPlan": {
+    "quickAnswer": "Explain Income Tax Calculator 2026: Prepare for Future Tax Planning with RupeeKit in 2-3 plain-language lines before the calculator.",
+    "calculatorPlacement": "Place the calculator near the top, before long explanation.",
+    "exampleTable": "Add 2-3 realistic India examples with assumptions and result interpretation.",
+    "trustBox": "Add a small note: estimates only; check official rules or a professional for final tax/finance decisions.",
+    "faqQuestions": [
+      "How is Income Tax Calculator: Old vs New Regime India (FY 2023-24) calculated?",
+      "Which inputs should I enter?",
+      "Why can my final amount differ from the estimate?",
+      "Is this result financial or tax advice?"
+    ],
+    "relatedTools": [
+      {
+        "slug": "income-tax-calculator-old-vs-new-regime-india",
+        "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)"
+      }
+    ]
+  },
+  "mustNotChange": [
+    "calculator formulas",
+    "input keys",
+    "output keys",
+    "existing slugs"
+  ],
+  "manualReviewRequired": true
+}
