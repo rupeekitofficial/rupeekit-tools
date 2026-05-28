@@ -1,0 +1,52 @@
+{
+  "workflow": "RupeeKit v3 - 00 Config Guard and Starter Files",
+  "generatedAt": "2026-05-28T03:00:13.292Z",
+  "date": "2026-05-28",
+  "env": {
+    "githubOwner": "rupeekitofficial",
+    "githubRepo": "rupeekit-tools",
+    "githubBranch": "main",
+    "siteUrl": "https://www.rupeekit.co.in",
+    "hasGithubToken": true,
+    "hasGeminiApiKey": true,
+    "geminiTextModel": "gemini-2.5-flash",
+    "geminiMaxAttempts": 6,
+    "geminiRequestTimeoutMs": 60000,
+    "geminiRetryDelaySeconds": 60,
+    "contactEmail": "rupeekitofficial@gmail.com",
+    "socialLinks": {
+      "x": "https://x.com/rupeekit",
+      "facebook": "https://www.facebook.com/profile.php?id=61589666252483",
+      "pinterest": "https://www.pinterest.com/rupeekitofficial/",
+      "instagram": "https://www.instagram.com/rupeekitofficial/"
+    }
+  },
+  "checks": [
+    {
+      "label": "Website calculator registry",
+      "path": "data/tools.json",
+      "status": "PASS",
+      "sha": "72fce872d9340f63c2eb6c74d7bdde8b2e533727"
+    },
+    {
+      "label": "Official transparent RupeeKit logo",
+      "path": "public/brand/rupeekit_logo_horizontal_transparent.png",
+      "status": "PASS",
+      "sha": "b6e495de36e5553ffedddd57fa400d006964d87b"
+    },
+    {
+      "label": "Robots route file",
+      "path": "app/robots.ts",
+      "status": "PASS",
+      "sha": "583205319c12bb392f6c39abe71b39c64d688dba"
+    },
+    {
+      "label": "Sitemap route file",
+      "path": "app/sitemap.ts",
+      "status": "PASS",
+      "sha": "7a8798a331b4696487994865df29427d59c9f978"
+    }
+  ],
+  "starterFiles": [],
+  "overallStatus": "PASS"
+}
