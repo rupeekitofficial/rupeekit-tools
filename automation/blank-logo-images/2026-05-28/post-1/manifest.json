@@ -1,0 +1,45 @@
+{
+  "workflow": "RupeeKit v3 - 08D Blank Logo Template Generator",
+  "generatedAt": "2026-05-28T03:04:51.435Z",
+  "date": "2026-05-28",
+  "postNo": 1,
+  "logoPath": "public/brand/rupeekit_logo_horizontal_transparent.png",
+  "assets": {
+    "instagram-carousel": {
+      "path": "automation/blank-logo-images/2026-05-28/post-1/instagram-carousel.png",
+      "width": 1080,
+      "height": 1350
+    },
+    "instagram-square": {
+      "path": "automation/blank-logo-images/2026-05-28/post-1/instagram-square.png",
+      "width": 1080,
+      "height": 1080
+    },
+    "facebook": {
+      "path": "automation/blank-logo-images/2026-05-28/post-1/facebook.png",
+      "width": 1200,
+      "height": 630
+    },
+    "x": {
+      "path": "automation/blank-logo-images/2026-05-28/post-1/x.png",
+      "width": 1600,
+      "height": 900
+    },
+    "pinterest": {
+      "path": "automation/blank-logo-images/2026-05-28/post-1/pinterest.png",
+      "width": 1000,
+      "height": 1500
+    },
+    "website-hero": {
+      "path": "automation/blank-logo-images/2026-05-28/post-1/website-hero.png",
+      "width": 1600,
+      "height": 900
+    },
+    "discover-hero": {
+      "path": "automation/blank-logo-images/2026-05-28/post-1/discover-hero.png",
+      "width": 1200,
+      "height": 675
+    }
+  },
+  "note": "Blank branded templates only. Use with generated prompts; do not call image API in n8n."
+}
