@@ -1,5 +1,37 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getLiveTools } from '@/lib/tools';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+
+export const metadata: Metadata = {
+  title: { absolute: 'RupeeKit - Free India Salary & Finance Calculators' },
+  description:
+    'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
+  alternates: {
+    canonical: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: 'RupeeKit - Free India Salary & Finance Calculators',
+    description:
+      'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
+    url: SITE_URL,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RupeeKit - Free India Salary & Finance Calculators',
+    description:
+      'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
+  },
+};
 
 export default function HomePage() {
   const tools = getLiveTools();
@@ -213,7 +245,76 @@ export default function HomePage() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Card 1: Salary In-Hand */}
+          {/* Card 1: Emergency Fund */}
+          <Link
+            href="/tools/emergency-fund-calculator-india"
+            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
+          >
+            <div>
+              <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/25 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandNavy">
+                Savings
+              </span>
+              <h3 className="mt-3 text-base font-bold tracking-tight text-brandDeepNavy transition group-hover:text-brandNavy">
+                Emergency Fund Calculator India
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-brandMuted">
+                Estimate your 3, 6, 9 or 12 month safety corpus using expenses, EMIs, current savings and shortfall.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-brandBorder">
+              <p className="text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
+                Open calculator →
+              </p>
+            </div>
+          </Link>
+
+          {/* Card 2: Personal Loan EMI */}
+          <Link
+            href="/tools/personal-loan-emi-calculator-india"
+            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
+          >
+            <div>
+              <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/25 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandNavy">
+                Loans
+              </span>
+              <h3 className="mt-3 text-base font-bold tracking-tight text-brandDeepNavy transition group-hover:text-brandNavy">
+                Personal Loan EMI Calculator India
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-brandMuted">
+                Compare monthly EMI, total interest, processing fee impact, tenure options and affordability.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-brandBorder">
+              <p className="text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
+                Open calculator →
+              </p>
+            </div>
+          </Link>
+
+          {/* Card 3: HRA Exemption */}
+          <Link
+            href="/tools/hra-exemption-calculator-india"
+            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
+          >
+            <div>
+              <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/25 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandNavy">
+                Tax
+              </span>
+              <h3 className="mt-3 text-base font-bold tracking-tight text-brandDeepNavy transition group-hover:text-brandNavy">
+                HRA Exemption Calculator India
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-brandMuted">
+                Compare HRA, rent-minus-10%, and city cap rules to estimate old regime HRA exemption.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-brandBorder">
+              <p className="text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
+                Open calculator →
+              </p>
+            </div>
+          </Link>
+
+          {/* Card 4: Salary In-Hand */}
           <Link
             href="/tools/salary-in-hand-calculator-india"
             className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
@@ -236,53 +337,7 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* Card 2: EMI / Loan */}
-          <Link
-            href="/tools/emi-calculator-india"
-            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
-          >
-            <div>
-              <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/25 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandNavy">
-                Loans
-              </span>
-              <h3 className="mt-3 text-base font-bold tracking-tight text-brandDeepNavy transition group-hover:text-brandNavy">
-                EMI / Loan Calculator
-              </h3>
-              <p className="mt-2 text-xs leading-relaxed text-brandMuted">
-                Calculate monthly loan EMIs, interest details, and payment schedules.
-              </p>
-            </div>
-            <div className="mt-4 pt-3 border-t border-brandBorder">
-              <p className="text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
-                Open calculator →
-              </p>
-            </div>
-          </Link>
-
-          {/* Card 3: SIP / Savings */}
-          <Link
-            href="/tools/sip-calculator-india"
-            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
-          >
-            <div>
-              <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/25 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandNavy">
-                Investments
-              </span>
-              <h3 className="mt-3 text-base font-bold tracking-tight text-brandDeepNavy transition group-hover:text-brandNavy">
-                SIP / Savings Calculator
-              </h3>
-              <p className="mt-2 text-xs leading-relaxed text-brandMuted">
-                Estimate the future value and potential returns of monthly SIP investments.
-              </p>
-            </div>
-            <div className="mt-4 pt-3 border-t border-brandBorder">
-              <p className="text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
-                Open calculator →
-              </p>
-            </div>
-          </Link>
-
-          {/* Card 4: FD / Savings Growth */}
+          {/* Card 5: FD / Savings Growth */}
           <Link
             href="/tools/fd-calculator-india"
             className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
@@ -296,29 +351,6 @@ export default function HomePage() {
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-brandMuted">
                 Calculate interest earned and maturity amounts for fixed deposits.
-              </p>
-            </div>
-            <div className="mt-4 pt-3 border-t border-brandBorder">
-              <p className="text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
-                Open calculator →
-              </p>
-            </div>
-          </Link>
-
-          {/* Card 5: GST Calculator */}
-          <Link
-            href="/tools/gst-calculator-india"
-            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
-          >
-            <div>
-              <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/25 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandNavy">
-                Tax
-              </span>
-              <h3 className="mt-3 text-base font-bold tracking-tight text-brandDeepNavy transition group-hover:text-brandNavy">
-                GST Calculator
-              </h3>
-              <p className="mt-2 text-xs leading-relaxed text-brandMuted">
-                Add or remove GST from invoice prices with CGST and SGST splits.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-brandBorder">

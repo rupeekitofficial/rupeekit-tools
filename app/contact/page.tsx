@@ -1,4 +1,35 @@
-export const metadata = { title: 'Contact', description: 'Contact the website owner.' };
+import type { Metadata } from 'next';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TITLE = 'Contact RupeeKit | Feedback and Calculator Suggestions';
+const DESCRIPTION =
+  'Contact RupeeKit for calculator suggestions, corrections, feedback or business queries.';
+
+export const metadata: Metadata = {
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_URL}/contact`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/contact`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+};
 
 export default function ContactPage() {
   return (

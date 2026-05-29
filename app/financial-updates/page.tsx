@@ -3,10 +3,35 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import FinancialUpdatesClient from '@/components/updates/FinancialUpdatesClient';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TITLE = 'Latest Financial Updates, Tax, GST and RBI News | RupeeKit';
+const DESCRIPTION =
+  'Follow important finance, tax, GST, RBI, SEBI, market and personal finance updates with simple educational summaries from RupeeKit.';
+
 export const metadata: Metadata = {
-  title: 'Latest Financial Updates, Tax, GST and RBI News | RupeeKit',
-  description:
-    'Follow important finance, tax, GST, RBI, SEBI, market and personal finance updates with simple educational summaries from RupeeKit.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_URL}/financial-updates`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/financial-updates`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 function CardSkeleton() {

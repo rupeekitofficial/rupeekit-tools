@@ -1,4 +1,35 @@
-export const metadata = { title: 'Privacy Policy', description: 'Privacy policy for this website.' };
+import type { Metadata } from 'next';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TITLE = 'Privacy Policy | RupeeKit';
+const DESCRIPTION =
+  "Read RupeeKit's privacy policy for calculators, analytics, cookies and user data handling.";
+
+export const metadata: Metadata = {
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_URL}/privacy-policy`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/privacy-policy`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (

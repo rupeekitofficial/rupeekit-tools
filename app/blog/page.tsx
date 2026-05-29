@@ -5,9 +5,14 @@ import BlogListingClient from '@/components/blog/BlogListingClient';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
 export const metadata: Metadata = {
-  title: 'Personal Finance Blog & Money Guides | RupeeKit',
+  title: { absolute: 'Personal Finance Blog & Money Guides | RupeeKit' },
   description: 'Explore free, practical personal finance articles, budgeting advice, investment strategies, and checklist guides for Indian salaried employees.',
   alternates: { canonical: `${SITE_URL}/blog` },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
   openGraph: {
     title: 'Personal Finance Blog & Money Guides | RupeeKit',
     description: 'Explore free, practical personal finance articles for Indian salaried employees.',
@@ -15,6 +20,11 @@ export const metadata: Metadata = {
     siteName: 'RupeeKit',
     type: 'website',
     locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Personal Finance Blog & Money Guides | RupeeKit',
+    description: 'Explore free, practical personal finance articles for Indian salaried employees.',
   },
 };
 

@@ -2,9 +2,35 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import PersonalFinanceRoadmap from '@/components/PersonalFinanceRoadmap';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TITLE = 'Free Personal Finance Resources and Money Tools | RupeeKit';
+const DESCRIPTION =
+  'Explore our library of free personal finance resources. Discover our Money Health Check, the 30-Day Budget Challenge, recommended books, and educational guides.';
+
 export const metadata: Metadata = {
-  title: 'Free Personal Finance Resources and Money Tools | RupeeKit',
-  description: 'Explore our library of free personal finance resources. Discover our Money Health Check, the 30-Day Budget Challenge, recommended books, and educational guides.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_URL}/resources`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/resources`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function ResourcesPage() {
@@ -63,10 +89,12 @@ export default function ResourcesPage() {
   ];
 
   const calculatorLinks = [
-    { name: 'Loan EMI Calculator', href: '/tools/emi-calculator-india' },
-    { name: 'SIP / Savings Calculator', href: '/tools/sip-calculator-india' },
-    { name: 'FD / Savings Growth', href: '/tools/fd-calculator-india' },
-    { name: 'Salary In-Hand Estimator', href: '/tools/salary-in-hand-calculator-india' },
+    { name: 'Emergency Fund Calculator India', href: '/tools/emergency-fund-calculator-india' },
+    { name: 'Personal Loan EMI Calculator India', href: '/tools/personal-loan-emi-calculator-india' },
+    { name: 'HRA Exemption Calculator India', href: '/tools/hra-exemption-calculator-india' },
+    { name: 'FD Calculator India', href: '/tools/fd-calculator-india' },
+    { name: 'SIP Calculator India', href: '/tools/sip-calculator-india' },
+    { name: 'Salary In-Hand Calculator India', href: '/tools/salary-in-hand-calculator-india' },
   ];
 
   return (

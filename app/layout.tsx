@@ -56,9 +56,6 @@ export const metadata: Metadata = {
     icon: "/brand/rupeekit_icon_from_social_logo_transparent_square.png",
     apple: "/brand/rupeekit_icon_from_social_logo_transparent_square.png",
   },
-  alternates: {
-    canonical: siteUrl,
-  },
   robots: {
     "max-image-preview": "large",
   },

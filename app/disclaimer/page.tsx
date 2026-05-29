@@ -1,4 +1,35 @@
-export const metadata = { title: 'Disclaimer', description: 'Disclaimer for calculators and content.' };
+import type { Metadata } from 'next';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TITLE = 'Financial Disclaimer | RupeeKit';
+const DESCRIPTION =
+  'RupeeKit calculators and guides are educational estimates only and are not financial, tax, legal or investment advice.';
+
+export const metadata: Metadata = {
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_URL}/disclaimer`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/disclaimer`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+};
 
 export default function DisclaimerPage() {
   return (

@@ -1,9 +1,35 @@
 import type { Metadata } from 'next';
 import MoneyHealthCheckQuiz from '@/components/MoneyHealthCheckQuiz';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TITLE = 'Money Health Check: Free Personal Finance Self-Assessment | RupeeKit';
+const DESCRIPTION =
+  'Take our 60-second interactive money health check to get a personalized score, identify your next financial milestone, and discover global resources to build a strong foundation.';
+
 export const metadata: Metadata = {
-  title: 'Money Health Check: Free Personal Finance Self-Assessment | RupeeKit',
-  description: 'Take our 60-second interactive money health check to get a personalized score, identify your next financial milestone, and discover global resources to build a strong foundation.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_URL}/money-health-check`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/money-health-check`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function MoneyHealthCheckPage() {

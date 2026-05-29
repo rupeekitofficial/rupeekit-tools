@@ -1,9 +1,35 @@
 import type { Metadata } from 'next';
 import BudgetChallenge from '@/components/BudgetChallenge';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TITLE = '30-Day Budget Challenge for Beginners | RupeeKit';
+const DESCRIPTION =
+  'Join our free 30-day budgeting challenge. Mark off one small financial habit checklist item every day to build lasting financial awareness.';
+
 export const metadata: Metadata = {
-  title: '30-Day Budget Challenge for Beginners | RupeeKit',
-  description: 'Join our free 30-day budgeting challenge. Mark off one small financial habit checklist item every day to build lasting financial awareness.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_URL}/resources/30-day-budget-challenge`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/resources/30-day-budget-challenge`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function BudgetChallengePage() {

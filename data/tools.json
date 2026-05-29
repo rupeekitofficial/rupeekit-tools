@@ -195,7 +195,7 @@
     "status": "live",
     "targetKeyword": "personal loan emi calculator",
     "shortDescription": "Use this personal loan EMI calculator to estimate your monthly EMI, total interest and total repayment before applying for a loan. Enter the loan amount, annual interest rate and tenure in months to understand how your EMI changes with different loan offers.",
-    "metaDescription": "Calculate personal loan EMI, total interest and total repayment in India using loan amount, interest rate and tenure in months. Compare EMI changes before applying.",
+    "metaDescription": "Calculate personal loan EMI, total interest and repayment in India using loan amount, interest rate and tenure in months. Compare offers before applying.",
     "inputs": [
       {
         "key": "principal",

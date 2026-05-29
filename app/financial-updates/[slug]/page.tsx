@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { financialUpdates } from '@/data/financial-updates';
 import UpdateVisual from '@/components/updates/UpdateVisual';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+
 type VisualKey =
   | 'rbi'
   | 'income-tax'
@@ -48,21 +50,99 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const update = financialUpdates.find((u) => u.slug === params.slug);
   if (!update) return { title: 'Update Not Found | RupeeKit' };
   const cleanSummary = update.summary.substring(0, 155);
+  const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;
   return {
-    title: `${update.title} | RupeeKit Updates`,
+    title: { absolute: `${update.title} | RupeeKit Updates` },
     description: cleanSummary,
+    alternates: {
+      canonical: pageUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+    },
+    openGraph: {
+      title: `${update.title} | RupeeKit Updates`,
+      description: cleanSummary,
+      url: pageUrl,
+      siteName: 'RupeeKit',
+      type: 'article',
+      locale: 'en_IN',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${update.title} | RupeeKit Updates`,
+      description: cleanSummary,
+    },
   };
 }
 
 export default function FinancialUpdateDetailPage({ params }: PageProps) {
   const update = financialUpdates.find((u) => u.slug === params.slug);
   if (!update) notFound();
+  const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;
+  const dateModified = (update as { modifiedDate?: string }).modifiedDate || update.publishedDate;
 
   const visualType = (categoryVisualMap[update.category] ?? 'financial-updates') as VisualKey;
   const catColor = categoryBadgeColors[update.category] ?? 'bg-slate-100 text-slate-700 border-slate-200';
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: update.title,
+    description: update.summary,
+    datePublished: update.publishedDate,
+    dateModified,
+    author: {
+      '@type': 'Organization',
+      name: 'RupeeKit',
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'RupeeKit',
+      url: SITE_URL,
+    },
+    mainEntityOfPage: pageUrl,
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Financial Updates',
+        item: `${SITE_URL}/financial-updates`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: update.title,
+        item: pageUrl,
+      },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 md:py-12 space-y-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-brandMuted font-medium flex-wrap">
         <Link href="/" className="hover:text-brandNavy transition">Home</Link>

@@ -1,9 +1,35 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TITLE = 'Start Here: Beginner Money Tools and Guides | RupeeKit';
+const DESCRIPTION =
+  'Start your money journey with RupeeKit. Explore free calculators, beginner guides, and educational resources to make confident financial decisions.';
+
 export const metadata: Metadata = {
-  title: 'Start Here: Beginner Money Tools and Guides | RupeeKit',
-  description: 'Start your money journey with RupeeKit. Explore free calculators, beginner guides, and educational resources to make confident financial decisions.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_URL}/start-here`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/start-here`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function StartHerePage() {

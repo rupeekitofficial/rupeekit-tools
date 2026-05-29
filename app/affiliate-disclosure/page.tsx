@@ -1,8 +1,34 @@
 import type { Metadata } from 'next';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TITLE = 'Affiliate Disclosure | RupeeKit';
+const DESCRIPTION =
+  "Read RupeeKit's affiliate disclosure and how referral or affiliate links may be used on the website.";
+
 export const metadata: Metadata = {
-  title: 'Affiliate Disclosure',
-  description: 'RupeeKit affiliate earnings and Amazon Associate disclosure.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_URL}/affiliate-disclosure`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/affiliate-disclosure`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function AffiliateDisclosurePage() {
