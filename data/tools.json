@@ -595,8 +595,8 @@
     "category": "Tax",
     "status": "live",
     "targetKeyword": "HRA exemption calculator India",
-    "shortDescription": "Estimate your potential monthly and annual HRA tax exemption in India with RupeeKit. Input salary, HRA, rent, and city type to understand your possible tax savings.",
-    "metaDescription": "Use RupeeKit's HRA Exemption Calculator to estimate your tax-exempt House Rent Allowance in India. Input salary, HRA, rent, and city for an estimate",
+    "shortDescription": "Calculate your likely HRA exemption under Rule 279 in seconds. Enter your salary, HRA, rent, and city type to compare the three legal limits and estimate how much HRA can stay tax-exempt under the old regime. Includes FY 2026-27 metro-city rules, a worked example, and a document checklist.",
+    "metaDescription": "Calculate HRA exemption under the old tax regime using 2026 city rules. Compare actual HRA, rent minus 10% of salary, and 50% or 40% salary caps.",
     "inputs": [
       {
         "key": "basicSalary",
@@ -645,13 +645,13 @@
       },
       {
         "key": "cityRatePercent",
-        "label": "City Rate",
+        "label": "Is your city in the 50% HRA cap list?",
         "unit": "%",
         "default": 50,
         "min": 40,
         "max": 50,
         "step": 10,
-        "help": "Use 50 for Delhi, Mumbai, Kolkata or Chennai. Use 40 for other cities."
+        "help": "Choose Yes for Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad or Bengaluru. Choose No for other Indian cities."
       }
     ],
     "outputs": [
@@ -680,96 +680,103 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The HRA exemption in India is determined by the Income Tax Act, specifically by taking the least of three calculated amounts. First, it considers the actual House Rent Allowance (HRA) you receive from your employer. Second, it calculates a percentage of your 'salary' – this is 50% if you reside in a metro city (Delhi, Mumbai, Kolkata, Chennai) or 40% for non-metro cities. For HRA calculation purposes, 'salary' includes your Basic Salary, Dearness Allowance (if it forms part of your retirement benefits), and any fixed percentage Commission on sales. Third, the calculation involves the actual rent you pay, reduced by 10% of your 'salary'. The lowest of these three figures represents the maximum HRA exemption you may be able to claim, which then reduces your overall taxable income. This RupeeKit calculator simplifies these complex rules to provide you with an estimated exemption amount, helping you understand your potential tax benefit. Please remember, this is an estimate for educational purposes and not financial advice.",
-    "example": "Consider Priya, a salaried employee in Bengaluru (a non-metro city, thus a 40% factor applies). Her monthly basic salary is ₹60,000, Dearness Allowance (DA) is ₹15,000, and she receives ₹25,000 as HRA. She pays ₹30,000 in rent each month. Using the RupeeKit calculator, her 'salary' for HRA purposes is ₹75,000 (Basic Salary + DA). The three conditions for exemption are: 1. Actual HRA received: ₹25,000. 2. 40% of her 'salary': ₹30,000 (40% of ₹75,000). 3. Rent paid minus 10% of 'salary': ₹22,500 (₹30,000 - 10% of ₹75,000). The least of these three amounts is ₹22,500. Therefore, Priya's estimated HRA exemption is ₹22,500 per month, leading to an annual estimated exemption of ₹2,70,000 and a monthly taxable HRA of ₹2,500. This calculation provides an estimate for her tax planning and is for educational purposes.",
+    "formulaExplanation": "Rule 279 HRA exemption is calculated as the lowest of: (1) actual HRA received, (2) rent paid minus 10% of salary, and (3) a salary cap based on city group. For FY 2026-27, Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad and Bengaluru use 50% of salary for specified cities. Other Indian cities use 40% of salary for other cities. For this HRA calculation formula, salary generally means basic salary plus dearness allowance (if part of retirement benefits) plus eligible fixed commission. This HRA exemption calculator is for old tax regime HRA exemption estimates and educational planning only.",
+    "example": "Example A (50% city): Bengaluru. Annual basic salary + DA: ₹6,00,000. Annual HRA received: ₹2,40,000. Annual rent paid: ₹3,00,000. Actual HRA received = ₹2,40,000. 50% of salary for specified cities = ₹3,00,000. Rent paid minus 10% of salary = ₹2,40,000. Exempt HRA = ₹2,40,000. Example B (40% city): Indore. Annual basic salary + DA: ₹6,00,000. Annual HRA received: ₹2,40,000. Annual rent paid: ₹3,00,000. Actual HRA received = ₹2,40,000. 40% of salary for other cities = ₹2,40,000. Rent paid minus 10% of salary = ₹2,40,000. Exempt HRA = ₹2,40,000.",
     "faqs": [
       {
-        "question": "Who is eligible to claim HRA exemption in India?",
-        "answer": "Salaried individuals who receive HRA from their employer and pay rent for their accommodation are eligible. You cannot claim HRA if you live in your own house or do not pay rent. The property should not be owned by you."
+        "question": "Is HRA exemption available in the new tax regime?",
+        "answer": "HRA exemption is generally relevant under the old tax regime. Under the default new tax regime, this exemption is not typically available."
       },
       {
-        "question": "What components are considered 'salary' for HRA calculation?",
-        "answer": "For HRA calculation, 'salary' typically includes your Basic Salary, Dearness Allowance (if it forms part of your retirement benefits), and any fixed percentage Commission on sales. Other allowances are generally excluded from this specific calculation."
+        "question": "Which cities use the 50% salary cap for HRA from FY 2026-27?",
+        "answer": "For FY 2026-27 under Rule 279, the 50% cap applies to Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad and Bengaluru."
       },
       {
-        "question": "Can I claim HRA if I live with my parents and pay rent to them?",
-        "answer": "Yes, you can claim HRA if you genuinely pay rent to your parents, provided the transaction is legitimate and you can furnish valid rent receipts. Your parents must declare this rental income in their income tax returns. It's important to ensure the payment is verifiable."
+        "question": "Is Bengaluru considered a 50% HRA city under the 2026 rules?",
+        "answer": "Yes. Bengaluru is treated as a 50% salary-cap city for HRA exemption under the FY 2026-27 Rule 279 city grouping."
       },
       {
-        "question": "What documents are needed to claim HRA exemption?",
-        "answer": "You generally need valid rent receipts for the period you are claiming HRA. If your total annual rent paid exceeds ₹1,00,000, it is mandatory to provide your landlord's PAN card details to your employer for tax purposes."
+        "question": "How is HRA exemption calculated?",
+        "answer": "The HRA exemption calculation takes the lowest of three values: actual HRA received, rent paid minus 10% of salary, and the city-based cap (50% or 40% of salary)."
       },
       {
-        "question": "Is it mandatory to provide my landlord's PAN for HRA exemption?",
-        "answer": "Yes, if the total annual rent paid by you exceeds ₹1,00,000 (which is more than ₹8,333 per month), it is mandatory to furnish your landlord's PAN card details to your employer. Without it, your employer may not allow the exemption."
+        "question": "What is rent paid minus 10% of salary?",
+        "answer": "This is one of the three Rule 279 HRA exemption limits. You subtract 10% of salary from the rent paid for the period. If the number is negative, that part is treated as zero for practical estimates."
       },
       {
-        "question": "Can both spouses claim HRA exemption for the same property?",
-        "answer": "No, generally only one spouse can claim HRA exemption for the same rented property. If both spouses are salaried and pay rent, they can claim HRA only if they reside in separate rented accommodations and pay rent individually."
+        "question": "Can I claim HRA if I pay rent to my parents?",
+        "answer": "Yes, if the arrangement is genuine, rent is actually paid, and records are maintained. Your parents should report rental income where applicable."
       },
       {
-        "question": "Is this calculator providing financial or tax advice?",
-        "answer": "No. This RupeeKit calculator is designed for educational and informational purposes only. It provides an estimate based on the values you input and should not be considered as tax, legal, investment, or financial advice. Always consult with a qualified tax advisor for personalized guidance."
+        "question": "What happens if I forgot to submit rent receipts to my employer?",
+        "answer": "Your employer may deduct higher TDS initially. You may still be able to claim eligible HRA exemption while filing your return, subject to records and tax rules."
+      },
+      {
+        "question": "Do I need my landlord's PAN to claim HRA?",
+        "answer": "If annual rent crosses the applicable threshold (commonly ₹1,00,000), employers usually ask for landlord PAN details. Keep PAN and rent records ready."
+      },
+      {
+        "question": "Is this HRA calculator a tax filing tool?",
+        "answer": "No. This is an HRA tax exemption calculator for educational estimation. It helps you estimate likely exemption, not file returns."
+      },
+      {
+        "question": "Why is my full HRA not exempt?",
+        "answer": "Because Rule 279 HRA exemption uses the least-of-three rule. If rent paid minus 10% of salary or the 50%/40% salary cap is lower than actual HRA received, the balance becomes taxable."
       }
     ],
     "related": [
       "salary-in-hand-calculator-india",
-      "emi-calculator-india",
-      "gst-calculator-india"
+      "80c-deduction-calculator-india",
+      "emi-calculator-india"
     ],
     "howToUse": [
-      "Enter your monthly Basic Salary in the designated field.",
-      "Input your monthly Dearness Allowance (DA) and any fixed percentage Commission, if applicable.",
-      "Provide the actual monthly HRA amount you receive from your employer.",
-      "Enter the actual monthly Rent Paid for your accommodation.",
-      "Select the appropriate City Rate (50% for metro cities like Delhi, Mumbai, Kolkata, Chennai; 40% for other cities).",
-      "Review the calculated Monthly and Annual HRA Exemption, along with the Taxable HRA amounts. Remember these are estimates."
+      "Enter your monthly basic salary, DA (if applicable), and eligible commission.",
+      "Enter monthly actual HRA received and monthly rent paid.",
+      "Select city rate 50 or 40 based on FY 2026-27 Rule 279 city grouping.",
+      "Compare the output with your payslip and employer declaration details.",
+      "Use the estimate for planning your old tax regime HRA exemption."
     ],
     "assumptions": [
-      "The user is a salaried individual receiving HRA from their employer.",
-      "The user genuinely pays rent for accommodation that is not owned by them.",
-      "The 'salary' components (Basic, DA, Commission) are correctly identified as per HRA calculation rules.",
-      "The rent receipts and landlord's PAN (if applicable) are available and valid for verification.",
-      "The city type (metro/non-metro) is correctly chosen, impacting the percentage of salary considered.",
-      "The calculations are based on current Indian income tax laws for HRA exemption, which may be subject to change."
+      "You are a salaried person receiving HRA and paying rent for the claimed period.",
+      "Salary components entered for HRA are basic salary, DA where applicable, and eligible fixed commission.",
+      "City cap selection follows FY 2026-27 Rule 279 city grouping.",
+      "Rent receipts and supporting records are available when asked by employer or tax authorities.",
+      "This tool estimates old tax regime HRA exemption and does not replace filing advice."
     ],
     "commonMistakes": [
-      "Not providing the landlord's PAN card details when annual rent exceeds ₹1,00,000.",
-      "Incorrectly including allowances other than Basic, DA (if part of retirement benefits), and fixed percentage commission in 'salary' for HRA calculation.",
-      "Claiming HRA without actual rent payment or valid rent receipts.",
-      "Selecting the wrong city rate (e.g., 50% for a non-metro city or vice-versa).",
-      "Assuming the entire HRA received is exempt, without understanding the 'least of three' rule.",
-      "Not declaring rental income if receiving rent from a family member who is claiming HRA."
+      "Selecting the wrong city cap (50% vs 40%) for HRA exemption calculation.",
+      "Assuming full HRA is exempt without checking the least-of-three limits.",
+      "Using non-eligible salary components in the HRA calculation formula.",
+      "Not keeping rent receipts, rent agreement, landlord PAN, and payment proof ready.",
+      "Ignoring landlord detail disclosure where requested in employer declaration.",
+      "Treating this estimate as guaranteed tax advice."
     ],
     "contentSections": [
       {
-        "heading": "Understanding HRA Exemption in India",
-        "body": "House Rent Allowance (HRA) is a common component of a salaried individual's pay structure in India, designed to help employees meet their accommodation expenses. While HRA is typically part of your salary, a portion of it can be exempt from income tax under Section 10(13A) of the Income Tax Act, 1961. This exemption significantly reduces your taxable income, leading to potential tax savings. The amount of HRA exemption you can claim depends on several factors, including your salary, the actual HRA received, the rent you pay, and the city you reside in. The RupeeKit HRA Exemption Calculator helps you quickly estimate this crucial tax benefit.",
+        "heading": "How to Calculate HRA Exemption",
+        "body": "This HRA exemption calculator helps you calculate HRA exemption by comparing actual HRA received, rent paid minus 10% of salary, and the city cap under Rule 279. The lowest value is treated as likely exempt HRA under the old tax regime.",
         "bullets": [
-          "HRA is a component of salary for housing expenses.",
-          "Section 10(13A) allows for tax exemption on HRA.",
-          "Exemption reduces taxable income and potential tax liability."
+          "Enter salary components used for HRA calculation formula.",
+          "Enter actual HRA received and rent paid values.",
+          "Use 50% or 40% city cap based on FY 2026-27 city rule."
         ]
       },
       {
-        "heading": "Key Factors Influencing Your HRA Exemption",
-        "body": "The HRA exemption is not a fixed amount but is calculated based on the least of three specific conditions as per Indian tax laws. These conditions ensure that the exemption is fair and reflective of actual housing costs. Firstly, the actual HRA amount you receive from your employer is considered. Secondly, a percentage of your 'salary' is taken into account – this is 50% for those living in metro cities (Delhi, Mumbai, Kolkata, Chennai) and 40% for non-metro cities. For this calculation, 'salary' specifically includes your Basic Salary, Dearness Allowance (if it's part of your retirement benefits), and any fixed percentage commission on sales. Thirdly, the calculation factors in the actual rent you pay, minus 10% of your 'salary'. The lowest of these three figures is your maximum eligible HRA exemption. Our calculator simplifies this multi-step process for you.",
+        "heading": "FY 2026-27 HRA City Rules: 50% and 40% Salary Cap",
+        "body": "For Rule 279 HRA exemption in FY 2026-27, Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad and Bengaluru use the 50% cap. All other Indian cities use the 40% cap.",
         "bullets": [
-          "Actual HRA received from your employer.",
-          "50% of 'salary' for metro cities, 40% for non-metro cities.",
-          "Rent paid minus 10% of 'salary'.",
-          "'Salary' for HRA includes Basic, DA (if applicable), and fixed commission."
+          "50% of salary for specified cities.",
+          "40% of salary for other cities.",
+          "Use the right cap before finalizing HRA deduction calculation."
         ]
       },
       {
-        "heading": "Important Considerations for HRA Claims",
-        "body": "To successfully claim HRA exemption, it's vital to be aware of certain rules and requirements. Always ensure you have valid rent receipts for the period you are claiming the exemption. If your annual rent payment exceeds ₹1,00,000, providing your landlord's PAN card details to your employer becomes mandatory. Failing to do so may result in your employer not allowing the HRA exemption. Furthermore, while you can pay rent to your parents and claim HRA, the transaction must be genuine, and your parents must declare this as rental income in their tax returns. It's also important to remember that you cannot claim HRA if you own the house you live in. The RupeeKit HRA Exemption Calculator provides an estimate, and for final tax filing, always refer to official tax guidelines or consult a tax professional.",
+        "heading": "Old Tax Regime vs New Tax Regime for HRA",
+        "body": "Old tax regime HRA exemption can reduce taxable income where eligible. Under the default new tax regime, HRA exemption is generally not available, so this tool is most useful for old regime comparison and planning.",
         "bullets": [
-          "Maintain valid rent receipts for proof.",
-          "Landlord's PAN is mandatory if annual rent exceeds ₹1,00,000.",
-          "Genuine rent payments to parents are allowed, but they must declare income.",
-          "Cannot claim HRA if you own your residence.",
-          "RupeeKit provides estimates; consult a tax advisor for definitive guidance."
+          "Choose regime after comparing total tax impact.",
+          "Keep documentation ready for employer verification.",
+          "Consult employer or CA for complex cases."
         ]
       }
     ],
