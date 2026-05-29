@@ -182,10 +182,247 @@
       }
     ],
     "related": [
+      "personal-loan-emi-calculator-india",
       "salary-in-hand-calculator-india",
       "fd-calculator-india",
       "sip-calculator-india"
     ]
+  },
+  {
+    "slug": "personal-loan-emi-calculator-india",
+    "name": "Personal Loan EMI Calculator India",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "personal loan emi calculator",
+    "shortDescription": "Use this personal loan EMI calculator to estimate your monthly EMI, total interest and total repayment before applying for a loan. Enter the loan amount, annual interest rate and tenure in months to understand how your EMI changes with different loan offers.",
+    "metaDescription": "Calculate personal loan EMI, total interest and total repayment in India using loan amount, interest rate and tenure in months. Compare EMI changes before applying.",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Loan amount",
+        "unit": "Rs",
+        "default": 500000,
+        "min": 1,
+        "step": 1000,
+        "help": "Enter the personal loan amount you want to borrow."
+      },
+      {
+        "key": "annualInterestRate",
+        "label": "Annual interest rate (%)",
+        "unit": "%",
+        "default": 12,
+        "min": 0.1,
+        "step": 0.1,
+        "help": "Enter the annual personal loan interest rate offered by the lender."
+      },
+      {
+        "key": "tenureMonths",
+        "label": "Loan tenure in months",
+        "unit": "months",
+        "default": 36,
+        "min": 1,
+        "step": 1,
+        "help": "Enter total repayment period in months. For example, 3 years = 36 months."
+      },
+      {
+        "key": "processingFeePercent",
+        "label": "Processing fee (%)",
+        "unit": "%",
+        "default": 1,
+        "min": 0,
+        "step": 0.1,
+        "help": "Optional estimate of processing fee as a percentage of loan amount."
+      },
+      {
+        "key": "monthlyIncome",
+        "label": "Monthly income",
+        "unit": "Rs",
+        "default": 60000,
+        "min": 0,
+        "step": 1000,
+        "help": "Optional income value used to estimate EMI affordability."
+      },
+      {
+        "key": "existingMonthlyEmi",
+        "label": "Existing monthly EMI",
+        "unit": "Rs",
+        "default": 0,
+        "min": 0,
+        "step": 500,
+        "help": "Existing EMIs you already pay every month."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyEmi",
+        "label": "Monthly EMI",
+        "formula": "principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "totalPayment",
+        "label": "Total repayment",
+        "formula": "principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1) * tenureMonths",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest",
+        "formula": "(principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1) * tenureMonths) - principal",
+        "format": "currency"
+      },
+      {
+        "key": "processingFee",
+        "label": "Estimated processing fee",
+        "formula": "principal * processingFeePercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "totalCostWithFee",
+        "label": "Total repayment plus estimated fee",
+        "formula": "(principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1) * tenureMonths) + (principal * processingFeePercent / 100)",
+        "format": "currency"
+      },
+      {
+        "key": "emiToIncomePercent",
+        "label": "EMI as % of income",
+        "formula": "(principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) / max(monthlyIncome, 1) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "totalEmiBurdenPercent",
+        "label": "Total EMI burden",
+        "formula": "((principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) + existingMonthlyEmi) / max(monthlyIncome, 1) * 100",
+        "format": "percent"
+      }
+    ],
+    "formulaExplanation": "This personal loan EMI calculator uses the standard reducing-balance EMI formula. EMI is calculated from loan amount (P), monthly interest rate (r) and total tenure in months (n): EMI = P x r x (1 + r)^n / ((1 + r)^n - 1). It also estimates processing fee and total cost including that fee for easy loan offer comparison.",
+    "example": "Example: If you borrow Rs 5,00,000 at 12% annual interest for 36 months, the estimated EMI is about Rs 16,607 per month. Estimated total repayment is about Rs 5,97,858 and total interest is about Rs 97,858. If processing fee is 1%, estimated fee is Rs 5,000 and total cost becomes about Rs 6,02,858.",
+    "faqs": [
+      {
+        "question": "How is personal loan EMI calculated?",
+        "answer": "Personal loan EMI is calculated using loan amount, monthly interest rate and tenure in months. This tool applies the standard EMI formula used in reducing-balance loans."
+      },
+      {
+        "question": "What is the formula for personal loan EMI?",
+        "answer": "EMI = P x r x (1 + r)^n / ((1 + r)^n - 1), where P is loan amount, r is monthly interest rate, and n is tenure in months."
+      },
+      {
+        "question": "Can I use this as an SBI personal loan EMI calculator?",
+        "answer": "Yes. RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI, Axis Bank or any lender. You can use this calculator for any lender by entering the official loan amount, interest rate and tenure offered by that lender. Always verify latest rates, fees, eligibility, prepayment charges and foreclosure charges on the lender's official website."
+      },
+      {
+        "question": "Can I use this for HDFC, BOB or IDFC personal loan EMI?",
+        "answer": "Yes. RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI, Axis Bank or any lender. You can use this calculator for any lender by entering the official loan amount, interest rate and tenure offered by that lender. Always verify latest rates, fees, eligibility, prepayment charges and foreclosure charges on the lender's official website."
+      },
+      {
+        "question": "What is personal loan EMI in months?",
+        "answer": "It means the repayment tenure is measured in months, such as 12, 24, 36, 48 or 60 months. This helps compare offers precisely."
+      },
+      {
+        "question": "Does this calculator show live bank interest rates?",
+        "answer": "No. It does not fetch live rates. Enter the latest official interest rate and fee details from the lender before making decisions."
+      },
+      {
+        "question": "Does processing fee affect EMI?",
+        "answer": "Processing fee usually does not change EMI in this estimate, but it increases your overall borrowing cost. This calculator shows the estimated fee separately."
+      },
+      {
+        "question": "Is lower EMI always better?",
+        "answer": "Not always. Lower EMI from longer tenure may increase total interest paid over the full loan period."
+      },
+      {
+        "question": "What happens if I increase loan tenure?",
+        "answer": "EMI may reduce, but total interest may increase because you repay for more months."
+      },
+      {
+        "question": "Is RupeeKit a lender?",
+        "answer": "No. RupeeKit is not a lender and does not provide loan approval, disbursal, or official bank rates."
+      }
+    ],
+    "related": [
+      "emi-calculator-india",
+      "salary-in-hand-calculator-india",
+      "fd-calculator-india",
+      "sip-calculator-india"
+    ],
+    "howToUse": [
+      "Enter loan amount.",
+      "Enter annual interest rate.",
+      "Enter tenure in months.",
+      "Add processing fee percentage if known.",
+      "Compare monthly EMI, total interest, and total repayment before applying."
+    ],
+    "assumptions": [
+      "This calculator is for educational estimation only. RupeeKit is not a lender and does not provide loan approval, financial advice or official bank rates. RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI Bank, Axis Bank or any lender.",
+      "EMI estimate assumes regular monthly repayment on reducing-balance structure.",
+      "Interest rate and fee details entered by the user are assumed to be accurate and up to date from the lender.",
+      "Final approved EMI and charges may differ due to eligibility, credit policy, taxes, and lender terms."
+    ],
+    "commonMistakes": [
+      "Checking only EMI and not total interest payable.",
+      "Ignoring processing fee and overall cost.",
+      "Using annual rate as if it were a monthly rate.",
+      "Choosing longer tenure only to reduce EMI without checking total interest.",
+      "Borrowing more than needed.",
+      "Not comparing offers across lenders.",
+      "Not checking prepayment or foreclosure charges."
+    ],
+    "contentSections": [
+      {
+        "heading": "What Is a Personal Loan EMI?",
+        "body": "A personal loan EMI is the fixed amount you pay each month to repay your loan. It includes both principal and interest. This personal loan calculator India page helps you estimate that monthly outflow before you apply."
+      },
+      {
+        "heading": "Personal Loan EMI Formula",
+        "body": "EMI = P x r x (1 + r)^n / ((1 + r)^n - 1). Here, P = loan amount, r = monthly interest rate, and n = tenure in months. This is the same base formula used by most personal loan interest calculator tools."
+      },
+      {
+        "heading": "How to Use This Personal Loan EMI Calculator",
+        "body": "Enter loan amount, annual interest rate and tenure in months. Add processing fee if known. Then compare EMI and total interest across offers before choosing a lender.",
+        "bullets": [
+          "Enter loan amount.",
+          "Enter annual interest rate.",
+          "Enter tenure in months.",
+          "Add processing fee if known.",
+          "Compare EMI and total interest."
+        ]
+      },
+      {
+        "heading": "Personal Loan EMI Example",
+        "body": "For Rs 5,00,000 at 12% annual interest for 36 months, EMI is roughly Rs 16,607 per month in this estimate. Total repayment is about Rs 5,97,858 and total interest is about Rs 97,858. Actual lender schedule may vary slightly due to rounding and fee structure."
+      },
+      {
+        "heading": "Why Tenure in Months Matters",
+        "body": "Many borrowers search for an emi calculator in months because personal loan offers are usually presented as 12, 24, 36, 48 or 60 months. Month-based input gives a cleaner comparison between lenders and helps track true repayment duration."
+      },
+      {
+        "heading": "Processing Fee and Total Cost",
+        "body": "EMI usually covers only principal and interest. Processing fee can increase your out-of-pocket cost even if EMI stays the same. Use the total repayment plus estimated fee output for clearer loan offer comparison."
+      },
+      {
+        "heading": "Interest Rate vs Total Interest",
+        "body": "A lower EMI can look attractive, but if it comes from a longer tenure, the total interest may be higher. Compare both monthly EMI and full-loan interest before finalizing your choice."
+      },
+      {
+        "heading": "Can I Use This for SBI, HDFC, BOB or IDFC Personal Loans?",
+        "body": "RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI, Axis Bank or any lender. You can use this calculator for any lender by entering the official loan amount, interest rate and tenure offered by that lender. Always verify latest rates, fees, eligibility, prepayment charges and foreclosure charges on the lender's official website."
+      },
+      {
+        "heading": "Common Mistakes Before Taking a Personal Loan",
+        "body": "Borrowers often focus only on EMI and miss total cost details. Check fees, tenure impact, and repayment terms before applying.",
+        "bullets": [
+          "Checking only EMI, not total interest",
+          "Ignoring processing fee",
+          "Using annual rate as monthly rate",
+          "Choosing longer tenure only for lower EMI",
+          "Borrowing more than needed",
+          "Not comparing offers",
+          "Not checking prepayment or foreclosure charges"
+        ]
+      }
+    ],
+    "lastReviewed": "May 2026"
   },
   {
     "slug": "sip-calculator-india",

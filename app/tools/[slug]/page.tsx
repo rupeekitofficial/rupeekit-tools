@@ -12,6 +12,10 @@ const HRA_META_TITLE = 'HRA Exemption Calculator India 2026 | Old Regime Rule 27
 const HRA_META_DESCRIPTION =
   'Calculate HRA exemption under the old tax regime using 2026 city rules. Compare actual HRA, rent minus 10% of salary, and 50% or 40% salary caps.';
 const HRA_H1 = 'HRA Exemption Calculator India';
+const PERSONAL_LOAN_SLUG = 'personal-loan-emi-calculator-india';
+const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India | Monthly EMI & Interest';
+const PERSONAL_LOAN_META_DESCRIPTION =
+  'Calculate personal loan EMI, total interest and total repayment in India using loan amount, interest rate and tenure in months. Compare EMI changes before applying.';
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));
 const blogSlugs = new Set(blogPosts.map((post) => post.slug));
@@ -31,6 +35,31 @@ const HRA_TOC = [
   { id: 'source-and-methodology', title: 'Source and methodology' },
   { id: 'faqs', title: 'FAQs' },
 ] as const;
+
+const PERSONAL_LOAN_TOC = [
+  { id: 'what-is-a-personal-loan-emi', title: 'What is a personal loan EMI?' },
+  { id: 'personal-loan-emi-formula', title: 'Personal Loan EMI Formula' },
+  { id: 'how-to-use-this-calculator', title: 'How to use this calculator' },
+  { id: 'personal-loan-emi-example', title: 'Personal Loan EMI Example' },
+  { id: 'tenure-in-months', title: 'Tenure in months' },
+  { id: 'processing-fee-and-total-cost', title: 'Processing fee and total cost' },
+  { id: 'emi-vs-total-interest', title: 'EMI vs total interest' },
+  { id: 'sbi-hdfc-bob-idfc-usage', title: 'SBI/HDFC/BOB/IDFC usage' },
+  { id: 'common-mistakes', title: 'Common mistakes' },
+  { id: 'faqs', title: 'FAQs' },
+] as const;
+
+const PERSONAL_LOAN_SECTION_IDS: Record<string, string> = {
+  'What Is a Personal Loan EMI?': 'what-is-a-personal-loan-emi',
+  'Personal Loan EMI Formula': 'personal-loan-emi-formula',
+  'How to Use This Personal Loan EMI Calculator': 'how-to-use-this-calculator',
+  'Personal Loan EMI Example': 'personal-loan-emi-example',
+  'Why Tenure in Months Matters': 'tenure-in-months',
+  'Processing Fee and Total Cost': 'processing-fee-and-total-cost',
+  'Interest Rate vs Total Interest': 'emi-vs-total-interest',
+  'Can I Use This for SBI, HDFC, BOB or IDFC Personal Loans?': 'sbi-hdfc-bob-idfc-usage',
+  'Common Mistakes Before Taking a Personal Loan': 'common-mistakes',
+};
 
 type ContextualLink = {
   href: string;
@@ -60,10 +89,24 @@ export function generateMetadata({
   if (!tool) return {};
 
   const pageUrl = `${SITE_URL}/tools/${tool.slug}`;
-  const description = tool.slug === HRA_SLUG ? HRA_META_DESCRIPTION : tool.metaDescription;
+  const description =
+    tool.slug === HRA_SLUG
+      ? HRA_META_DESCRIPTION
+      : tool.slug === PERSONAL_LOAN_SLUG
+        ? PERSONAL_LOAN_META_DESCRIPTION
+        : tool.metaDescription;
+  const pageTitle =
+    tool.slug === HRA_SLUG
+      ? HRA_META_TITLE
+      : tool.slug === PERSONAL_LOAN_SLUG
+        ? PERSONAL_LOAN_META_TITLE
+        : tool.name;
 
   return {
-    title: tool.slug === HRA_SLUG ? { absolute: HRA_META_TITLE } : tool.name,
+    title:
+      tool.slug === HRA_SLUG || tool.slug === PERSONAL_LOAN_SLUG
+        ? { absolute: pageTitle }
+        : tool.name,
     description,
     alternates: {
       canonical: pageUrl,
@@ -74,7 +117,7 @@ export function generateMetadata({
       'max-image-preview': 'large',
     },
     openGraph: {
-      title: tool.slug === HRA_SLUG ? HRA_META_TITLE : tool.name,
+      title: pageTitle,
       description,
       url: pageUrl,
       siteName: 'RupeeKit',
@@ -83,7 +126,7 @@ export function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: tool.slug === HRA_SLUG ? HRA_META_TITLE : tool.name,
+      title: pageTitle,
       description,
     },
   };
@@ -262,6 +305,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   if (!tool) notFound();
 
   const isHraPage = tool.slug === HRA_SLUG;
+  const isPersonalLoanPage = tool.slug === PERSONAL_LOAN_SLUG;
   const heading = getToolHeading(tool.slug, tool.name);
   const description = getToolDescription(tool.slug, tool.shortDescription);
 
@@ -294,6 +338,27 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     } : null,
   ].filter((item): item is ContextualLink => item !== null);
 
+  const personalLoanLinks: ContextualLink[] = [
+    liveToolSlugs.has('emi-calculator-india')
+      ? { href: '/tools/emi-calculator-india', label: 'EMI calculator' }
+      : null,
+    liveToolSlugs.has('salary-in-hand-calculator-india')
+      ? { href: '/tools/salary-in-hand-calculator-india', label: 'salary in-hand calculator' }
+      : null,
+    liveToolSlugs.has('fd-calculator-india')
+      ? { href: '/tools/fd-calculator-india', label: 'FD calculator' }
+      : null,
+    liveToolSlugs.has('sip-calculator-india')
+      ? { href: '/tools/sip-calculator-india', label: 'SIP calculator' }
+      : null,
+    liveToolSlugs.has('emergency-fund-calculator-india')
+      ? { href: '/tools/emergency-fund-calculator-india', label: 'emergency fund calculator' }
+      : null,
+    blogSlugs.has('how-much-emergency-fund')
+      ? { href: '/blog/how-much-emergency-fund', label: 'emergency fund guide' }
+      : null,
+  ].filter((item): item is ContextualLink => item !== null);
+
   const taxGuideHref = '/blog/itr-2-ay-2026-27-filing-guide';
   const taxGuideToolSlugs = new Set([
     'income-tax-calculator-old-vs-new-regime-india',
@@ -301,6 +366,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     '80c-deduction-calculator-india',
   ]);
   const showTaxGuideLink = blogSlugs.has('itr-2-ay-2026-27-filing-guide') && taxGuideToolSlugs.has(tool.slug);
+  const showPersonalLoanLinkOnEmiPage =
+    tool.slug === 'emi-calculator-india' && liveToolSlugs.has(PERSONAL_LOAN_SLUG);
 
   const pageUrl = `${SITE_URL}/tools/${tool.slug}`;
 
@@ -396,6 +463,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               <br />
               Reviewed for FY 2026-27 HRA city-rule changes.
             </p>
+          ) : isPersonalLoanPage ? (
+            <p className="mt-4 text-sm text-slate-500">Last updated: May 2026</p>
           ) : tool.lastReviewed ? (
             <p className="mt-4 text-sm text-slate-500">Last reviewed: {tool.lastReviewed}</p>
           ) : null}
@@ -413,6 +482,21 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       <div className="mt-10">
         <Calculator tool={tool} />
       </div>
+
+      {showPersonalLoanLinkOnEmiPage ? (
+        <section className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+          <p className="text-sm leading-7 text-slate-700">
+            Need EMI for a personal loan? Use the{' '}
+            <Link
+              href="/tools/personal-loan-emi-calculator-india"
+              className="font-semibold text-emerald-800 hover:underline"
+            >
+              Personal Loan EMI Calculator India
+            </Link>
+            .
+          </p>
+        </section>
+      ) : null}
 
       {showTaxGuideLink ? (
         <section className="mt-8 rounded-2xl border border-sky-200 bg-sky-50 p-5">
@@ -438,13 +522,21 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             <HraEducationalContent links={contextualLinks} />
           ) : (
             <>
-              <h2 className="text-2xl font-bold">Formula used</h2>
-              <p className="mt-4 leading-8 text-slate-700">{tool.formulaExplanation}</p>
+              {!isPersonalLoanPage ? (
+                <>
+                  <h2 className="text-2xl font-bold">Formula used</h2>
+                  <p className="mt-4 leading-8 text-slate-700">{tool.formulaExplanation}</p>
+                </>
+              ) : null}
 
-              <h2 className="mt-8 text-2xl font-bold">Example calculation</h2>
-              <p className="mt-4 leading-8 text-slate-700">{tool.example}</p>
+              {!isPersonalLoanPage ? (
+                <>
+                  <h2 className="mt-8 text-2xl font-bold">Example calculation</h2>
+                  <p className="mt-4 leading-8 text-slate-700">{tool.example}</p>
+                </>
+              ) : null}
 
-              {tool.howToUse?.length ? (
+              {tool.howToUse?.length && !isPersonalLoanPage ? (
                 <>
                   <h2 className="mt-8 text-2xl font-bold">How to use this calculator</h2>
                   <ol className="mt-4 list-decimal space-y-2 pl-6 leading-7 text-slate-700">
@@ -466,7 +558,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 </>
               ) : null}
 
-              {tool.commonMistakes?.length ? (
+              {tool.commonMistakes?.length && !isPersonalLoanPage ? (
                 <>
                   <h2 className="mt-8 text-2xl font-bold">Common mistakes to avoid</h2>
                   <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
@@ -478,8 +570,12 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               ) : null}
 
               {tool.contentSections?.map((section) => (
-                <section key={section.heading}>
-                  <h2 className="mt-8 text-2xl font-bold">{section.heading}</h2>
+                <section
+                  key={section.heading}
+                  id={isPersonalLoanPage ? PERSONAL_LOAN_SECTION_IDS[section.heading] : undefined}
+                  className="mt-8 scroll-mt-24"
+                >
+                  <h2 className="text-2xl font-bold">{section.heading}</h2>
                   <p className="mt-4 leading-8 text-slate-700">{section.body}</p>
 
                   {section.bullets?.length ? (
@@ -491,6 +587,24 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   ) : null}
                 </section>
               ))}
+
+              {isPersonalLoanPage && personalLoanLinks.length ? (
+                <section className="mt-8">
+                  <h2 className="text-2xl font-bold">Related calculators and guides</h2>
+                  <p className="mt-4 leading-8 text-slate-700">
+                    You can cross-check this estimate using other RupeeKit tools:{' '}
+                    {personalLoanLinks.map((link, index) => (
+                      <span key={link.href}>
+                        {index > 0 ? ', ' : ''}
+                        <Link href={link.href} className="font-medium text-sky-700 hover:underline">
+                          {link.label}
+                        </Link>
+                      </span>
+                    ))}
+                    .
+                  </p>
+                </section>
+              ) : null}
 
               <h2 className="mt-8 text-2xl font-bold">When this tool is useful</h2>
               <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
@@ -524,12 +638,12 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          {isHraPage ? (
+          {isHraPage || isPersonalLoanPage ? (
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
               <h2 className="text-sm font-bold uppercase tracking-wide text-slate-900">On this page</h2>
               <nav className="mt-4">
                 <ul className="space-y-2 text-sm text-slate-700">
-                  {HRA_TOC.map((section) => (
+                  {(isHraPage ? HRA_TOC : PERSONAL_LOAN_TOC).map((section) => (
                     <li key={section.id}>
                       <a href={`#${section.id}`} className="hover:text-sky-700 hover:underline">
                         {section.title}
@@ -571,6 +685,27 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               Income-tax Rules, 2026 notification, Ministry of Finance / CBDT
             </a>
             .
+          </p>
+        </section>
+      ) : null}
+
+      {isPersonalLoanPage ? (
+        <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
+          <h2 className="text-2xl font-bold">Source and methodology</h2>
+          <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+          <p className="mt-4 leading-8 text-slate-700">
+            This calculator uses the standard EMI formula based on loan amount, monthly interest rate and tenure in
+            months. It estimates EMI, total interest, total repayment and processing-fee impact.
+          </p>
+          <p className="mt-4 leading-8 text-slate-700">
+            RupeeKit does not show live bank interest rates or loan offers. Verify final rates, fees, eligibility,
+            prepayment and foreclosure charges on the official lender website.
+          </p>
+          <p className="mt-4 text-sm leading-6 text-slate-700">
+            RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI, Axis Bank or any lender. You can
+            use this calculator for any lender by entering the official loan amount, interest rate and tenure offered
+            by that lender. Always verify latest rates, fees, eligibility, prepayment charges and foreclosure charges
+            on the lender&apos;s official website.
           </p>
         </section>
       ) : null}

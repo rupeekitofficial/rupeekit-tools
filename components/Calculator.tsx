@@ -45,6 +45,9 @@ import {
 import { isAdvancedCalculator } from '@/lib/advanced-calculators';
 import AdvancedCalculatorRenderer from '@/components/calculators/advanced/AdvancedCalculatorRenderer';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
+import DownloadPersonalLoanReportButton from '@/components/personal-loan/DownloadPersonalLoanReportButton';
+import PersonalLoanVisualBreakdown from '@/components/personal-loan/PersonalLoanVisualBreakdown';
+import type { PersonalLoanEmiReportPdfData } from '@/components/personal-loan/PersonalLoanEmiReportPdfDocument';
 
 export default function Calculator({ tool }: { tool: Tool }) {
   if (isAdvancedCalculator(tool.slug)) {
@@ -114,6 +117,176 @@ function StandardCalculator({ tool }: { tool: Tool }) {
   }, [tool.slug]);
 
   const showHraRuleUpdate = tool.slug === 'hra-exemption-calculator-india';
+  const isPersonalLoanPage = tool.slug === 'personal-loan-emi-calculator-india';
+  const resultMap = useMemo(
+    () => new Map(results.map((result) => [result.key, result])),
+    [results]
+  );
+
+  const personalLoanSummary = useMemo(() => {
+    if (!isPersonalLoanPage) return null;
+
+    const principal = Math.max(0, numericValues.principal ?? 0);
+    const annualRate = Math.max(0, numericValues.annualInterestRate ?? 0);
+    const tenureMonths = Math.max(1, Math.round(numericValues.tenureMonths ?? 1));
+    const monthlyIncome = Math.max(0, numericValues.monthlyIncome ?? 0);
+    const existingMonthlyEmi = Math.max(0, numericValues.existingMonthlyEmi ?? 0);
+
+    const monthlyRate = annualRate / 12 / 100;
+    const fallbackEmi =
+      monthlyRate > 0
+        ? principal * monthlyRate * (1 + monthlyRate) ** tenureMonths / ((1 + monthlyRate) ** tenureMonths - 1)
+        : principal / tenureMonths;
+
+    const monthlyEmi = Number.isFinite(resultMap.get('monthlyEmi')?.value)
+      ? resultMap.get('monthlyEmi')!.value
+      : fallbackEmi;
+    const emiToIncomePercent = Number.isFinite(resultMap.get('emiToIncomePercent')?.value)
+      ? resultMap.get('emiToIncomePercent')!.value
+      : (monthlyEmi / Math.max(monthlyIncome, 1)) * 100;
+    const totalEmiBurdenPercent = Number.isFinite(resultMap.get('totalEmiBurdenPercent')?.value)
+      ? resultMap.get('totalEmiBurdenPercent')!.value
+      : ((monthlyEmi + existingMonthlyEmi) / Math.max(monthlyIncome, 1)) * 100;
+
+    return {
+      monthlyEmi,
+      monthlyIncome,
+      existingMonthlyEmi,
+      emiToIncomePercent,
+      totalEmiBurdenPercent,
+      showHighBurdenNote: totalEmiBurdenPercent >= 50,
+    };
+  }, [isPersonalLoanPage, numericValues, resultMap]);
+
+  const personalLoanTenureRows = useMemo(() => {
+    if (!isPersonalLoanPage) return [];
+
+    const principal = Math.max(0, numericValues.principal ?? 0);
+    const annualRate = Math.max(0, numericValues.annualInterestRate ?? 0);
+    const monthlyRate = annualRate / 12 / 100;
+    const tenures = [12, 24, 36, 48, 60];
+
+    return tenures.map((tenure) => {
+      const monthlyEmi =
+        monthlyRate > 0
+          ? principal * monthlyRate * (1 + monthlyRate) ** tenure / ((1 + monthlyRate) ** tenure - 1)
+          : principal / Math.max(tenure, 1);
+      const totalRepayment = monthlyEmi * tenure;
+      const totalInterest = totalRepayment - principal;
+
+      return {
+        tenure,
+        monthlyEmi,
+        totalInterest,
+        totalRepayment,
+      };
+    });
+  }, [isPersonalLoanPage, numericValues.principal, numericValues.annualInterestRate]);
+
+  const personalLoanAmortizationRows = useMemo(() => {
+    if (!isPersonalLoanPage) return [];
+
+    const principal = Math.max(0, numericValues.principal ?? 0);
+    const annualRate = Math.max(0, numericValues.annualInterestRate ?? 0);
+    const tenureMonths = Math.max(1, Math.round(numericValues.tenureMonths ?? 1));
+    const monthlyRate = annualRate / 12 / 100;
+    const monthlyEmi =
+      monthlyRate > 0
+        ? principal * monthlyRate * (1 + monthlyRate) ** tenureMonths / ((1 + monthlyRate) ** tenureMonths - 1)
+        : principal / tenureMonths;
+
+    let balance = principal;
+    const rows: Array<{
+      yearLabel: string;
+      emiPaid: number;
+      principalPaid: number;
+      interestPaid: number;
+      closingBalance: number;
+    }> = [];
+    const yearCount = Math.ceil(tenureMonths / 12);
+
+    for (let year = 1; year <= yearCount; year += 1) {
+      let emiPaid = 0;
+      let principalPaid = 0;
+      let interestPaid = 0;
+      const startMonth = (year - 1) * 12;
+      const endMonth = Math.min(year * 12, tenureMonths);
+
+      for (let month = startMonth; month < endMonth; month += 1) {
+        const interestComponent = monthlyRate > 0 ? balance * monthlyRate : 0;
+        let principalComponent = monthlyEmi - interestComponent;
+        if (principalComponent > balance) principalComponent = balance;
+        const payment = principalComponent + interestComponent;
+
+        balance = Math.max(0, balance - principalComponent);
+        emiPaid += payment;
+        principalPaid += principalComponent;
+        interestPaid += interestComponent;
+      }
+
+      rows.push({
+        yearLabel: `Year ${year}`,
+        emiPaid,
+        principalPaid,
+        interestPaid,
+        closingBalance: balance,
+      });
+    }
+
+    return rows;
+  }, [isPersonalLoanPage, numericValues.principal, numericValues.annualInterestRate, numericValues.tenureMonths]);
+
+  const personalLoanReportData = useMemo<PersonalLoanEmiReportPdfData | null>(() => {
+    if (!isPersonalLoanPage || !personalLoanSummary) return null;
+
+    const principal = Math.max(0, numericValues.principal ?? 0);
+    const annualInterestRate = Math.max(0, numericValues.annualInterestRate ?? 0);
+    const tenureMonths = Math.max(1, Math.round(numericValues.tenureMonths ?? 1));
+    const processingFeePercent = Math.max(0, numericValues.processingFeePercent ?? 0);
+    const monthlyIncome = Math.max(0, numericValues.monthlyIncome ?? 0);
+    const existingMonthlyEmi = Math.max(0, numericValues.existingMonthlyEmi ?? 0);
+
+    const monthlyEmi = personalLoanSummary.monthlyEmi;
+    const totalRepayment = Number.isFinite(resultMap.get('totalPayment')?.value)
+      ? resultMap.get('totalPayment')!.value
+      : monthlyEmi * tenureMonths;
+    const totalInterest = Number.isFinite(resultMap.get('totalInterest')?.value)
+      ? resultMap.get('totalInterest')!.value
+      : Math.max(0, totalRepayment - principal);
+    const estimatedProcessingFee = Number.isFinite(resultMap.get('processingFee')?.value)
+      ? resultMap.get('processingFee')!.value
+      : principal * processingFeePercent / 100;
+    const totalCostWithFee = Number.isFinite(resultMap.get('totalCostWithFee')?.value)
+      ? resultMap.get('totalCostWithFee')!.value
+      : totalRepayment + estimatedProcessingFee;
+
+    return {
+      generatedAt: '',
+      principal,
+      annualInterestRate,
+      tenureMonths,
+      processingFeePercent,
+      monthlyIncome,
+      existingMonthlyEmi,
+      monthlyEmi,
+      totalInterest,
+      totalRepayment,
+      estimatedProcessingFee,
+      totalCostWithFee,
+      emiToIncomePercent: personalLoanSummary.emiToIncomePercent,
+      totalEmiBurdenPercent: personalLoanSummary.totalEmiBurdenPercent,
+      tenureComparison: personalLoanTenureRows,
+      amortization: personalLoanAmortizationRows,
+    };
+  }, [
+    isPersonalLoanPage,
+    personalLoanSummary,
+    numericValues,
+    resultMap,
+    personalLoanTenureRows,
+    personalLoanAmortizationRows,
+  ]);
+
   const hraEstimateSummary = useMemo(() => {
     if (!showHraRuleUpdate) return null;
 
@@ -242,6 +415,33 @@ function StandardCalculator({ tool }: { tool: Tool }) {
                 />
               </div>
             ) : null}
+
+            {personalLoanSummary ? (
+              <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-slate-800">
+                <p className="font-semibold text-emerald-900">Based on your inputs:</p>
+                <ul className="mt-2 list-disc space-y-1 pl-5">
+                  <li>Estimated monthly EMI: {formatValue(personalLoanSummary.monthlyEmi, 'currency')}</li>
+                  <li>Monthly income used: {formatValue(personalLoanSummary.monthlyIncome, 'currency')}</li>
+                  <li>Existing monthly EMI: {formatValue(personalLoanSummary.existingMonthlyEmi, 'currency')}</li>
+                  <li>EMI as % of income: {formatValue(personalLoanSummary.emiToIncomePercent, 'percent')}</li>
+                  <li>Total EMI burden: {formatValue(personalLoanSummary.totalEmiBurdenPercent, 'percent')}</li>
+                </ul>
+              </div>
+            ) : null}
+
+            {personalLoanSummary?.showHighBurdenNote ? (
+              <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-900">
+                Your EMI burden may feel high compared with your monthly income. Consider comparing tenure, loan amount
+                and lender terms before applying.
+              </p>
+            ) : null}
+
+            {isPersonalLoanPage ? (
+              <DownloadPersonalLoanReportButton
+                className="mt-4"
+                data={personalLoanReportData ?? undefined}
+              />
+            ) : null}
           </div>
           <div className="mt-6">
             <p className="rounded-2xl bg-white/70 p-4 text-sm leading-6 text-brandMuted border border-brandBorder">
@@ -253,6 +453,49 @@ function StandardCalculator({ tool }: { tool: Tool }) {
         </div>
       </section>
 
+      {isPersonalLoanPage && personalLoanSummary ? (
+        <PersonalLoanVisualBreakdown
+          principal={Math.max(0, numericValues.principal ?? 0)}
+          totalInterestForSelectedTenure={personalLoanReportData?.totalInterest ?? 0}
+          emiToIncomePercent={personalLoanSummary.emiToIncomePercent}
+          tenureRows={personalLoanTenureRows}
+          reportData={personalLoanReportData ?? undefined}
+        />
+      ) : null}
+
+      {isPersonalLoanPage ? (
+        <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-brandDeepNavy">Tenure Comparison</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            Compare how EMI and total interest may change across common tenure options.
+          </p>
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-100">
+            <table className="min-w-full text-left text-sm text-slate-700">
+              <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+                <tr>
+                  <th className="px-4 py-3">Tenure</th>
+                  <th className="px-4 py-3 text-right">Monthly EMI</th>
+                  <th className="px-4 py-3 text-right">Total interest</th>
+                  <th className="px-4 py-3 text-right">Total repayment</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {personalLoanTenureRows.map((row) => (
+                  <tr key={row.tenure}>
+                    <td className="px-4 py-3 font-semibold text-slate-900">{row.tenure} months</td>
+                    <td className="px-4 py-3 text-right">{formatValue(row.monthlyEmi, 'currency')}</td>
+                    <td className="px-4 py-3 text-right">{formatValue(row.totalInterest, 'currency')}</td>
+                    <td className="px-4 py-3 text-right font-semibold text-brandDeepNavy">
+                      {formatValue(row.totalRepayment, 'currency')}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null}
+
       {/* Visualizations (Chart & What-If Comparison) */}
       {(hasChart || hasComparison) && (
         <div className="grid gap-6 lg:grid-cols-2">
@@ -260,6 +503,41 @@ function StandardCalculator({ tool }: { tool: Tool }) {
           {hasComparison && <CalculatorScenarioComparison tool={tool} values={numericValues} />}
         </div>
       )}
+
+      {isPersonalLoanPage && personalLoanAmortizationRows.length > 0 ? (
+        <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-brandDeepNavy">Yearly Amortization Summary</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            This table shows yearly EMI paid, principal paid, interest paid and closing balance.
+          </p>
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-100">
+            <table className="min-w-full text-left text-sm text-slate-700">
+              <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+                <tr>
+                  <th className="px-4 py-3">Year</th>
+                  <th className="px-4 py-3 text-right">EMI paid</th>
+                  <th className="px-4 py-3 text-right">Principal paid</th>
+                  <th className="px-4 py-3 text-right">Interest paid</th>
+                  <th className="px-4 py-3 text-right">Closing balance</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {personalLoanAmortizationRows.map((row) => (
+                  <tr key={row.yearLabel}>
+                    <td className="px-4 py-3 font-semibold text-slate-900">{row.yearLabel}</td>
+                    <td className="px-4 py-3 text-right">{formatValue(row.emiPaid, 'currency')}</td>
+                    <td className="px-4 py-3 text-right">{formatValue(row.principalPaid, 'currency')}</td>
+                    <td className="px-4 py-3 text-right">{formatValue(row.interestPaid, 'currency')}</td>
+                    <td className="px-4 py-3 text-right font-semibold text-brandDeepNavy">
+                      {formatValue(row.closingBalance, 'currency')}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null}
 
       {/* Amortization/Compounding Schedule */}
       {hasBreakdown && <CalculatorBreakdownTable tool={tool} values={numericValues} />}
