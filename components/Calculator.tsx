@@ -47,7 +47,10 @@ import AdvancedCalculatorRenderer from '@/components/calculators/advanced/Advanc
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
 import DownloadPersonalLoanReportButton from '@/components/personal-loan/DownloadPersonalLoanReportButton';
 import PersonalLoanVisualBreakdown from '@/components/personal-loan/PersonalLoanVisualBreakdown';
+import EmergencyFundVisualBreakdown from '@/components/emergency-fund/EmergencyFundVisualBreakdown';
+import DownloadEmergencyFundPlanButton from '@/components/emergency-fund/DownloadEmergencyFundPlanButton';
 import type { PersonalLoanEmiReportPdfData } from '@/components/personal-loan/PersonalLoanEmiReportPdfDocument';
+import type { EmergencyFundPlanPdfData } from '@/components/emergency-fund/EmergencyFundPlanPdfDocument';
 
 export default function Calculator({ tool }: { tool: Tool }) {
   if (isAdvancedCalculator(tool.slug)) {
@@ -118,6 +121,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
 
   const showHraRuleUpdate = tool.slug === 'hra-exemption-calculator-india';
   const isPersonalLoanPage = tool.slug === 'personal-loan-emi-calculator-india';
+  const isEmergencyFundPage = tool.slug === 'emergency-fund-calculator-india';
   const resultMap = useMemo(
     () => new Map(results.map((result) => [result.key, result])),
     [results]
@@ -287,6 +291,88 @@ function StandardCalculator({ tool }: { tool: Tool }) {
     personalLoanAmortizationRows,
   ]);
 
+  const emergencyFundSummary = useMemo(() => {
+    if (!isEmergencyFundPage) return null;
+
+    const monthlyEssentialExpenses = Math.max(0, numericValues.monthlyEssentialExpenses ?? 0);
+    const monthlyEmiCommitments = Math.max(0, numericValues.monthlyEmiCommitments ?? 0);
+    const currentEmergencySavings = Math.max(0, numericValues.currentEmergencySavings ?? 0);
+    const targetMonths = Math.max(1, Math.round(numericValues.targetMonths ?? 6));
+
+    const monthlySurvivalCost = Number.isFinite(resultMap.get('monthlySurvivalCost')?.value)
+      ? resultMap.get('monthlySurvivalCost')!.value
+      : monthlyEssentialExpenses + monthlyEmiCommitments;
+    const targetEmergencyFund = Number.isFinite(resultMap.get('targetEmergencyFund')?.value)
+      ? resultMap.get('targetEmergencyFund')!.value
+      : (monthlyEssentialExpenses + monthlyEmiCommitments) * targetMonths;
+    const currentShortfall = Number.isFinite(resultMap.get('currentShortfall')?.value)
+      ? resultMap.get('currentShortfall')!.value
+      : Math.max(targetEmergencyFund - currentEmergencySavings, 0);
+    const monthsToReachTarget = Number.isFinite(resultMap.get('monthsToReachTarget')?.value)
+      ? resultMap.get('monthsToReachTarget')!.value
+      : 0;
+    const threeMonthFund = Number.isFinite(resultMap.get('threeMonthFund')?.value)
+      ? resultMap.get('threeMonthFund')!.value
+      : (monthlyEssentialExpenses + monthlyEmiCommitments) * 3;
+    const sixMonthFund = Number.isFinite(resultMap.get('sixMonthFund')?.value)
+      ? resultMap.get('sixMonthFund')!.value
+      : (monthlyEssentialExpenses + monthlyEmiCommitments) * 6;
+    const nineMonthFund = Number.isFinite(resultMap.get('nineMonthFund')?.value)
+      ? resultMap.get('nineMonthFund')!.value
+      : (monthlyEssentialExpenses + monthlyEmiCommitments) * 9;
+    const twelveMonthFund = Number.isFinite(resultMap.get('twelveMonthFund')?.value)
+      ? resultMap.get('twelveMonthFund')!.value
+      : (monthlyEssentialExpenses + monthlyEmiCommitments) * 12;
+    const targetWithBuffer = Number.isFinite(resultMap.get('targetWithBuffer')?.value)
+      ? resultMap.get('targetWithBuffer')!.value
+      : undefined;
+
+    return {
+      monthlyEssentialExpenses,
+      monthlyEmiCommitments,
+      monthlySavingCapacity: Math.max(0, numericValues.monthlySavingCapacity ?? 0),
+      monthlySurvivalCost,
+      targetEmergencyFund,
+      currentEmergencySavings,
+      currentShortfall,
+      monthsToReachTarget,
+      targetMonths,
+      milestones: [
+        { months: 3, amount: threeMonthFund },
+        { months: 6, amount: sixMonthFund },
+        { months: 9, amount: nineMonthFund },
+        { months: 12, amount: twelveMonthFund },
+      ],
+      targetWithBuffer,
+    };
+  }, [isEmergencyFundPage, numericValues, resultMap]);
+
+  const emergencyFundReportData = useMemo<EmergencyFundPlanPdfData | null>(() => {
+    if (!isEmergencyFundPage || !emergencyFundSummary) return null;
+
+    const threeMonthFund = emergencyFundSummary.milestones.find((item) => item.months === 3)?.amount ?? 0;
+    const sixMonthFund = emergencyFundSummary.milestones.find((item) => item.months === 6)?.amount ?? 0;
+    const nineMonthFund = emergencyFundSummary.milestones.find((item) => item.months === 9)?.amount ?? 0;
+    const twelveMonthFund = emergencyFundSummary.milestones.find((item) => item.months === 12)?.amount ?? 0;
+
+    return {
+      generatedAt: '',
+      monthlyEssentialExpenses: emergencyFundSummary.monthlyEssentialExpenses,
+      monthlyEmiCommitments: emergencyFundSummary.monthlyEmiCommitments,
+      monthlySurvivalCost: emergencyFundSummary.monthlySurvivalCost,
+      currentEmergencySavings: emergencyFundSummary.currentEmergencySavings,
+      targetMonths: emergencyFundSummary.targetMonths,
+      targetEmergencyFund: emergencyFundSummary.targetEmergencyFund,
+      currentShortfall: emergencyFundSummary.currentShortfall,
+      monthlySavingCapacity: emergencyFundSummary.monthlySavingCapacity,
+      monthsToReachTarget: emergencyFundSummary.monthsToReachTarget,
+      threeMonthFund,
+      sixMonthFund,
+      nineMonthFund,
+      twelveMonthFund,
+    };
+  }, [isEmergencyFundPage, emergencyFundSummary]);
+
   const hraEstimateSummary = useMemo(() => {
     if (!showHraRuleUpdate) return null;
 
@@ -429,6 +515,31 @@ function StandardCalculator({ tool }: { tool: Tool }) {
               </div>
             ) : null}
 
+            {emergencyFundSummary ? (
+              <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-slate-800">
+                <p>
+                  Based on your expenses and EMIs, your target emergency fund is{' '}
+                  <span className="font-semibold">
+                    {formatValue(emergencyFundSummary.targetEmergencyFund, 'currency')}
+                  </span>{' '}
+                  for{' '}
+                  <span className="font-semibold">{emergencyFundSummary.targetMonths} months</span>. You already have{' '}
+                  <span className="font-semibold">
+                    {formatValue(emergencyFundSummary.currentEmergencySavings, 'currency')}
+                  </span>{' '}
+                  saved, so your current shortfall is{' '}
+                  <span className="font-semibold">
+                    {formatValue(emergencyFundSummary.currentShortfall, 'currency')}
+                  </span>
+                  . At your current monthly saving capacity, it may take around{' '}
+                  <span className="font-semibold">
+                    {formatValue(emergencyFundSummary.monthsToReachTarget, 'number')} months
+                  </span>{' '}
+                  to reach the target.
+                </p>
+              </div>
+            ) : null}
+
             {personalLoanSummary?.showHighBurdenNote ? (
               <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-900">
                 Your EMI burden may feel high compared with your monthly income. Consider comparing tenure, loan amount
@@ -442,11 +553,20 @@ function StandardCalculator({ tool }: { tool: Tool }) {
                 data={personalLoanReportData ?? undefined}
               />
             ) : null}
+
+            {isEmergencyFundPage ? (
+              <DownloadEmergencyFundPlanButton
+                className="mt-4"
+                data={emergencyFundReportData ?? undefined}
+              />
+            ) : null}
           </div>
           <div className="mt-6">
             <p className="rounded-2xl bg-white/70 p-4 text-sm leading-6 text-brandMuted border border-brandBorder">
               {showHraRuleUpdate
                 ? 'This result is an estimate for educational use. RupeeKit does not provide tax, legal or filing advice. Your final exemption may depend on salary structure, employer policy, proof submission and applicable tax rules.'
+                : isEmergencyFundPage
+                  ? 'Educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice. The result is for planning support only.'
                 : 'This calculator gives an educational estimate. Verify final numbers with your payslip, lender, tax advisor or official source.'}
             </p>
           </div>
@@ -460,6 +580,20 @@ function StandardCalculator({ tool }: { tool: Tool }) {
           emiToIncomePercent={personalLoanSummary.emiToIncomePercent}
           tenureRows={personalLoanTenureRows}
           reportData={personalLoanReportData ?? undefined}
+        />
+      ) : null}
+
+      {isEmergencyFundPage && emergencyFundSummary ? (
+        <EmergencyFundVisualBreakdown
+          monthlySurvivalCost={emergencyFundSummary.monthlySurvivalCost}
+          targetEmergencyFund={emergencyFundSummary.targetEmergencyFund}
+          currentEmergencySavings={emergencyFundSummary.currentEmergencySavings}
+          currentShortfall={emergencyFundSummary.currentShortfall}
+          monthsToReachTarget={emergencyFundSummary.monthsToReachTarget}
+          targetMonths={emergencyFundSummary.targetMonths}
+          milestones={emergencyFundSummary.milestones}
+          targetWithBuffer={emergencyFundSummary.targetWithBuffer}
+          reportData={emergencyFundReportData ?? undefined}
         />
       ) : null}
 

@@ -425,6 +425,257 @@
     "lastReviewed": "May 2026"
   },
   {
+    "slug": "emergency-fund-calculator-india",
+    "name": "Emergency Fund Calculator India",
+    "category": "Savings",
+    "status": "live",
+    "targetKeyword": "emergency fund calculator",
+    "shortDescription": "Find out how much emergency fund your household may need in India. Use your essential monthly expenses, EMI burden and income stability to estimate a 3, 6, 9 or 12 month safety corpus and the monthly savings needed to build it.",
+    "metaDescription": "Estimate how much emergency fund you need in India based on expenses, EMIs, dependants and income stability. Plan a 3, 6, 9 or 12 month safety corpus.",
+    "inputs": [
+      {
+        "key": "monthlyEssentialExpenses",
+        "label": "Monthly essential expenses",
+        "unit": "Rs",
+        "default": 30000,
+        "min": 0,
+        "step": 500,
+        "help": "Rent, groceries, utilities, school fees, insurance, transport and basic household costs."
+      },
+      {
+        "key": "monthlyEmiCommitments",
+        "label": "Monthly EMI commitments",
+        "unit": "Rs",
+        "default": 10000,
+        "min": 0,
+        "step": 500,
+        "help": "Home loan, personal loan, car loan, education loan or credit-card EMI obligations."
+      },
+      {
+        "key": "currentEmergencySavings",
+        "label": "Current emergency savings",
+        "unit": "Rs",
+        "default": 50000,
+        "min": 0,
+        "step": 1000,
+        "help": "Money already kept aside for emergencies."
+      },
+      {
+        "key": "targetMonths",
+        "label": "Target emergency fund months",
+        "unit": "months",
+        "default": 6,
+        "min": 3,
+        "max": 12,
+        "step": 3,
+        "help": "Use 3, 6, 9 or 12 depending on income stability and dependants."
+      },
+      {
+        "key": "monthlySavingCapacity",
+        "label": "Monthly saving capacity",
+        "unit": "Rs",
+        "default": 10000,
+        "min": 0,
+        "step": 500,
+        "help": "Amount you can set aside every month for your emergency fund."
+      },
+      {
+        "key": "inflationBufferPercent",
+        "label": "Inflation/top-up buffer %",
+        "unit": "%",
+        "default": 5,
+        "min": 0,
+        "step": 0.5,
+        "help": "Optional extra buffer for rising expenses."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlySurvivalCost",
+        "label": "Monthly survival cost",
+        "formula": "monthlyEssentialExpenses + monthlyEmiCommitments",
+        "format": "currency"
+      },
+      {
+        "key": "targetEmergencyFund",
+        "label": "Target emergency fund",
+        "formula": "(monthlyEssentialExpenses + monthlyEmiCommitments) * targetMonths",
+        "format": "currency"
+      },
+      {
+        "key": "currentShortfall",
+        "label": "Current shortfall",
+        "formula": "max(((monthlyEssentialExpenses + monthlyEmiCommitments) * targetMonths) - currentEmergencySavings, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "monthsToReachTarget",
+        "label": "Months needed to reach target",
+        "formula": "max((((monthlyEssentialExpenses + monthlyEmiCommitments) * targetMonths) - currentEmergencySavings), 0) / max(monthlySavingCapacity, 1)",
+        "format": "number"
+      },
+      {
+        "key": "threeMonthFund",
+        "label": "3-month emergency fund",
+        "formula": "(monthlyEssentialExpenses + monthlyEmiCommitments) * 3",
+        "format": "currency"
+      },
+      {
+        "key": "sixMonthFund",
+        "label": "6-month emergency fund",
+        "formula": "(monthlyEssentialExpenses + monthlyEmiCommitments) * 6",
+        "format": "currency"
+      },
+      {
+        "key": "nineMonthFund",
+        "label": "9-month emergency fund",
+        "formula": "(monthlyEssentialExpenses + monthlyEmiCommitments) * 9",
+        "format": "currency"
+      },
+      {
+        "key": "twelveMonthFund",
+        "label": "12-month emergency fund",
+        "formula": "(monthlyEssentialExpenses + monthlyEmiCommitments) * 12",
+        "format": "currency"
+      },
+      {
+        "key": "targetWithBuffer",
+        "label": "Target with buffer",
+        "formula": "((monthlyEssentialExpenses + monthlyEmiCommitments) * targetMonths) * (1 + inflationBufferPercent / 100)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "This emergency savings calculator estimates your monthly survival cost as essential expenses plus EMI commitments. It then multiplies that number by your selected month target (3, 6, 9 or 12) to calculate the target emergency fund corpus.",
+    "example": "If monthly essential expenses are Rs 30,000 and EMI commitments are Rs 10,000, monthly survival cost becomes Rs 40,000. A 6 month emergency fund target is Rs 2,40,000. If current emergency savings are Rs 50,000, shortfall is Rs 1,90,000. At Rs 10,000 monthly saving capacity, it may take about 19 months to reach the target.",
+    "faqs": [
+      {
+        "question": "How much emergency fund should a salaried person keep in India?",
+        "answer": "Many salaried households may start with 3 to 6 months of monthly survival cost and then increase the buffer based on dependants, EMI burden and income stability."
+      },
+      {
+        "question": "Is 6 months of expenses enough?",
+        "answer": "Six months is often used as a planning baseline, but some households may consider 9 to 12 months when income is less stable or fixed obligations are high."
+      },
+      {
+        "question": "Should I include EMI in emergency fund calculation?",
+        "answer": "Yes, EMI commitments are usually included because they are fixed obligations that continue even during income disruption."
+      },
+      {
+        "question": "Should emergency fund be based on salary or expenses?",
+        "answer": "Emergency corpus is generally expense-led. This calculator uses essential monthly expenses plus EMI commitments as the core planning base."
+      },
+      {
+        "question": "Where should I keep my emergency fund in India?",
+        "answer": "Emergency money is usually kept in options that prioritize liquidity and lower risk, such as a savings account, sweep-in FD, short-term FD or low-risk liquid options based on access needs."
+      },
+      {
+        "question": "Is an emergency fund different from investment savings?",
+        "answer": "Yes. An emergency fund is meant for urgent access during job loss, medical needs, repairs or EMI gaps. Investment savings are usually for long-term goals and may carry market risk or withdrawal limits."
+      },
+      {
+        "question": "Should I invest emergency fund in equity or crypto?",
+        "answer": "Core emergency money is generally kept away from high-volatility assets like equity or crypto, since value can fall sharply when immediate cash is needed."
+      },
+      {
+        "question": "How often should I review my emergency fund?",
+        "answer": "Review at least every 6 to 12 months, and after major changes in job, income, family size, expenses or EMI commitments."
+      },
+      {
+        "question": "Is this emergency fund calculator financial advice?",
+        "answer": "No. This is an educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice."
+      }
+    ],
+    "related": [
+      "personal-loan-emi-calculator-india",
+      "fd-calculator-india",
+      "sip-calculator-india",
+      "recurring-deposit-calculator-india"
+    ],
+    "howToUse": [
+      "Enter your monthly essential expenses.",
+      "Add your monthly EMI commitments.",
+      "Enter current emergency savings already available.",
+      "Select a target such as 3, 6, 9 or 12 months.",
+      "Enter monthly saving capacity to estimate months needed.",
+      "Optionally add an inflation/top-up buffer for planning."
+    ],
+    "assumptions": [
+      "Educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice. The result is for planning support only.",
+      "Expenses and EMIs entered by the user are assumed to be accurate and stable for planning.",
+      "Actual outcomes may vary due to job changes, income disruption, inflation, interest rates and personal spending patterns."
+    ],
+    "contentSections": [
+      {
+        "heading": "What Is an Emergency Fund?",
+        "body": "An emergency fund is cash kept only for sudden financial stress such as job loss, medical treatment, urgent home repair or temporary EMI gap. It is different from long-term investments because this money is meant to be accessible quickly when needed."
+      },
+      {
+        "heading": "How Much Emergency Fund Do You Need in India?",
+        "body": "The target usually depends on your monthly survival cost, EMI obligations, number of dependants and income stability. This emergency fund calculator India helps you estimate a practical target instead of using a one-size-fits-all number.",
+        "bullets": [
+          "Stable salaried income may start at 3 to 6 months.",
+          "Single income or higher dependants may target 6 to 9 months.",
+          "Variable income households may consider 9 to 12 months."
+        ]
+      },
+      {
+        "heading": "Emergency Fund by Life Situation",
+        "body": "A practical emergency fund target may vary by household structure, number of dependants and income certainty. The table below gives planning ranges only."
+      },
+      {
+        "heading": "3-Month vs 6-Month vs 12-Month Emergency Fund",
+        "body": "A 3 month corpus may help with short disruptions, while a 6 month corpus is a common baseline for many households. A 9 to 12 month emergency savings calculator target may be more suitable when income is uncertain or obligations are high."
+      },
+      {
+        "heading": "What Counts as Essential Monthly Expenses?",
+        "body": "Use core monthly costs needed to run your household without lifestyle extras.",
+        "bullets": [
+          "Rent or maintenance",
+          "Groceries and utilities",
+          "Insurance premiums",
+          "Basic transport",
+          "School fees and unavoidable household bills",
+          "Monthly EMI commitments"
+        ]
+      },
+      {
+        "heading": "Where Should You Keep Your Emergency Fund in India?",
+        "body": "Emergency money should be easy to access and should not be exposed to high market risk. Many people keep it across a savings account, sweep-in FD, short-term FD, or low-risk liquid options depending on their comfort and access needs. Avoid keeping core emergency money in equity, crypto, or long-lock-in products."
+      },
+      {
+        "heading": "How to Build an Emergency Fund Step by Step",
+        "body": "Build in phases so the plan remains practical and consistent.",
+        "bullets": [
+          "Set a month target: 3, 6, 9 or 12.",
+          "Calculate monthly survival cost from expenses plus EMI.",
+          "Subtract current emergency savings to find shortfall.",
+          "Automate monthly transfer toward emergency corpus.",
+          "Review and top up whenever major expenses change."
+        ]
+      },
+      {
+        "heading": "Emergency Fund Example Calculation",
+        "body": "Suppose monthly essential expenses are Rs 30,000 and monthly EMI commitments are Rs 10,000. Monthly survival cost is Rs 40,000. A 6 month emergency fund target becomes Rs 2,40,000. If current savings are Rs 50,000, shortfall is Rs 1,90,000. With Rs 10,000 monthly saving capacity, months needed is roughly 19."
+      },
+      {
+        "heading": "Common Mistakes to Avoid",
+        "body": "Use this monthly expense emergency fund estimate with realistic numbers and avoid common planning gaps.",
+        "bullets": [
+          "Using salary instead of essential expense baseline.",
+          "Ignoring EMI obligations in the target corpus.",
+          "Keeping emergency money in hard-to-access or volatile assets.",
+          "Not revisiting the target after lifestyle or job changes.",
+          "Pausing contributions after reaching only a short-term milestone."
+        ]
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator estimates emergency fund needs using monthly essential expenses, EMI commitments, current emergency savings, target months and monthly saving capacity. It is designed for household planning support and does not recommend any specific financial product."
+      }
+    ],
+    "lastReviewed": "May 2026"
+  },
+  {
     "slug": "sip-calculator-india",
     "name": "SIP Calculator India",
     "category": "Investments",

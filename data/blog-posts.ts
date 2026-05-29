@@ -212,7 +212,7 @@ export const blogPosts: BlogPost[] = [
     readTime: '6 min read',
     h1: 'How Much Emergency Fund Do You Need?',
     intro: 'Life is full of unexpected events: a sudden medical emergency, temporary job loss, urgent car repairs, or home maintenance. An emergency fund is a pool of cash set aside strictly for these unplanned events. It acts as a financial shock absorber, protecting you from high-interest debt when crises arise.',
-    relatedCalculators: ['fd-calculator-india', 'sip-calculator-india'],
+    relatedCalculators: ['emergency-fund-calculator-india', 'fd-calculator-india', 'sip-calculator-india'],
     sections: [
       {
         title: 'Why an Emergency Fund is Non-Negotiable',

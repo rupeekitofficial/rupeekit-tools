@@ -16,6 +16,11 @@ const PERSONAL_LOAN_SLUG = 'personal-loan-emi-calculator-india';
 const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India | Monthly EMI & Interest';
 const PERSONAL_LOAN_META_DESCRIPTION =
   'Calculate personal loan EMI, total interest and total repayment in India using loan amount, interest rate and tenure in months. Compare EMI changes before applying.';
+const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
+const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | 3, 6, 9 & 12 Month Corpus';
+const EMERGENCY_FUND_META_DESCRIPTION =
+  'Estimate how much emergency fund you need in India based on expenses, EMIs, dependants and income stability. Plan a 3, 6, 9 or 12 month safety corpus.';
+const EMERGENCY_FUND_H1 = 'Emergency Fund Calculator India';
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));
 const blogSlugs = new Set(blogPosts.map((post) => post.slug));
@@ -67,7 +72,9 @@ type ContextualLink = {
 };
 
 function getToolHeading(slug: string, fallback: string) {
-  return slug === HRA_SLUG ? HRA_H1 : fallback;
+  if (slug === HRA_SLUG) return HRA_H1;
+  if (slug === EMERGENCY_FUND_SLUG) return EMERGENCY_FUND_H1;
+  return fallback;
 }
 
 function getToolDescription(slug: string, fallback: string) {
@@ -94,17 +101,21 @@ export function generateMetadata({
       ? HRA_META_DESCRIPTION
       : tool.slug === PERSONAL_LOAN_SLUG
         ? PERSONAL_LOAN_META_DESCRIPTION
+        : tool.slug === EMERGENCY_FUND_SLUG
+          ? EMERGENCY_FUND_META_DESCRIPTION
         : tool.metaDescription;
   const pageTitle =
     tool.slug === HRA_SLUG
       ? HRA_META_TITLE
       : tool.slug === PERSONAL_LOAN_SLUG
         ? PERSONAL_LOAN_META_TITLE
+        : tool.slug === EMERGENCY_FUND_SLUG
+          ? EMERGENCY_FUND_META_TITLE
         : tool.name;
 
   return {
     title:
-      tool.slug === HRA_SLUG || tool.slug === PERSONAL_LOAN_SLUG
+      tool.slug === HRA_SLUG || tool.slug === PERSONAL_LOAN_SLUG || tool.slug === EMERGENCY_FUND_SLUG
         ? { absolute: pageTitle }
         : tool.name,
     description,
@@ -306,6 +317,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
   const isHraPage = tool.slug === HRA_SLUG;
   const isPersonalLoanPage = tool.slug === PERSONAL_LOAN_SLUG;
+  const isEmergencyFundPage = tool.slug === EMERGENCY_FUND_SLUG;
   const heading = getToolHeading(tool.slug, tool.name);
   const description = getToolDescription(tool.slug, tool.shortDescription);
 
@@ -356,6 +368,24 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       : null,
     blogSlugs.has('how-much-emergency-fund')
       ? { href: '/blog/how-much-emergency-fund', label: 'emergency fund guide' }
+      : null,
+  ].filter((item): item is ContextualLink => item !== null);
+
+  const emergencyFundLinks: ContextualLink[] = [
+    blogSlugs.has('how-much-emergency-fund')
+      ? { href: '/blog/how-much-emergency-fund', label: 'emergency fund guide' }
+      : null,
+    liveToolSlugs.has('personal-loan-emi-calculator-india')
+      ? { href: '/tools/personal-loan-emi-calculator-india', label: 'personal loan EMI calculator' }
+      : null,
+    liveToolSlugs.has('fd-calculator-india')
+      ? { href: '/tools/fd-calculator-india', label: 'FD calculator' }
+      : null,
+    liveToolSlugs.has('sip-calculator-india')
+      ? { href: '/tools/sip-calculator-india', label: 'SIP calculator' }
+      : null,
+    liveToolSlugs.has('recurring-deposit-calculator-india')
+      ? { href: '/tools/recurring-deposit-calculator-india', label: 'recurring deposit calculator' }
       : null,
   ].filter((item): item is ContextualLink => item !== null);
 
@@ -483,6 +513,18 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         <Calculator tool={tool} />
       </div>
 
+      {isEmergencyFundPage ? (
+        <section className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
+          <p className="text-sm leading-7 text-slate-700">
+            An emergency fund is money kept aside only for genuine financial shocks such as job loss, medical
+            expenses, urgent home repair or an EMI gap. In India, the right target is usually not based on salary
+            alone. It should reflect essential monthly expenses, dependants, loan obligations and income stability.
+            Use this emergency fund calculator to estimate a practical 3, 6, 9 or 12 month buffer and see how much
+            you may need to save each month to get there.
+          </p>
+        </section>
+      ) : null}
+
       {showPersonalLoanLinkOnEmiPage ? (
         <section className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
           <p className="text-sm leading-7 text-slate-700">
@@ -522,21 +564,21 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             <HraEducationalContent links={contextualLinks} />
           ) : (
             <>
-              {!isPersonalLoanPage ? (
+              {!isPersonalLoanPage && !isEmergencyFundPage ? (
                 <>
                   <h2 className="text-2xl font-bold">Formula used</h2>
                   <p className="mt-4 leading-8 text-slate-700">{tool.formulaExplanation}</p>
                 </>
               ) : null}
 
-              {!isPersonalLoanPage ? (
+              {!isPersonalLoanPage && !isEmergencyFundPage ? (
                 <>
                   <h2 className="mt-8 text-2xl font-bold">Example calculation</h2>
                   <p className="mt-4 leading-8 text-slate-700">{tool.example}</p>
                 </>
               ) : null}
 
-              {tool.howToUse?.length && !isPersonalLoanPage ? (
+              {tool.howToUse?.length && !isPersonalLoanPage && !isEmergencyFundPage ? (
                 <>
                   <h2 className="mt-8 text-2xl font-bold">How to use this calculator</h2>
                   <ol className="mt-4 list-decimal space-y-2 pl-6 leading-7 text-slate-700">
@@ -558,7 +600,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 </>
               ) : null}
 
-              {tool.commonMistakes?.length && !isPersonalLoanPage ? (
+              {tool.commonMistakes?.length && !isPersonalLoanPage && !isEmergencyFundPage ? (
                 <>
                   <h2 className="mt-8 text-2xl font-bold">Common mistakes to avoid</h2>
                   <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
@@ -576,7 +618,103 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   className="mt-8 scroll-mt-24"
                 >
                   <h2 className="text-2xl font-bold">{section.heading}</h2>
+                  {isEmergencyFundPage && section.heading === 'Source and Methodology' ? (
+                    <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+                  ) : null}
                   <p className="mt-4 leading-8 text-slate-700">{section.body}</p>
+                  {isEmergencyFundPage && section.heading === 'Source and Methodology' ? (
+                    <p className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-3 text-sm leading-6 text-slate-700">
+                      Educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice.
+                      The result is for planning support only.
+                    </p>
+                  ) : null}
+
+                  {isEmergencyFundPage && section.heading === 'Emergency Fund by Life Situation' ? (
+                    <div className="mt-4 overflow-x-auto">
+                      <table className="min-w-full rounded-2xl border border-slate-200 text-left text-sm text-slate-700">
+                        <thead className="bg-slate-50 text-slate-900">
+                          <tr>
+                            <th className="px-4 py-3 font-semibold">Life situation</th>
+                            <th className="px-4 py-3 font-semibold">Emergency fund range</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">Single salaried person, stable job</td>
+                            <td className="px-4 py-3">May consider 3-6 months</td>
+                          </tr>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">Married couple, dual income</td>
+                            <td className="px-4 py-3">May consider 3-6 months</td>
+                          </tr>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">Married couple, single income</td>
+                            <td className="px-4 py-3">May consider 6-9 months</td>
+                          </tr>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">Family with kids and EMI</td>
+                            <td className="px-4 py-3">May consider 6-12 months</td>
+                          </tr>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">Freelancer or business owner</td>
+                            <td className="px-4 py-3">May consider 9-12 months</td>
+                          </tr>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">Unstable income</td>
+                            <td className="px-4 py-3">May consider 9-12 months</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : null}
+
+                  {isEmergencyFundPage && section.heading === 'Where Should You Keep Your Emergency Fund in India?' ? (
+                    <>
+                      <div className="mt-4 overflow-x-auto">
+                        <table className="min-w-full rounded-2xl border border-slate-200 text-left text-sm text-slate-700">
+                          <thead className="bg-slate-50 text-slate-900">
+                            <tr>
+                              <th className="px-4 py-3 font-semibold">Option</th>
+                              <th className="px-4 py-3 font-semibold">Good for</th>
+                              <th className="px-4 py-3 font-semibold">Caution</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-t border-slate-200">
+                              <td className="px-4 py-3">Savings account</td>
+                              <td className="px-4 py-3">Instant access for immediate needs</td>
+                              <td className="px-4 py-3">Returns may be lower than other options</td>
+                            </tr>
+                            <tr className="border-t border-slate-200">
+                              <td className="px-4 py-3">Sweep-in FD</td>
+                              <td className="px-4 py-3">Quick access with linked deposit discipline</td>
+                              <td className="px-4 py-3">Bank terms and break conditions may vary</td>
+                            </tr>
+                            <tr className="border-t border-slate-200">
+                              <td className="px-4 py-3">Short-term FD</td>
+                              <td className="px-4 py-3">Planned parking for part of emergency corpus</td>
+                              <td className="px-4 py-3">Premature withdrawal terms can apply</td>
+                            </tr>
+                            <tr className="border-t border-slate-200">
+                              <td className="px-4 py-3">Liquid fund</td>
+                              <td className="px-4 py-3">Low-risk liquid option for some households</td>
+                              <td className="px-4 py-3">Not risk-free; exit terms and volatility can vary</td>
+                            </tr>
+                            <tr className="border-t border-slate-200">
+                              <td className="px-4 py-3">Small cash at home</td>
+                              <td className="px-4 py-3">Urgent same-day cash-only situations</td>
+                              <td className="px-4 py-3">Keep only a limited amount for safety</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-3 text-sm leading-6 text-amber-900">
+                        Keep at least one part of your emergency fund instantly accessible. Do not keep your core
+                        emergency money in equity, crypto, long lock-in products or anything that may fall sharply
+                        when you need cash.
+                      </p>
+                    </>
+                  ) : null}
 
                   {section.bullets?.length ? (
                     <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
@@ -606,12 +744,34 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 </section>
               ) : null}
 
-              <h2 className="mt-8 text-2xl font-bold">When this tool is useful</h2>
-              <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
-                <li>When you want a fast estimate before making a financial or salary decision.</li>
-                <li>When you want to compare different assumptions in seconds.</li>
-                <li>When you want to understand the formula behind the result.</li>
-              </ul>
+              {isEmergencyFundPage && emergencyFundLinks.length ? (
+                <section className="mt-8">
+                  <h2 className="text-2xl font-bold">Related calculators and guides</h2>
+                  <p className="mt-4 leading-8 text-slate-700">
+                    You can continue planning with these RupeeKit resources:{' '}
+                    {emergencyFundLinks.map((link, index) => (
+                      <span key={link.href}>
+                        {index > 0 ? ', ' : ''}
+                        <Link href={link.href} className="font-medium text-sky-700 hover:underline">
+                          {link.label}
+                        </Link>
+                      </span>
+                    ))}
+                    .
+                  </p>
+                </section>
+              ) : null}
+
+              {!isEmergencyFundPage ? (
+                <>
+                  <h2 className="mt-8 text-2xl font-bold">When this tool is useful</h2>
+                  <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
+                    <li>When you want a fast estimate before making a financial or salary decision.</li>
+                    <li>When you want to compare different assumptions in seconds.</li>
+                    <li>When you want to understand the formula behind the result.</li>
+                  </ul>
+                </>
+              ) : null}
             </>
           )}
         </article>

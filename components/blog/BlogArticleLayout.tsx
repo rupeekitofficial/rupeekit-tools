@@ -25,6 +25,8 @@ interface BlogArticleLayoutProps {
 }
 
 export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
+  const isEmergencyFundGuide = post.slug === 'how-much-emergency-fund';
+
   // Helper to slugify section titles to match Table of Contents links
   const slugify = (text: string) => {
     return text
@@ -78,6 +80,20 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
             <p className="text-base md:text-lg leading-relaxed text-slate-800 font-medium">
               {post.intro}
             </p>
+
+            {isEmergencyFundGuide ? (
+              <p className="mt-4 text-sm md:text-base leading-relaxed text-slate-700">
+                Want to calculate your own safety corpus? Use the{' '}
+                <Link
+                  href="/tools/emergency-fund-calculator-india"
+                  className="font-semibold text-brandNavy hover:underline"
+                >
+                  Emergency Fund Calculator India
+                </Link>{' '}
+                to estimate your 3, 6, 9 or 12 month emergency fund based on monthly expenses, EMI burden and current
+                savings.
+              </p>
+            ) : null}
 
             {post.slug === 'itr-2-ay-2026-27-filing-guide' && (
               <div className="mt-6 rounded-2xl border border-brandBorder bg-brandBgSoft p-4">
@@ -197,14 +213,16 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                 <div>
                   <h4 className="font-bold text-brandDeepNavy">Estimate Your Own Finances</h4>
                   <p className="text-xs text-brandMuted mt-1">
-                    Try our free interactive calculators to plan your savings, loans, and taxes.
+                    {isEmergencyFundGuide
+                      ? 'Use the dedicated emergency fund calculator to estimate your safety corpus target and shortfall.'
+                      : 'Try our free interactive calculators to plan your savings, loans, and taxes.'}
                   </p>
                 </div>
                 <Link
-                  href="/#calculators"
+                  href={isEmergencyFundGuide ? '/tools/emergency-fund-calculator-india' : '/#calculators'}
                   className="rounded-full bg-brandGrowthGreen px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-brandBrightGreen hover:shadow-md transition whitespace-nowrap"
                 >
-                  Go to Calculators
+                  {isEmergencyFundGuide ? 'Go to Calculator' : 'Go to Calculators'}
                 </Link>
               </div>
             </div>
