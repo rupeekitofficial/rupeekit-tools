@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 const TITLE = 'Financial Disclaimer | RupeeKit';
@@ -35,6 +36,10 @@ export default function DisclaimerPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
       <h1 className="text-4xl font-black tracking-tight">Disclaimer</h1>
+      <AnswerEngineSummary
+        className="mt-6"
+        summary="RupeeKit content and calculator outputs are educational estimates intended to improve financial understanding. They are not personalized financial, tax, legal, investment, or loan recommendations."
+      />
       <p className="mt-6 leading-8 text-slate-700">
         Calculators on this website provide approximate results based on user inputs and simplified formulas. Actual outcomes can vary due to tax law, employer policy, lender terms, fees, market returns, documentation and personal circumstances.
       </p>

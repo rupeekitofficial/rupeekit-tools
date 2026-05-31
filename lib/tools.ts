@@ -29,6 +29,21 @@ export type ToolContentSection = {
   bullets?: string[];
 };
 
+export type ToolQuickAnswerLink = {
+  label: string;
+  href: string;
+};
+
+export type ToolQuickAnswer = {
+  title: string;
+  question: string;
+  answer: string;
+  formula?: string;
+  example?: string;
+  note?: string;
+  links?: ToolQuickAnswerLink[];
+};
+
 export type Tool = {
   slug: string;
   name: string;
@@ -49,6 +64,7 @@ export type Tool = {
   assumptions?: string[];
   commonMistakes?: string[];
   contentSections?: ToolContentSection[];
+  quickAnswer?: ToolQuickAnswer;
   lastReviewed?: string;
 };
 

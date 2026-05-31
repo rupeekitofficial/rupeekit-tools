@@ -114,7 +114,10 @@ export default function ResourcesPage() {
 
       {/* Prominent Money Health Check CTA */}
       <section className="rounded-3xl border border-brandBorder bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 p-8 text-white shadow-md relative overflow-hidden">
-        <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none" />
+        <div
+          aria-hidden="true"
+          className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none"
+        />
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="max-w-xl">
             <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-white/20">
@@ -315,6 +318,65 @@ export default function ResourcesPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="space-y-5 rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8">
+        <div className="max-w-2xl">
+          <h2 className="text-2xl font-black text-brandDeepNavy">Recommended Money Planning Resources</h2>
+          <p className="mt-2 text-sm leading-relaxed text-brandMuted">
+            Explore upcoming educational resource collections designed for practical money planning workflows.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          <Link
+            href="/resources/recommended-money-tools"
+            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
+          >
+            <p className="text-sm font-bold text-brandDeepNavy">Budget planners and expense trackers</p>
+            <p className="mt-1 text-xs text-brandMuted">Internal picks and templates coming soon.</p>
+          </Link>
+          <Link
+            href="/resources/recommended-money-tools"
+            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
+          >
+            <p className="text-sm font-bold text-brandDeepNavy">Tax document organizers</p>
+            <p className="mt-1 text-xs text-brandMuted">Checklist-ready formats for filing prep.</p>
+          </Link>
+          <Link
+            href="/resources/recommended-money-tools"
+            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
+          >
+            <p className="text-sm font-bold text-brandDeepNavy">Personal finance books</p>
+            <p className="mt-1 text-xs text-brandMuted">Beginner-friendly reading tracks.</p>
+          </Link>
+          <Link
+            href="/resources/recommended-money-tools"
+            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
+          >
+            <p className="text-sm font-bold text-brandDeepNavy">Emergency fund planning tools</p>
+            <p className="mt-1 text-xs text-brandMuted">Step-by-step planning kits and worksheets.</p>
+          </Link>
+          <Link
+            href="/resources/recommended-money-tools"
+            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
+          >
+            <p className="text-sm font-bold text-brandDeepNavy">Loan comparison worksheets</p>
+            <p className="mt-1 text-xs text-brandMuted">EMI comparison templates by tenure and fee.</p>
+          </Link>
+          <Link
+            href="/resources/recommended-money-tools"
+            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
+          >
+            <p className="text-sm font-bold text-brandDeepNavy">RupeeKit downloadable templates</p>
+            <p className="mt-1 text-xs text-brandMuted">Calculator-friendly planning sheets.</p>
+          </Link>
+        </div>
+
+        <p className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-xs leading-relaxed text-slate-600">
+          Some future resource links may be affiliate links. RupeeKit will disclose affiliate relationships clearly and
+          will only link to relevant educational tools or resources.
+        </p>
       </section>
     </div>
   );

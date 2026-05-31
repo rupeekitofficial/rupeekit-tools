@@ -54,6 +54,7 @@ export default function SiteHeader() {
         >
           {mobileMenuOpen ? (
             <svg
+              aria-hidden="true"
               className="h-6 w-6"
               fill="none"
               stroke="currentColor"
@@ -68,6 +69,7 @@ export default function SiteHeader() {
             </svg>
           ) : (
             <svg
+              aria-hidden="true"
               className="h-6 w-6"
               fill="none"
               stroke="currentColor"

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { BlogVisualRenderer } from './BlogVisuals';
 
 interface BlogCardProps {
@@ -40,10 +41,12 @@ export default function BlogCard({
         <div className="relative">
           {heroImage ? (
             <div className="relative w-full aspect-[1.91/1] overflow-hidden border-b border-brandBorder">
-              <img
+              <Image
                 src={heroImage}
-                alt={heroImageAlt || title}
-                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
+                alt={heroImageAlt || visualAlt || title}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
               />
             </div>
           ) : visualType ? (

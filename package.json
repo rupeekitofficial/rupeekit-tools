@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
+    "validate": "npm run validate:tools",
+    "validate:ai-seo": "node scripts/validate-ai-seo-readiness.mjs",
     "validate:tools": "node scripts/validate-tools.mjs"
   },
   "dependencies": {

@@ -10,6 +10,8 @@ import FAQSection from './FAQSection';
 import FinanceDisclaimer from './FinanceDisclaimer';
 import AffiliateDisclosure from './AffiliateDisclosure';
 import BookRecommendationCard from './BookRecommendationCard';
+import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import { BlogInlineVisual, BlogSharePreviewCard } from './BlogVisuals';
 import { Tax2026Stats, Tax2026CTA, Tax2026CompactCTA, CommonMistakesCards } from './Tax2026Visuals';
 import {
@@ -24,8 +26,27 @@ interface BlogArticleLayoutProps {
   post: BlogPost;
 }
 
+function formatBlogDateLabel(isoDate?: string, fallback?: string) {
+  if (!isoDate) return fallback ?? 'Not specified';
+  const parsed = new Date(isoDate);
+  if (Number.isNaN(parsed.getTime())) return fallback ?? 'Not specified';
+  return parsed.toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'Asia/Kolkata',
+  });
+}
+
 export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
   const isEmergencyFundGuide = post.slug === 'how-much-emergency-fund';
+  const showTaxCrossLinks =
+    post.slug === 'income-tax-calculator-2026-calculator-guide' ||
+    post.slug === 'personal-finance-checklist-for-salaried-people';
+  const lastUpdatedLabel = formatBlogDateLabel(post.modifiedDateISO || post.publishedDateISO, post.date);
+  const answerEngineSummary =
+    post.answerEngineSummary ||
+    `${post.h1} explains the key assumptions, practical steps, and common mistakes so you can plan with clearer estimates. This article is educational information only and should be cross-verified with official rules and records where required.`;
 
   // Helper to slugify section titles to match Table of Contents links
   const slugify = (text: string) => {
@@ -81,18 +102,84 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
               {post.intro}
             </p>
 
-            {isEmergencyFundGuide ? (
-              <p className="mt-4 text-sm md:text-base leading-relaxed text-slate-700">
-                Want to calculate your own safety corpus? Use the{' '}
-                <Link
-                  href="/tools/emergency-fund-calculator-india"
-                  className="font-semibold text-brandNavy hover:underline"
-                >
-                  Emergency Fund Calculator India
-                </Link>{' '}
-                to estimate your 3, 6, 9 or 12 month emergency fund based on monthly expenses, EMI burden and current
-                savings.
+            {post.quickAnswer ? (
+              <div className="mt-6">
+                <QuickAnswerBox
+                  title={post.quickAnswer.title || 'Quick Answer'}
+                  question={post.quickAnswer.question}
+                  answer={post.quickAnswer.answer}
+                  formula={post.quickAnswer.formula}
+                  example={post.quickAnswer.example}
+                  note={post.quickAnswer.note}
+                  links={post.quickAnswer.links}
+                />
+              </div>
+            ) : null}
+
+            <AnswerEngineSummary className="mt-6" summary={answerEngineSummary} />
+
+            <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-700">
+                Last updated: {lastUpdatedLabel}
               </p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-600">
+                Educational information only. Verify applicability with official guidance and qualified professionals where needed.
+              </p>
+            </div>
+
+            {isEmergencyFundGuide ? (
+              <>
+                <p className="mt-4 text-sm md:text-base leading-relaxed text-slate-700">
+                  Want to calculate your own safety corpus? Use the{' '}
+                  <Link
+                    href="/tools/emergency-fund-calculator-india"
+                    className="font-semibold text-brandNavy hover:underline"
+                  >
+                    Emergency Fund Calculator India
+                  </Link>{' '}
+                  to estimate your 3, 6, 9 or 12 month emergency fund based on monthly expenses, EMI burden and
+                  current savings.
+                </p>
+                <div className="mt-4 rounded-2xl border border-brandBorder bg-brandBgSoft p-4">
+                  <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Related Planning Tools</p>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-700">
+                    Continue with{' '}
+                    <Link href="/tools/emergency-fund-calculator-india" className="font-semibold text-brandNavy hover:underline">
+                      Emergency Fund Calculator India
+                    </Link>
+                    ,{' '}
+                    <Link href="/tools/personal-loan-emi-calculator-india" className="font-semibold text-brandNavy hover:underline">
+                      Personal Loan EMI Calculator India
+                    </Link>
+                    ,{' '}
+                    <Link href="/tools/fd-calculator-india" className="font-semibold text-brandNavy hover:underline">
+                      FD Calculator India
+                    </Link>{' '}
+                    and{' '}
+                    <Link href="/tools/sip-calculator-india" className="font-semibold text-brandNavy hover:underline">
+                      SIP Calculator India
+                    </Link>
+                    .
+                  </p>
+                </div>
+              </>
+            ) : null}
+
+            {showTaxCrossLinks ? (
+              <div className="mt-4 rounded-2xl border border-sky-200 bg-sky-50 p-4">
+                <p className="text-xs font-bold uppercase tracking-wide text-sky-800">Tax Planning Links</p>
+                <p className="mt-2 text-xs leading-relaxed text-slate-700">
+                  For HRA-specific estimation, use the{' '}
+                  <Link href="/tools/hra-exemption-calculator-india" className="font-semibold text-sky-800 hover:underline">
+                    HRA Exemption Calculator India
+                  </Link>
+                  . For return-prep steps, read the{' '}
+                  <Link href="/blog/itr-2-ay-2026-27-filing-guide" className="font-semibold text-sky-800 hover:underline">
+                    ITR-2 AY 2026-27 Filing Guide
+                  </Link>
+                  .
+                </p>
+              </div>
             ) : null}
 
             {post.slug === 'itr-2-ay-2026-27-filing-guide' && (

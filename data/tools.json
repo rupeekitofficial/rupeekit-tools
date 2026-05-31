@@ -11,7 +11,7 @@
       {
         "key": "annualCtc",
         "label": "Annual CTC",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 1200000,
         "min": 0,
         "step": 10000,
@@ -39,7 +39,7 @@
       {
         "key": "monthlyTax",
         "label": "Monthly income tax/TDS",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 25000,
         "min": 0,
         "step": 500,
@@ -48,7 +48,7 @@
       {
         "key": "professionalTax",
         "label": "Professional tax",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 200,
         "min": 0,
         "step": 50,
@@ -57,7 +57,7 @@
       {
         "key": "otherDeduction",
         "label": "Other monthly deductions",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "step": 500,
@@ -91,7 +91,7 @@
       }
     ],
     "formulaExplanation": "Monthly in-hand salary is estimated as monthly gross salary minus employee PF, monthly tax/TDS, professional tax and other recurring deductions.",
-    "example": "For a ₹12,00,000 CTC with 40% basic, 12% PF, ₹25,000 monthly tax and ₹200 professional tax, the estimated in-hand salary is shown after subtracting these deductions.",
+    "example": "For a â‚¹12,00,000 CTC with 40% basic, 12% PF, â‚¹25,000 monthly tax and â‚¹200 professional tax, the estimated in-hand salary is shown after subtracting these deductions.",
     "faqs": [
       {
         "question": "Is this salary calculator exact?",
@@ -124,7 +124,7 @@
       {
         "key": "principal",
         "label": "Loan amount",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 1000000,
         "min": 0,
         "step": 10000,
@@ -169,8 +169,8 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "EMI is calculated using the reducing balance loan formula: P × r × (1+r)^n / ((1+r)^n − 1), where P is principal, r is monthly interest rate and n is number of monthly payments.",
-    "example": "For a ₹10,00,000 loan at 9% annual interest for 5 years, the calculator estimates the EMI and total interest over the full tenure.",
+    "formulaExplanation": "EMI is calculated using the reducing balance loan formula: P Ã— r Ã— (1+r)^n / ((1+r)^n âˆ’ 1), where P is principal, r is monthly interest rate and n is number of monthly payments.",
+    "example": "For a â‚¹10,00,000 loan at 9% annual interest for 5 years, the calculator estimates the EMI and total interest over the full tenure.",
     "faqs": [
       {
         "question": "Can this be used for home loan EMI?",
@@ -188,14 +188,14 @@
       "sip-calculator-india"
     ]
   },
-  {
+    {
     "slug": "personal-loan-emi-calculator-india",
     "name": "Personal Loan EMI Calculator India",
     "category": "Loans",
     "status": "live",
     "targetKeyword": "personal loan emi calculator",
-    "shortDescription": "Use this personal loan EMI calculator to estimate your monthly EMI, total interest and total repayment before applying for a loan. Enter the loan amount, annual interest rate and tenure in months to understand how your EMI changes with different loan offers.",
-    "metaDescription": "Calculate personal loan EMI, total interest and repayment in India using loan amount, interest rate and tenure in months. Compare offers before applying.",
+    "shortDescription": "Use this personal loan EMI calculator to estimate monthly EMI, true borrowing cost, total interest, and repayment outcomes before applying.",
+    "metaDescription": "Calculate personal loan EMI in India, compare tenure impact, true cost with fees and GST, prepayment scenarios, and affordability indicators.",
     "inputs": [
       {
         "key": "principal",
@@ -204,7 +204,7 @@
         "default": 500000,
         "min": 1,
         "step": 1000,
-        "help": "Enter the personal loan amount you want to borrow."
+        "help": "Enter the personal loan amount you plan to borrow."
       },
       {
         "key": "annualInterestRate",
@@ -213,7 +213,7 @@
         "default": 12,
         "min": 0.1,
         "step": 0.1,
-        "help": "Enter the annual personal loan interest rate offered by the lender."
+        "help": "Enter the annual personal loan interest rate assumption."
       },
       {
         "key": "tenureMonths",
@@ -222,7 +222,7 @@
         "default": 36,
         "min": 1,
         "step": 1,
-        "help": "Enter total repayment period in months. For example, 3 years = 36 months."
+        "help": "Enter total repayment period in months. Example: 36 months = 3 years."
       },
       {
         "key": "processingFeePercent",
@@ -231,16 +231,62 @@
         "default": 1,
         "min": 0,
         "step": 0.1,
-        "help": "Optional estimate of processing fee as a percentage of loan amount."
+        "help": "Optional processing fee percentage on sanctioned amount."
+      },
+      {
+        "key": "processingFeeFixedAmount",
+        "label": "Processing fee fixed amount",
+        "unit": "Rs",
+        "default": 0,
+        "min": 0,
+        "step": 100,
+        "help": "Optional fixed processing fee amount charged by lender."
+      },
+      {
+        "key": "includeGstOnProcessingFee",
+        "label": "Apply GST on processing fee (1=yes, 0=no)",
+        "unit": "toggle",
+        "default": 1,
+        "min": 0,
+        "max": 1,
+        "step": 1,
+        "help": "Use 1 if GST applies on processing fee, else use 0."
+      },
+      {
+        "key": "processingFeeGstRate",
+        "label": "GST rate on processing fee (%)",
+        "unit": "%",
+        "default": 18,
+        "min": 0,
+        "step": 0.1,
+        "help": "Default GST rate is 18%. Verify latest rate in lender documents."
+      },
+      {
+        "key": "insuranceAddonFee",
+        "label": "Insurance or add-on fee (optional)",
+        "unit": "Rs",
+        "default": 0,
+        "min": 0,
+        "step": 100,
+        "help": "Optional insurance/add-on charge if included in offer."
+      },
+      {
+        "key": "documentationFee",
+        "label": "Documentation fee (optional)",
+        "unit": "Rs",
+        "default": 0,
+        "min": 0,
+        "step": 100,
+        "help": "Optional documentation or convenience charge."
       },
       {
         "key": "monthlyIncome",
-        "label": "Monthly income",
+        "label": "Monthly income (optional)",
         "unit": "Rs",
-        "default": 60000,
+        "default": 0,
         "min": 0,
         "step": 1000,
-        "help": "Optional income value used to estimate EMI affordability."
+        "help": "Optional affordability input processed in-browser only and not saved."
       },
       {
         "key": "existingMonthlyEmi",
@@ -273,14 +319,38 @@
       },
       {
         "key": "processingFee",
-        "label": "Estimated processing fee",
-        "formula": "principal * processingFeePercent / 100",
+        "label": "Processing fee",
+        "formula": "(principal * processingFeePercent / 100) + processingFeeFixedAmount",
+        "format": "currency"
+      },
+      {
+        "key": "gstOnProcessingFee",
+        "label": "GST on processing fee",
+        "formula": "processingFee * (processingFeeGstRate / 100) * includeGstOnProcessingFee",
+        "format": "currency"
+      },
+      {
+        "key": "optionalAddOnCost",
+        "label": "Optional add-on cost",
+        "formula": "insuranceAddonFee + documentationFee",
+        "format": "currency"
+      },
+      {
+        "key": "totalUpfrontCharges",
+        "label": "Total upfront charges",
+        "formula": "processingFee + gstOnProcessingFee + optionalAddOnCost",
         "format": "currency"
       },
       {
         "key": "totalCostWithFee",
-        "label": "Total repayment plus estimated fee",
-        "formula": "(principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1) * tenureMonths) + (principal * processingFeePercent / 100)",
+        "label": "Total cost including fees",
+        "formula": "totalPayment + totalUpfrontCharges",
+        "format": "currency"
+      },
+      {
+        "key": "netDisbursedAmount",
+        "label": "Amount effectively received",
+        "formula": "principal - totalUpfrontCharges",
         "format": "currency"
       },
       {
@@ -296,48 +366,64 @@
         "format": "percent"
       }
     ],
-    "formulaExplanation": "This personal loan EMI calculator uses the standard reducing-balance EMI formula. EMI is calculated from loan amount (P), monthly interest rate (r) and total tenure in months (n): EMI = P x r x (1 + r)^n / ((1 + r)^n - 1). It also estimates processing fee and total cost including that fee for easy loan offer comparison.",
-    "example": "Example: If you borrow Rs 5,00,000 at 12% annual interest for 36 months, the estimated EMI is about Rs 16,607 per month. Estimated total repayment is about Rs 5,97,858 and total interest is about Rs 97,858. If processing fee is 1%, estimated fee is Rs 5,000 and total cost becomes about Rs 6,02,858.",
+    "formulaExplanation": "This personal loan EMI calculator uses the standard reducing-balance EMI formula. EMI is calculated from loan amount (P), monthly interest rate (r), and tenure in months (n): EMI = P x r x (1 + r)^n / ((1 + r)^n - 1). It also estimates true loan cost by combining processing fee, applicable GST on fee, and optional add-on charges entered by you.",
+    "example": "For a Rs 5,00,000 loan at 12% annual interest for 36 months, estimated EMI is about Rs 16,607 per month. Total repayment is about Rs 5,97,858, and longer tenure can materially increase total interest even if EMI appears lower.",
+    "quickAnswer": {
+      "title": "Personal Loan EMI Quick Answer",
+      "question": "How is personal loan EMI calculated?",
+      "answer": "Personal loan EMI is calculated using the loan amount, monthly interest rate, and loan tenure in months. A lower EMI is not always cheaper because a longer tenure can increase total interest and total repayment.",
+      "formula": "EMI = P x r x (1 + r)^n / ((1 + r)^n - 1)",
+      "example": "For a Rs 5,00,000 loan at 12% annual interest for 36 months, the estimated EMI is around Rs 16,607 per month, depending on rounding and lender terms.",
+      "note": "RupeeKit is not a lender, does not provide loan approval, and does not show live bank interest rates."
+    },
     "faqs": [
       {
         "question": "How is personal loan EMI calculated?",
-        "answer": "Personal loan EMI is calculated using loan amount, monthly interest rate and tenure in months. This tool applies the standard EMI formula used in reducing-balance loans."
+        "answer": "Personal loan EMI is calculated using loan amount, monthly interest rate, and tenure in months with the standard reducing-balance EMI formula."
       },
       {
-        "question": "What is the formula for personal loan EMI?",
-        "answer": "EMI = P x r x (1 + r)^n / ((1 + r)^n - 1), where P is loan amount, r is monthly interest rate, and n is tenure in months."
-      },
-      {
-        "question": "Can I use this as an SBI personal loan EMI calculator?",
-        "answer": "Yes. RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI, Axis Bank or any lender. You can use this calculator for any lender by entering the official loan amount, interest rate and tenure offered by that lender. Always verify latest rates, fees, eligibility, prepayment charges and foreclosure charges on the lender's official website."
-      },
-      {
-        "question": "Can I use this for HDFC, BOB or IDFC personal loan EMI?",
-        "answer": "Yes. RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI, Axis Bank or any lender. You can use this calculator for any lender by entering the official loan amount, interest rate and tenure offered by that lender. Always verify latest rates, fees, eligibility, prepayment charges and foreclosure charges on the lender's official website."
-      },
-      {
-        "question": "What is personal loan EMI in months?",
-        "answer": "It means the repayment tenure is measured in months, such as 12, 24, 36, 48 or 60 months. This helps compare offers precisely."
-      },
-      {
-        "question": "Does this calculator show live bank interest rates?",
-        "answer": "No. It does not fetch live rates. Enter the latest official interest rate and fee details from the lender before making decisions."
-      },
-      {
-        "question": "Does processing fee affect EMI?",
-        "answer": "Processing fee usually does not change EMI in this estimate, but it increases your overall borrowing cost. This calculator shows the estimated fee separately."
-      },
-      {
-        "question": "Is lower EMI always better?",
-        "answer": "Not always. Lower EMI from longer tenure may increase total interest paid over the full loan period."
+        "question": "Is lower EMI always cheaper?",
+        "answer": "Not always. Lower EMI often comes from longer tenure, which can increase total interest and total repayment."
       },
       {
         "question": "What happens if I increase loan tenure?",
-        "answer": "EMI may reduce, but total interest may increase because you repay for more months."
+        "answer": "Monthly EMI may reduce, but overall interest outgo can increase because repayment extends across more months."
+      },
+      {
+        "question": "Does processing fee affect total loan cost?",
+        "answer": "Yes. Processing fee can increase true borrowing cost even if EMI itself remains unchanged."
+      },
+      {
+        "question": "Is GST applicable on personal loan processing fee?",
+        "answer": "GST may apply on processing fee depending on lender and product terms. Verify current treatment in your sanction documents."
+      },
+      {
+        "question": "Can prepayment reduce personal loan interest?",
+        "answer": "Prepayment can reduce interest in many cases, but actual savings depend on timing, lender policy, and any applicable charges."
+      },
+      {
+        "question": "What happens if I miss an EMI?",
+        "answer": "Missed EMI can increase total cost through additional interest, late charges, and possible repayment delay based on lender rules."
+      },
+      {
+        "question": "How much EMI is safe on monthly salary?",
+        "answer": "This page provides an affordability indicator using EMI-to-income ratio. It is not loan eligibility or approval guidance."
+      },
+      {
+        "question": "Does RupeeKit show live bank interest rates?",
+        "answer": "No. RupeeKit does not fetch live lender rates. Enter official lender assumptions for rate, fees, and tenure."
       },
       {
         "question": "Is RupeeKit a lender?",
-        "answer": "No. RupeeKit is not a lender and does not provide loan approval, disbursal, or official bank rates."
+        "answer": "No. RupeeKit is an educational calculator platform and does not provide lending, approval, or disbursal services."
+      },
+      {
+        "question": "Can I use this for SBI, HDFC, ICICI, Axis, IDFC, BOB or other lenders?",
+        "answer": "Yes. You can use this calculator for any lender by entering official offer assumptions from that lender. RupeeKit is not affiliated with specific lenders."
+      },
+      {
+        "question": "Does this calculator guarantee loan approval?",
+        "answer": "No. It provides educational estimates only and cannot guarantee eligibility, approval, or final lender terms."
       }
     ],
     "related": [
@@ -347,79 +433,75 @@
       "sip-calculator-india"
     ],
     "howToUse": [
-      "Enter loan amount.",
-      "Enter annual interest rate.",
-      "Enter tenure in months.",
-      "Add processing fee percentage if known.",
-      "Compare monthly EMI, total interest, and total repayment before applying."
+      "Enter loan amount, annual interest rate, and tenure in months.",
+      "Add processing fee percentage and fixed fee if applicable.",
+      "Set GST and optional add-on charges for true cost view.",
+      "Use monthly income only if you want affordability indicator output.",
+      "Review EMI, total interest, total cost including fees, and repayment scenarios before deciding."
     ],
     "assumptions": [
-      "This calculator is for educational estimation only. RupeeKit is not a lender and does not provide loan approval, financial advice or official bank rates. RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI Bank, Axis Bank or any lender.",
-      "EMI estimate assumes regular monthly repayment on reducing-balance structure.",
-      "Interest rate and fee details entered by the user are assumed to be accurate and up to date from the lender.",
-      "Final approved EMI and charges may differ due to eligibility, credit policy, taxes, and lender terms."
+      "This calculator is for educational estimation only. RupeeKit is not a lender and does not provide loan approval or personalized advice.",
+      "EMI estimates assume reducing-balance structure and regular repayment unless scenario simulations are applied.",
+      "Interest rate, fee, GST, and add-on values are user assumptions and should be verified with official lender documents.",
+      "Optional monthly income is processed in-browser only and is not saved by default."
     ],
     "commonMistakes": [
-      "Checking only EMI and not total interest payable.",
-      "Ignoring processing fee and overall cost.",
-      "Using annual rate as if it were a monthly rate.",
-      "Choosing longer tenure only to reduce EMI without checking total interest.",
-      "Borrowing more than needed.",
-      "Not comparing offers across lenders.",
-      "Not checking prepayment or foreclosure charges."
+      "Comparing only EMI and ignoring total interest.",
+      "Ignoring processing fee, GST on fees, and add-on charges.",
+      "Using annual rate as if it were monthly rate.",
+      "Choosing long tenure only to lower EMI without checking total repayment.",
+      "Skipping prepayment and missed-EMI rule checks in lender agreement."
     ],
     "contentSections": [
       {
         "heading": "What Is a Personal Loan EMI?",
-        "body": "A personal loan EMI is the fixed amount you pay each month to repay your loan. It includes both principal and interest. This personal loan calculator India page helps you estimate that monthly outflow before you apply."
+        "body": "A personal loan EMI is the fixed monthly repayment amount covering principal and interest under the selected tenure."
       },
       {
-        "heading": "Personal Loan EMI Formula",
-        "body": "EMI = P x r x (1 + r)^n / ((1 + r)^n - 1). Here, P = loan amount, r = monthly interest rate, and n = tenure in months. This is the same base formula used by most personal loan interest calculator tools."
+        "heading": "How is personal loan EMI calculated?",
+        "body": "EMI = P x r x (1 + r)^n / ((1 + r)^n - 1), where P is loan amount, r is monthly rate, and n is tenure in months."
       },
       {
         "heading": "How to Use This Personal Loan EMI Calculator",
-        "body": "Enter loan amount, annual interest rate and tenure in months. Add processing fee if known. Then compare EMI and total interest across offers before choosing a lender.",
+        "body": "Enter principal, annual interest rate, tenure months, and fee assumptions. Then compare EMI, interest, and true-cost outputs.",
         "bullets": [
-          "Enter loan amount.",
-          "Enter annual interest rate.",
-          "Enter tenure in months.",
-          "Add processing fee if known.",
-          "Compare EMI and total interest."
+          "Enter loan amount and annual rate.",
+          "Set tenure in months.",
+          "Add processing fee and optional charges.",
+          "Review affordability and scenario sections."
         ]
       },
       {
-        "heading": "Personal Loan EMI Example",
-        "body": "For Rs 5,00,000 at 12% annual interest for 36 months, EMI is roughly Rs 16,607 per month in this estimate. Total repayment is about Rs 5,97,858 and total interest is about Rs 97,858. Actual lender schedule may vary slightly due to rounding and fee structure."
+        "heading": "EMI Calculation Example",
+        "body": "For Rs 5,00,000 at 12% annual rate for 36 months, EMI is around Rs 16,607 in this estimate. Final schedules may vary by lender rounding rules."
       },
       {
-        "heading": "Why Tenure in Months Matters",
-        "body": "Many borrowers search for an emi calculator in months because personal loan offers are usually presented as 12, 24, 36, 48 or 60 months. Month-based input gives a cleaner comparison between lenders and helps track true repayment duration."
+        "heading": "How does processing fee affect total loan cost?",
+        "body": "Processing fee, GST on fee, insurance add-ons, and documentation charges can increase true borrowing cost even if EMI remains unchanged."
       },
       {
-        "heading": "Processing Fee and Total Cost",
-        "body": "EMI usually covers only principal and interest. Processing fee can increase your out-of-pocket cost even if EMI stays the same. Use the total repayment plus estimated fee output for clearer loan offer comparison."
+        "heading": "Is lower EMI always cheaper?",
+        "body": "Not always. Lower EMI from longer tenure may increase total interest. Compare EMI with total repayment before selecting tenure."
       },
       {
-        "heading": "Interest Rate vs Total Interest",
-        "body": "A lower EMI can look attractive, but if it comes from a longer tenure, the total interest may be higher. Compare both monthly EMI and full-loan interest before finalizing your choice."
+        "heading": "How much EMI is safe for monthly income?",
+        "body": "This page provides an affordability indicator based on EMI-to-income ratio. It is a budgeting signal only, not approval guidance."
       },
       {
-        "heading": "Can I Use This for SBI, HDFC, BOB or IDFC Personal Loans?",
-        "body": "RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI, Axis Bank or any lender. You can use this calculator for any lender by entering the official loan amount, interest rate and tenure offered by that lender. Always verify latest rates, fees, eligibility, prepayment charges and foreclosure charges on the lender's official website."
+        "heading": "Can prepayment reduce total interest?",
+        "body": "Prepayment can reduce interest in many scenarios. Actual impact depends on amount, timing, and lender rules on charges."
       },
       {
-        "heading": "Common Mistakes Before Taking a Personal Loan",
-        "body": "Borrowers often focus only on EMI and miss total cost details. Check fees, tenure impact, and repayment terms before applying.",
-        "bullets": [
-          "Checking only EMI, not total interest",
-          "Ignoring processing fee",
-          "Using annual rate as monthly rate",
-          "Choosing longer tenure only for lower EMI",
-          "Borrowing more than needed",
-          "Not comparing offers",
-          "Not checking prepayment or foreclosure charges"
-        ]
+        "heading": "What happens if you miss or pause EMI?",
+        "body": "Missing or pausing EMI can increase repayment delay and total cost due to interest accrual, penalties, and restructuring terms set by lender policy."
+      },
+      {
+        "heading": "Does RupeeKit show live personal loan interest rates?",
+        "body": "No. RupeeKit does not fetch live lender rates or offers. Enter official assumptions manually and verify with lender documents."
+      },
+      {
+        "heading": "Is RupeeKit a lender?",
+        "body": "No. RupeeKit is an educational calculator platform and does not provide lending, approval, or disbursal."
       }
     ],
     "lastReviewed": "May 2026"
@@ -547,6 +629,14 @@
     ],
     "formulaExplanation": "This emergency savings calculator estimates your monthly survival cost as essential expenses plus EMI commitments. It then multiplies that number by your selected month target (3, 6, 9 or 12) to calculate the target emergency fund corpus.",
     "example": "If monthly essential expenses are Rs 30,000 and EMI commitments are Rs 10,000, monthly survival cost becomes Rs 40,000. A 6 month emergency fund target is Rs 2,40,000. If current emergency savings are Rs 50,000, shortfall is Rs 1,90,000. At Rs 10,000 monthly saving capacity, it may take about 19 months to reach the target.",
+    "quickAnswer": {
+      "title": "Emergency Fund Quick Answer",
+      "question": "How much emergency fund should I have in India?",
+      "answer": "In India, many households may consider keeping 3 to 6 months of essential monthly expenses as an emergency fund. Families with EMIs, dependants, single income, business income, or unstable income may consider 6 to 12 months. The target should be based on expenses and EMI commitments, not salary alone.",
+      "formula": "Emergency fund = (Monthly essential expenses + Monthly EMI commitments) x Target months",
+      "example": "If essential expenses are Rs 30,000 and EMIs are Rs 10,000, a 6-month emergency fund target is Rs 2,40,000.",
+      "note": "Educational estimate only. RupeeKit does not provide financial, investment, legal, or tax advice."
+    },
     "faqs": [
       {
         "question": "How much emergency fund should a salaried person keep in India?",
@@ -610,7 +700,7 @@
         "body": "An emergency fund is cash kept only for sudden financial stress such as job loss, medical treatment, urgent home repair or temporary EMI gap. It is different from long-term investments because this money is meant to be accessible quickly when needed."
       },
       {
-        "heading": "How Much Emergency Fund Do You Need in India?",
+        "heading": "How much emergency fund is enough in India?",
         "body": "The target usually depends on your monthly survival cost, EMI obligations, number of dependants and income stability. This emergency fund calculator India helps you estimate a practical target instead of using a one-size-fits-all number.",
         "bullets": [
           "Stable salaried income may start at 3 to 6 months.",
@@ -639,7 +729,7 @@
         ]
       },
       {
-        "heading": "Where Should You Keep Your Emergency Fund in India?",
+        "heading": "Where should you keep emergency fund in India?",
         "body": "Emergency money should be easy to access and should not be exposed to high market risk. Many people keep it across a savings account, sweep-in FD, short-term FD, or low-risk liquid options depending on their comfort and access needs. Avoid keeping core emergency money in equity, crypto, or long-lock-in products."
       },
       {
@@ -681,13 +771,13 @@
     "category": "Investments",
     "status": "live",
     "targetKeyword": "sip calculator india",
-    "shortDescription": "Estimate future value of monthly SIP investments using expected annual return and investment duration.",
-    "metaDescription": "Free SIP calculator for India. Estimate future value, invested amount and potential gains from monthly SIP investments.",
+    "shortDescription": "Plan SIP goals with regular SIP, step-up SIP, goal SIP, delay cost, milestones and inflation-adjusted estimates.",
+    "metaDescription": "Free SIP calculator India with regular, step-up, goal SIP, delay cost, milestones and inflation-adjusted estimates.",
     "inputs": [
       {
         "key": "monthlyInvestment",
         "label": "Monthly SIP amount",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 10000,
         "min": 0,
         "step": 500,
@@ -733,22 +823,115 @@
       }
     ],
     "formulaExplanation": "The calculator uses a monthly compounded future value estimate for SIP investments. Actual returns are market-linked and not guaranteed.",
-    "example": "A ₹10,000 monthly SIP for 10 years at 12% expected annual return gives an estimated future corpus based on monthly compounding assumptions.",
+    "example": "A â‚¹10,000 monthly SIP for 10 years at 12% expected annual return gives an estimated future corpus based on monthly compounding assumptions.",
     "faqs": [
       {
-        "question": "Are SIP returns guaranteed?",
-        "answer": "No. SIP returns depend on market performance and the selected mutual fund or investment product."
+        "question": "What happens if I miss a SIP?",
+        "answer": "Missing SIP contributions can reduce the projected corpus because fewer installments get time to compound. Use the SIP consistency simulator to estimate possible impact and catch-up scenarios."
       },
       {
-        "question": "Should I use pre-tax or post-tax returns?",
-        "answer": "For realistic planning, consider post-tax and post-expense expectations, especially for long-term goals."
+        "question": "Can I pause and restart SIP?",
+        "answer": "Yes. This planner lets you model a pause period and restart assumption to compare the estimated corpus with and without pause."
+      },
+      {
+        "question": "Should I increase SIP after salary hike?",
+        "answer": "Many investors review SIP after income growth. The salary-hike planner helps estimate how gradual SIP increases may affect long-term corpus projections."
+      },
+      {
+        "question": "How does inflation affect SIP goal planning?",
+        "answer": "Inflation can reduce future purchasing power. The inflation reality check shows a present-value equivalent so you can assess what your projected corpus may represent in today's terms."
+      },
+      {
+        "question": "Is step-up SIP better than regular SIP?",
+        "answer": "It depends on affordability and consistency. Step-up SIP may increase projected corpus if yearly increments are sustained, but it requires higher future contributions."
+      },
+      {
+        "question": "Can I redirect EMI amount into SIP after loan closure?",
+        "answer": "You can model this scenario in the EMI-to-SIP redirect planner. Use it as an educational estimate and review emergency needs and debt terms before action."
+      },
+      {
+        "question": "Is SIP return guaranteed?",
+        "answer": "No. SIP returns are market-linked and not guaranteed. This calculator provides educational projections based on assumptions entered by the user."
+      },
+      {
+        "question": "Does this calculator recommend mutual funds?",
+        "answer": "No. RupeeKit does not recommend mutual funds or investment products. It is an educational planning calculator only."
+      },
+      {
+        "question": "How is SIP future value calculated?",
+        "answer": "The estimate uses monthly SIP contribution, annual return assumption converted to monthly rate, and duration. It follows a monthly compounding-style projection model."
       }
     ],
     "related": [
       "fd-calculator-india",
       "salary-in-hand-calculator-india",
-      "emi-calculator-india"
-    ]
+      "emi-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "SIP Calculator Quick Answer",
+      "question": "How does a SIP calculator estimate future value?",
+      "answer": "A SIP calculator estimates how monthly investments may grow over time using the SIP amount, expected annual return, and investment duration. The result is only an educational projection because mutual fund returns are market-linked and not guaranteed.",
+      "formula": "Future Value of SIP = monthly SIP x [((1 + monthly return) ^ number of months - 1) / monthly return] x (1 + monthly return)",
+      "example": "If you invest Rs 10,000 per month for 10 years at an assumed 12% annual return, the calculator estimates the future value based on monthly compounding assumptions.",
+      "note": "Educational estimate only. Actual mutual fund returns may vary due to market movement, expense ratio, exit load, taxes, and fund performance."
+    },
+    "howToUse": [
+      "Choose SIP mode: Regular SIP, Step-Up SIP, Goal SIP, or Compare.",
+      "Enter monthly SIP, return assumption, and duration or goal inputs.",
+      "Review estimated invested amount, future value, and gains.",
+      "Check delay cost, milestone timeline, and breakpoint levels.",
+      "Use inflation-adjusted view and annual review checklist before decisions."
+    ],
+    "assumptions": [
+      "This calculator is for educational estimation only and does not provide investment advice.",
+      "Expected annual return is user-entered and treated as an assumption, not a guarantee.",
+      "Step-up SIP assumes monthly contribution increases once every year by the selected percentage.",
+      "Goal SIP output is sensitive to target amount, timeline, return assumption, and current savings.",
+      "Inflation-adjusted value is a rough purchasing-power estimate based on your inflation input."
+    ],
+    "commonMistakes": [
+      "Treating projected returns as guaranteed returns.",
+      "Ignoring inflation impact for long-term SIP goals.",
+      "Not reviewing SIP amount after income growth or goal changes.",
+      "Comparing only final corpus without checking invested amount and risk fit.",
+      "Assuming tax, expense ratio, and exit load effects are already included in projections."
+    ],
+    "contentSections": [
+      {
+        "heading": "How does a SIP calculator work?",
+        "body": "A SIP calculator estimates how regular monthly investments may compound over time using user-entered SIP amount, return assumption, and duration. It helps you compare invested amount, projected corpus, and estimated gains under the same assumptions."
+      },
+      {
+        "heading": "How much SIP is needed for a target amount?",
+        "body": "Goal SIP mode helps estimate the monthly contribution required for a target corpus by your chosen timeline. You can also compare estimates with 5% and 10% annual step-up assumptions."
+      },
+      {
+        "heading": "What is step-up SIP?",
+        "body": "Step-up SIP is a planning approach where your monthly SIP amount increases once every year by a selected percentage. This can raise projected corpus compared with a flat SIP amount, but results still depend on market outcomes."
+      },
+      {
+        "heading": "What happens if you delay SIP by one year?",
+        "body": "Delaying SIP by one year usually lowers projected corpus because one year of compounding and one year of contributions are missed. The delay-cost section shows this as an educational estimate."
+      },
+      {
+        "heading": "Is SIP return guaranteed?",
+        "body": "No. Mutual fund outcomes are market-linked and can vary across time periods. This calculator does not guarantee returns."
+      },
+      {
+        "heading": "How often should you review your SIP?",
+        "body": "A practical approach is to review at least annually and after meaningful life changes such as income shifts, new goals, or increased obligations."
+      },
+      {
+        "heading": "Does this calculator include taxes and expense ratio?",
+        "body": "No. The projections do not include personal tax impact, fund-level expense ratio changes, exit load, or product-specific constraints. Use the results as planning estimates."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This SIP calculator estimates future value using user-entered monthly SIP amount, expected annual return, investment duration, and optional annual step-up assumptions. It uses monthly compounding-style projection for educational planning. It does not recommend any mutual fund, does not fetch live fund returns, and does not guarantee outcomes."
+      }
+    ],
+    "lastReviewed": "May 2026"
   },
   {
     "slug": "gst-calculator-india",
@@ -762,7 +945,7 @@
       {
         "key": "taxableAmount",
         "label": "Taxable amount",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 10000,
         "min": 0,
         "step": 100,
@@ -805,7 +988,7 @@
       }
     ],
     "formulaExplanation": "GST amount is taxable amount multiplied by GST rate. For intra-state examples, CGST and SGST are generally split equally.",
-    "example": "For ₹10,000 taxable value and 18% GST, GST is ₹1,800 and final value is ₹11,800.",
+    "example": "For â‚¹10,000 taxable value and 18% GST, GST is â‚¹1,800 and final value is â‚¹11,800.",
     "faqs": [
       {
         "question": "Does this calculator handle IGST?",
@@ -834,7 +1017,7 @@
       {
         "key": "principal",
         "label": "Deposit amount",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 100000,
         "min": 0,
         "step": 1000,
@@ -882,23 +1065,55 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "FD maturity is estimated using compound interest: P × (1 + r/n)^(n×t), where P is principal, r is annual rate, n is compounding frequency and t is tenure.",
-    "example": "For a ₹1,00,000 FD at 7% for 3 years with quarterly compounding, the calculator estimates maturity value and interest earned.",
+    "formulaExplanation": "FD maturity is estimated using compound interest: P Ã— (1 + r/n)^(nÃ—t), where P is principal, r is annual rate, n is compounding frequency and t is tenure.",
+    "example": "For a â‚¹1,00,000 FD at 7% for 3 years with quarterly compounding, the calculator estimates maturity value and interest earned.",
     "faqs": [
       {
-        "question": "Is TDS included?",
-        "answer": "No. This calculator estimates pre-tax maturity. Actual post-tax returns depend on TDS and your income tax slab."
+        "question": "Is TDS included in FD calculator results?",
+        "answer": "No. The calculator shows pre-tax estimates unless tax-specific adjustments are explicitly included in your scenario assumptions."
       },
       {
-        "question": "Why does compounding frequency matter?",
-        "answer": "More frequent compounding can slightly increase maturity value for the same annual rate."
+        "question": "Why does compounding frequency matter in FD estimates?",
+        "answer": "More frequent compounding can increase estimated maturity value for the same annual rate and tenure."
+      },
+      {
+        "question": "Does this calculator fetch live bank FD rates?",
+        "answer": "No. Enter the rate manually based on your chosen bank or source for an educational estimate."
+      },
+      {
+        "question": "Can I compare simple and compound interest in FD planning?",
+        "answer": "Yes. Compare scenarios by changing assumptions to understand how compounding influences total maturity."
+      },
+      {
+        "question": "Does premature withdrawal affect FD returns?",
+        "answer": "Yes. Early closure may reduce effective return due to penalty or lower applicable rate, depending on institution policy."
+      },
+      {
+        "question": "Can inflation reduce real FD value over time?",
+        "answer": "Yes. Even when nominal maturity rises, purchasing power can be lower if inflation remains elevated over the tenure."
+      },
+      {
+        "question": "How should I treat tax on FD interest while planning?",
+        "answer": "Interest taxation can change net outcomes, so use post-tax assumptions where relevant and verify with applicable tax rules."
+      },
+      {
+        "question": "Is FD return guaranteed in all scenarios?",
+        "answer": "The calculator output is an estimate based on entered assumptions; actual terms and outcomes depend on institution and policy conditions."
       }
     ],
     "related": [
       "sip-calculator-india",
       "salary-in-hand-calculator-india",
       "emi-calculator-india"
-    ]
+    ],
+    "lastReviewed": "May 2026",
+    "quickAnswer": {
+      "title": "FD Quick Answer",
+      "question": "How does an FD calculator estimate maturity amount?",
+      "answer": "It estimates maturity using deposit amount, interest rate, tenure, and compounding frequency assumptions. The output is an educational projection and not a live bank quote.",
+      "formula": "Maturity amount = Principal x (1 + annual rate / compounding frequency) ^ (compounding frequency x years)",
+      "note": "Educational estimate only. RupeeKit does not provide deposit recommendations or guaranteed return outcomes."
+    }
   },
   {
     "slug": "income-tax-calculator-old-vs-new-regime-india",
@@ -911,8 +1126,8 @@
     "inputs": [
       {
         "key": "grossAnnualIncome",
-        "label": "Gross Annual Income (₹)",
-        "unit": "₹",
+        "label": "Gross Annual Income (â‚¹)",
+        "unit": "â‚¹",
         "default": 750000,
         "min": 0,
         "max": 100000000,
@@ -921,8 +1136,8 @@
       },
       {
         "key": "hraReceived",
-        "label": "HRA Received (₹)",
-        "unit": "₹",
+        "label": "HRA Received (â‚¹)",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "max": 5000000,
@@ -931,8 +1146,8 @@
       },
       {
         "key": "rentPaidAnnually",
-        "label": "Rent Paid Annually (₹)",
-        "unit": "₹",
+        "label": "Rent Paid Annually (â‚¹)",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "max": 5000000,
@@ -941,28 +1156,28 @@
       },
       {
         "key": "homeLoanInterest24b",
-        "label": "Home Loan Interest (Section 24b) (₹)",
-        "unit": "₹",
+        "label": "Home Loan Interest (Section 24b) (â‚¹)",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "max": 200000,
         "step": 1,
-        "help": "Interest paid on housing loan for self-occupied or let-out property (max ₹2,00,000 for self-occupied)."
+        "help": "Interest paid on housing loan for self-occupied or let-out property (max â‚¹2,00,000 for self-occupied)."
       },
       {
         "key": "deductions80C",
-        "label": "Deductions under Section 80C (₹)",
-        "unit": "₹",
+        "label": "Deductions under Section 80C (â‚¹)",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "max": 150000,
         "step": 1,
-        "help": "Investments like PPF, EPF, ELSS, life insurance premiums, etc. (max ₹1,50,000)."
+        "help": "Investments like PPF, EPF, ELSS, life insurance premiums, etc. (max â‚¹1,50,000)."
       },
       {
         "key": "deductions80D",
-        "label": "Deductions under Section 80D (₹)",
-        "unit": "₹",
+        "label": "Deductions under Section 80D (â‚¹)",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "max": 100000,
@@ -971,23 +1186,23 @@
       },
       {
         "key": "otherEligibleDeductionsOldRegime",
-        "label": "Other Eligible Deductions (Old Regime Only) (₹)",
-        "unit": "₹",
+        "label": "Other Eligible Deductions (Old Regime Only) (â‚¹)",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "max": 500000,
         "step": 1,
-        "help": "Includes deductions like 80CCD(1B) for NPS (up to ₹50,000), 80G, etc. Applicable only for Old Regime."
+        "help": "Includes deductions like 80CCD(1B) for NPS (up to â‚¹50,000), 80G, etc. Applicable only for Old Regime."
       },
       {
         "key": "professionalTaxPaid",
-        "label": "Professional Tax Paid (₹)",
-        "unit": "₹",
+        "label": "Professional Tax Paid (â‚¹)",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "max": 2500,
         "step": 1,
-        "help": "Professional tax paid (max ₹2,500 per annum). Applicable only for Old Regime."
+        "help": "Professional tax paid (max â‚¹2,500 per annum). Applicable only for Old Regime."
       },
       {
         "key": "cityRatePercent",
@@ -1001,53 +1216,53 @@
       },
       {
         "key": "standardDeduction",
-        "label": "Standard Deduction (₹)",
-        "unit": "₹",
+        "label": "Standard Deduction (â‚¹)",
+        "unit": "â‚¹",
         "default": 50000,
         "min": 0,
         "max": 50000,
         "step": 1,
-        "help": "Standard deduction applicable for salaried individuals (₹50,000 for FY 2023-24)."
+        "help": "Standard deduction applicable for salaried individuals (â‚¹50,000 for FY 2023-24)."
       }
     ],
     "outputs": [
       {
         "key": "taxableIncomeOldRegime",
-        "label": "Taxable Income (Old Regime) (₹)",
+        "label": "Taxable Income (Old Regime) (â‚¹)",
         "formula": "grossAnnualIncome - min(standardDeduction, 50000) - min(hraReceived, max(0, rentPaidAnnually - (0.1 * grossAnnualIncome)), (cityRatePercent / 100) * grossAnnualIncome) - min(professionalTaxPaid, 2500) - min(deductions80C, 150000) - deductions80D - min(homeLoanInterest24b, 200000) - otherEligibleDeductionsOldRegime",
         "format": "currency"
       },
       {
         "key": "taxPayableOldRegime",
-        "label": "Illustrative Tax (Old Regime) (₹)",
+        "label": "Illustrative Tax (Old Regime) (â‚¹)",
         "formula": "max(0, taxableIncomeOldRegime * 0.1)",
         "format": "currency"
       },
       {
         "key": "taxableIncomeNewRegime",
-        "label": "Taxable Income (New Regime) (₹)",
+        "label": "Taxable Income (New Regime) (â‚¹)",
         "formula": "grossAnnualIncome - min(standardDeduction, 50000)",
         "format": "currency"
       },
       {
         "key": "taxPayableNewRegime",
-        "label": "Illustrative Tax (New Regime) (₹)",
+        "label": "Illustrative Tax (New Regime) (â‚¹)",
         "formula": "max(0, taxableIncomeNewRegime * 0.07)",
         "format": "currency"
       },
       {
         "key": "taxSavingsNewVsOld",
-        "label": "Illustrative Tax Savings (New vs Old) (₹)",
+        "label": "Illustrative Tax Savings (New vs Old) (â‚¹)",
         "formula": "taxPayableOldRegime - taxPayableNewRegime",
         "format": "currency"
       }
     ],
-    "formulaExplanation": "This calculator helps you compare your estimated tax liability under the Old and New Tax Regimes for FY 2023-24. For the Old Regime, it deducts the standard deduction (an input, capped at ₹50,000), HRA exemption (calculated as the minimum of actual HRA received, rent paid minus 10% of gross income, or 40/50% of gross income based on your 'City Type' input), professional tax, and other specified deductions like 80C, 80D, 24b, and other eligible deductions from your gross annual income to arrive at the taxable income. For the New Regime, it applies the standard deduction (₹50,000 for FY 2023-24) to your gross income. Please note that the 'Illustrative Tax Payable' for both regimes uses a simplified linear tax rate (10% for Old, 7% for New) for comparison purposes only, as actual tax is calculated based on progressive slab rates and Section 87A rebate, which are handled by the frontend component. The calculator then shows the potential illustrative tax savings or loss when opting for the New Regime over the Old.",
-    "example": "Consider Ms. Priya, a salaried individual with an annual gross income of ₹15,00,000. She receives ₹2,00,000 as HRA, pays ₹1,80,000 in annual rent, has ₹1,50,000 in 80C deductions, ₹25,000 in 80D deductions, and pays ₹1,00,000 as home loan interest (Section 24b). She lives in a metro city (HRA factor 50%). The calculator will first determine her HRA exemption, then calculate her taxable income under both regimes by applying relevant deductions and the standard deduction. Finally, it will show her illustrative tax payable for each regime and the potential savings by choosing the optimal one.",
+    "formulaExplanation": "This calculator helps you compare your estimated tax liability under the Old and New Tax Regimes for FY 2023-24. For the Old Regime, it deducts the standard deduction (an input, capped at â‚¹50,000), HRA exemption (calculated as the minimum of actual HRA received, rent paid minus 10% of gross income, or 40/50% of gross income based on your 'City Type' input), professional tax, and other specified deductions like 80C, 80D, 24b, and other eligible deductions from your gross annual income to arrive at the taxable income. For the New Regime, it applies the standard deduction (â‚¹50,000 for FY 2023-24) to your gross income. Please note that the 'Illustrative Tax Payable' for both regimes uses a simplified linear tax rate (10% for Old, 7% for New) for comparison purposes only, as actual tax is calculated based on progressive slab rates and Section 87A rebate, which are handled by the frontend component. The calculator then shows the potential illustrative tax savings or loss when opting for the New Regime over the Old.",
+    "example": "Consider Ms. Priya, a salaried individual with an annual gross income of â‚¹15,00,000. She receives â‚¹2,00,000 as HRA, pays â‚¹1,80,000 in annual rent, has â‚¹1,50,000 in 80C deductions, â‚¹25,000 in 80D deductions, and pays â‚¹1,00,000 as home loan interest (Section 24b). She lives in a metro city (HRA factor 50%). The calculator will first determine her HRA exemption, then calculate her taxable income under both regimes by applying relevant deductions and the standard deduction. Finally, it will show her illustrative tax payable for each regime and the potential savings by choosing the optimal one.",
     "faqs": [
       {
         "question": "What are the main differences between the old and new income tax regimes in India?",
-        "answer": "The old regime allows taxpayers to claim various deductions and exemptions (like HRA, LTA, 80C, 80D, etc.) to reduce their taxable income, but has higher tax slab rates. The new regime offers lower tax slab rates but significantly fewer deductions and exemptions, aiming for simplicity. From FY 2023-24, a standard deduction of ₹50,000 is available in both regimes."
+        "answer": "The old regime allows taxpayers to claim various deductions and exemptions (like HRA, LTA, 80C, 80D, etc.) to reduce their taxable income, but has higher tax slab rates. The new regime offers lower tax slab rates but significantly fewer deductions and exemptions, aiming for simplicity. From FY 2023-24, a standard deduction of â‚¹50,000 is available in both regimes."
       },
       {
         "question": "Which tax regime is better for me if I have many deductions?",
@@ -1059,7 +1274,7 @@
       },
       {
         "question": "What deductions are still allowed in the new tax regime?",
-        "answer": "From FY 2023-24, the new tax regime allows a standard deduction of ₹50,000 for salaried individuals and pensioners. Beyond this, very few other deductions are permitted, primarily employer's contribution to NPS (Section 80CCD(2)) and Agniveer Corpus Fund."
+        "answer": "From FY 2023-24, the new tax regime allows a standard deduction of â‚¹50,000 for salaried individuals and pensioners. Beyond this, very few other deductions are permitted, primarily employer's contribution to NPS (Section 80CCD(2)) and Agniveer Corpus Fund."
       },
       {
         "question": "How does HRA exemption impact my tax liability under the old vs new regime?",
@@ -1089,7 +1304,7 @@
       {
         "key": "basicSalary",
         "label": "Basic Salary",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 50000,
         "min": 0,
         "step": 1000,
@@ -1098,7 +1313,7 @@
       {
         "key": "dearnessAllowance",
         "label": "Dearness Allowance",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1107,7 +1322,7 @@
       {
         "key": "commission",
         "label": "Commission",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1116,7 +1331,7 @@
       {
         "key": "hraReceived",
         "label": "HRA Received",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 20000,
         "min": 0,
         "step": 1000,
@@ -1125,7 +1340,7 @@
       {
         "key": "rentPaid",
         "label": "Rent Paid",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 25000,
         "min": 0,
         "step": 1000,
@@ -1169,7 +1384,15 @@
       }
     ],
     "formulaExplanation": "Rule 279 HRA exemption is calculated as the lowest of: (1) actual HRA received, (2) rent paid minus 10% of salary, and (3) a salary cap based on city group. For FY 2026-27, Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad and Bengaluru use 50% of salary for specified cities. Other Indian cities use 40% of salary for other cities. For this HRA calculation formula, salary generally means basic salary plus dearness allowance (if part of retirement benefits) plus eligible fixed commission. This HRA exemption calculator is for old tax regime HRA exemption estimates and educational planning only.",
-    "example": "Example A (50% city): Bengaluru. Annual basic salary + DA: ₹6,00,000. Annual HRA received: ₹2,40,000. Annual rent paid: ₹3,00,000. Actual HRA received = ₹2,40,000. 50% of salary for specified cities = ₹3,00,000. Rent paid minus 10% of salary = ₹2,40,000. Exempt HRA = ₹2,40,000. Example B (40% city): Indore. Annual basic salary + DA: ₹6,00,000. Annual HRA received: ₹2,40,000. Annual rent paid: ₹3,00,000. Actual HRA received = ₹2,40,000. 40% of salary for other cities = ₹2,40,000. Rent paid minus 10% of salary = ₹2,40,000. Exempt HRA = ₹2,40,000.",
+    "example": "Example A (50% city): Bengaluru. Annual basic salary + DA: â‚¹6,00,000. Annual HRA received: â‚¹2,40,000. Annual rent paid: â‚¹3,00,000. Actual HRA received = â‚¹2,40,000. 50% of salary for specified cities = â‚¹3,00,000. Rent paid minus 10% of salary = â‚¹2,40,000. Exempt HRA = â‚¹2,40,000. Example B (40% city): Indore. Annual basic salary + DA: â‚¹6,00,000. Annual HRA received: â‚¹2,40,000. Annual rent paid: â‚¹3,00,000. Actual HRA received = â‚¹2,40,000. 40% of salary for other cities = â‚¹2,40,000. Rent paid minus 10% of salary = â‚¹2,40,000. Exempt HRA = â‚¹2,40,000.",
+    "quickAnswer": {
+      "title": "HRA Exemption Quick Answer",
+      "question": "How is HRA exemption calculated in India?",
+      "answer": "HRA exemption under the old tax regime is generally calculated as the lowest of three values: actual HRA received, rent paid minus 10% of salary, or 50% of salary for specified cities and 40% of salary for other cities. HRA benefit is generally not available under the new tax regime.",
+      "formula": "HRA exemption = minimum of actual HRA, rent paid - 10% of salary, and 50% or 40% of salary based on city category",
+      "example": "If salary is Rs 6,00,000, HRA received is Rs 2,40,000, and annual rent is Rs 3,00,000 in Bengaluru, compare actual HRA, rent minus 10% salary, and 50% salary cap.",
+      "note": "Educational estimate only. Verify HRA rules, documents, and employer payroll treatment with official sources, employer, or CA."
+    },
     "faqs": [
       {
         "question": "Is HRA exemption available in the new tax regime?",
@@ -1201,7 +1424,7 @@
       },
       {
         "question": "Do I need my landlord's PAN to claim HRA?",
-        "answer": "If annual rent crosses the applicable threshold (commonly ₹1,00,000), employers usually ask for landlord PAN details. Keep PAN and rent records ready."
+        "answer": "If annual rent crosses the applicable threshold (commonly â‚¹1,00,000), employers usually ask for landlord PAN details. Keep PAN and rent records ready."
       },
       {
         "question": "Is this HRA calculator a tax filing tool?",
@@ -1282,7 +1505,7 @@
       {
         "key": "epfContribution",
         "label": "Employee Provident Fund (EPF) Contribution",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1291,7 +1514,7 @@
       {
         "key": "ppfContribution",
         "label": "Public Provident Fund (PPF) Contribution",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1300,7 +1523,7 @@
       {
         "key": "elssInvestment",
         "label": "Equity Linked Savings Scheme (ELSS) Investment",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1309,7 +1532,7 @@
       {
         "key": "lifeInsurancePremium",
         "label": "Life Insurance Premium Paid",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1318,7 +1541,7 @@
       {
         "key": "homeLoanPrincipal",
         "label": "Home Loan Principal Repayment",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1327,7 +1550,7 @@
       {
         "key": "tuitionFees",
         "label": "Children's School Tuition Fees",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1348,12 +1571,12 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The RupeeKit 80C Deduction Calculator is designed to help you estimate your potential tax-saving investments and expenses under Section 80C of the Income Tax Act, 1961. It functions by summing up your contributions to various eligible instruments, such as Employee Provident Fund (EPF), Public Provident Fund (PPF), Equity Linked Savings Schemes (ELSS), life insurance premiums, principal repayment of home loans, and children's tuition fees. After aggregating these amounts, the calculator applies the statutory maximum deduction limit. As per current tax regulations, the total eligible deduction under Section 80C is capped at ₹1,50,000 for a financial year. This means that even if your combined investments and expenses exceed this threshold, the maximum amount you can claim as a deduction will be ₹1,50,000. This tool provides an educational estimate to help you quickly understand how much of your savings can be considered for tax benefits under this crucial section, aiding in effective tax planning. The results are estimates and should not be considered final tax advice.",
-    "example": "Consider Rohan, a salaried professional in India, who is planning his tax-saving strategies for the current financial year. He wants to understand his potential Section 80C deductions. Rohan has contributed ₹65,000 to his EPF, invested ₹40,000 in ELSS funds, paid ₹30,000 as life insurance premiums, and repaid ₹50,000 towards the principal of his home loan. Additionally, he paid ₹20,000 for his child's school tuition fees. To quickly estimate his total eligible deduction, Rohan uses the RupeeKit 80C Deduction Calculator. He enters each of these amounts into the respective fields. The calculator then sums his total investments and shows him the eligible deduction, capped at ₹1,50,000. This helps Rohan understand his tax-saving position instantly and plan further, recognizing that the results are educational estimates.",
+    "formulaExplanation": "The RupeeKit 80C Deduction Calculator is designed to help you estimate your potential tax-saving investments and expenses under Section 80C of the Income Tax Act, 1961. It functions by summing up your contributions to various eligible instruments, such as Employee Provident Fund (EPF), Public Provident Fund (PPF), Equity Linked Savings Schemes (ELSS), life insurance premiums, principal repayment of home loans, and children's tuition fees. After aggregating these amounts, the calculator applies the statutory maximum deduction limit. As per current tax regulations, the total eligible deduction under Section 80C is capped at â‚¹1,50,000 for a financial year. This means that even if your combined investments and expenses exceed this threshold, the maximum amount you can claim as a deduction will be â‚¹1,50,000. This tool provides an educational estimate to help you quickly understand how much of your savings can be considered for tax benefits under this crucial section, aiding in effective tax planning. The results are estimates and should not be considered final tax advice.",
+    "example": "Consider Rohan, a salaried professional in India, who is planning his tax-saving strategies for the current financial year. He wants to understand his potential Section 80C deductions. Rohan has contributed â‚¹65,000 to his EPF, invested â‚¹40,000 in ELSS funds, paid â‚¹30,000 as life insurance premiums, and repaid â‚¹50,000 towards the principal of his home loan. Additionally, he paid â‚¹20,000 for his child's school tuition fees. To quickly estimate his total eligible deduction, Rohan uses the RupeeKit 80C Deduction Calculator. He enters each of these amounts into the respective fields. The calculator then sums his total investments and shows him the eligible deduction, capped at â‚¹1,50,000. This helps Rohan understand his tax-saving position instantly and plan further, recognizing that the results are educational estimates.",
     "faqs": [
       {
         "question": "What is the maximum deduction allowed under Section 80C?",
-        "answer": "The maximum deduction allowed under Section 80C of the Income Tax Act, 1961, is ₹1,50,000 for a financial year. This limit applies to the combined total of all eligible investments and expenses."
+        "answer": "The maximum deduction allowed under Section 80C of the Income Tax Act, 1961, is â‚¹1,50,000 for a financial year. This limit applies to the combined total of all eligible investments and expenses."
       },
       {
         "question": "Which investments are eligible for 80C deduction?",
@@ -1361,7 +1584,7 @@
       },
       {
         "question": "Is EPF contribution covered under Section 80C?",
-        "answer": "Yes, contributions made by an employee to the Employee Provident Fund (EPF) are eligible for deduction under Section 80C, subject to the overall limit of ₹1,50,000."
+        "answer": "Yes, contributions made by an employee to the Employee Provident Fund (EPF) are eligible for deduction under Section 80C, subject to the overall limit of â‚¹1,50,000."
       },
       {
         "question": "Can I claim 80C deduction for my child's tuition fees?",
@@ -1396,12 +1619,12 @@
     "assumptions": [
       "The calculator assumes all entered amounts are for the current financial year.",
       "It assumes that all life insurance premiums meet the criteria for 80C eligibility (e.g., premium not exceeding 10% or 20% of sum assured).",
-      "The calculator applies the current maximum deduction limit of ₹1,50,000 under Section 80C.",
+      "The calculator applies the current maximum deduction limit of â‚¹1,50,000 under Section 80C.",
       "It assumes that tuition fees entered are for full-time education in India for up to two children and exclude non-eligible charges.",
       "The results are educational estimates and do not account for other specific tax situations or changes in tax laws."
     ],
     "commonMistakes": [
-      "Exceeding the ₹1,50,000 limit: Many users sum up all their investments without realizing the statutory cap, leading to overestimation of deductions.",
+      "Exceeding the â‚¹1,50,000 limit: Many users sum up all their investments without realizing the statutory cap, leading to overestimation of deductions.",
       "Confusing home loan principal with interest: Only the principal repayment of a home loan is eligible under 80C; interest is deductible under Section 24(b).",
       "Including non-eligible tuition fees: Development fees, donations, or fees for more than two children are not eligible for 80C deduction.",
       "Not checking life insurance premium eligibility: Premiums exceeding a certain percentage of the sum assured are not fully deductible.",
@@ -1411,9 +1634,9 @@
     "contentSections": [
       {
         "heading": "Understanding Section 80C of the Income Tax Act",
-        "body": "Section 80C is a cornerstone of tax planning for individual taxpayers and Hindu Undivided Families (HUFs) in India. It allows deductions from your gross total income for various investments and expenses, thereby reducing your taxable income. The primary objective of this section is to encourage savings and investments among citizens. The maximum deduction allowed under Section 80C is ₹1,50,000 in a financial year. This limit is a combined cap for all eligible instruments, meaning that even if your total investments exceed this amount, your deduction will be restricted to ₹1.5 lakh. Understanding the eligible avenues under 80C is crucial for effective tax management.",
+        "body": "Section 80C is a cornerstone of tax planning for individual taxpayers and Hindu Undivided Families (HUFs) in India. It allows deductions from your gross total income for various investments and expenses, thereby reducing your taxable income. The primary objective of this section is to encourage savings and investments among citizens. The maximum deduction allowed under Section 80C is â‚¹1,50,000 in a financial year. This limit is a combined cap for all eligible instruments, meaning that even if your total investments exceed this amount, your deduction will be restricted to â‚¹1.5 lakh. Understanding the eligible avenues under 80C is crucial for effective tax management.",
         "bullets": [
-          "Maximum deduction limit is ₹1,50,000.",
+          "Maximum deduction limit is â‚¹1,50,000.",
           "Applies to individuals and HUFs.",
           "Encourages long-term savings and investments."
         ]
@@ -1431,7 +1654,7 @@
       },
       {
         "heading": "Maximizing Your 80C Deductions with RupeeKit",
-        "body": "The RupeeKit 80C Deduction Calculator serves as a practical tool to help you quickly assess your potential tax savings. By inputting your contributions and expenses into the respective fields, you can get an instant estimate of your total eligible deduction, capped at the statutory limit. This helps in identifying any shortfalls or excesses in your tax planning. For instance, if your current eligible investments are below ₹1,50,000, the calculator can prompt you to consider additional investments to fully utilize the available deduction. Conversely, if your investments significantly exceed the limit, it helps you understand that further investments in 80C instruments might not yield additional tax benefits for the current year. Remember, this tool provides educational estimates, and for final tax decisions, consulting a financial advisor is recommended.",
+        "body": "The RupeeKit 80C Deduction Calculator serves as a practical tool to help you quickly assess your potential tax savings. By inputting your contributions and expenses into the respective fields, you can get an instant estimate of your total eligible deduction, capped at the statutory limit. This helps in identifying any shortfalls or excesses in your tax planning. For instance, if your current eligible investments are below â‚¹1,50,000, the calculator can prompt you to consider additional investments to fully utilize the available deduction. Conversely, if your investments significantly exceed the limit, it helps you understand that further investments in 80C instruments might not yield additional tax benefits for the current year. Remember, this tool provides educational estimates, and for final tax decisions, consulting a financial advisor is recommended.",
         "bullets": [
           "Quickly estimate total eligible 80C deductions.",
           "Identify shortfalls or excesses in tax planning.",
@@ -1454,7 +1677,7 @@
       {
         "key": "lastDrawnBasicPlusDA",
         "label": "Last Drawn Basic Salary + Dearness Allowance (per month)",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 50000,
         "min": 10000,
         "max": 500000,
@@ -1511,13 +1734,13 @@
       },
       {
         "key": "finalGratuityPayable",
-        "label": "Final Gratuity Payable (Max ₹20 Lakh)",
+        "label": "Final Gratuity Payable (Max â‚¹20 Lakh)",
         "formula": "min(estimatedGratuityAmount, 2000000)",
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The gratuity calculation in India is primarily governed by the Payment of Gratuity Act, 1972, for covered employers, and common practices for those not covered. If your employer falls under the Act, the gratuity is typically calculated using the formula: (Last Drawn Basic Salary + Dearness Allowance / 26) * 15 * Effective Years of Service. Here, 'Effective Years of Service' is rounded up if the service period includes six months or more (e.g., 5 years 7 months counts as 6 years). For employers not covered by the Act, the common practice is to use the formula: (Last Drawn Basic Salary + Dearness Allowance / 30) * 15 * Completed Years of Service, where 'Effective Years of Service' is usually truncated to completed years. This calculator uses your input for 'isCoveredUnderGratuityAct' (1 for Yes, 0 for No) to apply the appropriate calculation method. It also considers the maximum gratuity limit of ₹20 Lakh as stipulated by the Act, ensuring your estimated payout does not exceed this cap. The results provided are estimates for informational purposes.",
-    "example": "Consider Mr. Sharma, an employee with 7 years and 8 months of service. His last drawn Basic Salary plus Dearness Allowance is ₹50,000 per month. Assuming his employer is covered under the Gratuity Act, 1972, his service period of 7 years and 8 months would be rounded up to 8 effective years for gratuity calculation. To use the calculator, Mr. Sharma would input: Last Drawn Basic + DA = ₹50,000, select '1' for 'Is your employer covered under the Gratuity Act, 1972?', and enter '8' for 'Effective Years for Gratuity (if covered under Act)'. The RupeeKit calculator would then provide an estimated gratuity amount based on these inputs, subject to the maximum limit of ₹20 Lakh. This example illustrates how to derive an estimated figure.",
+    "formulaExplanation": "The gratuity calculation in India is primarily governed by the Payment of Gratuity Act, 1972, for covered employers, and common practices for those not covered. If your employer falls under the Act, the gratuity is typically calculated using the formula: (Last Drawn Basic Salary + Dearness Allowance / 26) * 15 * Effective Years of Service. Here, 'Effective Years of Service' is rounded up if the service period includes six months or more (e.g., 5 years 7 months counts as 6 years). For employers not covered by the Act, the common practice is to use the formula: (Last Drawn Basic Salary + Dearness Allowance / 30) * 15 * Completed Years of Service, where 'Effective Years of Service' is usually truncated to completed years. This calculator uses your input for 'isCoveredUnderGratuityAct' (1 for Yes, 0 for No) to apply the appropriate calculation method. It also considers the maximum gratuity limit of â‚¹20 Lakh as stipulated by the Act, ensuring your estimated payout does not exceed this cap. The results provided are estimates for informational purposes.",
+    "example": "Consider Mr. Sharma, an employee with 7 years and 8 months of service. His last drawn Basic Salary plus Dearness Allowance is â‚¹50,000 per month. Assuming his employer is covered under the Gratuity Act, 1972, his service period of 7 years and 8 months would be rounded up to 8 effective years for gratuity calculation. To use the calculator, Mr. Sharma would input: Last Drawn Basic + DA = â‚¹50,000, select '1' for 'Is your employer covered under the Gratuity Act, 1972?', and enter '8' for 'Effective Years for Gratuity (if covered under Act)'. The RupeeKit calculator would then provide an estimated gratuity amount based on these inputs, subject to the maximum limit of â‚¹20 Lakh. This example illustrates how to derive an estimated figure.",
     "faqs": [
       {
         "question": "Who is eligible for gratuity in India?",
@@ -1533,7 +1756,7 @@
       },
       {
         "question": "What is the maximum gratuity amount an employee can receive?",
-        "answer": "As per the Payment of Gratuity Act, 1972, the maximum gratuity amount an employee can receive is capped at ₹20,00,000 (Twenty Lakhs). Any calculated amount exceeding this limit will be restricted to ₹20 Lakh."
+        "answer": "As per the Payment of Gratuity Act, 1972, the maximum gratuity amount an employee can receive is capped at â‚¹20,00,000 (Twenty Lakhs). Any calculated amount exceeding this limit will be restricted to â‚¹20 Lakh."
       },
       {
         "question": "Does resignation affect gratuity payment?",
@@ -1569,14 +1792,14 @@
       "The inputs provided for 'Last Drawn Basic Salary + Dearness Allowance' and 'Total Years of Service' are accurate.",
       "The employer's status regarding coverage under the Payment of Gratuity Act, 1972, is correctly identified.",
       "The 'Effective Years for Gratuity' are calculated and entered correctly based on the Act's provisions or common practices.",
-      "The maximum gratuity limit of ₹20 Lakh, as per the Act, is applicable.",
+      "The maximum gratuity limit of â‚¹20 Lakh, as per the Act, is applicable.",
       "The calculation uses the standard 15 days' wages for each completed year of service, as per the Act or common practice.",
       "The calculator provides an estimate based on current understanding of the Gratuity Act and common practices; actual payouts may vary."
     ],
     "commonMistakes": [
       "Incorrectly calculating 'Effective Years of Service': Users might not round up service periods of 6 months or more for covered employers, or might round up for non-covered employers.",
       "Not including Dearness Allowance (DA): Gratuity calculation for covered employees requires Basic Salary + DA, not just Basic Salary.",
-      "Ignoring the maximum gratuity limit: Forgetting that the maximum payable gratuity is capped at ₹20 Lakh, regardless of the calculated amount.",
+      "Ignoring the maximum gratuity limit: Forgetting that the maximum payable gratuity is capped at â‚¹20 Lakh, regardless of the calculated amount.",
       "Misidentifying employer's coverage: Incorrectly assuming whether an employer is covered under the Gratuity Act, leading to the wrong formula application.",
       "Using gross salary instead of Basic + DA: The calculation specifically uses Basic Salary plus Dearness Allowance, not the entire gross salary.",
       "Assuming eligibility for less than five years of service: Gratuity generally requires a minimum of five years of continuous service, except in specific cases like death or disablement."
@@ -1602,7 +1825,7 @@
       },
       {
         "heading": "Gratuity and Its Tax Implications in India",
-        "body": "While gratuity is a valuable benefit, it's important to be aware of its tax implications in India. The Income Tax Act provides certain exemptions for gratuity received. For government employees, the entire gratuity amount is typically exempt from tax. However, for non-government employees, a portion of the gratuity is exempt, subject to specific limits and conditions, with the remaining balance being taxable. These exemptions are determined by the lowest of three amounts: the actual gratuity received, ₹20 Lakh (the statutory limit), or a calculation based on salary and service years. It is always recommended to consult a tax advisor for precise information regarding your personal tax liability.",
+        "body": "While gratuity is a valuable benefit, it's important to be aware of its tax implications in India. The Income Tax Act provides certain exemptions for gratuity received. For government employees, the entire gratuity amount is typically exempt from tax. However, for non-government employees, a portion of the gratuity is exempt, subject to specific limits and conditions, with the remaining balance being taxable. These exemptions are determined by the lowest of three amounts: the actual gratuity received, â‚¹20 Lakh (the statutory limit), or a calculation based on salary and service years. It is always recommended to consult a tax advisor for precise information regarding your personal tax liability.",
         "bullets": [
           "Gratuity is subject to income tax in India.",
           "Government employees often receive full tax exemption.",
@@ -1634,7 +1857,7 @@
       {
         "key": "monthlyDeposit",
         "label": "Monthly Deposit Amount",
-        "unit": "₹",
+        "unit": "â‚¹",
         "default": 5000,
         "min": 100,
         "max": 100000,
@@ -1699,7 +1922,7 @@
       }
     ],
     "formulaExplanation": "The RupeeKit Recurring Deposit (RD) Calculator uses the standard future value of an annuity due formula to accurately estimate your RD maturity amount. This formula considers your fixed monthly deposit, the annual interest rate offered by your bank, and the total tenure of your deposit in months. Each monthly deposit earns compound interest at a monthly rate, which is derived from the annual interest rate. The calculation accounts for the fact that deposits are typically made at the beginning of each period, allowing the first deposit to earn interest for the full tenure, and subsequent deposits for slightly less. This method provides a reliable projection of how your disciplined savings can grow over time, helping you plan your financial goals effectively. It's important to remember that this is an educational estimate, and actual returns may vary based on bank policies, interest rate changes, and specific compounding frequencies.",
-    "example": "Let's consider Priya, an individual in India who aims to build a savings corpus through a Recurring Deposit. She decides to deposit ₹5,000 every month into an RD account. The bank offers an annual interest rate of 6.5%. Priya plans to continue these deposits for a tenure of 5 years, which translates to 60 months. By inputting these values into the RupeeKit RD Calculator – ₹5,000 for 'Monthly Deposit Amount', 6.5% for 'Annual Interest Rate', and 60 for 'Tenure (in Months)' – Priya can quickly determine her estimated maturity amount and the total interest she will earn over the 5-year period. This helps her visualize her savings growth and plan for future expenses, while also considering her estimated post-tax interest.",
+    "example": "Let's consider Priya, an individual in India who aims to build a savings corpus through a Recurring Deposit. She decides to deposit â‚¹5,000 every month into an RD account. The bank offers an annual interest rate of 6.5%. Priya plans to continue these deposits for a tenure of 5 years, which translates to 60 months. By inputting these values into the RupeeKit RD Calculator â€“ â‚¹5,000 for 'Monthly Deposit Amount', 6.5% for 'Annual Interest Rate', and 60 for 'Tenure (in Months)' â€“ Priya can quickly determine her estimated maturity amount and the total interest she will earn over the 5-year period. This helps her visualize her savings growth and plan for future expenses, while also considering her estimated post-tax interest.",
     "faqs": [
       {
         "question": "What is the minimum and maximum tenure for an RD in India?",
@@ -1723,7 +1946,7 @@
       },
       {
         "question": "What is the TDS threshold for RD interest in India?",
-        "answer": "For most individuals, banks deduct TDS if the total interest earned on all RDs and FDs with that bank exceeds ₹40,000 in a financial year (₹50,000 for senior citizens). If your total income is below the taxable limit, you can submit Form 15G/15H to avoid TDS."
+        "answer": "For most individuals, banks deduct TDS if the total interest earned on all RDs and FDs with that bank exceeds â‚¹40,000 in a financial year (â‚¹50,000 for senior citizens). If your total income is below the taxable limit, you can submit Form 15G/15H to avoid TDS."
       },
       {
         "question": "Is this calculator financial or tax advice?",
@@ -1736,7 +1959,7 @@
       "sip-calculator-india"
     ],
     "howToUse": [
-      "Enter your desired 'Monthly Deposit Amount' in Rupees (₹).",
+      "Enter your desired 'Monthly Deposit Amount' in Rupees (â‚¹).",
       "Input the 'Annual Interest Rate' offered by your bank in percentage (e.g., 6.5 for 6.5%).",
       "Specify the 'Tenure' of your Recurring Deposit in months (e.g., 60 months for 5 years).",
       "Provide your 'Income Tax Slab' percentage to see an estimated post-tax interest.",
@@ -1789,10 +2012,10 @@
       },
       {
         "heading": "Taxation on RD Interest in India",
-        "body": "The interest earned on your Recurring Deposit is considered 'Income from Other Sources' and is fully taxable as per your applicable income tax slab in India. If the total interest earned from all your RDs and FDs with a particular bank exceeds ₹40,000 in a financial year (₹50,000 for senior citizens), the bank will deduct TDS at a rate of 10%. If you do not provide your PAN, the TDS rate can be higher. You can avoid TDS by submitting Form 15G (for non-senior citizens) or Form 15H (for senior citizens) if your total income falls below the taxable limit. Remember to declare your RD interest income when filing your Income Tax Return.",
+        "body": "The interest earned on your Recurring Deposit is considered 'Income from Other Sources' and is fully taxable as per your applicable income tax slab in India. If the total interest earned from all your RDs and FDs with a particular bank exceeds â‚¹40,000 in a financial year (â‚¹50,000 for senior citizens), the bank will deduct TDS at a rate of 10%. If you do not provide your PAN, the TDS rate can be higher. You can avoid TDS by submitting Form 15G (for non-senior citizens) or Form 15H (for senior citizens) if your total income falls below the taxable limit. Remember to declare your RD interest income when filing your Income Tax Return.",
         "bullets": [
           "RD interest is taxable as 'Income from Other Sources'.",
-          "TDS is applicable if interest exceeds ₹40,000 (₹50,000 for seniors) per bank per year.",
+          "TDS is applicable if interest exceeds â‚¹40,000 (â‚¹50,000 for seniors) per bank per year.",
           "Submit Form 15G/15H to avoid TDS if eligible."
         ]
       }

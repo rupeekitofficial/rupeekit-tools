@@ -1,0 +1,15 @@
+# RupeeKit
+
+RupeeKit is an India-focused personal finance calculator and educational tools website.
+
+Important pages:
+- https://www.rupeekit.co.in/tools/sip-calculator-india
+- https://www.rupeekit.co.in/tools/emergency-fund-calculator-india
+- https://www.rupeekit.co.in/tools/personal-loan-emi-calculator-india
+- https://www.rupeekit.co.in/tools/hra-exemption-calculator-india
+- https://www.rupeekit.co.in/blog/how-much-emergency-fund
+- https://www.rupeekit.co.in/blog/itr-2-ay-2026-27-filing-guide
+- https://www.rupeekit.co.in/resources
+
+Content policy:
+RupeeKit provides educational calculators and general information only. It does not provide personalized financial, tax, legal, investment, or loan advice.

@@ -2,6 +2,7 @@
 
 import React, { useCallback, useState } from 'react';
 import type { HraChecklistPdfData } from '@/components/hra/HraChecklistPdfDocument';
+import { trackPdfDownload } from '@/lib/events';
 
 const HRA_CHECKLIST_FILE_NAME = 'hra-exemption-checklist-fy-2026-27-rupeekit.pdf';
 
@@ -53,6 +54,11 @@ export function useDownloadHraChecklistPdf() {
       anchor.download = HRA_CHECKLIST_FILE_NAME;
       anchor.click();
       URL.revokeObjectURL(url);
+      trackPdfDownload({
+        page: '/tools/hra-exemption-calculator-india',
+        toolSlug: 'hra-exemption-calculator-india',
+        context: 'hra-proof-checklist',
+      });
     } catch (err) {
       console.error('HRA checklist PDF generation failed:', err);
       setError('Could not generate the checklist PDF. Please try again.');

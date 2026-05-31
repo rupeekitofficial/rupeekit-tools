@@ -47,6 +47,7 @@ export default function SiteFooter() {
     { name: 'Tools', href: '/#calculators' },
     { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
+    { name: 'Recommended Tools', href: '/resources/recommended-money-tools' },
   ];
 
   const legalLinks = [

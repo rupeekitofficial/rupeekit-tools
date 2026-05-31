@@ -22,7 +22,7 @@ export default function DownloadHraChecklistButton({
         disabled={isGenerating}
         className="inline-flex items-center rounded-full bg-emerald-700 px-4 py-2 text-xs font-bold text-white transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:bg-emerald-400"
       >
-        {isGenerating ? 'Preparing PDF...' : 'Download HRA Checklist PDF'}
+        {isGenerating ? 'Preparing PDF...' : 'Download HRA Proof Checklist'}
       </button>
       {error ? <p className="mt-2 text-xs text-rose-700">{error}</p> : null}
     </div>

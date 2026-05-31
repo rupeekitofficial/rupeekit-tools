@@ -35,7 +35,10 @@ export default function BlogHero({
   return (
     <section className="relative rounded-[2rem] bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 p-8 text-white shadow-xl md:p-12 overflow-hidden">
       {/* Decorative Blur Accents */}
-      <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none" />
+      <div
+        aria-hidden="true"
+        className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none"
+      />
       
       <div className={`relative z-10 grid gap-8 items-center ${hasVisual ? 'grid-cols-1 lg:grid-cols-[1.5fr_1fr]' : 'grid-cols-1 max-w-4xl'}`}>
         <div>
@@ -61,7 +64,7 @@ export default function BlogHero({
               <div className="relative w-full max-w-sm md:max-w-md mx-auto aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 blog-hero-float">
                 <Image
                   src={heroImage}
-                  alt={heroImageAlt || title}
+                  alt={heroImageAlt || visualAlt || title}
                   width={heroImageWidth || 1600}
                   height={heroImageHeight || 900}
                   className="object-cover"

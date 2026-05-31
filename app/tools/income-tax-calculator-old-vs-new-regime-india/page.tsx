@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
+import FactsTable from '@/components/seo/FactsTable';
 import { TaxCalculatorApp } from '@/components/tax/TaxCalculatorApp';
+import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import { availableTaxYears } from '@/lib/tax/indiaIncomeTaxRules';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
@@ -41,11 +44,23 @@ const faqs = [
   {
     question: 'Which financial year does this calculator support?',
     answer: `This calculator currently supports: ${availableTaxYears.map(y => `FY ${y}`).join(' and ')}. We only include years where official tax rules have been formally passed or notified.`
+  },
+  {
+    question: 'Can this calculator help compare deduction scenarios?',
+    answer: 'Yes. You can run multiple educational scenarios by changing deduction, exemption, and income assumptions to compare how both regimes respond.'
+  },
+  {
+    question: 'Should I verify results before filing my return?',
+    answer: 'Yes. Use the output for planning only, then verify final computation against official filing utilities, AIS/Form 26AS, and applicable year rules.'
+  },
+  {
+    question: 'Does this page provide personalized tax advice?',
+    answer: 'No. RupeeKit provides educational estimation support and does not provide personalized tax, legal, or investment advice.'
   }
 ];
 
 export default function IncomeTaxCalculatorPage() {
-  const faqSchema = {
+  const faqSchema = faqs.length > 0 ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -53,14 +68,16 @@ export default function IncomeTaxCalculatorPage() {
       name: faq.question,
       acceptedAnswer: { '@type': 'Answer', text: faq.answer },
     })),
-  };
+  } : null;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <nav className="text-sm text-slate-500 mb-8 no-print">
         <Link href="/" className="hover:text-slate-950 transition">Home</Link>
@@ -91,8 +108,48 @@ export default function IncomeTaxCalculatorPage() {
         </div>
       </header>
 
+      <section className="mb-6">
+        <QuickAnswerBox
+          title="Income Tax Quick Answer"
+          question="How does this income tax calculator compare old vs new regime?"
+          answer="It estimates taxable income and tax outcomes for both regimes using your income and deduction inputs, then shows the comparison side by side for educational planning."
+          note="Educational estimate only. Verify final tax computation with official income-tax utilities, AIS/Form 26AS data, and a qualified tax professional where needed."
+        />
+      </section>
+
+      <AnswerEngineSummary
+        id="answer-engine-summary"
+        className="mb-10 no-print"
+        summary="This calculator compares old and new tax regime estimates using user-entered income, deduction, and exemption values. It helps you review taxable income, estimated tax outcomes, and regime-level differences in one place. Results are educational estimates only and should be verified with official filing tools and current-year rules."
+      />
+
       {/* Main App */}
       <TaxCalculatorApp />
+
+      <FactsTable
+        id="calculator-facts"
+        className="mt-12 no-print"
+        rows={[
+          { topic: 'Calculation type', explanation: 'Rule-driven educational estimate from user-entered values' },
+          { topic: 'Key inputs', explanation: 'Income, exemptions, deductions, tax year, and taxpayer profile selections' },
+          { topic: 'Primary outputs', explanation: 'Taxable income, estimated tax, and old vs new regime comparison' },
+          { topic: 'Advice boundary', explanation: 'Educational information only, not personalized tax or legal advice' },
+        ]}
+      />
+
+      <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 no-print">
+        <h2 className="text-2xl font-bold text-brandDeepNavy">Source and methodology</h2>
+        <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+        <p className="mt-4 leading-8 text-slate-700">
+          This calculator applies configured income-tax rule sets for supported financial years and compares old and
+          new regime estimates using the values you enter. It is designed for educational planning and quick scenario
+          comparison.
+        </p>
+        <p className="mt-4 leading-8 text-slate-700">
+          Final tax liability can differ based on return filing data, official validation rules, and year-specific
+          notifications. Verify final numbers with official filing utilities and qualified tax guidance where needed.
+        </p>
+      </section>
 
       {/* Educational Content & Links */}
       <section className="mt-16 grid gap-8 lg:grid-cols-3 no-print">

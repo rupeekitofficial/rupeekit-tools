@@ -46,8 +46,14 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="rounded-3xl bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 px-6 py-10 md:px-12 md:py-12 text-white shadow-xl relative overflow-hidden">
           {/* Subtle decorative background accent */}
-          <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none" />
-          <div className="absolute -left-16 -bottom-16 w-64 h-64 rounded-full bg-brandNavy/40 blur-3xl pointer-events-none" />
+          <div
+            aria-hidden="true"
+            className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute -left-16 -bottom-16 w-64 h-64 rounded-full bg-brandNavy/40 blur-3xl pointer-events-none"
+          />
           
           <div className="relative z-10 max-w-4xl">
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-brandBrightGreen">
@@ -90,7 +96,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="flex items-start gap-3 rounded-2xl border border-brandBorder bg-white p-4 shadow-sm">
             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brandNavy/10 text-brandNavy">
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
@@ -104,7 +110,7 @@ export default function HomePage() {
 
           <div className="flex items-start gap-3 rounded-2xl border border-brandBorder bg-white p-4 shadow-sm">
             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brandNavy/10 text-brandNavy">
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
               </svg>
             </div>
@@ -118,7 +124,7 @@ export default function HomePage() {
 
           <div className="flex items-start gap-3 rounded-2xl border border-brandBorder bg-white p-4 shadow-sm">
             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brandNavy/10 text-brandNavy">
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
@@ -235,6 +241,57 @@ export default function HomePage() {
             Read Guide →
           </Link>
         </div>
+      </section>
+
+      <section className="rounded-2xl border border-brandBorder bg-white p-5 shadow-sm">
+        <div className="max-w-3xl">
+          <h2 className="text-lg font-bold text-brandDeepNavy">Popular Money Questions</h2>
+          <p className="mt-1 text-xs text-brandMuted">
+            Jump directly to practical answers from RupeeKit calculators and guides.
+          </p>
+        </div>
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+          <li>
+            <Link
+              href="/tools/emergency-fund-calculator-india"
+              className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
+            >
+              How much emergency fund should I have?
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/tools/personal-loan-emi-calculator-india"
+              className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
+            >
+              Is lower EMI always cheaper?
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/tools/hra-exemption-calculator-india"
+              className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
+            >
+              Can HRA be claimed in the new tax regime?
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/blog/how-much-emergency-fund"
+              className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
+            >
+              How much emergency fund do you need?
+            </Link>
+          </li>
+          <li className="sm:col-span-2">
+            <Link
+              href="/blog/itr-2-ay-2026-27-filing-guide"
+              className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
+            >
+              Who must file ITR-2 AY 2026-27?
+            </Link>
+          </li>
+        </ul>
       </section>
 
       {/* Popular Tools Preview Section */}

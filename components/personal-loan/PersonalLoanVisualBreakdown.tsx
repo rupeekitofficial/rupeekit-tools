@@ -101,7 +101,12 @@ function PrincipalInterestDonut({
 
       <div className="mt-4 flex flex-col items-center gap-4 md:flex-row md:items-center md:justify-between">
         <div className="relative h-44 w-44">
-          <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+          <svg
+            viewBox="0 0 100 100"
+            className="h-full w-full -rotate-90"
+            role="img"
+            aria-label="Donut chart showing selected personal loan split between principal amount and total interest."
+          >
             <circle cx="50" cy="50" r={radius} fill="transparent" stroke="#e2e8f0" strokeWidth="12" />
             <circle
               cx="50"

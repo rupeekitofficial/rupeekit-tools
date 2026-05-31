@@ -4,7 +4,11 @@ import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/blog-posts';
 import Calculator from '@/components/Calculator';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
-import { getLiveTools, getRelatedTools, getToolBySlug } from '@/lib/tools';
+import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLoanDecisionSimulator';
+import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
+import FactsTable from '@/components/seo/FactsTable';
+import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 const HRA_SLUG = 'hra-exemption-calculator-india';
@@ -16,6 +20,9 @@ const PERSONAL_LOAN_SLUG = 'personal-loan-emi-calculator-india';
 const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India | Monthly EMI & Interest';
 const PERSONAL_LOAN_META_DESCRIPTION =
   'Calculate personal loan EMI, total interest and total repayment in India using loan amount, interest rate and tenure in months. Compare EMI changes before applying.';
+const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
+  'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
+const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
 const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | 3, 6, 9 & 12 Month Corpus';
 const EMERGENCY_FUND_META_DESCRIPTION =
@@ -26,14 +33,14 @@ const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));
 const blogSlugs = new Set(blogPosts.map((post) => post.slug));
 
 const HRA_TOC = [
-  { id: 'how-to-calculate-hra-exemption', title: 'How to Calculate HRA Exemption' },
+  { id: 'how-to-calculate-hra-exemption', title: 'How is HRA exemption calculated?' },
   { id: 'hra-exemption-formula-under-rule-279', title: 'HRA Exemption Formula under Rule 279' },
-  { id: 'fy-2026-27-hra-city-rules-50-and-40-salary-cap', title: 'FY 2026-27 HRA City Rules: 50% and 40% Salary Cap' },
-  { id: 'old-tax-regime-vs-new-tax-regime-for-hra', title: 'Old Tax Regime vs New Tax Regime for HRA' },
+  { id: 'fy-2026-27-hra-city-rules-50-and-40-salary-cap', title: 'Which cities use the 50% HRA salary cap?' },
+  { id: 'old-tax-regime-vs-new-tax-regime-for-hra', title: 'Can HRA be claimed in the new tax regime?' },
   { id: 'hra-calculation-example', title: 'HRA Calculation Example' },
-  { id: 'documents-required-to-claim-hra', title: 'Documents Required to Claim HRA' },
+  { id: 'documents-required-to-claim-hra', title: 'What documents are required for HRA exemption?' },
   { id: 'what-if-you-missed-hra-proof-submission', title: 'What if You Missed HRA Proof Submission?' },
-  { id: 'can-you-pay-rent-to-parents-and-claim-hra', title: 'Can You Pay Rent to Parents and Claim HRA?' },
+  { id: 'can-you-pay-rent-to-parents-and-claim-hra', title: 'Can you pay rent to parents and claim HRA?' },
   { id: 'landlord-details-and-relationship-disclosure', title: 'Landlord Details and Relationship Disclosure' },
   { id: 'common-hra-claim-mistakes', title: 'Common HRA Claim Mistakes' },
   { id: 'when-this-calculator-is-useful', title: 'When This Calculator Is Useful' },
@@ -42,28 +49,55 @@ const HRA_TOC = [
 ] as const;
 
 const PERSONAL_LOAN_TOC = [
-  { id: 'what-is-a-personal-loan-emi', title: 'What is a personal loan EMI?' },
-  { id: 'personal-loan-emi-formula', title: 'Personal Loan EMI Formula' },
-  { id: 'how-to-use-this-calculator', title: 'How to use this calculator' },
-  { id: 'personal-loan-emi-example', title: 'Personal Loan EMI Example' },
-  { id: 'tenure-in-months', title: 'Tenure in months' },
-  { id: 'processing-fee-and-total-cost', title: 'Processing fee and total cost' },
-  { id: 'emi-vs-total-interest', title: 'EMI vs total interest' },
-  { id: 'sbi-hdfc-bob-idfc-usage', title: 'SBI/HDFC/BOB/IDFC usage' },
-  { id: 'common-mistakes', title: 'Common mistakes' },
+  { id: 'how-is-personal-loan-emi-calculated', title: 'How is personal loan EMI calculated?' },
+  { id: 'is-lower-emi-always-cheaper', title: 'Is lower EMI always cheaper?' },
+  { id: 'what-affects-your-personal-loan-emi', title: 'What affects your personal loan EMI?' },
+  { id: 'how-does-processing-fee-affect-total-loan-cost', title: 'How does processing fee affect total loan cost?' },
+  { id: 'how-much-emi-is-safe-for-monthly-income', title: 'How much EMI is safe for monthly income?' },
+  { id: 'can-prepayment-reduce-total-interest', title: 'Can prepayment reduce total interest?' },
+  { id: 'what-happens-if-you-miss-or-pause-emi', title: 'What happens if you miss or pause EMI?' },
+  { id: 'does-rupeekit-show-live-personal-loan-interest-rates', title: 'Does RupeeKit show live personal loan interest rates?' },
+  { id: 'is-rupeekit-a-lender', title: 'Is RupeeKit a lender?' },
+  { id: 'source-and-methodology', title: 'Source and methodology' },
+  { id: 'faqs', title: 'FAQs' },
+] as const;
+
+const SIP_TOC = [
+  { id: 'answer-engine-summary', title: 'Answer Engine Summary' },
+  { id: 'what-happens-if-you-miss-a-sip', title: 'What happens if you miss a SIP?' },
+  { id: 'can-you-pause-and-restart-sip-later', title: 'Can you pause and restart SIP later?' },
+  { id: 'what-is-step-up-sip', title: 'What is step-up SIP?' },
+  { id: 'how-much-sip-is-needed-for-a-goal', title: 'How much SIP is needed for a goal?' },
+  { id: 'how-does-inflation-affect-sip-planning', title: 'How does inflation affect SIP planning?' },
+  { id: 'can-emi-amount-be-redirected-into-sip-after-loan-closure', title: 'Can EMI amount be redirected into SIP after loan closure?' },
+  { id: 'is-sip-return-guaranteed', title: 'Is SIP return guaranteed?' },
+  { id: 'sip-calculator-facts', title: 'SIP Calculator Facts' },
+  { id: 'source-and-methodology', title: 'Source and methodology' },
   { id: 'faqs', title: 'FAQs' },
 ] as const;
 
 const PERSONAL_LOAN_SECTION_IDS: Record<string, string> = {
   'What Is a Personal Loan EMI?': 'what-is-a-personal-loan-emi',
-  'Personal Loan EMI Formula': 'personal-loan-emi-formula',
+  'How is personal loan EMI calculated?': 'how-is-personal-loan-emi-calculated',
+  'Personal Loan EMI Formula': 'how-is-personal-loan-emi-calculated',
   'How to Use This Personal Loan EMI Calculator': 'how-to-use-this-calculator',
-  'Personal Loan EMI Example': 'personal-loan-emi-example',
+  'EMI Calculation Example': 'emi-calculation-example',
+  'Personal Loan EMI Example': 'emi-calculation-example',
+  'What affects your personal loan EMI?': 'what-affects-your-personal-loan-emi',
   'Why Tenure in Months Matters': 'tenure-in-months',
-  'Processing Fee and Total Cost': 'processing-fee-and-total-cost',
-  'Interest Rate vs Total Interest': 'emi-vs-total-interest',
+  'How does processing fee affect total loan cost?': 'how-does-processing-fee-affect-total-loan-cost',
+  'Processing Fee and Total Borrowing Cost': 'how-does-processing-fee-affect-total-loan-cost',
+  'Processing Fee and Total Cost': 'how-does-processing-fee-affect-total-loan-cost',
+  'Is lower EMI always cheaper?': 'is-lower-emi-always-cheaper',
+  'Why Lower EMI Is Not Always Cheaper': 'is-lower-emi-always-cheaper',
+  'Interest Rate vs Total Interest': 'is-lower-emi-always-cheaper',
+  'How much EMI is safe for monthly income?': 'how-much-emi-is-safe-for-monthly-income',
+  'Can prepayment reduce total interest?': 'can-prepayment-reduce-total-interest',
+  'What happens if you miss or pause EMI?': 'what-happens-if-you-miss-or-pause-emi',
+  'Does RupeeKit show live personal loan interest rates?': 'does-rupeekit-show-live-personal-loan-interest-rates',
+  'Is RupeeKit a lender?': 'is-rupeekit-a-lender',
   'Can I Use This for SBI, HDFC, BOB or IDFC Personal Loans?': 'sbi-hdfc-bob-idfc-usage',
-  'Common Mistakes Before Taking a Personal Loan': 'common-mistakes',
+  'Common Mistakes Before Taking a Personal Loan': 'common-mistakes-before-taking-a-personal-loan',
 };
 
 type ContextualLink = {
@@ -81,6 +115,76 @@ function getToolDescription(slug: string, fallback: string) {
   return slug === HRA_SLUG ?
     'Calculate your likely HRA exemption under Rule 279 in seconds. Enter your salary, HRA, rent, and city type to compare the three legal limits and estimate how much HRA can stay tax-exempt under the old regime. Includes FY 2026-27 metro-city rules, a worked example, and a document checklist.' :
     fallback;
+}
+
+function listLabels(labels: string[]) {
+  if (labels.length === 0) return '';
+  if (labels.length === 1) return labels[0];
+  if (labels.length === 2) return `${labels[0]} and ${labels[1]}`;
+  return `${labels.slice(0, -1).join(', ')}, and ${labels[labels.length - 1]}`;
+}
+
+function firstSentence(text: string) {
+  const match = text.trim().match(/[^.!?]+[.!?]?/);
+  return match ? match[0].trim() : text.trim();
+}
+
+function buildFallbackQuickAnswer(tool: Tool): ToolQuickAnswer {
+  const keyInputs = tool.inputs.slice(0, 3).map((input) => input.label);
+  const keyOutputs = tool.outputs.slice(0, 3).map((output) => output.label);
+  const conciseFormula = firstSentence(tool.formulaExplanation);
+  const conciseExample = firstSentence(tool.example);
+
+  return {
+    title: `${tool.name} Quick Answer`,
+    question: `How does this calculator work?`,
+    answer:
+      keyInputs.length > 0 && keyOutputs.length > 0
+        ? `It estimates ${listLabels(keyOutputs)} using inputs such as ${listLabels(keyInputs)}.`
+        : 'It converts your inputs into educational estimate outputs using the calculator formula shown on this page.',
+    formula: conciseFormula.length <= 220 ? conciseFormula : undefined,
+    example: conciseExample.length <= 220 ? conciseExample : undefined,
+    note:
+      'Educational estimate only. RupeeKit does not provide personalized financial, tax, legal, investment, or loan advice.',
+  };
+}
+
+function buildGenericAnswerEngineSummary(tool: Tool) {
+  const keyInputs = tool.inputs.slice(0, 4).map((input) => input.label);
+  const keyOutputs = tool.outputs.slice(0, 4).map((output) => output.label);
+  const methodLine = firstSentence(tool.formulaExplanation);
+  const inputText = keyInputs.length > 0 ? listLabels(keyInputs) : 'the values you enter';
+  const outputText = keyOutputs.length > 0 ? listLabels(keyOutputs) : 'the result metrics';
+
+  return `This calculator estimates ${outputText} using ${inputText}. ${methodLine} Results are educational estimates only and should be verified with official records, lender statements, payroll data, or filing utilities where applicable.`;
+}
+
+function buildGenericCalculatorFacts(tool: Tool) {
+  const keyInputs = tool.inputs.slice(0, 4).map((input) => input.label);
+  const keyOutputs = tool.outputs.slice(0, 4).map((output) => output.label);
+  return [
+    {
+      topic: 'Calculation type',
+      explanation: 'Formula-based educational estimate from user-entered values',
+    },
+    {
+      topic: 'Key inputs',
+      explanation: keyInputs.length > 0 ? listLabels(keyInputs) : 'Depends on calculator mode and input fields',
+    },
+    {
+      topic: 'Primary outputs',
+      explanation: keyOutputs.length > 0 ? listLabels(keyOutputs) : 'Depends on calculator mode and output fields',
+    },
+    {
+      topic: 'Method reference',
+      explanation: firstSentence(tool.formulaExplanation),
+    },
+    {
+      topic: 'Advice boundary',
+      explanation:
+        'RupeeKit provides educational information only and does not provide personalized financial, tax, legal, investment, or loan advice.',
+    },
+  ];
 }
 
 export function generateStaticParams() {
@@ -147,7 +251,7 @@ function HraEducationalContent({ links }: { links: ContextualLink[] }) {
   return (
     <>
       <section id="how-to-calculate-hra-exemption" className="scroll-mt-24">
-        <h2 className="text-2xl font-bold">How to Calculate HRA Exemption</h2>
+        <h2 className="text-2xl font-bold">How is HRA exemption calculated?</h2>
         <p className="mt-4 leading-8 text-slate-700">
           Use this HRA exemption calculator to calculate HRA exemption by comparing three legal limits under Rule 279.
           Enter salary components, actual HRA received, rent paid, and city cap. The lowest value is the likely exempt
@@ -174,32 +278,49 @@ function HraEducationalContent({ links }: { links: ContextualLink[] }) {
           Trust note: this tool gives an estimate only. If your salary structure, landlord relationship, or declaration
           process is complex, verify with your employer payroll team or CA before filing.
         </p>
+        <div className="mt-4 grid gap-3 md:grid-cols-3">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-slate-500">Formula Part 1</p>
+            <p className="mt-2 text-sm font-semibold text-slate-900">Actual HRA received</p>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-white p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-slate-500">Formula Part 2</p>
+            <p className="mt-2 text-sm font-semibold text-slate-900">Rent paid minus 10% of salary</p>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-white p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-slate-500">Formula Part 3</p>
+            <p className="mt-2 text-sm font-semibold text-slate-900">50% or 40% city salary cap</p>
+          </div>
+        </div>
       </section>
 
       <section id="fy-2026-27-hra-city-rules-50-and-40-salary-cap" className="mt-8 scroll-mt-24">
-        <h2 className="text-2xl font-bold">FY 2026-27 HRA City Rules: 50% and 40% Salary Cap</h2>
+        <h2 className="text-2xl font-bold">Which cities use the 50% HRA salary cap?</h2>
         <p className="mt-4 leading-8 text-slate-700">
           Rule 279 HRA exemption uses two city groups for salary cap.
         </p>
         <div className="mt-4 overflow-x-auto">
-          <table className="min-w-full rounded-2xl border border-slate-200 text-left text-sm text-slate-700">
+          <table className="w-full min-w-[680px] rounded-2xl border border-slate-200 text-left text-xs text-slate-700 md:text-sm">
             <thead className="bg-slate-50 text-slate-900">
               <tr>
-                <th className="px-4 py-3 font-semibold">City group</th>
-                <th className="px-4 py-3 font-semibold">Cities</th>
-                <th className="px-4 py-3 font-semibold">Salary cap used in HRA formula</th>
+                <th className="px-4 py-3 font-semibold">City category</th>
+                <th className="px-4 py-3 font-semibold">Salary cap</th>
+                <th className="px-4 py-3 font-semibold">Example cities</th>
+                <th className="px-4 py-3 font-semibold">Note</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-t border-slate-200">
-                <td className="px-4 py-3 font-medium">50% salary cap</td>
+                <td className="px-4 py-3 font-medium">Specified city list</td>
+                <td className="px-4 py-3">50% of salary</td>
                 <td className="px-4 py-3">Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad, Bengaluru</td>
-                <td className="px-4 py-3">50% of salary for specified cities</td>
+                <td className="px-4 py-3">Use this cap when your city is in the Rule 279 specified list.</td>
               </tr>
               <tr className="border-t border-slate-200">
-                <td className="px-4 py-3 font-medium">40% salary cap</td>
-                <td className="px-4 py-3">Other Indian cities</td>
-                <td className="px-4 py-3">40% of salary for other cities</td>
+                <td className="px-4 py-3 font-medium">Other Indian cities</td>
+                <td className="px-4 py-3">40% of salary</td>
+                <td className="px-4 py-3">Cities not listed in the specified 50% group</td>
+                <td className="px-4 py-3">Use this cap for non-specified city category cases.</td>
               </tr>
             </tbody>
           </table>
@@ -207,7 +328,7 @@ function HraEducationalContent({ links }: { links: ContextualLink[] }) {
       </section>
 
       <section id="old-tax-regime-vs-new-tax-regime-for-hra" className="mt-8 scroll-mt-24">
-        <h2 className="text-2xl font-bold">Old Tax Regime vs New Tax Regime for HRA</h2>
+        <h2 className="text-2xl font-bold">Can HRA be claimed in the new tax regime?</h2>
         <p className="mt-4 leading-8 text-slate-700">
           HRA exemption is relevant under the old tax regime. In the default new tax regime, HRA exemption is generally
           not available, so this calculator is best used for old regime tax planning and comparison.
@@ -233,7 +354,7 @@ function HraEducationalContent({ links }: { links: ContextualLink[] }) {
       </section>
 
       <section id="documents-required-to-claim-hra" className="mt-8 scroll-mt-24">
-        <h2 className="text-2xl font-bold">Documents Required to Claim HRA</h2>
+        <h2 className="text-2xl font-bold">What documents are required for HRA exemption?</h2>
         <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
           <li>Rent receipts.</li>
           <li>Rent agreement, if available.</li>
@@ -255,7 +376,7 @@ function HraEducationalContent({ links }: { links: ContextualLink[] }) {
       </section>
 
       <section id="can-you-pay-rent-to-parents-and-claim-hra" className="mt-8 scroll-mt-24">
-        <h2 className="text-2xl font-bold">Can You Pay Rent to Parents and Claim HRA?</h2>
+        <h2 className="text-2xl font-bold">Can you pay rent to parents and claim HRA?</h2>
         <p className="mt-4 leading-8 text-slate-700">
           Yes, if rent is genuinely paid and documented. Keep receipts and payment trail, and ensure rental income is
           disclosed by parents where required.
@@ -265,8 +386,8 @@ function HraEducationalContent({ links }: { links: ContextualLink[] }) {
       <section id="landlord-details-and-relationship-disclosure" className="mt-8 scroll-mt-24">
         <h2 className="text-2xl font-bold">Landlord Details and Relationship Disclosure</h2>
         <p className="mt-4 leading-8 text-slate-700">
-          Where the applicable employer declaration or prescribed form asks for landlord details, keep the landlord
-          name, address, PAN/Aadhaar where applicable, rent paid and relationship with the landlord ready.
+          Where Form 12BB, Form 124, or any applicable employer declaration asks for landlord details, keep the
+          landlord name, address, PAN/Aadhaar where applicable, rent paid and relationship with the landlord ready.
         </p>
       </section>
 
@@ -311,12 +432,124 @@ function HraEducationalContent({ links }: { links: ContextualLink[] }) {
   );
 }
 
+function SipEducationalContent({ links, lastReviewed }: { links: ContextualLink[]; lastReviewed?: string }) {
+  return (
+    <>
+      <section id="what-happens-if-you-miss-a-sip" className="scroll-mt-24">
+        <h2 className="text-2xl font-bold">What happens if you miss a SIP?</h2>
+        <p className="mt-4 leading-8 text-slate-700">
+          Missing SIP installments can reduce your projected corpus because fewer contributions get time to compound.
+          In RupeeKit, the missed SIP scenario estimates this impact using your selected contribution gap and return
+          assumptions. It is a planning estimate and not a prediction of actual fund performance.
+        </p>
+      </section>
+
+      <section id="can-you-pause-and-restart-sip-later" className="mt-8 scroll-mt-24">
+        <h2 className="text-2xl font-bold">Can you pause and restart SIP later?</h2>
+        <p className="mt-4 leading-8 text-slate-700">
+          SIPs can be paused and restarted, but pausing usually lowers projected corpus because the skipped period does
+          not accumulate contributions. RupeeKit&apos;s pause-and-restart view helps compare continuity versus pause
+          scenarios with the same return inputs. Use it as an educational comparison before deciding your savings plan.
+        </p>
+      </section>
+
+      <section id="what-is-step-up-sip" className="mt-8 scroll-mt-24">
+        <h2 className="text-2xl font-bold">What is step-up SIP?</h2>
+        <p className="mt-4 leading-8 text-slate-700">
+          Step-up SIP means increasing the SIP amount periodically, usually every year, instead of keeping it flat.
+          RupeeKit estimates how these planned increases may change invested amount and projected future value compared
+          with regular SIP. This helps you evaluate whether gradual contribution growth may support long-term goals.
+        </p>
+      </section>
+
+      <section id="how-much-sip-is-needed-for-a-goal" className="mt-8 scroll-mt-24">
+        <h2 className="text-2xl font-bold">How much SIP is needed for a goal?</h2>
+        <p className="mt-4 leading-8 text-slate-700">
+          Goal SIP mode estimates a monthly SIP amount for a target corpus using your expected return and time horizon.
+          RupeeKit also lets you compare regular SIP and step-up SIP style assumptions for the same goal. This is a
+          planning estimate only and should be reviewed as income, tenure, or market assumptions change.
+        </p>
+      </section>
+
+      <section id="how-does-inflation-affect-sip-planning" className="mt-8 scroll-mt-24">
+        <h2 className="text-2xl font-bold">How does inflation affect SIP planning?</h2>
+        <p className="mt-4 leading-8 text-slate-700">
+          Inflation reduces the real purchasing power of future money, so a corpus target may need adjustment over
+          time. RupeeKit&apos;s inflation-adjusted view converts projected corpus into today&apos;s value terms for
+          practical goal planning. This helps compare nominal growth and real-value outcomes side by side.
+        </p>
+      </section>
+
+      <section id="can-emi-amount-be-redirected-into-sip-after-loan-closure" className="mt-8 scroll-mt-24">
+        <h2 className="text-2xl font-bold">Can EMI amount be redirected into SIP after loan closure?</h2>
+        <p className="mt-4 leading-8 text-slate-700">
+          After a loan closes, some households may choose to redirect the freed EMI amount into SIP contributions for
+          goal planning. RupeeKit includes an EMI-to-SIP redirect scenario to estimate how this change may affect the
+          projected corpus over remaining tenure. It is an educational planning scenario, not a recommendation.
+        </p>
+      </section>
+
+      <section id="is-sip-return-guaranteed" className="mt-8 scroll-mt-24">
+        <h2 className="text-2xl font-bold">Is SIP return guaranteed?</h2>
+        <p className="mt-4 leading-8 text-slate-700">
+          No. SIP returns are market-linked and not guaranteed. RupeeKit uses user-entered return assumptions only for
+          projection, so actual outcomes can be higher or lower than estimated values.
+        </p>
+      </section>
+
+      <FactsTable
+        id="sip-calculator-facts"
+        title="SIP Calculator Facts"
+        className="mt-8"
+        rows={[
+          { topic: 'SIP return', explanation: 'Market-linked and not guaranteed' },
+          { topic: 'Calculation type', explanation: 'Monthly compounding-style estimate' },
+          { topic: 'Step-up SIP', explanation: 'SIP amount increases yearly or by selected interval' },
+          { topic: 'Inflation-adjusted value', explanation: 'Shows future value in today\'s purchasing-power terms' },
+          { topic: 'Missed SIP impact', explanation: 'Estimates reduction from skipped installments' },
+          { topic: 'EMI-to-SIP redirect', explanation: 'Scenario planner after EMI closure' },
+          { topic: 'Product recommendation', explanation: 'RupeeKit does not recommend mutual funds' },
+        ]}
+      />
+
+      <section id="source-and-methodology" className="mt-8 scroll-mt-24">
+        <h2 className="text-2xl font-bold">Source and methodology</h2>
+        {lastReviewed ? <p className="mt-2 text-sm text-slate-500">Last reviewed: {lastReviewed}</p> : null}
+        <p className="mt-4 leading-8 text-slate-700">
+          This calculator uses user-entered SIP amount, expected return, tenure, optional step-up, missed SIP, pause,
+          goal, inflation, and EMI redirect assumptions. It uses monthly compounding-style projection for educational
+          planning. It does not recommend mutual funds, does not fetch live fund returns, and does not guarantee outcomes.
+        </p>
+      </section>
+
+      {links.length ? (
+        <section className="mt-8">
+          <h2 className="text-2xl font-bold">Related calculators and guides</h2>
+          <p className="mt-4 leading-8 text-slate-700">
+            For broader money planning, also review{' '}
+            {links.map((link, index) => (
+              <span key={link.href}>
+                {index > 0 ? ', ' : ''}
+                <Link href={link.href} className="font-medium text-sky-700 hover:underline">
+                  {link.label}
+                </Link>
+              </span>
+            ))}
+            .
+          </p>
+        </section>
+      ) : null}
+    </>
+  );
+}
+
 export default function ToolPage({ params }: { params: { slug: string } }) {
   const tool = getToolBySlug(params.slug);
   if (!tool) notFound();
 
   const isHraPage = tool.slug === HRA_SLUG;
   const isPersonalLoanPage = tool.slug === PERSONAL_LOAN_SLUG;
+  const isSipPage = tool.slug === SIP_SLUG;
   const isEmergencyFundPage = tool.slug === EMERGENCY_FUND_SLUG;
   const heading = getToolHeading(tool.slug, tool.name);
   const description = getToolDescription(tool.slug, tool.shortDescription);
@@ -350,25 +583,25 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     } : null,
   ].filter((item): item is ContextualLink => item !== null);
 
+  const hasLowerEmiBlog = blogSlugs.has('lower-emi-not-always-cheaper');
+  const hasProcessingFeeBlog = blogSlugs.has('personal-loan-processing-fee-explained');
   const personalLoanLinks: ContextualLink[] = [
-    liveToolSlugs.has('emi-calculator-india')
-      ? { href: '/tools/emi-calculator-india', label: 'EMI calculator' }
+    hasLowerEmiBlog
+      ? { href: '/blog/lower-emi-not-always-cheaper', label: 'why lower EMI is not always cheaper guide' }
       : null,
-    liveToolSlugs.has('salary-in-hand-calculator-india')
-      ? { href: '/tools/salary-in-hand-calculator-india', label: 'salary in-hand calculator' }
-      : null,
-    liveToolSlugs.has('fd-calculator-india')
-      ? { href: '/tools/fd-calculator-india', label: 'FD calculator' }
-      : null,
-    liveToolSlugs.has('sip-calculator-india')
-      ? { href: '/tools/sip-calculator-india', label: 'SIP calculator' }
+    hasProcessingFeeBlog
+      ? {
+          href: '/blog/personal-loan-processing-fee-explained',
+          label: 'personal loan processing fee explained guide',
+        }
       : null,
     liveToolSlugs.has('emergency-fund-calculator-india')
-      ? { href: '/tools/emergency-fund-calculator-india', label: 'emergency fund calculator' }
+      ? { href: '/tools/emergency-fund-calculator-india', label: 'emergency fund calculator for cash-buffer planning' }
       : null,
-    blogSlugs.has('how-much-emergency-fund')
-      ? { href: '/blog/how-much-emergency-fund', label: 'emergency fund guide' }
+    liveToolSlugs.has('fd-calculator-india')
+      ? { href: '/tools/fd-calculator-india', label: 'FD calculator for low-volatility parking scenarios' }
       : null,
+    { href: '/resources', label: 'RupeeKit resources hub for checklists and planning guides' },
   ].filter((item): item is ContextualLink => item !== null);
 
   const emergencyFundLinks: ContextualLink[] = [
@@ -389,6 +622,22 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       : null,
   ].filter((item): item is ContextualLink => item !== null);
 
+  const sipLinks: ContextualLink[] = [
+    liveToolSlugs.has('fd-calculator-india')
+      ? { href: '/tools/fd-calculator-india', label: 'FD calculator for fixed-return comparison' }
+      : null,
+    liveToolSlugs.has('personal-loan-emi-calculator-india')
+      ? { href: '/tools/personal-loan-emi-calculator-india', label: 'personal loan EMI calculator for obligation planning' }
+      : null,
+    liveToolSlugs.has('emergency-fund-calculator-india')
+      ? { href: '/tools/emergency-fund-calculator-india', label: 'emergency fund calculator before aggressive investing' }
+      : null,
+    blogSlugs.has('how-much-emergency-fund')
+      ? { href: '/blog/how-much-emergency-fund', label: 'guide on how much emergency fund may be practical' }
+      : null,
+    { href: '/resources', label: 'RupeeKit resources hub' },
+  ].filter((item): item is ContextualLink => item !== null);
+
   const taxGuideHref = '/blog/itr-2-ay-2026-27-filing-guide';
   const taxGuideToolSlugs = new Set([
     'income-tax-calculator-old-vs-new-regime-india',
@@ -398,6 +647,48 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const showTaxGuideLink = blogSlugs.has('itr-2-ay-2026-27-filing-guide') && taxGuideToolSlugs.has(tool.slug);
   const showPersonalLoanLinkOnEmiPage =
     tool.slug === 'emi-calculator-india' && liveToolSlugs.has(PERSONAL_LOAN_SLUG);
+  const effectiveQuickAnswer = tool.quickAnswer ?? buildFallbackQuickAnswer(tool);
+  const genericAnswerEngineSummary = buildGenericAnswerEngineSummary(tool);
+  const genericCalculatorFacts = buildGenericCalculatorFacts(tool);
+  const personalLoanFacts = [
+    {
+      topic: 'EMI formula',
+      explanation: 'Uses loan amount, monthly interest rate, and tenure',
+    },
+    {
+      topic: 'Lower EMI',
+      explanation: 'May increase total interest if tenure is longer',
+    },
+    {
+      topic: 'Processing fee',
+      explanation: 'Can increase total borrowing cost',
+    },
+    {
+      topic: 'GST',
+      explanation: 'May apply on fees depending on lender/product terms',
+    },
+    {
+      topic: 'Prepayment',
+      explanation: 'May reduce interest, but charges may apply',
+    },
+    {
+      topic: 'Live rates',
+      explanation: 'RupeeKit does not fetch live lender rates',
+    },
+    {
+      topic: 'Loan approval',
+      explanation: 'RupeeKit does not provide loan approval',
+    },
+    {
+      topic: 'Data privacy',
+      explanation: 'Calculator values are processed in-browser and not saved by default',
+    },
+  ];
+  const hasSourceMethodologyInSections =
+    Array.isArray(tool.contentSections)
+    && tool.contentSections.some((section) => /source and methodology/i.test(section.heading));
+  const showGenericSourceMethodology =
+    !isHraPage && !isPersonalLoanPage && !isSipPage && !hasSourceMethodologyInSections;
 
   const pageUrl = `${SITE_URL}/tools/${tool.slug}`;
 
@@ -503,15 +794,64 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         <div className="rounded-3xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-900">
           <p className="font-bold">Educational estimate only</p>
           <p className="mt-2">
-            Calculator results can vary based on company policy, lender terms, tax law,
-            investment assumptions or personal details.
+            Results can vary based on company policy, lender terms, tax law, and personal assumptions.
           </p>
+          {isHraPage ? (
+            <p className="mt-2">
+              For HRA claims, verify final eligibility and documentation with your employer payroll team, CA, and
+              official rules before filing.
+            </p>
+          ) : null}
+          {isPersonalLoanPage ? (
+            <p className="mt-2">
+              RupeeKit is not a lender, does not provide loan approval, and does not publish official live bank rates.
+            </p>
+          ) : null}
+          {isEmergencyFundPage ? (
+            <p className="mt-2">
+              Emergency fund outputs are planning estimates only and are not financial or investment advice.
+            </p>
+          ) : null}
+          <p className="mt-2 text-xs text-amber-800">See the Source and methodology section below for details.</p>
         </div>
       </header>
 
-      <div className="mt-10">
-        <Calculator tool={tool} />
-      </div>
+      {isPersonalLoanPage ? (
+          <div className="mt-10">
+            <PersonalLoanDecisionSimulator
+              tool={tool}
+              quickAnswer={effectiveQuickAnswer}
+              answerEngineSummary={PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY}
+            />
+          </div>
+      ) : (
+        <>
+          <div className="mt-10">
+            <Calculator tool={tool} />
+          </div>
+          {effectiveQuickAnswer ? (
+            <section className="mt-6">
+              <QuickAnswerBox
+                title={effectiveQuickAnswer.title}
+                question={effectiveQuickAnswer.question}
+                answer={effectiveQuickAnswer.answer}
+                formula={effectiveQuickAnswer.formula}
+                example={effectiveQuickAnswer.example}
+                note={effectiveQuickAnswer.note}
+                links={effectiveQuickAnswer.links}
+              />
+            </section>
+          ) : null}
+          <AnswerEngineSummary
+            id="answer-engine-summary"
+            summary={
+              isSipPage
+                ? 'A SIP calculator estimates the future value of monthly investments using SIP amount, expected annual return, and investment duration. RupeeKit\'s SIP calculator also shows step-up SIP, goal SIP, missed SIP impact, pause-and-restart scenarios, inflation-adjusted value, and EMI-to-SIP redirect scenarios. Results are educational estimates only because mutual fund returns are market-linked and not guaranteed.'
+                : genericAnswerEngineSummary
+            }
+          />
+        </>
+      )}
 
       {isEmergencyFundPage ? (
         <section className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
@@ -562,6 +902,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
           {isHraPage ? (
             <HraEducationalContent links={contextualLinks} />
+          ) : isSipPage ? (
+            <SipEducationalContent links={sipLinks} lastReviewed={tool.lastReviewed} />
           ) : (
             <>
               {!isPersonalLoanPage && !isEmergencyFundPage ? (
@@ -614,7 +956,13 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               {tool.contentSections?.map((section) => (
                 <section
                   key={section.heading}
-                  id={isPersonalLoanPage ? PERSONAL_LOAN_SECTION_IDS[section.heading] : undefined}
+                  id={
+                    isPersonalLoanPage
+                      ? PERSONAL_LOAN_SECTION_IDS[section.heading]
+                      : isEmergencyFundPage && section.heading === 'Source and Methodology'
+                        ? 'source-and-methodology'
+                        : undefined
+                  }
                   className="mt-8 scroll-mt-24"
                 >
                   <h2 className="text-2xl font-bold">{section.heading}</h2>
@@ -631,7 +979,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
                   {isEmergencyFundPage && section.heading === 'Emergency Fund by Life Situation' ? (
                     <div className="mt-4 overflow-x-auto">
-                      <table className="min-w-full rounded-2xl border border-slate-200 text-left text-sm text-slate-700">
+                      <table className="w-full min-w-[680px] rounded-2xl border border-slate-200 text-left text-xs text-slate-700 md:text-sm">
                         <thead className="bg-slate-50 text-slate-900">
                           <tr>
                             <th className="px-4 py-3 font-semibold">Life situation</th>
@@ -668,10 +1016,10 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                     </div>
                   ) : null}
 
-                  {isEmergencyFundPage && section.heading === 'Where Should You Keep Your Emergency Fund in India?' ? (
+                  {isEmergencyFundPage && section.heading === 'Where should you keep emergency fund in India?' ? (
                     <>
                       <div className="mt-4 overflow-x-auto">
-                        <table className="min-w-full rounded-2xl border border-slate-200 text-left text-sm text-slate-700">
+                        <table className="w-full min-w-[680px] rounded-2xl border border-slate-200 text-left text-xs text-slate-700 md:text-sm">
                           <thead className="bg-slate-50 text-slate-900">
                             <tr>
                               <th className="px-4 py-3 font-semibold">Option</th>
@@ -726,11 +1074,160 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 </section>
               ))}
 
+              {isEmergencyFundPage ? (
+                <>
+                  <section className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">3-Month vs 6-Month vs 9-Month vs 12-Month Emergency Fund</h2>
+                    <p className="mt-4 leading-8 text-slate-700">
+                      A 3-month target may cover short disruptions for stable households, while 6 months is a common
+                      baseline for many families. A 9 or 12 month target can be more practical when income is variable,
+                      dependants are high, or EMI obligations are large.
+                    </p>
+                    <div className="mt-4 overflow-x-auto">
+                      <table className="w-full min-w-[680px] rounded-2xl border border-slate-200 text-left text-xs text-slate-700 md:text-sm">
+                        <thead className="bg-slate-50 text-slate-900">
+                          <tr>
+                            <th className="px-4 py-3 font-semibold">Fund size</th>
+                            <th className="px-4 py-3 font-semibold">May suit</th>
+                            <th className="px-4 py-3 font-semibold">Caution</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">3 months</td>
+                            <td className="px-4 py-3">Stable salaried income with lower fixed obligations</td>
+                            <td className="px-4 py-3">May be thin for job loss, medical shocks, or high EMIs</td>
+                          </tr>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">6 months</td>
+                            <td className="px-4 py-3">Many households with moderate EMI and dependants</td>
+                            <td className="px-4 py-3">Review after expense spikes or income instability</td>
+                          </tr>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">9 months</td>
+                            <td className="px-4 py-3">Single-income families or higher uncertainty phases</td>
+                            <td className="px-4 py-3">Needs disciplined monthly top-ups to maintain target</td>
+                          </tr>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3">12 months</td>
+                            <td className="px-4 py-3">Business/freelance income, high obligations, or volatile cash flow</td>
+                            <td className="px-4 py-3">Avoid over-allocating if it blocks essential debt reduction goals</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+
+                  <section className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">Should EMI be included in emergency fund calculation?</h2>
+                    <p className="mt-4 leading-8 text-slate-700">
+                      Yes, EMI commitments are usually included because they remain due during income disruption.
+                      This calculator adds monthly EMI commitments to essential expenses before multiplying by
+                      target months.
+                    </p>
+                  </section>
+
+                  <section className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">How often should you review your emergency fund?</h2>
+                    <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
+                      <li>Recalculate monthly survival cost after rent, school fee, insurance, or EMI changes.</li>
+                      <li>Review target months after job changes, role changes, or family dependency changes.</li>
+                      <li>Keep at least one part of the corpus instantly accessible.</li>
+                      <li>Refill emergency savings after any withdrawal.</li>
+                      <li>Review the plan at least every 6 to 12 months.</li>
+                    </ul>
+                  </section>
+
+                  <section className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">Is an emergency fund different from investment savings?</h2>
+                    <p className="mt-4 leading-8 text-slate-700">
+                      Emergency money is for immediate liquidity during shocks. Investment savings are usually for
+                      long-term growth goals and can carry market risk or lock-ins. Keep your core emergency corpus
+                      separate from long-term investment buckets.
+                    </p>
+                  </section>
+                </>
+              ) : null}
+
+              {isPersonalLoanPage ? (
+                <>
+                  <section id="what-affects-your-personal-loan-emi" className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">What affects your personal loan EMI?</h2>
+                    <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
+                      <li>Higher loan amount generally increases monthly EMI.</li>
+                      <li>Higher annual interest rate increases EMI and total interest cost.</li>
+                      <li>Longer tenure can reduce EMI but may increase total interest paid.</li>
+                      <li>Existing EMIs affect your overall monthly debt burden.</li>
+                      <li>Processing fee can increase total borrowing cost even when EMI stays unchanged.</li>
+                    </ul>
+                  </section>
+
+                  <section id="tenure-comparison-12-24-36-48-60-months" className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">Tenure Comparison: 12, 24, 36, 48, 60 Months</h2>
+                    <p className="mt-4 leading-8 text-slate-700">
+                      Use the tenure comparison table and visuals on this page to compare EMI, total interest, and total
+                      repayment across common month-based options before selecting a tenure.
+                    </p>
+                    <div className="mt-4 overflow-x-auto">
+                      <table className="w-full min-w-[680px] rounded-2xl border border-slate-200 text-left text-xs text-slate-700 md:text-sm">
+                        <thead className="bg-slate-50 text-slate-900">
+                          <tr>
+                            <th className="px-4 py-3 font-semibold">Tenure choice</th>
+                            <th className="px-4 py-3 font-semibold">EMI impact</th>
+                            <th className="px-4 py-3 font-semibold">Total interest impact</th>
+                            <th className="px-4 py-3 font-semibold">Useful when</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3 font-medium">Short tenure</td>
+                            <td className="px-4 py-3">Higher monthly EMI</td>
+                            <td className="px-4 py-3">Usually lower total interest</td>
+                            <td className="px-4 py-3">Cash flow can handle higher EMI and you want faster closure</td>
+                          </tr>
+                          <tr className="border-t border-slate-200">
+                            <td className="px-4 py-3 font-medium">Long tenure</td>
+                            <td className="px-4 py-3">Lower monthly EMI</td>
+                            <td className="px-4 py-3">Usually higher total interest</td>
+                            <td className="px-4 py-3">Need lower monthly EMI to manage near-term budget pressure</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+
+                  <section id="emi-burden-on-monthly-income" className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">What is EMI burden on monthly income?</h2>
+                    <p className="mt-4 leading-8 text-slate-700">
+                      This page estimates EMI-to-income and total EMI burden percentages so you can check affordability.
+                      This is a budgeting indicator only and not a lender approval signal.
+                    </p>
+                  </section>
+
+                  <section id="live-bank-interest-rates" className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">Does RupeeKit show live bank interest rates?</h2>
+                    <p className="mt-4 leading-8 text-slate-700">
+                      No. RupeeKit does not fetch live lender rates, offers, approvals, or disbursal data. Enter
+                      official lender values for loan amount, annual interest rate, fees, and tenure before using
+                      results for comparison.
+                    </p>
+                  </section>
+
+                  <section id="personal-loan-repayment-schedule-amortization" className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">Personal Loan Repayment Schedule / Amortization</h2>
+                    <p className="mt-4 leading-8 text-slate-700">
+                      The yearly amortization summary shows how each year&apos;s EMI is split between principal and
+                      interest. It helps you understand how repayment composition changes over the loan tenure.
+                    </p>
+                  </section>
+                </>
+              ) : null}
+
               {isPersonalLoanPage && personalLoanLinks.length ? (
                 <section className="mt-8">
                   <h2 className="text-2xl font-bold">Related calculators and guides</h2>
                   <p className="mt-4 leading-8 text-slate-700">
-                    You can cross-check this estimate using other RupeeKit tools:{' '}
+                    You can cross-check this estimate using related RupeeKit tools and guides:{' '}
                     {personalLoanLinks.map((link, index) => (
                       <span key={link.href}>
                         {index > 0 ? ', ' : ''}
@@ -798,12 +1295,12 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          {isHraPage || isPersonalLoanPage ? (
+          {isHraPage || isPersonalLoanPage || isSipPage ? (
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
               <h2 className="text-sm font-bold uppercase tracking-wide text-slate-900">On this page</h2>
               <nav className="mt-4">
                 <ul className="space-y-2 text-sm text-slate-700">
-                  {(isHraPage ? HRA_TOC : PERSONAL_LOAN_TOC).map((section) => (
+                  {(isHraPage ? HRA_TOC : isPersonalLoanPage ? PERSONAL_LOAN_TOC : SIP_TOC).map((section) => (
                     <li key={section.id}>
                       <a href={`#${section.id}`} className="hover:text-sky-700 hover:underline">
                         {section.title}
@@ -820,6 +1317,11 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       {isHraPage ? (
         <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
           <h2 className="text-2xl font-bold">Source and methodology</h2>
+          <p className="mt-4 leading-8 text-slate-700">
+            This calculator compares actual HRA, rent paid minus 10% of salary, and city-based salary cap. It is
+            designed for educational estimation under old-regime HRA rules and should be verified with employer payroll,
+            official guidance, or a qualified tax professional.
+          </p>
           <p className="mt-4 leading-8 text-slate-700">
             This calculator uses the HRA exemption formula under Rule 279 of the Income-tax Rules, 2026. The estimated
             exemption is calculated as the least of:
@@ -850,22 +1352,26 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       ) : null}
 
       {isPersonalLoanPage ? (
+        <FactsTable
+          id="personal-loan-calculator-facts"
+          title="Personal Loan EMI Calculator Facts"
+          rows={personalLoanFacts}
+        />
+      ) : !isSipPage ? (
+        <FactsTable id="calculator-facts" rows={genericCalculatorFacts} />
+      ) : null}
+
+      {showGenericSourceMethodology ? (
         <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
           <h2 className="text-2xl font-bold">Source and methodology</h2>
-          <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+          {tool.lastReviewed ? <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed}</p> : null}
           <p className="mt-4 leading-8 text-slate-700">
-            This calculator uses the standard EMI formula based on loan amount, monthly interest rate and tenure in
-            months. It estimates EMI, total interest, total repayment and processing-fee impact.
+            This calculator uses user-entered values and the formula logic shown on this page to generate educational
+            estimates. Method reference: {firstSentence(tool.formulaExplanation)}
           </p>
           <p className="mt-4 leading-8 text-slate-700">
-            RupeeKit does not show live bank interest rates or loan offers. Verify final rates, fees, eligibility,
-            prepayment and foreclosure charges on the official lender website.
-          </p>
-          <p className="mt-4 text-sm leading-6 text-slate-700">
-            RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI, Axis Bank or any lender. You can
-            use this calculator for any lender by entering the official loan amount, interest rate and tenure offered
-            by that lender. Always verify latest rates, fees, eligibility, prepayment charges and foreclosure charges
-            on the lender&apos;s official website.
+            Inputs are processed in-page to show planning outputs. RupeeKit does not provide personalized financial,
+            tax, legal, investment, or loan advice.
           </p>
         </section>
       ) : null}
@@ -885,6 +1391,30 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           ))}
         </div>
       </section>
+
+      {isPersonalLoanPage ? (
+        <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
+          <h2 className="text-2xl font-bold">Source and methodology</h2>
+          <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+          <p className="mt-4 leading-8 text-slate-700">
+            This calculator uses the standard reducing-balance EMI formula based on loan amount, monthly interest rate,
+            and tenure in months. It also estimates processing fee impact and EMI burden using user-entered values.
+          </p>
+          <p className="mt-4 leading-8 text-slate-700">
+            RupeeKit does not show live bank interest rates or loan offers. Verify final rates, fees, eligibility,
+            prepayment and foreclosure charges on the official lender website.
+          </p>
+          <p className="mt-4 leading-8 text-slate-700">
+            RupeeKit is not a lender and does not provide loan approval, disbursal, or official bank rate quotes.
+          </p>
+          <p className="mt-4 text-sm leading-6 text-slate-700">
+            RupeeKit is not affiliated with SBI, HDFC, Bank of Baroda, IDFC, ICICI, Axis Bank or any lender. You can
+            use this calculator for any lender by entering the official loan amount, interest rate and tenure offered
+            by that lender. Always verify latest rates, fees, eligibility, prepayment charges and foreclosure charges
+            on the lender&apos;s official website.
+          </p>
+        </section>
+      ) : null}
     </div>
   );
 }

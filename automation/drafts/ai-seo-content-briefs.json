@@ -1,0 +1,256 @@
+{
+  "project": "rupeekit-ai-seo-clusters",
+  "lastUpdated": "2026-05-30",
+  "briefs": [
+    {
+      "slug": "where-to-keep-emergency-fund-india",
+      "targetKeyword": "where to keep emergency fund india",
+      "searchIntent": "informational",
+      "quickAnswer": "Keep emergency funds in high-liquidity, lower-risk options such as savings account, sweep-in FD, short-term FD, or suitable liquid alternatives based on access needs.",
+      "outline": [
+        "What emergency fund money is for",
+        "Liquidity-first placement framework",
+        "Savings account vs sweep-in FD vs short-term FD",
+        "What to avoid for core emergency corpus",
+        "How to split emergency money across options"
+      ],
+      "internalLinks": [
+        "/tools/emergency-fund-calculator-india",
+        "/blog/how-much-emergency-fund",
+        "/tools/fd-calculator-india",
+        "/tools/recurring-deposit-calculator-india"
+      ],
+      "complianceNotes": [
+        "Educational content only; no product recommendation or solicitation.",
+        "No return guarantees, ranking claims, or sponsored claims without disclosure.",
+        "Include liquidity risk caveat and decision-context notes."
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "emergency-fund-vs-investment-savings",
+      "targetKeyword": "emergency fund vs investment savings",
+      "searchIntent": "informational",
+      "quickAnswer": "Emergency funds are for immediate access during financial shocks; investment savings are for long-term growth and may carry volatility or lock-ins.",
+      "outline": [
+        "Purpose difference: liquidity vs growth",
+        "Time horizon and risk exposure",
+        "Access and withdrawal constraints",
+        "Suggested layering approach",
+        "Common planning mistakes"
+      ],
+      "internalLinks": [
+        "/tools/emergency-fund-calculator-india",
+        "/blog/how-much-emergency-fund",
+        "/tools/sip-calculator-india",
+        "/tools/fd-calculator-india"
+      ],
+      "complianceNotes": [
+        "No investment advice or model portfolio recommendations.",
+        "State that examples are educational estimates only.",
+        "Avoid misrepresenting volatility or principal risk."
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "emergency-fund-for-salaried-person-india",
+      "targetKeyword": "emergency fund for salaried person india",
+      "searchIntent": "informational",
+      "quickAnswer": "Many salaried households may start with 3 to 6 months of essential expenses and EMI commitments, then extend to 6 to 12 months based on dependants and income uncertainty.",
+      "outline": [
+        "How salaried households can define survival expenses",
+        "Why EMI and dependant load matter",
+        "Choosing 3, 6, 9, or 12 month buffers",
+        "Review triggers after job or expense changes",
+        "Monthly top-up plan examples"
+      ],
+      "internalLinks": [
+        "/tools/emergency-fund-calculator-india",
+        "/tools/salary-in-hand-calculator-india",
+        "/blog/how-much-emergency-fund",
+        "/resources"
+      ],
+      "complianceNotes": [
+        "No promise of adequacy for all households.",
+        "Clarify that final target is context-specific.",
+        "Retain educational-disclaimer language."
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "lower-emi-not-always-cheaper",
+      "targetKeyword": "lower emi not always cheaper",
+      "searchIntent": "informational",
+      "quickAnswer": "A lower EMI often comes from longer tenure, which can increase total interest and total repayment over the full loan period.",
+      "outline": [
+        "Why EMI and total cost are different metrics",
+        "Tenure impact on total interest",
+        "When lower EMI can still be useful",
+        "How to compare offers correctly",
+        "Checklist before choosing tenure"
+      ],
+      "internalLinks": [
+        "/tools/personal-loan-emi-calculator-india",
+        "/tools/emi-calculator-india",
+        "/tools/salary-in-hand-calculator-india",
+        "/resources/recommended-money-tools"
+      ],
+      "complianceNotes": [
+        "No lender ranking or approval implication.",
+        "No claim of guaranteed savings outcomes.",
+        "Require verification of lender fees and terms."
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "personal-loan-processing-fee-explained",
+      "targetKeyword": "personal loan processing fee explained",
+      "searchIntent": "informational",
+      "quickAnswer": "Processing fee usually does not change EMI in standard estimates but increases total borrowing cost and should be included in loan comparison.",
+      "outline": [
+        "What processing fee means",
+        "How fee affects total outflow",
+        "Fee inclusion in loan comparison tables",
+        "Common fee-related mistakes",
+        "Questions to confirm with lender"
+      ],
+      "internalLinks": [
+        "/tools/personal-loan-emi-calculator-india",
+        "/tools/emi-calculator-india",
+        "/blog/how-to-track-expenses",
+        "/resources"
+      ],
+      "complianceNotes": [
+        "Do not present fee examples as lender commitments.",
+        "Explicitly state charges vary by lender and profile.",
+        "Keep content educational and neutral."
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "personal-loan-tenure-comparison",
+      "targetKeyword": "personal loan tenure comparison",
+      "searchIntent": "informational",
+      "quickAnswer": "Short tenure usually means higher EMI but lower total interest, while long tenure usually reduces EMI and increases total interest.",
+      "outline": [
+        "Short vs long tenure framework",
+        "EMI impact by tenure bucket",
+        "Total interest and repayment comparison",
+        "Cash-flow suitability checklist",
+        "Decision guardrails before borrowing"
+      ],
+      "internalLinks": [
+        "/tools/personal-loan-emi-calculator-india",
+        "/tools/emi-calculator-india",
+        "/tools/emergency-fund-calculator-india",
+        "/resources/recommended-money-tools"
+      ],
+      "complianceNotes": [
+        "No prescriptive tenure recommendation without context.",
+        "Avoid implying lender approval probability.",
+        "Mark all outputs as user-input based estimates."
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "emi-burden-on-salary",
+      "targetKeyword": "emi burden on salary",
+      "searchIntent": "informational",
+      "quickAnswer": "EMI burden compares monthly EMI obligations with monthly income to help evaluate affordability, but it is not a lender approval metric.",
+      "outline": [
+        "What EMI-to-income ratio indicates",
+        "How existing EMIs change risk",
+        "Range-based affordability interpretation",
+        "Emergency buffer interplay",
+        "Action steps before applying"
+      ],
+      "internalLinks": [
+        "/tools/personal-loan-emi-calculator-india",
+        "/tools/salary-in-hand-calculator-india",
+        "/tools/emergency-fund-calculator-india",
+        "/resources"
+      ],
+      "complianceNotes": [
+        "Do not label outcomes as eligibility or approval prediction.",
+        "Use plain-language caveat on affordability assumptions.",
+        "Retain neutral, non-advisory tone."
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "hra-in-new-tax-regime",
+      "targetKeyword": "hra in new tax regime",
+      "searchIntent": "informational",
+      "quickAnswer": "HRA exemption is generally associated with the old tax regime and is typically not available under the default new tax regime.",
+      "outline": [
+        "Regime-level HRA treatment summary",
+        "When HRA calculator outputs are relevant",
+        "Old vs new regime decision context",
+        "Documentation and payroll verification notes",
+        "Practical planning checklist"
+      ],
+      "internalLinks": [
+        "/tools/hra-exemption-calculator-india",
+        "/tools/income-tax-calculator-old-vs-new-regime-india",
+        "/blog/itr-2-ay-2026-27-filing-guide",
+        "/resources"
+      ],
+      "complianceNotes": [
+        "Do not state absolute tax outcomes without caveats.",
+        "Prompt readers to verify current official guidance.",
+        "No legal or tax-advice claims."
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "hra-documents-required",
+      "targetKeyword": "hra documents required",
+      "searchIntent": "informational",
+      "quickAnswer": "Common HRA proof records include rent receipts, rent agreement where available, landlord details/PAN where applicable, and payroll declaration documents.",
+      "outline": [
+        "Core proof documents checklist",
+        "When landlord PAN is usually requested",
+        "Rent payment trail examples",
+        "Employer declaration timing",
+        "Audit-readiness mistakes to avoid"
+      ],
+      "internalLinks": [
+        "/tools/hra-exemption-calculator-india",
+        "/blog/itr-2-ay-2026-27-filing-guide",
+        "/resources/recommended-money-tools",
+        "/resources"
+      ],
+      "complianceNotes": [
+        "Frame checklist as educational and employer-dependent.",
+        "Avoid claiming universally applicable thresholds without context.",
+        "Direct users to employer/official verification."
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "rent-to-parents-hra",
+      "targetKeyword": "rent to parents hra",
+      "searchIntent": "informational",
+      "quickAnswer": "HRA claim for rent paid to parents may be possible where rent is genuine, paid with records, and handled with proper disclosure and tax reporting where applicable.",
+      "outline": [
+        "When rent-to-parents claims are considered",
+        "Documentation and payment evidence requirements",
+        "Disclosure expectations in payroll declarations",
+        "Common errors that trigger disputes",
+        "Verification checklist before filing"
+      ],
+      "internalLinks": [
+        "/tools/hra-exemption-calculator-india",
+        "/blog/itr-2-ay-2026-27-filing-guide",
+        "/tools/salary-in-hand-calculator-india",
+        "/resources"
+      ],
+      "complianceNotes": [
+        "No legal/tax certainty language.",
+        "Call out that genuineness and records are critical.",
+        "Advise confirmation with employer/payroll/qualified professional."
+      ],
+      "publishStatus": "draft_only"
+    }
+  ]
+}

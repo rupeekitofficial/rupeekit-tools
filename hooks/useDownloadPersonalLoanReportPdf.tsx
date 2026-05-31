@@ -2,6 +2,7 @@
 
 import React, { useCallback, useState } from 'react';
 import type { PersonalLoanEmiReportPdfData } from '@/components/personal-loan/PersonalLoanEmiReportPdfDocument';
+import { trackPdfDownload } from '@/lib/events';
 
 const PERSONAL_LOAN_REPORT_FILE_NAME = 'personal-loan-emi-report-rupeekit.pdf';
 
@@ -35,17 +36,30 @@ function buildPayload(
     annualInterestRate: 0,
     tenureMonths: 0,
     processingFeePercent: 0,
+    processingFeeFixedAmount: 0,
+    includeGstOnProcessingFee: true,
+    processingFeeGstRate: 18,
+    insuranceAddonFee: 0,
+    documentationFee: 0,
     monthlyIncome: 0,
     existingMonthlyEmi: 0,
     monthlyEmi: 0,
     totalInterest: 0,
     totalRepayment: 0,
-    estimatedProcessingFee: 0,
+    processingFee: 0,
+    gstOnProcessingFee: 0,
+    optionalAddOnCost: 0,
+    totalUpfrontCharges: 0,
     totalCostWithFee: 0,
+    netDisbursedAmount: 0,
     emiToIncomePercent: 0,
     totalEmiBurdenPercent: 0,
+    affordabilityStatus: undefined,
     tenureComparison: [],
     amortization: [],
+    monthlySchedule: [],
+    prepaymentScenario: undefined,
+    pauseScenario: undefined,
     ...partial,
   };
 }
@@ -78,6 +92,12 @@ export function useDownloadPersonalLoanReportPdf() {
         anchor.download = PERSONAL_LOAN_REPORT_FILE_NAME;
         anchor.click();
         URL.revokeObjectURL(url);
+        trackPdfDownload({
+          eventName: 'personal_loan_pdf_downloaded',
+          page: '/tools/personal-loan-emi-calculator-india',
+          toolSlug: 'personal-loan-emi-calculator-india',
+          context: 'personal-loan-emi-report',
+        });
       } catch (err) {
         console.error('Personal loan EMI report PDF generation failed:', err);
         setError('Could not generate the EMI report PDF. Please try again.');

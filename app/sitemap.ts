@@ -35,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/affiliate-disclosure',
     '/money-health-check',
     '/resources/30-day-budget-challenge',
+    '/resources/recommended-money-tools',
     '/start-here',
     '/government-salary-updates',
     '/financial-updates',

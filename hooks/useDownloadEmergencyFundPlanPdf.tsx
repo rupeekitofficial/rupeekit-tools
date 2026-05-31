@@ -2,6 +2,7 @@
 
 import React, { useCallback, useState } from 'react';
 import type { EmergencyFundPlanPdfData } from '@/components/emergency-fund/EmergencyFundPlanPdfDocument';
+import { trackPdfDownload } from '@/lib/events';
 
 const EMERGENCY_FUND_PLAN_FILE_NAME = 'emergency-fund-plan-rupeekit.pdf';
 
@@ -74,6 +75,11 @@ export function useDownloadEmergencyFundPlanPdf() {
         anchor.download = EMERGENCY_FUND_PLAN_FILE_NAME;
         anchor.click();
         URL.revokeObjectURL(url);
+        trackPdfDownload({
+          page: '/tools/emergency-fund-calculator-india',
+          toolSlug: 'emergency-fund-calculator-india',
+          context: 'emergency-fund-plan',
+        });
       } catch (err) {
         console.error('Emergency fund plan PDF generation failed:', err);
         setError('Could not generate the emergency fund plan PDF. Please try again.');
@@ -90,4 +96,3 @@ export function useDownloadEmergencyFundPlanPdf() {
     handleDownloadEmergencyFundPlanPdf,
   };
 }
-

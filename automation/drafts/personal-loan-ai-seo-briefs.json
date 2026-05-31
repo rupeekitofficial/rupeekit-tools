@@ -1,0 +1,127 @@
+{
+  "cluster": "personal-loan-decision-simulator",
+  "lastUpdated": "2026-05-31",
+  "briefs": [
+    {
+      "slug": "lower-emi-not-always-cheaper",
+      "targetKeyword": "is lower emi always cheaper",
+      "searchIntent": "Informational",
+      "quickAnswer": "A lower EMI can feel easier monthly, but if the tenure is longer, total interest and total repayment can increase.",
+      "outline": [
+        "How EMI is calculated using reducing-balance method",
+        "12 vs 24 vs 36 vs 48 vs 60 month comparison",
+        "Extra interest vs shortest tenure explanation",
+        "How to compare EMI with total cost, not EMI alone",
+        "Educational caution and lender-rule verification note"
+      ],
+      "internalLinks": [
+        "/tools/personal-loan-emi-calculator-india",
+        "/tools/emi-calculator-india",
+        "/blog/how-much-emergency-fund"
+      ],
+      "complianceNotes": [
+        "No lender recommendation",
+        "No approval or guaranteed savings claims",
+        "Educational estimate framing only"
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "personal-loan-processing-fee-explained",
+      "targetKeyword": "personal loan processing fee explained",
+      "searchIntent": "Informational",
+      "quickAnswer": "Processing fee, GST on fee, and optional add-on charges can materially raise total borrowing cost even when EMI stays the same.",
+      "outline": [
+        "What processing fee is and how it is charged",
+        "How GST may apply on processing fee",
+        "Fixed fee, insurance/add-on, and documentation fee impact",
+        "True-cost checklist before offer comparison",
+        "Educational caution and lender-rule verification note"
+      ],
+      "internalLinks": [
+        "/tools/personal-loan-emi-calculator-india",
+        "/tools/emi-calculator-india",
+        "/resources"
+      ],
+      "complianceNotes": [
+        "No lender endorsement",
+        "No real-time rate claim",
+        "No personalized borrowing advice"
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "personal-loan-prepayment-vs-full-tenure",
+      "targetKeyword": "personal loan prepayment vs full tenure",
+      "searchIntent": "Informational",
+      "quickAnswer": "Prepayment may reduce total interest, but the actual benefit depends on prepayment timing, amount, and lender charges.",
+      "outline": [
+        "How prepayment changes outstanding balance",
+        "Reduce tenure vs reduce EMI decision path",
+        "Interest-saved scenarios and limitations",
+        "Foreclosure and part-payment rule checks",
+        "Educational caution and policy-variance note"
+      ],
+      "internalLinks": [
+        "/tools/personal-loan-emi-calculator-india",
+        "/tools/emergency-fund-calculator-india",
+        "/resources"
+      ],
+      "complianceNotes": [
+        "No guaranteed savings claims",
+        "No lender recommendation",
+        "No approval guidance"
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "how-much-emi-is-safe-on-salary",
+      "targetKeyword": "how much emi is safe on salary",
+      "searchIntent": "Informational",
+      "quickAnswer": "A simple EMI burden check uses EMI divided by monthly income, but this is an educational indicator and not loan eligibility guidance.",
+      "outline": [
+        "EMI burden formula and interpretation bands",
+        "Difference between affordability and lender eligibility",
+        "Role of existing EMIs and fixed obligations",
+        "How to run safer what-if comparisons",
+        "Educational caution and data-privacy note"
+      ],
+      "internalLinks": [
+        "/tools/personal-loan-emi-calculator-india",
+        "/tools/salary-in-hand-calculator-india",
+        "/tools/emergency-fund-calculator-india"
+      ],
+      "complianceNotes": [
+        "No eligibility promise",
+        "No approval or disbursal claims",
+        "Educational estimate only"
+      ],
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "personal-loan-hidden-charges-india",
+      "targetKeyword": "personal loan hidden charges india",
+      "searchIntent": "Informational",
+      "quickAnswer": "Borrowers should check processing fee, GST on fee, foreclosure, part-payment, late-payment, insurance/add-on, and documentation charges before comparing offers.",
+      "outline": [
+        "Hidden-charge categories and definitions",
+        "How hidden charges alter true borrowing cost",
+        "Checklist for offer comparison",
+        "How to validate final schedule with lender documents",
+        "Educational caution and policy-variance note"
+      ],
+      "internalLinks": [
+        "/tools/personal-loan-emi-calculator-india",
+        "/tools/emi-calculator-india",
+        "/resources"
+      ],
+      "complianceNotes": [
+        "No lender promotion",
+        "No guaranteed outcomes",
+        "Neutral educational framing"
+      ],
+      "publishStatus": "draft_only"
+    }
+  ]
+}
+

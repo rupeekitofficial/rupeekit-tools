@@ -47,14 +47,22 @@ import AdvancedCalculatorRenderer from '@/components/calculators/advanced/Advanc
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
 import DownloadPersonalLoanReportButton from '@/components/personal-loan/DownloadPersonalLoanReportButton';
 import PersonalLoanVisualBreakdown from '@/components/personal-loan/PersonalLoanVisualBreakdown';
+import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLoanDecisionSimulator';
 import EmergencyFundVisualBreakdown from '@/components/emergency-fund/EmergencyFundVisualBreakdown';
 import DownloadEmergencyFundPlanButton from '@/components/emergency-fund/DownloadEmergencyFundPlanButton';
+import SipPlannerCalculator from '@/components/sip/SipPlannerCalculator';
 import type { PersonalLoanEmiReportPdfData } from '@/components/personal-loan/PersonalLoanEmiReportPdfDocument';
 import type { EmergencyFundPlanPdfData } from '@/components/emergency-fund/EmergencyFundPlanPdfDocument';
 
 export default function Calculator({ tool }: { tool: Tool }) {
   if (isAdvancedCalculator(tool.slug)) {
     return <AdvancedCalculatorRenderer tool={tool} />;
+  }
+  if (tool.slug === 'personal-loan-emi-calculator-india') {
+    return <PersonalLoanDecisionSimulator tool={tool} />;
+  }
+  if (tool.slug === 'sip-calculator-india') {
+    return <SipPlannerCalculator tool={tool} />;
   }
   return <StandardCalculator tool={tool} />;
 }
@@ -604,7 +612,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
             Compare how EMI and total interest may change across common tenure options.
           </p>
           <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-100">
-            <table className="min-w-full text-left text-sm text-slate-700">
+            <table className="w-full min-w-[680px] text-left text-xs text-slate-700 md:text-sm">
               <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
                 <tr>
                   <th className="px-4 py-3">Tenure</th>
@@ -645,7 +653,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
             This table shows yearly EMI paid, principal paid, interest paid and closing balance.
           </p>
           <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-100">
-            <table className="min-w-full text-left text-sm text-slate-700">
+            <table className="w-full min-w-[760px] text-left text-xs text-slate-700 md:text-sm">
               <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
                 <tr>
                   <th className="px-4 py-3">Year</th>

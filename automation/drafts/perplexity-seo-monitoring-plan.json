@@ -1,0 +1,22 @@
+{
+  "targetPage": "/tools/sip-calculator-india",
+  "queries": [
+    "best SIP calculator India",
+    "what happens if I miss SIP payment",
+    "SIP pause restart calculator India",
+    "step up SIP vs regular SIP calculator",
+    "how much SIP for 1 crore India",
+    "SIP inflation adjusted calculator India",
+    "EMI to SIP redirect calculator"
+  ],
+  "metrics": [
+    "rupeekitCited",
+    "citedUrl",
+    "competitorCited",
+    "citedSection",
+    "answerType",
+    "improvementNeeded"
+  ],
+  "cadence": "weekly_manual_review",
+  "status": "draft_only"
+}

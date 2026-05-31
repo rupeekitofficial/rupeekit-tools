@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TaxInput } from '@/lib/tax/calculator';
+import { extractDigits, parseIntegerFromTextInput, stripLeadingZeros } from '@/lib/forms/numeric-input';
 
 interface TaxInputFormProps {
   input: TaxInput;
@@ -8,20 +9,58 @@ interface TaxInputFormProps {
   onTaxYearChange: (year: string) => void;
 }
 
+type NumericField =
+  | 'grossSalary'
+  | 'hraExemption'
+  | 'section80C'
+  | 'section80D'
+  | 'homeLoanInterest'
+  | 'employerNPS'
+  | 'otherDeductionsOldRegime'
+  | 'otherDeductionsBothRegimes';
+
+function formatNumberForInput(value: number): string {
+  return value.toLocaleString('en-IN');
+}
+
 export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxInputFormProps) {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     basic: true,
     deductions: false,
     other: false,
   });
+  const [displayValues, setDisplayValues] = useState<Record<NumericField, string>>({
+    grossSalary: formatNumberForInput(input.grossSalary),
+    hraExemption: formatNumberForInput(input.hraExemption),
+    section80C: formatNumberForInput(input.section80C),
+    section80D: formatNumberForInput(input.section80D),
+    homeLoanInterest: formatNumberForInput(input.homeLoanInterest),
+    employerNPS: formatNumberForInput(input.employerNPS),
+    otherDeductionsOldRegime: formatNumberForInput(input.otherDeductionsOldRegime),
+    otherDeductionsBothRegimes: formatNumberForInput(input.otherDeductionsBothRegimes),
+  });
 
   const toggleSection = (section: string) => {
     setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
   };
 
-  const handleNumChange = (field: keyof TaxInput, value: string) => {
-    const num = parseInt(value.replace(/\D/g, ''), 10) || 0;
-    onChange({ ...input, [field]: num });
+  const handleNumChange = (field: NumericField, value: string) => {
+    const digits = stripLeadingZeros(extractDigits(value));
+    setDisplayValues((prev) => ({ ...prev, [field]: digits }));
+    onChange({ ...input, [field]: parseIntegerFromTextInput(digits) });
+  };
+
+  const handleNumFocus = (field: NumericField) => {
+    setDisplayValues((prev) => {
+      const noCommas = prev[field].replace(/,/g, '');
+      return { ...prev, [field]: noCommas === '0' ? '' : noCommas };
+    });
+  };
+
+  const handleNumBlur = (field: NumericField) => {
+    const currentValue = input[field];
+    const safeValue = Number.isFinite(currentValue) ? currentValue : 0;
+    setDisplayValues((prev) => ({ ...prev, [field]: formatNumberForInput(safeValue) }));
   };
 
   return (
@@ -69,7 +108,9 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
                 <input 
                   type="text" 
-                  value={input.grossSalary.toLocaleString('en-IN')}
+                  value={displayValues.grossSalary}
+                  onFocus={() => handleNumFocus('grossSalary')}
+                  onBlur={() => handleNumBlur('grossSalary')}
                   onChange={(e) => handleNumChange('grossSalary', e.target.value)}
                   className="w-full rounded-xl border border-brandBorder bg-white py-3 pl-8 pr-4 text-sm font-bold text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
                   placeholder="0"
@@ -84,7 +125,9 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
                 <input 
                   type="text" 
-                  value={input.hraExemption.toLocaleString('en-IN')}
+                  value={displayValues.hraExemption}
+                  onFocus={() => handleNumFocus('hraExemption')}
+                  onBlur={() => handleNumBlur('hraExemption')}
                   onChange={(e) => handleNumChange('hraExemption', e.target.value)}
                   className="w-full rounded-xl border border-brandBorder bg-white py-3 pl-8 pr-4 text-sm font-bold text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
                   placeholder="0"
@@ -113,7 +156,9 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
                 <input 
                   type="text" 
-                  value={input.section80C.toLocaleString('en-IN')}
+                  value={displayValues.section80C}
+                  onFocus={() => handleNumFocus('section80C')}
+                  onBlur={() => handleNumBlur('section80C')}
                   onChange={(e) => handleNumChange('section80C', e.target.value)}
                   className="w-full rounded-xl border border-brandBorder bg-white py-3 pl-8 pr-4 text-sm font-bold text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
                   placeholder="Max 1,50,000"
@@ -127,7 +172,9 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
                 <input 
                   type="text" 
-                  value={input.section80D.toLocaleString('en-IN')}
+                  value={displayValues.section80D}
+                  onFocus={() => handleNumFocus('section80D')}
+                  onBlur={() => handleNumBlur('section80D')}
                   onChange={(e) => handleNumChange('section80D', e.target.value)}
                   className="w-full rounded-xl border border-brandBorder bg-white py-3 pl-8 pr-4 text-sm font-bold text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
                   placeholder="0"
@@ -141,7 +188,9 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
                 <input 
                   type="text" 
-                  value={input.homeLoanInterest.toLocaleString('en-IN')}
+                  value={displayValues.homeLoanInterest}
+                  onFocus={() => handleNumFocus('homeLoanInterest')}
+                  onBlur={() => handleNumBlur('homeLoanInterest')}
                   onChange={(e) => handleNumChange('homeLoanInterest', e.target.value)}
                   className="w-full rounded-xl border border-brandBorder bg-white py-3 pl-8 pr-4 text-sm font-bold text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
                   placeholder="Max 2,00,000 for self-occupied"
@@ -169,7 +218,9 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
                 <input 
                   type="text" 
-                  value={input.employerNPS.toLocaleString('en-IN')}
+                  value={displayValues.employerNPS}
+                  onFocus={() => handleNumFocus('employerNPS')}
+                  onBlur={() => handleNumBlur('employerNPS')}
                   onChange={(e) => handleNumChange('employerNPS', e.target.value)}
                   className="w-full rounded-xl border border-brandBorder bg-white py-3 pl-8 pr-4 text-sm font-bold text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
                   placeholder="0"
@@ -184,7 +235,9 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
                 <input 
                   type="text" 
-                  value={input.otherDeductionsOldRegime.toLocaleString('en-IN')}
+                  value={displayValues.otherDeductionsOldRegime}
+                  onFocus={() => handleNumFocus('otherDeductionsOldRegime')}
+                  onBlur={() => handleNumBlur('otherDeductionsOldRegime')}
                   onChange={(e) => handleNumChange('otherDeductionsOldRegime', e.target.value)}
                   className="w-full rounded-xl border border-brandBorder bg-white py-3 pl-8 pr-4 text-sm font-bold text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
                   placeholder="e.g. LTA, 80E, 80G, etc."
@@ -198,7 +251,9 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">₹</span>
                 <input 
                   type="text" 
-                  value={input.otherDeductionsBothRegimes.toLocaleString('en-IN')}
+                  value={displayValues.otherDeductionsBothRegimes}
+                  onFocus={() => handleNumFocus('otherDeductionsBothRegimes')}
+                  onBlur={() => handleNumBlur('otherDeductionsBothRegimes')}
                   onChange={(e) => handleNumChange('otherDeductionsBothRegimes', e.target.value)}
                   className="w-full rounded-xl border border-brandBorder bg-white py-3 pl-8 pr-4 text-sm font-bold text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
                   placeholder="e.g. 80CCH Agniveer Corpus Fund"
