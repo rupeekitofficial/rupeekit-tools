@@ -1117,12 +1117,12 @@
   },
   {
     "slug": "income-tax-calculator-old-vs-new-regime-india",
-    "name": "Income Tax Calculator: Old vs New Regime India (FY 2023-24)",
+    "name": "Income Tax Calculator: Old vs New Regime India",
     "category": "Tax",
     "status": "live",
     "targetKeyword": "income tax calculator old vs new regime India",
-    "shortDescription": "Compare your income tax liability under the Old vs New Tax Regime in India for FY 2023-24. Use RupeeKit's calculator to find out which regime saves you more tax based on your",
-    "metaDescription": "Compare your income tax liability under the Old vs New Tax Regime in India for FY 2023-24. Use RupeeKit's calculator to find out which regime saves",
+    "shortDescription": "Compare old vs new tax regime estimates in India using your income and deduction inputs. RupeeKit currently supports FY 2024-25 and FY 2023-24 rule sets for educational comparison.",
+    "metaDescription": "Compare old vs new tax regime in India with RupeeKit. Estimate taxable income, deductions, rebate, cess and regime-wise tax for supported years.",
     "inputs": [
       {
         "key": "grossAnnualIncome",
@@ -1257,7 +1257,7 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "This calculator helps you compare your estimated tax liability under the Old and New Tax Regimes for FY 2023-24. For the Old Regime, it deducts the standard deduction (an input, capped at â‚¹50,000), HRA exemption (calculated as the minimum of actual HRA received, rent paid minus 10% of gross income, or 40/50% of gross income based on your 'City Type' input), professional tax, and other specified deductions like 80C, 80D, 24b, and other eligible deductions from your gross annual income to arrive at the taxable income. For the New Regime, it applies the standard deduction (â‚¹50,000 for FY 2023-24) to your gross income. Please note that the 'Illustrative Tax Payable' for both regimes uses a simplified linear tax rate (10% for Old, 7% for New) for comparison purposes only, as actual tax is calculated based on progressive slab rates and Section 87A rebate, which are handled by the frontend component. The calculator then shows the potential illustrative tax savings or loss when opting for the New Regime over the Old.",
+    "formulaExplanation": "This calculator compares old and new regime estimates using supported-year rules and your entered income and deduction assumptions. It applies taxable-income logic, rebate handling, and cess to provide educational scenario comparison. Verify final computation with official filing utilities and records.",
     "example": "Consider Ms. Priya, a salaried individual with an annual gross income of â‚¹15,00,000. She receives â‚¹2,00,000 as HRA, pays â‚¹1,80,000 in annual rent, has â‚¹1,50,000 in 80C deductions, â‚¹25,000 in 80D deductions, and pays â‚¹1,00,000 as home loan interest (Section 24b). She lives in a metro city (HRA factor 50%). The calculator will first determine her HRA exemption, then calculate her taxable income under both regimes by applying relevant deductions and the standard deduction. Finally, it will show her illustrative tax payable for each regime and the potential savings by choosing the optimal one.",
     "faqs": [
       {
@@ -2023,3 +2023,4 @@
     "lastReviewed": "May 2026"
   }
 ]
+

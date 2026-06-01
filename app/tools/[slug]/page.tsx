@@ -561,9 +561,9 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       href: '/tools/salary-in-hand-calculator-india',
       label: 'salary in-hand calculator',
     } : null,
-    liveToolSlugs.has('income-tax-calculator-india') ? {
-      href: '/tools/income-tax-calculator-india',
-      label: 'income tax calculator',
+    liveToolSlugs.has('income-tax-calculator-old-vs-new-regime-india') ? {
+      href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+      label: 'Old vs New Tax Regime Calculator',
     } : null,
     liveToolSlugs.has('80c-deduction-calculator-india') ? {
       href: '/tools/80c-deduction-calculator-india',
@@ -1247,6 +1247,24 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   <p className="mt-4 leading-8 text-slate-700">
                     You can continue planning with these RupeeKit resources:{' '}
                     {emergencyFundLinks.map((link, index) => (
+                      <span key={link.href}>
+                        {index > 0 ? ', ' : ''}
+                        <Link href={link.href} className="font-medium text-sky-700 hover:underline">
+                          {link.label}
+                        </Link>
+                      </span>
+                    ))}
+                    .
+                  </p>
+                </section>
+              ) : null}
+
+              {!isHraPage && !isPersonalLoanPage && !isEmergencyFundPage && !isSipPage && contextualLinks.length ? (
+                <section className="mt-8">
+                  <h2 className="text-2xl font-bold">Related calculators and guides</h2>
+                  <p className="mt-4 leading-8 text-slate-700">
+                    You can cross-check this estimate using:{' '}
+                    {contextualLinks.map((link, index) => (
                       <span key={link.href}>
                         {index > 0 ? ', ' : ''}
                         <Link href={link.href} className="font-medium text-sky-700 hover:underline">

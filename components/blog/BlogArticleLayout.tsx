@@ -41,6 +41,7 @@ function formatBlogDateLabel(isoDate?: string, fallback?: string) {
 export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
   const isEmergencyFundGuide = post.slug === 'how-much-emergency-fund';
   const showTaxCrossLinks =
+    post.slug === 'itr-2-ay-2026-27-filing-guide' ||
     post.slug === 'income-tax-calculator-2026-calculator-guide' ||
     post.slug === 'personal-finance-checklist-for-salaried-people';
   const lastUpdatedLabel = formatBlogDateLabel(post.modifiedDateISO || post.publishedDateISO, post.date);
@@ -169,6 +170,19 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
               <div className="mt-4 rounded-2xl border border-sky-200 bg-sky-50 p-4">
                 <p className="text-xs font-bold uppercase tracking-wide text-sky-800">Tax Planning Links</p>
                 <p className="mt-2 text-xs leading-relaxed text-slate-700">
+                  Compare regimes with the{' '}
+                  <Link href="/tools/income-tax-calculator-old-vs-new-regime-india" className="font-semibold text-sky-800 hover:underline">
+                    Old vs New Tax Regime Calculator
+                  </Link>
+                  {' '}and the{' '}
+                  <Link href="/tools/income-tax-calculator-old-vs-new-regime-india" className="font-semibold text-sky-800 hover:underline">
+                    Income Tax Calculator Old vs New Regime
+                  </Link>
+                  . For alternate phrasing, use the{' '}
+                  <Link href="/tools/income-tax-calculator-old-vs-new-regime-india" className="font-semibold text-sky-800 hover:underline">
+                    New Regime vs Old Regime Calculator
+                  </Link>
+                  .{' '}
                   For HRA-specific estimation, use the{' '}
                   <Link href="/tools/hra-exemption-calculator-india" className="font-semibold text-sky-800 hover:underline">
                     HRA Exemption Calculator India

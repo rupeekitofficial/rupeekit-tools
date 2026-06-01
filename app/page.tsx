@@ -253,6 +253,14 @@ export default function HomePage() {
         <ul className="mt-4 grid gap-2 sm:grid-cols-2">
           <li>
             <Link
+              href="/tools/income-tax-calculator-old-vs-new-regime-india"
+              className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
+            >
+              New Regime vs Old Regime Calculator for India
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/tools/emergency-fund-calculator-india"
               className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
             >
@@ -394,7 +402,30 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* Card 5: FD / Savings Growth */}
+          {/* Card 5: Old vs New Tax Regime */}
+          <Link
+            href="/tools/income-tax-calculator-old-vs-new-regime-india"
+            className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
+          >
+            <div>
+              <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/25 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandNavy">
+                Tax
+              </span>
+              <h3 className="mt-3 text-base font-bold tracking-tight text-brandDeepNavy transition group-hover:text-brandNavy">
+                Old vs New Tax Regime Calculator
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-brandMuted">
+                Compare old and new regime tax estimates, deductions, rebate and cess for supported rule years.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-brandBorder">
+              <p className="text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
+                Open calculator
+              </p>
+            </div>
+          </Link>
+
+          {/* Card 6: FD / Savings Growth */}
           <Link
             href="/tools/fd-calculator-india"
             className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
@@ -417,7 +448,7 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* Card 6: Money Health Check */}
+          {/* Card 7: Money Health Check */}
           <Link
             href="/money-health-check"
             className="group flex flex-col justify-between rounded-2xl border border-brandBorder bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"

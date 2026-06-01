@@ -1,6 +1,6 @@
 'use client';
-import React from 'react';
-import { TaxInput, TaxResult } from '@/lib/tax/calculator';
+import React, { useMemo } from 'react';
+import { calculateIndianIncomeTax, TaxInput, TaxResult } from '@/lib/tax/calculator';
 import { TaxVisualComparison } from './TaxVisualComparison';
 import { TaxSlabBreakdown } from './TaxSlabBreakdown';
 import { useDownloadTaxPdf } from '@/hooks/useDownloadTaxPdf';
@@ -11,8 +11,46 @@ interface TaxResultPanelProps {
   taxYear: string;
 }
 
+function formatInr(value: number) {
+  return `Rs ${Math.round(value).toLocaleString('en-IN')}`;
+}
+
+function estimateBreakEvenAdditionalOldDeduction(input: TaxInput, taxYear: string) {
+  const base = calculateIndianIncomeTax(input, taxYear);
+  if (base.oldRegime.finalTax <= base.newRegime.finalTax) {
+    return 0;
+  }
+
+  let low = 0;
+  let high = Math.max(0, Math.round(input.grossSalary));
+  let answer: number | null = null;
+
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const simulatedInput: TaxInput = {
+      ...input,
+      otherDeductionsOldRegime: input.otherDeductionsOldRegime + mid,
+    };
+    const simulated = calculateIndianIncomeTax(simulatedInput, taxYear);
+
+    if (simulated.oldRegime.finalTax <= base.newRegime.finalTax) {
+      answer = mid;
+      high = mid - 1;
+    } else {
+      low = mid + 1;
+    }
+  }
+
+  return answer;
+}
+
 export function TaxResultPanel({ result, input, taxYear }: TaxResultPanelProps) {
   const { handleDownloadTaxPdf, isGenerating, error } = useDownloadTaxPdf();
+
+  const breakEvenAdditionalOldDeduction = useMemo(
+    () => estimateBreakEvenAdditionalOldDeduction(input, taxYear),
+    [input, taxYear]
+  );
 
   if (!result) return null;
 
@@ -23,88 +61,98 @@ export function TaxResultPanel({ result, input, taxYear }: TaxResultPanelProps) 
   let rationale = '';
 
   if (recommendedRegime === 'Old') {
-    recommendationTitle = 'Old Regime is Better';
+    recommendationTitle = 'Old Regime May Be Lower in This Estimate';
     recommendationClass = 'bg-indigo-50 border-indigo-200 text-indigo-900';
-    rationale = `Old regime saves you ₹${savingsAmount.toLocaleString('en-IN')} because your total deductions (₹${oldRegime.totalDeductions.toLocaleString('en-IN')}) are high enough to offset the lower slab rates of the new regime.`;
+    rationale = `In this scenario, old regime estimated tax is lower by ${formatInr(savingsAmount)}. This can happen when deduction values are relatively high.`;
   } else if (recommendedRegime === 'New') {
-    recommendationTitle = 'New Regime is Better';
+    recommendationTitle = 'New Regime May Be Lower in This Estimate';
     recommendationClass = 'bg-brandGrowthGreen/10 border-brandGrowthGreen/30 text-brandDeepNavy';
-    rationale = `New regime saves you ₹${savingsAmount.toLocaleString('en-IN')}. Your old regime deductions aren't high enough to beat the lower tax slabs and higher rebate in the new regime.`;
+    rationale = `In this scenario, new regime estimated tax is lower by ${formatInr(savingsAmount)}. This can happen when old-regime-only deductions are limited.`;
   } else {
-    recommendationTitle = 'Both Regimes are Equal';
+    recommendationTitle = 'Both Regimes Are Equal in This Estimate';
     recommendationClass = 'bg-slate-50 border-slate-200 text-slate-800';
-    rationale = 'The tax liability is identical in both regimes for your current income and deductions.';
+    rationale = 'For your current inputs, estimated tax is the same under both regimes.';
   }
 
   return (
-    <div className="sticky top-28 lg:top-32 z-10 rounded-3xl border border-brandBorder bg-white p-6 md:p-8 shadow-sm">
-      <h2 className="text-xl font-black text-brandDeepNavy tracking-tight">Your Tax Estimate</h2>
+    <div className="sticky top-28 z-10 rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8 lg:top-32">
+      <h2 className="text-xl font-black tracking-tight text-brandDeepNavy">Your Tax Estimate</h2>
       <p className="mt-1 text-xs text-brandMuted">For {result.taxYear}</p>
 
-      {/* Recommendation Banner */}
       <div className={`mt-6 rounded-2xl border p-5 ${recommendationClass}`}>
-        <p className="text-[10px] font-bold uppercase tracking-wider opacity-80">Recommendation</p>
+        <p className="text-[10px] font-bold uppercase tracking-wider opacity-80">Estimated comparison</p>
         <p className="mt-1 text-lg font-black">{recommendationTitle}</p>
         <p className="mt-2 text-xs leading-relaxed opacity-90">{rationale}</p>
       </div>
 
-      {/* Result Transparency Preview */}
-      <div className="mt-4 rounded-xl bg-slate-50 p-4 border border-slate-100 text-sm">
-        <h4 className="font-bold text-slate-700 mb-2 border-b border-slate-200 pb-1">Calculation Quick Summary</h4>
-        <div className="space-y-1.5 text-slate-600">
+      <div className="mt-4 rounded-xl border border-slate-100 bg-slate-50 p-4 text-sm">
+        <h3 className="border-b border-slate-200 pb-1 font-bold text-slate-700">Result insight</h3>
+        <div className="mt-2 space-y-1.5 text-slate-700">
           <div className="flex justify-between">
-            <span>Taxable Income (Old):</span>
-            <span className="font-medium">₹{oldRegime.taxableIncome.toLocaleString('en-IN')}</span>
+            <span>Old regime estimated tax</span>
+            <span className="font-semibold">{formatInr(oldRegime.finalTax)}</span>
           </div>
           <div className="flex justify-between">
-            <span>Taxable Income (New):</span>
-            <span className="font-medium">₹{newRegime.taxableIncome.toLocaleString('en-IN')}</span>
+            <span>New regime estimated tax</span>
+            <span className="font-semibold">{formatInr(newRegime.finalTax)}</span>
           </div>
-          {(oldRegime.rebate > 0 || newRegime.rebate > 0) && (
-            <div className="flex justify-between text-brandGrowthGreen">
-              <span>Rebates Applied:</span>
-              <span className="font-medium">₹{Math.max(oldRegime.rebate, newRegime.rebate).toLocaleString('en-IN')}</span>
-            </div>
-          )}
-          <div className="flex justify-between text-xs pt-1 border-t border-slate-200 mt-1">
-            <span>Includes 4% Health &amp; Ed. Cess</span>
-            <span>✓</span>
+          <div className="flex justify-between">
+            <span>Estimated difference</span>
+            <span className="font-semibold">{formatInr(Math.abs(oldRegime.finalTax - newRegime.finalTax))}</span>
+          </div>
+          <div className="flex justify-between">
+            <span>Taxable income (old)</span>
+            <span className="font-semibold">{formatInr(oldRegime.taxableIncome)}</span>
+          </div>
+          <div className="flex justify-between">
+            <span>Taxable income (new)</span>
+            <span className="font-semibold">{formatInr(newRegime.taxableIncome)}</span>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
+            Recommended lower-tax regime in this estimate:{' '}
+            <span className="font-semibold">
+              {recommendedRegime === 'Equal' ? 'Both are equal' : `${recommendedRegime} regime`}
+            </span>
+            .
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
+            Break-even additional old-regime-only deduction estimate:{' '}
+            <span className="font-semibold">
+              {breakEvenAdditionalOldDeduction === null
+                ? 'Not reached within this input range'
+                : formatInr(breakEvenAdditionalOldDeduction)}
+            </span>
+            .
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
+            Cess note: both estimates include 4% health and education cess after rebate handling.
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
+            Rebate note: Section 87A rebate and available marginal relief logic are applied based on configured year rules.
           </div>
         </div>
       </div>
 
       <TaxVisualComparison oldTax={oldRegime.finalTax} newTax={newRegime.finalTax} />
-
       <TaxSlabBreakdown oldRegime={oldRegime} newRegime={newRegime} />
 
-      <div className="mt-8 flex flex-col gap-3 pt-6 border-t border-brandBorder">
+      <div className="mt-8 flex flex-col gap-3 border-t border-brandBorder pt-6">
         <div>
           <button
             onClick={() => handleDownloadTaxPdf(input, result, taxYear)}
             disabled={isGenerating}
-            className="w-full rounded-full bg-brandNavy px-4 py-3 text-sm font-bold text-white hover:bg-brandDeepNavy transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-brandNavy px-4 py-3 text-sm font-bold text-white transition hover:bg-brandDeepNavy disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {isGenerating ? (
-              <>
-                <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                </svg>
-                Generating PDF…
-              </>
-            ) : (
-              <>📄 Save Tax Summary as PDF</>
-            )}
+            {isGenerating ? 'Generating PDF...' : 'Download Tax Estimate PDF'}
           </button>
-          <p className="text-center text-[10px] text-brandMuted mt-2">
-            Downloads a clean estimate summary using only your entered values and calculated result.
+          <p className="mt-2 text-center text-[10px] text-brandMuted">
+            Includes your entered values and tax-estimate comparison from this page.
           </p>
-          {error && (
-            <p className="text-center text-[10px] text-red-600 mt-1 font-medium">{error}</p>
-          )}
+          {error ? <p className="mt-1 text-center text-[10px] font-medium text-red-600">{error}</p> : null}
         </div>
-        <p className="text-center text-[10px] leading-relaxed text-brandMuted mt-2">
-          Educational estimate only. Tax rules change by financial year. Verify latest slabs, rebates, and deductions before filing your ITR. RupeeKit does not provide financial or tax advice.
+        <p className="mt-2 text-center text-[10px] leading-relaxed text-brandMuted">
+          Educational estimate only. Tax rules change by financial year. Verify slabs, rebates, deductions, and final
+          tax with official filing utilities and records.
         </p>
       </div>
     </div>

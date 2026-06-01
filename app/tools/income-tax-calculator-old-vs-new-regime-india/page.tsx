@@ -2,62 +2,209 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
-import { TaxCalculatorApp } from '@/components/tax/TaxCalculatorApp';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
-import { availableTaxYears } from '@/lib/tax/indiaIncomeTaxRules';
+import { TaxCalculatorApp } from '@/components/tax/TaxCalculatorApp';
+import { calculateIndianIncomeTax, type TaxInput } from '@/lib/tax/calculator';
+import { availableTaxYears, indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const TARGET_FY = '2025-26';
+const TARGET_AY = '2026-27';
+const PAGE_URL = `${SITE_URL}/tools/income-tax-calculator-old-vs-new-regime-india`;
+
+const latestSupportedFy = availableTaxYears[0];
+const latestSupportedRules = indiaIncomeTaxRules[latestSupportedFy];
+const supportsTargetYear = availableTaxYears.includes(TARGET_FY);
+
+const pageTitle = supportsTargetYear
+  ? 'Old vs New Tax Regime Calculator India FY 2025-26 | RupeeKit'
+  : 'Old vs New Tax Regime Calculator India FY 2025-26 Planning | RupeeKit';
+const pageDescription = supportsTargetYear
+  ? 'Compare old vs new tax regime in India for FY 2025-26. Estimate tax, deductions, HRA, 80C, rebate, cess and savings with RupeeKit\'s free calculator.'
+  : `Compare old vs new tax regime in India for FY 2025-26 planning. Estimate tax, deductions, HRA, 80C, rebate, cess and savings with RupeeKit's free calculator using currently supported rule years (${availableTaxYears.map((year) => `FY ${year}`).join(', ')}).`;
+
+function formatInr(value: number) {
+  return `Rs ${Math.round(value).toLocaleString('en-IN')}`;
+}
+
+const comparisonRows = [
+  {
+    point: 'Tax slab structure',
+    oldRegime: 'Generally higher slab rates.',
+    newRegime: 'Generally lower slab rates for many income bands.',
+  },
+  {
+    point: 'Major deductions (80C, 80D, HRA, home loan interest)',
+    oldRegime: 'Many deductions and exemptions may be claimed where applicable.',
+    newRegime: 'Most of these are not available, except specific allowed items.',
+  },
+  {
+    point: 'Standard deduction for salaried taxpayers',
+    oldRegime: 'Available as per supported year rules.',
+    newRegime: 'Available as per supported year rules.',
+  },
+  {
+    point: 'Ease of filing inputs',
+    oldRegime: 'More documents and deduction tracking may be needed.',
+    newRegime: 'Can be simpler when deduction claims are low.',
+  },
+  {
+    point: 'Who may find it useful',
+    oldRegime: 'May be useful when deduction claims are high.',
+    newRegime: 'May be useful when deductions are limited.',
+  },
+];
+
+const salaryExampleIncomes = [700000, 1000000, 1200000, 1500000, 2000000];
+const baseEstimateInput: TaxInput = {
+  grossSalary: 0,
+  hraExemption: 0,
+  homeLoanInterest: 0,
+  section80C: 0,
+  section80D: 0,
+  employerNPS: 0,
+  otherDeductionsOldRegime: 0,
+  otherDeductionsBothRegimes: 0,
+  isSalaried: true,
+};
+
+const salaryExampleRows = salaryExampleIncomes.map((grossSalary) => {
+  const result = calculateIndianIncomeTax({ ...baseEstimateInput, grossSalary }, latestSupportedFy);
+  const difference = Math.abs(result.oldRegime.finalTax - result.newRegime.finalTax);
+  return {
+    grossSalary,
+    oldTax: result.oldRegime.finalTax,
+    newTax: result.newRegime.finalTax,
+    lowerRegime: result.recommendedRegime === 'Equal' ? 'Equal' : `${result.recommendedRegime} regime`,
+    difference,
+  };
+});
+
+const deductionImpactScenarios: Array<{
+  label: string;
+  field: keyof TaxInput;
+  amount: number;
+  note: string;
+}> = [
+  {
+    label: 'Section 80C',
+    field: 'section80C',
+    amount: 150000,
+    note: 'Old regime deduction bucket, subject to applicable limits and eligibility.',
+  },
+  {
+    label: 'HRA exemption',
+    field: 'hraExemption',
+    amount: 150000,
+    note: 'Illustrative exempt HRA value, only where eligibility conditions are met.',
+  },
+  {
+    label: 'Section 80D',
+    field: 'section80D',
+    amount: 25000,
+    note: 'Health insurance deduction scenario under old regime eligibility.',
+  },
+  {
+    label: 'Employer NPS (80CCD(2))',
+    field: 'employerNPS',
+    amount: 50000,
+    note: 'Illustrative amount often considered in both regimes where allowed.',
+  },
+  {
+    label: 'Home loan interest (Section 24b)',
+    field: 'homeLoanInterest',
+    amount: 200000,
+    note: 'Illustrative old-regime deduction scenario with self-occupied cap context.',
+  },
+];
+
+const deductionImpactBaseInput: TaxInput = {
+  ...baseEstimateInput,
+  grossSalary: 1200000,
+};
+const deductionImpactBaseResult = calculateIndianIncomeTax(deductionImpactBaseInput, latestSupportedFy);
+const deductionImpactRows = deductionImpactScenarios.map((scenario) => {
+  const scenarioInput: TaxInput = {
+    ...deductionImpactBaseInput,
+    [scenario.field]: scenario.amount,
+  };
+  const scenarioResult = calculateIndianIncomeTax(scenarioInput, latestSupportedFy);
+  return {
+    label: scenario.label,
+    amount: scenario.amount,
+    oldTaxChange: Math.max(0, deductionImpactBaseResult.oldRegime.finalTax - scenarioResult.oldRegime.finalTax),
+    newTaxChange: Math.max(0, deductionImpactBaseResult.newRegime.finalTax - scenarioResult.newRegime.finalTax),
+    note: scenario.note,
+  };
+});
+
+const faqs = [
+  {
+    question: 'Which is better: old tax regime or new tax regime?',
+    answer:
+      'The new tax regime may be simpler for taxpayers with fewer deductions, while the old tax regime may save more tax when deductions such as 80C, HRA, NPS, health insurance and home loan interest are high. Use this calculator to compare both regimes using your income and deductions. This is an educational estimate, not tax advice.',
+  },
+  {
+    question: 'How does the old vs new tax regime calculator work?',
+    answer:
+      'It applies supported-year slab, deduction, rebate and cess rules to your entered values, then compares estimated outcomes for old and new regimes side by side.',
+  },
+  {
+    question: 'Can HRA be claimed in the new tax regime?',
+    answer:
+      'Major HRA exemption claims are generally not available in the new regime. Use this calculator to compare outcomes after entering your own deduction assumptions.',
+  },
+  {
+    question: 'Are 80C and 80D allowed in the new tax regime?',
+    answer:
+      'Most old-regime deduction buckets such as 80C and 80D are generally not available in the new regime. Check applicable-year rules before filing.',
+  },
+  {
+    question: 'Is the new tax regime mandatory?',
+    answer:
+      'The new regime may be the default in many filing flows, but taxpayers should verify current-year option rules and eligibility before final submission.',
+  },
+  {
+    question: 'Does the calculator include Section 87A rebate and cess?',
+    answer:
+      'Yes. Rebate logic for supported years and 4% health and education cess are included in the estimate output.',
+  },
+  {
+    question: 'Which financial years are currently supported here?',
+    answer: `This calculator currently supports ${availableTaxYears.map((year) => `FY ${year}`).join(' and ')}. FY ${TARGET_FY} support is shown only after rules are configured and verified in code.`,
+  },
+  {
+    question: 'Should I rely on this as final tax advice?',
+    answer:
+      'No. This page provides educational estimates only. Verify final tax with official filing utilities, Form 16, AIS/Form 26AS, and a qualified tax professional.',
+  },
+];
 
 export const metadata: Metadata = {
-  title: 'Income Tax Calculator Old vs New Regime India | RupeeKit',
-  description: 'Compare old vs new income tax regime in India, estimate tax payable, deductions, rebate, cess, and savings with RupeeKit’s calculator.',
+  title: pageTitle,
+  description: pageDescription,
   alternates: {
-    canonical: `${SITE_URL}/tools/income-tax-calculator-old-vs-new-regime-india`,
+    canonical: PAGE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-image-preview': 'large',
   },
   openGraph: {
-    title: 'Income Tax Calculator Old vs New Regime India | RupeeKit',
-    description: 'Compare old vs new income tax regime in India, estimate tax payable, deductions, rebate, cess, and savings with RupeeKit’s calculator.',
-    url: `${SITE_URL}/tools/income-tax-calculator-old-vs-new-regime-india`,
+    title: pageTitle,
+    description: pageDescription,
+    url: PAGE_URL,
     siteName: 'RupeeKit',
     type: 'article',
     locale: 'en_IN',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+  },
 };
-
-const faqs = [
-  {
-    question: 'Which tax regime is better for me?',
-    answer: 'The new regime is generally better if you have few deductions (less than ₹1.5L - ₹2L depending on income level) due to lower slab rates. The old regime is often better if you claim maximum 80C, HRA, and home loan interest deductions. Our calculator runs the exact math to show you the comparison.'
-  },
-  {
-    question: 'Does the calculator include Section 87A rebate?',
-    answer: 'Yes, it accurately models Section 87A rebate rules (e.g., up to ₹5L in the old regime, and up to ₹7L in the new regime for FY 24-25) including marginal relief where applicable.'
-  },
-  {
-    question: 'Does the calculator include cess?',
-    answer: 'Yes, the standard 4% Health and Education Cess is calculated and added to the final tax liability automatically.'
-  },
-  {
-    question: 'Are HRA and 80C deductions allowed in the new regime?',
-    answer: 'No, major deductions like HRA, LTA, Section 80C, and Section 80D are not allowed under the new tax regime. However, standard deduction for salaried employees and employer NPS contributions under 80CCD(2) are allowed.'
-  },
-  {
-    question: 'Which financial year does this calculator support?',
-    answer: `This calculator currently supports: ${availableTaxYears.map(y => `FY ${y}`).join(' and ')}. We only include years where official tax rules have been formally passed or notified.`
-  },
-  {
-    question: 'Can this calculator help compare deduction scenarios?',
-    answer: 'Yes. You can run multiple educational scenarios by changing deduction, exemption, and income assumptions to compare how both regimes respond.'
-  },
-  {
-    question: 'Should I verify results before filing my return?',
-    answer: 'Yes. Use the output for planning only, then verify final computation against official filing utilities, AIS/Form 26AS, and applicable year rules.'
-  },
-  {
-    question: 'Does this page provide personalized tax advice?',
-    answer: 'No. RupeeKit provides educational estimation support and does not provide personalized tax, legal, or investment advice.'
-  }
-];
 
 export default function IncomeTaxCalculatorPage() {
   const faqSchema = faqs.length > 0 ? {
@@ -70,162 +217,357 @@ export default function IncomeTaxCalculatorPage() {
     })),
   } : null;
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Old vs New Tax Regime Calculator',
+        item: PAGE_URL,
+      },
+    ],
+  };
+
+  const webApplicationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Old vs New Tax Regime Calculator India',
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    url: PAGE_URL,
+    description: pageDescription,
+    publisher: {
+      '@type': 'Organization',
+      name: 'RupeeKit',
+      url: SITE_URL,
+    },
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      {faqSchema && (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
+      />
+      {faqSchema ? (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-      )}
+      ) : null}
 
-      <nav className="text-sm text-slate-500 mb-8 no-print">
-        <Link href="/" className="hover:text-slate-950 transition">Home</Link>
+      <nav className="mb-8 text-sm text-slate-500 no-print">
+        <Link href="/" className="transition hover:text-slate-950">Home</Link>
         <span className="mx-2">/</span>
-        <span className="text-slate-900 font-medium">Income Tax Calculator</span>
+        <span className="font-medium text-slate-900">Old vs New Tax Regime Calculator</span>
       </nav>
 
-      <header className="mb-10 grid gap-6 lg:grid-cols-[1fr_0.5fr] lg:items-start no-print">
+      <header className="mb-10 grid gap-6 lg:grid-cols-[1fr_0.52fr] lg:items-start no-print">
         <div>
-          <span className="inline-block rounded-full bg-brandNavy/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brandNavy mb-4">
+          <span className="mb-4 inline-block rounded-full bg-brandNavy/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brandNavy">
             Tax Planning
           </span>
           <h1 className="text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl lg:text-6xl">
-            Income Tax Calculator
+            Old vs New Tax Regime Calculator India
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
-            Compare the old vs new tax regime accurately for India. Estimate your tax payable, view detailed slab calculations, and find out which regime saves you more money.
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
+            Compare old vs new regime tax estimates using your income and deduction inputs. This page is optimized for
+            FY {TARGET_FY} planning and currently computes using supported rule years only.
           </p>
         </div>
-        
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-relaxed text-amber-900 shadow-sm">
-          <p className="font-bold flex items-center gap-2">
-            ⚠️ Educational Estimate Only
-          </p>
+          <p className="font-bold">Educational estimate only</p>
           <p className="mt-2 text-amber-800">
-            Educational estimate only. Tax rules can change by financial year. Verify latest slabs, rebates, deductions, and filing rules before acting.
+            Final tax outcomes can differ based on return data, official utilities, and year-specific provisions.
+            Verify before filing.
           </p>
         </div>
       </header>
 
+      {!supportsTargetYear ? (
+        <section className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 no-print">
+          <h2 className="text-base font-bold text-amber-900">FY {TARGET_FY} support status</h2>
+          <p className="mt-2 text-sm leading-6 text-amber-900">
+            FY {TARGET_FY} (AY {TARGET_AY}) is not yet configured in the rule engine. Current supported years:
+            {' '}
+            {availableTaxYears.map((year) => `FY ${year}`).join(', ')}
+            . Use this page for planning comparisons only until FY {TARGET_FY} rules are implemented and verified.
+          </p>
+        </section>
+      ) : null}
+
       <section className="mb-6">
         <QuickAnswerBox
-          title="Income Tax Quick Answer"
-          question="How does this income tax calculator compare old vs new regime?"
-          answer="It estimates taxable income and tax outcomes for both regimes using your income and deduction inputs, then shows the comparison side by side for educational planning."
-          note="Educational estimate only. Verify final tax computation with official income-tax utilities, AIS/Form 26AS data, and a qualified tax professional where needed."
+          title="Tax Regime Quick Answer"
+          question="Which is better: old tax regime or new tax regime?"
+          answer="The new tax regime may be simpler for taxpayers with fewer deductions, while the old tax regime may save more tax when deductions such as 80C, HRA, NPS, health insurance and home loan interest are high. Use this calculator to compare both regimes using your income and deductions. This is an educational estimate, not tax advice."
+          note="Educational estimate only. Verify final tax with official filing utility output, Form 16, AIS/Form 26AS and qualified tax guidance."
         />
       </section>
 
       <AnswerEngineSummary
         id="answer-engine-summary"
         className="mb-10 no-print"
-        summary="This calculator compares old and new tax regime estimates using user-entered income, deduction, and exemption values. It helps you review taxable income, estimated tax outcomes, and regime-level differences in one place. Results are educational estimates only and should be verified with official filing tools and current-year rules."
+        summary={`This old-vs-new tax regime calculator compares estimated taxable income, rebate impact, cess, and final tax for supported financial years (${availableTaxYears.map((year) => `FY ${year}`).join(', ')}). It helps scenario planning for FY ${TARGET_FY} decisions but should be cross-checked with official return utilities before filing.`}
       />
 
-      {/* Main App */}
       <TaxCalculatorApp />
+
+      <section className="mt-12 space-y-8 no-print">
+        <section id="how-does-the-old-vs-new-tax-regime-calculator-work" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-brandDeepNavy">How does the old vs new tax regime calculator work?</h2>
+          <p className="mt-4 leading-8 text-slate-700">
+            The calculator applies configured slab rates, deductions, rebate logic, and 4% cess for each supported
+            year. It then compares estimated old-regime tax and new-regime tax for the same input profile.
+          </p>
+          <p className="mt-4 leading-8 text-slate-700">
+            This can help compare scenarios quickly, but final tax may differ due to filing-level validation and
+            data reconciliation.
+          </p>
+        </section>
+
+        <section id="what-is-the-difference-between-old-and-new-tax-regime" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-brandDeepNavy">What is the difference between old and new tax regime?</h2>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full min-w-[860px] rounded-2xl border border-slate-200 text-left text-sm text-slate-700">
+              <thead className="bg-slate-50 text-slate-900">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">Comparison point</th>
+                  <th className="px-4 py-3 font-semibold">Old regime</th>
+                  <th className="px-4 py-3 font-semibold">New regime</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {comparisonRows.map((row) => (
+                  <tr key={row.point}>
+                    <td className="px-4 py-3 font-semibold text-slate-900">{row.point}</td>
+                    <td className="px-4 py-3">{row.oldRegime}</td>
+                    <td className="px-4 py-3">{row.newRegime}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm leading-7 text-slate-600">
+            This table is educational and can help compare structures. Final applicability depends on year-specific tax rules and taxpayer profile.
+          </p>
+        </section>
+
+        <section id="which-tax-regime-is-better-for-salaried-employees" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-brandDeepNavy">Which tax regime is better for salaried employees?</h2>
+          <p className="mt-4 leading-8 text-slate-700">
+            There is no single best regime for everyone. New regime may be useful for simpler filing when deductions
+            are low. Old regime may be useful when deduction claims like 80C, HRA, 80D, employer NPS and home loan
+            interest are meaningful.
+          </p>
+          <p className="mt-4 leading-8 text-slate-700">
+            Use the calculator above with your actual income and deduction assumptions to compare both outcomes before selecting a regime.
+          </p>
+        </section>
+
+        <section id="salary-example-table" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-brandDeepNavy">Salary example table (educational estimate)</h2>
+          <p className="mt-4 text-sm leading-7 text-slate-600">
+            Illustration for salaried profile with no extra deductions beyond built-in supported-year logic. Rule year used:
+            {' '}FY {latestSupportedFy} (AY {latestSupportedRules.ay}).
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full min-w-[900px] rounded-2xl border border-slate-200 text-left text-sm text-slate-700">
+              <thead className="bg-slate-50 text-slate-900">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">Gross salary</th>
+                  <th className="px-4 py-3 font-semibold">Old regime estimated tax</th>
+                  <th className="px-4 py-3 font-semibold">New regime estimated tax</th>
+                  <th className="px-4 py-3 font-semibold">Lower estimated regime</th>
+                  <th className="px-4 py-3 font-semibold">Estimated difference</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {salaryExampleRows.map((row) => (
+                  <tr key={row.grossSalary}>
+                    <td className="px-4 py-3 font-semibold text-slate-900">{formatInr(row.grossSalary)}</td>
+                    <td className="px-4 py-3">{formatInr(row.oldTax)}</td>
+                    <td className="px-4 py-3">{formatInr(row.newTax)}</td>
+                    <td className="px-4 py-3">{row.lowerRegime}</td>
+                    <td className="px-4 py-3">{formatInr(row.difference)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="how-much-deduction-is-needed-to-make-the-old-regime-better" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-brandDeepNavy">How much deduction is needed to make the old regime better?</h2>
+          <p className="mt-4 leading-8 text-slate-700">
+            The break-even deduction level depends on your salary and available deduction buckets. The calculator
+            result panel shows an estimated additional old-regime-only deduction needed to match new-regime tax in your current scenario.
+          </p>
+          <p className="mt-4 leading-8 text-slate-700">
+            This is an educational estimate and should be validated against deduction eligibility and documentation before filing.
+          </p>
+        </section>
+
+        <section id="deduction-impact-table" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-brandDeepNavy">Deduction impact table (80C, HRA, 80D, NPS, home loan interest)</h2>
+          <p className="mt-4 text-sm leading-7 text-slate-600">
+            Illustrative tax change vs a no-deduction baseline at gross salary {formatInr(deductionImpactBaseInput.grossSalary)} in FY {latestSupportedFy}. This can help compare directionally and is not final tax advice.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full min-w-[980px] rounded-2xl border border-slate-200 text-left text-sm text-slate-700">
+              <thead className="bg-slate-50 text-slate-900">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">Deduction scenario</th>
+                  <th className="px-4 py-3 font-semibold">Illustrative amount</th>
+                  <th className="px-4 py-3 font-semibold">Old regime estimated tax reduction</th>
+                  <th className="px-4 py-3 font-semibold">New regime estimated tax reduction</th>
+                  <th className="px-4 py-3 font-semibold">Notes</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {deductionImpactRows.map((row) => (
+                  <tr key={row.label}>
+                    <td className="px-4 py-3 font-semibold text-slate-900">{row.label}</td>
+                    <td className="px-4 py-3">{formatInr(row.amount)}</td>
+                    <td className="px-4 py-3">{formatInr(row.oldTaxChange)}</td>
+                    <td className="px-4 py-3">{formatInr(row.newTaxChange)}</td>
+                    <td className="px-4 py-3 text-xs leading-6 text-slate-600">{row.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="can-hra-be-claimed-in-the-new-tax-regime" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-brandDeepNavy">Can HRA be claimed in the new tax regime?</h2>
+          <p className="mt-4 leading-8 text-slate-700">
+            In general comparison usage, major HRA exemption claims are part of old-regime planning. For HRA-specific
+            estimation, use the{' '}
+            <Link href="/tools/hra-exemption-calculator-india" className="font-semibold text-sky-700 hover:underline">
+              HRA Exemption Calculator
+            </Link>
+            {' '}and verify year-specific rules.
+          </p>
+        </section>
+
+        <section id="are-80c-and-80d-allowed-in-the-new-tax-regime" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-brandDeepNavy">Are 80C and 80D allowed in the new tax regime?</h2>
+          <p className="mt-4 leading-8 text-slate-700">
+            Most old-regime deduction categories such as 80C and 80D are generally limited in the new regime.
+            Use this page to compare both estimates and validate allowed items from official guidance for your year.
+          </p>
+        </section>
+
+        <section id="is-the-new-tax-regime-mandatory" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-brandDeepNavy">Is the new tax regime mandatory?</h2>
+          <p className="mt-4 leading-8 text-slate-700">
+            Regime selection rules can vary by taxpayer profile and applicable-year filing provisions. Use this
+            calculator for educational comparison, then verify your final choice in official filing utilities.
+          </p>
+        </section>
+      </section>
 
       <FactsTable
         id="calculator-facts"
         className="mt-12 no-print"
         rows={[
           { topic: 'Calculation type', explanation: 'Rule-driven educational estimate from user-entered values' },
-          { topic: 'Key inputs', explanation: 'Income, exemptions, deductions, tax year, and taxpayer profile selections' },
-          { topic: 'Primary outputs', explanation: 'Taxable income, estimated tax, and old vs new regime comparison' },
-          { topic: 'Advice boundary', explanation: 'Educational information only, not personalized tax or legal advice' },
+          { topic: 'Key inputs', explanation: 'Income, deductions, exemptions, year selection, and salaried profile toggle' },
+          { topic: 'Primary outputs', explanation: 'Old/new regime taxable income, estimated tax, difference, and lower-tax indicator' },
+          { topic: 'Supported years', explanation: `Currently configured years: ${availableTaxYears.map((year) => `FY ${year}`).join(' and ')}` },
+          { topic: 'Advice boundary', explanation: 'Educational information only. Not personalized tax, legal, or investment advice.' },
         ]}
       />
 
       <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 no-print">
         <h2 className="text-2xl font-bold text-brandDeepNavy">Source and methodology</h2>
-        <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+        <p className="mt-2 text-sm text-slate-500">Last reviewed: June 1, 2026 (IST)</p>
         <p className="mt-4 leading-8 text-slate-700">
-          This calculator applies configured income-tax rule sets for supported financial years and compares old and
-          new regime estimates using the values you enter. It is designed for educational planning and quick scenario
-          comparison.
+          Method: This calculator applies configured slab rules, standard deduction, selected deduction inputs, rebate
+          logic, and 4% health and education cess to estimate old and new regime outcomes.
         </p>
         <p className="mt-4 leading-8 text-slate-700">
-          Final tax liability can differ based on return filing data, official validation rules, and year-specific
-          notifications. Verify final numbers with official filing utilities and qualified tax guidance where needed.
+          Official reference: Use the Income Tax Department portal and filing utilities for final validation.
+          {' '}
+          <a
+            href="https://www.incometax.gov.in/iec/foportal/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-sky-700 hover:underline"
+          >
+            Income Tax India portal
+          </a>
+          .
+        </p>
+        <p className="mt-4 leading-8 text-slate-700">
+          Final step before filing: verify with Form 16, AIS/Form 26AS, and applicable schedules in official utility.
+          Where needed, consult a qualified tax professional.
         </p>
       </section>
 
-      {/* Educational Content & Links */}
-      <section className="mt-16 grid gap-8 lg:grid-cols-3 no-print">
-        <div className="lg:col-span-2 space-y-12">
-          <article className="prose prose-slate max-w-none">
-            <h2 className="text-2xl font-bold text-brandDeepNavy mb-4">How to Use This Calculator</h2>
-            <p>
-              To get the most accurate tax comparison, follow these steps:
-            </p>
-            <ul>
-              <li><strong>Select the correct Financial Year (FY):</strong> Tax rules, particularly in the new regime, change frequently (such as the standard deduction increase in Budget 2024). Make sure you are calculating for the right year.</li>
-              <li><strong>Input all income sources:</strong> Include your basic salary, DA, bonuses, and any other income. Do not deduct anything yourself before entering.</li>
-              <li><strong>Add your deductions:</strong> Enter your Section 80C investments (like ELSS, PPF), health insurance (80D), and any home loan interest (Section 24).</li>
-              <li><strong>Review the detailed breakdown:</strong> Don&apos;t just look at the final number. Expand the &quot;How this was calculated&quot; section to see exactly how your income was taxed across different slabs.</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-brandDeepNavy mt-10 mb-4">Old Regime vs New Regime Explained</h2>
-            <p>
-              The <strong>Old Tax Regime</strong> offers around 70 different exemptions and deductions, including HRA, LTA, and Section 80C. However, its base tax slabs are higher. It is usually beneficial for individuals who maximize their investment deductions and claim high rent allowances.
-            </p>
-            <p>
-              The <strong>New Tax Regime</strong> is the default tax regime in India. It offers significantly lower tax slab rates but strips away almost all major deductions except for the standard deduction (for salaried individuals) and employer NPS contributions. It is incredibly beneficial for new earners or those who prefer higher in-hand salary without locking their money in tax-saving instruments.
-            </p>
-
-            <h2 className="text-2xl font-bold text-brandDeepNavy mt-10 mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              {faqs.map((faq, index) => (
-                <div key={index}>
-                  <h3 className="font-bold text-slate-800 text-lg mb-2">{faq.question}</h3>
-                  <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </article>
+      <section className="mt-12 grid gap-6 no-print md:grid-cols-2">
+        <div className="rounded-3xl border border-brandBorder bg-slate-50 p-6">
+          <h3 className="mb-3 text-lg font-bold text-brandDeepNavy">Related tax tools</h3>
+          <ul className="space-y-2 text-sm leading-7">
+            <li>
+              <Link href="/tools/hra-exemption-calculator-india" className="font-medium text-sky-700 hover:underline">
+                HRA Exemption Calculator
+              </Link>
+            </li>
+            <li>
+              <Link href="/tools/80c-deduction-calculator-india" className="font-medium text-sky-700 hover:underline">
+                Section 80C Deduction Calculator
+              </Link>
+            </li>
+            <li>
+              <Link href="/tools/salary-in-hand-calculator-india" className="font-medium text-sky-700 hover:underline">
+                Salary In-Hand Calculator India
+              </Link>
+            </li>
+          </ul>
         </div>
-
-        <aside className="space-y-6">
-          <div className="rounded-3xl border border-brandBorder bg-slate-50 p-6">
-            <h3 className="font-bold text-brandDeepNavy mb-4">Related Calculators</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/tools/salary-in-hand-calculator-india" className="text-brandNavy hover:underline font-medium text-sm">
-                  Salary In-Hand Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/tools/80c-deduction-calculator-india" className="text-brandNavy hover:underline font-medium text-sm">
-                  Section 80C Deduction Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/tools/hra-exemption-calculator-india" className="text-brandNavy hover:underline font-medium text-sm">
-                  HRA Exemption Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/tools/sip-calculator-india" className="text-brandNavy hover:underline font-medium text-sm">
-                  SIP Calculator
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="rounded-3xl bg-brandBgSoft border border-brandNavy/10 p-6">
-            <h3 className="font-bold text-brandNavy text-sm tracking-wide uppercase mb-2">Tax Filing Resource</h3>
-            <p className="font-bold text-lg text-brandDeepNavy mb-3">
-              ITR-2 Filing Guide
-            </p>
-            <p className="text-sm text-slate-700 mb-4 leading-relaxed">
-              Use this comprehensive guide to verify ITR-2 applicability, required documents, and preparation steps.
-            </p>
-            <Link href="/blog/itr-2-ay-2026-27-filing-guide" className="inline-block rounded-full bg-brandGrowthGreen px-5 py-2.5 text-xs font-bold text-white transition hover:bg-emerald-600">
-              Read Guide →
+        <div className="rounded-3xl border border-brandNavy/10 bg-brandBgSoft p-6">
+          <h3 className="mb-2 text-sm font-bold uppercase tracking-wide text-brandNavy">Tax filing guide</h3>
+          <p className="text-sm leading-7 text-slate-700">
+            Read the{' '}
+            <Link href="/blog/itr-2-ay-2026-27-filing-guide" className="font-semibold text-brandNavy hover:underline">
+              ITR-2 AY 2026-27 filing guide
             </Link>
-          </div>
-        </aside>
+            {' '}for document readiness and filing checkpoints.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-slate-700">
+            Also review the{' '}
+            <Link href="/blog/income-tax-calculator-2026-calculator-guide" className="font-semibold text-brandNavy hover:underline">
+              Income Tax Calculator 2026 planning guide
+            </Link>
+            {' '}for scenario setup.
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-14 no-print">
+        <h2 className="text-2xl font-bold text-brandDeepNavy">FAQs</h2>
+        <div className="mt-6 space-y-5">
+          {faqs.map((faq) => (
+            <div key={faq.question} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <h3 className="text-base font-bold text-slate-900">{faq.question}</h3>
+              <p className="mt-2 text-sm leading-7 text-slate-700">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );

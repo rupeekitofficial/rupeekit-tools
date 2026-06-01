@@ -89,6 +89,7 @@ export default function ResourcesPage() {
   ];
 
   const calculatorLinks = [
+    { name: 'Old vs New Tax Regime Calculator', href: '/tools/income-tax-calculator-old-vs-new-regime-india' },
     { name: 'Emergency Fund Calculator India', href: '/tools/emergency-fund-calculator-india' },
     { name: 'Personal Loan EMI Calculator India', href: '/tools/personal-loan-emi-calculator-india' },
     { name: 'HRA Exemption Calculator India', href: '/tools/hra-exemption-calculator-india' },
