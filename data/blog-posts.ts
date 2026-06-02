@@ -2,7 +2,13 @@ export interface BlogSection {
   title: string;
   paragraphs: string[];
   bullets?: string[];
+  table?: {
+    caption?: string;
+    headers: string[];
+    rows: string[][];
+  };
   example?: {
+    label?: string;
     title: string;
     details: string;
   };
@@ -62,6 +68,8 @@ export interface BlogPost {
   heroImageHeight?: number;
   publishedDateISO?: string;
   modifiedDateISO?: string;
+  reviewedDateISO?: string;
+  status?: 'published' | 'draft';
 }
 
 export const blogPosts: BlogPost[] = [
@@ -227,6 +235,9 @@ export const blogPosts: BlogPost[] = [
     category: 'Savings',
     date: 'May 2026',
     readTime: '6 min read',
+    publishedDateISO: '2026-05-24T08:00:00Z',
+    modifiedDateISO: '2026-05-24T08:00:00Z',
+    reviewedDateISO: '2026-05-24T08:00:00Z',
     h1: 'How Much Emergency Fund Do You Need?',
     intro: 'Life is full of unexpected events: a sudden medical emergency, temporary job loss, urgent car repairs, or home maintenance. An emergency fund is a pool of cash set aside strictly for these unplanned events. It acts as a financial shock absorber, protecting you from high-interest debt when crises arise.',
     quickAnswer: {
@@ -837,6 +848,7 @@ export const blogPosts: BlogPost[] = [
     heroImageHeight: 900,
     publishedDateISO: '2026-05-27T08:00:00Z',
     modifiedDateISO: '2026-05-27T08:00:00Z',
+    reviewedDateISO: '2026-05-27T08:00:00Z',
     title: 'ITR-2 AY 2026-27: Who Must File, Due Date & Preparation Guide',
     metaDescription: 'Filing ITR-2 for AY 2026-27? Learn who must file, the latest capital gains tax changes, deadlines, and a preparation checklist for salaried Indians.',
     category: 'Tax',
@@ -849,6 +861,16 @@ export const blogPosts: BlogPost[] = [
       question: 'Who must file ITR-2 for AY 2026-27?',
       answer: 'Based on this guide, ITR-2 is generally used when ITR-1 is not applicable and your profile includes conditions such as capital gains, total income above Rs 50 lakhs, multiple house properties, foreign assets or foreign income, company directorship, unlisted equity shares, or agricultural income above Rs 5,000.',
       note: 'Educational information only. Verify applicability with official income-tax guidance, AIS/Form 26AS data, and a qualified tax professional where needed.',
+      links: [
+        {
+          label: 'Old vs New Tax Regime Calculator',
+          href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        },
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+      ],
     },
     answerEngineSummary: 'This guide explains who usually falls under ITR-2 for AY 2026-27, what key changes to review, and how to prepare filing documents before submission. It also outlines checklist-driven steps to reconcile Form 16, AIS, and capital-gains records. Use RupeeKit tax calculators for preliminary educational comparison before final filing checks.',
     relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india'],
@@ -1014,6 +1036,9 @@ export const blogPosts: BlogPost[] = [
     heroImageAlt: 'Tax planning for 2026',
     heroImageWidth: 1600,
     heroImageHeight: 900,
+    publishedDateISO: '2026-05-29T08:00:00Z',
+    modifiedDateISO: '2026-05-29T08:00:00Z',
+    reviewedDateISO: '2026-05-29T08:00:00Z',
     intro: 'Use RupeeKit to understand old vs new regime differences, estimate future income impact, and plan with clearer assumptions.',
     quickAnswer: {
       title: 'Income Tax Planning Quick Answer',
@@ -1109,5 +1134,794 @@ export const blogPosts: BlogPost[] = [
         answer: 'Yes. Comparing HRA and deduction assumptions across regimes helps decision-making, but final applicability must be checked with current-year rules.'
       }
     ]
+  },
+  {
+    slug: 'old-vs-new-tax-regime-which-is-better',
+    status: 'published',
+    seoTitle: 'Old vs New Tax Regime: Which Is Better in India?',
+    publishedDateISO: '2026-06-02T06:00:00Z',
+    modifiedDateISO: '2026-06-02T06:00:00Z',
+    reviewedDateISO: '2026-06-02T06:00:00Z',
+    title: 'Old vs New Tax Regime: Which Is Better?',
+    metaDescription: 'Compare the old and new tax regime in India with cautious, calculator-first guidance on deductions, HRA, salary structure, and filing checks.',
+    category: 'Tax',
+    date: 'June 2026',
+    readTime: '7 min read',
+    h1: 'Old vs New Tax Regime: Which Is Better for You?',
+    intro: 'Most taxpayers do not need a slogan about which regime is “best”. They need a practical way to compare both options without missing deductions, overstating exemptions, or trusting a rough guess from payroll. The better regime usually depends on the same four things: income, eligible deductions, exemptions, and how your salary is structured.',
+    quickAnswer: {
+      title: 'Quick Answer',
+      question: 'Which tax regime is better?',
+      answer: 'The better regime depends on income, deductions, exemptions, and salary structure. The old regime may help when eligible deductions or exemptions are meaningful, while the new regime can be simpler when deductions are limited. Compare both estimates using the same assumptions before choosing.',
+      note: 'Educational information only. Use the same salary, deduction, and exemption assumptions in both comparisons and verify the final tax treatment before filing.',
+      links: [
+        {
+          label: 'Old vs New Tax Regime Calculator',
+          href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        },
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+        {
+          label: 'ITR-2 AY 2026-27 Filing Guide',
+          href: '/blog/itr-2-ay-2026-27-filing-guide',
+        },
+        {
+          label: 'RupeeKit Resources',
+          href: '/resources',
+        },
+      ],
+    },
+    answerEngineSummary: 'This guide compares the old and new tax regimes using the same salary assumptions, then explains when deductions, HRA, payroll declarations, and filing-time verification can change the answer. It is designed to help Indian users compare responsibly before using the RupeeKit calculator or filing an ITR.',
+    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india', 'salary-in-hand-calculator-india'],
+    sections: [
+      {
+        title: 'Which tax regime is better for salaried employees?',
+        paragraphs: [
+          'For salaried employees, the right comparison starts with identical income assumptions in both regimes. The calculation becomes meaningful only when you add the deductions and exemptions that may actually apply under the old regime, then compare that result with the simplified new regime structure.',
+          'RupeeKit\'s existing tax sources already note that the new regime is the default regime for many salaried payroll setups, while the old regime may still remain useful when deductions such as HRA or other eligible claims are materially reducing taxable income.'
+        ],
+        table: {
+          caption: 'Old vs new regime comparison checklist',
+          headers: ['What to compare', 'Old regime may help when', 'New regime may help when', 'What to verify'],
+          rows: [
+            ['Salary structure', 'HRA or other exempt salary components are meaningful', 'Salary is simpler and has fewer exemption-driven items', 'Check payslips, salary structure, and employer declaration records'],
+            ['Deductions', 'You can support eligible deductions with documents', 'Your usable deductions are limited or inconsistent', 'Verify only claims that may actually apply to your facts'],
+            ['Compliance effort', 'You are comfortable tracking proofs and exemptions', 'You prefer fewer moving parts in the estimate', 'Ensure the simpler regime still matches your final records'],
+            ['Filing check', 'Final records still support old-regime claims', 'Return data aligns better with the new-regime estimate', 'Review Form 16, AIS, and Form 26AS before final filing'],
+          ],
+        },
+      },
+      {
+        title: 'When can the old tax regime be useful?',
+        paragraphs: [
+          'The old regime can become useful when the deductions and exemptions available to you are not small rounding items but a meaningful part of the tax computation. This often matters for salaried taxpayers whose compensation includes HRA or who regularly use deduction-linked tax planning through the year.',
+          'That does not mean the old regime is automatically better. The benefit depends on whether those claims are eligible, documented, and large enough to offset the simpler slab structure of the new regime.'
+        ],
+        bullets: [
+          'HRA may materially affect the old-regime estimate when you pay rent and your payroll structure supports the exemption.',
+          'Commonly reviewed old-regime items include 80C-style investments, health-insurance deductions, and housing-related claims, subject to eligibility.',
+          'The old regime usually needs better record keeping because unsupported claims can collapse the comparison at filing time.',
+        ],
+      },
+      {
+        title: 'When can the new tax regime be simpler?',
+        paragraphs: [
+          'The new regime can be easier to use when your deduction profile is limited, your salary structure is straightforward, or you do not want the comparison to depend on multiple exemption proofs. In those cases, fewer inputs may reduce the risk of comparing against assumptions that do not hold up later.',
+          'Simplicity still does not remove the need to verify your records. A clean-looking estimate should still be checked against final payroll data and the tax information available on the income-tax portal.'
+        ],
+        bullets: [
+          'Lower deduction usage can make the new regime more competitive in side-by-side estimates.',
+          'Employees who do not claim HRA or major deduction-linked benefits often start with the new-regime comparison.',
+          'The new regime may also reduce payroll confusion when deduction planning changes late in the year.',
+        ],
+      },
+      {
+        title: 'How can one salary look different under both regimes?',
+        paragraphs: [
+          'The easiest way to understand the difference is to keep income constant and change only the deductions and exemptions used in the comparison. That is exactly why a side-by-side calculator is more useful than broad advice.',
+          'Use the calculator first, then treat the result as a guided estimate rather than a final tax order. The comparison may change if your eligible claims or filing records change.'
+        ],
+        example: {
+          label: 'Illustrative example only',
+          title: 'Same income, two assumption sets',
+          details: 'Assume a salaried employee compares both regimes using gross income of Rs 14 lakh. If the estimate includes meaningful HRA, deduction-linked investments, and other eligible old-regime claims, the old-regime result may come out lower. If those claims are smaller, unsupported, or unavailable, the new-regime estimate may look simpler or cheaper. The calculator result depends on the assumptions actually entered.'
+        },
+      },
+      {
+        title: 'What mistakes should you avoid while comparing regimes?',
+        paragraphs: [
+          'The most common mistake is not using the same income base in both comparisons. The second is assuming every deduction you have heard about will automatically apply to you.',
+          'Another frequent mistake is stopping at payroll estimates and skipping the final filing check. Employer payroll, Form 16, AIS, and Form 26AS should all support the story your comparison is telling.'
+        ],
+        bullets: [
+          'Do not compare one regime with estimated deductions and the other with final income data.',
+          'Do not assume HRA, home-loan, or deduction claims are available without checking eligibility and documents.',
+          'Do not treat a calculator estimate as personalized tax advice or a guaranteed filing outcome.',
+          'Do not ignore late-year changes in salary, bonus, or declarations that can alter the comparison before filing.',
+        ],
+      },
+      {
+        title: 'Source and methodology',
+        paragraphs: [
+          'This article uses RupeeKit\'s existing old-vs-new regime calculator logic together with internally maintained tax explainers already stored in the repo. The regime discussion is based on official tax guidance references already cited in RupeeKit\'s regime-comparison update, including the new regime default context and payroll declaration considerations.',
+          'HRA references in this article follow the existing RupeeKit HRA explainer, which is based on Section 10(13A) and Rule 2A guidance already documented in the repo. Verification guidance for Form 16, AIS, and Form 26AS follows the existing RupeeKit explainer on TDS reconciliation before filing.',
+          'Illustrative examples are simplified educational scenarios only. Verify final tax treatment with official income-tax guidance, employer payroll, Form 16, AIS, Form 26AS, and a qualified tax professional before filing.',
+          'Sources reviewed:'
+        ],
+        bullets: [
+          'Income Tax Department guidance already referenced in RupeeKit\'s internal regime-comparison explainer on incometax.gov.in.',
+          'RupeeKit\'s HRA explainer covering Section 10(13A), Rule 2A, rent receipts, and landlord PAN checks.',
+          'RupeeKit\'s AIS and Form 26AS explainer for filing-time verification steps.',
+          'RupeeKit\'s Old vs New Tax Regime Calculator and related tax pages for educational scenario analysis.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is one tax regime better for everyone?',
+        answer: 'No. The better regime depends on your income pattern, salary structure, and the deductions or exemptions you may actually be able to claim and support.'
+      },
+      {
+        question: 'Can the old regime still be useful after the new regime became the default?',
+        answer: 'Yes. A default payroll setting does not automatically mean the new regime gives the lower final estimate for every taxpayer.'
+      },
+      {
+        question: 'Why does HRA matter in old vs new tax regime comparison?',
+        answer: 'HRA can materially affect the old-regime estimate for eligible salaried employees who pay rent and have the right salary structure and records.'
+      },
+      {
+        question: 'Should I compare both regimes even if my employer already deducted TDS?',
+        answer: 'Yes. Payroll treatment is important, but the final filing comparison should still be checked against your full-year income, deductions, Form 16, AIS, and Form 26AS.'
+      },
+      {
+        question: 'Does lower tax in a rough estimate guarantee the final filing result?',
+        answer: 'No. The final result depends on current rules, eligible claims, and the records you can support at filing time.'
+      },
+      {
+        question: 'When does the new regime usually look simpler?',
+        answer: 'It often looks simpler when deduction usage is limited and the comparison does not depend on multiple exemption proofs.'
+      },
+      {
+        question: 'Can a calculator tell me which regime I should choose?',
+        answer: 'A calculator can help you compare scenarios, but it does not replace verification of eligibility, records, and official filing requirements.'
+      },
+      {
+        question: 'What records should I review before making a final regime decision?',
+        answer: 'Review employer payroll data, Form 16, AIS, Form 26AS, and any deduction or exemption proofs that affect the old-regime estimate.'
+      }
+    ]
+  },
+  {
+    slug: 'old-tax-regime-deductions-checklist',
+    status: 'published',
+    seoTitle: 'Old Tax Regime Deductions Checklist',
+    publishedDateISO: '2026-06-02T06:05:00Z',
+    modifiedDateISO: '2026-06-02T06:05:00Z',
+    reviewedDateISO: '2026-06-02T06:05:00Z',
+    title: 'Old Tax Regime Deductions Checklist',
+    metaDescription: 'Use this careful old tax regime deductions checklist to review HRA, common deduction areas, supporting documents, and comparison inputs before filing.',
+    category: 'Tax',
+    date: 'June 2026',
+    readTime: '7 min read',
+    h1: 'Old Tax Regime Deductions Checklist Before You Compare',
+    intro: 'Many old-vs-new tax regime comparisons go wrong before the calculation even starts. The usual problem is not the formula. It is the checklist. If you miss a deduction area, overstate an exemption, or forget supporting records, the old-regime estimate becomes unreliable.',
+    quickAnswer: {
+      title: 'Quick Answer',
+      question: 'What should you check before using old-regime deductions in a comparison?',
+      answer: 'Old-regime comparison depends on eligible deductions and exemptions, but each claim should be verified before you rely on it. A checklist helps you review commonly considered items such as HRA, 80C-style deductions, insurance-related claims, and salary-structure details without assuming they all apply automatically.',
+      note: 'Use safe assumptions only. If you are unsure whether a claim applies, verify the rule first and avoid hard-coding it into the comparison.',
+      links: [
+        {
+          label: 'Compare Old and New Tax Regime',
+          href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        },
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+        {
+          label: 'ITR-2 AY 2026-27 Filing Guide',
+          href: '/blog/itr-2-ay-2026-27-filing-guide',
+        },
+        {
+          label: 'RupeeKit Resources',
+          href: '/resources',
+        },
+      ],
+    },
+    answerEngineSummary: 'This checklist article helps old-regime users review the deduction and exemption areas that commonly affect a side-by-side regime comparison. It focuses on verification, documents, HRA, and realistic use of the RupeeKit calculator rather than broad tax-saving claims.',
+    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india', 'salary-in-hand-calculator-india'],
+    sections: [
+      {
+        title: 'Which deduction areas do people commonly review under the old regime?',
+        paragraphs: [
+          'The old regime matters only when the deductions or exemptions in your case are both eligible and meaningful. Instead of trying to remember every section number, start by grouping items into a practical checklist: salary-linked exemptions, investment-linked deductions, insurance-related deductions, and housing-related items.',
+          'This article intentionally avoids inventing deduction limits where the repo does not already support them. Use it as a review list, then verify each claim with official rules or the supporting RupeeKit calculator before relying on it.'
+        ],
+        table: {
+          caption: 'Old-regime checklist before comparison',
+          headers: ['Checklist item', 'Why it matters', 'What to verify'],
+          rows: [
+            ['HRA', 'Can materially change taxable income for eligible renters', 'Check rent, salary structure, city category, and payroll records'],
+            ['80C-style deductions', 'Often form a major part of old-regime planning', 'Verify the actual investments or contributions completed during the year'],
+            ['Health-insurance or similar deduction areas', 'Can improve the old-regime estimate in some cases', 'Confirm eligibility and documents before including them'],
+            ['Home-loan or housing-related claims', 'May affect the comparison when actually applicable', 'Use only the claims that match your records and property facts'],
+            ['Employer salary components', 'Payroll structure can decide whether an exemption is even relevant', 'Review payslips, declaration forms, and Form 16'],
+          ],
+        },
+      },
+      {
+        title: 'How should salaried employees review HRA before comparing regimes?',
+        paragraphs: [
+          'HRA is one of the most important old-regime checks for salaried employees who pay rent. RupeeKit\'s existing HRA explainer already notes that the exemption depends on salary, rent paid, city category, and the actual HRA received.',
+          'The same explainer also notes that employees should maintain rent receipts and that landlord PAN details may be needed when annual rent crosses the applicable threshold already documented in the repo. Because HRA is not available under the new regime in the same way, missing this check can distort a side-by-side comparison.'
+        ],
+        bullets: [
+          'Review HRA only if it is actually part of your salary structure.',
+          'Use the HRA calculator to estimate the exemption instead of guessing from one month of rent.',
+          'Verify the exemption with employer payroll and Form 16 before treating it as final.',
+        ],
+      },
+      {
+        title: 'What documents should you keep ready before you compare?',
+        paragraphs: [
+          'A comparison becomes much stronger when the inputs come from real records instead of memory. Most taxpayers can reduce errors simply by collecting the basic salary, rent, deduction, and filing documents before using the calculator.'
+        ],
+        bullets: [
+          'Latest salary slips and employer declaration details.',
+          'Rent receipts, rent agreement, and landlord information where relevant for HRA review.',
+          'Investment or contribution records for any deduction you plan to include.',
+          'Insurance, housing-loan, or other claim documents that may affect old-regime estimates.',
+          'Form 16, AIS, and Form 26AS for final cross-checks before filing.',
+        ],
+      },
+      {
+        title: 'How can a checklist change the old vs new regime result?',
+        paragraphs: [
+          'The checklist does not change tax law. It changes comparison quality. A side-by-side estimate built from verified inputs is usually much more useful than a faster estimate built from assumptions you cannot prove later.'
+        ],
+        example: {
+          label: 'Illustrative example only',
+          title: 'Checklist before calculation',
+          details: 'Assume a salaried employee initially compares regimes without including HRA or any verified deductions and the new regime appears better. After reviewing rent records, Form 16 inputs, and completed deduction items, the same employee may find that the old-regime estimate improves materially. The final answer still depends on current rules and supported claims.'
+        },
+      },
+      {
+        title: 'Which checklist mistakes can lead to the wrong regime result?',
+        paragraphs: [
+          'The biggest mistake is using deduction categories as if they are guaranteed benefits. The second is treating an incomplete checklist as a tax conclusion.'
+        ],
+        bullets: [
+          'Do not add deductions just because they are commonly discussed online.',
+          'Do not ignore HRA if you are a renter and your salary structure includes it.',
+          'Do not include claims that are not reflected in your actual records or year-end documents.',
+          'Do not skip AIS and Form 26AS review before you use the comparison for filing decisions.',
+          'Do not assume exact deduction limits unless your source set already supports them.',
+        ],
+      },
+      {
+        title: 'Source and methodology',
+        paragraphs: [
+          'This checklist is based on reliable tax material already present in the repo: RupeeKit\'s regime-comparison explainer, the HRA explainer, the AIS/Form 26AS explainer, and the existing old-vs-new regime calculator logic. It is written as a review framework, not a claim that every listed deduction applies to every user.',
+          'Where the repo already supports a specific rule, such as the HRA methodology and verification records, the article uses that source-backed explanation. Where an exact limit or treatment is not already supported in the repo, this article uses cautious wording and asks the reader to verify eligibility before relying on the item.',
+          'Illustrative examples are educational only. Verify final tax treatment with official income-tax guidance, employer payroll, Form 16, AIS, Form 26AS, and a qualified tax professional before filing.',
+          'Sources reviewed:'
+        ],
+        bullets: [
+          'Income Tax Department guidance already cited in RupeeKit\'s regime-comparison source notes.',
+          'RupeeKit\'s HRA explainer based on Section 10(13A) and Rule 2A references.',
+          'RupeeKit\'s AIS and Form 26AS explainer for year-end verification.',
+          'RupeeKit\'s old-vs-new regime calculator methodology and related tax pages.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Does every old-regime taxpayer get the same deductions?',
+        answer: 'No. Old-regime benefits depend on eligibility, salary structure, documents, and the facts of your case.'
+      },
+      {
+        question: 'Why is HRA often reviewed first in an old-regime checklist?',
+        answer: 'HRA can materially affect the old-regime estimate for eligible salaried employees who pay rent and have the right payroll structure.'
+      },
+      {
+        question: 'Should I include a deduction if I am not sure it is eligible?',
+        answer: 'No. It is safer to verify the claim first than to build your comparison on an unsupported assumption.'
+      },
+      {
+        question: 'Can a missing document make the old-regime comparison unreliable?',
+        answer: 'Yes. If a deduction or exemption cannot be supported with records, the estimate can become misleading at filing time.'
+      },
+      {
+        question: 'Do I need Form 16 before using this checklist?',
+        answer: 'Form 16 is very useful for final verification, but you can start with salary slips and payroll declarations if Form 16 is not yet available.'
+      },
+      {
+        question: 'Why should I review AIS and Form 26AS for a regime comparison?',
+        answer: 'They help you cross-check tax credits and reported information before relying on a comparison for filing decisions.'
+      },
+      {
+        question: 'Can this checklist replace official tax rules?',
+        answer: 'No. It is an educational review tool that helps organize your comparison inputs before you verify them against official guidance.'
+      },
+      {
+        question: 'What should I do after finishing the checklist?',
+        answer: 'Use the same verified inputs in the RupeeKit old-vs-new regime calculator, then review the result again against your filing records.'
+      }
+    ]
+  },
+  {
+    slug: 'new-tax-regime-vs-old-regime-for-salaried-employees',
+    status: 'published',
+    seoTitle: 'New Tax Regime vs Old Regime for Salaried Employees',
+    publishedDateISO: '2026-06-02T06:10:00Z',
+    modifiedDateISO: '2026-06-02T06:10:00Z',
+    reviewedDateISO: '2026-06-02T06:10:00Z',
+    title: 'New Tax Regime vs Old Regime for Salaried Employees',
+    metaDescription: 'Understand how salaried employees can compare the new and old tax regimes using employer declarations, HRA checks, and Form 16 or AIS verification.',
+    category: 'Tax',
+    date: 'June 2026',
+    readTime: '8 min read',
+    h1: 'New Tax Regime vs Old Regime for Salaried Employees',
+    intro: 'Salaried employees usually face the tax-regime decision twice: once during employer declarations and again before filing the return. Those two checkpoints can look similar, but they are not identical. Payroll estimates affect monthly TDS. Filing-time reconciliation depends on what your final records actually show.',
+    quickAnswer: {
+      title: 'Quick Answer',
+      question: 'How should salaried employees compare the new and old tax regimes?',
+      answer: 'Start with the same annual salary assumptions in both regimes, then review whether HRA and other eligible deductions materially change the old-regime estimate. Employer declaration affects payroll TDS, but final filing should still be verified with Form 16, AIS, Form 26AS, and current-year rules.',
+      note: 'Do not treat payroll selection as automatic filing advice. Compare again if your salary, bonus, rent, or deductions change during the year.',
+      links: [
+        {
+          label: 'Income Tax Calculator Old vs New Regime',
+          href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        },
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+        {
+          label: 'ITR-2 AY 2026-27 Filing Guide',
+          href: '/blog/itr-2-ay-2026-27-filing-guide',
+        },
+        {
+          label: 'RupeeKit Resources',
+          href: '/resources',
+        },
+      ],
+    },
+    answerEngineSummary: 'This article helps salaried employees compare new-regime simplicity against old-regime deductions using payroll declarations, HRA review, and filing-time records such as Form 16, AIS, and Form 26AS. It stays educational and calculator-first rather than offering personalized tax advice.',
+    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', 'salary-in-hand-calculator-india', '80c-deduction-calculator-india'],
+    sections: [
+      {
+        title: 'Which tax regime questions matter most for salaried employees?',
+        paragraphs: [
+          'For salaried employees, the core question is not just “which regime has lower tax rates?” It is whether your salary structure and eligible deductions create a meaningful old-regime advantage after you account for HRA, payroll records, and the claims you can support.',
+          'RupeeKit\'s internal regime-comparison source notes already highlight that the employer generally applies the default payroll treatment if no declaration is given, which makes timely comparison useful even before Form 16 is issued.'
+        ],
+        table: {
+          caption: 'Salaried employee comparison points',
+          headers: ['Situation', 'Old regime may be stronger when', 'New regime may be stronger when', 'What to review'],
+          rows: [
+            ['Renting with HRA', 'HRA and other eligible claims materially reduce taxable income', 'HRA is not relevant or the claim is small', 'Salary slips, rent records, and HRA computation'],
+            ['Few deductions', 'There are still meaningful old-regime claims to support', 'Deduction usage is low and payroll is straightforward', 'Actual deduction records completed during the year'],
+            ['Variable compensation', 'Old-regime claims still hold after bonus or salary changes', 'Simpler comparison is preferred while compensation moves', 'Year-end payroll summary and Form 16'],
+            ['Return filing', 'Final records still support exemption-heavy estimates', 'Filing records align closely with the new-regime estimate', 'AIS, Form 26AS, and employer documents'],
+          ],
+        },
+      },
+      {
+        title: 'How does employer declaration affect monthly TDS?',
+        paragraphs: [
+          'Employer declaration mainly affects how tax is deducted during the year. RupeeKit\'s source-backed regime update already notes that the employer defaults to the new regime if no declaration is received and that salaried employees often make this choice early in the financial year for payroll purposes.',
+          'That payroll choice is important, but it is not the whole story. If your facts change through the year, you should still re-run the comparison before filing your return.'
+        ],
+        bullets: [
+          'Make the payroll declaration with realistic assumptions rather than optimistic deduction guesses.',
+          'Review the comparison again if your rent, deductions, or bonus structure changes mid-year.',
+          'Keep payroll treatment and filing-time verification separate in your mind: one drives TDS, the other drives final return accuracy.',
+        ],
+      },
+      {
+        title: 'How do HRA and other deductions change the old-regime estimate?',
+        paragraphs: [
+          'HRA can be one of the biggest old-regime differentiators for salaried employees who pay rent. Other commonly reviewed old-regime items may also matter, but only if they are genuinely available and documented.',
+          'This is why a calculator-first comparison helps: you can see whether the old-regime estimate improves enough to justify the extra complexity, instead of assuming that “more deductions” automatically means “less tax”.'
+        ],
+        bullets: [
+          'Use the HRA calculator if rent and salary structure make HRA relevant.',
+          'Include only deduction items that match your actual contributions or records.',
+          'Reconcile the old-regime estimate with Form 16 before treating it as final.',
+        ],
+      },
+      {
+        title: 'What should you verify in Form 16, AIS, and Form 26AS?',
+        paragraphs: [
+          'Before filing, compare the regime estimate with the documents that reflect what actually happened during the year. Form 16 usually reflects salary and payroll treatment. AIS and Form 26AS help cross-check tax credits and other reported information on the portal.',
+          'If the calculator scenario and these documents tell different stories, the documents should trigger a fresh review of the comparison.'
+        ],
+        bullets: [
+          'Check whether Form 16 reflects the salary and exemption treatment you expected.',
+          'Use AIS and Form 26AS to look for missing TDS entries or other reportable information.',
+          'Re-run the comparison if there is a mismatch between payroll assumptions and final records.',
+        ],
+      },
+      {
+        title: 'How can payroll choice differ from the final ITR choice?',
+        paragraphs: [
+          'Payroll selection happens early and is often based on projections. Filing happens later and should use final income and verified records. That gap is exactly why salaried employees should compare again before submission.'
+        ],
+        example: {
+          label: 'Illustrative example only',
+          title: 'Projected rent versus final records',
+          details: 'Assume an employee initially opts for the old regime in payroll because HRA and deduction assumptions appear strong. Later, rent changes, some planned deductions are not completed, and the final records look different. At filing time, the same employee may find that the new-regime estimate is closer to the final data. The reverse can also happen if verified deductions end up being stronger than first expected.'
+        },
+      },
+      {
+        title: 'Source and methodology',
+        paragraphs: [
+          'This article relies on source-backed RupeeKit tax content already present in the repo: the regime-comparison explainer, the HRA explainer, the AIS/Form 26AS explainer, and the old-vs-new calculator methodology. It uses those materials to explain how salaried employees should compare payroll declarations and filing-time verification.',
+          'The employer declaration discussion follows the repo\'s existing regime-comparison source notes. The HRA discussion follows RupeeKit\'s HRA methodology, and the filing verification discussion follows the AIS/Form 26AS explainer maintained in the repo.',
+          'Illustrative examples are educational only. Verify final tax treatment with official income-tax guidance, employer payroll, Form 16, AIS, Form 26AS, and a qualified tax professional before filing.',
+          'Sources reviewed:'
+        ],
+        bullets: [
+          'Income Tax Department guidance already cited in RupeeKit\'s regime-comparison explainer.',
+          'RupeeKit\'s HRA explainer based on Section 10(13A) and Rule 2A references.',
+          'RupeeKit\'s AIS and Form 26AS explainer for return-prep verification.',
+          'RupeeKit\'s old-vs-new tax calculator and related internal tax pages.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should salaried employees compare regimes before giving payroll declaration?',
+        answer: 'Yes. A comparison before declaration can improve TDS planning, but it should be reviewed again before filing if your facts change.'
+      },
+      {
+        question: 'Does employer declaration permanently lock the final filing outcome for salaried employees?',
+        answer: 'Employer declaration mainly affects payroll TDS. Final return treatment should still be verified against the applicable rules and filing records.'
+      },
+      {
+        question: 'Why is Form 16 important in regime comparison?',
+        answer: 'Form 16 helps confirm the salary and tax treatment actually used by your employer, which makes it a key reference before filing.'
+      },
+      {
+        question: 'Why should salaried employees review AIS and Form 26AS too?',
+        answer: 'These documents help cross-check tax credits and portal-reported information that may not be obvious from payroll records alone.'
+      },
+      {
+        question: 'Can HRA make the old regime more attractive for salaried employees?',
+        answer: 'Yes. For eligible employees who pay rent and have the right salary structure, HRA can materially improve the old-regime estimate.'
+      },
+      {
+        question: 'Is the new regime always better if I have fewer deductions?',
+        answer: 'Not always, but limited deduction usage can make the new regime more competitive or simpler in many comparisons.'
+      },
+      {
+        question: 'Should I trust a single early-year estimate for the whole year?',
+        answer: 'No. Salary changes, bonuses, rent changes, and incomplete deductions can all alter the comparison before filing.'
+      },
+      {
+        question: 'Can RupeeKit tell me which regime to choose personally?',
+        answer: 'No. RupeeKit provides educational comparison tools and guides; your final decision should be verified using official guidance and your own records.'
+      }
+    ]
+  },
+  {
+    slug: 'income-tax-calculation-example-old-vs-new-regime',
+    status: 'published',
+    seoTitle: 'Income Tax Calculation Example: Old vs New Regime',
+    publishedDateISO: '2026-06-02T06:15:00Z',
+    modifiedDateISO: '2026-06-02T06:15:00Z',
+    reviewedDateISO: '2026-06-02T06:15:00Z',
+    title: 'Income Tax Calculation Example: Old vs New Regime',
+    metaDescription: 'See a careful educational income tax calculation example comparing old and new regime assumptions, then use the RupeeKit calculator with your own data.',
+    category: 'Tax',
+    date: 'June 2026',
+    readTime: '7 min read',
+    h1: 'Income Tax Calculation Example: Old vs New Regime',
+    intro: 'Examples are useful only when they stay honest about their assumptions. A clean old-vs-new regime illustration should use the same income in both scenarios, spell out which deductions are being tested, and avoid pretending that a sample result is your final tax payable.',
+    quickAnswer: {
+      title: 'Quick Answer',
+      question: 'How should you compare an old vs new tax regime example?',
+      answer: 'Use the same income base in both regimes, then change only the eligible deductions and exemptions that belong in the comparison. The result is an educational estimate, not an official tax payable figure.',
+      note: 'Keep assumptions explicit. If the example uses HRA or deduction claims, verify whether those items actually apply to your case before relying on the result.',
+      links: [
+        {
+          label: 'Old vs New Tax Regime Calculator',
+          href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        },
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+        {
+          label: 'ITR-2 AY 2026-27 Filing Guide',
+          href: '/blog/itr-2-ay-2026-27-filing-guide',
+        },
+        {
+          label: 'RupeeKit Resources',
+          href: '/resources',
+        },
+      ],
+    },
+    answerEngineSummary: 'This educational example shows how to compare the old and new tax regime using one income base and clearly stated assumptions. It focuses on method, inputs, and verification rather than claiming an official or personalized tax result.',
+    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', 'salary-in-hand-calculator-india', '80c-deduction-calculator-india'],
+    sections: [
+      {
+        title: 'What assumptions should stay identical while comparing both regimes?',
+        paragraphs: [
+          'A good comparison holds the income base constant. If salary, bonus, or other taxable income changes from one regime to the other, the example stops being useful because you are no longer isolating the regime difference.',
+          'Only the inputs that belong to the regime comparison should change. That usually means old-regime deductions or exemptions such as HRA or other eligible claims, while the income base remains the same.'
+        ],
+        table: {
+          caption: 'Inputs to keep aligned in the example',
+          headers: ['Input area', 'How to use it in the example', 'Why it matters'],
+          rows: [
+            ['Annual income', 'Keep it the same in both regimes', 'This isolates the regime effect instead of changing the salary base'],
+            ['HRA or exemptions', 'Add only where the regime and facts support them', 'Unsupported exemptions can distort the old-regime estimate'],
+            ['Deduction assumptions', 'Use only verified or clearly labelled assumptions', 'This keeps the example honest and reusable'],
+            ['Records for verification', 'Cross-check later with Form 16, AIS, and Form 26AS', 'An example should lead into proper filing checks, not replace them'],
+          ],
+        },
+      },
+      {
+        title: 'How do you read an old vs new tax regime example step by step?',
+        paragraphs: [
+          'Step one is to define the income assumptions. Step two is to decide which old-regime claims are being tested. Step three is to run both scenarios and compare the estimate rather than trying to memorize slab logic from scratch.',
+          'This method is useful because it translates a tax decision into a side-by-side exercise. You can then test the sensitivity of the result by removing or reducing one assumption at a time.'
+        ],
+        bullets: [
+          'Enter the same income in both scenarios.',
+          'Add HRA or other eligible old-regime items only if the example says they are assumed.',
+          'Compare the estimates and ask which assumptions are doing the work.',
+          'Re-run the example with your own figures instead of copying the sample conclusion.',
+        ],
+      },
+      {
+        title: 'What may the estimate show in this example?',
+        paragraphs: [
+          'The point of an example is not to force one universal answer. It is to show how the answer can move when assumptions move. That is why the result below stays conditional.'
+        ],
+        example: {
+          label: 'Illustrative example only',
+          title: 'Same income, different deduction profile',
+          details: 'Assume annual income of Rs 12 lakh in both scenarios. In the old-regime example, the user also tests eligible HRA and a set of verified deduction assumptions. In the new-regime example, those old-regime claims are removed. Based on those assumptions, the estimate may show the old regime as more efficient if the deductions are meaningful. If those assumptions are reduced, the new-regime estimate may become more competitive.'
+        },
+      },
+      {
+        title: 'How should you use the calculator after this example?',
+        paragraphs: [
+          'Once you understand the method, move from sample numbers to your own records. The RupeeKit calculator is useful here because it lets you compare the same income against different assumption sets without turning the article itself into a tax workbook.'
+        ],
+        bullets: [
+          'Start with your latest salary and realistic annual income estimate.',
+          'Use the HRA calculator first if rent is a major part of your old-regime comparison.',
+          'Run one scenario with verified old-regime inputs and one with the new-regime structure.',
+          'Review the result again when Form 16, AIS, and Form 26AS are available.',
+        ],
+      },
+      {
+        title: 'Which mistakes make tax examples misleading?',
+        paragraphs: [
+          'Tax examples become misleading when they hide assumptions or present a sample result as if it were a final filing output. They are also weak when they ignore the records you need to verify the estimate later.'
+        ],
+        bullets: [
+          'Do not treat a sample example as an official tax payable figure.',
+          'Do not compare different income bases under different regimes.',
+          'Do not skip the verification step just because the example looks intuitive.',
+          'Do not assume every deduction used in the example belongs in your case.',
+        ],
+      },
+      {
+        title: 'Source and methodology',
+        paragraphs: [
+          'This article uses the same calculator-first logic as RupeeKit\'s existing old-vs-new regime tool. The explanatory points are grounded in source-backed RupeeKit tax materials already in the repo, including the regime-comparison explainer, the HRA explainer, and the AIS/Form 26AS verification explainer.',
+          'The example intentionally stays illustrative. It uses simplified salary and deduction assumptions to explain the comparison process, not to publish an official tax figure or a personalized recommendation.',
+          'Illustrative examples are educational only. Verify final tax treatment with official income-tax guidance, employer payroll, Form 16, AIS, Form 26AS, and a qualified tax professional before filing.',
+          'Sources reviewed:'
+        ],
+        bullets: [
+          'Income Tax Department guidance already cited in RupeeKit\'s internal regime-comparison material.',
+          'RupeeKit\'s HRA explainer based on Section 10(13A) and Rule 2A references.',
+          'RupeeKit\'s AIS and Form 26AS explainer for final verification steps.',
+          'RupeeKit\'s Old vs New Tax Regime Calculator for side-by-side educational estimates.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Why should an old vs new regime example use the same income in both cases?',
+        answer: 'Using the same income base isolates the regime difference and avoids turning the comparison into two separate salary scenarios.'
+      },
+      {
+        question: 'Can a tax example prove which regime is best for me?',
+        answer: 'No. It can show the method and the impact of assumptions, but your final result depends on your own income, records, and current rules.'
+      },
+      {
+        question: 'Should an example include HRA automatically?',
+        answer: 'No. HRA should appear only when the scenario clearly assumes an eligible salaried employee with rent and the right salary structure.'
+      },
+      {
+        question: 'Why does the article call the example illustrative only?',
+        answer: 'Because sample numbers are meant to explain the process, not to publish an official or personalized tax liability.'
+      },
+      {
+        question: 'What should I do after reading the example?',
+        answer: 'Run the RupeeKit calculator with your own income and verified deduction assumptions, then cross-check the result with filing records.'
+      },
+      {
+        question: 'Can a sample result change at filing time?',
+        answer: 'Yes. Salary changes, incomplete deductions, and differences in Form 16, AIS, or Form 26AS can all change the final comparison.'
+      },
+      {
+        question: 'Why is Form 16 still important if I already used a calculator?',
+        answer: 'Form 16 helps confirm the salary and payroll information that should align with your final filing comparison.'
+      },
+      {
+        question: 'Does RupeeKit provide an official government tax calculation through this example?',
+        answer: 'No. RupeeKit provides educational tools and examples, not an official government tax computation service.'
+      }
+    ]
+  },
+  {
+    slug: 'how-to-choose-tax-regime-before-itr-filing',
+    status: 'published',
+    seoTitle: 'How to Choose Tax Regime Before ITR Filing',
+    publishedDateISO: '2026-06-02T06:20:00Z',
+    modifiedDateISO: '2026-06-02T06:20:00Z',
+    reviewedDateISO: '2026-06-02T06:20:00Z',
+    title: 'How to Choose Tax Regime Before ITR Filing',
+    metaDescription: 'Follow a careful pre-filing checklist to compare tax regimes using final income, deductions, Form 16, AIS, and Form 26AS before filing your ITR.',
+    category: 'Tax',
+    date: 'June 2026',
+    readTime: '8 min read',
+    h1: 'How to Choose Tax Regime Before ITR Filing',
+    intro: 'The best time to compare tax regimes is not only when your employer asks for a declaration. It is also just before you file the return, when your income picture is clearer and your records are more complete. A pre-filing comparison can catch gaps between what payroll assumed and what your final documents actually show.',
+    quickAnswer: {
+      title: 'Quick Answer',
+      question: 'How should you choose a tax regime before ITR filing?',
+      answer: 'Compare both regimes using final income, eligible deductions, Form 16, AIS, and Form 26AS. The result may depend on your actual records and current rules, so treat the comparison as a verified pre-filing checklist rather than a one-time payroll decision.',
+      note: 'Use your final or near-final records wherever possible. A regime choice based on incomplete data can be weaker than a slightly later but better-supported comparison.',
+      links: [
+        {
+          label: 'Compare Old and New Tax Regime',
+          href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        },
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+        {
+          label: 'ITR-2 AY 2026-27 Filing Guide',
+          href: '/blog/itr-2-ay-2026-27-filing-guide',
+        },
+        {
+          label: 'RupeeKit Resources',
+          href: '/resources',
+        },
+      ],
+    },
+    answerEngineSummary: 'This guide explains how to compare tax regimes before filing by using final salary records, deduction checks, Form 16, AIS, and Form 26AS. It is built as a practical decision process for Indian taxpayers rather than a generic “best regime” article.',
+    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', 'salary-in-hand-calculator-india', '80c-deduction-calculator-india'],
+    sections: [
+      {
+        title: 'How should you compare both regimes before ITR filing?',
+        paragraphs: [
+          'Before filing, the comparison should move from projection to verification. Instead of relying only on the assumptions you used during payroll declarations, use the actual salary, deduction, and tax-credit data now available to you.',
+          'This final comparison is valuable because filing decisions should reflect what really happened during the year, not just what you expected in April.'
+        ],
+        table: {
+          caption: 'Pre-filing regime decision workflow',
+          headers: ['Step', 'What to review', 'Why it matters', 'Useful RupeeKit page'],
+          rows: [
+            ['1', 'Final or near-final salary data', 'Keeps the income base realistic before filing', 'Old vs New Tax Regime Calculator'],
+            ['2', 'Eligible deductions and exemptions', 'Shows whether old-regime assumptions still hold', 'HRA Exemption Calculator India'],
+            ['3', 'Form 16, AIS, and Form 26AS', 'Cross-checks payroll and portal information', 'ITR-2 AY 2026-27 Filing Guide'],
+            ['4', 'Any mismatch or late-year change', 'Prevents filing based on stale assumptions', 'RupeeKit Resources'],
+          ],
+        },
+      },
+      {
+        title: 'Which documents should you reconcile before deciding?',
+        paragraphs: [
+          'A good pre-filing regime choice usually depends on document matching, not intuition. Form 16 helps with employer-side salary and TDS details. AIS and Form 26AS help check portal-side data and credits.'
+        ],
+        bullets: [
+          'Form 16 for salary, exemptions, and employer-side tax deduction details.',
+          'AIS for broader information visible on the income-tax portal.',
+          'Form 26AS for tax-credit and deduction cross-checks.',
+          'Any deduction or exemption proofs that materially affect your old-regime comparison.',
+          'Updated rent or housing-related documents if HRA or similar claims matter to the estimate.',
+        ],
+      },
+      {
+        title: 'When can the answer change between payroll and filing time?',
+        paragraphs: [
+          'The answer can change if your salary changed, bonus income was different from expectations, rent changed, deductions were not completed, or payroll assumptions turned out to be incomplete. That does not mean payroll comparison was pointless. It means payroll comparison was only one stage of the process.',
+          'This is particularly important when the old-regime result depends on claims that need support, because filing uses final records rather than early-year plans.'
+        ],
+        bullets: [
+          'Late-year salary changes can move the comparison.',
+          'Unfinished deduction planning can reduce the old-regime benefit.',
+          'Differences between payroll records and portal data should trigger a fresh review before filing.',
+        ],
+      },
+      {
+        title: 'How can last-mile reconciliation change the result?',
+        paragraphs: [
+          'The closer you get to filing, the more valuable exact records become. Small mismatches that looked harmless earlier can matter when the comparison is close.'
+        ],
+        example: {
+          label: 'Illustrative example only',
+          title: 'Pre-filing check with final records',
+          details: 'Assume an employee compared regimes early in the year and found only a small difference between them. Before filing, Form 16 and AIS show that one deduction assumption was lower than expected and bonus income was slightly higher. After updating the same income base and verified claims in the calculator, the comparison may shift. This is why pre-filing review matters even after payroll planning.'
+        },
+      },
+      {
+        title: 'What should you avoid before submitting your return?',
+        paragraphs: [
+          'The final regime decision is often weakened by haste. Filing with stale estimates, incomplete records, or unsupported claims can turn a careful comparison into a risky one.'
+        ],
+        bullets: [
+          'Do not submit the return based only on old payroll assumptions.',
+          'Do not ignore Form 16, AIS, or Form 26AS mismatches.',
+          'Do not claim old-regime benefits that are not backed by records.',
+          'Do not treat a content guide or calculator as personalized filing advice.',
+        ],
+      },
+      {
+        title: 'Source and methodology',
+        paragraphs: [
+          'This article is based on RupeeKit\'s existing repo-backed tax materials: the old-vs-new regime explainer, the HRA explainer, the AIS/Form 26AS explainer, and the old-vs-new regime calculator itself. It converts those sources into a pre-filing decision sequence for Indian users.',
+          'The filing verification emphasis comes from the existing RupeeKit AIS/Form 26AS explainer and the current ITR preparation material already present in the repo. The article stays neutral on outcomes and does not assume one regime is universally better.',
+          'Illustrative examples are educational only. Verify final tax treatment with official income-tax guidance, employer payroll, Form 16, AIS, Form 26AS, and a qualified tax professional before filing.',
+          'Sources reviewed:'
+        ],
+        bullets: [
+          'Income Tax Department guidance already cited in RupeeKit\'s regime-comparison material.',
+          'RupeeKit\'s HRA explainer based on Section 10(13A) and Rule 2A references.',
+          'RupeeKit\'s AIS and Form 26AS explainer for pre-filing verification.',
+          'RupeeKit\'s ITR-2 filing guide and old-vs-new regime calculator pages.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should I compare tax regimes again just before filing?',
+        answer: 'Yes. A pre-filing review helps confirm whether the payroll-era comparison still matches your final records.'
+      },
+      {
+        question: 'Why are Form 16, AIS, and Form 26AS important before choosing a regime?',
+        answer: 'Together they help confirm salary details, tax credits, and portal-reported information before you rely on a final comparison.'
+      },
+      {
+        question: 'Can a payroll declaration and a pre-filing comparison lead to different answers?',
+        answer: 'Yes. Income changes, deduction changes, and document mismatches can alter the result between the start of the year and filing time.'
+      },
+      {
+        question: 'Should I wait for final records before making any comparison at all?',
+        answer: 'Not necessarily. Early comparison helps planning, but the final filing decision should be checked again with final or near-final records.'
+      },
+      {
+        question: 'What if the difference between both regimes is very small?',
+        answer: 'When the difference is small, accuracy of inputs and records becomes even more important because minor changes can shift the result.'
+      },
+      {
+        question: 'Can HRA still affect a last-minute filing comparison?',
+        answer: 'Yes. If HRA is relevant and correctly documented, it can still materially affect the old-regime estimate before filing.'
+      },
+      {
+        question: 'Does this guide tell me which regime to file under personally?',
+        answer: 'No. It provides an educational decision process; your final filing choice should be verified against your records and official guidance.'
+      },
+      {
+        question: 'Where should I start before making the final choice?',
+        answer: 'Start by updating the RupeeKit old-vs-new regime calculator with your final income and verified claims, then reconcile the output with Form 16, AIS, and Form 26AS.'
+      }
+    ]
   }
 ];
+
+export const publishedBlogPosts = blogPosts.filter((post) => post.status !== 'draft');

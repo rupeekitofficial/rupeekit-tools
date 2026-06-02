@@ -1121,8 +1121,8 @@
     "category": "Tax",
     "status": "live",
     "targetKeyword": "income tax calculator old vs new regime India",
-    "shortDescription": "Compare old vs new tax regime estimates in India using your income and deduction inputs. RupeeKit currently supports FY 2024-25 and FY 2023-24 rule sets for educational comparison.",
-    "metaDescription": "Compare old vs new tax regime in India with RupeeKit. Estimate taxable income, deductions, rebate, cess and regime-wise tax for supported years.",
+    "shortDescription": "Compare old vs new tax regime using income, deductions, exemptions, and salary structure. Estimate the tax difference with an educational calculator for Indian taxpayers.",
+    "metaDescription": "Compare old vs new tax regime using income, deductions and exemptions. Estimate tax difference with an educational calculator for Indian taxpayers.",
     "inputs": [
       {
         "key": "grossAnnualIncome",
@@ -1259,6 +1259,28 @@
     ],
     "formulaExplanation": "This calculator compares old and new regime estimates using supported-year rules and your entered income and deduction assumptions. It applies taxable-income logic, rebate handling, and cess to provide educational scenario comparison. Verify final computation with official filing utilities and records.",
     "example": "Consider Ms. Priya, a salaried individual with an annual gross income of â‚¹15,00,000. She receives â‚¹2,00,000 as HRA, pays â‚¹1,80,000 in annual rent, has â‚¹1,50,000 in 80C deductions, â‚¹25,000 in 80D deductions, and pays â‚¹1,00,000 as home loan interest (Section 24b). She lives in a metro city (HRA factor 50%). The calculator will first determine her HRA exemption, then calculate her taxable income under both regimes by applying relevant deductions and the standard deduction. Finally, it will show her illustrative tax payable for each regime and the potential savings by choosing the optimal one.",
+    "quickAnswer": {
+      "title": "Quick Answer",
+      "question": "Which is better: old or new tax regime?",
+      "answer": "The better tax regime depends on your income, deductions, exemptions, and salary structure. The old regime may help when eligible deductions and exemptions are high, while the new regime may be simpler when deductions are low. Use this calculator to compare estimated tax under both regimes before choosing.",
+      "formula": "Tax difference = Old regime tax - New regime tax",
+      "example": "If the old regime tax estimate is Rs 85,000 and the new regime tax estimate is Rs 78,000, the calculator shows a Rs 7,000 lower estimate under the new regime before final verification.",
+      "note": "Educational estimate only. Verify final tax treatment with official income-tax guidance, employer payroll, Form 16, AIS, Form 26AS, or a qualified tax professional.",
+      "links": [
+        {
+          "label": "HRA Exemption Calculator India",
+          "href": "/tools/hra-exemption-calculator-india"
+        },
+        {
+          "label": "ITR-2 AY 2026-27 Filing Guide",
+          "href": "/blog/itr-2-ay-2026-27-filing-guide"
+        },
+        {
+          "label": "Resources",
+          "href": "/resources"
+        }
+      ]
+    },
     "faqs": [
       {
         "question": "What are the main differences between the old and new income tax regimes in India?",
@@ -1283,14 +1305,75 @@
       {
         "question": "Is this calculator financial or tax advice?",
         "answer": "No. This calculator is for educational and informational purposes only. It provides an estimate based on the values entered and should not be treated as tax, legal, investment, or financial advice."
+      },
+      {
+        "question": "Is this calculator official?",
+        "answer": "No. This is a RupeeKit educational calculator and not an official government filing utility. Cross-check final numbers with the Income Tax Department portal, Form 16, AIS, and Form 26AS."
+      },
+      {
+        "question": "Does RupeeKit provide tax advice?",
+        "answer": "No. RupeeKit is not a tax advisor and does not provide personalized tax or legal advice. The page is for educational comparison only."
       }
     ],
     "related": [
+      "hra-exemption-calculator-india",
+      "80c-deduction-calculator-india",
       "salary-in-hand-calculator-india",
-      "emi-calculator-india",
-      "sip-calculator-india",
-      "gst-calculator-india"
-    ]
+      "sip-calculator-india"
+    ],
+    "howToUse": [
+      "Enter salary and income assumptions first.",
+      "Add HRA, 80C, 80D, home-loan interest, employer NPS, and other supported inputs where relevant.",
+      "Compare old-regime and new-regime estimates using the same income base.",
+      "Review the difference before employer declaration or ITR filing.",
+      "Verify final treatment with official guidance, payroll records, Form 16, AIS, and Form 26AS."
+    ],
+    "assumptions": [
+      "Educational estimate only. RupeeKit is not a tax advisor and does not provide personalized tax or legal advice.",
+      "Inputs are user-entered and should match actual salary structure, deductions, exemptions, and records for meaningful comparison.",
+      "Final tax treatment depends on applicable-year rules, filing profile, payroll treatment, and official validation."
+    ],
+    "commonMistakes": [
+      "Using different income assumptions when comparing the two regimes.",
+      "Assuming HRA, 80C, 80D, or home-loan interest always make the old regime better without checking the full estimate.",
+      "Ignoring updated payroll records, Form 16, AIS, or Form 26AS before filing.",
+      "Treating an educational calculator result as official tax advice or final filing confirmation."
+    ],
+    "contentSections": [
+      {
+        "heading": "How does the old vs new tax regime calculator work?",
+        "body": "The calculator applies RupeeKit's existing tax logic to the income, deduction, exemption, and salary inputs you enter, then estimates old-regime tax and new-regime tax side by side for educational comparison."
+      },
+      {
+        "heading": "How to compare old and new tax regime in India?",
+        "body": "Use the same income base in both regimes, add eligible old-regime deductions and exemptions where relevant, and compare the estimated difference before employer declaration or ITR filing."
+      },
+      {
+        "heading": "Income tax calculation old vs new regime: example",
+        "body": "A taxpayer comparing the same salary under both regimes may see the result change when HRA, 80C, 80D, home-loan interest, employer NPS, or other supported fields are entered. Verify the final comparison before acting on it."
+      },
+      {
+        "heading": "Which tax regime is better for salaried employees?",
+        "body": "The answer depends on deduction eligibility and salary structure. The old regime may help when deductions and exemptions are high, while the new regime may be simpler when deductions are low."
+      },
+      {
+        "heading": "What deductions can change the old vs new tax regime result?",
+        "body": "Supported comparison inputs can include HRA, Section 80C, Section 80D, home-loan interest, employer NPS, and other eligible old-regime deduction assumptions already available in RupeeKit."
+      },
+      {
+        "heading": "Should you choose old regime or new regime while filing ITR?",
+        "body": "Use the calculator as educational decision support only. Final regime choice should be verified with current official guidance, employer payroll, Form 16, AIS, Form 26AS, and filing rules."
+      },
+      {
+        "heading": "Common mistakes while comparing old and new tax regime",
+        "body": "Common errors include using mismatched income assumptions, overstating deductions, and skipping final reconciliation with payroll records and official filing data."
+      },
+      {
+        "heading": "Source and methodology",
+        "body": "This calculator compares estimated tax under old and new tax regime inputs using user-entered income, deductions, exemptions, and applicable calculator logic in RupeeKit. It is designed for educational comparison only and does not replace official income-tax guidance, employer payroll calculations, Form 16, AIS/Form 26AS, or advice from a qualified tax professional."
+      }
+    ],
+    "lastReviewed": "June 2026"
   },
   {
     "slug": "hra-exemption-calculator-india",
@@ -1436,6 +1519,7 @@
       }
     ],
     "related": [
+      "income-tax-calculator-old-vs-new-regime-india",
       "salary-in-hand-calculator-india",
       "80c-deduction-calculator-india",
       "emi-calculator-india"
@@ -1604,6 +1688,7 @@
       }
     ],
     "related": [
+      "income-tax-calculator-old-vs-new-regime-india",
       "hra-exemption-calculator-india",
       "salary-in-hand-calculator-india",
       "gst-calculator-india"

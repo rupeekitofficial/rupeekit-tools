@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getLiveTools } from '@/lib/tools';
-import { blogPosts } from '@/data/blog-posts';
+import { publishedBlogPosts } from '@/data/blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 import { governmentSalaryUpdates } from '@/data/government-salary-updates';
 
@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       };
     }),
-    ...blogPosts.map((post) => {
+    ...publishedBlogPosts.map((post) => {
       const lastModified =
         parseIsoDate(post.modifiedDateISO) ??
         parseIsoDate(post.publishedDateISO) ??

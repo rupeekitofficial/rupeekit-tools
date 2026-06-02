@@ -189,6 +189,30 @@ export default function ResourcesPage() {
                 </Link>
               ))}
             </div>
+            <p className="mt-4 text-xs leading-relaxed text-brandMuted">
+              For tax planning, start with the{' '}
+              <Link
+                href="/tools/income-tax-calculator-old-vs-new-regime-india"
+                className="font-semibold text-brandNavy hover:underline"
+              >
+                Income Tax Calculator Old vs New Regime
+              </Link>
+              , review HRA with the{' '}
+              <Link
+                href="/tools/hra-exemption-calculator-india"
+                className="font-semibold text-brandNavy hover:underline"
+              >
+                HRA Exemption Calculator India
+              </Link>
+              , and then cross-check filing steps in the{' '}
+              <Link
+                href="/blog/itr-2-ay-2026-27-filing-guide"
+                className="font-semibold text-brandNavy hover:underline"
+              >
+                ITR-2 AY 2026-27 Filing Guide
+              </Link>
+              .
+            </p>
           </div>
           <div className="mt-6 pt-4 border-t border-brandBorder">
             <Link

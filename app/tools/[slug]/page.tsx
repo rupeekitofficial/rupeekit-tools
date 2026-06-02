@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { blogPosts } from '@/data/blog-posts';
+import { publishedBlogPosts } from '@/data/blog-posts';
 import Calculator from '@/components/Calculator';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
 import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLoanDecisionSimulator';
@@ -30,7 +30,7 @@ const EMERGENCY_FUND_META_DESCRIPTION =
 const EMERGENCY_FUND_H1 = 'Emergency Fund Calculator India';
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));
-const blogSlugs = new Set(blogPosts.map((post) => post.slug));
+const blogSlugs = new Set(publishedBlogPosts.map((post) => post.slug));
 
 const HRA_TOC = [
   { id: 'how-to-calculate-hra-exemption', title: 'How is HRA exemption calculated?' },

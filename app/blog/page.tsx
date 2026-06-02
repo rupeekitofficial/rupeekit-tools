@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { blogPosts } from '@/data/blog-posts';
+import { publishedBlogPosts } from '@/data/blog-posts';
 import BlogListingClient from '@/components/blog/BlogListingClient';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
@@ -45,7 +45,7 @@ export default function BlogListingPage() {
       </section>
 
       {/* Client component handles search, filter, featured badge */}
-      <BlogListingClient posts={blogPosts} />
+      <BlogListingClient posts={publishedBlogPosts} />
 
       {/* Bottom Educational Banner */}
       <section className="mt-16 rounded-[2rem] border border-brandBorder bg-white p-8 text-center shadow-sm max-w-4xl mx-auto">

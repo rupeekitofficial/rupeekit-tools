@@ -233,6 +233,16 @@ export default function HomePage() {
             <p className="mt-1 text-xs text-brandMuted">
               Understand eligibility, deadlines, documents, and filing checkpoints before you submit.
             </p>
+            <p className="mt-2 text-xs text-brandMuted">
+              Compare outcomes first with the{' '}
+              <Link
+                href="/tools/income-tax-calculator-old-vs-new-regime-india"
+                className="font-semibold text-brandNavy hover:underline"
+              >
+                Old vs New Tax Regime Calculator
+              </Link>
+              .
+            </p>
           </div>
           <Link
             href={featuredTaxGuideHref}

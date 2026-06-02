@@ -6,7 +6,7 @@ export type QuickAnswerLink = {
 };
 
 type QuickAnswerBoxProps = {
-  title: string;
+  title?: string;
   question: string;
   answer: string;
   formula?: string;
@@ -20,7 +20,7 @@ function toSectionId(title: string) {
 }
 
 export default function QuickAnswerBox({
-  title,
+  title = 'Quick Answer',
   question,
   answer,
   formula,

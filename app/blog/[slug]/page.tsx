@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { blogPosts } from '@/data/blog-posts';
+import { publishedBlogPosts } from '@/data/blog-posts';
 import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({
+  return publishedBlogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -16,7 +16,7 @@ interface BlogPostPageProps {
 }
 
 export function generateMetadata({ params }: BlogPostPageProps): Metadata {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  const post = publishedBlogPosts.find((p) => p.slug === params.slug);
   if (!post) return {};
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
@@ -66,7 +66,7 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  const post = publishedBlogPosts.find((p) => p.slug === params.slug);
   if (!post) {
     notFound();
   }

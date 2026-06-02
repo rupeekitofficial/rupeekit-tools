@@ -9,13 +9,27 @@ const PRIORITY_TOOL_SLUGS = [
   'hra-exemption-calculator-india',
   'sip-calculator-india',
   'fd-calculator-india',
+  'income-tax-calculator-old-vs-new-regime-india',
 ];
 
 const PRIORITY_BLOG_SLUGS = [
   'how-much-emergency-fund',
   'itr-2-ay-2026-27-filing-guide',
   'income-tax-calculator-2026-calculator-guide',
+  'old-vs-new-tax-regime-which-is-better',
+  'old-tax-regime-deductions-checklist',
+  'new-tax-regime-vs-old-regime-for-salaried-employees',
+  'income-tax-calculation-example-old-vs-new-regime',
+  'how-to-choose-tax-regime-before-itr-filing',
 ];
+
+const NEW_TAX_BLOG_SLUGS = new Set([
+  'old-vs-new-tax-regime-which-is-better',
+  'old-tax-regime-deductions-checklist',
+  'new-tax-regime-vs-old-regime-for-salaried-employees',
+  'income-tax-calculation-example-old-vs-new-regime',
+  'how-to-choose-tax-regime-before-itr-filing',
+]);
 
 let errors = 0;
 
@@ -250,12 +264,49 @@ ensure(
   'Dedicated income-tax calculator page should include quick answer, answer summary, facts, and methodology sections'
 );
 ensure(
-  dedicatedIncomeTaxToolSource.includes('const faqSchema = faqs.length > 0 ?'),
+  dedicatedIncomeTaxToolSource.includes('const faqSchema =')
+    && dedicatedIncomeTaxToolSource.includes('faqs.length > 0'),
   'Dedicated income-tax FAQPage schema must be conditional on visible FAQs'
 );
 ensure(
   [...dedicatedIncomeTaxToolSource.matchAll(/question:\s*'[^']+'/g)].length >= 8,
   'Dedicated income-tax calculator should include at least 8 visible FAQs'
+);
+ensure(
+  dedicatedIncomeTaxToolSource.includes("question: 'Which is better: old or new tax regime?'"),
+  'Dedicated income-tax quick answer question is missing or misaligned'
+);
+ensure(
+  dedicatedIncomeTaxToolSource.includes('How does the old vs new tax regime calculator work?')
+    && dedicatedIncomeTaxToolSource.includes('How to compare old and new tax regime in India?')
+    && dedicatedIncomeTaxToolSource.includes('Income tax calculation old vs new regime: example')
+    && dedicatedIncomeTaxToolSource.includes('Which tax regime is better for salaried employees?')
+    && dedicatedIncomeTaxToolSource.includes('What deductions can change the old vs new tax regime result?')
+    && dedicatedIncomeTaxToolSource.includes('Should you choose old regime or new regime while filing ITR?')
+    && dedicatedIncomeTaxToolSource.includes('Common mistakes while comparing old and new tax regime'),
+  'Dedicated income-tax page is missing one or more required query-style answer sections'
+);
+ensure(
+  dedicatedIncomeTaxToolSource.includes('Old vs New Tax Regime Comparison')
+    && dedicatedIncomeTaxToolSource.includes('Best suited when')
+    && dedicatedIncomeTaxToolSource.includes('Final decision'),
+  'Dedicated income-tax comparison table is missing or incomplete'
+);
+ensure(
+  dedicatedIncomeTaxToolSource.includes('Source and methodology')
+    && dedicatedIncomeTaxToolSource.includes('Last reviewed:')
+    && dedicatedIncomeTaxToolSource.includes('RupeeKit is not a tax advisor'),
+  'Dedicated income-tax methodology block is missing required trust wording'
+);
+ensure(
+  dedicatedIncomeTaxToolSource.includes('/tools/hra-exemption-calculator-india')
+    && dedicatedIncomeTaxToolSource.includes('/blog/itr-2-ay-2026-27-filing-guide')
+    && dedicatedIncomeTaxToolSource.includes('/resources'),
+  'Dedicated income-tax page should include internal links to related RupeeKit tax pages'
+);
+ensure(
+  dedicatedIncomeTaxToolSource.includes('canonical: PAGE_URL'),
+  'Dedicated income-tax page canonical is missing or not self-referencing'
 );
 
 const disallowedSchemaTokens = [
@@ -279,10 +330,22 @@ const liveToolPaths = tools
   .filter((tool) => tool.status === 'live')
   .map((tool) => `/tools/${tool.slug}`);
 
-const blogSlugs = new Set(
+const allBlogSlugs = [...new Set(
   [...blogDataSource.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map((match) => match[1])
-);
-const blogPaths = [...blogSlugs].map((slug) => `/blog/${slug}`);
+)];
+const publishedBlogSlugs = new Set();
+const draftBlogSlugs = new Set();
+
+for (const slug of allBlogSlugs) {
+  const block = getBlogBlock(slug);
+  if (/status:\s*'draft'/.test(block)) {
+    draftBlogSlugs.add(slug);
+  } else {
+    publishedBlogSlugs.add(slug);
+  }
+}
+
+const blogPaths = [...publishedBlogSlugs].map((slug) => `/blog/${slug}`);
 
 const sitemapPaths = new Set([...staticRoutes, ...liveToolPaths, ...blogPaths]);
 
@@ -296,6 +359,11 @@ const priorityPaths = [
   '/blog/how-much-emergency-fund',
   '/blog/itr-2-ay-2026-27-filing-guide',
   '/blog/income-tax-calculator-2026-calculator-guide',
+  '/blog/old-vs-new-tax-regime-which-is-better',
+  '/blog/old-tax-regime-deductions-checklist',
+  '/blog/new-tax-regime-vs-old-regime-for-salaried-employees',
+  '/blog/income-tax-calculation-example-old-vs-new-regime',
+  '/blog/how-to-choose-tax-regime-before-itr-filing',
   '/resources',
 ];
 
@@ -303,9 +371,26 @@ for (const pagePath of priorityPaths) {
   ensure(sitemapPaths.has(pagePath), `Priority path missing from sitemap derivation: ${pagePath}`);
 }
 ensure(staticRoutes.has(''), 'Homepage root route is missing from sitemap staticRoutes');
+ensure(
+  blogPageSource.includes('publishedBlogPosts.map((post) =>')
+    && blogPageSource.includes('publishedBlogPosts.find((p) => p.slug === params.slug)'),
+  'Blog route should only generate and resolve published blog posts'
+);
+ensure(
+  sitemapSource.includes('publishedBlogPosts.map((post) =>'),
+  'Sitemap should only include published blog posts'
+);
+ensure(
+  blogLayoutSource.includes('Last reviewed:'),
+  'Blog layout should show a visible Last reviewed label'
+);
+ensure(
+  blogLayoutSource.includes('RupeeKit does not provide personalized tax, legal, investment, or financial advice.'),
+  'Blog layout should include the required tax-safe disclaimer wording'
+);
 
 for (const slug of PRIORITY_BLOG_SLUGS) {
-  ensure(blogSlugs.has(slug), `Priority blog slug missing from data/blog-posts.ts: ${slug}`);
+  ensure(publishedBlogSlugs.has(slug), `Priority published blog slug missing from data/blog-posts.ts: ${slug}`);
 
   const block = getBlogBlock(slug);
   ensure(block.length > 0, `Unable to read blog block from data/blog-posts.ts for: ${slug}`);
@@ -313,10 +398,30 @@ for (const slug of PRIORITY_BLOG_SLUGS) {
   ensure(/question:\s*'[^']+/.test(block), `Priority blog quickAnswer.question missing: ${slug}`);
   ensure(/answer:\s*'[^']+/.test(block), `Priority blog quickAnswer.answer missing: ${slug}`);
   ensure(/answerEngineSummary:\s*'[^']+/.test(block), `Priority blog missing answerEngineSummary: ${slug}`);
+  ensure(/reviewedDateISO:\s*'[^']+/.test(block), `Priority blog missing reviewedDateISO: ${slug}`);
   ensure(
     [...block.matchAll(/question:\s*'[^']+'/g)].length >= 8,
     `Priority blog must have at least 8 FAQs: ${slug}`
   );
+
+  if (NEW_TAX_BLOG_SLUGS.has(slug)) {
+    ensure(
+      block.includes('/tools/income-tax-calculator-old-vs-new-regime-india'),
+      `Priority tax blog missing internal calculator link: ${slug}`
+    );
+    ensure(
+      /title:\s*'Source and methodology'/.test(block),
+      `Priority tax blog missing Source and methodology section: ${slug}`
+    );
+    ensure(
+      block.includes('official income-tax guidance, employer payroll, Form 16, AIS, Form 26AS, and a qualified tax professional'),
+      `Priority tax blog missing safe disclaimer wording in content block: ${slug}`
+    );
+  }
+}
+
+for (const slug of draftBlogSlugs) {
+  ensure(!sitemapPaths.has(`/blog/${slug}`), `Draft-only blog should not be present in sitemap derivation: ${slug}`);
 }
 
 ensure(
@@ -346,6 +451,10 @@ ensure(
 ensure(
   blogPageSource.includes("'@type': 'Article'"),
   'Blog page is missing Article schema'
+);
+ensure(
+  blogPageSource.includes("'@type': 'BreadcrumbList'"),
+  'Blog page is missing Breadcrumb schema'
 );
 
 ensure(
