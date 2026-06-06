@@ -4,6 +4,7 @@ import { calculateIndianIncomeTax, TaxInput, TaxResult } from '@/lib/tax/calcula
 import { TaxVisualComparison } from './TaxVisualComparison';
 import { TaxSlabBreakdown } from './TaxSlabBreakdown';
 import { useDownloadTaxPdf } from '@/hooks/useDownloadTaxPdf';
+import { indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
 
 interface TaxResultPanelProps {
   result: TaxResult | null;
@@ -18,7 +19,7 @@ function formatInr(value: number) {
 function estimateBreakEvenAdditionalOldDeduction(input: TaxInput, taxYear: string) {
   const base = calculateIndianIncomeTax(input, taxYear);
   if (base.oldRegime.finalTax <= base.newRegime.finalTax) {
-    return 0;
+    return -1;
   }
 
   let low = 0;
@@ -46,6 +47,9 @@ function estimateBreakEvenAdditionalOldDeduction(input: TaxInput, taxYear: strin
 
 export function TaxResultPanel({ result, input, taxYear }: TaxResultPanelProps) {
   const { handleDownloadTaxPdf, isGenerating, error } = useDownloadTaxPdf();
+  const selectedYearConfig = indiaIncomeTaxRules[taxYear];
+  const oldStandardDeduction = input.isSalaried ? (selectedYearConfig?.oldRegime[input.ageGroup]?.standardDeduction ?? 0) : 0;
+  const newStandardDeduction = input.isSalaried ? (selectedYearConfig?.newRegime.standardDeduction ?? 0) : 0;
 
   const breakEvenAdditionalOldDeduction = useMemo(
     () => estimateBreakEvenAdditionalOldDeduction(input, taxYear),
@@ -108,6 +112,18 @@ export function TaxResultPanel({ result, input, taxYear }: TaxResultPanelProps) 
             <span>Taxable income (new)</span>
             <span className="font-semibold">{formatInr(newRegime.taxableIncome)}</span>
           </div>
+          <div className="flex justify-between">
+            <span>Age group</span>
+            <span className="font-semibold">
+              {input.ageGroup === 'below60' ? 'Below 60' : input.ageGroup === 'senior' ? '60 to below 80' : '80 and above'}
+            </span>
+          </div>
+          <div className="flex justify-between">
+            <span>Effective tax rate (old / new)</span>
+            <span className="font-semibold">
+              {oldRegime.effectiveTaxRate.toFixed(2)}% / {newRegime.effectiveTaxRate.toFixed(2)}%
+            </span>
+          </div>
           <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
             Recommended lower-tax regime in this estimate:{' '}
             <span className="font-semibold">
@@ -118,14 +134,37 @@ export function TaxResultPanel({ result, input, taxYear }: TaxResultPanelProps) 
           <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
             Break-even additional old-regime-only deduction estimate:{' '}
             <span className="font-semibold">
-              {breakEvenAdditionalOldDeduction === null
+              {breakEvenAdditionalOldDeduction === -1
+                ? 'Old regime is already lower in this scenario based on entered values.'
+                : breakEvenAdditionalOldDeduction === null
                 ? 'Not reached within this input range'
                 : formatInr(breakEvenAdditionalOldDeduction)}
+            </span>
+            .
+            <span className="mt-1 block text-slate-500">
+              Eligibility and document support still matter; the estimate assumes only deductions that are actually
+              allowed under the old regime.
+            </span>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
+            Standard deduction used:{' '}
+            <span className="font-semibold">
+              Old {formatInr(oldStandardDeduction)} / New {formatInr(newStandardDeduction)}
+            </span>
+            .
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
+            Rebate applied:{' '}
+            <span className="font-semibold">
+              Old {oldRegime.rebate > 0 ? 'Yes' : 'No'} / New {newRegime.rebate > 0 ? 'Yes' : 'No'}
             </span>
             .
           </div>
           <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
             Cess note: both estimates include 4% health and education cess after rebate handling.
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
+            Surcharge note: not included unless a future RupeeKit release explicitly supports it for the selected year.
           </div>
           <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
             Rebate note: Section 87A rebate and available marginal relief logic are applied based on configured year rules.
@@ -143,7 +182,7 @@ export function TaxResultPanel({ result, input, taxYear }: TaxResultPanelProps) 
             disabled={isGenerating}
             className="flex w-full items-center justify-center gap-2 rounded-full bg-brandNavy px-4 py-3 text-sm font-bold text-white transition hover:bg-brandDeepNavy disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {isGenerating ? 'Generating PDF...' : 'Download Tax Estimate PDF'}
+            {isGenerating ? 'Generating PDF...' : 'Download Tax Regime Comparison Report'}
           </button>
           <p className="mt-2 text-center text-[10px] text-brandMuted">
             Includes your entered values and tax-estimate comparison from this page.

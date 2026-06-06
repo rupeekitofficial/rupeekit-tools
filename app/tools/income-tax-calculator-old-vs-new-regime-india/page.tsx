@@ -8,20 +8,18 @@ import { calculateIndianIncomeTax, type TaxInput } from '@/lib/tax/calculator';
 import { availableTaxYears } from '@/lib/tax/indiaIncomeTaxRules';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
-const TARGET_FY = '2025-26';
-const TARGET_AY = '2026-27';
 const PAGE_URL = `${SITE_URL}/tools/income-tax-calculator-old-vs-new-regime-india`;
 const REVIEWED_LABEL = 'June 2, 2026 (IST)';
 
-const pageTitle = 'Old vs New Tax Regime Calculator India | Compare Income Tax';
+const pageTitle = 'Income Tax Old vs New Regime Calculator FY 2025-26 | RupeeKit';
 const pageDescription =
-  'Compare old vs new tax regime using income, deductions and exemptions. Estimate tax difference with an educational calculator for Indian taxpayers.';
+  'Compare old vs new tax regime for FY 2025-26 / AY 2026-27, FY 2024-25 / AY 2025-26, and FY 2023-24 / AY 2024-25 with deductions, rebate, cess, and break-even guidance.';
 
 const quickAnswer = {
   title: 'Quick Answer',
   question: 'Which is better: old or new tax regime?',
-  answer:
-    'The better tax regime depends on your income, deductions, exemptions, and salary structure. The old regime may help when eligible deductions and exemptions are high, while the new regime may be simpler when deductions are low. Use this calculator to compare estimated tax under both regimes before choosing.',
+    answer:
+    'The better tax regime depends on your income, deductions, exemptions, age group, and salary structure. The old regime may help when eligible deductions and exemptions are high, while the new regime may be simpler when deductions are low. Use this calculator to compare estimated tax under both regimes before choosing.',
   formula: 'Tax difference = Old regime tax - New regime tax',
   example:
     'If the old regime tax estimate is Rs 85,000 and the new regime tax estimate is Rs 78,000, the calculator shows a Rs 7,000 lower estimate under the new regime before final verification.',
@@ -77,6 +75,7 @@ const baseExampleInput: TaxInput = {
   otherDeductionsOldRegime: 0,
   otherDeductionsBothRegimes: 0,
   isSalaried: true,
+  ageGroup: 'below60',
 };
 
 function formatInr(value: number) {
@@ -84,7 +83,6 @@ function formatInr(value: number) {
 }
 
 const latestSupportedFy = availableTaxYears[0];
-const supportsTargetYear = availableTaxYears.includes(TARGET_FY);
 
 const exampleScenarios = [
   {
@@ -286,7 +284,7 @@ export default function IncomeTaxCalculatorPage() {
           Home
         </Link>
         <span className="mx-2">/</span>
-        <span className="font-medium text-slate-900">Old vs New Tax Regime Calculator India</span>
+        <span className="font-medium text-slate-900">Income Tax Old vs New Regime Calculator FY 2025-26</span>
       </nav>
 
       <header className="mb-8 grid gap-6 lg:grid-cols-[1fr_0.52fr] lg:items-start no-print">
@@ -295,7 +293,7 @@ export default function IncomeTaxCalculatorPage() {
             Tax Comparison Tool
           </span>
           <h1 className="text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl lg:text-6xl">
-            Old vs New Tax Regime Calculator India
+            Income Tax Old vs New Regime Calculator FY 2025-26
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
             Compare old vs new tax regime using income, deductions, exemptions, and salary structure. Use this
@@ -313,15 +311,15 @@ export default function IncomeTaxCalculatorPage() {
         </div>
       </header>
 
-      {!supportsTargetYear ? (
-        <section className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 no-print">
-          <h2 className="text-base font-bold text-amber-900">FY {TARGET_FY} support status</h2>
-          <p className="mt-2 text-sm leading-6 text-amber-900">
-            FY {TARGET_FY} (AY {TARGET_AY}) is not yet configured in the RupeeKit rule engine. This page remains useful
-            for educational comparison, while examples on this page use the latest supported rule year: FY {latestSupportedFy}.
+        <section className="mb-6 no-print">
+        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-7 text-emerald-900">
+          <p className="font-bold">Supported years</p>
+          <p className="mt-1">
+            This calculator supports FY 2025-26 / AY 2026-27, FY 2024-25 / AY 2025-26, and FY 2023-24 / AY 2024-25
+            for educational comparison. Verify final tax in the official filing utility.
           </p>
-        </section>
-      ) : null}
+        </div>
+      </section>
 
       <section className="mb-6 no-print">
         <QuickAnswerBox
@@ -338,7 +336,7 @@ export default function IncomeTaxCalculatorPage() {
       <AnswerEngineSummary
         id="answer-engine-summary"
         className="mb-10 no-print"
-        summary="This old vs new tax regime calculator compares estimated income tax under both regimes using income, deductions, exemptions, and salary structure. It helps you compare old and new tax regime scenarios before employer declaration or ITR filing. Results are educational estimates only and should be verified with official guidance, Form 16, AIS, Form 26AS, and payroll records."
+        summary="This old vs new tax regime calculator compares estimated income tax under both regimes using income, deductions, exemptions, age group, and salary structure. It supports FY 2025-26 / AY 2026-27, FY 2024-25 / AY 2025-26, and FY 2023-24 / AY 2024-25 for educational comparison before employer declaration or ITR filing. Results are educational estimates only and should be verified with official guidance, Form 16, AIS, Form 26AS, and payroll records."
       />
 
       <TaxCalculatorApp />
@@ -352,9 +350,10 @@ export default function IncomeTaxCalculatorPage() {
             How does the old vs new tax regime calculator work?
           </h2>
           <p className="mt-4 leading-8 text-slate-700">
-            The calculator applies the existing RupeeKit tax logic to the income, deduction, exemption, and salary
+            The calculator applies the RupeeKit tax logic to the income, deduction, exemption, salary, and age-group
             inputs you enter. It then estimates old-regime tax and new-regime tax side by side so you can compare the
-            difference using the same input set.
+            difference using the same input set. Supported years are FY 2025-26 / AY 2026-27, FY 2024-25 / AY 2025-26,
+            and FY 2023-24 / AY 2024-25.
           </p>
           <p className="mt-4 leading-8 text-slate-700">
             This makes the page useful for old vs new tax regime calculator online searches, but the output remains an
@@ -515,11 +514,11 @@ export default function IncomeTaxCalculatorPage() {
         rows={[
           {
             topic: 'Calculation purpose',
-            explanation: 'Educational comparison of old-regime and new-regime income-tax estimates',
+            explanation: 'Educational comparison of old-regime and new-regime income-tax estimates for FY 2025-26 / AY 2026-27 and earlier supported years',
           },
           {
             topic: 'Main inputs',
-            explanation: 'Income, deductions, exemptions, salary structure, and supported regime-specific fields',
+            explanation: 'Income, age group, deductions, exemptions, salary structure, and supported regime-specific fields',
           },
           {
             topic: 'Primary output',

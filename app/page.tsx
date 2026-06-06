@@ -5,7 +5,7 @@ import { getLiveTools } from '@/lib/tools';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
 export const metadata: Metadata = {
-  title: { absolute: 'RupeeKit - Free India Salary & Finance Calculators' },
+  title: { absolute: 'Free India Salary & Finance Calculators | RupeeKit' },
   description:
     'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
   alternates: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'max-image-preview': 'large',
   },
   openGraph: {
-    title: 'RupeeKit - Free India Salary & Finance Calculators',
+    title: 'Free India Salary & Finance Calculators | RupeeKit',
     description:
       'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
     url: SITE_URL,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RupeeKit - Free India Salary & Finance Calculators',
+    title: 'Free India Salary & Finance Calculators | RupeeKit',
     description:
       'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
   },
@@ -36,11 +36,22 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const tools = getLiveTools();
   const categories = Array.from(new Set(tools.map((tool) => tool.category)));
-  const showUpdates = false;
+  const showUpdates = true;
   const featuredTaxGuideHref = '/blog/itr-2-ay-2026-27-filing-guide';
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'RupeeKit',
+    alternateName: 'Rupee Kit',
+    url: `${SITE_URL}/`,
+  };
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 md:py-12 space-y-12 md:space-y-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       {/* Hero & Trust Strip Group */}
       <div className="space-y-6 md:space-y-8">
         {/* Hero Section */}

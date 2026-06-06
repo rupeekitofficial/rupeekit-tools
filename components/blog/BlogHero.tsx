@@ -72,7 +72,13 @@ export default function BlogHero({
                 />
               </div>
             ) : (
-              <BlogHeroVisual type={visualType!} alt={visualAlt || title} />
+              <BlogHeroVisual
+                type={visualType!}
+                alt={visualAlt || title}
+                title={title}
+                subtitle={description}
+                category={category}
+              />
             )}
           </div>
         )}

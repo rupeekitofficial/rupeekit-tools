@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export default function ResourcesPage() {
-  const showUpdates = false;
+  const showUpdates = true;
 
   const guideLinks = [
     {

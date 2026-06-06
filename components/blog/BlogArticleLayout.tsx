@@ -12,6 +12,7 @@ import AffiliateDisclosure from './AffiliateDisclosure';
 import BookRecommendationCard from './BookRecommendationCard';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
+import DiscoverArticleCallouts from '@/components/discover/DiscoverArticleCallouts';
 import { BlogInlineVisual, BlogSharePreviewCard } from './BlogVisuals';
 import { Tax2026Stats, Tax2026CTA, Tax2026CompactCTA, CommonMistakesCards } from './Tax2026Visuals';
 import {
@@ -41,6 +42,7 @@ function formatBlogDateLabel(isoDate?: string, fallback?: string) {
 export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
   const isEmergencyFundGuide = post.slug === 'how-much-emergency-fund';
   const isTaxBlog = post.category === 'Tax';
+  const discoverArticle = post.discoverArticle;
   const showTaxCrossLinks =
     isTaxBlog ||
     post.slug === 'personal-finance-checklist-for-salaried-people';
@@ -52,24 +54,33 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
   const answerEngineSummary =
     post.answerEngineSummary ||
     `${post.h1} explains the key assumptions, practical steps, and common mistakes so you can plan with clearer estimates. This article is educational information only and should be cross-verified with official rules and records where required.`;
-  const articleCtaHref = isEmergencyFundGuide
-    ? '/tools/emergency-fund-calculator-india'
-    : isTaxBlog
-      ? '/tools/income-tax-calculator-old-vs-new-regime-india'
-      : '/#calculators';
-  const articleCtaLabel = isEmergencyFundGuide
-    ? 'Go to Calculator'
-    : isTaxBlog
-      ? 'Compare Tax Regimes'
-      : 'Go to Calculators';
-  const articleCtaCopy = isEmergencyFundGuide
-    ? 'Use the dedicated emergency fund calculator to estimate your safety corpus target and shortfall.'
-    : isTaxBlog
-      ? 'Use the Old vs New Tax Regime Calculator to compare the same income assumptions before filing.'
-      : 'Try our free interactive calculators to plan your savings, loans, and taxes.';
-  const disclaimerText = isTaxBlog
-    ? 'Educational information only. RupeeKit does not provide personalized tax, legal, investment, or financial advice. Verify final tax treatment with official income-tax guidance, employer payroll, Form 16, AIS/Form 26AS, or a qualified tax professional.'
-    : undefined;
+  const articleCtaHref = discoverArticle?.calculatorCta.href || (
+    isEmergencyFundGuide
+      ? '/tools/emergency-fund-calculator-india'
+      : isTaxBlog
+        ? '/tools/income-tax-calculator-old-vs-new-regime-india'
+        : '/#calculators'
+  );
+  const articleCtaLabel = discoverArticle?.calculatorCta.label || (
+    isEmergencyFundGuide
+      ? 'Go to Calculator'
+      : isTaxBlog
+        ? 'Compare Tax Regimes'
+        : 'Go to Calculators'
+  );
+  const articleCtaCopy = discoverArticle?.calculatorCta.description || (
+    isEmergencyFundGuide
+      ? 'Use the dedicated emergency fund calculator to estimate your safety corpus target and shortfall.'
+      : isTaxBlog
+        ? 'Use the Old vs New Tax Regime Calculator to compare the same income assumptions before filing.'
+        : 'Try our free interactive calculators to plan your savings, loans, and taxes.'
+  );
+  const discoverRelatedLinks = discoverArticle?.relatedCalculatorLinks || [];
+  const disclaimerText = discoverArticle?.safeDisclaimer || (
+    isTaxBlog
+      ? 'Educational information only. RupeeKit does not provide personalized tax, legal, investment, or financial advice. Verify final tax treatment with official income-tax guidance, employer payroll, Form 16, AIS/Form 26AS, or a qualified tax professional.'
+      : undefined
+  );
 
   // Helper to slugify section titles to match Table of Contents links
   const slugify = (text: string) => {
@@ -124,6 +135,13 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
             <p className="text-base md:text-lg leading-relaxed text-slate-800 font-medium">
               {post.intro}
             </p>
+
+            <DiscoverArticleCallouts
+              summary={discoverArticle?.summary}
+              whyItMatters={discoverArticle?.whyItMatters}
+              whoItAffects={discoverArticle?.whoItAffects}
+              sourceMethodology={discoverArticle?.sourceMethodology}
+            />
 
             {post.quickAnswer ? (
               <div className="mt-6">
@@ -377,6 +395,19 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                   <p className="text-xs text-brandMuted mt-1">
                     {articleCtaCopy}
                   </p>
+                  {discoverRelatedLinks.length > 0 ? (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {discoverRelatedLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="rounded-full border border-brandNavy/15 bg-white px-3 py-1.5 text-[11px] font-semibold text-brandNavy transition hover:bg-brandNavy/5"
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
                 <Link
                   href={articleCtaHref}

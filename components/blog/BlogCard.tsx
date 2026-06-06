@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { BlogGeneratedVisual } from './BlogGeneratedVisual';
 import { BlogVisualRenderer } from './BlogVisuals';
 
 interface BlogCardProps {
@@ -52,12 +53,21 @@ export default function BlogCard({
           ) : visualType ? (
             <div className="relative w-full aspect-[1.91/1] bg-gradient-to-br from-brandDeepNavy to-slate-900 p-4 flex items-center justify-center border-b border-brandBorder overflow-hidden">
               <div className="w-[70%] max-w-[180px] aspect-[16/10] bg-slate-900/60 border border-slate-800/80 rounded-xl p-2 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transform-none">
-                <BlogVisualRenderer type={visualType} mode="thumbnail" />
+                <BlogVisualRenderer type={visualType} mode="thumbnail" title={title} subtitle={category} category={category} />
               </div>
             </div>
           ) : (
-            <div className="w-full aspect-[1.91/1] bg-brandBgSoft border-b border-brandBorder flex items-center justify-center text-brandNavy/20 font-black">
-              RupeeKit
+            <div className="relative w-full aspect-[1.91/1] bg-gradient-to-br from-brandDeepNavy to-slate-900 p-4 flex items-center justify-center border-b border-brandBorder overflow-hidden">
+              <div className="w-[70%] max-w-[180px] aspect-[16/10] rounded-xl overflow-hidden border border-slate-700/80 bg-slate-950/80 transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transform-none">
+                <BlogGeneratedVisual
+                  variant="fallback-finance-card"
+                  mode="thumbnail"
+                  title={title}
+                  subtitle={category}
+                  category={category}
+                  alt={`${title} visual for RupeeKit`}
+                />
+              </div>
             </div>
           )}
 

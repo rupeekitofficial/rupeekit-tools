@@ -8,9 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "validate": "npm run validate:tools",
+    "blog:image:polish": "node scripts/polish-blog-image.mjs",
+    "validate": "npm run validate:tools && npm run validate:blog-visuals && npm run validate:ai-seo",
     "validate:ai-seo": "node scripts/validate-ai-seo-readiness.mjs",
-    "validate:tools": "node scripts/validate-tools.mjs"
+    "validate:tools": "node scripts/validate-tools.mjs",
+    "validate:blog-visuals": "node scripts/validate-blog-visuals.mjs"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.5.1",
@@ -29,6 +31,7 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.23",
     "postcss": "^8.4.49",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
     "vitest": "^4.1.7"

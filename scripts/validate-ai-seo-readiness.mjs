@@ -15,12 +15,20 @@ const PRIORITY_TOOL_SLUGS = [
 const PRIORITY_BLOG_SLUGS = [
   'how-much-emergency-fund',
   'itr-2-ay-2026-27-filing-guide',
+  'personal-finance-checklist-for-salaried-people',
   'income-tax-calculator-2026-calculator-guide',
   'old-vs-new-tax-regime-which-is-better',
   'old-tax-regime-deductions-checklist',
   'new-tax-regime-vs-old-regime-for-salaried-employees',
   'income-tax-calculation-example-old-vs-new-regime',
   'how-to-choose-tax-regime-before-itr-filing',
+];
+
+const DISCOVER_PRIORITY_DISCOVER_BLOG_SLUGS = [
+  'rbi-repo-rate-and-personal-loan-emi-impact',
+  'how-much-emergency-fund-salaried-indians-may-need-2026',
+  'hra-exemption-documents-checklist-for-salaried-employees',
+  'personal-finance-checklist-for-salaried-people',
 ];
 
 const NEW_TAX_BLOG_SLUGS = new Set([
@@ -53,26 +61,98 @@ function readJson(...segments) {
 const tools = readJson('data', 'tools.json');
 const toolBySlug = new Map(tools.map((tool) => [tool.slug, tool]));
 
+const layoutSource = readText('app', 'layout.tsx');
 const toolPageSource = readText('app', 'tools', '[slug]', 'page.tsx');
 const homePageSource = readText('app', 'page.tsx');
 const resourcesPageSource = readText('app', 'resources', 'page.tsx');
 const blogPageSource = readText('app', 'blog', '[slug]', 'page.tsx');
+const blogListingSource = readText('app', 'blog', 'page.tsx');
+const updatesHubSource = readText('app', 'updates', 'page.tsx');
+const financialUpdatesPageSource = readText('app', 'financial-updates', 'page.tsx');
+const financialUpdateDetailSource = readText('app', 'financial-updates', '[slug]', 'page.tsx');
+const governmentSalaryUpdatesPageSource = readText('app', 'government-salary-updates', 'page.tsx');
+const governmentSalaryUpdateDetailSource = readText('app', 'government-salary-updates', '[slug]', 'page.tsx');
 const blogLayoutSource = readText('components', 'blog', 'BlogArticleLayout.tsx');
 const blogFaqSectionSource = readText('components', 'blog', 'FAQSection.tsx');
+const discoverArticleCalloutsSource = readText('components', 'discover', 'DiscoverArticleCallouts.tsx');
 const factsTableSource = readText('components', 'seo', 'FactsTable.tsx');
 const sipCalculatorSource = readText('components', 'sip', 'SipPlannerCalculator.tsx');
 const dedicatedIncomeTaxToolSource = readText('app', 'tools', 'income-tax-calculator-old-vs-new-regime-india', 'page.tsx');
+const ogRouteSource = readText('app', 'og', 'route.tsx');
+const seoHelperSource = readText('lib', 'seo.ts');
 const sitemapSource = readText('app', 'sitemap.ts');
 const blogDataSource = readText('data', 'blog-posts.ts');
+const financialUpdatesDataSource = readText('data', 'financial-updates.ts');
+const governmentSalaryUpdatesDataSource = readText('data', 'government-salary-updates.ts');
 const llmsTxtPath = path.join(root, 'public', 'llms.txt');
 const llmsTxtSource = fs.existsSync(llmsTxtPath) ? fs.readFileSync(llmsTxtPath, 'utf8') : '';
+const packageSource = readText('package.json');
 
 function getBlogBlock(slug) {
+  return getEntryBlock(blogDataSource, slug);
+}
+
+function getEntryBlock(source, slug) {
   const marker = `slug: '${slug}'`;
-  const start = blogDataSource.indexOf(marker);
+  const altMarker = `slug: "${slug}"`;
+  const start = source.indexOf(marker) !== -1 ? source.indexOf(marker) : source.indexOf(altMarker);
   if (start === -1) return '';
-  const nextStart = blogDataSource.indexOf(`\n  {\n    slug: '`, start + marker.length);
-  return blogDataSource.slice(start, nextStart === -1 ? blogDataSource.length : nextStart);
+  const nextStart = source.indexOf(`\n  {\n    `, start + marker.length);
+  return source.slice(start, nextStart === -1 ? source.length : nextStart);
+}
+
+function extractQuotedField(block, field) {
+  const singleQuoted = block.match(new RegExp(`${field}:\\s*'((?:\\\\'|[^'])*)'`));
+  if (singleQuoted) return singleQuoted[1];
+  const doubleQuoted = block.match(new RegExp(`${field}:\\s*"((?:\\\\"|[^"])*)"`));
+  return doubleQuoted ? doubleQuoted[1] : '';
+}
+
+function extractNumericField(block, field) {
+  const match = block.match(new RegExp(`${field}:\\s*(\\d+)`));
+  return match ? Number(match[1]) : NaN;
+}
+
+function countOccurrences(haystack, needle) {
+  return haystack.split(needle).length - 1;
+}
+
+const DISCOVER_UNSAFE_PATTERNS = [
+  { pattern: /\bguaranteed\b/i, label: 'guaranteed' },
+  { pattern: /\bshocking\b/i, label: 'shocking' },
+  { pattern: /\bsecret trick\b/i, label: 'secret trick' },
+  { pattern: /\bsecret hack\b/i, label: 'secret hack' },
+  { pattern: /\binstant approval\b/i, label: 'instant approval' },
+  { pattern: /\blowest rate\b/i, label: 'lowest rate' },
+  { pattern: /\blowest emi\b/i, label: 'lowest emi' },
+  { pattern: /\bdouble your money\b/i, label: 'double your money' },
+  { pattern: /\bget rich quick\b/i, label: 'get rich quick' },
+  { pattern: /\bassured approval\b/i, label: 'assured approval' },
+  { pattern: /\bno[- ]risk high return\b/i, label: 'no-risk high return' },
+  { pattern: /\bguaranteed tax savings\b/i, label: 'guaranteed tax savings' },
+];
+
+function validateHeadlineField(label, value) {
+  if (!value) return;
+  for (const rule of DISCOVER_UNSAFE_PATTERNS) {
+    ensure(
+      !rule.pattern.test(value),
+      `${label} contains Discover-unsafe headline wording: "${rule.label}"`
+    );
+  }
+}
+
+function validateDiscoverTemplateBlock(label, block) {
+  if (!/discoverArticle:\s*\{/.test(block)) return;
+
+  ensure(/summary:\s*['"]/.test(block), `${label} discoverArticle is missing summary`);
+  ensure(/whyItMatters:\s*['"]/.test(block), `${label} discoverArticle is missing whyItMatters`);
+  ensure(/whoItAffects:\s*['"]/.test(block), `${label} discoverArticle is missing whoItAffects`);
+  ensure(/calculatorCta:\s*\{/.test(block), `${label} discoverArticle is missing calculatorCta`);
+  ensure(/description:\s*['"]/.test(block), `${label} discoverArticle calculatorCta is missing description`);
+  ensure(/sourceMethodology:\s*\[/.test(block), `${label} discoverArticle is missing sourceMethodology`);
+  ensure(/safeDisclaimer:\s*['"]/.test(block), `${label} discoverArticle is missing safeDisclaimer`);
+  ensure(/relatedCalculatorLinks:\s*\[/.test(block), `${label} discoverArticle is missing relatedCalculatorLinks`);
 }
 
 for (const slug of PRIORITY_TOOL_SLUGS) {
@@ -347,7 +427,23 @@ for (const slug of allBlogSlugs) {
 
 const blogPaths = [...publishedBlogSlugs].map((slug) => `/blog/${slug}`);
 
-const sitemapPaths = new Set([...staticRoutes, ...liveToolPaths, ...blogPaths]);
+const allGovernmentSalaryUpdateSlugs = [...new Set(
+  [...governmentSalaryUpdatesDataSource.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map((match) => match[1])
+)];
+const publishedGovernmentSalaryUpdateSlugs = new Set();
+const sampleGovernmentSalaryUpdateSlugs = new Set();
+
+for (const slug of allGovernmentSalaryUpdateSlugs) {
+  const block = getEntryBlock(governmentSalaryUpdatesDataSource, slug);
+  if (/status:\s*'sample'/.test(block)) {
+    sampleGovernmentSalaryUpdateSlugs.add(slug);
+  } else {
+    publishedGovernmentSalaryUpdateSlugs.add(slug);
+  }
+}
+
+const governmentSalaryPaths = [...publishedGovernmentSalaryUpdateSlugs].map((slug) => `/government-salary-updates/${slug}`);
+const sitemapPaths = new Set([...staticRoutes, ...liveToolPaths, ...blogPaths, ...governmentSalaryPaths]);
 
 const priorityPaths = [
   '/tools/emergency-fund-calculator-india',
@@ -381,6 +477,10 @@ ensure(
   'Sitemap should only include published blog posts'
 );
 ensure(
+  /governmentSalaryUpdates\s*\.\s*filter\(\(u\) => u\.status !== 'sample'\)/s.test(sitemapSource),
+  'Sitemap should filter out sample government salary updates'
+);
+ensure(
   blogLayoutSource.includes('Last reviewed:'),
   'Blog layout should show a visible Last reviewed label'
 );
@@ -394,6 +494,10 @@ for (const slug of PRIORITY_BLOG_SLUGS) {
 
   const block = getBlogBlock(slug);
   ensure(block.length > 0, `Unable to read blog block from data/blog-posts.ts for: ${slug}`);
+  ensure(/(seoTitle|title):\s*'[^']+/.test(block), `Priority blog title metadata missing: ${slug}`);
+  ensure(/metaDescription:\s*'[^']+/.test(block), `Priority blog meta description missing: ${slug}`);
+  ensure(/publishedDateISO:\s*'[^']+/.test(block), `Priority blog missing publishedDateISO: ${slug}`);
+  ensure(/modifiedDateISO:\s*'[^']+/.test(block), `Priority blog missing modifiedDateISO: ${slug}`);
   ensure(/quickAnswer:\s*\{/.test(block), `Priority blog missing quickAnswer config: ${slug}`);
   ensure(/question:\s*'[^']+/.test(block), `Priority blog quickAnswer.question missing: ${slug}`);
   ensure(/answer:\s*'[^']+/.test(block), `Priority blog quickAnswer.answer missing: ${slug}`);
@@ -420,6 +524,63 @@ for (const slug of PRIORITY_BLOG_SLUGS) {
   }
 }
 
+for (const slug of allBlogSlugs) {
+  const block = getBlogBlock(slug);
+  validateHeadlineField(`Blog title for ${slug}`, extractQuotedField(block, 'title'));
+  validateHeadlineField(`Blog H1 for ${slug}`, extractQuotedField(block, 'h1'));
+  validateHeadlineField(`Blog meta description for ${slug}`, extractQuotedField(block, 'metaDescription'));
+  validateDiscoverTemplateBlock(`Blog entry ${slug}`, block);
+
+  if (/heroImage:\s*['"]/.test(block)) {
+    const heroImageWidth = extractNumericField(block, 'heroImageWidth');
+    const heroImageHeight = extractNumericField(block, 'heroImageHeight');
+    const heroImageAlt = extractQuotedField(block, 'heroImageAlt');
+    const heroRatio = heroImageWidth / heroImageHeight;
+
+    ensure(heroImageWidth >= 1200, `Blog hero image should be at least 1200px wide: ${slug}`);
+    ensure(heroImageHeight > 0, `Blog hero image height missing or invalid: ${slug}`);
+    ensure(heroRatio >= 1.6 && heroRatio <= 1.9, `Blog hero image should stay close to 16:9: ${slug}`);
+    ensure(heroImageAlt.length > 0, `Blog hero image alt text missing: ${slug}`);
+  }
+}
+
+for (const slug of DISCOVER_PRIORITY_DISCOVER_BLOG_SLUGS) {
+  const block = getBlogBlock(slug);
+  ensure(block.length > 0, `Discover-focused blog entry is missing: ${slug}`);
+  ensure(/status:\s*'published'/.test(block), `Discover-focused blog entry should be published: ${slug}`);
+  ensure(/discoverArticle:\s*\{/.test(block), `Discover-focused blog is missing discoverArticle: ${slug}`);
+  ensure(
+    block.includes('sourceMethodology') && block.includes('safeDisclaimer'),
+    `Discover-focused blog is missing source methodology or disclaimer: ${slug}`
+  );
+}
+
+const allFinancialUpdateSlugs = [...new Set(
+  [...financialUpdatesDataSource.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map((match) => match[1])
+)];
+
+for (const slug of allFinancialUpdateSlugs) {
+  const block = getEntryBlock(financialUpdatesDataSource, slug);
+  validateHeadlineField(`Financial update title for ${slug}`, extractQuotedField(block, 'title'));
+  validateHeadlineField(`Financial update summary for ${slug}`, extractQuotedField(block, 'summary'));
+  validateDiscoverTemplateBlock(`Financial update ${slug}`, block);
+}
+
+for (const slug of allGovernmentSalaryUpdateSlugs) {
+  const block = getEntryBlock(governmentSalaryUpdatesDataSource, slug);
+  validateHeadlineField(`Government salary update title for ${slug}`, extractQuotedField(block, 'title'));
+  validateHeadlineField(`Government salary update summary for ${slug}`, extractQuotedField(block, 'summary'));
+  validateDiscoverTemplateBlock(`Government salary update ${slug}`, block);
+  const pagePath = `/government-salary-updates/${slug}`;
+  if (/status:\s*'sample'/.test(block)) {
+    ensure(sampleGovernmentSalaryUpdateSlugs.has(slug), `Sample government salary update missing from sample set: ${slug}`);
+    ensure(!sitemapPaths.has(pagePath), `Sample government salary update should not be present in sitemap derivation: ${slug}`);
+  } else {
+    ensure(publishedGovernmentSalaryUpdateSlugs.has(slug), `Published government salary update missing from published set: ${slug}`);
+    ensure(sitemapPaths.has(pagePath), `Published government salary update missing from sitemap derivation: ${slug}`);
+  }
+}
+
 for (const slug of draftBlogSlugs) {
   ensure(!sitemapPaths.has(`/blog/${slug}`), `Draft-only blog should not be present in sitemap derivation: ${slug}`);
 }
@@ -431,6 +592,10 @@ ensure(
 ensure(
   blogLayoutSource.includes('AnswerEngineSummary') && blogLayoutSource.includes('answerEngineSummary'),
   'Blog answer engine summary rendering is missing in BlogArticleLayout'
+);
+ensure(
+  blogLayoutSource.includes('DiscoverArticleCallouts') && blogLayoutSource.includes('discoverArticle?.summary'),
+  'Blog layout should support discover-ready article callouts'
 );
 ensure(
   blogLayoutSource.includes('Last updated:') && blogLayoutSource.includes('Educational information only.'),
@@ -456,6 +621,11 @@ ensure(
   blogPageSource.includes("'@type': 'BreadcrumbList'"),
   'Blog page is missing Breadcrumb schema'
 );
+ensure(
+  discoverArticleCalloutsSource.includes('Source and methodology')
+    && discoverArticleCalloutsSource.includes('Related calculator links'),
+  'Discover article callouts component is missing methodology or related calculator support'
+);
 
 ensure(
   blogPageSource.includes("const faqSchema = post.faqs && post.faqs.length > 0 ?"),
@@ -472,16 +642,176 @@ ensure(
 
 ensure(homePageSource.includes('canonical: SITE_URL'), 'Homepage canonical is missing or not self-canonical');
 ensure(
+  blogListingSource.includes('canonical: `${SITE_URL}/blog`'),
+  'Blog listing page canonical is missing or not self-canonical'
+);
+ensure(
   resourcesPageSource.includes('canonical: `${SITE_URL}/resources`'),
   'Resources page canonical is missing or not self-canonical'
+);
+ensure(
+  updatesHubSource.includes('canonical: `${SITE_URL}/updates`'),
+  'Updates hub canonical is missing or not self-canonical'
+);
+ensure(
+  financialUpdatesPageSource.includes('canonical: `${SITE_URL}/financial-updates`'),
+  'Financial updates listing page canonical is missing or not self-canonical'
+);
+ensure(
+  governmentSalaryUpdatesPageSource.includes('canonical: `${SITE_URL}/government-salary-updates`'),
+  'Government salary updates listing page canonical is missing or not self-canonical'
 );
 ensure(
   toolPageSource.includes('canonical: pageUrl') && toolPageSource.includes('const pageUrl = `${SITE_URL}/tools/${tool.slug}`;'),
   'Tool page canonical is missing or not self-canonical'
 );
 ensure(
-  blogPageSource.includes('canonical: pageUrl') && blogPageSource.includes('const pageUrl = `${siteUrl}/blog/${post.slug}`;'),
+  blogPageSource.includes('canonical: pageUrl') && blogPageSource.includes('const pageUrl = `${SITE_URL}/blog/${post.slug}`;'),
   'Blog page canonical is missing or not self-canonical'
+);
+ensure(
+  financialUpdateDetailSource.includes('canonical: pageUrl') && financialUpdateDetailSource.includes('const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;'),
+  'Financial update detail page canonical is missing or not self-canonical'
+);
+ensure(
+  governmentSalaryUpdateDetailSource.includes('canonical: pageUrl') && governmentSalaryUpdateDetailSource.includes('const pageUrl = `${SITE_URL}/government-salary-updates/${update.slug}`;'),
+  'Government salary update detail page canonical is missing or not self-canonical'
+);
+ensure(
+  homePageSource.includes("title: { absolute: 'Free India Salary & Finance Calculators | RupeeKit' }"),
+  'Homepage title should be descriptive and end with RupeeKit'
+);
+ensure(
+  resourcesPageSource.includes("const TITLE = 'Free Personal Finance Resources and Money Tools | RupeeKit'"),
+  'Resources page title should be descriptive and end with RupeeKit'
+);
+ensure(
+  blogListingSource.includes("title: { absolute: 'Personal Finance Blog & Money Guides | RupeeKit' }"),
+  'Blog hub title should be descriptive and end with RupeeKit'
+);
+ensure(
+  updatesHubSource.includes("const TITLE = 'Finance, Tax and Salary Updates | RupeeKit'"),
+  'Updates hub title should be descriptive and end with RupeeKit'
+);
+ensure(
+  toolPageSource.includes("const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | RupeeKit';")
+    && toolPageSource.includes("const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India | RupeeKit';")
+    && toolPageSource.includes("const HRA_META_TITLE = 'HRA Exemption Calculator India | RupeeKit';"),
+  'Priority calculator titles should be concise, unique, and end with RupeeKit'
+);
+ensure(
+  toolPageSource.includes("kind: 'calculator-tool'")
+    && toolPageSource.includes('images: [ogImage]')
+    && toolPageSource.includes('images: [ogImage.url]'),
+  'Priority calculator pages should include a Discover-ready social image'
+);
+ensure(
+  toolPageSource.includes('const EMERGENCY_FUND_META_DESCRIPTION =')
+    && toolPageSource.includes('const PERSONAL_LOAN_META_DESCRIPTION =')
+    && toolPageSource.includes('const HRA_META_DESCRIPTION ='),
+  'Priority calculator meta descriptions are missing'
+);
+ensure(
+  homePageSource.includes('const websiteSchema = {')
+    && homePageSource.includes("'@type': 'WebSite'")
+    && homePageSource.includes("alternateName: 'Rupee Kit'"),
+  'Homepage should expose accurate WebSite structured data'
+);
+ensure(
+  homePageSource.includes('const showUpdates = true;')
+    && resourcesPageSource.includes('const showUpdates = true;'),
+  'Home and resources pages should expose the updates hubs instead of hiding them'
+);
+ensure(
+  /const articleSchema = isSample\s*\?\s*null\s*:/.test(governmentSalaryUpdateDetailSource)
+    && governmentSalaryUpdateDetailSource.includes("index: false")
+    && governmentSalaryUpdateDetailSource.includes('This is a sample educational template and is not an official live update.'),
+  'Sample government salary detail pages should be noindex, omit Article schema, and show the sample note'
+);
+ensure(!/\\.pdf\\b/i.test(sitemapSource), 'Sitemap source should not include PDF URLs');
+const schemaSource = [
+  layoutSource,
+  homePageSource,
+  toolPageSource,
+  dedicatedIncomeTaxToolSource,
+  blogPageSource,
+  financialUpdateDetailSource,
+  governmentSalaryUpdateDetailSource,
+].join('\\n');
+ensure(
+  !schemaSource.includes("'@type': 'Product'")
+    && !schemaSource.includes('"@type":"Product"')
+    && !schemaSource.includes("'@type': 'Review'")
+    && !schemaSource.includes('"@type":"Review"')
+    && !schemaSource.includes("'@type': 'AggregateRating'")
+    && !schemaSource.includes('"@type":"AggregateRating"')
+    && !schemaSource.includes("'@type': 'QAPage'")
+    && !schemaSource.includes('"@type":"QAPage"'),
+  'Product, Review, AggregateRating, or QAPage schema should not appear in the audited priority surfaces'
+);
+ensure(
+  packageSource.includes('"validate": "npm run validate:tools && npm run validate:blog-visuals && npm run validate:ai-seo"'),
+  'package.json validate script should run the tool, blog visual, and AI SEO checks'
+);
+ensure(
+  seoHelperSource.includes("'max-image-preview': 'large'"),
+  'SEO helper should keep max-image-preview:large in the shared robots config'
+);
+ensure(
+  ogRouteSource.includes('DISCOVER_OG_WIDTH')
+    && ogRouteSource.includes('DISCOVER_OG_HEIGHT')
+    && ogRouteSource.includes('Discover-ready'),
+  'Generated OG image route is missing required Discover-ready image scaffolding'
+);
+
+const discoverMetadataSources = [
+  [blogPageSource, 'Blog detail page'],
+  [blogListingSource, 'Blog listing page'],
+  [updatesHubSource, 'Updates hub page'],
+  [financialUpdatesPageSource, 'Financial updates listing page'],
+  [financialUpdateDetailSource, 'Financial update detail page'],
+  [governmentSalaryUpdatesPageSource, 'Government salary updates listing page'],
+  [governmentSalaryUpdateDetailSource, 'Government salary update detail page'],
+];
+
+for (const [source, label] of discoverMetadataSources) {
+  ensure(
+    source.includes('buildDiscoverOgImage') || source.includes('buildPrimarySocialImage'),
+    `${label} should build a Discover-ready OG image`
+  );
+  ensure(source.includes('images: [ogImage]'), `${label} should include an OG image`);
+  ensure(source.includes('images: [ogImage.url]'), `${label} should include a large Twitter image`);
+  ensure(
+    source.includes('INDEXABLE_ROBOTS') || source.includes("'max-image-preview': 'large'"),
+    `${label} should include max-image-preview:large`
+  );
+}
+
+const emergencyBlogBlock = getBlogBlock('how-much-emergency-fund');
+ensure(
+  /seoTitle:\s*'How Much Emergency Fund Do You Need in India\?'/.test(emergencyBlogBlock),
+  'Emergency fund blog should use a clearer India-focused title'
+);
+ensure(
+  emergencyBlogBlock.includes("title: 'How much emergency fund is enough in India?'")
+    && emergencyBlogBlock.includes("title: 'Should EMI be included in emergency fund calculation?'")
+    && emergencyBlogBlock.includes("title: 'Where should you keep your emergency fund in India?'")
+    && emergencyBlogBlock.includes("title: 'Is an emergency fund different from investment savings?'")
+    && emergencyBlogBlock.includes("title: 'How often should you review your emergency fund?'"),
+  'Emergency fund blog is missing one or more question-style H2 sections'
+);
+ensure(
+  emergencyBlogBlock.includes("caption: 'Illustrative emergency-fund planning ranges'")
+    && emergencyBlogBlock.includes("caption: 'Emergency-fund parking options in India'"),
+  'Emergency fund blog should include the required comparison tables'
+);
+ensure(
+  /discoverArticle:\s*\{/.test(emergencyBlogBlock),
+  'Emergency fund blog should include discover-ready summary callouts'
+);
+ensure(
+  countOccurrences(extractQuotedField(emergencyBlogBlock, 'seoTitle'), 'RupeeKit') === 0,
+  'Blog entry seoTitle should rely on the layout title template instead of repeating RupeeKit'
 );
 
 if (errors > 0) {

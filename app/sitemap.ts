@@ -82,7 +82,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       };
     }),
-    ...governmentSalaryUpdates.map((u) => {
+    ...governmentSalaryUpdates
+      .filter((u) => u.status !== 'sample')
+      .map((u) => {
       const lastModified =
         parseIsoDate((u as { modifiedDate?: string }).modifiedDate) ??
         parseIsoDate(u.publishedDate) ??
@@ -93,7 +95,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'monthly' as const,
         priority: 0.6,
       };
-    }),
+      }),
   ];
 }
 

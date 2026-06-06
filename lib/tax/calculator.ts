@@ -1,4 +1,4 @@
-import { indiaIncomeTaxRules, TaxRegimeConfig, TaxSlab } from './indiaIncomeTaxRules';
+import { indiaIncomeTaxRules, TaxRegimeConfig, TaxSlab, AgeGroup } from './indiaIncomeTaxRules';
 
 export type TaxInput = {
   grossSalary: number;
@@ -10,6 +10,7 @@ export type TaxInput = {
   otherDeductionsOldRegime: number;
   otherDeductionsBothRegimes: number;
   isSalaried: boolean;
+  ageGroup: AgeGroup;
 };
 
 export type RegimeTaxResult = {
@@ -88,10 +89,11 @@ export function calculateIndianIncomeTax(input: TaxInput, taxYear: string): TaxR
     throw new Error(`Tax rules for year ${taxYear} not found.`);
   }
 
-  const { grossSalary, isSalaried } = input;
+  const { grossSalary, isSalaried, ageGroup } = input;
 
   // OLD REGIME DEDUCTIONS
-  const standardDeductionOld = isSalaried ? config.oldRegime.standardDeduction : 0;
+  const oldRegimeConfig = config.oldRegime[ageGroup] || config.oldRegime.below60;
+  const standardDeductionOld = isSalaried ? oldRegimeConfig.standardDeduction : 0;
   const totalDeductionsOld = 
     standardDeductionOld + 
     input.hraExemption + 
@@ -114,7 +116,7 @@ export function calculateIndianIncomeTax(input: TaxInput, taxYear: string): TaxR
   const taxableIncomeNew = Math.max(0, grossSalary - totalDeductionsNew);
 
   // CALCULATE TAX
-  const oldRegimeResultBase = calculateRegimeTax(taxableIncomeOld, config.oldRegime);
+  const oldRegimeResultBase = calculateRegimeTax(taxableIncomeOld, oldRegimeConfig);
   const newRegimeResultBase = calculateRegimeTax(taxableIncomeNew, config.newRegime);
 
   const oldRegime: RegimeTaxResult = {

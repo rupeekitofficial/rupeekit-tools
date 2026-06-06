@@ -1,3 +1,5 @@
+import type { DiscoverReadyArticleTemplate } from '@/lib/discover-content';
+
 export interface BlogSection {
   title: string;
   paragraphs: string[];
@@ -57,7 +59,7 @@ export interface BlogPost {
   faqs: FAQItem[];
   amazonDisclosure?: boolean;
   books?: BookItem[];
-  visualType?: 'monthly-budget' | '50-30-20' | 'emergency-fund' | 'bookshelf' | 'expense-tracking' | 'saving-vs-investing' | 'family-expense' | 'debt-ladder' | 'habit-tracker' | 'salary-checklist' | 'process-timeline';
+  visualType?: 'monthly-budget' | '50-30-20' | 'emergency-fund' | 'bookshelf' | 'expense-tracking' | 'saving-vs-investing' | 'family-expense' | 'debt-ladder' | 'habit-tracker' | 'salary-checklist' | 'process-timeline' | 'budget-flow' | 'fifty-thirty-twenty' | 'books-library' | 'monthly-expense-plan' | 'debt-snowball' | 'checklist' | 'itr-tax-guide' | 'income-tax-calculator' | 'old-vs-new-tax-regime' | 'hra-documents' | 'repo-rate-loan' | 'fallback-finance-card' | 'old-tax-regime-deductions' | 'new-tax-regime-vs-old-regime';
   visualTitle?: string;
   visualSubtitle?: string;
   visualAlt?: string;
@@ -69,6 +71,7 @@ export interface BlogPost {
   publishedDateISO?: string;
   modifiedDateISO?: string;
   reviewedDateISO?: string;
+  discoverArticle?: DiscoverReadyArticleTemplate;
   status?: 'published' | 'draft';
 }
 
@@ -226,6 +229,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'how-much-emergency-fund',
+    seoTitle: 'How Much Emergency Fund Do You Need in India?',
     visualType: 'emergency-fund',
     visualTitle: 'Emergency Fund Goals',
     visualSubtitle: 'Building a 3 to 6 month safety cushion',
@@ -238,7 +242,7 @@ export const blogPosts: BlogPost[] = [
     publishedDateISO: '2026-05-24T08:00:00Z',
     modifiedDateISO: '2026-05-24T08:00:00Z',
     reviewedDateISO: '2026-05-24T08:00:00Z',
-    h1: 'How Much Emergency Fund Do You Need?',
+    h1: 'How Much Emergency Fund Do You Need in India?',
     intro: 'Life is full of unexpected events: a sudden medical emergency, temporary job loss, urgent car repairs, or home maintenance. An emergency fund is a pool of cash set aside strictly for these unplanned events. It acts as a financial shock absorber, protecting you from high-interest debt when crises arise.',
     quickAnswer: {
       title: 'Emergency Fund Quick Answer',
@@ -255,6 +259,33 @@ export const blogPosts: BlogPost[] = [
       ],
     },
     answerEngineSummary: 'This guide explains how to estimate an emergency fund using survival expenses, EMI commitments, and the number of months you want covered. It also covers where to keep emergency money for liquidity and how to build the corpus step by step. Use the related emergency fund calculator to run your own educational estimate with your actual numbers.',
+    discoverArticle: {
+      summary: 'A practical emergency-fund target is usually built from survival expenses, EMI commitments, dependants, and income stability rather than salary alone.',
+      whyItMatters: 'A household that ignores EMIs, dependants, or liquidity access can overestimate how safe its current savings really are during a disruption.',
+      whoItAffects: 'Salaried employees, single-income households, families with dependants, freelancers, and anyone building a cash buffer before taking more investment risk.',
+      calculatorCta: {
+        label: 'Emergency Fund Calculator India',
+        href: '/tools/emergency-fund-calculator-india',
+        description: 'Estimate your target corpus using essential expenses, EMI commitments, current emergency savings, and the number of months you want covered.',
+      },
+      sourceMethodology: [
+        'Uses monthly survival cost as the planning base instead of gross salary alone.',
+        'Treats EMI commitments as part of emergency planning because they often continue during income disruption.',
+        'Compares 3, 6, 9, and 12 month coverage ranges instead of promising one universal target.',
+        'Keeps the guidance educational and asks readers to verify liquidity access and product choice separately.',
+      ],
+      safeDisclaimer: 'Educational information only. RupeeKit does not provide personalized financial, investment, tax, legal, or credit advice. Review your own liquidity, debt, insurance, and household obligations before relying on any emergency-fund target.',
+      relatedCalculatorLinks: [
+        {
+          label: 'Emergency Fund Calculator India',
+          href: '/tools/emergency-fund-calculator-india',
+        },
+        {
+          label: 'Personal Loan EMI Calculator India',
+          href: '/tools/personal-loan-emi-calculator-india',
+        },
+      ],
+    },
     relatedCalculators: ['emergency-fund-calculator-india', 'personal-loan-emi-calculator-india', 'fd-calculator-india', 'sip-calculator-india'],
     sections: [
       {
@@ -305,6 +336,78 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           'If saving six months of expenses feels overwhelming, start small. Earmark a small fixed amount from your salary every month.',
           'Treat your emergency fund contributions like a monthly bill. Automate the transfer to a separate bank account immediately after your salary is credited.'
+        ]
+      },
+      {
+        title: 'How much emergency fund is enough in India?',
+        paragraphs: [
+          'A practical emergency-fund target is usually built from survival expenses, EMI commitments, dependants, and income stability. Many Indian households start with 3 to 6 months of essential outgo, while single-income households, freelancers, and households with larger fixed commitments may need a bigger buffer.',
+          'The goal is not to chase a perfect number. The goal is to keep unavoidable bills covered without forcing you into high-cost borrowing or distressed selling of long-term assets.'
+        ],
+        table: {
+          caption: 'Illustrative emergency-fund planning ranges',
+          headers: ['Fund size', 'May suit', 'Caution'],
+          rows: [
+            ['3 months', 'Stable salaried households with lower fixed obligations', 'May be thin if job recovery takes longer or large EMIs continue'],
+            ['6 months', 'Many salaried households with normal rent, family, and EMI commitments', 'Still review whether one income supports multiple dependants'],
+            ['9 months', 'Freelancers, commission-based earners, or households in volatile sectors', 'Can feel slow to build, so use a staged funding plan'],
+            ['12 months', 'Single-income households, business owners, or families with high uncertainty and high fixed costs', 'Do not let the long target stop you from building a starter buffer first']
+          ],
+        }
+      },
+      {
+        title: 'Should EMI be included in emergency fund calculation?',
+        paragraphs: [
+          'Yes. EMI commitments usually belong inside the calculation because they continue even during temporary income disruption. If you exclude EMIs, the target can look safer than it really is.',
+          'A more practical estimate adds essential household spending and EMI obligations together before multiplying by the number of months you want covered.'
+        ],
+        example: {
+          title: 'Expenses plus EMI gives a more realistic target',
+          details: 'If essential monthly spending is Rs 30,000 and EMIs are Rs 10,000, the planning base becomes Rs 40,000 per month. A 6-month target then becomes Rs 2,40,000.'
+        }
+      },
+      {
+        title: 'Where should you keep your emergency fund in India?',
+        paragraphs: [
+          'Emergency money should prioritize safety and access over return chasing. Keep at least one part of the reserve available quickly so the first shock does not become a liquidity problem.',
+          'Different households may split their reserve across a savings balance, short deposits, or low-volatility options, but the core buffer should not depend on assets that may fall sharply when cash is needed.'
+        ],
+        table: {
+          caption: 'Emergency-fund parking options in India',
+          headers: ['Option', 'Good for', 'Caution'],
+          rows: [
+            ['Savings account', 'Immediate access to one part of the buffer', 'May earn lower interest than other low-risk options'],
+            ['Sweep-in FD', 'Households that want deposit-style structure with liquidity support', 'Check sweep rules and bank terms before relying on it'],
+            ['Short-term FD', 'Money that may not be needed the same day', 'Avoid locking the entire fund in one deposit bucket'],
+            ['Liquid fund', 'Households comfortable using a low-volatility mutual-fund bucket for part of the reserve', 'Review redemption access, timing, and product details before use'],
+            ['Small cash at home', 'Very short-term urgent needs during payment disruption', 'Do not keep the core emergency reserve as physical cash at home']
+          ],
+        }
+      },
+      {
+        title: 'Is an emergency fund different from investment savings?',
+        paragraphs: [
+          'Yes. Emergency-fund money is for interruption management: job loss, urgent repair, medical need, or temporary EMI stress. Investment savings are usually for growth over time and may move in value or come with access limits.',
+          'That difference is why the core emergency reserve should not rely on equity, crypto, long lock-in products, or anything that may be difficult to access at the exact moment you need cash.'
+        ]
+      },
+      {
+        title: 'How often should you review your emergency fund?',
+        paragraphs: [
+          'Review the target whenever rent, EMIs, family structure, insurance responsibilities, or income stability changes. Even without a major life event, a 6-to-12-month review cycle is practical for many households.',
+          'The review is not only about increasing the target. It is also about checking whether the money is still accessible, whether one bucket has become too concentrated, and whether the reserve still matches present monthly outgo.'
+        ]
+      },
+      {
+        title: 'Source and methodology',
+        paragraphs: [
+          'This article uses survival-cost planning rather than salary-only planning. It treats essential monthly expenses and EMI commitments as the main base for estimating an emergency-fund target, then compares different month ranges based on household risk.',
+          'It is written as an educational planning guide for Indian households. Product choice, final liquidity mix, and target size should still be reviewed against your own obligations, income pattern, insurance cover, and access needs.'
+        ],
+        bullets: [
+          'Monthly survival cost = essential expenses plus EMI commitments.',
+          'Coverage range depends on dependants, income concentration, and job or cash-flow stability.',
+          'Emergency-fund planning is separate from long-term investing and should not rely on volatile assets for core access.'
         ]
       }
     ],
@@ -761,79 +864,188 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'personal-finance-checklist-for-salaried-people',
+    status: 'published',
     visualType: 'salary-checklist',
     visualTitle: 'Salaried Finance Checklist',
-    visualSubtitle: 'Key tax planning and investment steps',
-    visualAlt: 'Checklist of 5 crucial personal finance actions for Indian salaried employees.',
+    visualSubtitle: '2026 verification steps before tax planning',
+    visualAlt: 'Checklist of salary, HRA, 80C, and filing steps for Indian salaried employees.',
+    seoTitle: 'Personal Finance Checklist for Salaried People in India (2026)',
     title: 'Personal Finance Checklist for Salaried People in India',
-    metaDescription: 'A complete personal finance checklist for salaried employees in India. Optimize your HRA, EPF, 80C deductions, and investments.',
+    metaDescription: 'A 2026 checklist for salaried employees in India covering salary review, HRA proof, 80C planning, tax regime comparison, and filing documents.',
     category: 'Checklists',
-    date: 'May 2026',
-    readTime: '7 min read',
+    date: 'June 2026',
+    readTime: '9 min read',
+    publishedDateISO: '2026-06-05T07:00:00Z',
+    modifiedDateISO: '2026-06-05T07:00:00Z',
+    reviewedDateISO: '2026-06-05T07:00:00Z',
     h1: 'Personal Finance Checklist for Salaried People',
-    intro: 'As a salaried professional in India, you have a predictable income, but you also face structured tax deductions. Navigating EPF, HRA tax exemptions, 80C declarations, and investment choices can feel overwhelming. This checklist provides a clear step-by-step roadmap to optimize your personal finances.',
-    relatedCalculators: ['salary-in-hand-calculator-india', '80c-deduction-calculator-india', 'hra-exemption-calculator-india', 'gratuity-calculator-india'],
+    intro: 'For salaried employees in India, the best 2026 checklist starts with verification, not product selection. Before you decide between the old and new tax regimes or lock in any deduction, review your take-home pay, rent evidence, 80C proof, and filing documents so the rest of the year stays predictable.',
+    quickAnswer: {
+      title: 'Salaried Checklist Quick Answer',
+      question: 'What should a salaried employee in India review first in 2026?',
+      answer: 'Start with your salary slip, take-home pay, HRA records, 80C proof, emergency buffer, and tax regime comparison before making any investment or tax-saving decision.',
+      note: 'Educational checklist only. This is not personal tax, legal, or investment advice.',
+      links: [
+        {
+          label: 'Salary In-Hand Calculator India',
+          href: '/tools/salary-in-hand-calculator-india',
+        },
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+        {
+          label: '80C Deduction Calculator India',
+          href: '/tools/80c-deduction-calculator-india',
+        },
+        {
+          label: 'Old vs New Tax Regime Calculator',
+          href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        },
+        {
+          label: 'ITR-2 AY 2026-27 Filing Guide',
+          href: '/blog/itr-2-ay-2026-27-filing-guide',
+        },
+      ],
+    },
+    answerEngineSummary: 'This checklist explains the order salaried employees can use in 2026 to review take-home pay, tax regime choice, HRA records, 80C proof, and filing documents before acting on any deduction or investment idea. It is built for educational comparison and verification rather than personalized advice.',
+    discoverArticle: {
+      summary: 'A salaried-person checklist is most useful when it puts salary verification, tax regime comparison, and document checks before product selection.',
+      whyItMatters: 'Many thin guides repeat 80C and HRA labels without showing the sequence that actually helps a salaried employee reduce mistakes.',
+      whoItAffects: 'Salaried employees in India, especially those with HRA, bonus income, deductions under the old regime, or a filing profile that may move beyond ITR-1.',
+      calculatorCta: {
+        label: 'Open Salary In-Hand Calculator',
+        href: '/tools/salary-in-hand-calculator-india',
+        description: 'Use the calculator to understand your take-home salary before comparing HRA, 80C, and regime-related decisions.',
+      },
+      sourceMethodology: [
+        'Uses the same salary, HRA, and deduction concepts already explained across RupeeKit salary and tax content.',
+        'Treats 2026 as a planning window and asks readers to verify final rules against official income-tax guidance and payroll records.',
+        'Separates take-home salary checks, tax regime comparison, and filing-document review so the article stays practical instead of generic.',
+        'Avoids personalized tax recommendations and does not assume a single regime is best for everyone.',
+      ],
+      safeDisclaimer: 'Educational information only. RupeeKit does not provide personalized tax, legal, investment, or employment advice. Verify salary, HRA, 80C, and filing details with employer records and official tax guidance before acting.',
+      relatedCalculatorLinks: [
+        {
+          label: 'Salary In-Hand Calculator India',
+          href: '/tools/salary-in-hand-calculator-india',
+        },
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+        {
+          label: '80C Deduction Calculator India',
+          href: '/tools/80c-deduction-calculator-india',
+        },
+        {
+          label: 'Old vs New Tax Regime Calculator',
+          href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        },
+      ],
+    },
+    relatedCalculators: ['salary-in-hand-calculator-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', 'gratuity-calculator-india'],
     sections: [
       {
-        title: '1. Optimize Your Tax Regime (Old vs. New)',
+        title: 'Why a 2026 checklist matters for salaried employees',
         paragraphs: [
-          'India currently has two tax regimes. The Old Regime allows you to claim deductions like HRA, 80C, 80D, and home loan interest. The New Regime offers lower tax rates but removes almost all deductions.',
-          'Review your salary structure at the start of the financial year. If you have significant investments in PPF, ELSS, insurance, and pay high house rent, the Old Regime may save you more. Otherwise, the New Regime is often simpler and more cost-effective.'
-        ]
-      },
-      {
-        title: '2. Maximize Section 80C Deductions (Up to ₹1.5 Lakhs)',
-        paragraphs: [
-          'Under the Old Tax Regime, Section 80C allows you to deduct up to ₹1,50,000 from your taxable income. This is one of the easiest ways to lower your tax liability.',
-          'Do not wait until March to make tax-saving investments. Start planning in April to spread investments across the year. Popular 80C options include:'
+          'A generic money checklist often jumps straight to investing. For salaried employees, a more useful sequence is to first confirm income, deductions, and filing documents. That way, decisions about HRA, 80C, insurance, and regime choice are based on actual payroll data rather than assumptions.',
+          'Use 2026 as a review point: salary revisions, new deductions, and filing-window changes can alter the order in which you should act.',
         ],
-        bullets: [
-          'EPF (Employee Provident Fund): Automatically deducted from your salary.',
-          'PPF (Public Provident Fund): Government-backed tax-free saving scheme.',
-          'ELSS (Equity Linked Savings Schemes): Tax-saving mutual funds with a 3-year lock-in.',
-          'National Savings Certificates (NSC) and Tax-Saving FDs.'
-        ]
       },
       {
-        title: '3. Claim HRA (House Rent Allowance) Exemption Correctly',
+        title: '1. Review your salary slip and take-home pay first',
         paragraphs: [
-          'If you live in rented accommodation and receive HRA as part of your salary, you can claim significant tax exemptions under the Old Regime.',
-          'Ensure you have a formal rent agreement, rent receipts signed by your landlord, and your landlord\'s PAN if your annual rent exceeds ₹1,00,000. Submit these proofs to your employer on time to prevent excess TDS deductions.'
+          'Your salary slip is the foundation for every other decision in this checklist. Confirm your basic pay, allowances, taxable benefits, provident fund contributions, professional tax, and any employer deductions before you compare products or make tax-saving commitments.',
+          'If your current take-home pay is lower than expected, fix the payroll issue first. The salary in-hand calculator can help you understand the difference between gross pay and monthly cash flow.',
         ],
         example: {
-          title: 'HRA Exemption Formula',
-          details: 'HRA exemption is the minimum of three values: (1) Actual HRA received, (2) Rent paid minus 10% of basic salary, or (3) 50% of basic salary in metro cities (40% in non-metros).'
-        }
+          title: 'Salary check example',
+          details: 'A gross salary number can look healthy on paper, but the amount available for rent, SIPs, insurance premiums, and monthly bills depends on the net in-hand figure after statutory and employer deductions.',
+        },
       },
       {
-        title: '4. Set Up term and Health Insurance Policies',
+        title: '2. Compare the old and new tax regimes before planning deductions',
         paragraphs: [
-          'Do not treat insurance as an investment. Avoid high-fee LIC endowment plans that offer tiny life coverages and low returns.',
-          'Purchase a pure Term Insurance policy with a cover of at least 10 to 15 times your annual income to protect your family. Additionally, buy an independent Health Insurance policy to cover medical emergencies.'
-        ]
+          'The old and new tax regimes work differently. The old regime usually rewards deductions like HRA and Section 80C, while the new regime often offers a simpler structure with fewer deductions.',
+          'Instead of asking which regime is universally better, compare your own salary, rent, and deduction profile first. The result can change when bonuses, employer contributions, or rent receipts change.',
+        ],
       },
       {
-        title: '5. Track Your Gratuity and Retirals',
+        title: '3. Collect HRA and 80C proof early',
         paragraphs: [
-          'If you complete 5 continuous years of service with a single employer, you are legally entitled to a gratuity payout upon leaving.',
-          'Keep track of your service timeline and check your EPF balance annually using the EPFO portal to ensure your employer is depositing contributions correctly.'
-        ]
-      }
+          'If you are claiming HRA, keep rent receipts, rent-agreement details where relevant, and landlord PAN information ready when the annual rent threshold applies. If you use Section 80C, keep the proof of eligible investments and contributions in one place so you are not searching for documents in March.',
+          'The goal is not to force a tax-saving decision. The goal is to make sure the paperwork matches the claim you plan to make.',
+        ],
+      },
+      {
+        title: '4. Check whether your filing profile is still simple',
+        paragraphs: [
+          'A salaried return can become more complex when capital gains, multiple house properties, foreign income, or specific investment holdings enter the picture. If your profile is no longer simple, a filing form such as ITR-2 may become relevant.',
+          'That is why the checklist should include a filing review, not only a deduction review. Early document checks reduce last-minute filing mistakes.',
+        ],
+      },
+      {
+        title: '5. Source and methodology',
+        paragraphs: [
+          'This article uses a verification-first structure: salary review, regime comparison, document collection, and filing check before any tax-saving or investment step.',
+          'It stays aligned with RupeeKit educational calculator logic and avoids promising a single best outcome for every salaried employee.',
+        ],
+        bullets: [
+          'Salary review uses gross pay, statutory deductions, and employer deductions as the starting point.',
+          'HRA and 80C steps are framed as record checks, not guaranteed tax outcomes.',
+          'Old vs new regime comparisons are treated as scenario analysis based on the facts you enter.',
+          'Filing guidance is kept general and should be verified against official tax instructions and employer records.',
+        ],
+      },
+      {
+        title: 'Related RupeeKit tools and guides',
+        paragraphs: [
+          'Use these internal links when you are ready to compare your own numbers or review a filing scenario.',
+        ],
+        bullets: [
+          'Salary In-Hand Calculator India: /tools/salary-in-hand-calculator-india',
+          'HRA Exemption Calculator India: /tools/hra-exemption-calculator-india',
+          '80C Deduction Calculator India: /tools/80c-deduction-calculator-india',
+          'Old vs New Tax Regime Calculator: /tools/income-tax-calculator-old-vs-new-regime-india',
+          'ITR-2 AY 2026-27 Filing Guide: /blog/itr-2-ay-2026-27-filing-guide',
+        ],
+      },
     ],
     faqs: [
       {
-        question: 'Which tax regime is better for salaries under ₹7 Lakhs?',
-        answer: 'Under the New Tax Regime, individuals with a taxable income up to ₹7,00,000 receive a full tax rebate under Section 87A, making their net tax liability zero.'
+        question: 'What should I check first in 2026?',
+        answer: 'Start with your salary slip, take-home pay, and monthly obligations. That gives you a realistic base before you compare tax regimes or lock in deductions.',
       },
       {
-        question: 'What is the lock-in period for ELSS mutual funds?',
-        answer: 'ELSS has a lock-in period of 3 years, which is the shortest among all tax-saving options under Section 80C.'
+        question: 'Should I compare old and new tax regimes before I invest?',
+        answer: 'Yes. The regime choice changes which deductions matter, so it is sensible to compare the tax outcome before you commit to year-end investments.',
       },
       {
-        question: 'Can I claim both HRA exemption and Home Loan deduction?',
-        answer: 'Yes, if you live in a rented house in one city (claiming HRA) and own a home in another city (claiming home loan interest and principal deductions), you can claim both benefits.'
-      }
-    ]
+        question: 'Which documents are usually needed for HRA support?',
+        answer: 'A common checklist includes salary records showing HRA, rent receipts, rent-agreement details where relevant, proof of rent payment, and landlord PAN when the applicable rent threshold is crossed.',
+      },
+      {
+        question: 'Does Section 80C always reduce my tax by the same amount?',
+        answer: 'No. The benefit depends on your tax regime, income level, and the deductions you can actually claim. That is why you should check the full profile, not just the headline limit.',
+      },
+      {
+        question: 'When should I use the salary in-hand calculator?',
+        answer: 'Use it whenever your salary changes, you move jobs, or you want to check whether a take-home estimate matches your payroll records.',
+      },
+      {
+        question: 'When can ITR-2 become relevant for a salaried employee?',
+        answer: 'ITR-2 may become relevant when salary income is not the only factor in the return, such as when capital gains, multiple house properties, or foreign income are involved.',
+      },
+      {
+        question: 'Is this checklist a recommendation to choose one tax regime?',
+        answer: 'No. It is a verification framework. The right regime depends on your actual salary structure, deductions, rent facts, and filing profile.',
+      },
+      {
+        question: 'How often should I revisit the checklist?',
+        answer: 'Review it at the start of the financial year, after a salary revision, after a job change, after moving homes, and again before filing season.',
+      },
+    ],
   },
   {
     slug: 'itr-2-ay-2026-27-filing-guide',
@@ -1147,6 +1359,8 @@ export const blogPosts: BlogPost[] = [
     category: 'Tax',
     date: 'June 2026',
     readTime: '7 min read',
+    visualType: 'old-vs-new-tax-regime',
+    visualAlt: 'Illustration of an old versus new tax regime comparison with two side-by-side panels, deduction chips, and a RupeeKit branded finance layout.',
     h1: 'Old vs New Tax Regime: Which Is Better for You?',
     intro: 'Most taxpayers do not need a slogan about which regime is “best”. They need a practical way to compare both options without missing deductions, overstating exemptions, or trusting a rough guess from payroll. The better regime usually depends on the same four things: income, eligible deductions, exemptions, and how your salary is structured.',
     quickAnswer: {
@@ -1305,6 +1519,8 @@ export const blogPosts: BlogPost[] = [
     category: 'Tax',
     date: 'June 2026',
     readTime: '7 min read',
+    visualType: 'checklist',
+    visualAlt: 'Illustration of an old tax regime deductions checklist with document cards, checked items, and RupeeKit branding.',
     h1: 'Old Tax Regime Deductions Checklist Before You Compare',
     intro: 'Many old-vs-new tax regime comparisons go wrong before the calculation even starts. The usual problem is not the formula. It is the checklist. If you miss a deduction area, overstate an exemption, or forget supporting records, the old-regime estimate becomes unreliable.',
     quickAnswer: {
@@ -1464,6 +1680,8 @@ export const blogPosts: BlogPost[] = [
     category: 'Tax',
     date: 'June 2026',
     readTime: '8 min read',
+    visualType: 'new-tax-regime-vs-old-regime',
+    visualAlt: 'Illustration of a salaried employee comparing the new and old tax regime with balance scales and comparison cards.',
     h1: 'New Tax Regime vs Old Regime for Salaried Employees',
     intro: 'Salaried employees usually face the tax-regime decision twice: once during employer declarations and again before filing the return. Those two checkpoints can look similar, but they are not identical. Payroll estimates affect monthly TDS. Filing-time reconciliation depends on what your final records actually show.',
     quickAnswer: {
@@ -1620,6 +1838,8 @@ export const blogPosts: BlogPost[] = [
     category: 'Tax',
     date: 'June 2026',
     readTime: '7 min read',
+    visualType: 'income-tax-calculator',
+    visualAlt: 'Illustration of an income tax calculator with slab bars and a comparison dashboard for old versus new regime examples.',
     h1: 'Income Tax Calculation Example: Old vs New Regime',
     intro: 'Examples are useful only when they stay honest about their assumptions. A clean old-vs-new regime illustration should use the same income in both scenarios, spell out which deductions are being tested, and avoid pretending that a sample result is your final tax payable.',
     quickAnswer: {
@@ -1777,6 +1997,8 @@ export const blogPosts: BlogPost[] = [
     category: 'Tax',
     date: 'June 2026',
     readTime: '8 min read',
+    visualType: 'itr-tax-guide',
+    visualAlt: 'Illustration of an ITR filing checklist with a document stack, calendar, and verification markers for choosing a tax regime.',
     h1: 'How to Choose Tax Regime Before ITR Filing',
     intro: 'The best time to compare tax regimes is not only when your employer asks for a declaration. It is also just before you file the return, when your income picture is clearer and your records are more complete. A pre-filing comparison can catch gaps between what payroll assumed and what your final documents actually show.',
     quickAnswer: {
@@ -1920,6 +2142,444 @@ export const blogPosts: BlogPost[] = [
         question: 'Where should I start before making the final choice?',
         answer: 'Start by updating the RupeeKit old-vs-new regime calculator with your final income and verified claims, then reconcile the output with Form 16, AIS, and Form 26AS.'
       }
+    ]
+  },
+  {
+    slug: 'rbi-repo-rate-and-personal-loan-emi-impact',
+    status: 'published',
+    publishedDateISO: '2026-06-05T06:30:00Z',
+    modifiedDateISO: '2026-06-05T06:30:00Z',
+    reviewedDateISO: '2026-06-05T06:30:00Z',
+    title: 'How RBI Repo Rate Changes Can Affect Personal Loan EMIs',
+    metaDescription: 'Understand how RBI repo rate changes can flow into personal loan pricing, reset cycles, and EMI comparisons in India.',
+    category: 'Loans',
+    date: 'June 2026',
+    readTime: '7 min read',
+    h1: 'How RBI Repo Rate Changes Can Affect Personal Loan EMIs',
+    intro: 'Repo rate headlines often create confusion because the policy change and the EMI change are not always the same event. For salaried borrowers in India, the practical question is usually whether the lender resets the interest rate, when that reset happens, and how much the EMI or total interest may move after the revision.',
+    heroImage: '/blog/rbi-repo-rate-personal-loan-emi-hero.png',
+    heroImageAlt: 'Calculator, rupee currency, loan documents, and a smartphone dashboard with a falling interest-rate chart representing RBI repo rate changes and personal loan EMI impact in India.',
+    heroImageWidth: 1672,
+    heroImageHeight: 941,
+    quickAnswer: {
+      title: 'Quick Answer',
+      question: 'How can an RBI repo rate change affect a personal loan EMI?',
+      answer: 'A repo rate change may affect a personal loan EMI when the lender revises the loan rate linked to an external benchmark or its internal pricing. The effect depends on the loan type, the reset schedule, and the remaining tenure.',
+      formula: 'Compare EMI at the current rate and the revised rate using the same loan amount and remaining tenure.',
+      example: 'If a borrower has Rs 5 lakh outstanding for 5 years, even a modest rate change can alter the EMI and total interest when the lender passes it through.',
+      note: 'Educational estimate only. RupeeKit does not provide lending, legal, or financial advice.',
+      links: [
+        {
+          label: 'Personal Loan EMI Calculator India',
+          href: '/tools/personal-loan-emi-calculator-india',
+        },
+      ],
+    },
+    answerEngineSummary: 'This article explains the path from RBI repo rate changes to lender resets, EMI impact, and borrower-side checks. It focuses on timing, method, and educational comparison rather than promising a fixed outcome.',
+    discoverArticle: {
+      summary: 'Repo rate moves can change borrowing costs, but borrowers usually feel the effect only after their lender resets the applicable loan rate. A useful explainer should separate the RBI announcement from the lender-level EMI impact.',
+      whyItMatters: 'Personal loan borrowers often react to policy headlines before checking whether their own rate is fixed, floating, or due for reset. A calculator-first comparison helps turn the headline into a practical estimate.',
+      whoItAffects: 'Salaried borrowers, households planning a new personal loan, and existing floating-rate borrowers who want to estimate affordability after a policy change.',
+      calculatorCta: {
+        label: 'Open Personal Loan EMI Calculator',
+        href: '/tools/personal-loan-emi-calculator-india',
+        description: 'Compare the same loan amount and tenure at two interest rates to estimate how EMI and total interest may change.',
+      },
+      sourceMethodology: [
+        'Uses RBI policy-rate context only as an educational starting point, not as a direct lender-rate guarantee.',
+        'Keeps the loan amount and remaining tenure constant while comparing one rate against another.',
+        'Explains that lender reset cycles, benchmark rules, and processing terms can change the observed outcome.',
+        'Directs readers to verify actual loan pricing with the lender schedule and sanction documents.',
+      ],
+      safeDisclaimer: 'Educational information only. RupeeKit does not provide lending, legal, tax, or investment advice. Verify actual rate resets, benchmark linkage, and repayment terms with your lender before acting.',
+      relatedCalculatorLinks: [
+        {
+          label: 'Personal Loan EMI Calculator India',
+          href: '/tools/personal-loan-emi-calculator-india',
+        },
+        {
+          label: 'Salary In-Hand Calculator India',
+          href: '/tools/salary-in-hand-calculator-india',
+        },
+      ],
+    },
+    relatedCalculators: ['personal-loan-emi-calculator-india', 'salary-in-hand-calculator-india', 'emergency-fund-calculator-india'],
+    sections: [
+      {
+        title: 'What a repo rate change does and does not do',
+        paragraphs: [
+          'The repo rate is the rate at which the Reserve Bank of India lends short-term funds to commercial banks. It is an important signal for borrowing costs across the financial system, but it is not a promise that every loan EMI will move on the same day.',
+          'For a personal borrower, the lender relationship matters more than the headline alone. Fixed-rate loans, floating-rate loans, internal lender policies, and benchmark reset clauses can all change the timing and size of the actual EMI impact.'
+        ],
+      },
+      {
+        title: 'When a personal loan EMI may actually change',
+        paragraphs: [
+          'A borrower usually sees the effect only when the lender revises the applicable interest rate for that loan. Some products follow an external benchmark-linked framework more closely, while others may change after an internal pricing review.',
+          'That is why a discover-safe explainer should talk about timing and method instead of implying immediate relief or immediate pressure for every borrower.'
+        ],
+        bullets: [
+          'Check whether the loan is fixed-rate, floating-rate, or partially reset-based.',
+          'Read the sanction letter or key facts statement for benchmark and reset language.',
+          'Confirm whether the lender changes EMI, tenure, or both after a rate revision.',
+        ],
+      },
+      {
+        title: 'How to compare EMI impact with a simple example',
+        paragraphs: [
+          'A practical way to read a repo-rate story is to compare the same loan at two rates. Keep the outstanding principal and the remaining tenure unchanged, then run the calculator at the old rate and the revised rate.',
+          'This keeps the exercise educational and transparent. The comparison shows the direction and scale of the change without claiming that your lender must apply the same result.'
+        ],
+        example: {
+          label: 'Illustrative example only',
+          title: 'Same loan, revised rate',
+          details: 'Assume an outstanding personal loan of Rs 5 lakh with 60 months remaining. If the borrower compares the current rate against a revised rate after a lender reset, the calculator can show the possible EMI and total-interest difference under those two rate assumptions.'
+        },
+      },
+      {
+        title: 'What to check with your lender after a policy announcement',
+        paragraphs: [
+          'The policy headline is only the first step. Borrowers should confirm the benchmark, reset date, revised interest rate, and whether the lender has changed the EMI or extended the remaining tenure.',
+          'For new borrowers, the relevant question is not only whether rates fell or rose, but whether the updated EMI fits the monthly budget after accounting for rent, insurance, and other obligations.'
+        ],
+        bullets: [
+          'Ask for the revised annual rate and the effective date.',
+          'Check whether any repayment schedule update is visible in the app, portal, or statement.',
+          'Re-test affordability using current take-home income rather than gross salary.',
+        ],
+      },
+      {
+        title: 'Source and methodology',
+        paragraphs: [
+          'This article is built as an educational explainer, not a live rates article. It uses RBI repo-rate mechanics and borrower-side EMI comparisons to explain how policy changes may flow into personal loan calculations.',
+          'The intended workflow is policy signal first, lender verification second, and calculator comparison third. Final borrowing decisions should rely on lender documents, sanctioned terms, and current repayment schedules.'
+        ],
+        bullets: [
+          'RBI policy communication for repo-rate context.',
+          'Lender sanction documents and reset terms for actual borrower impact.',
+          'RupeeKit Personal Loan EMI Calculator for educational EMI comparison.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Does every repo rate change immediately change a personal loan EMI?',
+        answer: 'No. The change depends on the loan structure, lender pricing method, and reset timing.'
+      },
+      {
+        question: 'Can a lender change tenure instead of EMI?',
+        answer: 'Yes. Some lenders may keep the EMI close to the same level and adjust the remaining tenure instead.'
+      },
+      {
+        question: 'Should I compare gross salary or take-home income before borrowing?',
+        answer: 'Take-home income is usually more useful for an affordability check because it reflects money available after deductions.'
+      },
+      {
+        question: 'Why does the article call the example illustrative only?',
+        answer: 'Because the lender-specific reset, benchmark, and repayment schedule can differ from a simple educational comparison.'
+      },
+      {
+        question: 'Can a fixed-rate personal loan still be affected by repo headlines?',
+        answer: 'Existing fixed-rate loans may not change in the same way, although new fixed-rate offers can still be priced differently later.'
+      },
+      {
+        question: 'What is the safest next step after reading a repo-rate story?',
+        answer: 'Verify your own loan terms with the lender and then compare the EMI using your actual outstanding balance and remaining tenure.'
+      },
+    ]
+  },
+  {
+    slug: 'how-much-emergency-fund-salaried-indians-may-need-2026',
+    status: 'published',
+    publishedDateISO: '2026-06-05T06:40:00Z',
+    modifiedDateISO: '2026-06-05T06:40:00Z',
+    reviewedDateISO: '2026-06-05T06:40:00Z',
+    title: 'How Much Emergency Fund Salaried Indians May Need in 2026',
+    metaDescription: 'Estimate an emergency fund target for 2026 using monthly essentials, EMI commitments, dependants, and income stability.',
+    category: 'Savings',
+    date: 'June 2026',
+    readTime: '8 min read',
+    h1: 'How Much Emergency Fund Salaried Indians May Need in 2026',
+    intro: 'Emergency-fund advice often gets reduced to one number, but a useful target depends on how a household actually lives and earns. For salaried Indians in 2026, essential spending, EMI burden, single-income dependence, and job stability usually matter more than broad rules taken out of context.',
+    heroImage: '/blog/emergency-fund-salaried-indians-2026-hero.png',
+    heroImageAlt: 'Savings jar with shield icon, rupee notes, checklist, calculator, and a family-home setting representing emergency fund planning for salaried Indian households.',
+    heroImageWidth: 1672,
+    heroImageHeight: 941,
+    quickAnswer: {
+      title: 'Quick Answer',
+      question: 'How much emergency fund may a salaried Indian need in 2026?',
+      answer: 'A practical target often starts with 3 to 6 months of essential expenses, then moves higher when EMIs are large, dependants rely on one salary, or income stability is weaker.',
+      formula: 'Emergency fund target = Essential monthly outgo x target months',
+      example: 'If essential monthly outgo is Rs 50,000, a 6-month target is Rs 3,00,000 before considering any current emergency savings.',
+      note: 'Educational estimate only. Use actual household figures and verify what counts as an essential expense in your own situation.',
+      links: [
+        {
+          label: 'Emergency Fund Calculator India',
+          href: '/tools/emergency-fund-calculator-india',
+        },
+      ],
+    },
+    answerEngineSummary: 'This article frames emergency-fund planning around expenses, EMIs, and household stability instead of using one blanket rule. It is written as an educational planning guide for Indian salaried households in 2026.',
+    discoverArticle: {
+      summary: 'Emergency-fund targets work better when they reflect survival expenses, debt obligations, and how many people depend on the same income. The most useful article angle is context, not a universal number.',
+      whyItMatters: 'A household with rent, school fees, and loan EMIs usually faces a different liquidity risk than a single earner with low fixed costs. Discover-ready coverage should explain those differences clearly.',
+      whoItAffects: 'Salaried employees, dual-income and single-income households, new borrowers, and families trying to build a cash buffer before increasing investments.',
+      calculatorCta: {
+        label: 'Open Emergency Fund Calculator',
+        href: '/tools/emergency-fund-calculator-india',
+        description: 'Estimate your target corpus and shortfall using monthly essentials, EMI commitments, current savings, and the number of months you want covered.',
+      },
+      sourceMethodology: [
+        'Starts with essential monthly outgo instead of gross salary or lifestyle spending.',
+        'Raises the target range when EMI burden, dependants, or income concentration increase household risk.',
+        'Treats the result as an educational planning estimate rather than a fixed prescription.',
+        'Encourages users to verify emergency savings, insurance cover, and access to liquid funds separately.',
+      ],
+      safeDisclaimer: 'Educational information only. RupeeKit does not provide financial, investment, legal, or tax advice. Review your own household needs, liquidity, insurance, and debt terms before relying on an emergency-fund target.',
+      relatedCalculatorLinks: [
+        {
+          label: 'Emergency Fund Calculator India',
+          href: '/tools/emergency-fund-calculator-india',
+        },
+        {
+          label: 'Personal Loan EMI Calculator India',
+          href: '/tools/personal-loan-emi-calculator-india',
+        },
+      ],
+    },
+    relatedCalculators: ['emergency-fund-calculator-india', 'personal-loan-emi-calculator-india', 'fd-calculator-india', 'sip-calculator-india'],
+    sections: [
+      {
+        title: 'Why 3 to 6 months is only a starting point',
+        paragraphs: [
+          'The 3-to-6-month rule is a useful baseline because it is easy to understand. But it becomes more useful when it is tied to survival spending rather than total spending, and when it is adjusted for debt pressure and household dependence on the same income.',
+          'A discover-safe article should therefore explain the rule as a starting range, not as a guaranteed target that fits everyone.'
+        ],
+      },
+      {
+        title: 'Which expenses should count in a 2026 emergency fund estimate',
+        paragraphs: [
+          'A practical emergency fund usually focuses on expenses that continue even when the household cuts back. Rent or home loan EMI, groceries, utilities, school fees, insurance, medicine, and minimum debt repayments usually stay in the list.',
+          'Lifestyle spending such as discretionary shopping, leisure travel, or non-essential subscriptions can be reviewed separately so that the target remains realistic.'
+        ],
+        bullets: [
+          'Use essential monthly outgo, not total lifestyle spending.',
+          'Include EMIs and recurring obligations that cannot be paused easily.',
+          'Keep the calculation separate from long-term investing goals.',
+        ],
+      },
+      {
+        title: 'When a salaried household may need the higher end of the range',
+        paragraphs: [
+          'Some households face higher interruption risk even with stable employment. A single income supporting children or elderly parents, a large fixed EMI, or work in a volatile sector can justify a larger buffer.',
+          'That is why a 6-month or even longer target may be more useful for some households than a minimum 3-month benchmark.'
+        ],
+        table: {
+          caption: 'Illustrative target-range guide',
+          headers: ['Household profile', 'Possible range', 'Why the range may rise'],
+          rows: [
+            ['Single salaried earner with low EMIs', '3 to 4 months', 'Lower fixed-cost pressure'],
+            ['Dual-income household with dependants', '4 to 6 months', 'Child and household commitments remain even after a shock'],
+            ['Single-income household with large EMIs', '6 months or more', 'Debt and dependence raise the liquidity cushion needed'],
+          ],
+        },
+      },
+      {
+        title: 'How to build the fund without stopping all other goals',
+        paragraphs: [
+          'A large emergency target can feel slow if the household tries to fund it in one jump. A staged plan often works better: build a starter buffer first, complete the essential months next, and only then decide whether a larger cushion is needed.',
+          'That staged approach can be paired with an emergency-fund calculator so the shortfall and monthly saving pace stay visible.'
+        ],
+        example: {
+          label: 'Illustrative example only',
+          title: 'Step-up emergency-fund plan',
+          details: 'Assume a household needs Rs 3,00,000 for a 6-month target but already holds Rs 90,000 in liquid savings. The next planning step is to estimate the Rs 2,10,000 shortfall and decide how much can be added monthly without disrupting essential bills.'
+        },
+      },
+      {
+        title: 'Source and methodology',
+        paragraphs: [
+          'This article uses expense-based emergency-fund planning rather than return-based or product-led framing. It focuses on essential cash needs, EMI commitments, and income stability because those variables usually drive the real-world size of the cushion.',
+          'The article is intentionally neutral about where the money should be held beyond basic liquidity and safety principles. Final product choice depends on access, risk tolerance, and household needs.'
+        ],
+        bullets: [
+          'Expense-first planning logic from RupeeKit emergency-fund content.',
+          'Calculator-first estimate using target months, current savings, and monthly saving capacity.',
+          'Educational framing only; no guaranteed safety level is promised.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should a bonus be counted as emergency-fund money automatically?',
+        answer: 'Not automatically. A bonus can help build the fund, but the target itself is usually based on recurring essential expenses and household risk.'
+      },
+      {
+        question: 'Do EMIs belong in an emergency-fund calculation?',
+        answer: 'Yes, when they remain payable during a cash-flow interruption and materially affect monthly survival outgo.'
+      },
+      {
+        question: 'Can a dual-income household aim for fewer months?',
+        answer: 'Sometimes, but the answer still depends on dependants, fixed costs, and whether both incomes are equally stable.'
+      },
+      {
+        question: 'Why is the article written with the word may instead of should?',
+        answer: 'Because emergency-fund targets depend on context and are better framed as educational estimates than universal instructions.'
+      },
+      {
+        question: 'Should emergency-fund money stay invested in volatile assets?',
+        answer: 'The article does not recommend relying on volatile assets for core emergency liquidity because access and value can change at the wrong time.'
+      },
+      {
+        question: 'What is a practical first milestone?',
+        answer: 'A starter buffer that covers the most urgent bills can be a useful first milestone before working toward a longer target.'
+      },
+    ]
+  },
+  {
+    slug: 'hra-exemption-documents-checklist-for-salaried-employees',
+    status: 'published',
+    publishedDateISO: '2026-06-05T06:50:00Z',
+    modifiedDateISO: '2026-06-05T06:50:00Z',
+    reviewedDateISO: '2026-06-05T06:50:00Z',
+    title: 'HRA Exemption Documents Checklist for Salaried Employees',
+    metaDescription: 'Review the key records salaried employees may need when estimating or supporting an HRA exemption claim in India.',
+    category: 'Tax',
+    date: 'June 2026',
+    readTime: '7 min read',
+    h1: 'HRA Exemption Documents Checklist for Salaried Employees',
+    intro: 'HRA questions usually start with the formula, but many filing problems begin with incomplete records. A discover-safe explainer for salaried employees should therefore focus on the documents, timing, and verification steps that sit behind the HRA estimate.',
+    heroImage: '/blog/hra-exemption-documents-checklist-hero.png',
+    heroImageAlt: 'Rent receipts, salary files, rupee symbol, checklist board, calculator, and home-rent documents representing an HRA exemption records checklist for salaried employees in India.',
+    heroImageWidth: 1672,
+    heroImageHeight: 941,
+    quickAnswer: {
+      title: 'Quick Answer',
+      question: 'Which documents may a salaried employee need for an HRA exemption claim?',
+      answer: 'A typical checklist includes salary records showing HRA, rent receipts, rent-agreement details where relevant, proof of rent payment, and the landlord PAN when annual rent crosses the applicable threshold.',
+      formula: 'HRA exemption is based on the least of actual HRA, rent paid minus 10 percent of salary, and the city-based salary cap under the rules.',
+      example: 'If annual rent exceeds Rs 1 lakh, the landlord PAN requirement becomes an important verification item in many employer-side processes.',
+      note: 'Educational checklist only. Eligibility and final tax treatment depend on the law, facts, and your records.',
+      links: [
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+      ],
+    },
+    answerEngineSummary: 'This article explains the document trail behind an HRA estimate, including salary records, rent support, and payroll or filing checks. It focuses on evidence and process rather than promising a tax outcome.',
+    discoverArticle: {
+      summary: 'An HRA estimate is only as reliable as the records behind it. A strong checklist article helps salaried employees gather the right documents before payroll submission or return filing.',
+      whyItMatters: 'HRA questions often become confusing when users remember the formula but forget the records needed to support the claim. A checklist format lowers that friction.',
+      whoItAffects: 'Salaried employees receiving HRA, especially those paying meaningful rent, changing homes mid-year, or preparing supporting documents close to filing time.',
+      calculatorCta: {
+        label: 'Open HRA Exemption Calculator',
+        href: '/tools/hra-exemption-calculator-india',
+        description: 'Use the calculator to compare actual HRA, rent-minus-10-percent, and the metro or non-metro salary cap once your records are ready.',
+      },
+      sourceMethodology: [
+        'Uses HRA support logic already present in RupeeKit tax content based on Section 10(13A) and Rule 2A references.',
+        'Treats the calculator estimate and the document checklist as separate but related steps.',
+        'Avoids assuming eligibility where salary structure, rent facts, or tax-regime choice are unclear.',
+        'Directs readers to verify final treatment with employer payroll records, Form 16, and official tax guidance.',
+      ],
+      safeDisclaimer: 'Educational information only. RupeeKit does not provide personalized tax, legal, or financial advice. Verify HRA eligibility, record requirements, and final tax treatment with official guidance, employer payroll, and a qualified tax professional.',
+      relatedCalculatorLinks: [
+        {
+          label: 'HRA Exemption Calculator India',
+          href: '/tools/hra-exemption-calculator-india',
+        },
+        {
+          label: 'Income Tax Calculator Old vs New Regime',
+          href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        },
+      ],
+    },
+    relatedCalculators: ['hra-exemption-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', 'salary-in-hand-calculator-india', '80c-deduction-calculator-india'],
+    sections: [
+      {
+        title: 'Why the HRA checklist matters before the formula',
+        paragraphs: [
+          'A formula can estimate the ceiling, but the claim itself depends on whether the records support the facts. That is why a payroll or filing checklist is often the more useful first step for salaried employees.',
+          'A clear article should therefore explain the record trail before promising a number.'
+        ],
+      },
+      {
+        title: 'Core records many salaried employees review first',
+        paragraphs: [
+          'The starting point is usually the salary record that shows HRA as part of the pay structure. After that, the practical documents are the rent receipts, rent proof, and any payroll forms the employer uses for declaration or verification.',
+          'The exact list can vary by employer process, but a discover-ready checklist should keep the common items visible and neutral.'
+        ],
+        bullets: [
+          'Salary slips or payroll records showing the HRA component.',
+          'Rent receipts for the relevant months.',
+          'Rent agreement or tenancy details where available.',
+          'Proof of rent payment where the employer or advisor asks for it.',
+        ],
+      },
+      {
+        title: 'When landlord PAN and threshold checks become important',
+        paragraphs: [
+          'Some HRA support steps become more important when annual rent crosses the applicable threshold. The landlord PAN is a common example and should be treated as a checklist item rather than an afterthought.',
+          'A careful article should mention this as a verification point without implying that one document alone settles the claim.'
+        ],
+        example: {
+          label: 'Illustrative example only',
+          title: 'Threshold-based document check',
+          details: 'If annual rent paid exceeds Rs 1 lakh, the employee may need the landlord PAN for record support in many payroll workflows. The exact process still depends on the employer and the final filing facts.'
+        },
+      },
+      {
+        title: 'What often changes the checklist during the year',
+        paragraphs: [
+          'The checklist can change if an employee moves to a different city, changes rented accommodation mid-year, or shifts tax-regime planning after payroll declarations. Shared accommodation or staggered rent periods can also require clearer records.',
+          'That is why a calculator estimate works best after the salary and rent facts are aligned month by month.'
+        ],
+        bullets: [
+          'House move during the year.',
+          'Change in rent amount or city classification.',
+          'Shared rent arrangements that need clearer allocation records.',
+          'Old-regime planning that changes close to filing time.',
+        ],
+      },
+      {
+        title: 'Source and methodology',
+        paragraphs: [
+          'This article uses the existing RupeeKit HRA calculator and tax-explainer logic as its base. It focuses on document readiness, formula inputs, and verification steps rather than presenting a final tax result.',
+          'The goal is to help the reader move from rough estimation to record-backed review. Final treatment should always be verified against official tax guidance, employer payroll, Form 16, and the facts of the case.'
+        ],
+        bullets: [
+          'RupeeKit HRA calculator methodology based on actual HRA, rent-minus-10-percent, and city-based caps.',
+          'Employer payroll and Form 16 as practical record checkpoints.',
+          'Official income-tax guidance for final eligibility and filing treatment.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I rely on the HRA formula without the documents?',
+        answer: 'The formula helps estimate the result, but the final claim is stronger when the supporting records align with the facts.'
+      },
+      {
+        question: 'Is landlord PAN always required?',
+        answer: 'It can become an important checklist item when annual rent crosses the applicable threshold, but the exact compliance process should be verified with payroll or tax guidance.'
+      },
+      {
+        question: 'Do shared-rent situations need extra care?',
+        answer: 'Yes. Shared arrangements often need clearer recordkeeping so the claim matches what was actually paid and occupied.'
+      },
+      {
+        question: 'Why does the article keep saying may need instead of will need?',
+        answer: 'Because document requirements can depend on the facts, the employer process, and the final filing situation.'
+      },
+      {
+        question: 'Should I use the HRA calculator before or after collecting the records?',
+        answer: 'You can use it for an early estimate, but the estimate becomes more useful after the salary and rent records are confirmed.'
+      },
+      {
+        question: 'Can this checklist confirm my final tax position?',
+        answer: 'No. It is an educational checklist and should be verified with official guidance and your own records before filing.'
+      },
     ]
   }
 ];

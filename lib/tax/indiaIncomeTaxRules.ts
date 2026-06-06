@@ -4,6 +4,8 @@ export type TaxSlab = {
   rate: number;
 };
 
+export type AgeGroup = 'below60' | 'senior' | 'superSenior';
+
 export type TaxRegimeConfig = {
   slabs: TaxSlab[];
   standardDeduction: number;
@@ -15,28 +17,57 @@ export type TaxRegimeConfig = {
 export type TaxYearConfig = {
   fy: string;
   ay: string;
-  oldRegime: TaxRegimeConfig;
+  oldRegime: Record<AgeGroup, TaxRegimeConfig>;
   newRegime: TaxRegimeConfig;
   cessRate: number;
 };
+
+function buildOldRegimeConfig(standardDeduction: number): Record<AgeGroup, TaxRegimeConfig> {
+  return {
+    below60: {
+      slabs: [
+        { min: 0, max: 250000, rate: 0 },
+        { min: 250000, max: 500000, rate: 0.05 },
+        { min: 500000, max: 1000000, rate: 0.2 },
+        { min: 1000000, max: null, rate: 0.3 },
+      ],
+      standardDeduction,
+      rebateLimit: 500000,
+      basicExemption: 250000,
+      marginalReliefOnRebate: false,
+    },
+    senior: {
+      slabs: [
+        { min: 0, max: 300000, rate: 0 },
+        { min: 300000, max: 500000, rate: 0.05 },
+        { min: 500000, max: 1000000, rate: 0.2 },
+        { min: 1000000, max: null, rate: 0.3 },
+      ],
+      standardDeduction,
+      rebateLimit: 500000,
+      basicExemption: 300000,
+      marginalReliefOnRebate: false,
+    },
+    superSenior: {
+      slabs: [
+        { min: 0, max: 500000, rate: 0 },
+        { min: 500000, max: 1000000, rate: 0.2 },
+        { min: 1000000, max: null, rate: 0.3 },
+      ],
+      standardDeduction,
+      rebateLimit: 500000,
+      basicExemption: 500000,
+      marginalReliefOnRebate: false,
+    },
+  };
+}
 
 export const indiaIncomeTaxRules: Record<string, TaxYearConfig> = {
   '2023-24': {
     fy: '2023-24',
     ay: '2024-25',
     cessRate: 0.04,
-    oldRegime: {
-      slabs: [
-        { min: 0, max: 250000, rate: 0 },
-        { min: 250000, max: 500000, rate: 0.05 },
-        { min: 500000, max: 1000000, rate: 0.20 },
-        { min: 1000000, max: null, rate: 0.30 },
-      ],
-      standardDeduction: 50000,
-      rebateLimit: 500000,
-      basicExemption: 250000,
-      marginalReliefOnRebate: false,
-    },
+    oldRegime: buildOldRegimeConfig(50000),
     newRegime: {
       slabs: [
         { min: 0, max: 300000, rate: 0 },
@@ -56,18 +87,7 @@ export const indiaIncomeTaxRules: Record<string, TaxYearConfig> = {
     fy: '2024-25',
     ay: '2025-26',
     cessRate: 0.04,
-    oldRegime: {
-      slabs: [
-        { min: 0, max: 250000, rate: 0 },
-        { min: 250000, max: 500000, rate: 0.05 },
-        { min: 500000, max: 1000000, rate: 0.20 },
-        { min: 1000000, max: null, rate: 0.30 },
-      ],
-      standardDeduction: 50000,
-      rebateLimit: 500000,
-      basicExemption: 250000,
-      marginalReliefOnRebate: false,
-    },
+    oldRegime: buildOldRegimeConfig(50000),
     newRegime: {
       // Budget 2024 introduced new slabs for FY 24-25 New Regime
       slabs: [
@@ -81,6 +101,27 @@ export const indiaIncomeTaxRules: Record<string, TaxYearConfig> = {
       standardDeduction: 75000, // Budget 2024 increased to 75k for FY 24-25 New Regime
       rebateLimit: 700000,
       basicExemption: 300000,
+      marginalReliefOnRebate: true,
+    },
+  },
+  '2025-26': {
+    fy: '2025-26',
+    ay: '2026-27',
+    cessRate: 0.04,
+    oldRegime: buildOldRegimeConfig(50000),
+    newRegime: {
+      slabs: [
+        { min: 0, max: 400000, rate: 0 },
+        { min: 400000, max: 800000, rate: 0.05 },
+        { min: 800000, max: 1200000, rate: 0.1 },
+        { min: 1200000, max: 1600000, rate: 0.15 },
+        { min: 1600000, max: 2000000, rate: 0.2 },
+        { min: 2000000, max: 2400000, rate: 0.25 },
+        { min: 2400000, max: null, rate: 0.3 },
+      ],
+      standardDeduction: 75000,
+      rebateLimit: 1200000,
+      basicExemption: 400000,
       marginalReliefOnRebate: true,
     },
   },

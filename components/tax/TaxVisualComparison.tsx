@@ -11,7 +11,7 @@ export function TaxVisualComparison({ oldTax, newTax }: TaxVisualComparisonProps
   const newWidth = `${(newTax / maxTax) * 100}%`;
 
   return (
-    <div className="mt-6 space-y-4">
+    <div className="mt-6 space-y-4" role="img" aria-label="Bar chart comparing old regime tax and new regime tax estimates">
       <div className="space-y-1.5">
         <div className="flex justify-between text-xs font-bold">
           <span className="text-slate-600">Old Regime Tax</span>

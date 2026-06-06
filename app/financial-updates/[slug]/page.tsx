@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { financialUpdates } from '@/data/financial-updates';
 import UpdateVisual from '@/components/updates/UpdateVisual';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+import DiscoverArticleCallouts from '@/components/discover/DiscoverArticleCallouts';
+import { buildDiscoverOgImage, INDEXABLE_ROBOTS, SITE_NAME, SITE_URL } from '@/lib/seo';
 
 type VisualKey =
   | 'rbi'
@@ -51,29 +51,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!update) return { title: 'Update Not Found | RupeeKit' };
   const cleanSummary = update.summary.substring(0, 155);
   const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;
+  const ogImage = buildDiscoverOgImage({
+    kind: 'financial-update',
+    title: update.title,
+    summary: cleanSummary,
+    category: update.category,
+  });
   return {
     title: { absolute: `${update.title} | RupeeKit Updates` },
     description: cleanSummary,
     alternates: {
       canonical: pageUrl,
     },
-    robots: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-    },
+    robots: INDEXABLE_ROBOTS,
     openGraph: {
       title: `${update.title} | RupeeKit Updates`,
       description: cleanSummary,
       url: pageUrl,
-      siteName: 'RupeeKit',
+      siteName: SITE_NAME,
       type: 'article',
       locale: 'en_IN',
+      images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${update.title} | RupeeKit Updates`,
       description: cleanSummary,
+      images: [ogImage.url],
     },
   };
 }
@@ -82,7 +86,18 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
   const update = financialUpdates.find((u) => u.slug === params.slug);
   if (!update) notFound();
   const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;
-  const dateModified = (update as { modifiedDate?: string }).modifiedDate || update.publishedDate;
+  const dateModified = update.modifiedDate || update.publishedDate;
+  const formattedUpdated = new Date(dateModified).toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+  const ogImage = buildDiscoverOgImage({
+    kind: 'financial-update',
+    title: update.title,
+    summary: update.summary,
+    category: update.category,
+  });
 
   const visualType = (categoryVisualMap[update.category] ?? 'financial-updates') as VisualKey;
   const catColor = categoryBadgeColors[update.category] ?? 'bg-slate-100 text-slate-700 border-slate-200';
@@ -92,16 +107,17 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
     '@type': 'Article',
     headline: update.title,
     description: update.summary,
+    image: [ogImage.url],
     datePublished: update.publishedDate,
     dateModified,
     author: {
       '@type': 'Organization',
-      name: 'RupeeKit',
+      name: SITE_NAME,
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'RupeeKit',
+      name: SITE_NAME,
       url: SITE_URL,
     },
     mainEntityOfPage: pageUrl,
@@ -188,6 +204,13 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
       <section className="rounded-3xl border border-brandBorder bg-white p-6 md:p-8 shadow-sm">
         <p className="text-base leading-relaxed text-slate-700">{update.summary}</p>
       </section>
+
+      <DiscoverArticleCallouts
+        lastUpdatedLabel={formattedUpdated}
+        sourceMethodology={update.discoverArticle?.sourceMethodology}
+        calculatorCta={update.discoverArticle?.calculatorCta}
+        relatedCalculatorLinks={update.discoverArticle?.relatedCalculatorLinks}
+      />
 
       {/* What Happened */}
       {update.whatHappened && (
@@ -294,7 +317,7 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
       <section className="rounded-2xl border border-brandBorder bg-brandBgSoft p-5 text-xs leading-relaxed text-brandMuted">
         <p className="font-bold text-brandDeepNavy mb-1">Educational Disclaimer</p>
         <p>
-          RupeeKit updates are for general educational information only and are not financial, tax, legal, or investment advice. Always verify rules, rates, eligibility, dates, and circulars from official government or regulatory sources before taking any action. RupeeKit is not affiliated with or endorsed by any government body mentioned on this page.
+          {update.discoverArticle?.safeDisclaimer || 'RupeeKit updates are for general educational information only and are not financial, tax, legal, or investment advice. Always verify rules, rates, eligibility, dates, and circulars from official government or regulatory sources before taking any action. RupeeKit is not affiliated with or endorsed by any government body mentioned on this page.'}
         </p>
       </section>
 

@@ -1,30 +1,35 @@
 import type { Metadata } from 'next';
 import { publishedBlogPosts } from '@/data/blog-posts';
 import BlogListingClient from '@/components/blog/BlogListingClient';
+import { buildDiscoverOgImage, INDEXABLE_ROBOTS, SITE_NAME, SITE_URL } from '@/lib/seo';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+const ogImage = buildDiscoverOgImage({
+  kind: 'blog-hub',
+  title: 'Personal Finance Blog & Money Guides',
+  summary:
+    'Explore practical personal finance explainers, checklists, and educational money guides for Indian users.',
+  category: 'Blog hub',
+});
 
 export const metadata: Metadata = {
   title: { absolute: 'Personal Finance Blog & Money Guides | RupeeKit' },
   description: 'Explore free, practical personal finance articles, budgeting advice, investment strategies, and checklist guides for Indian salaried employees.',
   alternates: { canonical: `${SITE_URL}/blog` },
-  robots: {
-    index: true,
-    follow: true,
-    'max-image-preview': 'large',
-  },
+  robots: INDEXABLE_ROBOTS,
   openGraph: {
     title: 'Personal Finance Blog & Money Guides | RupeeKit',
     description: 'Explore free, practical personal finance articles for Indian salaried employees.',
     url: `${SITE_URL}/blog`,
-    siteName: 'RupeeKit',
+    siteName: SITE_NAME,
     type: 'website',
     locale: 'en_IN',
+    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Personal Finance Blog & Money Guides | RupeeKit',
     description: 'Explore free, practical personal finance articles for Indian salaried employees.',
+    images: [ogImage.url],
   },
 };
 

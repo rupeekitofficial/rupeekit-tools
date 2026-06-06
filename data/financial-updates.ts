@@ -4,6 +4,8 @@
 // Internal status field ('explainer' | 'official') is for editorial tracking only
 // and is NOT displayed on public-facing pages.
 
+import type { DiscoverReadyArticleTemplate } from '@/lib/discover-content';
+
 export interface FinancialUpdate {
   id: string;
   slug: string;
@@ -31,6 +33,8 @@ export interface FinancialUpdate {
   relatedRupeeKitLinks: { label: string; href: string }[];
   tags?: string[];
   visualType?: string;
+  modifiedDate?: string;
+  discoverArticle?: DiscoverReadyArticleTemplate;
   /** Editorial tracking only — NOT shown in public UI. */
   status: 'official' | 'explainer' | 'sample';
 }

@@ -1,10 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { buildDiscoverOgImage, INDEXABLE_ROBOTS, SITE_NAME, SITE_URL } from '@/lib/seo';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
-const TITLE = 'RupeeKit Updates Hub | Finance, Tax and Salary Updates';
+const TITLE = 'Finance, Tax and Salary Updates | RupeeKit';
 const DESCRIPTION =
   'Browse RupeeKit finance, tax, RBI, GST, SEBI, banking and government salary updates explained in simple educational language.';
+const ogImage = buildDiscoverOgImage({
+  kind: 'updates-hub',
+  title: 'Finance, Tax and Salary Updates',
+  summary: DESCRIPTION,
+  category: 'Updates hub',
+});
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -12,23 +18,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/updates`,
   },
-  robots: {
-    index: true,
-    follow: true,
-    'max-image-preview': 'large',
-  },
+  robots: INDEXABLE_ROBOTS,
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
     url: `${SITE_URL}/updates`,
-    siteName: 'RupeeKit',
+    siteName: SITE_NAME,
     type: 'website',
     locale: 'en_IN',
+    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: TITLE,
     description: DESCRIPTION,
+    images: [ogImage.url],
   },
 };
 
@@ -58,7 +62,7 @@ export default function UpdatesHubPage() {
     <div className="mx-auto max-w-6xl px-4 py-10 md:py-12 space-y-8">
       <header className="max-w-3xl">
         <h1 className="text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl">
-          RupeeKit Updates Hub
+          Finance, Tax and Salary Updates
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-brandMuted md:text-base">
           Browse educational update hubs for finance, tax, and salary topics. Always verify final decisions with
