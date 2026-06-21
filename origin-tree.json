@@ -1,0 +1,3292 @@
+﻿[
+    {
+        "path":  ".env.example",
+        "type":  "blob",
+        "sha":  "3ceb9a3f2b2f38a18a300a405854c0acd421e72b"
+    },
+    {
+        "path":  ".eslintrc.json",
+        "type":  "blob",
+        "sha":  "bffb357a7122523ec94045523758c4b825b448ef"
+    },
+    {
+        "path":  ".gitignore",
+        "type":  "blob",
+        "sha":  "872d5f6c6f29794f4d9c1f40acd6a65fb9c39d6d"
+    },
+    {
+        "path":  "LICENSE",
+        "type":  "blob",
+        "sha":  "7e691d4c8b5dae3423f3a1e70036be0ad4aa222f"
+    },
+    {
+        "path":  "README.md",
+        "type":  "blob",
+        "sha":  "5ed685b6ea78fbe2fd2d35e1f5abcdf50169c89d"
+    },
+    {
+        "path":  "app",
+        "type":  "tree",
+        "sha":  "100ee26dfccc9eda2ff7e2b0b037ae096e0c5d12"
+    },
+    {
+        "path":  "app/about",
+        "type":  "tree",
+        "sha":  "552347f7f125a7dc1ae961d97e5f6bd59e93dbcc"
+    },
+    {
+        "path":  "app/about/page.tsx",
+        "type":  "blob",
+        "sha":  "296dd69e8dd3919c16dd08227aba15e919f8b39a"
+    },
+    {
+        "path":  "app/affiliate-disclosure",
+        "type":  "tree",
+        "sha":  "aed3d117620353a53bca39e306fdbd4629d1143d"
+    },
+    {
+        "path":  "app/affiliate-disclosure/page.tsx",
+        "type":  "blob",
+        "sha":  "9bdc53356ae0246e9c2c2f9ceb9b653ee63eaf77"
+    },
+    {
+        "path":  "app/blog",
+        "type":  "tree",
+        "sha":  "ccc750df12fd05c8080ee52591c320f6de7d8b77"
+    },
+    {
+        "path":  "app/blog/[slug]",
+        "type":  "tree",
+        "sha":  "a1116e207ebb091220fbb65e34b6a5675ce3d42b"
+    },
+    {
+        "path":  "app/blog/[slug]/page.tsx",
+        "type":  "blob",
+        "sha":  "66b0d435808fedb9744f2ab94fb9ca8b5e2aec47"
+    },
+    {
+        "path":  "app/blog/page.tsx",
+        "type":  "blob",
+        "sha":  "92f7ba81ddb4fcb55d510b20086fb66365d685a6"
+    },
+    {
+        "path":  "app/contact",
+        "type":  "tree",
+        "sha":  "64e64e5f18996656a95574e45501b5deab3697b5"
+    },
+    {
+        "path":  "app/contact/page.tsx",
+        "type":  "blob",
+        "sha":  "ff77fe7952506734d0f842cd200f710a93d658cf"
+    },
+    {
+        "path":  "app/disclaimer",
+        "type":  "tree",
+        "sha":  "2de195a2fc6340649503552a39bfdab9dd27850c"
+    },
+    {
+        "path":  "app/disclaimer/page.tsx",
+        "type":  "blob",
+        "sha":  "e8890dd58c70e87b4241e596eb2d1ed79be403d0"
+    },
+    {
+        "path":  "app/financial-updates",
+        "type":  "tree",
+        "sha":  "f21aafde6309a404acf5a18df9a10f8c105f31f4"
+    },
+    {
+        "path":  "app/financial-updates/[slug]",
+        "type":  "tree",
+        "sha":  "99820bbf7337612c19517f622f5a7027f587168f"
+    },
+    {
+        "path":  "app/financial-updates/[slug]/page.tsx",
+        "type":  "blob",
+        "sha":  "4d997b1c378efd06b7a04c522e415f443814e831"
+    },
+    {
+        "path":  "app/financial-updates/page.tsx",
+        "type":  "blob",
+        "sha":  "c45e123a0d8a632b58e7b62dd28276ed380c0004"
+    },
+    {
+        "path":  "app/globals.css",
+        "type":  "blob",
+        "sha":  "280289a096c52a7f93215512e77df0786921049b"
+    },
+    {
+        "path":  "app/government-salary-updates",
+        "type":  "tree",
+        "sha":  "8a87d7f21010bd70839d4b687cb990b1f1721de6"
+    },
+    {
+        "path":  "app/government-salary-updates/[slug]",
+        "type":  "tree",
+        "sha":  "8127c2766b7ffae6309ff7b4aa2d96e7b320f308"
+    },
+    {
+        "path":  "app/government-salary-updates/[slug]/page.tsx",
+        "type":  "blob",
+        "sha":  "6d39c9844806408919f416678c83cd453176b957"
+    },
+    {
+        "path":  "app/government-salary-updates/page.tsx",
+        "type":  "blob",
+        "sha":  "994d490273f000ef18c4d62bf8078507f59b1248"
+    },
+    {
+        "path":  "app/layout.tsx",
+        "type":  "blob",
+        "sha":  "547a956b57fdc88e3ebf799a5e6e6e946b56d081"
+    },
+    {
+        "path":  "app/money-health-check",
+        "type":  "tree",
+        "sha":  "faba8796b4ed4a63bdb2dec27c3e587f5039c21f"
+    },
+    {
+        "path":  "app/money-health-check/page.tsx",
+        "type":  "blob",
+        "sha":  "9dda0c43d70c62fca64b989e1a4c141e83da0803"
+    },
+    {
+        "path":  "app/page.tsx",
+        "type":  "blob",
+        "sha":  "ed8ec1d72b0ec01cce0c5cb836002d338c1dd4ff"
+    },
+    {
+        "path":  "app/privacy-policy",
+        "type":  "tree",
+        "sha":  "2b2201512fe9a0bc71bdf14d8f58655345086cdb"
+    },
+    {
+        "path":  "app/privacy-policy/page.tsx",
+        "type":  "blob",
+        "sha":  "82a2e4d8ca42ea0888d0748b6e27440d4bc6230c"
+    },
+    {
+        "path":  "app/resources",
+        "type":  "tree",
+        "sha":  "5865e8b3343f3d1d5659cfb0e5b8006804fec790"
+    },
+    {
+        "path":  "app/resources/30-day-budget-challenge",
+        "type":  "tree",
+        "sha":  "73ed0a6068be432ed446654d6556fd64d0477d63"
+    },
+    {
+        "path":  "app/resources/30-day-budget-challenge/page.tsx",
+        "type":  "blob",
+        "sha":  "ff45a0077eec190d62aa1b3c56c00a3f3ffd4d0e"
+    },
+    {
+        "path":  "app/resources/page.tsx",
+        "type":  "blob",
+        "sha":  "b822a6dd4f6a28329e4fbf0009f5d06ddb1a42d9"
+    },
+    {
+        "path":  "app/resources/recommended-money-tools",
+        "type":  "tree",
+        "sha":  "9be3b80141a271661e00e9d15601cf3652ca6ce1"
+    },
+    {
+        "path":  "app/resources/recommended-money-tools/page.tsx",
+        "type":  "blob",
+        "sha":  "d43f6a076acd886b77405de7ddb0f8707133a986"
+    },
+    {
+        "path":  "app/robots.ts",
+        "type":  "blob",
+        "sha":  "583205319c12bb392f6c39abe71b39c64d688dba"
+    },
+    {
+        "path":  "app/sitemap.ts",
+        "type":  "blob",
+        "sha":  "6924ef0333c99bdb7b84fa6bf0a21fb5f5d4d460"
+    },
+    {
+        "path":  "app/start-here",
+        "type":  "tree",
+        "sha":  "d9a218947937296204df78de5bfe8264c33b2b47"
+    },
+    {
+        "path":  "app/start-here/page.tsx",
+        "type":  "blob",
+        "sha":  "027db66c9f3a4b9e5254087ad7c198c33bdb0675"
+    },
+    {
+        "path":  "app/terms",
+        "type":  "tree",
+        "sha":  "ff9867d123072d99cdc826044e1f7823f70430af"
+    },
+    {
+        "path":  "app/terms/page.tsx",
+        "type":  "blob",
+        "sha":  "e74564f978b58859131f3064585a3691fdf6dfb2"
+    },
+    {
+        "path":  "app/tools",
+        "type":  "tree",
+        "sha":  "0e50a0ad5bebca2f4015bfee49c00b26cb81c0bc"
+    },
+    {
+        "path":  "app/tools/[slug]",
+        "type":  "tree",
+        "sha":  "9e35545e5cc4645c5a2085cd2b37f690ade4db90"
+    },
+    {
+        "path":  "app/tools/[slug]/page.tsx",
+        "type":  "blob",
+        "sha":  "7d81b93e64f14bf019d020a93bbe5e777ea26bc4"
+    },
+    {
+        "path":  "app/tools/income-tax-calculator-old-vs-new-regime-india",
+        "type":  "tree",
+        "sha":  "ef9c40a6bfb0bdeea9d34ae16727969eee50828a"
+    },
+    {
+        "path":  "app/tools/income-tax-calculator-old-vs-new-regime-india/page.tsx",
+        "type":  "blob",
+        "sha":  "065b19d7e1b00c48de395e4570d2d6296e7dda1b"
+    },
+    {
+        "path":  "app/updates",
+        "type":  "tree",
+        "sha":  "2812a720525c3f8f989c462bbe28e83bef701b1f"
+    },
+    {
+        "path":  "app/updates/page.tsx",
+        "type":  "blob",
+        "sha":  "b739b94cc6dff48f8b12aca7496972e2f81d6e13"
+    },
+    {
+        "path":  "automation",
+        "type":  "tree",
+        "sha":  "c6b376549f99e35f2d9d5c57eaa9bfa6569f7419"
+    },
+    {
+        "path":  "automation/ai-social-creatives",
+        "type":  "tree",
+        "sha":  "8255649100292ec640a0f276386f827f6b931bb2"
+    },
+    {
+        "path":  "automation/ai-social-creatives/80c-deduction-calculator-india",
+        "type":  "tree",
+        "sha":  "11ad94fb567461189b14d4a7eb9a8073a1890d49"
+    },
+    {
+        "path":  "automation/ai-social-creatives/80c-deduction-calculator-india/2026-05-19T03-37-12-003Z-rea8q2",
+        "type":  "tree",
+        "sha":  "1eb89025918120001e843f7e9a8b53b2eb633665"
+    },
+    {
+        "path":  "automation/ai-social-creatives/80c-deduction-calculator-india/2026-05-19T03-37-12-003Z-rea8q2/creative-pack.json",
+        "type":  "blob",
+        "sha":  "e7689555386dd23da36ffa169c96ee5dc730a1d8"
+    },
+    {
+        "path":  "automation/ai-social-creatives/emi-calculator-india",
+        "type":  "tree",
+        "sha":  "12e9e71f62dd8767727df14dd584346a6671a8f2"
+    },
+    {
+        "path":  "automation/ai-social-creatives/emi-calculator-india/2026-05-15T09-02-13-719Z-diqojj",
+        "type":  "tree",
+        "sha":  "cf643fef301d793b75d11028d6b95f834b689d76"
+    },
+    {
+        "path":  "automation/ai-social-creatives/emi-calculator-india/2026-05-15T09-02-13-719Z-diqojj/creative-pack.json",
+        "type":  "blob",
+        "sha":  "5baec7a0714e5fe72dcfb090887d6f7d33c7ce86"
+    },
+    {
+        "path":  "automation/ai-social-creatives/fd-calculator-india",
+        "type":  "tree",
+        "sha":  "9f763b71918f67cac300d36c84a43a60b4323afa"
+    },
+    {
+        "path":  "automation/ai-social-creatives/fd-calculator-india/2026-05-22T03-31-58-819Z-vps9id",
+        "type":  "tree",
+        "sha":  "cd75881b203c7cc4c4dc538adbfa728f2231d537"
+    },
+    {
+        "path":  "automation/ai-social-creatives/fd-calculator-india/2026-05-22T03-31-58-819Z-vps9id/creative-pack.json",
+        "type":  "blob",
+        "sha":  "8194f087f0a890f41f8faf024f1bc51eae4bd832"
+    },
+    {
+        "path":  "automation/ai-social-creatives/gratuity-calculator-india",
+        "type":  "tree",
+        "sha":  "92df6c71e57770bb055f10917aeac3b2eda3d662"
+    },
+    {
+        "path":  "automation/ai-social-creatives/gratuity-calculator-india/2026-05-21T04-10-58-941Z-iv5v3i",
+        "type":  "tree",
+        "sha":  "484ac9f5a5993dfe139d584b89e42fb91b53bf49"
+    },
+    {
+        "path":  "automation/ai-social-creatives/gratuity-calculator-india/2026-05-21T04-10-58-941Z-iv5v3i/creative-pack.json",
+        "type":  "blob",
+        "sha":  "cbc54135dea8aa3462c2d1ece3f3700e1e9053b8"
+    },
+    {
+        "path":  "automation/ai-social-creatives/gst-calculator-india",
+        "type":  "tree",
+        "sha":  "1dcabc1dc0b0ef738a82a9214e01360978828730"
+    },
+    {
+        "path":  "automation/ai-social-creatives/gst-calculator-india/2026-05-21T07-51-06-254Z-8zzvdp",
+        "type":  "tree",
+        "sha":  "bf909ffeddada5c098ab73d1d49ee43f585de955"
+    },
+    {
+        "path":  "automation/ai-social-creatives/gst-calculator-india/2026-05-21T07-51-06-254Z-8zzvdp/creative-pack.json",
+        "type":  "blob",
+        "sha":  "5331b3f4f9282def3ecac28e7fb4fa9ae169ce45"
+    },
+    {
+        "path":  "automation/ai-social-creatives/hra-exemption-calculator-india",
+        "type":  "tree",
+        "sha":  "5367db9b101ed99f52b1cecde9b362c8c19a7a7c"
+    },
+    {
+        "path":  "automation/ai-social-creatives/hra-exemption-calculator-india/2026-05-18T18-20-06-329Z-0j1wbc",
+        "type":  "tree",
+        "sha":  "ba6275a6fcae89767472ad287f83f48ed85f5c82"
+    },
+    {
+        "path":  "automation/ai-social-creatives/hra-exemption-calculator-india/2026-05-18T18-20-06-329Z-0j1wbc/creative-pack.json",
+        "type":  "blob",
+        "sha":  "cf7891b23b839e6a3fb2d25109256d68d42d9da9"
+    },
+    {
+        "path":  "automation/ai-social-creatives/income-tax-calculator-old-vs-new-regime-india",
+        "type":  "tree",
+        "sha":  "74509f828ceccf8903c591483968e3da9ab3394d"
+    },
+    {
+        "path":  "automation/ai-social-creatives/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-31-38-837Z-0cvlq4",
+        "type":  "tree",
+        "sha":  "15a80864092f35ac82578121cd8b23b0c790301a"
+    },
+    {
+        "path":  "automation/ai-social-creatives/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-31-38-837Z-0cvlq4/creative-pack.json",
+        "type":  "blob",
+        "sha":  "05c326496fccba6b6184eeeddbee7bf232ff945e"
+    },
+    {
+        "path":  "automation/ai-social-creatives/recurring-deposit-calculator-india",
+        "type":  "tree",
+        "sha":  "c7abed801d3caf6b38816e635361e4ad053e4c15"
+    },
+    {
+        "path":  "automation/ai-social-creatives/recurring-deposit-calculator-india/2026-05-24T03-31-36-080Z-x3n9ii",
+        "type":  "tree",
+        "sha":  "f92829e6a1a1d38e28ef44badc1718f65e1bc1fe"
+    },
+    {
+        "path":  "automation/ai-social-creatives/recurring-deposit-calculator-india/2026-05-24T03-31-36-080Z-x3n9ii/creative-pack.json",
+        "type":  "blob",
+        "sha":  "c1324801ddf4b3826cb9236d4418eb586b083252"
+    },
+    {
+        "path":  "automation/ai-social-creatives/salary-in-hand-calculator-india",
+        "type":  "tree",
+        "sha":  "1a6c50c265d237afbc59aefdca9676a9e2552967"
+    },
+    {
+        "path":  "automation/ai-social-creatives/salary-in-hand-calculator-india/2026-05-15T08-34-52-612Z-y4u3y4",
+        "type":  "tree",
+        "sha":  "5c1663ae5acab274c561840e0e38229139cb9651"
+    },
+    {
+        "path":  "automation/ai-social-creatives/salary-in-hand-calculator-india/2026-05-15T08-34-52-612Z-y4u3y4/creative-pack.json",
+        "type":  "blob",
+        "sha":  "eaaf1be24ce280babd8d7021ba44205f93d7567d"
+    },
+    {
+        "path":  "automation/ai-social-creatives/salary-in-hand-calculator-india/2026-05-28T03-31-21-237Z-bhs2p1",
+        "type":  "tree",
+        "sha":  "dff4a9ec8d4ee1b8bf058b4d33d42087a4617c07"
+    },
+    {
+        "path":  "automation/ai-social-creatives/salary-in-hand-calculator-india/2026-05-28T03-31-21-237Z-bhs2p1/creative-pack.json",
+        "type":  "blob",
+        "sha":  "922567be96d5b8cb20fb3555c68ca53933ce2e54"
+    },
+    {
+        "path":  "automation/ai-social-creatives/sip-calculator-india",
+        "type":  "tree",
+        "sha":  "ab9f4d61baed26a0f41afb7151c732f489d75d58"
+    },
+    {
+        "path":  "automation/ai-social-creatives/sip-calculator-india/2026-05-15T19-09-33-599Z-q9z5sy",
+        "type":  "tree",
+        "sha":  "c666264637a1f0587701b5e8bcfbcbbac22154e9"
+    },
+    {
+        "path":  "automation/ai-social-creatives/sip-calculator-india/2026-05-15T19-09-33-599Z-q9z5sy/creative-pack.json",
+        "type":  "blob",
+        "sha":  "04d65c93cbf7da5de9776ae23ca523e23ab6d99f"
+    },
+    {
+        "path":  "automation/ai-social-images",
+        "type":  "tree",
+        "sha":  "28477060b44cd9cf50602f0413375a637d60f7d8"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india",
+        "type":  "tree",
+        "sha":  "8d57678e85c013a0d265c0c3892e12b118b44f75"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-19T03-45-12-516Z-v9qjmi",
+        "type":  "tree",
+        "sha":  "5b6b5617430ec64ebad9df1953faf2b46ff0aaae"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-19T03-45-12-516Z-v9qjmi/facebook.png",
+        "type":  "blob",
+        "sha":  "2b2cedd582a163276d56679c0cf57417f004395e"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-19T03-45-12-516Z-v9qjmi/instagram.png",
+        "type":  "blob",
+        "sha":  "ab4601322ffb8ab5cf560dce4e333a0c61a77b91"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-19T03-45-12-516Z-v9qjmi/manifest.json",
+        "type":  "blob",
+        "sha":  "3ec54cb888a426190724643905166b4a4948742a"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-19T03-45-12-516Z-v9qjmi/pinterest.png",
+        "type":  "blob",
+        "sha":  "476648090dc92b25a975e8db4a6d881c7faf960b"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-20T03-45-14-015Z-ishm8k",
+        "type":  "tree",
+        "sha":  "69626e1ff485b7f194fab40dbe4ac02beecdfe60"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-20T03-45-14-015Z-ishm8k/facebook.png",
+        "type":  "blob",
+        "sha":  "59a375045dec136748960a85be7d7913cc7d4578"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-20T03-45-14-015Z-ishm8k/instagram.png",
+        "type":  "blob",
+        "sha":  "cd6e037353d7f9cf4595503685fbefa2d9ddb9e0"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-20T03-45-14-015Z-ishm8k/manifest.json",
+        "type":  "blob",
+        "sha":  "7c0595473cecd717056e2a38c6f7a5d0dffec428"
+    },
+    {
+        "path":  "automation/ai-social-images/80c-deduction-calculator-india/2026-05-20T03-45-14-015Z-ishm8k/pinterest.png",
+        "type":  "blob",
+        "sha":  "5c11bbe02bd02030ae6bb8e9a10202589fcab5e6"
+    },
+    {
+        "path":  "automation/ai-social-images/emi-calculator-india",
+        "type":  "tree",
+        "sha":  "8cd9680284607ff858ce22111c10758d9f0825d6"
+    },
+    {
+        "path":  "automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h",
+        "type":  "tree",
+        "sha":  "a1aa644db22d070384a1f6f0a9c4a7fd057d529e"
+    },
+    {
+        "path":  "automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/facebook.png",
+        "type":  "blob",
+        "sha":  "aa620f0db22dd4853dff678aa0575962292cf872"
+    },
+    {
+        "path":  "automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/instagram.png",
+        "type":  "blob",
+        "sha":  "cd89a8df3046acdb18a15a2b483adaf6d57d284a"
+    },
+    {
+        "path":  "automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/manifest.json",
+        "type":  "blob",
+        "sha":  "09627d070ec4b8406253f050b5a4580ce198e4e4"
+    },
+    {
+        "path":  "automation/ai-social-images/emi-calculator-india/2026-05-15T11-26-33-444Z-wj4m1h/pinterest.png",
+        "type":  "blob",
+        "sha":  "0bba46df3c6775536c5b445a24cee700a6fda689"
+    },
+    {
+        "path":  "automation/ai-social-images/fd-calculator-india",
+        "type":  "tree",
+        "sha":  "1127b279a6926ca44a63e762938dd7fe31559600"
+    },
+    {
+        "path":  "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y",
+        "type":  "tree",
+        "sha":  "ea98c94f9a102374c949e24e1755a25e6d5146ce"
+    },
+    {
+        "path":  "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/facebook.png",
+        "type":  "blob",
+        "sha":  "42a0976c3e037f33126c2d380a32f0cc281aa26b"
+    },
+    {
+        "path":  "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/instagram.png",
+        "type":  "blob",
+        "sha":  "38df808ec25a6f5b481d1d42eaddff176db619bc"
+    },
+    {
+        "path":  "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/manifest.json",
+        "type":  "blob",
+        "sha":  "888193ed18ca80ef3a6a10b37a8a0b56a48f6d35"
+    },
+    {
+        "path":  "automation/ai-social-images/fd-calculator-india/2026-05-22T03-45-21-924Z-gdkx1y/pinterest.png",
+        "type":  "blob",
+        "sha":  "727eb18b8c60ae457107edea9e07a891a124ebb8"
+    },
+    {
+        "path":  "automation/ai-social-images/gratuity-calculator-india",
+        "type":  "tree",
+        "sha":  "bdbf2a6250ec07b1a0ce8371b2158f0e7e5280fd"
+    },
+    {
+        "path":  "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf",
+        "type":  "tree",
+        "sha":  "f3d32c025b283e93374a3408b541caff1e581e18"
+    },
+    {
+        "path":  "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/facebook.png",
+        "type":  "blob",
+        "sha":  "b8ddce9fe306dc91d2e09095fd906475be75d6c1"
+    },
+    {
+        "path":  "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/instagram.png",
+        "type":  "blob",
+        "sha":  "5daa6ee86746574b06c17edfd0b450b29a5bfae6"
+    },
+    {
+        "path":  "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/manifest.json",
+        "type":  "blob",
+        "sha":  "caf963a5835f060d1d104a0a326e3b650cc90586"
+    },
+    {
+        "path":  "automation/ai-social-images/gratuity-calculator-india/2026-05-21T04-11-52-644Z-p1qlvf/pinterest.png",
+        "type":  "blob",
+        "sha":  "5c773216d1736267cb9d010a8389aeaca9846ddf"
+    },
+    {
+        "path":  "automation/ai-social-images/gst-calculator-india",
+        "type":  "tree",
+        "sha":  "446d2361937348fb1386f864152ffe6bd4a682fc"
+    },
+    {
+        "path":  "automation/ai-social-images/gst-calculator-india/2026-05-21T08-04-37-460Z-2slhvs",
+        "type":  "tree",
+        "sha":  "7e678eee52adebc16c3e3be5d36c11b7cd88aea6"
+    },
+    {
+        "path":  "automation/ai-social-images/gst-calculator-india/2026-05-21T08-04-37-460Z-2slhvs/facebook.png",
+        "type":  "blob",
+        "sha":  "aafe924a9a9fc5fa2fa0fd0949b7accb6c021099"
+    },
+    {
+        "path":  "automation/ai-social-images/gst-calculator-india/2026-05-21T08-04-37-460Z-2slhvs/instagram.png",
+        "type":  "blob",
+        "sha":  "285c04778452cd9c3ee99f4878cd30cd3fbae2d7"
+    },
+    {
+        "path":  "automation/ai-social-images/gst-calculator-india/2026-05-21T08-04-37-460Z-2slhvs/manifest.json",
+        "type":  "blob",
+        "sha":  "9de14d4d633f344c3abda94140cfa773b9cb1697"
+    },
+    {
+        "path":  "automation/ai-social-images/gst-calculator-india/2026-05-21T08-04-37-460Z-2slhvs/pinterest.png",
+        "type":  "blob",
+        "sha":  "207003a2678c622e43238b09e9cfbe1899e6377e"
+    },
+    {
+        "path":  "automation/ai-social-images/hra-exemption-calculator-india",
+        "type":  "tree",
+        "sha":  "c3480046b0d7a552c381a9b6b96575fc624ea60b"
+    },
+    {
+        "path":  "automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6",
+        "type":  "tree",
+        "sha":  "c98cc4bf635df0b88a0870b9e4f5a96fc0d977e1"
+    },
+    {
+        "path":  "automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/facebook.png",
+        "type":  "blob",
+        "sha":  "6d49b572ae99d259889e91257e6b93b06abcb3b6"
+    },
+    {
+        "path":  "automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/instagram.png",
+        "type":  "blob",
+        "sha":  "47dd2988b3d9da5697af907c06b1507c9f520d94"
+    },
+    {
+        "path":  "automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/manifest.json",
+        "type":  "blob",
+        "sha":  "076d107134494ffef005b7302752187452d84474"
+    },
+    {
+        "path":  "automation/ai-social-images/hra-exemption-calculator-india/2026-05-18T18-29-25-533Z-s087s6/pinterest.png",
+        "type":  "blob",
+        "sha":  "1fc2094ccaae0f1abca377918f0c2a50f3e5a118"
+    },
+    {
+        "path":  "automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india",
+        "type":  "tree",
+        "sha":  "20b2a3c03f01ba0aa2c0b70036cba50992a7ff12"
+    },
+    {
+        "path":  "automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9",
+        "type":  "tree",
+        "sha":  "64d524a14cd58e9f5f2d47cd6a15cd93975dabd5"
+    },
+    {
+        "path":  "automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/facebook.png",
+        "type":  "blob",
+        "sha":  "993ab03e0940c94ed7b840a69b67d6cb67eb1648"
+    },
+    {
+        "path":  "automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/instagram.png",
+        "type":  "blob",
+        "sha":  "d823ec3a2403b48b4466b3a3194aacbecd91d666"
+    },
+    {
+        "path":  "automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/manifest.json",
+        "type":  "blob",
+        "sha":  "b4a70c917a23e49c76479ed60eda104d6afd290c"
+    },
+    {
+        "path":  "automation/ai-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T03-45-21-879Z-2qkmr9/pinterest.png",
+        "type":  "blob",
+        "sha":  "a9a7a2569b1c83ae14fa5f640e273ad1cb4000fb"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india",
+        "type":  "tree",
+        "sha":  "83b01ea924a0df078d79c9a46a5407cac6d47bb2"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T03-45-13-284Z-a47vm4",
+        "type":  "tree",
+        "sha":  "a8704b61c0f07f9904ebdc0748816d23276c70e1"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T03-45-13-284Z-a47vm4/facebook.png",
+        "type":  "blob",
+        "sha":  "a6c9ba2c175bae5a886bb8cde20f0cf2d8c28894"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T03-45-13-284Z-a47vm4/instagram.png",
+        "type":  "blob",
+        "sha":  "d5108952bb117574fca98f74c5e364d9a4d50711"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T03-45-13-284Z-a47vm4/manifest.json",
+        "type":  "blob",
+        "sha":  "b7ac5f56f857304b1305984400570fb7a14a45bb"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T03-45-13-284Z-a47vm4/pinterest.png",
+        "type":  "blob",
+        "sha":  "4e9e4daf96a321de17d502fa002fb65189493758"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T05-55-24-940Z-5q8i7y",
+        "type":  "tree",
+        "sha":  "3d99d4e73026c30a95621a24ec96aa940d4f51dc"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T05-55-24-940Z-5q8i7y/facebook.png",
+        "type":  "blob",
+        "sha":  "14263752f475ac427234f341b758eca028fc7793"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T05-55-24-940Z-5q8i7y/instagram.png",
+        "type":  "blob",
+        "sha":  "9315719f1b970ad59d08f3932e8fcf4fd748bf4b"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T05-55-24-940Z-5q8i7y/manifest.json",
+        "type":  "blob",
+        "sha":  "461752fd404fe6e910ee047db0e7d7a0349ede7e"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T05-55-24-940Z-5q8i7y/pinterest.png",
+        "type":  "blob",
+        "sha":  "8fbbd1aefb2d6f46ae2837e8207920564f40bb0f"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi",
+        "type":  "tree",
+        "sha":  "2fcde56347518a8e7a0235eb8b8a92352d198e14"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/facebook.png",
+        "type":  "blob",
+        "sha":  "152a96819d8565c34216b9f4e3efac49d219b2fd"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/instagram.png",
+        "type":  "blob",
+        "sha":  "130ffc1414d2e70c3b6cec6dc7d6ded8f9194bcf"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/manifest.json",
+        "type":  "blob",
+        "sha":  "ddabf5f36a0938479af4d8f49fa035a6de788815"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-07-01-837Z-j8x7hi/pinterest.png",
+        "type":  "blob",
+        "sha":  "a7da71bf98854c1e9d082b4ec90e40fc5636ae47"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-18-48-862Z-zm95mn",
+        "type":  "tree",
+        "sha":  "2f26b8f0e472c26fc0ac19b86a8eeea025633ba6"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-18-48-862Z-zm95mn/facebook.png",
+        "type":  "blob",
+        "sha":  "7818171121b0a8ac54204847cfb7484dc8fdc9c7"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-18-48-862Z-zm95mn/instagram.png",
+        "type":  "blob",
+        "sha":  "55b0677218d8c59c6954d50f63cfca11f2a2e92b"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-18-48-862Z-zm95mn/manifest.json",
+        "type":  "blob",
+        "sha":  "6107806eccd84f828425d931ed75ad946dbd7b6f"
+    },
+    {
+        "path":  "automation/ai-social-images/recurring-deposit-calculator-india/2026-05-24T06-18-48-862Z-zm95mn/pinterest.png",
+        "type":  "blob",
+        "sha":  "f85a375feebfe9d892f77c8c31ea7e69299c47c5"
+    },
+    {
+        "path":  "automation/ai-social-images/salary-in-hand-calculator-india",
+        "type":  "tree",
+        "sha":  "0c3f3088b37ed00dd5fd516b4524f92d2e2175b1"
+    },
+    {
+        "path":  "automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s",
+        "type":  "tree",
+        "sha":  "0b2bfaeb67f5770d27467a10f63f19a4fd1a61a0"
+    },
+    {
+        "path":  "automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/facebook.png",
+        "type":  "blob",
+        "sha":  "ee65c38c1c46fa0cda6bd089aea828e3ae267dca"
+    },
+    {
+        "path":  "automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/instagram.png",
+        "type":  "blob",
+        "sha":  "c1b52fdf4397562c56be717381f72d09cb962cd3"
+    },
+    {
+        "path":  "automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/manifest.json",
+        "type":  "blob",
+        "sha":  "296908bd8a53ada0798e2e830b04850791f1a588"
+    },
+    {
+        "path":  "automation/ai-social-images/salary-in-hand-calculator-india/2026-05-28T03-45-12-711Z-dv4z6s/pinterest.png",
+        "type":  "blob",
+        "sha":  "f106fd2615e96a73a2c28061e72f927f66828422"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india",
+        "type":  "tree",
+        "sha":  "a4f8374bd5c50f34e163483ef207b6ccaefd2178"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp",
+        "type":  "tree",
+        "sha":  "a5bc81ff25f6f25cc7d4b4fa3ebf1442fccf6963"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/facebook.png",
+        "type":  "blob",
+        "sha":  "d71ce2cc2f4f6bd971b6fec3fe8c58234622a32f"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/instagram.png",
+        "type":  "blob",
+        "sha":  "92d68a5dda4846e9e2e68d9d1e4595eb0ffd15db"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/manifest.json",
+        "type":  "blob",
+        "sha":  "52fbe10656092f4129adfb2a26314da2bf45e51f"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-15T19-14-36-643Z-ze0kwp/pinterest.png",
+        "type":  "blob",
+        "sha":  "84ec511102605ec359c548ae47de964237f804e9"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe",
+        "type":  "tree",
+        "sha":  "0041b242538de5534a7d160ab97ec092c2c5d73c"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/facebook.png",
+        "type":  "blob",
+        "sha":  "0222442a0aa03252326fd7497cd150352130f125"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/instagram.png",
+        "type":  "blob",
+        "sha":  "d0913e19ab05186b73a0505e707c8fd7342b883f"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/manifest.json",
+        "type":  "blob",
+        "sha":  "cee00997b8d5691e085029e4c96b0e47235e861f"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-09-37-667Z-zc37fe/pinterest.png",
+        "type":  "blob",
+        "sha":  "bcebb5d233e95037118e3b87093c9dbd1429aa45"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll",
+        "type":  "tree",
+        "sha":  "89b21142a4eb9ed7f0096bc3573962d49a8892d3"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/facebook.png",
+        "type":  "blob",
+        "sha":  "ec1f6b94ddcb25989d8cbafec4bc5da6229666f9"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/instagram.png",
+        "type":  "blob",
+        "sha":  "8f0a1a78c164e9ecf61736f955d2f5e0faf34c4b"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/manifest.json",
+        "type":  "blob",
+        "sha":  "86f6d731f0ab1e32cf6cd0a5adb0f3193d2d1295"
+    },
+    {
+        "path":  "automation/ai-social-images/sip-calculator-india/2026-05-16T09-33-44-401Z-7mn5ll/pinterest.png",
+        "type":  "blob",
+        "sha":  "bdbace7e0aba0b4ae2a86caa0737d3e3d75ce136"
+    },
+    {
+        "path":  "automation/blank-logo-images",
+        "type":  "tree",
+        "sha":  "c208a8b5e80e98b069c012cfd9987e53223e3e27"
+    },
+    {
+        "path":  "automation/blank-logo-images/.keep",
+        "type":  "blob",
+        "sha":  "02bfeb3525ed75692ed7f363d50fbe6bd7250504"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28",
+        "type":  "tree",
+        "sha":  "9b519a74d3d7a116ee3e0f7d5447926ba47f9ae3"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-1",
+        "type":  "tree",
+        "sha":  "d2a2ce71e4ea5478561387ad0c9d6469de5fc606"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-1/discover-hero.png",
+        "type":  "blob",
+        "sha":  "138629ef5af6dd596bf89a6e324665338f855492"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-1/facebook.png",
+        "type":  "blob",
+        "sha":  "ad463fe36a5a149a544b0db8500cd892d7ad0fac"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-1/instagram-carousel.png",
+        "type":  "blob",
+        "sha":  "0f74ef25e804b7191d5eb32805b4f45959272998"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-1/instagram-square.png",
+        "type":  "blob",
+        "sha":  "50f9cff07068402bd140df04c1dfc73b9bcc9b21"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-1/manifest.json",
+        "type":  "blob",
+        "sha":  "91aca66bb9c3a0e1875fd3725285c3ddfb8b5a26"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-1/pinterest.png",
+        "type":  "blob",
+        "sha":  "d731685f9f14e747ab9b63c0b9a55e1c83028316"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-1/website-hero.png",
+        "type":  "blob",
+        "sha":  "b158ef3a328fc5e2151ed59ad3e7f46b12c8475d"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-1/x.png",
+        "type":  "blob",
+        "sha":  "b158ef3a328fc5e2151ed59ad3e7f46b12c8475d"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-2",
+        "type":  "tree",
+        "sha":  "5266967b6966e2cc1b05d702db61aa48de88fec0"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-2/discover-hero.png",
+        "type":  "blob",
+        "sha":  "38ff0376cac21a587c7c16db28cbf6cdabbb5815"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-2/facebook.png",
+        "type":  "blob",
+        "sha":  "abce88b541d0b21f0e7288d9c8e292966677b2af"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-2/instagram-carousel.png",
+        "type":  "blob",
+        "sha":  "45fbf0fcc3766f2fda750e524bb874ae4574bbb3"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-2/instagram-square.png",
+        "type":  "blob",
+        "sha":  "d55b34b7db033e8f65ee981aa432230f24944f93"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-2/manifest.json",
+        "type":  "blob",
+        "sha":  "38460a422910747fbc3038959e8685c620b72a8d"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-2/pinterest.png",
+        "type":  "blob",
+        "sha":  "1d93f0aa36a52f802fa4208cca85ceb070c88fd3"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-2/website-hero.png",
+        "type":  "blob",
+        "sha":  "4c5e5f669b4bb25a27ac817c16497002325033e0"
+    },
+    {
+        "path":  "automation/blank-logo-images/2026-05-28/post-2/x.png",
+        "type":  "blob",
+        "sha":  "4c5e5f669b4bb25a27ac817c16497002325033e0"
+    },
+    {
+        "path":  "automation/content-packs",
+        "type":  "tree",
+        "sha":  "fe1e4360e1d0945d719f3f33c43b182878bbd69d"
+    },
+    {
+        "path":  "automation/content-packs/.keep",
+        "type":  "blob",
+        "sha":  "02bfeb3525ed75692ed7f363d50fbe6bd7250504"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28",
+        "type":  "tree",
+        "sha":  "d680a719e3132dde9d1dfc5f5099ba2c0ffee68f"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1",
+        "type":  "tree",
+        "sha":  "3f881ae13a565a94fc2213b2f298b8d34ef8eabd"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/brief-stub.json",
+        "type":  "blob",
+        "sha":  "f92c4624c309cbaa9f4557394d5a6656ac15e767"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/brief.json",
+        "type":  "blob",
+        "sha":  "523735a6d1a960eaa0293a8add045de37ad4a46e"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/content-enrichment-plan.json",
+        "type":  "blob",
+        "sha":  "f6e316593477e11c69a707dc6e3c354cea8bd7e2"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/css-animation-spec.md",
+        "type":  "blob",
+        "sha":  "64f5d2858af7ff28e74ce615aa464e5615e67ef7"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/gemini-code-assist-prompt.md",
+        "type":  "blob",
+        "sha":  "b194a57d490bbd7f23e8dbdb7d360f5d77429d4a"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/homepage-internal-link-prompt.md",
+        "type":  "blob",
+        "sha":  "88a40bd3c465cbe346985514feb4d48e2d7ee723"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/internal-link-suggestions.json",
+        "type":  "blob",
+        "sha":  "b23867e649729ada8d75947ef07ac1b4ed012838"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/manual-review-checklist.md",
+        "type":  "blob",
+        "sha":  "dfad17410a1f816054d20172e6117f15cd84f44b"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/social-image-prompt-pack.json",
+        "type":  "blob",
+        "sha":  "0b874ebe77f464b12c902e1cc6a05ea392141bca"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-1/website-image-prompt.md",
+        "type":  "blob",
+        "sha":  "53d9d47c246a7d48df6f9b68a9a40bbc1c5d044a"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2",
+        "type":  "tree",
+        "sha":  "c4e121ebf6d688b1a25a379dcd1ff255ca5e1d25"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/brief-stub.json",
+        "type":  "blob",
+        "sha":  "65a4e1fd6f0f33020d1c057b2194fa9183e38922"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/brief.json",
+        "type":  "blob",
+        "sha":  "43aeaf4f1acf0f480f87121c84683860e69fd1eb"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/content-enrichment-plan.json",
+        "type":  "blob",
+        "sha":  "23ead2bd30e4a07a83fb64dcafe116669cb4a40d"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/css-animation-spec.md",
+        "type":  "blob",
+        "sha":  "76572ec32ef3272c360cbdd2554032510901564d"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/gemini-code-assist-prompt.md",
+        "type":  "blob",
+        "sha":  "64465ab783d4f2045f2e6ad790477751ef07ba68"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/homepage-internal-link-prompt.md",
+        "type":  "blob",
+        "sha":  "aa0938200271098a856045388b4569b5a41f2353"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/internal-link-suggestions.json",
+        "type":  "blob",
+        "sha":  "61c99d5f220f39afab7585eef45cc93c2c717ce5"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/manual-review-checklist.md",
+        "type":  "blob",
+        "sha":  "53b2b7ea7354b663340cb8d676ce0551d6047b6c"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/social-image-prompt-pack.json",
+        "type":  "blob",
+        "sha":  "4afe0c3b9e2201c36e18507545e6848654a7ae3b"
+    },
+    {
+        "path":  "automation/content-packs/2026-05-28/post-2/website-image-prompt.md",
+        "type":  "blob",
+        "sha":  "037694133ee07f1e8056504b9c25ae50b8e3ef2a"
+    },
+    {
+        "path":  "automation/daily-review-packs",
+        "type":  "tree",
+        "sha":  "1c197d29b678ab58472c5e8553607f44303857d5"
+    },
+    {
+        "path":  "automation/daily-review-packs/.keep",
+        "type":  "blob",
+        "sha":  "02bfeb3525ed75692ed7f363d50fbe6bd7250504"
+    },
+    {
+        "path":  "automation/daily-review-packs/2026-05-28",
+        "type":  "tree",
+        "sha":  "3c9acddab42b9eda1c9052daa9a9837c02ccdf02"
+    },
+    {
+        "path":  "automation/daily-review-packs/2026-05-28/daily-review-email.html",
+        "type":  "blob",
+        "sha":  "cf21263190719e02272930d62b3ad9cf78218f2d"
+    },
+    {
+        "path":  "automation/daily-review-packs/2026-05-28/daily-review-email.md",
+        "type":  "blob",
+        "sha":  "ae0b984f6e62d1b7e614f93ac2c7df09660676e2"
+    },
+    {
+        "path":  "automation/daily-review-packs/2026-05-28/post-email-summary.json",
+        "type":  "blob",
+        "sha":  "e419f60d32bc30fc5a2cfe827c40302ede40e479"
+    },
+    {
+        "path":  "automation/daily-review-packs/2026-05-28/posting-pack.json",
+        "type":  "blob",
+        "sha":  "dae7ad7c0bcb3161ed664768ea4a59759a657d3e"
+    },
+    {
+        "path":  "automation/drafts",
+        "type":  "tree",
+        "sha":  "549cd89bc4dba985d0d81e1fb42cbf8822fa9aed"
+    },
+    {
+        "path":  "automation/drafts/2026-05-12-ppf-calculator-india-1778628694177.json",
+        "type":  "blob",
+        "sha":  "3826a4dbd8084de766f35e7b626500e5ef9d4744"
+    },
+    {
+        "path":  "automation/drafts/ai-seo-content-briefs.json",
+        "type":  "blob",
+        "sha":  "db9f1ee092a40e52c4ddf72780890ed277051ebe"
+    },
+    {
+        "path":  "automation/drafts/income-tax-old-vs-new-regime-briefs.json",
+        "type":  "blob",
+        "sha":  "2cf94ebf65f7e9f6663cfe69936acfcfcd96601c"
+    },
+    {
+        "path":  "automation/drafts/perplexity-seo-monitoring-plan.json",
+        "type":  "blob",
+        "sha":  "827df224ce2401c266a7b101dfc88c16cee0e989"
+    },
+    {
+        "path":  "automation/drafts/personal-loan-ai-seo-briefs.json",
+        "type":  "blob",
+        "sha":  "6b45bc10dc13881045e4a078e7cd5319133dbe62"
+    },
+    {
+        "path":  "automation/final-social-images",
+        "type":  "tree",
+        "sha":  "68b29d87312f8a8e063dcc68e5630a541fed1f4c"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india",
+        "type":  "tree",
+        "sha":  "28f055aee3e0c273f6ad3bf133157e6b1fda3f12"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix",
+        "type":  "tree",
+        "sha":  "11431a829155fb9f71e1cd1959ecb7a2fa483804"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix/facebook.png",
+        "type":  "blob",
+        "sha":  "a314818f093d7886e78a6ca330ef9b23bcc0477a"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix/instagram.png",
+        "type":  "blob",
+        "sha":  "0bf02d2becbadb5011dad404f59ac00f1b97d145"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix/manifest.json",
+        "type":  "blob",
+        "sha":  "4201a35bb944349441f17365e7826c2d1a13e494"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-19T04-20-14-767Z-l89yix/pinterest.png",
+        "type":  "blob",
+        "sha":  "6f3878fcb260d2d55fde84ba52339b685496f3ca"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-20T04-20-15-371Z-51sf2g",
+        "type":  "tree",
+        "sha":  "c27efb9f77e8f73bbf7b6ff8896832480088bfe1"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-20T04-20-15-371Z-51sf2g/facebook.png",
+        "type":  "blob",
+        "sha":  "74ad2d13e25eec565dfe5f5fdec87a79374770e5"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-20T04-20-15-371Z-51sf2g/instagram.png",
+        "type":  "blob",
+        "sha":  "48a77503c81a571c7a05d792b3971368bb95a60c"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-20T04-20-15-371Z-51sf2g/manifest.json",
+        "type":  "blob",
+        "sha":  "3f2311f55c49e4001833dcb8cb35eca2827df8f0"
+    },
+    {
+        "path":  "automation/final-social-images/80c-deduction-calculator-india/2026-05-20T04-20-15-371Z-51sf2g/pinterest.png",
+        "type":  "blob",
+        "sha":  "d934c730506be8ebd3b7400319a8746973e194c7"
+    },
+    {
+        "path":  "automation/final-social-images/emi-calculator-india",
+        "type":  "tree",
+        "sha":  "aac71963b78712635a28ada15a0f34d7403affb0"
+    },
+    {
+        "path":  "automation/final-social-images/emi-calculator-india/2026-05-15T17-34-33-157Z-b5qmmb",
+        "type":  "tree",
+        "sha":  "a4daa942f0b4eccccedb4852ac72f7d1e2361e61"
+    },
+    {
+        "path":  "automation/final-social-images/emi-calculator-india/2026-05-15T17-34-33-157Z-b5qmmb/facebook.png",
+        "type":  "blob",
+        "sha":  "47848aa6a349ea8023108ec5fed0ad0c7e4322b5"
+    },
+    {
+        "path":  "automation/final-social-images/emi-calculator-india/2026-05-15T17-34-33-157Z-b5qmmb/instagram.png",
+        "type":  "blob",
+        "sha":  "56c93a05e3ebccbb8ae3df41b8f0e9cce1bc5f68"
+    },
+    {
+        "path":  "automation/final-social-images/emi-calculator-india/2026-05-15T17-34-33-157Z-b5qmmb/manifest.json",
+        "type":  "blob",
+        "sha":  "7471375e8a362069b0bbb6afffb1ab0a61504f55"
+    },
+    {
+        "path":  "automation/final-social-images/emi-calculator-india/2026-05-15T17-34-33-157Z-b5qmmb/pinterest.png",
+        "type":  "blob",
+        "sha":  "f8e7c0232425c6a17e9f72b20b6ad0cac922550f"
+    },
+    {
+        "path":  "automation/final-social-images/fd-calculator-india",
+        "type":  "tree",
+        "sha":  "7bf18333c5937d025ab894661dbb2bf126576fef"
+    },
+    {
+        "path":  "automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6",
+        "type":  "tree",
+        "sha":  "26f6a410cd874f933de39bb2b1b26eb8f6dd3678"
+    },
+    {
+        "path":  "automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6/facebook.png",
+        "type":  "blob",
+        "sha":  "f38ed69c6cc6692fa560dbdb6c814c5bea307ab4"
+    },
+    {
+        "path":  "automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6/instagram.png",
+        "type":  "blob",
+        "sha":  "2244486bdc13f370a5684e815c1c538aaf969c21"
+    },
+    {
+        "path":  "automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6/manifest.json",
+        "type":  "blob",
+        "sha":  "09a418207ef6eea14b6a1d09c27246c557010556"
+    },
+    {
+        "path":  "automation/final-social-images/fd-calculator-india/2026-05-22T04-20-20-015Z-9cvvp6/pinterest.png",
+        "type":  "blob",
+        "sha":  "a307e0651b9986e5209a3a6d91e5adf523c8f49b"
+    },
+    {
+        "path":  "automation/final-social-images/gratuity-calculator-india",
+        "type":  "tree",
+        "sha":  "592ca6f088d2afc02b628e9b672eb29814e4a3c8"
+    },
+    {
+        "path":  "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14",
+        "type":  "tree",
+        "sha":  "41d93d432a47d29a5e0738861d1a4c19f5afce38"
+    },
+    {
+        "path":  "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/facebook.png",
+        "type":  "blob",
+        "sha":  "b19a5b958a48953c4488401ece5d49fa3f2690f5"
+    },
+    {
+        "path":  "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/instagram.png",
+        "type":  "blob",
+        "sha":  "505945bbd2d9c6eb643b9573d31ce9275e0ca0ae"
+    },
+    {
+        "path":  "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/manifest.json",
+        "type":  "blob",
+        "sha":  "ce67ba0530f6f7add3aac493426c0ddd1dd98ebe"
+    },
+    {
+        "path":  "automation/final-social-images/gratuity-calculator-india/2026-05-21T04-13-41-101Z-m01g14/pinterest.png",
+        "type":  "blob",
+        "sha":  "d89e7550b600375c50448ee5b4ceba29276235ef"
+    },
+    {
+        "path":  "automation/final-social-images/gst-calculator-india",
+        "type":  "tree",
+        "sha":  "b3ca3bae511e605a1474aac28d58041207864e4c"
+    },
+    {
+        "path":  "automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6",
+        "type":  "tree",
+        "sha":  "13ceae50fc4606b0a98e722f2d09722c211b55c0"
+    },
+    {
+        "path":  "automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6/facebook.png",
+        "type":  "blob",
+        "sha":  "1b01bbfea377468bfda2de169706b3437ad0b78b"
+    },
+    {
+        "path":  "automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6/instagram.png",
+        "type":  "blob",
+        "sha":  "ec1be6e3778c297aeaddd2f6847f670725580145"
+    },
+    {
+        "path":  "automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6/manifest.json",
+        "type":  "blob",
+        "sha":  "a163ddb633ce9d4e3449caea8a86bf6c08a28f7b"
+    },
+    {
+        "path":  "automation/final-social-images/gst-calculator-india/2026-05-21T08-39-30-847Z-nyr5g6/pinterest.png",
+        "type":  "blob",
+        "sha":  "1d591a3c24a1bab74114b8d1cf750f117266289a"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india",
+        "type":  "tree",
+        "sha":  "360f759d6bb51a5ad3b9ac079bb8626f9f869cc4"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-49-38-830Z-v25fke",
+        "type":  "tree",
+        "sha":  "3682c65cd68f233df9d448c27e62332b960b21ae"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-49-38-830Z-v25fke/facebook.png",
+        "type":  "blob",
+        "sha":  "1214f4b5c8682a13627f7c8a6848d01c7fd813f4"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-49-38-830Z-v25fke/instagram.png",
+        "type":  "blob",
+        "sha":  "f9269ae05cf101b64da69fb969c48b86e8ab4fa6"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-49-38-830Z-v25fke/manifest.json",
+        "type":  "blob",
+        "sha":  "cd71f0bd471185dd71f89925bfa3cf657436fec2"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-49-38-830Z-v25fke/pinterest.png",
+        "type":  "blob",
+        "sha":  "6114bc0a72fbd515d3333b16aecf9a1eb07e74ef"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g",
+        "type":  "tree",
+        "sha":  "88cd9f302096acc7bafcb4b154fc1b1e44578840"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/facebook.png",
+        "type":  "blob",
+        "sha":  "dae1795ca236fe87a2bf50a0ef18c022797126e0"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/instagram.png",
+        "type":  "blob",
+        "sha":  "51f0e36e581750ee7b147e7206215f5d4ceefa5f"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/manifest.json",
+        "type":  "blob",
+        "sha":  "086a170e425b930a9dbb5a4935e00f74eb58b7df"
+    },
+    {
+        "path":  "automation/final-social-images/hra-exemption-calculator-india/2026-05-18T18-58-01-796Z-3fsu5g/pinterest.png",
+        "type":  "blob",
+        "sha":  "6e1f0abcf00283749f354074f5f6a15dbc09d414"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india",
+        "type":  "tree",
+        "sha":  "a702c1be1cbea9c5e542a81823235d223cae9a4b"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T04-20-16-793Z-3t0v4o",
+        "type":  "tree",
+        "sha":  "0570aeee992ac4ce6629fd37fd719a6b39e8a73f"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T04-20-16-793Z-3t0v4o/facebook.png",
+        "type":  "blob",
+        "sha":  "7e5cd9356078707ecaec844829cbd05642b676fe"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T04-20-16-793Z-3t0v4o/instagram.png",
+        "type":  "blob",
+        "sha":  "9e9d368c59ab3564081efc931be3156e5db1e3b3"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T04-20-16-793Z-3t0v4o/manifest.json",
+        "type":  "blob",
+        "sha":  "ab260d0c73363093cf50c249bd38f988e8a6044f"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T04-20-16-793Z-3t0v4o/pinterest.png",
+        "type":  "blob",
+        "sha":  "3cf2e3f5c81c5a54310d716dc0295ea838294a65"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T06-04-30-298Z-ppwwld",
+        "type":  "tree",
+        "sha":  "cff11562209164747db57bf2be0978fbb2482052"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T06-04-30-298Z-ppwwld/facebook.png",
+        "type":  "blob",
+        "sha":  "7e5cd9356078707ecaec844829cbd05642b676fe"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T06-04-30-298Z-ppwwld/instagram-carousel-logo-slide.png",
+        "type":  "blob",
+        "sha":  "30c5854c2f763d6623aedd31a2517936be4a2866"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T06-04-30-298Z-ppwwld/instagram.png",
+        "type":  "blob",
+        "sha":  "9e9d368c59ab3564081efc931be3156e5db1e3b3"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T06-04-30-298Z-ppwwld/manifest.json",
+        "type":  "blob",
+        "sha":  "aff89fae3f50169481f9893ef48e1653e7ce94e2"
+    },
+    {
+        "path":  "automation/final-social-images/income-tax-calculator-old-vs-new-regime-india/2026-05-25T06-04-30-298Z-ppwwld/pinterest.png",
+        "type":  "blob",
+        "sha":  "3cf2e3f5c81c5a54310d716dc0295ea838294a65"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india",
+        "type":  "tree",
+        "sha":  "30b26107e98998a51ee9eb60dedf0ea973006166"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-00-24-103Z-t30j32",
+        "type":  "tree",
+        "sha":  "88f9a27b89e39215474ca58e9ed1fa075309651c"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-00-24-103Z-t30j32/facebook.png",
+        "type":  "blob",
+        "sha":  "4ec431347bda142cd4c6b8496ec1f72474d0e8f5"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-00-24-103Z-t30j32/instagram.png",
+        "type":  "blob",
+        "sha":  "1f917a82d8ea0c158244d35dbfc4a22980039a99"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-00-24-103Z-t30j32/manifest.json",
+        "type":  "blob",
+        "sha":  "4005a67ada59b8e37af5479f4695b94df4cf698c"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-00-24-103Z-t30j32/pinterest.png",
+        "type":  "blob",
+        "sha":  "98cfcef9fb20ceba2821e4eb917727be3f62c7ad"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-08-00-091Z-mtjd7g",
+        "type":  "tree",
+        "sha":  "f0c94e651599e435f0c0b85d4b8846fee7caa6ea"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-08-00-091Z-mtjd7g/facebook.png",
+        "type":  "blob",
+        "sha":  "4b85a5e738a7a22aa1552bba6d68067d25bba22b"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-08-00-091Z-mtjd7g/instagram.png",
+        "type":  "blob",
+        "sha":  "d056e8286695b632d079c121e101f53dab5bb6e9"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-08-00-091Z-mtjd7g/manifest.json",
+        "type":  "blob",
+        "sha":  "4e0e12ed833e824455186bbbe3e8056f4e77326b"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-08-00-091Z-mtjd7g/pinterest.png",
+        "type":  "blob",
+        "sha":  "e2609bf2f4dbaa184fcc8aea786eef415bd517e9"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-27-40-171Z-69yqfq",
+        "type":  "tree",
+        "sha":  "a4099dd2513cf7382327f1341d1e0834cd21fe3c"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-27-40-171Z-69yqfq/facebook.png",
+        "type":  "blob",
+        "sha":  "8ab030991c466e26ce4f1e92098d1abb29174b58"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-27-40-171Z-69yqfq/instagram-carousel-logo-slide.png",
+        "type":  "blob",
+        "sha":  "d65c92f83bb22d1c089b088e1babab9120877c9e"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-27-40-171Z-69yqfq/instagram.png",
+        "type":  "blob",
+        "sha":  "b564af471116de7d5d0f9b459f0ec4c5de696755"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-27-40-171Z-69yqfq/manifest.json",
+        "type":  "blob",
+        "sha":  "ea210a083a68a0434f9094e5f6f2beda9c7af736"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-27-40-171Z-69yqfq/pinterest.png",
+        "type":  "blob",
+        "sha":  "905f8d9331e1016b5712ab87c55040368d1c82f2"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-30-51-160Z-nzmkc7",
+        "type":  "tree",
+        "sha":  "663518c4a845473b6135aad6b05f34b98e2c0f6a"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-30-51-160Z-nzmkc7/facebook.png",
+        "type":  "blob",
+        "sha":  "8ab030991c466e26ce4f1e92098d1abb29174b58"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-30-51-160Z-nzmkc7/instagram-carousel-logo-slide.png",
+        "type":  "blob",
+        "sha":  "30c5854c2f763d6623aedd31a2517936be4a2866"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-30-51-160Z-nzmkc7/instagram.png",
+        "type":  "blob",
+        "sha":  "b564af471116de7d5d0f9b459f0ec4c5de696755"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-30-51-160Z-nzmkc7/manifest.json",
+        "type":  "blob",
+        "sha":  "ad56a6be6e42b4d2f0c44a9a3b35d7bac82dea02"
+    },
+    {
+        "path":  "automation/final-social-images/recurring-deposit-calculator-india/2026-05-24T06-30-51-160Z-nzmkc7/pinterest.png",
+        "type":  "blob",
+        "sha":  "905f8d9331e1016b5712ab87c55040368d1c82f2"
+    },
+    {
+        "path":  "automation/final-social-images/salary-in-hand-calculator-india",
+        "type":  "tree",
+        "sha":  "3ad253432a34d4a781a7f3472a81bd4e68996a41"
+    },
+    {
+        "path":  "automation/final-social-images/salary-in-hand-calculator-india/2026-05-28T04-20-14-533Z-ta9kol",
+        "type":  "tree",
+        "sha":  "12307f2d69427bd663513c8a09688cbb56713f59"
+    },
+    {
+        "path":  "automation/final-social-images/salary-in-hand-calculator-india/2026-05-28T04-20-14-533Z-ta9kol/facebook.png",
+        "type":  "blob",
+        "sha":  "207bd1ed38ad87726201e2ab3cbc9430b59da6ff"
+    },
+    {
+        "path":  "automation/final-social-images/salary-in-hand-calculator-india/2026-05-28T04-20-14-533Z-ta9kol/instagram-carousel-logo-slide.png",
+        "type":  "blob",
+        "sha":  "30c5854c2f763d6623aedd31a2517936be4a2866"
+    },
+    {
+        "path":  "automation/final-social-images/salary-in-hand-calculator-india/2026-05-28T04-20-14-533Z-ta9kol/instagram.png",
+        "type":  "blob",
+        "sha":  "7f78a7bc26b4404051f164e215e7e5218717528c"
+    },
+    {
+        "path":  "automation/final-social-images/salary-in-hand-calculator-india/2026-05-28T04-20-14-533Z-ta9kol/manifest.json",
+        "type":  "blob",
+        "sha":  "9525f121f71d5401f3b72f2c0153860b2a05db03"
+    },
+    {
+        "path":  "automation/final-social-images/salary-in-hand-calculator-india/2026-05-28T04-20-14-533Z-ta9kol/pinterest.png",
+        "type":  "blob",
+        "sha":  "b0a02ee9910f15d500eeed455ef6dc22cfa5c7e6"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india",
+        "type":  "tree",
+        "sha":  "45259ee0685ee7cb112042ac631f377e7bf57281"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-36-35-339Z-kfl53t",
+        "type":  "tree",
+        "sha":  "e9a7bc7379b683ee6b084ae48190bb60d1978f40"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-36-35-339Z-kfl53t/facebook.png",
+        "type":  "blob",
+        "sha":  "b1188471f8ea87b8341180007c6f0544e07d2fa5"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-36-35-339Z-kfl53t/instagram.png",
+        "type":  "blob",
+        "sha":  "875c1bfc3ae71c9637d87e92dc7efbf66464dead"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-36-35-339Z-kfl53t/manifest.json",
+        "type":  "blob",
+        "sha":  "03572c6dc030a8a70619ae2eef8588db3595d982"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-36-35-339Z-kfl53t/pinterest.png",
+        "type":  "blob",
+        "sha":  "dcd95857bb4effa002e19c25f7911b3700ce3472"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4",
+        "type":  "tree",
+        "sha":  "32987e0f8284b8f50d5ad5d4920c1c362f90fc89"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4/facebook.png",
+        "type":  "blob",
+        "sha":  "b1188471f8ea87b8341180007c6f0544e07d2fa5"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4/instagram.png",
+        "type":  "blob",
+        "sha":  "bf329f23059fc5f879a8dd7046f7ed5f094596ce"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4/manifest.json",
+        "type":  "blob",
+        "sha":  "123274fcd21947fc3e6a45f3abcbe1d2b29731ea"
+    },
+    {
+        "path":  "automation/final-social-images/sip-calculator-india/2026-05-16T09-45-53-273Z-zfyff4/pinterest.png",
+        "type":  "blob",
+        "sha":  "f93cfed4f2e27ca3467588ee96619c191139c1b8"
+    },
+    {
+        "path":  "automation/prompt-packs",
+        "type":  "tree",
+        "sha":  "9ee8534761e74241417acd2c2eb2c807b030d0d1"
+    },
+    {
+        "path":  "automation/prompt-packs/social-image-enhancement-prompts.json",
+        "type":  "blob",
+        "sha":  "b72252053949f84b97a1355bcbdfc8455b756347"
+    },
+    {
+        "path":  "automation/reports",
+        "type":  "tree",
+        "sha":  "fc665ed11ad073bf92b25e700e1a3b19409c8479"
+    },
+    {
+        "path":  "automation/reports/.keep",
+        "type":  "blob",
+        "sha":  "02bfeb3525ed75692ed7f363d50fbe6bd7250504"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-80c-deduction-calculator-india-2026-05-19T03-37-12-003Z-rea8q2.json",
+        "type":  "blob",
+        "sha":  "0c933d6de3fe142703d4e317d321a9230ace8443"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-emi-calculator-india-2026-05-15T09-02-13-719Z-diqojj.json",
+        "type":  "blob",
+        "sha":  "db42fc0c130078eb6af109dd156715f1f0904540"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-fd-calculator-india-2026-05-22T03-31-58-819Z-vps9id.json",
+        "type":  "blob",
+        "sha":  "8917feeeb2aadb36d04349d07b4526445fce5c34"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-gratuity-calculator-india-2026-05-21T04-10-58-941Z-iv5v3i.json",
+        "type":  "blob",
+        "sha":  "0cd12b664d40c6ce7539355a52263dbc077a7dd6"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-gst-calculator-india-2026-05-21T07-51-06-254Z-8zzvdp.json",
+        "type":  "blob",
+        "sha":  "8f698495a8bf15bbe674df031ca45c0ee7def0aa"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-hra-exemption-calculator-india-2026-05-18T18-20-06-329Z-0j1wbc.json",
+        "type":  "blob",
+        "sha":  "dd46091b76273ba7d43c10494496d563a90c9641"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-income-tax-calculator-old-vs-new-regime-india-2026-05-25T03-31-38-837Z-0cvlq4.json",
+        "type":  "blob",
+        "sha":  "54dff89b00bd823e022606757a3451f5ecaad62b"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-recurring-deposit-calculator-india-2026-05-24T03-31-36-080Z-x3n9ii.json",
+        "type":  "blob",
+        "sha":  "f4d3112a7812d66e55afc415d58bfec98fdbc05b"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-salary-in-hand-calculator-india-2026-05-15T08-34-52-612Z-y4u3y4.json",
+        "type":  "blob",
+        "sha":  "184274e3ef61f1d584bf8617a48f5f9094c0d83b"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-salary-in-hand-calculator-india-2026-05-28T03-31-21-237Z-bhs2p1.json",
+        "type":  "blob",
+        "sha":  "61c2755e773af0ddc5b3f0083b240461a3d3610b"
+    },
+    {
+        "path":  "automation/reports/ai-social-creative-sip-calculator-india-2026-05-15T19-09-33-599Z-q9z5sy.json",
+        "type":  "blob",
+        "sha":  "1125cdcc98ece19e9aac6014020197d9e005250e"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-80c-deduction-calculator-india-2026-05-19T03-45-12-516Z-v9qjmi.json",
+        "type":  "blob",
+        "sha":  "95a135af6bba035ea163dae0b1225cf02a899ddf"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-80c-deduction-calculator-india-2026-05-20T03-45-14-015Z-ishm8k.json",
+        "type":  "blob",
+        "sha":  "c0489efb3b26d7c07e5574220805d49c16316630"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-emi-calculator-india-2026-05-15T11-26-33-444Z-wj4m1h.json",
+        "type":  "blob",
+        "sha":  "b89348659e79a6de6b810fe153985bc1630e92e0"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-fd-calculator-india-2026-05-22T03-45-21-924Z-gdkx1y.json",
+        "type":  "blob",
+        "sha":  "cfc4dea6798a909634aff38f2202ab0d40a0fc7b"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-gratuity-calculator-india-2026-05-21T04-11-52-644Z-p1qlvf.json",
+        "type":  "blob",
+        "sha":  "dd8b37f237e83354869425f4bb52da9da97ba241"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-gst-calculator-india-2026-05-21T08-04-37-460Z-2slhvs.json",
+        "type":  "blob",
+        "sha":  "47f88e5ccc955130ee3583864016e823847f61b9"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-hra-exemption-calculator-india-2026-05-18T18-29-25-533Z-s087s6.json",
+        "type":  "blob",
+        "sha":  "9065f75a0a9965494d5f7d49259de30151113262"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-income-tax-calculator-old-vs-new-regime-india-2026-05-25T03-45-21-879Z-2qkmr9.json",
+        "type":  "blob",
+        "sha":  "f6c401118090d4e85e9d919e95972cd00db11a58"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-recurring-deposit-calculator-india-2026-05-24T03-45-13-284Z-a47vm4.json",
+        "type":  "blob",
+        "sha":  "edb4e1be1eec505746ee4b5c633f716bf2057710"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-recurring-deposit-calculator-india-2026-05-24T05-55-24-940Z-5q8i7y.json",
+        "type":  "blob",
+        "sha":  "e3356e2e95eed06cd1de3257bbf069ddb4e82bf8"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-recurring-deposit-calculator-india-2026-05-24T06-07-01-837Z-j8x7hi.json",
+        "type":  "blob",
+        "sha":  "f61a2de56392426e6da171e72647238634da5429"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-recurring-deposit-calculator-india-2026-05-24T06-18-48-862Z-zm95mn.json",
+        "type":  "blob",
+        "sha":  "5a8f60f941d60bd90ea5ac85bbb5be52ce7de127"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-salary-in-hand-calculator-india-2026-05-28T03-45-12-711Z-dv4z6s.json",
+        "type":  "blob",
+        "sha":  "d4bb258ef496380f76f46d1c9dd65ed0db545382"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-sip-calculator-india-2026-05-15T19-14-36-643Z-ze0kwp.json",
+        "type":  "blob",
+        "sha":  "e353ad0f6a8109b818b817401d7edc2b5162b7a3"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-sip-calculator-india-2026-05-16T09-09-37-667Z-zc37fe.json",
+        "type":  "blob",
+        "sha":  "50deddc9f1ec810e2fd6a650e2fa36961bc01944"
+    },
+    {
+        "path":  "automation/reports/ai-social-images-sip-calculator-india-2026-05-16T09-33-44-401Z-7mn5ll.json",
+        "type":  "blob",
+        "sha":  "61edfd7a2b87d95269e08d872187f1e242d75324"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-09-54-518Z.json",
+        "type":  "blob",
+        "sha":  "0376109bed58dba1fa8f84f33819cd60c9c586c2"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-14-16-130Z.json",
+        "type":  "blob",
+        "sha":  "5a39e1c4bb1f9ebf0448d68ec4fe0df6ddad89a3"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-18-07-707Z.json",
+        "type":  "blob",
+        "sha":  "f375598701f64de605210d9acaf93de8d8253e60"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-18-18-188Z.json",
+        "type":  "blob",
+        "sha":  "d51263a1465a839942b3becb7d2fb5e4f93b61b6"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-19-50-905Z.json",
+        "type":  "blob",
+        "sha":  "de876d2ba8c56e587f889145bf9a7b22cf2c791e"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-23-58-453Z.json",
+        "type":  "blob",
+        "sha":  "bf044382603417a10f957a329cbd44ca1b54a578"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-24-30-959Z.json",
+        "type":  "blob",
+        "sha":  "dacc09fab671c49fbc48048a1dda70b1d95cd306"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-28-53-050Z.json",
+        "type":  "blob",
+        "sha":  "58bf4420b77e260dd57ed721e15447f8ff1dec7c"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-34-46-896Z.json",
+        "type":  "blob",
+        "sha":  "d97476b980ce6a2e9f4bbe8ba24072b3bc7524c3"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-hra-exemption-calculator-india-2026-05-13T10-37-03-330Z.json",
+        "type":  "blob",
+        "sha":  "943f3db80af2d1e1484dc2712a06f5ff7ed15e2d"
+    },
+    {
+        "path":  "automation/reports/analytics-seo-income-tax-calculator-old-vs-new-regime-india-2026-05-15T07-12-44-491Z.json",
+        "type":  "blob",
+        "sha":  "a62ca3c970af2303fca153ad4534e68a7232786f"
+    },
+    {
+        "path":  "automation/reports/calculator-functional-test-cases-2026-05-30.md",
+        "type":  "blob",
+        "sha":  "35033a208b2337c29de2aedcad6d3e69c85cef82"
+    },
+    {
+        "path":  "automation/reports/final-social-images-80c-deduction-calculator-india-2026-05-19T04-20-14-767Z-l89yix.json",
+        "type":  "blob",
+        "sha":  "d2607f8445df08ba937eebeffacc097ccb6308fe"
+    },
+    {
+        "path":  "automation/reports/final-social-images-80c-deduction-calculator-india-2026-05-20T04-20-15-371Z-51sf2g.json",
+        "type":  "blob",
+        "sha":  "34a03dc213905116c0bb46cca598bfe86ef8cbfc"
+    },
+    {
+        "path":  "automation/reports/final-social-images-emi-calculator-india-2026-05-15T17-34-33-157Z-b5qmmb.json",
+        "type":  "blob",
+        "sha":  "1ec97618b88aa8de3525ba4c68ad33608eb170ea"
+    },
+    {
+        "path":  "automation/reports/final-social-images-fd-calculator-india-2026-05-22T04-20-20-015Z-9cvvp6.json",
+        "type":  "blob",
+        "sha":  "fa720acc3a133ae2870e451e5e007b19af26f66c"
+    },
+    {
+        "path":  "automation/reports/final-social-images-gratuity-calculator-india-2026-05-21T04-13-41-101Z-m01g14.json",
+        "type":  "blob",
+        "sha":  "1fa3c7869e21ce766836c32d6e883b5b0ec6134f"
+    },
+    {
+        "path":  "automation/reports/final-social-images-gst-calculator-india-2026-05-21T08-39-30-847Z-nyr5g6.json",
+        "type":  "blob",
+        "sha":  "2abb4f6bb33d89e0c2cca8d2bfa64c5967dc36da"
+    },
+    {
+        "path":  "automation/reports/final-social-images-hra-exemption-calculator-india-2026-05-18T18-49-38-830Z-v25fke.json",
+        "type":  "blob",
+        "sha":  "b48aff1c0d7b12a3d62e955c657823a59c84cabe"
+    },
+    {
+        "path":  "automation/reports/final-social-images-hra-exemption-calculator-india-2026-05-18T18-58-01-796Z-3fsu5g.json",
+        "type":  "blob",
+        "sha":  "0e5310e6a734c3a8a99bf5ad82f0926b83373ee9"
+    },
+    {
+        "path":  "automation/reports/final-social-images-income-tax-calculator-old-vs-new-regime-india-2026-05-25T04-20-16-793Z-3t0v4o.json",
+        "type":  "blob",
+        "sha":  "6f8e222e1a08539b529e25801c74cf34d1e207d1"
+    },
+    {
+        "path":  "automation/reports/final-social-images-income-tax-calculator-old-vs-new-regime-india-2026-05-25T06-04-30-298Z-ppwwld.json",
+        "type":  "blob",
+        "sha":  "e0e0d9bfb8b50506623c7f4856904cde051729df"
+    },
+    {
+        "path":  "automation/reports/final-social-images-recurring-deposit-calculator-india-2026-05-24T06-00-24-103Z-t30j32.json",
+        "type":  "blob",
+        "sha":  "e502442d5fe8b84f08debaa6d5ab89c79b42e767"
+    },
+    {
+        "path":  "automation/reports/final-social-images-recurring-deposit-calculator-india-2026-05-24T06-08-00-091Z-mtjd7g.json",
+        "type":  "blob",
+        "sha":  "4529ce0fb1b4312ddb6eccc1a48deceddc6e0cc0"
+    },
+    {
+        "path":  "automation/reports/final-social-images-recurring-deposit-calculator-india-2026-05-24T06-27-40-171Z-69yqfq.json",
+        "type":  "blob",
+        "sha":  "c5e5f38f7f29cfb7be89ce5edbd0028f79cd2877"
+    },
+    {
+        "path":  "automation/reports/final-social-images-recurring-deposit-calculator-india-2026-05-24T06-30-51-160Z-nzmkc7.json",
+        "type":  "blob",
+        "sha":  "1ebe6ad8d7a4608db8f35e57e3b320eddfec655e"
+    },
+    {
+        "path":  "automation/reports/final-social-images-salary-in-hand-calculator-india-2026-05-28T04-20-14-533Z-ta9kol.json",
+        "type":  "blob",
+        "sha":  "647e60685af4780776aee383b9cfe0bc634d37a9"
+    },
+    {
+        "path":  "automation/reports/final-social-images-sip-calculator-india-2026-05-16T09-36-35-339Z-kfl53t.json",
+        "type":  "blob",
+        "sha":  "722a57df6427c719a96bd398cf8de0c722bdef90"
+    },
+    {
+        "path":  "automation/reports/final-social-images-sip-calculator-india-2026-05-16T09-45-53-273Z-zfyff4.json",
+        "type":  "blob",
+        "sha":  "e740b6c21e3ddc5134133b0affe270f1de03bf15"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-13T14-23-13-427Z.json",
+        "type":  "blob",
+        "sha":  "4b8c0a793ceb2ce2d1f093de22c4c5d9e81345a0"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-15T07-16-01-603Z.json",
+        "type":  "blob",
+        "sha":  "34ada101c8a71b1a3411d1fb958609b50f8c8be0"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-18T18-03-23-357Z.json",
+        "type":  "blob",
+        "sha":  "2905b2d4d26318ce00ee83efbf80744c29dc425f"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-19T01-50-40-098Z.json",
+        "type":  "blob",
+        "sha":  "74b0c83dd3991467410307eb3cd73b6cc28d9539"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-20T01-50-40-618Z.json",
+        "type":  "blob",
+        "sha":  "202538007aa15aa006a4cacfce0bb1af329ce3f7"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-21T04-10-20-963Z.json",
+        "type":  "blob",
+        "sha":  "0c599d1de345229bc979a502d5db3cb5f8c740a4"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-21T04-50-09-541Z.json",
+        "type":  "blob",
+        "sha":  "b5456999d05b7761cec604fc58a36c0cd0f6f43e"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-22T03-10-24-020Z.json",
+        "type":  "blob",
+        "sha":  "296bded4647a6a87d8705c54f90b6500577d056c"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-24T01-50-40-393Z.json",
+        "type":  "blob",
+        "sha":  "2789f68dc65cd36d268ff2a60f805d273ba0a76f"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-25T01-50-40-735Z.json",
+        "type":  "blob",
+        "sha":  "8545092af28cabc1ae4ceed8b23d9917f989b010"
+    },
+    {
+        "path":  "automation/reports/internal-link-optimizer-2026-05-26T01-51-05-633Z.json",
+        "type":  "blob",
+        "sha":  "0bfeb0b91c201ac9a5a4744e4550d65e923bde34"
+    },
+    {
+        "path":  "automation/reports/personal-loan-mobile-income-test.png",
+        "type":  "blob",
+        "sha":  "8c4a524157c0feee7973cfbe90dbbb924700b08f"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-80c-deduction-calculator-india-2026-05-19T01-30-41-715Z.json",
+        "type":  "blob",
+        "sha":  "74602aace1bf376f58526daec108d8c244066577"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-80c-deduction-calculator-india-2026-05-20T01-31-18-625Z.json",
+        "type":  "blob",
+        "sha":  "d765e24bd52d22b66ae5d45740bbbd62351c28ba"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-gratuity-calculator-india-2026-05-21T04-09-27-071Z.json",
+        "type":  "blob",
+        "sha":  "bde9f0367a7b1252dc42493ba8c723fe9896e858"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-gratuity-calculator-india-2026-05-21T04-30-20-421Z.json",
+        "type":  "blob",
+        "sha":  "0aa9160cb5fded01ffe2607d576e1fd11ff9c20d"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-gratuity-calculator-india-2026-05-22T02-51-24-620Z.json",
+        "type":  "blob",
+        "sha":  "1f83201db2c461063fa9846eadd9e6a8e6acfadc"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-hra-exemption-calculator-india-2026-05-13T14-04-41-081Z.json",
+        "type":  "blob",
+        "sha":  "a5ae7e250ae055ada1b4237696931823fa5b3241"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-hra-exemption-calculator-india-2026-05-13T14-05-42-936Z.json",
+        "type":  "blob",
+        "sha":  "dde991ddef391af6c6f8b144d7ac714ddf28b9aa"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-hra-exemption-calculator-india-2026-05-15T07-15-10-279Z.json",
+        "type":  "blob",
+        "sha":  "751e112c0c82c390b139378e14b930036f26650b"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-hra-exemption-calculator-india-2026-05-18T17-35-29-151Z.json",
+        "type":  "blob",
+        "sha":  "73405d910a4b84bf514d08301b7a6b3898896d3b"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-hra-exemption-calculator-india-2026-05-18T17-37-45-284Z.json",
+        "type":  "blob",
+        "sha":  "a3408edb2963a2c5ea682c1fe9e70c2a7dbadbcd"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-hra-exemption-calculator-india-2026-05-18T17-59-10-428Z.json",
+        "type":  "blob",
+        "sha":  "9e3e0d2a5070651eea03210e215fe734467d3337"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-recurring-deposit-calculator-india-2026-05-24T01-30-44-592Z.json",
+        "type":  "blob",
+        "sha":  "6f7a2ad0403f7570d2a394dcb327eea6639ebb24"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-recurring-deposit-calculator-india-2026-05-25T01-30-58-791Z.json",
+        "type":  "blob",
+        "sha":  "e37d6ca4d1cd45238bb83a88e7c3b1e943514093"
+    },
+    {
+        "path":  "automation/reports/seo-enrichment-recurring-deposit-calculator-india-2026-05-26T01-30-54-625Z.json",
+        "type":  "blob",
+        "sha":  "2438a79f409a16813541d457e472905f70545081"
+    },
+    {
+        "path":  "automation/reports/social-content-generator-hra-exemption-calculator-india-2026-05-13T14-52-03-814Z.json",
+        "type":  "blob",
+        "sha":  "6e10472702034025fa96cbb218cf3034dbfa6834"
+    },
+    {
+        "path":  "automation/reports/social-content-generator-hra-exemption-calculator-india-2026-05-15T07-16-59-279Z.json",
+        "type":  "blob",
+        "sha":  "c2276fc427713b6122a47411fc05fcea2d1b2ca8"
+    },
+    {
+        "path":  "automation/reports/social-posting-pack-hra-exemption-calculator-india-2026-05-13T20-26-13-106Z.json",
+        "type":  "blob",
+        "sha":  "fce7362f96a16744b53416c97cad2a0b7c31ace5"
+    },
+    {
+        "path":  "automation/reports/technical-seo-80c-deduction-calculator-india-2026-05-19T00-55-47-837Z.json",
+        "type":  "blob",
+        "sha":  "c58dd329545ff419b9cadb87e18942581f879008"
+    },
+    {
+        "path":  "automation/reports/technical-seo-80c-deduction-calculator-india-2026-05-20T00-55-53-761Z.json",
+        "type":  "blob",
+        "sha":  "00cc0161e00b4351cb68d414d616028440bbffbe"
+    },
+    {
+        "path":  "automation/reports/technical-seo-80c-deduction-calculator-india-2026-05-21T00-55-47-436Z.json",
+        "type":  "blob",
+        "sha":  "3a0ca8e0b31e1c629098c87adc69956ef37bb32e"
+    },
+    {
+        "path":  "automation/reports/technical-seo-gratuity-calculator-india-2026-05-21T04-07-42-680Z.json",
+        "type":  "blob",
+        "sha":  "e21e75f255f90ff9e1c3debe88438f2e143d5547"
+    },
+    {
+        "path":  "automation/reports/technical-seo-gratuity-calculator-india-2026-05-22T05-15-34-449Z.json",
+        "type":  "blob",
+        "sha":  "f6ce016a3a7617ffcfae7d5134b79a5c1e7aa831"
+    },
+    {
+        "path":  "automation/reports/technical-seo-hra-exemption-calculator-india-2026-05-13T09-30-22-633Z.json",
+        "type":  "blob",
+        "sha":  "7d03b3425377a710d18816c17606eea55709dca9"
+    },
+    {
+        "path":  "automation/reports/technical-seo-hra-exemption-calculator-india-2026-05-13T14-12-06-430Z.json",
+        "type":  "blob",
+        "sha":  "dbd7ece241451ba0f37ed19fda750bba01ab718c"
+    },
+    {
+        "path":  "automation/reports/technical-seo-hra-exemption-calculator-india-2026-05-18T17-12-53-407Z.json",
+        "type":  "blob",
+        "sha":  "a81748ae12068c1b958f1e2dd7e0fc512ef5247a"
+    },
+    {
+        "path":  "automation/reports/technical-seo-income-tax-calculator-old-vs-new-regime-india-2026-05-15T07-10-55-831Z.json",
+        "type":  "blob",
+        "sha":  "4bf4727dc0fef1f28d86bcc088a0db908300e333"
+    },
+    {
+        "path":  "automation/reports/technical-seo-recurring-deposit-calculator-india-2026-05-24T00-55-48-868Z.json",
+        "type":  "blob",
+        "sha":  "3b46eef956affaafe84b267fabb64aaeeefa817e"
+    },
+    {
+        "path":  "automation/reports/technical-seo-recurring-deposit-calculator-india-2026-05-25T00-55-49-455Z.json",
+        "type":  "blob",
+        "sha":  "aeabe9566de8dc218259accd1aacc7cd5b58fe91"
+    },
+    {
+        "path":  "automation/reports/technical-seo-recurring-deposit-calculator-india-2026-05-26T00-55-55-098Z.json",
+        "type":  "blob",
+        "sha":  "696036e892bba4d48805f6b36437f6805eb19a83"
+    },
+    {
+        "path":  "automation/reports/todo-fy-2025-26-tax-rules.md",
+        "type":  "blob",
+        "sha":  "f214ab47669f1de87570e625eda6947bfeac50fd"
+    },
+    {
+        "path":  "automation/reports/v3-config-guard-2026-05-28-1779935861479.json",
+        "type":  "blob",
+        "sha":  "57a4d60ca19fffee68ed8e1577a2446d8d2607b3"
+    },
+    {
+        "path":  "automation/reports/v3-config-guard-2026-05-28-1779935925283.json",
+        "type":  "blob",
+        "sha":  "7324d52a43b65c248e5bbcd304e696591c98a4e6"
+    },
+    {
+        "path":  "automation/reports/v3-config-guard-2026-05-28-1779936201287.json",
+        "type":  "blob",
+        "sha":  "22e8cd69f13b52a1d2942d1318553e33c5c19e5d"
+    },
+    {
+        "path":  "automation/reports/v3-config-guard-2026-05-28-1779937221959.json",
+        "type":  "blob",
+        "sha":  "3524d5f924c4c972a5aed7b077b6a4997cdc7bd0"
+    },
+    {
+        "path":  "automation/reports/v3-config-guard-2026-05-28-1779937372944.json",
+        "type":  "blob",
+        "sha":  "8d7d1d9186eb98c1296c7a8b071620526ab2d27b"
+    },
+    {
+        "path":  "automation/reports/v3-technical-seo-2026-05-28-1779937462475.json",
+        "type":  "blob",
+        "sha":  "c700acb71f931cf90130312cd0448e21dd77d576"
+    },
+    {
+        "path":  "automation/seo-plans",
+        "type":  "tree",
+        "sha":  "6c8b956ce3d3c484524ec24810f1a7e98747d30f"
+    },
+    {
+        "path":  "automation/seo-plans/day-01-2026-05-13-hra-exemption-calculator-india-2026-05-13T08-22-42-117Z.json",
+        "type":  "blob",
+        "sha":  "c3c7f5341ff2e12b10812f5c7129e092822b533c"
+    },
+    {
+        "path":  "automation/seo-plans/day-01-2026-05-13-hra-exemption-calculator-india.json",
+        "type":  "blob",
+        "sha":  "18e7812b7031d746f2aa52eed2b3341a5612f1ad"
+    },
+    {
+        "path":  "automation/seo-plans/day-01-2026-05-18-hra-exemption-calculator-india-2026-05-18T16-03-42-047Z.json",
+        "type":  "blob",
+        "sha":  "d91a25ec2947f47b88cc57c5a497ab979c1adb25"
+    },
+    {
+        "path":  "automation/seo-plans/day-01-2026-05-18-hra-exemption-calculator-india-2026-05-18T16-16-33-658Z.json",
+        "type":  "blob",
+        "sha":  "7f0225aafa7d21627a2f23070905ff0cc2dd2668"
+    },
+    {
+        "path":  "automation/seo-plans/day-02-2026-05-14-80c-deduction-calculator-india-2026-05-14T10-42-41-457Z.json",
+        "type":  "blob",
+        "sha":  "6803c4e3f66f2311d36bccf15180a2c9f5f887f5"
+    },
+    {
+        "path":  "automation/seo-plans/day-02-2026-05-19-80c-deduction-calculator-india-2026-05-19T00-00-25-832Z.json",
+        "type":  "blob",
+        "sha":  "dfa039c6a7f3b8275929b6a207f72f835b9afeff"
+    },
+    {
+        "path":  "automation/seo-plans/day-03-2026-05-15-income-tax-calculator-old-vs-new-regime-india-2026-05-15T07-05-00-748Z.json",
+        "type":  "blob",
+        "sha":  "fdfe3edd3ead12b93390f49e35949c8af7ff9a41"
+    },
+    {
+        "path":  "automation/seo-plans/day-04-2026-05-21-gratuity-calculator-india-2026-05-21T04-06-03-640Z.json",
+        "type":  "blob",
+        "sha":  "a21b81e66cc7a30621996ba647ded8c486675440"
+    },
+    {
+        "path":  "automation/seo-plans/day-05-2026-05-22-epf-calculator-india-2026-05-22T04-20-04-060Z.json",
+        "type":  "blob",
+        "sha":  "027fb501fcddd4ee672ba704b68d2b74008dc5a5"
+    },
+    {
+        "path":  "automation/seo-plans/day-07-2026-05-24-recurring-deposit-calculator-india-2026-05-24T00-00-28-123Z.json",
+        "type":  "blob",
+        "sha":  "8134647c118c85531edd8deb4f83a01d8ce89c44"
+    },
+    {
+        "path":  "automation/seo-plans/day-08-2026-05-25-home-loan-prepayment-calculator-india-2026-05-25T06-06-59-009Z.json",
+        "type":  "blob",
+        "sha":  "6b38b889f9dc2d8f53c1a1e2c4694c24a0990f8d"
+    },
+    {
+        "path":  "automation/seo-plans/day-10-2026-05-27-take-home-salary-calculator-from-ctc-india-2026-05-27T07-10-55-872Z.json",
+        "type":  "blob",
+        "sha":  "ef71922f404ee2e3c7b21e4ac098a65dfea4e9d3"
+    },
+    {
+        "path":  "automation/social-assets",
+        "type":  "tree",
+        "sha":  "ebcc7e3c56a38e44b89074fb062865b36f12488a"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india",
+        "type":  "tree",
+        "sha":  "b6971d6a272d1d29e1435fcfd8cbf787ea9ce19e"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-06-01-525Z",
+        "type":  "tree",
+        "sha":  "e3824fc8d7a1b22ae18cdaac3ddb14a597be9173"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-06-01-525Z/instagram-slide-04.svg",
+        "type":  "blob",
+        "sha":  "7e15b0dd834041186d8d7b974d83206622961f2d"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-09-45-237Z-f98x1x",
+        "type":  "tree",
+        "sha":  "4bcfdacd6d8db2d3eda77aa68bec877ce41ea7cf"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-09-45-237Z-f98x1x/facebook-x-card.svg",
+        "type":  "blob",
+        "sha":  "e29b8c708ae7678094c67cbd5b84b92007cbd42a"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-09-45-237Z-f98x1x/instagram-slide-01.svg",
+        "type":  "blob",
+        "sha":  "d46ebf7aac24bfd03ade4272cd11cc25342d52b7"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-09-45-237Z-f98x1x/instagram-slide-02.svg",
+        "type":  "blob",
+        "sha":  "7aafd1ad847023c9d8254733b5f5fb55d6e91508"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-09-45-237Z-f98x1x/instagram-slide-03.svg",
+        "type":  "blob",
+        "sha":  "0b1e03fa3812aa7c1be5e25f7bf69cda93c3c9c9"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-09-45-237Z-f98x1x/instagram-slide-04.svg",
+        "type":  "blob",
+        "sha":  "7e15b0dd834041186d8d7b974d83206622961f2d"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-09-45-237Z-f98x1x/instagram-slide-05.svg",
+        "type":  "blob",
+        "sha":  "bcf68e2e8ee0a1e0a727110cfe6cf9d7ee8c254f"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-09-45-237Z-f98x1x/manifest.json",
+        "type":  "blob",
+        "sha":  "f2e0f0ed19437ea83f36d0b3678163d6494c1e71"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-09-45-237Z-f98x1x/pinterest-pin.svg",
+        "type":  "blob",
+        "sha":  "45010580dcf502b07563dae3241b492e11d29db8"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5",
+        "type":  "tree",
+        "sha":  "b8038b733c0b62a216a7e8add949d0b6ea3aa77f"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/facebook-x-card.svg",
+        "type":  "blob",
+        "sha":  "e29b8c708ae7678094c67cbd5b84b92007cbd42a"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-01.svg",
+        "type":  "blob",
+        "sha":  "d46ebf7aac24bfd03ade4272cd11cc25342d52b7"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-02.svg",
+        "type":  "blob",
+        "sha":  "7aafd1ad847023c9d8254733b5f5fb55d6e91508"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-03.svg",
+        "type":  "blob",
+        "sha":  "0b1e03fa3812aa7c1be5e25f7bf69cda93c3c9c9"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-04.svg",
+        "type":  "blob",
+        "sha":  "7e15b0dd834041186d8d7b974d83206622961f2d"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-05.svg",
+        "type":  "blob",
+        "sha":  "bcf68e2e8ee0a1e0a727110cfe6cf9d7ee8c254f"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/instagram-slide-06.svg",
+        "type":  "blob",
+        "sha":  "4b50ca8b39ade4a7a8c7c580de8b6e5949aff31c"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/manifest.json",
+        "type":  "blob",
+        "sha":  "73d3f021a3362465518de11c306b87ba83a2b136"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-13T15-16-14-582Z-7302t5/pinterest-pin.svg",
+        "type":  "blob",
+        "sha":  "45010580dcf502b07563dae3241b492e11d29db8"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt",
+        "type":  "tree",
+        "sha":  "36d1621346d32056874b802ca3822629eab85429"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt/facebook-x-card.svg",
+        "type":  "blob",
+        "sha":  "e8dae8db57309000bf723b99643ac253a619001e"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt/instagram-slide-01.svg",
+        "type":  "blob",
+        "sha":  "9fde9d0d100ffb8e03fdd6e5eced85ee3e9b45a6"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt/instagram-slide-02.svg",
+        "type":  "blob",
+        "sha":  "13f79cd4509ba640cc210d814a5b5698ef2a3a55"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt/instagram-slide-03.svg",
+        "type":  "blob",
+        "sha":  "40abb25b8b1f4a00bf2f824efc90833f6c6ad867"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt/instagram-slide-04.svg",
+        "type":  "blob",
+        "sha":  "ba483da0a15da6a9a82001690dd0bb33b4e1ba2e"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt/instagram-slide-05.svg",
+        "type":  "blob",
+        "sha":  "142db63ac722fb5d64a93a710428b1372c768e2a"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt/instagram-slide-06.svg",
+        "type":  "blob",
+        "sha":  "902d3b3d3c58b979d257661c85e39ded5a9f9c62"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt/manifest.json",
+        "type":  "blob",
+        "sha":  "e71475afccdb55fc07396ce755d33dadea203447"
+    },
+    {
+        "path":  "automation/social-assets/hra-exemption-calculator-india/2026-05-15T07-17-35-945Z-hgnzzt/pinterest-pin.svg",
+        "type":  "blob",
+        "sha":  "e41e2cfe04a4b677fbc7169631e1a21c91cb8afa"
+    },
+    {
+        "path":  "automation/social-drafts",
+        "type":  "tree",
+        "sha":  "715ff4088c8dc5a0449f40a2e0ed9925c4a515c0"
+    },
+    {
+        "path":  "automation/social-drafts/social-draft-hra-exemption-calculator-india-2026-05-13T14-52-03-814Z.json",
+        "type":  "blob",
+        "sha":  "8fa9ec667f71417372c0285e176186e388de5985"
+    },
+    {
+        "path":  "automation/social-drafts/social-draft-hra-exemption-calculator-india-2026-05-15T07-16-59-279Z.json",
+        "type":  "blob",
+        "sha":  "ff842a3d3d37533bac6c712b85db090b99b71e4e"
+    },
+    {
+        "path":  "automation/social-history",
+        "type":  "tree",
+        "sha":  "83d0187e3764e34a0e8cbcbc44f9fe1cc54f7840"
+    },
+    {
+        "path":  "automation/social-history/social-post-history.json",
+        "type":  "blob",
+        "sha":  "2508008cab4ec99a8f6d0fb3473bac873a9a6c39"
+    },
+    {
+        "path":  "automation/social-posting-packs",
+        "type":  "tree",
+        "sha":  "e704853ef45fbc9e8154fbc0c2f32270442cccc5"
+    },
+    {
+        "path":  "automation/social-posting-packs/80c-deduction-calculator-india",
+        "type":  "tree",
+        "sha":  "c7f4cec1017634ad1ede1759a7304a49dd4f0def"
+    },
+    {
+        "path":  "automation/social-posting-packs/80c-deduction-calculator-india/2026-05-19T04-30-18-434Z",
+        "type":  "tree",
+        "sha":  "067e7cbbf6b3e4988f223ce2ab33e6966c587ba6"
+    },
+    {
+        "path":  "automation/social-posting-packs/80c-deduction-calculator-india/2026-05-19T04-30-18-434Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "8be89a515419f6852997a89ea7fb847dab079701"
+    },
+    {
+        "path":  "automation/social-posting-packs/80c-deduction-calculator-india/2026-05-20T04-30-18-439Z",
+        "type":  "tree",
+        "sha":  "b8d643bbefc2e018888a7c1a54488f6b1df89d8b"
+    },
+    {
+        "path":  "automation/social-posting-packs/80c-deduction-calculator-india/2026-05-20T04-30-18-439Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "585f6235be39278bcacfdf89540f92acbad76e14"
+    },
+    {
+        "path":  "automation/social-posting-packs/fd-calculator-india",
+        "type":  "tree",
+        "sha":  "cb3ef72eb8646a1b96feff35568b006ce2add2ec"
+    },
+    {
+        "path":  "automation/social-posting-packs/fd-calculator-india/2026-05-22T04-30-21-143Z",
+        "type":  "tree",
+        "sha":  "b9a0ddf6f144b7fe98fc85ba023ee58ffe7f77e5"
+    },
+    {
+        "path":  "automation/social-posting-packs/fd-calculator-india/2026-05-22T04-30-21-143Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "4d8ba1bd6289f4773f103775d7308cbb612707e4"
+    },
+    {
+        "path":  "automation/social-posting-packs/gratuity-calculator-india",
+        "type":  "tree",
+        "sha":  "a7a27761b27de537a4d33d5552358f935f475b75"
+    },
+    {
+        "path":  "automation/social-posting-packs/gratuity-calculator-india/2026-05-21T04-14-36-334Z",
+        "type":  "tree",
+        "sha":  "0c417d64e2d1b4394d6e3f8ceb80e2bc560daa45"
+    },
+    {
+        "path":  "automation/social-posting-packs/gratuity-calculator-india/2026-05-21T04-14-36-334Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "e26d650ce396c88a8d097e92066308c57286b3f9"
+    },
+    {
+        "path":  "automation/social-posting-packs/gst-calculator-india",
+        "type":  "tree",
+        "sha":  "235d94e37ad7b84f6bc3fd21214787c9e4752d8e"
+    },
+    {
+        "path":  "automation/social-posting-packs/gst-calculator-india/2026-05-21T08-49-35-445Z",
+        "type":  "tree",
+        "sha":  "ae5cde6c8db93ec725ac3026485dbfae18c52f00"
+    },
+    {
+        "path":  "automation/social-posting-packs/gst-calculator-india/2026-05-21T08-49-35-445Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "b4e33fbedd48cc5138888bad9dc5fdf20bd04b81"
+    },
+    {
+        "path":  "automation/social-posting-packs/hra-exemption-calculator-india",
+        "type":  "tree",
+        "sha":  "aa67080699a802af7960d6edf5dafb95d6deece4"
+    },
+    {
+        "path":  "automation/social-posting-packs/hra-exemption-calculator-india/2026-05-18T19-06-49-750Z",
+        "type":  "tree",
+        "sha":  "7cd60c22d42bb4d502e8625b68e170fb955e2906"
+    },
+    {
+        "path":  "automation/social-posting-packs/hra-exemption-calculator-india/2026-05-18T19-06-49-750Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "ce65a00c05dd83ee18dd54caf6fe87b5b1beb6f2"
+    },
+    {
+        "path":  "automation/social-posting-packs/hra-exemption-calculator-india/2026-05-18T19-11-51-864Z",
+        "type":  "tree",
+        "sha":  "9c436bb4bc325270d1504852601e4af8365b0de6"
+    },
+    {
+        "path":  "automation/social-posting-packs/hra-exemption-calculator-india/2026-05-18T19-11-51-864Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "ee565e8c4f6600cb0bde08588f210f0d256124d5"
+    },
+    {
+        "path":  "automation/social-posting-packs/income-tax-calculator-old-vs-new-regime-india",
+        "type":  "tree",
+        "sha":  "099ffef6a04185590215146970dfa7c2395ded8e"
+    },
+    {
+        "path":  "automation/social-posting-packs/income-tax-calculator-old-vs-new-regime-india/2026-05-25T04-30-21-204Z",
+        "type":  "tree",
+        "sha":  "921c6a61d1a39a6086c42fff566d63805a8ab191"
+    },
+    {
+        "path":  "automation/social-posting-packs/income-tax-calculator-old-vs-new-regime-india/2026-05-25T04-30-21-204Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "efac46b52d399502d97c80fe01e1c65eb8b729cd"
+    },
+    {
+        "path":  "automation/social-posting-packs/income-tax-calculator-old-vs-new-regime-india/2026-05-25T06-06-09-103Z",
+        "type":  "tree",
+        "sha":  "0240a7dbac7f36a3aa974adb27d91ed24ff31380"
+    },
+    {
+        "path":  "automation/social-posting-packs/income-tax-calculator-old-vs-new-regime-india/2026-05-25T06-06-09-103Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "67d67e28e188d1ec2c1f59a03e624b9c5751cb4f"
+    },
+    {
+        "path":  "automation/social-posting-packs/recurring-deposit-calculator-india",
+        "type":  "tree",
+        "sha":  "edd1e1aab855a995b0f1b5f64f90b97a34a086a0"
+    },
+    {
+        "path":  "automation/social-posting-packs/recurring-deposit-calculator-india/2026-05-24T06-01-19-444Z",
+        "type":  "tree",
+        "sha":  "8ae4de39d2f70b4e5caf1a4f1398cb2f1aa82f7e"
+    },
+    {
+        "path":  "automation/social-posting-packs/recurring-deposit-calculator-india/2026-05-24T06-01-19-444Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "5f1a6e16b37abf6207e923fd73f6db46ea48366a"
+    },
+    {
+        "path":  "automation/social-posting-packs/recurring-deposit-calculator-india/2026-05-24T06-42-32-340Z",
+        "type":  "tree",
+        "sha":  "110e08ebc45ca40240ea63509e7c68313c17f0d3"
+    },
+    {
+        "path":  "automation/social-posting-packs/recurring-deposit-calculator-india/2026-05-24T06-42-32-340Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "aeaa5399f5c71471a43ef0e50ae6616292616557"
+    },
+    {
+        "path":  "automation/social-posting-packs/salary-in-hand-calculator-india",
+        "type":  "tree",
+        "sha":  "d52958992d1f8e1d4495916004bd1ca00f256eb5"
+    },
+    {
+        "path":  "automation/social-posting-packs/salary-in-hand-calculator-india/2026-05-28T04-30-21-335Z",
+        "type":  "tree",
+        "sha":  "12e1d00d034908b4925b7c18360574257513e26e"
+    },
+    {
+        "path":  "automation/social-posting-packs/salary-in-hand-calculator-india/2026-05-28T04-30-21-335Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "a3e78a0a67d0dff6b5b7dc7b8f81fc1b61765972"
+    },
+    {
+        "path":  "automation/social-posting-packs/sip-calculator-india",
+        "type":  "tree",
+        "sha":  "34370db716693ea1c370878da9240248449e2f69"
+    },
+    {
+        "path":  "automation/social-posting-packs/sip-calculator-india/2026-05-18T04-00-47-601Z",
+        "type":  "tree",
+        "sha":  "584e219fef1de03cf565848674e299500e6de813"
+    },
+    {
+        "path":  "automation/social-posting-packs/sip-calculator-india/2026-05-18T04-00-47-601Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "78157f82b101ceac29f6ffeabd6cf5397a5ca7b6"
+    },
+    {
+        "path":  "automation/social-posting-packs/sip-calculator-india/2026-05-18T04-09-36-819Z",
+        "type":  "tree",
+        "sha":  "11bd15c172c4dbdecc7846ec16b58e7e0d2a337d"
+    },
+    {
+        "path":  "automation/social-posting-packs/sip-calculator-india/2026-05-18T04-09-36-819Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "d11ef9146e6125f100aee0ffec4b087e0b185748"
+    },
+    {
+        "path":  "automation/social-posting-packs/sip-calculator-india/2026-05-18T10-09-18-604Z",
+        "type":  "tree",
+        "sha":  "2a57cfcd3ad8fd9799612bbd0cc2579a5c31e123"
+    },
+    {
+        "path":  "automation/social-posting-packs/sip-calculator-india/2026-05-18T10-09-18-604Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "20f14b515fa6bc264d272b112263d93aa9ee4753"
+    },
+    {
+        "path":  "automation/social-posting-packs/sip-calculator-india/2026-05-18T10-42-11-179Z",
+        "type":  "tree",
+        "sha":  "bbc3030660fd920fc3c0eee05f044de50b71b624"
+    },
+    {
+        "path":  "automation/social-posting-packs/sip-calculator-india/2026-05-18T10-42-11-179Z/posting-pack.json",
+        "type":  "blob",
+        "sha":  "56e5b153ac9caf83af042467de371da3d32929a7"
+    },
+    {
+        "path":  "automation/trend-research",
+        "type":  "tree",
+        "sha":  "4300f8df971b682e2cacaa3fc0cb5ef03cca5ec4"
+    },
+    {
+        "path":  "automation/trend-research/.keep",
+        "type":  "blob",
+        "sha":  "02bfeb3525ed75692ed7f363d50fbe6bd7250504"
+    },
+    {
+        "path":  "automation/trend-research/2026-05-28",
+        "type":  "tree",
+        "sha":  "d34674c34364b7a9c843fad379faec9bc57f1d86"
+    },
+    {
+        "path":  "automation/trend-research/2026-05-28/trend-scorecard.json",
+        "type":  "blob",
+        "sha":  "9d7554bc244b2cd38ba207dc7ab9847e959621d4"
+    },
+    {
+        "path":  "automation/trend-research/2026-05-28/trends-raw.json",
+        "type":  "blob",
+        "sha":  "107bb92a32f70d1b064a7eb809aa73eb94754ebc"
+    },
+    {
+        "path":  "components",
+        "type":  "tree",
+        "sha":  "4e9b1b8cb7bb0a82209cc315ab2a2574eae3acad"
+    },
+    {
+        "path":  "components/BudgetChallenge.tsx",
+        "type":  "blob",
+        "sha":  "35384f42ba171949080ec36102f5f4da70ae58b5"
+    },
+    {
+        "path":  "components/Calculator.tsx",
+        "type":  "blob",
+        "sha":  "cae34c94dbd89c3396771b2cc7f28eb9a58ebb54"
+    },
+    {
+        "path":  "components/CalculatorVisualizations.tsx",
+        "type":  "blob",
+        "sha":  "a081007e840eca9f54fa9fd8a724fb2eb440ba73"
+    },
+    {
+        "path":  "components/Logo.tsx",
+        "type":  "blob",
+        "sha":  "73fe3c9e1acebe9d1e85d2949aa663eb700d8f96"
+    },
+    {
+        "path":  "components/MoneyHealthCheckQuiz.tsx",
+        "type":  "blob",
+        "sha":  "948fbf72eab0fec0e268594db42238e9d55a900d"
+    },
+    {
+        "path":  "components/PersonalFinanceRoadmap.tsx",
+        "type":  "blob",
+        "sha":  "e5efec7f38fd8a32045d8916cf01ead9543f9347"
+    },
+    {
+        "path":  "components/SiteFooter.tsx",
+        "type":  "blob",
+        "sha":  "850f28e2853fcb948a41952d411fb15a06b2b243"
+    },
+    {
+        "path":  "components/SiteHeader.tsx",
+        "type":  "blob",
+        "sha":  "0d93d259f4a4d09d4fd6bdd0de628da02af6780c"
+    },
+    {
+        "path":  "components/blog",
+        "type":  "tree",
+        "sha":  "9038f92f880db3d1089692c05221585eabda9a64"
+    },
+    {
+        "path":  "components/blog/AffiliateDisclosure.tsx",
+        "type":  "blob",
+        "sha":  "43b4fa3b5989af2691c0bef6554c0c2ae33003c5"
+    },
+    {
+        "path":  "components/blog/BlogArticleLayout.tsx",
+        "type":  "blob",
+        "sha":  "318ffbd4860eb6c22540260bab9f07f8de634efb"
+    },
+    {
+        "path":  "components/blog/BlogCard.tsx",
+        "type":  "blob",
+        "sha":  "402a55f23752fa5b7701ad3194bad5753ffeaff6"
+    },
+    {
+        "path":  "components/blog/BlogHero.tsx",
+        "type":  "blob",
+        "sha":  "9ea385973c90aeb376cdfbb0f73a6bb2693dd807"
+    },
+    {
+        "path":  "components/blog/BlogListingClient.tsx",
+        "type":  "blob",
+        "sha":  "2b86e79e64291453c5b5cdd394f6565ce45ed3f0"
+    },
+    {
+        "path":  "components/blog/BlogVisuals.tsx",
+        "type":  "blob",
+        "sha":  "a70f2677728358c2977df94d1b995da6935d4a4b"
+    },
+    {
+        "path":  "components/blog/BookRecommendationCard.tsx",
+        "type":  "blob",
+        "sha":  "253ac54a1a26f031a3dbef217435a8c2de6a26fa"
+    },
+    {
+        "path":  "components/blog/FAQSection.tsx",
+        "type":  "blob",
+        "sha":  "ae76864a76da6c4ceea41c056a51d74241bd53d0"
+    },
+    {
+        "path":  "components/blog/FinanceDisclaimer.tsx",
+        "type":  "blob",
+        "sha":  "786fa4f8c936192c1f87f44f35a2d8888ddeb646"
+    },
+    {
+        "path":  "components/blog/ITR2DataVisuals.tsx",
+        "type":  "blob",
+        "sha":  "1ee7705b16dd0f973ebaaae4ede08a0cb107de87"
+    },
+    {
+        "path":  "components/blog/RelatedCalculatorLinks.tsx",
+        "type":  "blob",
+        "sha":  "8ded57ced350591fa8dea64584f5bad6a62e27b8"
+    },
+    {
+        "path":  "components/blog/TableOfContents.tsx",
+        "type":  "blob",
+        "sha":  "5de8ab27477e9ffa2a2333ce6cc65a2ed3cfeb22"
+    },
+    {
+        "path":  "components/blog/Tax2026Visuals.tsx",
+        "type":  "blob",
+        "sha":  "5b6477d0d57a88098c7b96a8367bebb010f8f7b0"
+    },
+    {
+        "path":  "components/calculators",
+        "type":  "tree",
+        "sha":  "939512c4b79ba1f8d6a657636973acf6a91d6336"
+    },
+    {
+        "path":  "components/calculators/advanced",
+        "type":  "tree",
+        "sha":  "ff29ed17580d55c83f15fea84a20e0cfa35784ff"
+    },
+    {
+        "path":  "components/calculators/advanced/AdvancedCalculatorRenderer.tsx",
+        "type":  "blob",
+        "sha":  "57ba0ec0cc30c4f03f52d8907d6d2f6e9386ba3d"
+    },
+    {
+        "path":  "components/calculators/advanced/GstCalculatorV2.tsx",
+        "type":  "blob",
+        "sha":  "9ab1b929cf2577925200094244439d9595a6ca6d"
+    },
+    {
+        "path":  "components/calculators/advanced/IncomeTaxCalculatorV2.tsx",
+        "type":  "blob",
+        "sha":  "3e471dfcdbb638c3d6c10f8021f2c4fc4b856a63"
+    },
+    {
+        "path":  "components/calculators/advanced/SalaryInHandCalculatorV2.tsx",
+        "type":  "blob",
+        "sha":  "1a037e0581585fb7837ede2b1ec5308f9151ff96"
+    },
+    {
+        "path":  "components/emergency-fund",
+        "type":  "tree",
+        "sha":  "7502c64633b25715f5e4ceb5c0b22b17999908a3"
+    },
+    {
+        "path":  "components/emergency-fund/DownloadEmergencyFundPlanButton.tsx",
+        "type":  "blob",
+        "sha":  "6d9be93e461158c461675bbf5e38e1b4ace60c84"
+    },
+    {
+        "path":  "components/emergency-fund/EmergencyFundPlanPdfDocument.tsx",
+        "type":  "blob",
+        "sha":  "8f92c9a694e77c9042cb74b8769bf82f61adf6fd"
+    },
+    {
+        "path":  "components/emergency-fund/EmergencyFundVisualBreakdown.tsx",
+        "type":  "blob",
+        "sha":  "db5befcd0ff8da71cec7a8cb329083a8ddb53c8d"
+    },
+    {
+        "path":  "components/hra",
+        "type":  "tree",
+        "sha":  "f018d3f4a763ddafcaed001c92861c7f478bdce1"
+    },
+    {
+        "path":  "components/hra/DownloadHraChecklistButton.tsx",
+        "type":  "blob",
+        "sha":  "34e0a060660de9937bddece6d1e66feee41b8c8c"
+    },
+    {
+        "path":  "components/hra/HraChecklistPdfDocument.tsx",
+        "type":  "blob",
+        "sha":  "9db68b7510914436a136853cd0c30aef05f1f69f"
+    },
+    {
+        "path":  "components/personal-loan",
+        "type":  "tree",
+        "sha":  "0ec90e486603267516193d0e69041a2025886b80"
+    },
+    {
+        "path":  "components/personal-loan/DownloadPersonalLoanReportButton.tsx",
+        "type":  "blob",
+        "sha":  "75b237a40c430e565d47cbcad2e4431a8162a8b5"
+    },
+    {
+        "path":  "components/personal-loan/PersonalLoanDecisionSimulator.tsx",
+        "type":  "blob",
+        "sha":  "f7a5f031734ea4b647012a8a3636e7a2f71acf30"
+    },
+    {
+        "path":  "components/personal-loan/PersonalLoanEmiReportPdfDocument.tsx",
+        "type":  "blob",
+        "sha":  "226ce78598b7f7a950d0289e4e2b22a671536628"
+    },
+    {
+        "path":  "components/personal-loan/PersonalLoanVisualBreakdown.tsx",
+        "type":  "blob",
+        "sha":  "0cfb785e203d71de7e4365029f01a9f99397b7af"
+    },
+    {
+        "path":  "components/seo",
+        "type":  "tree",
+        "sha":  "745a7434f61171178197388dc4672662b6200d53"
+    },
+    {
+        "path":  "components/seo/AnswerEngineSummary.tsx",
+        "type":  "blob",
+        "sha":  "5be728e54bcfe020496f5100f146edb327e54505"
+    },
+    {
+        "path":  "components/seo/FactsTable.tsx",
+        "type":  "blob",
+        "sha":  "6cefbf0ed4b739a13521ee2216f220a373a0e06a"
+    },
+    {
+        "path":  "components/seo/QuickAnswerBox.tsx",
+        "type":  "blob",
+        "sha":  "70035e4f39fae1492240f945c258109158629656"
+    },
+    {
+        "path":  "components/sip",
+        "type":  "tree",
+        "sha":  "6461f2a3aaf37f5bc651921c992143332e1f7911"
+    },
+    {
+        "path":  "components/sip/DownloadSipPlanButton.tsx",
+        "type":  "blob",
+        "sha":  "39f8b0fcdfbdbe5c2b9c7212ad9b08464a4d6891"
+    },
+    {
+        "path":  "components/sip/SipPlanPdfDocument.tsx",
+        "type":  "blob",
+        "sha":  "909213654675d995dcd2e98993a970d0608d91b7"
+    },
+    {
+        "path":  "components/sip/SipPlannerCalculator.tsx",
+        "type":  "blob",
+        "sha":  "c7fa256a01c3fbe0c840f04a95616bf93d458d5b"
+    },
+    {
+        "path":  "components/tax",
+        "type":  "tree",
+        "sha":  "0caa0b6ccaf49c84f779f5b352c9f2fa2f48a196"
+    },
+    {
+        "path":  "components/tax/TaxCalculatorApp.tsx",
+        "type":  "blob",
+        "sha":  "268db1052bd7dd8eee9e5fac8e4dd2e1e947c1b2"
+    },
+    {
+        "path":  "components/tax/TaxFutureProjection.tsx",
+        "type":  "blob",
+        "sha":  "bd41a36aff5d04214cf286dc4b55eea47ccea3bb"
+    },
+    {
+        "path":  "components/tax/TaxInputForm.tsx",
+        "type":  "blob",
+        "sha":  "7960b4e699f7ed7f6a9c4961baf40a2c7eb848d2"
+    },
+    {
+        "path":  "components/tax/TaxPrintSummary.tsx",
+        "type":  "blob",
+        "sha":  "54e969bbebbac44829f0ecdb9bd8bc32d49877af"
+    },
+    {
+        "path":  "components/tax/TaxResultPanel.tsx",
+        "type":  "blob",
+        "sha":  "3e5f7d1a76cb06f1c38660738d75da163708d925"
+    },
+    {
+        "path":  "components/tax/TaxSlabBreakdown.tsx",
+        "type":  "blob",
+        "sha":  "6fe037156a143054196556d55586e2f7411567e3"
+    },
+    {
+        "path":  "components/tax/TaxSummaryPdfDocument.tsx",
+        "type":  "blob",
+        "sha":  "5eef16b9fdc5ad4ac1c5dac2858db8e089ff90b2"
+    },
+    {
+        "path":  "components/tax/TaxVisualComparison.tsx",
+        "type":  "blob",
+        "sha":  "ebb79376fb02d1a597eb1853fa9e0c3d1dfbec1f"
+    },
+    {
+        "path":  "components/updates",
+        "type":  "tree",
+        "sha":  "02fec044a87cf71edb2829e34006ec262afcdc7f"
+    },
+    {
+        "path":  "components/updates/FinancialUpdatesClient.tsx",
+        "type":  "blob",
+        "sha":  "cf792c75e3c3ab1c569b1045ab3306b7faebfe1f"
+    },
+    {
+        "path":  "components/updates/GovernmentSalaryUpdatesClient.tsx",
+        "type":  "blob",
+        "sha":  "f3389a200f97a05bbb2fb9db8c8a58ed5f5e4a9f"
+    },
+    {
+        "path":  "components/updates/UpdateVisual.tsx",
+        "type":  "blob",
+        "sha":  "638771324a006702a6381f9a15c1855d8473bf10"
+    },
+    {
+        "path":  "data",
+        "type":  "tree",
+        "sha":  "f9bf3409066392532a0c794bcca594d70809a55f"
+    },
+    {
+        "path":  "data/blog-posts.ts",
+        "type":  "blob",
+        "sha":  "083b9af3dafd44d993cc18c0d23b2eaf966a9ed2"
+    },
+    {
+        "path":  "data/financial-updates.ts",
+        "type":  "blob",
+        "sha":  "5ca23172a0c55b82023599934d5fcf4a9a41a086"
+    },
+    {
+        "path":  "data/government-salary-updates.ts",
+        "type":  "blob",
+        "sha":  "f1d26afabcfe5e290199c39983bb66f4b84fc6d4"
+    },
+    {
+        "path":  "data/itr2-ay-2026-27-chart-data.ts",
+        "type":  "blob",
+        "sha":  "5d9b60aacea61b06497a6b93973190f001462751"
+    },
+    {
+        "path":  "data/tools.json",
+        "type":  "blob",
+        "sha":  "1926e72ac6b541c66b1e0e8e5ee2b1f7f2c62a9e"
+    },
+    {
+        "path":  "hooks",
+        "type":  "tree",
+        "sha":  "bf273b1842af9be65b0e2e50060a67a86d900ca8"
+    },
+    {
+        "path":  "hooks/useDownloadEmergencyFundPlanPdf.tsx",
+        "type":  "blob",
+        "sha":  "042338ed5f5dcc0253b1b5612da2f95aff527488"
+    },
+    {
+        "path":  "hooks/useDownloadHraChecklistPdf.tsx",
+        "type":  "blob",
+        "sha":  "dfe0503e2781a2d54ad8169301c7241cea3f1428"
+    },
+    {
+        "path":  "hooks/useDownloadPersonalLoanReportPdf.tsx",
+        "type":  "blob",
+        "sha":  "074fad65076b38bbc2ed502322c6a39838a5a5e0"
+    },
+    {
+        "path":  "hooks/useDownloadSipPlanPdf.tsx",
+        "type":  "blob",
+        "sha":  "899697afc11bb353aa6abbf03d35063eed428cdc"
+    },
+    {
+        "path":  "hooks/useDownloadTaxPdf.tsx",
+        "type":  "blob",
+        "sha":  "ae141858c1afd420691db804d01d6b99ba462118"
+    },
+    {
+        "path":  "lib",
+        "type":  "tree",
+        "sha":  "37e672b08119c0f9e22db4f4f4b5646a5d51d8a7"
+    },
+    {
+        "path":  "lib/advanced-calculators.ts",
+        "type":  "blob",
+        "sha":  "affa2d0cd1d98857a7959f684f97f7eca5d672b7"
+    },
+    {
+        "path":  "lib/events.ts",
+        "type":  "blob",
+        "sha":  "7d68e355e8b5da600622d6cdab4ff16591189a02"
+    },
+    {
+        "path":  "lib/forms",
+        "type":  "tree",
+        "sha":  "a29ff131eefde4e121cb8dfbbcd3db2bf656dcd8"
+    },
+    {
+        "path":  "lib/forms/numeric-input.test.ts",
+        "type":  "blob",
+        "sha":  "32adedefd207f0017f4e2b4fdba7bd8b1539de9c"
+    },
+    {
+        "path":  "lib/forms/numeric-input.ts",
+        "type":  "blob",
+        "sha":  "e4565a339706db7caa70afd08b0d78538a920c8e"
+    },
+    {
+        "path":  "lib/gst",
+        "type":  "tree",
+        "sha":  "861c7f9027e183daa33c5baab3d4c0e89698eac7"
+    },
+    {
+        "path":  "lib/gst/india-gst-rates.ts",
+        "type":  "blob",
+        "sha":  "deac04e2517c82025c985289c1a5fc87acadcdd8"
+    },
+    {
+        "path":  "lib/sip",
+        "type":  "tree",
+        "sha":  "904c36675d29e91818bcd5fe4380734e8f9b0e85"
+    },
+    {
+        "path":  "lib/sip/presets.test.ts",
+        "type":  "blob",
+        "sha":  "d29990ea6ffe04eb47cfe7fa3596568bc3622f7d"
+    },
+    {
+        "path":  "lib/sip/presets.ts",
+        "type":  "blob",
+        "sha":  "70a52399d5a2d7fe02c19f15564c60e37bf45dea"
+    },
+    {
+        "path":  "lib/tax",
+        "type":  "tree",
+        "sha":  "f08a42bc3438df8fa450b264cb867d2e34616413"
+    },
+    {
+        "path":  "lib/tax/buildTaxPdfData.ts",
+        "type":  "blob",
+        "sha":  "37ba2264a6fd8acabfb3b589ad58a229ea1473a6"
+    },
+    {
+        "path":  "lib/tax/calculator.test.ts",
+        "type":  "blob",
+        "sha":  "e7688ef253759fd73aea0ec420057b4bdcc6fa8c"
+    },
+    {
+        "path":  "lib/tax/calculator.ts",
+        "type":  "blob",
+        "sha":  "210ce8c2ad15867526bab0f4d98cc7be19d6791a"
+    },
+    {
+        "path":  "lib/tax/india-income-tax.ts",
+        "type":  "blob",
+        "sha":  "a150ef0b14e09c16a8df3b306c5e6d76e974a9ba"
+    },
+    {
+        "path":  "lib/tax/indiaIncomeTaxRules.ts",
+        "type":  "blob",
+        "sha":  "0b24d94685663c5879bd1644dfa6b9a4997d19eb"
+    },
+    {
+        "path":  "lib/tools.ts",
+        "type":  "blob",
+        "sha":  "b4431f07c5ff88a598a56e8bcf6ad92287d36320"
+    },
+    {
+        "path":  "lib/tools",
+        "type":  "tree",
+        "sha":  "d1646ebe30ee8110d335dab180875ccf48396592"
+    },
+    {
+        "path":  "lib/tools/formula-smoke.test.ts",
+        "type":  "blob",
+        "sha":  "1c787516f9c6db252e2eab2174451388a06bf993"
+    },
+    {
+        "path":  "next-env.d.ts",
+        "type":  "blob",
+        "sha":  "40c3d68096c270ef976f3db4e9eb42b05c7067bb"
+    },
+    {
+        "path":  "next.config.mjs",
+        "type":  "blob",
+        "sha":  "2db7b4bce4be121825a08c5ac168e010e5929709"
+    },
+    {
+        "path":  "package-lock.json",
+        "type":  "blob",
+        "sha":  "61decab281c7e2dcacc5e15573d0a01a6d7d92cb"
+    },
+    {
+        "path":  "package.json",
+        "type":  "blob",
+        "sha":  "f1a20f2803332a81fd0ecdd20adbcea06737c79a"
+    },
+    {
+        "path":  "postcss.config.js",
+        "type":  "blob",
+        "sha":  "12a703d900da8159c30e75acbd2c4d87ae177f62"
+    },
+    {
+        "path":  "public",
+        "type":  "tree",
+        "sha":  "b4b3a374904dcf4c184e12f5506accb6f9d5c5cb"
+    },
+    {
+        "path":  "public/blog",
+        "type":  "tree",
+        "sha":  "e334211457b488209aa9b38094b8f609fb6675f7"
+    },
+    {
+        "path":  "public/blog/itr-2-ay-2026-27-hero-1600x900.jpg",
+        "type":  "blob",
+        "sha":  "188741c90968af6e04bd712eebdeaaaa4a9c269b"
+    },
+    {
+        "path":  "public/blog/tax_plan_2026_hero.jpg",
+        "type":  "blob",
+        "sha":  "ff387a480837e92900fd777a78d742f8adc36924"
+    },
+    {
+        "path":  "public/blog/tax_plan_2026_hero.png",
+        "type":  "blob",
+        "sha":  "33269514db6615cca57a570cb5dab09823ce3db5"
+    },
+    {
+        "path":  "public/brand",
+        "type":  "tree",
+        "sha":  "cf93512ff8b2f9d0b7bf152e1b9a83d730ed81cd"
+    },
+    {
+        "path":  "public/brand/rupeekit_icon_from_social_logo_transparent_square.png",
+        "type":  "blob",
+        "sha":  "aceaf4e5bafca1449ba5c22eaf3acc79c424559f"
+    },
+    {
+        "path":  "public/brand/rupeekit_icon_transparent_square.png",
+        "type":  "blob",
+        "sha":  "e72132a1bc6fd784d7e4a363d74e3d64347d5fac"
+    },
+    {
+        "path":  "public/brand/rupeekit_logo_horizontal_transparent.png",
+        "type":  "blob",
+        "sha":  "b6e495de36e5553ffedddd57fa400d006964d87b"
+    },
+    {
+        "path":  "public/brand/rupeekit_logo_transparent_full.png",
+        "type":  "blob",
+        "sha":  "d77cbf564b0c5f489bb6145aeb7b9a0961898055"
+    },
+    {
+        "path":  "public/googleecce4d217336b51c.html",
+        "type":  "blob",
+        "sha":  "6795cb757a8cc92973c2fc3202f15f7fecf4c1e5"
+    },
+    {
+        "path":  "public/llms.txt",
+        "type":  "blob",
+        "sha":  "65a9270ca26a18a6680ed742c20c37f60ed5f0e1"
+    },
+    {
+        "path":  "scripts",
+        "type":  "tree",
+        "sha":  "0d3ff7dd9c17f132fe3a93008e597efa4286bb06"
+    },
+    {
+        "path":  "scripts/validate-ai-seo-readiness.mjs",
+        "type":  "blob",
+        "sha":  "0f206f78d704288f7a5ac4a58a5bd6b197f6b04e"
+    },
+    {
+        "path":  "scripts/validate-tools.mjs",
+        "type":  "blob",
+        "sha":  "dd29fb1deefdcedd5dc5550679e10287f4a386d3"
+    },
+    {
+        "path":  "tailwind.config.ts",
+        "type":  "blob",
+        "sha":  "43d5f3e900e3ac42441eeae4bad7a0c51531f551"
+    },
+    {
+        "path":  "tsconfig.json",
+        "type":  "blob",
+        "sha":  "25c54798064c1fc952373d634e4eb7a381aae720"
+    }
+]
