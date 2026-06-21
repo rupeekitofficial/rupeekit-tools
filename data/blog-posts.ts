@@ -229,7 +229,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'how-much-emergency-fund',
-    seoTitle: 'How Much Emergency Fund Do You Need in India?',
+    seoTitle: 'How Much Emergency Fund Do You Need in India? | Rule of Thumb',
     visualType: 'emergency-fund',
     visualTitle: 'Emergency Fund Goals',
     visualSubtitle: 'Building a 3 to 6 month safety cushion',
@@ -509,6 +509,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'how-to-track-expenses',
+    seoTitle: 'How to Track Expenses Monthly | 5 Simple Steps for Beginners',
     visualType: 'expense-tracking',
     visualTitle: 'Expense Tracking Categories',
     visualSubtitle: 'Common buckets to group and analyze spending',

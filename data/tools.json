@@ -188,14 +188,14 @@
       "sip-calculator-india"
     ]
   },
-    {
+  {
     "slug": "personal-loan-emi-calculator-india",
     "name": "Personal Loan EMI Calculator India",
     "category": "Loans",
     "status": "live",
     "targetKeyword": "personal loan emi calculator",
-    "shortDescription": "Use this personal loan EMI calculator to estimate monthly EMI, true borrowing cost, total interest, and repayment outcomes before applying.",
-    "metaDescription": "Calculate personal loan EMI in India, compare tenure impact, true cost with fees and GST, prepayment scenarios, and affordability indicators.",
+    "shortDescription": "Calculate personal loan EMI, total interest, and total repayment in India using loan amount, interest rate, and tenure. Compare EMI changes and understand how processing fees impact your total borrowing cost before applying for a loan.",
+    "metaDescription": "Calculate personal loan EMI, total interest, repayment amount, processing fee impact and EMI burden in India. Educational estimate only; RupeeKit is not a lender.",
     "inputs": [
       {
         "key": "principal",
@@ -504,7 +504,8 @@
         "body": "No. RupeeKit is an educational calculator platform and does not provide lending, approval, or disbursal."
       }
     ],
-    "lastReviewed": "May 2026"
+    "lastReviewed": "May 2026",
+    "metaTitle": "Personal Loan EMI Calculator India | EMI, Interest & Total Cost"
   },
   {
     "slug": "emergency-fund-calculator-india",
@@ -512,8 +513,8 @@
     "category": "Savings",
     "status": "live",
     "targetKeyword": "emergency fund calculator",
-    "shortDescription": "Find out how much emergency fund your household may need in India. Use your essential monthly expenses, EMI burden and income stability to estimate a 3, 6, 9 or 12 month safety corpus and the monthly savings needed to build it.",
-    "metaDescription": "Estimate how much emergency fund you need in India based on expenses, EMIs, dependants and income stability. Plan a 3, 6, 9 or 12 month safety corpus.",
+    "shortDescription": "Estimate how much emergency fund you need in India based on monthly essential expenses, EMI commitments, dependants, and income stability. Use this calculator to plan a 3, 6, 9, or 12-month safety corpus and see how long it may take to reach your target.",
+    "metaDescription": "Estimate your emergency fund in India using monthly expenses, EMI commitments, current savings and target months. Includes examples, comparison and educational disclaimer.",
     "inputs": [
       {
         "key": "monthlyEssentialExpenses",
@@ -763,7 +764,8 @@
         "body": "This calculator estimates emergency fund needs using monthly essential expenses, EMI commitments, current emergency savings, target months and monthly saving capacity. It is designed for household planning support and does not recommend any specific financial product."
       }
     ],
-    "lastReviewed": "May 2026"
+    "lastReviewed": "May 2026",
+    "metaTitle": "Emergency Fund Calculator India | 3, 6 & 12 Month Savings"
   },
   {
     "slug": "sip-calculator-india",
@@ -2108,4 +2110,3 @@
     "lastReviewed": "May 2026"
   }
 ]
-

@@ -109,9 +109,37 @@ export default function ResourcesPage() {
           Financial Resources &amp; Library
         </h1>
         <p className="mt-4 text-brandMuted text-lg leading-relaxed">
-          High-quality educational tools, interactive challenges, and structured guides to help you build a solid financial foundation.
+          RupeeKit Resources is a hub for India-focused calculators, guides, checklists, and educational money planning tools.
         </p>
       </header>
+
+      {/* Hub Directory */}
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Link href="/#calculators" className="rounded-2xl border border-brandBorder bg-white p-5 hover:border-brandNavy/30 transition shadow-sm">
+          <h3 className="font-bold text-brandDeepNavy">Popular calculators</h3>
+          <p className="mt-1 text-xs text-brandMuted">EMI, Emergency Fund, FD, SIP</p>
+        </Link>
+        <Link href="/blog/itr-2-ay-2026-27-filing-guide" className="rounded-2xl border border-brandBorder bg-white p-5 hover:border-brandNavy/30 transition shadow-sm">
+          <h3 className="font-bold text-brandDeepNavy">Tax and salary guides</h3>
+          <p className="mt-1 text-xs text-brandMuted">Old vs New Regime, HRA, Salary In-Hand</p>
+        </Link>
+        <Link href="/tools/personal-loan-emi-calculator-india" className="rounded-2xl border border-brandBorder bg-white p-5 hover:border-brandNavy/30 transition shadow-sm">
+          <h3 className="font-bold text-brandDeepNavy">Loan and EMI planning</h3>
+          <p className="mt-1 text-xs text-brandMuted">Personal loans, borrowing costs</p>
+        </Link>
+        <Link href="/tools/emergency-fund-calculator-india" className="rounded-2xl border border-brandBorder bg-white p-5 hover:border-brandNavy/30 transition shadow-sm">
+          <h3 className="font-bold text-brandDeepNavy">Emergency fund planning</h3>
+          <p className="mt-1 text-xs text-brandMuted">Calculate your 3 to 12 month safety net</p>
+        </Link>
+        <Link href="/money-health-check" className="rounded-2xl border border-brandBorder bg-white p-5 hover:border-brandNavy/30 transition shadow-sm">
+          <h3 className="font-bold text-brandDeepNavy">Expense tracking and money health</h3>
+          <p className="mt-1 text-xs text-brandMuted">Budgeting, tracking leaks, money health score</p>
+        </Link>
+        <Link href="/resources/30-day-budget-challenge" className="rounded-2xl border border-brandBorder bg-brandNavy text-white p-5 hover:bg-brandDeepNavy transition shadow-sm">
+          <h3 className="font-bold">Start here if you are new to RupeeKit</h3>
+          <p className="mt-1 text-xs text-slate-300">Join the 30-day budget challenge</p>
+        </Link>
+      </section>
 
       {/* Prominent Money Health Check CTA */}
       <section className="rounded-3xl border border-brandBorder bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 p-8 text-white shadow-md relative overflow-hidden">

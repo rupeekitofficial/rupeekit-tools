@@ -49,8 +49,9 @@ export default function PrivacyPolicyPage() {
       </p>
       <h2 className="mt-8 text-2xl font-bold">Sensitive data handling</h2>
       <p className="mt-4 leading-8 text-slate-700">
-        We avoid collecting sensitive financial or identity data such as PAN, Aadhaar, bank account details, or card
-        data unless a future feature clearly requires it and requests explicit user consent.
+        RupeeKit calculators do not collect PAN, Aadhaar, bank account details, card data, or sensitive financial
+        documents through the calculator workflow. We avoid collecting sensitive financial or identity data unless a
+        future feature clearly requires it and requests explicit user consent.
       </p>
       <h2 className="mt-8 text-2xl font-bold">Contact</h2>
       <p className="mt-4 leading-8 text-slate-700">For privacy questions, contact: rupeekitofficial@gmail.com</p>

@@ -204,19 +204,11 @@ export function generateMetadata({
   const description =
     tool.slug === HRA_SLUG
       ? HRA_META_DESCRIPTION
-      : tool.slug === PERSONAL_LOAN_SLUG
-        ? PERSONAL_LOAN_META_DESCRIPTION
-        : tool.slug === EMERGENCY_FUND_SLUG
-          ? EMERGENCY_FUND_META_DESCRIPTION
-        : tool.metaDescription;
+      : tool.metaDescription;
   const pageTitle =
     tool.slug === HRA_SLUG
       ? HRA_META_TITLE
-      : tool.slug === PERSONAL_LOAN_SLUG
-        ? PERSONAL_LOAN_META_TITLE
-        : tool.slug === EMERGENCY_FUND_SLUG
-          ? EMERGENCY_FUND_META_TITLE
-        : tool.name;
+      : (tool.metaTitle || tool.name);
   const ogImage = buildDiscoverOgImage({
     kind: 'calculator-tool',
     title: pageTitle.replace(/\s+\|\s+RupeeKit$/, ''),
@@ -225,10 +217,7 @@ export function generateMetadata({
   });
 
   return {
-    title:
-      tool.slug === HRA_SLUG || tool.slug === PERSONAL_LOAN_SLUG || tool.slug === EMERGENCY_FUND_SLUG
-        ? { absolute: pageTitle }
-        : tool.name,
+    title: { absolute: pageTitle },
     description,
     alternates: {
       canonical: pageUrl,

@@ -86,10 +86,10 @@ export default function HomePage() {
                 Check Your Money Health Score
               </Link>
               <Link
-                href="#calculators"
+                href="/resources"
                 className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white hover:bg-white/20 transition text-center"
               >
-                Explore Free Calculators
+                Explore All Resources & Calculators
               </Link>
             </div>
 

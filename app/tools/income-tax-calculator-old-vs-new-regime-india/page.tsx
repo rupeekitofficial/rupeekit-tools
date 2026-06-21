@@ -298,7 +298,7 @@ export default function IncomeTaxCalculatorPage() {
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
             Compare old vs new tax regime using income, deductions, exemptions, and salary structure. Use this
             educational income tax calculator old vs new regime page to estimate the tax difference before employer
-            declaration or ITR filing.
+            declaration or ITR filing. Supports calculations for FY 2025-26 (AY 2026-27) and earlier years.
           </p>
         </div>
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-relaxed text-amber-900 shadow-sm">
@@ -561,6 +561,11 @@ export default function IncomeTaxCalculatorPage() {
         <div className="rounded-3xl border border-brandBorder bg-slate-50 p-6">
           <h2 className="text-lg font-bold text-brandDeepNavy">Related tax links</h2>
           <ul className="mt-4 space-y-2 text-sm leading-7">
+            <li>
+              <Link href="/tools/salary-in-hand-calculator-india" className="font-medium text-sky-700 hover:underline">
+                Salary In-Hand Calculator India
+              </Link>
+            </li>
             <li>
               <Link href="/tools/hra-exemption-calculator-india" className="font-medium text-sky-700 hover:underline">
                 HRA Exemption Calculator India

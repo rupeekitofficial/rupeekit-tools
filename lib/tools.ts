@@ -51,6 +51,7 @@ export type Tool = {
   status: string;
   targetKeyword: string;
   shortDescription: string;
+  metaTitle?: string;
   metaDescription: string;
   inputs: ToolInput[];
   outputs: ToolOutput[];

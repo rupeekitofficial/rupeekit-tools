@@ -789,7 +789,7 @@ for (const [source, label] of discoverMetadataSources) {
 
 const emergencyBlogBlock = getBlogBlock('how-much-emergency-fund');
 ensure(
-  /seoTitle:\s*'How Much Emergency Fund Do You Need in India\?'/.test(emergencyBlogBlock),
+  /seoTitle:\s*'How Much Emergency Fund Do You Need in India\? \| Rule of Thumb'/.test(emergencyBlogBlock),
   'Emergency fund blog should use a clearer India-focused title'
 );
 ensure(
