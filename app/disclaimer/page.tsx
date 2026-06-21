@@ -46,6 +46,10 @@ export default function DisclaimerPage() {
       <p className="mt-4 leading-8 text-slate-700">
         Always verify final numbers before making salary, tax, loan, investment or legal decisions.
       </p>
+      <p className="mt-4 leading-8 text-slate-700">
+        RupeeKit is not a lender, does not provide loan approval, and does not show live bank rates unless a clearly
+        labelled future integration states otherwise.
+      </p>
     </div>
   );
 }

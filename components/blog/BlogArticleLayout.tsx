@@ -12,6 +12,7 @@ import AffiliateDisclosure from './AffiliateDisclosure';
 import BookRecommendationCard from './BookRecommendationCard';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
+import DiscoverArticleCallouts from '@/components/discover/DiscoverArticleCallouts';
 import { BlogInlineVisual, BlogSharePreviewCard } from './BlogVisuals';
 import { Tax2026Stats, Tax2026CTA, Tax2026CompactCTA, CommonMistakesCards } from './Tax2026Visuals';
 import {
@@ -40,14 +41,46 @@ function formatBlogDateLabel(isoDate?: string, fallback?: string) {
 
 export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
   const isEmergencyFundGuide = post.slug === 'how-much-emergency-fund';
+  const isTaxBlog = post.category === 'Tax';
+  const discoverArticle = post.discoverArticle;
   const showTaxCrossLinks =
-    post.slug === 'itr-2-ay-2026-27-filing-guide' ||
-    post.slug === 'income-tax-calculator-2026-calculator-guide' ||
+    isTaxBlog ||
     post.slug === 'personal-finance-checklist-for-salaried-people';
   const lastUpdatedLabel = formatBlogDateLabel(post.modifiedDateISO || post.publishedDateISO, post.date);
+  const lastReviewedLabel = formatBlogDateLabel(
+    post.reviewedDateISO || post.modifiedDateISO || post.publishedDateISO,
+    post.date
+  );
   const answerEngineSummary =
     post.answerEngineSummary ||
     `${post.h1} explains the key assumptions, practical steps, and common mistakes so you can plan with clearer estimates. This article is educational information only and should be cross-verified with official rules and records where required.`;
+  const articleCtaHref = discoverArticle?.calculatorCta.href || (
+    isEmergencyFundGuide
+      ? '/tools/emergency-fund-calculator-india'
+      : isTaxBlog
+        ? '/tools/income-tax-calculator-old-vs-new-regime-india'
+        : '/#calculators'
+  );
+  const articleCtaLabel = discoverArticle?.calculatorCta.label || (
+    isEmergencyFundGuide
+      ? 'Go to Calculator'
+      : isTaxBlog
+        ? 'Compare Tax Regimes'
+        : 'Go to Calculators'
+  );
+  const articleCtaCopy = discoverArticle?.calculatorCta.description || (
+    isEmergencyFundGuide
+      ? 'Use the dedicated emergency fund calculator to estimate your safety corpus target and shortfall.'
+      : isTaxBlog
+        ? 'Use the Old vs New Tax Regime Calculator to compare the same income assumptions before filing.'
+        : 'Try our free interactive calculators to plan your savings, loans, and taxes.'
+  );
+  const discoverRelatedLinks = discoverArticle?.relatedCalculatorLinks || [];
+  const disclaimerText = discoverArticle?.safeDisclaimer || (
+    isTaxBlog
+      ? 'Educational information only. RupeeKit does not provide personalized tax, legal, investment, or financial advice. Verify final tax treatment with official income-tax guidance, employer payroll, Form 16, AIS/Form 26AS, or a qualified tax professional.'
+      : undefined
+  );
 
   // Helper to slugify section titles to match Table of Contents links
   const slugify = (text: string) => {
@@ -103,6 +136,13 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
               {post.intro}
             </p>
 
+            <DiscoverArticleCallouts
+              summary={discoverArticle?.summary}
+              whyItMatters={discoverArticle?.whyItMatters}
+              whoItAffects={discoverArticle?.whoItAffects}
+              sourceMethodology={discoverArticle?.sourceMethodology}
+            />
+
             {post.quickAnswer ? (
               <div className="mt-6">
                 <QuickAnswerBox
@@ -122,6 +162,9 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
             <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-700">
                 Last updated: {lastUpdatedLabel}
+              </p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-700">
+                Last reviewed: {lastReviewedLabel}
               </p>
               <p className="mt-2 text-xs leading-relaxed text-slate-600">
                 Educational information only. Verify applicability with official guidance and qualified professionals where needed.
@@ -191,6 +234,10 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                   <Link href="/blog/itr-2-ay-2026-27-filing-guide" className="font-semibold text-sky-800 hover:underline">
                     ITR-2 AY 2026-27 Filing Guide
                   </Link>
+                  . For broader planning checklists, browse{' '}
+                  <Link href="/resources" className="font-semibold text-sky-800 hover:underline">
+                    RupeeKit Resources
+                  </Link>
                   .
                 </p>
               </div>
@@ -249,11 +296,43 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                         </ul>
                       )}
 
+                      {section.table ? (
+                        <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+                          <table className="min-w-full text-left text-sm text-slate-700">
+                            {section.table.caption ? (
+                              <caption className="px-4 pt-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                {section.table.caption}
+                              </caption>
+                            ) : null}
+                            <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-600">
+                              <tr>
+                                {section.table.headers.map((header) => (
+                                  <th key={header} className="px-4 py-3 font-semibold">
+                                    {header}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {section.table.rows.map((row) => (
+                                <tr key={row.join('|')} className="border-t border-slate-200 align-top">
+                                  {row.map((cell) => (
+                                    <td key={cell} className="px-4 py-3 leading-relaxed">
+                                      {cell}
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      ) : null}
+
                       {/* Example Calculations / Blocks */}
                       {section.example && (
                         <div className="mt-5 rounded-2xl border border-brandNavy/10 bg-brandNavy/[0.02] p-5">
                           <h4 className="text-sm font-bold text-brandDeepNavy uppercase tracking-wider">
-                            Practical Example: {section.example.title}
+                            {section.example.label || 'Practical Example'}: {section.example.title}
                           </h4>
                           <p className="mt-2 text-xs md:text-sm leading-relaxed text-slate-700">
                             {section.example.details}
@@ -314,16 +393,27 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                 <div>
                   <h4 className="font-bold text-brandDeepNavy">Estimate Your Own Finances</h4>
                   <p className="text-xs text-brandMuted mt-1">
-                    {isEmergencyFundGuide
-                      ? 'Use the dedicated emergency fund calculator to estimate your safety corpus target and shortfall.'
-                      : 'Try our free interactive calculators to plan your savings, loans, and taxes.'}
+                    {articleCtaCopy}
                   </p>
+                  {discoverRelatedLinks.length > 0 ? (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {discoverRelatedLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="rounded-full border border-brandNavy/15 bg-white px-3 py-1.5 text-[11px] font-semibold text-brandNavy transition hover:bg-brandNavy/5"
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
                 <Link
-                  href={isEmergencyFundGuide ? '/tools/emergency-fund-calculator-india' : '/#calculators'}
+                  href={articleCtaHref}
                   className="rounded-full bg-brandGrowthGreen px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-brandBrightGreen hover:shadow-md transition whitespace-nowrap"
                 >
-                  {isEmergencyFundGuide ? 'Go to Calculator' : 'Go to Calculators'}
+                  {articleCtaLabel}
                 </Link>
               </div>
             </div>
@@ -333,7 +423,7 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
           <FAQSection faqs={post.faqs} />
 
           {/* Finance educational disclaimer */}
-          <FinanceDisclaimer />
+          <FinanceDisclaimer text={disclaimerText} />
 
         </article>
 

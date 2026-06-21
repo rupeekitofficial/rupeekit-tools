@@ -1,3 +1,5 @@
+import type { DiscoverReadyArticleTemplate } from '@/lib/discover-content';
+
 export interface GovernmentSalaryUpdate {
   id: string;
   title: string;
@@ -16,6 +18,8 @@ export interface GovernmentSalaryUpdate {
   actionToVerify: string;
   relatedLinks: { label: string; href: string }[];
   tags: string[];
+  modifiedDate?: string;
+  discoverArticle?: DiscoverReadyArticleTemplate;
   status: "official" | "explainer" | "sample";
 }
 

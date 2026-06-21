@@ -196,6 +196,12 @@ function KV({ label, value }: KVProps) {
 // ─── Main PDF Document ───────────────────────────────────────────────────────
 interface Props { data: TaxPdfData; }
 
+const ageGroupLabel: Record<string, string> = {
+  below60: 'Below 60',
+  senior: '60 to below 80',
+  superSenior: '80 and above',
+};
+
 export function TaxSummaryPdfDocument({ data }: Props) {
   const isNewBetter = data.recommendedRegime === 'New';
   const isOldBetter = data.recommendedRegime === 'Old';
@@ -212,9 +218,9 @@ export function TaxSummaryPdfDocument({ data }: Props) {
 
   return (
     <Document
-      title={`RupeeKit Income Tax Summary - FY ${data.financialYear}`}
+      title={`RupeeKit Tax Regime Comparison Report - FY ${data.financialYear}`}
       author="RupeeKit"
-      subject="Income Tax Estimate Summary"
+      subject="Tax Regime Comparison Report"
       creator="RupeeKit (rupeekit.co.in)"
     >
       <Page size="A4" style={styles.page}>
@@ -237,6 +243,7 @@ export function TaxSummaryPdfDocument({ data }: Props) {
         <View style={styles.card}>
           <KV label="Financial Year" value={`FY ${data.financialYear} (AY ${data.assessmentYear})`} />
           <KV label="Salaried Employee" value={data.isSalaried ? 'Yes' : 'No'} />
+          <KV label="Age Group" value={ageGroupLabel[data.ageGroup] || String(data.ageGroup)} />
           <KV label="Gross Annual Income" value={fmt(data.grossIncome)} />
           {data.standardDeductionOld > 0 && <KV label="Standard Deduction (Old Regime)" value={fmt(data.standardDeductionOld)} />}
           {data.standardDeductionNew > 0 && <KV label="Standard Deduction (New Regime)" value={fmt(data.standardDeductionNew)} />}
@@ -274,6 +281,16 @@ export function TaxSummaryPdfDocument({ data }: Props) {
           <KV label="Health & Education Cess (New)" value={fmt(data.new_cess)} />
           <KV label="Effective Tax Rate (Old)" value={pct(data.old_effectiveTaxRate)} />
           <KV label="Effective Tax Rate (New)" value={pct(data.new_effectiveTaxRate)} />
+          <KV
+            label="Break-even Additional Old-Regime Deduction"
+            value={
+              data.breakEvenAlreadyLower
+                ? 'Old regime already lower in this scenario'
+                : data.breakEvenAdditionalOldDeduction === null
+                ? 'Not reached within current input range'
+                : fmt(data.breakEvenAdditionalOldDeduction)
+            }
+          />
           <KV label="Cess Rate" value="4% (included in above)" />
         </View>
 

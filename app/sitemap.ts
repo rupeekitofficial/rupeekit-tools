@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getLiveTools } from '@/lib/tools';
-import { blogPosts } from '@/data/blog-posts';
+import { publishedBlogPosts } from '@/data/blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 import { governmentSalaryUpdates } from '@/data/government-salary-updates';
 
@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       };
     }),
-    ...blogPosts.map((post) => {
+    ...publishedBlogPosts.map((post) => {
       const lastModified =
         parseIsoDate(post.modifiedDateISO) ??
         parseIsoDate(post.publishedDateISO) ??
@@ -82,7 +82,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       };
     }),
-    ...governmentSalaryUpdates.map((u) => {
+    ...governmentSalaryUpdates
+      .filter((u) => u.status !== 'sample')
+      .map((u) => {
       const lastModified =
         parseIsoDate((u as { modifiedDate?: string }).modifiedDate) ??
         parseIsoDate(u.publishedDate) ??
@@ -93,7 +95,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'monthly' as const,
         priority: 0.6,
       };
-    }),
+      }),
   ];
 }
 

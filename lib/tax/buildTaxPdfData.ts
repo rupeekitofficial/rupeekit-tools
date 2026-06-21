@@ -1,4 +1,4 @@
-import { TaxInput, TaxResult } from '@/lib/tax/calculator';
+import { calculateIndianIncomeTax, TaxInput, TaxResult } from '@/lib/tax/calculator';
 import { indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
 
 export interface TaxPdfData {
@@ -7,6 +7,7 @@ export interface TaxPdfData {
   assessmentYear: string;
   // Input
   isSalaried: boolean;
+  ageGroup: string;
   grossIncome: number;
   standardDeductionOld: number;
   standardDeductionNew: number;
@@ -20,6 +21,8 @@ export interface TaxPdfData {
   // Result summary
   recommendedRegime: 'Old' | 'New' | 'Equal';
   savingsAmount: number;
+  breakEvenAdditionalOldDeduction: number | null;
+  breakEvenAlreadyLower: boolean;
   explanation: string;
   // Old regime
   old_totalDeductions: number;
@@ -49,6 +52,34 @@ function buildExplanation(data: Omit<TaxPdfData, 'explanation'>): string {
   return 'Both regimes result in identical tax liability for your current income and deduction profile. Verify with a chartered accountant before filing.';
 }
 
+function estimateBreakEvenAdditionalOldDeduction(input: TaxInput, result: TaxResult, selectedTaxYear: string) {
+  if (result.oldRegime.finalTax <= result.newRegime.finalTax) {
+    return { breakEvenAlreadyLower: true, breakEvenAdditionalOldDeduction: null };
+  }
+
+  let low = 0;
+  let high = Math.max(0, Math.round(input.grossSalary));
+  let answer: number | null = null;
+
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const simulatedInput: TaxInput = {
+      ...input,
+      otherDeductionsOldRegime: input.otherDeductionsOldRegime + mid,
+    };
+    const simulated = calculateIndianIncomeTax(simulatedInput, selectedTaxYear);
+
+    if (simulated.oldRegime.finalTax <= result.newRegime.finalTax) {
+      answer = mid;
+      high = mid - 1;
+    } else {
+      low = mid + 1;
+    }
+  }
+
+  return { breakEvenAlreadyLower: false, breakEvenAdditionalOldDeduction: answer };
+}
+
 export function buildTaxPdfData(
   input: TaxInput,
   result: TaxResult,
@@ -58,8 +89,9 @@ export function buildTaxPdfData(
   const fy = config?.fy ?? selectedTaxYear;
   const ay = config?.ay ?? 'N/A';
 
-  const standardDeductionOld = input.isSalaried ? (config?.oldRegime.standardDeduction ?? 0) : 0;
+  const standardDeductionOldByAge = input.isSalaried ? (config?.oldRegime[input.ageGroup]?.standardDeduction ?? 0) : 0;
   const standardDeductionNew = input.isSalaried ? (config?.newRegime.standardDeduction ?? 0) : 0;
+  const breakEven = estimateBreakEvenAdditionalOldDeduction(input, result, selectedTaxYear);
 
   const base: Omit<TaxPdfData, 'explanation'> = {
     generatedAt: new Date().toLocaleString('en-IN', {
@@ -72,8 +104,9 @@ export function buildTaxPdfData(
     financialYear: fy,
     assessmentYear: ay,
     isSalaried: input.isSalaried,
+    ageGroup: input.ageGroup,
     grossIncome: input.grossSalary,
-    standardDeductionOld,
+    standardDeductionOld: standardDeductionOldByAge,
     standardDeductionNew,
     hraExemption: input.hraExemption,
     homeLoanInterest: input.homeLoanInterest,
@@ -84,6 +117,8 @@ export function buildTaxPdfData(
     otherDeductionsBothRegimes: input.otherDeductionsBothRegimes,
     recommendedRegime: result.recommendedRegime,
     savingsAmount: result.savingsAmount,
+    breakEvenAdditionalOldDeduction: breakEven.breakEvenAdditionalOldDeduction,
+    breakEvenAlreadyLower: breakEven.breakEvenAlreadyLower,
     old_totalDeductions: result.oldRegime.totalDeductions,
     old_taxableIncome: result.oldRegime.taxableIncome,
     old_totalSlabTax: result.oldRegime.totalSlabTax,

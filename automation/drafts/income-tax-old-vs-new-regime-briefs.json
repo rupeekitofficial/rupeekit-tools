@@ -1,0 +1,141 @@
+{
+  "cluster": "income-tax-old-vs-new-regime",
+  "lastUpdated": "2026-06-02",
+  "briefs": [
+    {
+      "slug": "old-vs-new-tax-regime-which-is-better",
+      "searchIntent": "Informational",
+      "targetQueryCluster": [
+        "old vs new tax regime which is better",
+        "which is better old or new tax regime",
+        "new vs old tax regime comparison"
+      ],
+      "suggestedTitle": "Old vs New Tax Regime: Which Is Better for Your Situation?",
+      "suggestedH1": "Old vs New Tax Regime: Which Is Better?",
+      "quickAnswer": "The better regime depends on income, deductions, exemptions, and salary structure. The old regime may help when eligible deductions are higher, while the new regime may be simpler when deductions are lower.",
+      "sections": [
+        "What changes between old and new tax regime",
+        "When old regime may look better",
+        "When new regime may look simpler",
+        "How salaried taxpayers should compare both regimes",
+        "What to verify before employer declaration or ITR filing"
+      ],
+      "faqs": [
+        "Is one regime always better?",
+        "Does HRA change the result?",
+        "Should salaried people compare both before filing?"
+      ],
+      "internalLinkTarget": "/tools/income-tax-calculator-old-vs-new-regime-india",
+      "safeDisclaimerNote": "Educational content only. Do not provide personalized tax or legal advice. Prompt readers to verify with official guidance, payroll records, Form 16, AIS, and Form 26AS.",
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "old-tax-regime-deductions-checklist",
+      "searchIntent": "Informational",
+      "targetQueryCluster": [
+        "old tax regime deductions checklist",
+        "old regime deduction list",
+        "deductions that affect old vs new tax regime"
+      ],
+      "suggestedTitle": "Old Tax Regime Deductions Checklist for Comparison Planning",
+      "suggestedH1": "Old Tax Regime Deductions Checklist",
+      "quickAnswer": "A comparison checklist should cover HRA, Section 80C, Section 80D, home-loan interest, employer NPS, and any other supported deduction assumptions relevant to the taxpayer profile.",
+      "sections": [
+        "Why deduction tracking changes the comparison",
+        "HRA, 80C, 80D, and home-loan checklist",
+        "Employer NPS and other supported items",
+        "What records to keep ready",
+        "Mistakes to avoid before final comparison"
+      ],
+      "faqs": [
+        "Which deductions change the old-regime estimate?",
+        "Can deduction assumptions be verified from Form 16?",
+        "Should payroll and ITR numbers be compared again?"
+      ],
+      "internalLinkTarget": "/tools/income-tax-calculator-old-vs-new-regime-india",
+      "safeDisclaimerNote": "Educational checklist only. Do not imply all deductions apply to every taxpayer. Ask readers to verify eligibility and current rules before claiming anything.",
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "new-tax-regime-vs-old-regime-for-salaried-employees",
+      "searchIntent": "Informational",
+      "targetQueryCluster": [
+        "new tax regime vs old regime for salaried employees",
+        "salaried employee old vs new tax regime",
+        "which tax regime is better for salaried employees"
+      ],
+      "suggestedTitle": "New Tax Regime vs Old Regime for Salaried Employees",
+      "suggestedH1": "New Tax Regime vs Old Regime for Salaried Employees",
+      "quickAnswer": "For salaried employees, the answer depends on salary structure, HRA, deductions, exemptions, and filing context. The new regime may be simpler when deductions are lower, while the old regime may help when eligible deductions are meaningfully higher.",
+      "sections": [
+        "How salaried income affects regime comparison",
+        "When HRA and 80C matter",
+        "Employer declaration vs ITR filing review",
+        "Example comparison scenarios",
+        "Verification checklist before final choice"
+      ],
+      "faqs": [
+        "Is HRA enough to make old regime better?",
+        "Should salaried employees compare again before ITR filing?",
+        "Can payroll assumptions differ from final filing records?"
+      ],
+      "internalLinkTarget": "/tools/income-tax-calculator-old-vs-new-regime-india",
+      "safeDisclaimerNote": "Educational comparison only. No guaranteed tax-saving claims. Ask readers to verify with payroll records, Form 16, AIS, Form 26AS, and official guidance.",
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "income-tax-calculation-example-old-vs-new-regime",
+      "searchIntent": "Informational",
+      "targetQueryCluster": [
+        "income tax calculation example old vs new regime",
+        "old vs new tax regime example",
+        "income tax calculation old vs new"
+      ],
+      "suggestedTitle": "Income Tax Calculation Example: Old vs New Regime",
+      "suggestedH1": "Income Tax Calculation Example: Old vs New Regime",
+      "quickAnswer": "A useful example compares the same income under both regimes, then changes HRA, Section 80C, Section 80D, home-loan interest, or employer NPS assumptions to see how the estimated difference moves.",
+      "sections": [
+        "How to build a fair example comparison",
+        "Low-deduction salaried scenario",
+        "HRA and 80C example scenario",
+        "ITR-filing review scenario",
+        "How to verify an example before acting on it"
+      ],
+      "faqs": [
+        "Should example numbers be treated as final tax?",
+        "Why does the difference change after deductions?",
+        "Can an example help with employer declaration planning?"
+      ],
+      "internalLinkTarget": "/tools/income-tax-calculator-old-vs-new-regime-india",
+      "safeDisclaimerNote": "Examples are educational estimates only. Do not hardcode guaranteed conclusions. Remind readers to verify before filing or submitting declaration.",
+      "publishStatus": "draft_only"
+    },
+    {
+      "slug": "how-to-choose-tax-regime-before-itr-filing",
+      "searchIntent": "Informational",
+      "targetQueryCluster": [
+        "how to choose tax regime before itr filing",
+        "choose old or new regime before itr",
+        "tax regime decision before filing itr"
+      ],
+      "suggestedTitle": "How to Choose a Tax Regime Before ITR Filing",
+      "suggestedH1": "How to Choose a Tax Regime Before ITR Filing",
+      "quickAnswer": "Compare both regimes after reconciling salary, deductions, exemptions, Form 16, AIS, and Form 26AS. Use an educational calculator first, then verify the final choice with current official guidance before filing.",
+      "sections": [
+        "Why final filing review matters",
+        "Documents to reconcile before choosing",
+        "How employer declaration and ITR filing can differ",
+        "Common mistakes before final submission",
+        "Final verification checklist"
+      ],
+      "faqs": [
+        "Should the regime be checked again at filing time?",
+        "What if Form 16 and payroll assumptions differ?",
+        "Can RupeeKit replace official filing validation?"
+      ],
+      "internalLinkTarget": "/tools/income-tax-calculator-old-vs-new-regime-india",
+      "safeDisclaimerNote": "Educational content only. Do not provide personalized filing advice. Direct readers to official income-tax guidance and qualified professionals where needed.",
+      "publishStatus": "draft_only"
+    }
+  ]
+}

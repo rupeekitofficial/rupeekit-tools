@@ -14,6 +14,7 @@ describe('calculateIndianIncomeTax - FY 2024-25', () => {
     otherDeductionsOldRegime: 0,
     otherDeductionsBothRegimes: 0,
     isSalaried: true,
+    ageGroup: 'below60',
   };
 
   it('should return 0 tax for zero income', () => {
@@ -85,5 +86,18 @@ describe('calculateIndianIncomeTax - FY 2024-25', () => {
 
     expect(result.recommendedRegime).toBe('New');
     expect(result.savingsAmount).toBe(19500);
+  });
+
+  it('should support FY 2025-26 slabs and rebate for the new regime', () => {
+    const result = calculateIndianIncomeTax({ ...baseInput, grossSalary: 1275000 }, '2025-26');
+    expect(result.newRegime.taxableIncome).toBe(1200000);
+    expect(result.newRegime.rebate).toBe(60000);
+    expect(result.newRegime.finalTax).toBe(0);
+  });
+
+  it('should apply age-based old regime slabs for senior citizens', () => {
+    const result = calculateIndianIncomeTax({ ...baseInput, grossSalary: 700000, ageGroup: 'senior' }, taxYear);
+    expect(result.oldRegime.taxableIncome).toBe(650000);
+    expect(result.oldRegime.finalTax).toBeGreaterThan(0);
   });
 });

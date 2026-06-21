@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { blogPosts } from '@/data/blog-posts';
+import { publishedBlogPosts } from '@/data/blog-posts';
 import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
+import { buildPrimarySocialImage, INDEXABLE_ROBOTS, SITE_NAME, SITE_URL } from '@/lib/seo';
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({
+  return publishedBlogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -16,14 +17,23 @@ interface BlogPostPageProps {
 }
 
 export function generateMetadata({ params }: BlogPostPageProps): Metadata {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  const post = publishedBlogPosts.find((p) => p.slug === params.slug);
   if (!post) return {};
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
-  const pageUrl = `${siteUrl}/blog/${post.slug}`;
+  const pageUrl = `${SITE_URL}/blog/${post.slug}`;
   const title = post.seoTitle || post.title;
   const description = post.metaDescription;
-  const imageUrl = post.heroImage ? `${siteUrl}${post.heroImage}` : undefined;
+  const ogImage = buildPrimarySocialImage({
+    kind: 'blog-article',
+    title,
+    summary: description,
+    category: post.category,
+    alt: post.heroImageAlt,
+    heroImage: post.heroImage,
+    heroImageAlt: post.heroImageAlt,
+    heroImageWidth: post.heroImageWidth,
+    heroImageHeight: post.heroImageHeight,
+  });
 
   return {
     title,
@@ -31,62 +41,57 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
     alternates: {
       canonical: pageUrl,
     },
-    robots: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-    },
+    robots: INDEXABLE_ROBOTS,
     openGraph: {
       title,
       description,
       url: pageUrl,
-      siteName: 'RupeeKit',
+      siteName: SITE_NAME,
       type: 'article',
       locale: 'en_IN',
-      ...(imageUrl && {
-        images: [
-          {
-            url: imageUrl,
-            width: post.heroImageWidth || 1200,
-            height: post.heroImageHeight || 630,
-            alt: post.heroImageAlt || title,
-          },
-        ],
-      }),
+      images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      ...(imageUrl && {
-        images: [imageUrl],
-      }),
+      images: [ogImage.url],
     },
   };
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  const post = publishedBlogPosts.find((p) => p.slug === params.slug);
   if (!post) {
     notFound();
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
-  const pageUrl = `${siteUrl}/blog/${post.slug}`;
-  const imageUrl = post.heroImage ? `${siteUrl}${post.heroImage}` : undefined;
+  const pageUrl = `${SITE_URL}/blog/${post.slug}`;
+  const title = post.seoTitle || post.title;
+  const ogImage = buildPrimarySocialImage({
+    kind: 'blog-article',
+    title,
+    summary: post.metaDescription,
+    category: post.category,
+    alt: post.heroImageAlt,
+    heroImage: post.heroImage,
+    heroImageAlt: post.heroImageAlt,
+    heroImageWidth: post.heroImageWidth,
+    heroImageHeight: post.heroImageHeight,
+  });
 
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: post.seoTitle || post.title,
+    headline: title,
     description: post.metaDescription,
-    image: imageUrl ? [imageUrl] : undefined,
+    image: [ogImage.url],
     datePublished: post.publishedDateISO || undefined,
     dateModified: post.modifiedDateISO || undefined,
     author: {
       '@type': 'Organization',
-      name: 'RupeeKit',
-      url: siteUrl
+      name: SITE_NAME,
+      url: SITE_URL
     }
   };
 
@@ -94,8 +99,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
       { '@type': 'ListItem', position: 3, name: post.title, item: pageUrl }
     ]
   };

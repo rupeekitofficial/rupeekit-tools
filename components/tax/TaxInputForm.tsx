@@ -73,10 +73,28 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
           onChange={(e) => onTaxYearChange(e.target.value)}
           className="w-full rounded-xl border border-brandBorder bg-slate-50 px-4 py-3 text-sm text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
         >
+          <option value="2025-26">FY 2025-26 (AY 2026-27)</option>
           <option value="2024-25">FY 2024-25 (AY 2025-26)</option>
           <option value="2023-24">FY 2023-24 (AY 2024-25)</option>
         </select>
-        <p className="mt-1.5 text-[10px] text-brandMuted">Rules last reviewed: May 2026. Verify official tax rules before filing.</p>
+        <p className="mt-1.5 text-[10px] text-brandMuted">
+          Rules last reviewed: June 2026. Verify official tax rules before filing.
+        </p>
+        <div className="mt-4">
+          <label className="block text-sm font-bold text-brandDeepNavy mb-2">Age Group</label>
+          <select
+            value={input.ageGroup}
+            onChange={(e) => onChange({ ...input, ageGroup: e.target.value as TaxInput['ageGroup'] })}
+            className="w-full rounded-xl border border-brandBorder bg-slate-50 px-4 py-3 text-sm text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
+          >
+            <option value="below60">Below 60</option>
+            <option value="senior">60 to below 80</option>
+            <option value="superSenior">80 and above</option>
+          </select>
+          <p className="mt-1.5 text-[10px] text-brandMuted">
+            Old-regime basic exemption varies by age. New-regime slabs are generally common across age groups.
+          </p>
+        </div>
         <div className="mt-4 flex items-center gap-3">
           <input 
             type="checkbox" 

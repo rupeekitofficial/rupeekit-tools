@@ -5,7 +5,7 @@ import { getLiveTools } from '@/lib/tools';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
 export const metadata: Metadata = {
-  title: { absolute: 'RupeeKit - Free India Salary & Finance Calculators' },
+  title: { absolute: 'Free India Salary & Finance Calculators | RupeeKit' },
   description:
     'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
   alternates: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'max-image-preview': 'large',
   },
   openGraph: {
-    title: 'RupeeKit - Free India Salary & Finance Calculators',
+    title: 'Free India Salary & Finance Calculators | RupeeKit',
     description:
       'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
     url: SITE_URL,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RupeeKit - Free India Salary & Finance Calculators',
+    title: 'Free India Salary & Finance Calculators | RupeeKit',
     description:
       'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
   },
@@ -36,11 +36,22 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const tools = getLiveTools();
   const categories = Array.from(new Set(tools.map((tool) => tool.category)));
-  const showUpdates = false;
+  const showUpdates = true;
   const featuredTaxGuideHref = '/blog/itr-2-ay-2026-27-filing-guide';
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'RupeeKit',
+    alternateName: 'Rupee Kit',
+    url: `${SITE_URL}/`,
+  };
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 md:py-12 space-y-12 md:space-y-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       {/* Hero & Trust Strip Group */}
       <div className="space-y-6 md:space-y-8">
         {/* Hero Section */}
@@ -75,10 +86,10 @@ export default function HomePage() {
                 Check Your Money Health Score
               </Link>
               <Link
-                href="#calculators"
+                href="/resources"
                 className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white hover:bg-white/20 transition text-center"
               >
-                Explore Free Calculators
+                Explore All Resources & Calculators
               </Link>
             </div>
 
@@ -232,6 +243,16 @@ export default function HomePage() {
             </h2>
             <p className="mt-1 text-xs text-brandMuted">
               Understand eligibility, deadlines, documents, and filing checkpoints before you submit.
+            </p>
+            <p className="mt-2 text-xs text-brandMuted">
+              Compare outcomes first with the{' '}
+              <Link
+                href="/tools/income-tax-calculator-old-vs-new-regime-india"
+                className="font-semibold text-brandNavy hover:underline"
+              >
+                Old vs New Tax Regime Calculator
+              </Link>
+              .
             </p>
           </div>
           <Link

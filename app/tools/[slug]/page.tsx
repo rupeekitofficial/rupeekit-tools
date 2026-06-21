@@ -1,36 +1,37 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { blogPosts } from '@/data/blog-posts';
+import { publishedBlogPosts } from '@/data/blog-posts';
 import Calculator from '@/components/Calculator';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
 import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLoanDecisionSimulator';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import { buildDiscoverOgImage } from '@/lib/seo';
 import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 const HRA_SLUG = 'hra-exemption-calculator-india';
-const HRA_META_TITLE = 'HRA Exemption Calculator India 2026 | Old Regime Rule 279';
+const HRA_META_TITLE = 'HRA Exemption Calculator India | RupeeKit';
 const HRA_META_DESCRIPTION =
   'Calculate HRA exemption under the old tax regime using 2026 city rules. Compare actual HRA, rent minus 10% of salary, and 50% or 40% salary caps.';
 const HRA_H1 = 'HRA Exemption Calculator India';
 const PERSONAL_LOAN_SLUG = 'personal-loan-emi-calculator-india';
-const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India | Monthly EMI & Interest';
+const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India | RupeeKit';
 const PERSONAL_LOAN_META_DESCRIPTION =
   'Calculate personal loan EMI, total interest and total repayment in India using loan amount, interest rate and tenure in months. Compare EMI changes before applying.';
 const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
   'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
-const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | 3, 6, 9 & 12 Month Corpus';
+const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | RupeeKit';
 const EMERGENCY_FUND_META_DESCRIPTION =
   'Estimate how much emergency fund you need in India based on expenses, EMIs, dependants and income stability. Plan a 3, 6, 9 or 12 month safety corpus.';
 const EMERGENCY_FUND_H1 = 'Emergency Fund Calculator India';
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));
-const blogSlugs = new Set(blogPosts.map((post) => post.slug));
+const blogSlugs = new Set(publishedBlogPosts.map((post) => post.slug));
 
 const HRA_TOC = [
   { id: 'how-to-calculate-hra-exemption', title: 'How is HRA exemption calculated?' },
@@ -203,25 +204,20 @@ export function generateMetadata({
   const description =
     tool.slug === HRA_SLUG
       ? HRA_META_DESCRIPTION
-      : tool.slug === PERSONAL_LOAN_SLUG
-        ? PERSONAL_LOAN_META_DESCRIPTION
-        : tool.slug === EMERGENCY_FUND_SLUG
-          ? EMERGENCY_FUND_META_DESCRIPTION
-        : tool.metaDescription;
+      : tool.metaDescription;
   const pageTitle =
     tool.slug === HRA_SLUG
       ? HRA_META_TITLE
-      : tool.slug === PERSONAL_LOAN_SLUG
-        ? PERSONAL_LOAN_META_TITLE
-        : tool.slug === EMERGENCY_FUND_SLUG
-          ? EMERGENCY_FUND_META_TITLE
-        : tool.name;
+      : (tool.metaTitle || tool.name);
+  const ogImage = buildDiscoverOgImage({
+    kind: 'calculator-tool',
+    title: pageTitle.replace(/\s+\|\s+RupeeKit$/, ''),
+    summary: description,
+    category: tool.category,
+  });
 
   return {
-    title:
-      tool.slug === HRA_SLUG || tool.slug === PERSONAL_LOAN_SLUG || tool.slug === EMERGENCY_FUND_SLUG
-        ? { absolute: pageTitle }
-        : tool.name,
+    title: { absolute: pageTitle },
     description,
     alternates: {
       canonical: pageUrl,
@@ -238,11 +234,13 @@ export function generateMetadata({
       siteName: 'RupeeKit',
       type: 'article',
       locale: 'en_IN',
+      images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
       title: pageTitle,
       description,
+      images: [ogImage.url],
     },
   };
 }

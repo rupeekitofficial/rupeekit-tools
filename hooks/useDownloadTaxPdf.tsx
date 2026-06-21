@@ -43,7 +43,7 @@ export function useDownloadTaxPdf() {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `rupeekit-income-tax-summary-fy-${taxYear}.pdf`;
+        a.download = `rupeekit-tax-regime-comparison-report-fy-${taxYear}.pdf`;
         a.click();
         URL.revokeObjectURL(url);
       } catch (err) {

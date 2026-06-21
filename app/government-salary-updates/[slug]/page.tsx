@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { governmentSalaryUpdates } from '@/data/government-salary-updates';
 import UpdateVisual from '@/components/updates/UpdateVisual';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+import DiscoverArticleCallouts from '@/components/discover/DiscoverArticleCallouts';
+import { buildDiscoverOgImage, INDEXABLE_ROBOTS, SITE_NAME, SITE_URL } from '@/lib/seo';
 
 type VisualKey = 'da-dr' | 'pay-commission' | 'pension' | 'government-salary';
 
@@ -37,31 +37,42 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const update = governmentSalaryUpdates.find((u) => u.slug === params.slug);
   if (!update) return { title: 'Update Not Found | RupeeKit' };
+  const isSample = update.status === 'sample';
   const pageUrl = `${SITE_URL}/government-salary-updates/${update.slug}`;
   const cleanSummary = update.summary.substring(0, 155);
+  const ogImage = buildDiscoverOgImage({
+    kind: 'government-salary-update',
+    title: update.title,
+    summary: cleanSummary,
+    category: update.category,
+  });
   return {
     title: { absolute: `${update.title} | Government Salary Updates | RupeeKit` },
     description: cleanSummary,
     alternates: {
       canonical: pageUrl,
     },
-    robots: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-    },
+    robots: isSample
+      ? {
+          index: false,
+          follow: true,
+          'max-image-preview': 'large',
+        }
+      : INDEXABLE_ROBOTS,
     openGraph: {
       title: `${update.title} | Government Salary Updates | RupeeKit`,
       description: cleanSummary,
       url: pageUrl,
-      siteName: 'RupeeKit',
+      siteName: SITE_NAME,
       type: 'article',
       locale: 'en_IN',
+      images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${update.title} | Government Salary Updates | RupeeKit`,
       description: cleanSummary,
+      images: [ogImage.url],
     },
   };
 }
@@ -69,8 +80,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) {
   const update = governmentSalaryUpdates.find((u) => u.slug === params.slug);
   if (!update) notFound();
+  const isSample = update.status === 'sample';
   const pageUrl = `${SITE_URL}/government-salary-updates/${update.slug}`;
-  const dateModified = (update as { modifiedDate?: string }).modifiedDate || update.publishedDate;
+  const dateModified = update.modifiedDate || update.publishedDate;
+  const formattedUpdated = new Date(dateModified).toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+  const ogImage = buildDiscoverOgImage({
+    kind: 'government-salary-update',
+    title: update.title,
+    summary: update.summary,
+    category: update.category,
+  });
 
   const visualType = categoryVisualMap[update.category] ?? 'government-salary';
   const catColor = categoryBadgeColors[update.category] ?? 'bg-slate-100 text-slate-700 border-slate-200';
@@ -81,25 +104,28 @@ export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) 
     year: 'numeric',
   });
 
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: update.title,
-    description: update.summary,
-    datePublished: update.publishedDate,
-    dateModified,
-    author: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
-    },
-    mainEntityOfPage: pageUrl,
-  };
+  const articleSchema = isSample
+    ? null
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: update.title,
+        description: update.summary,
+        image: [ogImage.url],
+        datePublished: update.publishedDate,
+        dateModified,
+        author: {
+          '@type': 'Organization',
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+        mainEntityOfPage: pageUrl,
+      };
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -128,10 +154,12 @@ export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) 
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 md:py-12 space-y-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
+      {articleSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -186,6 +214,12 @@ export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) 
         </div>
       </section>
 
+      {isSample && (
+        <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-900">
+          This is a sample educational template and is not an official live update.
+        </section>
+      )}
+
       {/* Employee Group + Update Type */}
       <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm">
         <div className="grid gap-4 sm:grid-cols-2">
@@ -205,6 +239,13 @@ export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) 
         <h2 className="text-lg font-bold text-brandDeepNavy">Summary</h2>
         <p className="text-sm leading-relaxed text-slate-700">{update.summary}</p>
       </section>
+
+      <DiscoverArticleCallouts
+        lastUpdatedLabel={formattedUpdated}
+        sourceMethodology={update.discoverArticle?.sourceMethodology}
+        calculatorCta={update.discoverArticle?.calculatorCta}
+        relatedCalculatorLinks={update.discoverArticle?.relatedCalculatorLinks}
+      />
 
       {/* Why It Matters */}
       <section className="rounded-3xl border border-brandBorder bg-brandBgSoft p-6 md:p-8 shadow-sm space-y-3">
@@ -334,7 +375,7 @@ export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) 
       <section className="rounded-2xl border border-brandBorder bg-brandBgSoft p-5 text-xs leading-relaxed text-brandMuted">
         <p className="font-bold text-brandDeepNavy mb-1">Educational Disclaimer</p>
         <p>
-          RupeeKit updates are for general educational information only and are not financial, tax, legal, or employment advice. Always verify rules, rates, eligibility, effective dates, arrears, and circulars from official state or central government sources before acting. RupeeKit is not affiliated with or endorsed by any government body mentioned on this page.
+          {update.discoverArticle?.safeDisclaimer || 'RupeeKit updates are for general educational information only and are not financial, tax, legal, or employment advice. Always verify rules, rates, eligibility, effective dates, arrears, and circulars from official state or central government sources before acting. RupeeKit is not affiliated with or endorsed by any government body mentioned on this page.'}
         </p>
       </section>
 

@@ -37,7 +37,7 @@ const socialLinks = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} - Free India Salary & Finance Calculators`,
+    default: `Free India Salary & Finance Calculators | ${siteName}`,
     template: `%s | ${siteName}`,
   },
   description:
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     "max-image-preview": "large",
   },
   openGraph: {
-    title: `${siteName} - Free India Salary & Finance Calculators`,
+    title: `Free India Salary & Finance Calculators | ${siteName}`,
     description:
       "Free India-focused salary, EMI, SIP, GST, and FD calculators with simple explanations.",
     url: siteUrl,
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} - Free India Salary & Finance Calculators`,
+    title: `Free India Salary & Finance Calculators | ${siteName}`,
     description:
       "Free India-focused salary, EMI, SIP, GST, and FD calculators.",
   },

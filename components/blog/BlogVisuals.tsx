@@ -1,15 +1,17 @@
 'use client';
 
 import React from 'react';
+import { BlogGeneratedVisual, type BlogGeneratedVisualVariant } from './BlogGeneratedVisual';
 
 interface VisualProps {
   type: string;
   mode: 'hero' | 'inline' | 'thumbnail';
   title?: string;
   subtitle?: string;
+  category?: string;
 }
 
-export function BlogVisualRenderer({ type, mode, title, subtitle }: VisualProps) {
+export function BlogVisualRenderer({ type, mode, title, subtitle, category }: VisualProps) {
   const isDark = mode === 'hero';
   
   // High contrast color classes based on background theme
@@ -514,295 +516,58 @@ export function BlogVisualRenderer({ type, mode, title, subtitle }: VisualProps)
           </svg>
         );
 
+      case 'old-vs-new-tax-regime':
+      case 'old-tax-regime-deductions':
+      case 'new-tax-regime-vs-old-regime':
+      case 'income-tax-calculator':
+      case 'itr-tax-guide':
+      case 'hra-documents':
+      case 'repo-rate-loan':
+      case 'fallback-finance-card':
+        return (
+          <BlogGeneratedVisual
+            variant={type as BlogGeneratedVisualVariant}
+            mode={mode}
+            title={title}
+            subtitle={subtitle}
+            category={category || subtitle}
+            alt={title || subtitle || 'RupeeKit finance visual'}
+          />
+        );
+
       default:
-        return null;
+        return (
+          <BlogGeneratedVisual
+            variant="fallback-finance-card"
+            mode={mode}
+            title={title}
+            subtitle={subtitle}
+            category={category || subtitle}
+            alt={title || subtitle || 'RupeeKit finance visual'}
+          />
+        );
     }
   };
 
-  const cssStyles = `
-    /* Media query for reduced motion */
-    @media (prefers-reduced-motion: no-preference) {
-      @keyframes flow-dash {
-        to {
-          stroke-dashoffset: -40;
-        }
-      }
-      @keyframes pulse-glow {
-        0%, 100% { opacity: 0.95; }
-        50% { opacity: 0.85; filter: brightness(1.08) drop-shadow(0 0 2px rgba(67, 160, 71, 0.25)); }
-      }
-      @keyframes scale-tilt {
-        0%, 100% { transform: rotate(0deg); }
-        25% { transform: rotate(-1.2deg); }
-        75% { transform: rotate(1.2deg); }
-      }
-      @keyframes flag-wave {
-        0%, 100% { transform: skewY(0deg); }
-        50% { transform: skewY(-6deg) scaleX(0.95); }
-      }
-      @keyframes blog-float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-5px); }
-      }
-
-      .blog-hero-float {
-        animation: blog-float 6s ease-in-out infinite;
-      }
-      
-      .progress-bar-glow {
-        animation: pulse-glow 3s ease-in-out infinite;
-      }
-      
-      .budget-path {
-        stroke-dasharray: 6 6;
-        animation: flow-dash 15s linear infinite;
-      }
-      
-      @media (hover: hover) {
-        .budget-path:hover {
-          animation-duration: 5s;
-        }
-        .scale-svg:hover .scale-beam-group {
-          animation: scale-tilt 3s ease-in-out infinite;
-        }
-        .victory-flag-group:hover .victory-flag {
-          animation: flag-wave 1s ease-in-out infinite;
-        }
-      }
-    }
-
-    /* Transitions and hover states for all visual elements */
-    .budget-path {
-      transition: stroke-width 0.3s ease, stroke 0.3s ease, opacity 0.3s ease;
-    }
-    .budget-node {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-
-    .gauge-group {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-
-    .milestone-node {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-    .milestone-title {
-      transition: fill 0.3s ease, font-weight 0.3s ease;
-    }
-
-    .book-group {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-      transform-origin: bottom center;
-      transform-box: fill-box;
-      cursor: pointer;
-    }
-
-    .expense-card {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-      cursor: pointer;
-    }
-    .expense-bg {
-      transition: stroke 0.3s ease, fill 0.3s ease;
-    }
-    .housing-roof {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-    .food-icon {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-    .utility-bolt {
-      transition: fill 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-    .transport-wheel {
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-    .leisure-star {
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), fill 0.3s ease;
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-
-    .scale-beam-group {
-      transform-origin: 200px 85px;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .room-bg {
-      transition: fill 0.3s ease, stroke-dasharray 0.3s ease, stroke-width 0.3s ease;
-    }
-    .room-text {
-      transition: transform 0.3s ease;
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-    .family-room {
-      cursor: pointer;
-    }
-
-    .ladder-step {
-      cursor: pointer;
-    }
-    .step-bg {
-      transition: stroke 0.3s ease, fill 0.3s ease, filter 0.3s ease;
-    }
-    .victory-flag {
-      transform-origin: 215px 50px;
-      transition: transform 0.3s ease;
-    }
-
-    .timeline-progress-path {
-      animation: flow-dash 10s linear infinite;
-    }
-    .timeline-node-group {
-      cursor: pointer;
-    }
-    .timeline-node {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), stroke-width 0.3s ease;
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-    .timeline-dot {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-
-    .habit-cell {
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-origin: center;
-      transform-box: fill-box;
-      cursor: pointer;
-    }
-    .habit-rect {
-      transition: fill 0.3s ease, stroke 0.3s ease, filter 0.3s ease;
-    }
-
-    .checklist-row {
-      cursor: pointer;
-    }
-    .checklist-row text {
-      transition: transform 0.3s ease;
-    }
-    .checklist-badge {
-      transition: transform 0.3s ease;
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-
-    /* Hover Pointer media query to prevent sticky hovers on touch devices */
-    @media (hover: hover) {
-      .budget-path:hover {
-        opacity: 1 !important;
-        stroke-width: 8px;
-      }
-      .budget-node:hover {
-        transform: scale(1.04);
-      }
-      .gauge-group:hover {
-        transform: scale(1.05);
-      }
-      .milestone-group:hover .milestone-node {
-        transform: translateY(-4px);
-      }
-      .milestone-group:hover .milestone-title {
-        fill: #43A047 !important;
-      }
-      .book-group:hover {
-        transform: translateY(-8px);
-        filter: brightness(1.12);
-      }
-      
-      .expense-card:hover {
-        transform: scale(1.04);
-      }
-      .expense-card:hover .expense-bg {
-        stroke: #003080 !important;
-      }
-      .expense-card:hover .housing-roof {
-        transform: translateY(-2px);
-      }
-      .expense-card:hover .food-icon {
-        transform: scale(1.15);
-      }
-      .expense-card:hover .utility-bolt {
-        fill: #FACC15;
-        transform: scale(1.12);
-      }
-      .expense-card:hover .transport-wheel {
-        transform: rotate(20deg);
-      }
-      .expense-card:hover .leisure-star {
-        transform: rotate(36deg) scale(1.1);
-        fill: rgba(67, 160, 71, 0.1);
-      }
-      
-      .family-room:hover .room-bg {
-        fill: rgba(0, 48, 128, 0.04);
-        stroke-dasharray: none;
-        stroke-width: 1.5;
-      }
-      .family-room.room-green:hover .room-bg {
-        fill: rgba(67, 160, 71, 0.05);
-      }
-      .family-room:hover .room-text {
-        transform: scale(1.02);
-      }
-      
-      .ladder-step:hover .step-bg {
-        stroke: #43A047 !important;
-        filter: drop-shadow(0 2px 4px rgba(67, 160, 71, 0.15));
-      }
-      
-      .timeline-node-group:hover .timeline-node {
-        transform: scale(1.4);
-        stroke-width: 2px;
-      }
-      .timeline-node-group:hover .timeline-dot {
-        transform: scale(1.2);
-      }
-
-      .habit-cell:hover {
-        transform: scale(1.15);
-      }
-      .habit-cell.habit-completed:hover .habit-rect {
-        filter: brightness(1.08) drop-shadow(0 2px 4px rgba(67, 160, 71, 0.25));
-      }
-      
-      .checklist-row:hover text {
-        transform: translateX(3px);
-      }
-      .checklist-row:hover .checklist-badge {
-        transform: scale(1.15);
-      }
-    }
-  `;
-
   return (
-    <>
-      <style dangerouslySetInnerHTML={{ __html: cssStyles }} />
-      {renderSvg()}
-    </>
+    <>{renderSvg()}</>
   );
 }
 
 // Hero Visual container Component (renders inside/alongside BlogHero dark navy section)
-export function BlogHeroVisual({ type, alt }: { type: string; alt: string }) {
+export function BlogHeroVisual({
+  type,
+  alt,
+  title,
+  subtitle,
+  category,
+}: {
+  type: string;
+  alt: string;
+  title?: string;
+  subtitle?: string;
+  category?: string;
+}) {
   if (!type) return null;
   return (
     <div 
@@ -810,7 +575,7 @@ export function BlogHeroVisual({ type, alt }: { type: string; alt: string }) {
       role="img"
       aria-label={alt}
     >
-      <BlogVisualRenderer type={type} mode="hero" />
+      <BlogVisualRenderer type={type} mode="hero" title={title} subtitle={subtitle} category={category} />
     </div>
   );
 }
@@ -889,7 +654,13 @@ export function BlogSharePreviewCard({
           </div>
           
           <div className="w-[75%] max-w-[200px] aspect-[16/10] bg-slate-900/60 border border-slate-800/80 rounded-xl p-2 flex items-center justify-center">
-            <BlogVisualRenderer type={post.visualType} mode="thumbnail" />
+          <BlogVisualRenderer
+            type={post.visualType}
+            mode="thumbnail"
+            title={post.title}
+            subtitle={post.category}
+            category={post.category}
+          />
           </div>
         </div>
 
