@@ -851,7 +851,7 @@ export const blogPosts: BlogPost[] = [
       note: 'Educational information only. Verify applicability with official income-tax guidance, AIS/Form 26AS data, and a qualified tax professional where needed.',
     },
     answerEngineSummary: 'This guide explains who usually falls under ITR-2 for AY 2026-27, what key changes to review, and how to prepare filing documents before submission. It also outlines checklist-driven steps to reconcile Form 16, AIS, and capital-gains records. Use RupeeKit tax calculators for preliminary educational comparison before final filing checks.',
-    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india'],
+    relatedCalculators: ['capital-gains-tax-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india'],
     sections: [
       {
         title: 'Who should read this?',
