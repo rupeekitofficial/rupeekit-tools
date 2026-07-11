@@ -109,7 +109,7 @@
     "related": [
       "hra-exemption-calculator-india",
       "income-tax-calculator-old-vs-new-regime-india",
-      "gst-calculator-india",
+      "epf-corpus-calculator-india",
       "emi-calculator-india"
     ]
   },
@@ -874,9 +874,9 @@
       }
     ],
     "related": [
+      "lumpsum-calculator-india",
       "fd-calculator-india",
-      "salary-in-hand-calculator-india",
-      "emi-calculator-india",
+      "ppf-calculator-india",
       "emergency-fund-calculator-india"
     ],
     "quickAnswer": {
@@ -1113,6 +1113,7 @@
       }
     ],
     "related": [
+      "ppf-calculator-india",
       "sip-calculator-india",
       "salary-in-hand-calculator-india",
       "emi-calculator-india"
@@ -1789,6 +1790,7 @@
       }
     ],
     "related": [
+      "epf-corpus-calculator-india",
       "salary-in-hand-calculator-india",
       "hra-exemption-calculator-india",
       "fd-calculator-india"
@@ -2739,6 +2741,507 @@
       {
         "heading": "Source and Methodology",
         "body": "This calculator applies Section 111A (20% STCG) and Section 112A (12.5% LTCG above Rs 1.25 lakh) rates for STT-paid listed equity, plus 4% health and education cess, to the gain amounts you enter. Surcharge, set-offs and non-equity assets are out of scope. Educational estimate only, not tax advice."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "ppf-calculator-india",
+    "name": "PPF Calculator India",
+    "category": "Savings",
+    "status": "live",
+    "targetKeyword": "ppf calculator",
+    "shortDescription": "Estimate your Public Provident Fund maturity value, total interest and total investment over 15 or more years using yearly contributions and the current PPF interest rate.",
+    "metaDescription": "PPF calculator for India — estimate Public Provident Fund maturity value, total interest and investment over 15 years at current rates. Plan now.",
+    "inputs": [
+      {
+        "key": "yearlyInvestment",
+        "label": "Yearly investment",
+        "unit": "Rs",
+        "default": 150000,
+        "min": 500,
+        "max": 150000,
+        "step": 500,
+        "help": "PPF allows Rs 500 to Rs 1,50,000 per financial year. Deposits early in the year earn more interest."
+      },
+      {
+        "key": "interestRate",
+        "label": "PPF interest rate",
+        "unit": "%",
+        "default": 7.1,
+        "min": 1,
+        "max": 12,
+        "step": 0.1,
+        "help": "The government notifies the PPF rate quarterly. It has been 7.1% for several recent quarters."
+      },
+      {
+        "key": "tenureYears",
+        "label": "Investment period",
+        "unit": "years",
+        "default": 15,
+        "min": 15,
+        "max": 50,
+        "step": 5,
+        "help": "PPF matures at 15 years and can then be extended in 5-year blocks, with or without fresh contributions."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "totalInvested",
+        "label": "Total amount invested",
+        "formula": "yearlyInvestment * tenureYears",
+        "format": "currency"
+      },
+      {
+        "key": "maturityValue",
+        "label": "Estimated maturity value",
+        "formula": "yearlyInvestment * (((1 + interestRate/100) ^ tenureYears - 1) / (interestRate/100)) * (1 + interestRate/100)",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest earned",
+        "formula": "maturityValue - totalInvested",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Maturity value uses the annuity-due formula: yearly investment x ((1+r)^n - 1)/r x (1+r), assuming each deposit is made at the start of the year and the rate stays constant. r is the annual PPF rate and n is the number of years.",
+    "example": "Investing Rs 1,50,000 every year for 15 years at 7.1% gives a total investment of Rs 22,50,000, an estimated maturity value of about Rs 40,68,000, and interest of about Rs 18,18,000 — all tax-free under current rules.",
+    "quickAnswer": {
+      "title": "PPF Quick Answer",
+      "question": "How much will 1.5 lakh per year in PPF give after 15 years?",
+      "answer": "At the current 7.1% rate, investing Rs 1,50,000 at the start of each year for 15 years grows to roughly Rs 40.68 lakh at maturity — Rs 22.5 lakh of contributions plus about Rs 18.2 lakh of tax-free interest. PPF enjoys EEE status: the investment qualifies under Section 80C, and both interest and maturity are tax-exempt under current rules.",
+      "formula": "Maturity = Yearly investment x ((1+r)^n - 1)/r x (1+r)",
+      "example": "Rs 1,50,000 per year for 15 years at 7.1% gives about Rs 40,68,000.",
+      "note": "Educational estimate. The PPF rate is notified quarterly and can change; actual interest is credited using monthly balance rules."
+    },
+    "faqs": [
+      {
+        "question": "What is the current PPF interest rate?",
+        "answer": "The government notifies the PPF rate every quarter. It has stayed at 7.1% per annum for several recent quarters. Always check the latest notified rate before planning."
+      },
+      {
+        "question": "How is PPF interest calculated?",
+        "answer": "Interest accrues monthly on the lowest balance between the 5th and the end of the month, and is credited annually. This calculator uses a yearly annuity-due approximation, which closely matches deposits made early in the year."
+      },
+      {
+        "question": "Is PPF maturity amount tax-free?",
+        "answer": "Yes, under current rules PPF has EEE status: contributions qualify for Section 80C (within the limit), and interest and maturity proceeds are exempt from tax."
+      },
+      {
+        "question": "What is the minimum and maximum PPF deposit per year?",
+        "answer": "Minimum Rs 500 and maximum Rs 1,50,000 per financial year across all your PPF accounts. Deposits above the cap earn no interest and no 80C benefit."
+      },
+      {
+        "question": "Can I extend PPF beyond 15 years?",
+        "answer": "Yes. After maturity you can extend in 5-year blocks, either with fresh contributions (by submitting the prescribed form) or without contributions, where the balance keeps earning interest."
+      },
+      {
+        "question": "Can I withdraw from PPF before 15 years?",
+        "answer": "Partial withdrawals are allowed from the 7th financial year, subject to limits. Loans against PPF are available between the 3rd and 6th years. Premature closure is permitted only in specific cases after 5 years."
+      },
+      {
+        "question": "Is PPF better than a fixed deposit?",
+        "answer": "PPF usually offers a higher post-tax return than an FD for eligible investors because PPF interest is tax-free, but it locks money for 15 years. FDs offer flexibility and shorter tenures. Compare both with your horizon in mind."
+      },
+      {
+        "question": "When should I deposit to earn maximum PPF interest?",
+        "answer": "Deposit before the 5th of the month — ideally a lump sum before April 5 — so the full amount earns interest for the whole year. Late deposits lose that month's interest."
+      }
+    ],
+    "related": [
+      "80c-deduction-calculator-india",
+      "fd-calculator-india",
+      "sip-calculator-india",
+      "lumpsum-calculator-india"
+    ],
+    "howToUse": [
+      "Enter how much you plan to invest each financial year (Rs 500 to Rs 1,50,000).",
+      "Keep the current notified PPF rate or adjust it for scenario planning.",
+      "Choose 15 years, or a longer period if you plan to extend in 5-year blocks.",
+      "Read the total invested, estimated maturity value and tax-free interest."
+    ],
+    "assumptions": [
+      "Deposits are made at the start of each year and the rate stays constant for the full period; the actual notified rate changes quarterly.",
+      "Interest crediting follows the annuity-due approximation, closely matching early-in-the-year deposits.",
+      "Educational estimate only. Actual PPF interest follows monthly-balance rules set by the government."
+    ],
+    "commonMistakes": [
+      "Depositing after April 5 and losing a month or more of interest.",
+      "Exceeding the Rs 1.5 lakh yearly cap, which earns nothing extra.",
+      "Forgetting that the quarterly rate can change over a 15-year horizon.",
+      "Ignoring the 15-year lock-in when money may be needed sooner.",
+      "Letting the account lapse by missing the Rs 500 minimum yearly deposit."
+    ],
+    "contentSections": [
+      {
+        "heading": "What is PPF and why is it popular?",
+        "body": "The Public Provident Fund is a government-backed small savings scheme with a 15-year term, quarterly-notified interest and EEE tax status — the contribution, the interest and the maturity amount are all tax-exempt under current rules. That combination of sovereign safety and tax-free compounding makes it a core long-term savings product for Indian households.",
+        "bullets": [
+          "Government-backed with sovereign guarantee.",
+          "Section 80C benefit on contributions up to Rs 1.5 lakh.",
+          "Interest and maturity tax-free under current rules."
+        ]
+      },
+      {
+        "heading": "How the 15-year maturity works",
+        "body": "The account matures 15 complete financial years after the year of opening. On maturity you can withdraw everything, extend for 5 years with contributions, or extend without contributions while the balance keeps compounding. Many savers use repeated extensions to turn PPF into a 20-25 year corpus."
+      },
+      {
+        "heading": "PPF example: Rs 1.5 lakh per year",
+        "body": "At 7.1% for 15 years, yearly deposits of Rs 1,50,000 made early in the year total Rs 22,50,000 and grow to about Rs 40,68,000 — roughly Rs 18.2 lakh of tax-free interest. The same discipline extended to 20 years grows to about Rs 66.6 lakh, showing how strongly the extra years compound."
+      },
+      {
+        "heading": "PPF vs FD vs SIP",
+        "body": "PPF gives assured, tax-free returns with a long lock-in. FDs give assured but taxable returns with flexible tenure. Equity SIPs offer higher potential returns with market risk. Many households combine them: PPF for the safe core, SIP for growth.",
+        "bullets": [
+          "PPF: assured, tax-free, 15-year lock-in.",
+          "FD: assured, taxable, flexible tenure.",
+          "SIP: market-linked, higher potential, no guarantee."
+        ]
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator estimates PPF maturity using the annuity-due future-value formula on your yearly investment, rate and period. Actual PPF interest is notified quarterly by the government and credited using monthly-balance rules, so real outcomes can differ slightly. Educational estimate only."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "lumpsum-calculator-india",
+    "name": "Lumpsum Calculator India",
+    "category": "Investments",
+    "status": "live",
+    "targetKeyword": "lumpsum calculator",
+    "shortDescription": "Project how a one-time investment grows in India using expected annual returns, with total gain and the inflation-adjusted value of the final corpus.",
+    "metaDescription": "Lumpsum calculator for India — project one-time investment growth with expected returns, total gain and inflation-adjusted value. Calculate now.",
+    "inputs": [
+      {
+        "key": "investmentAmount",
+        "label": "One-time investment",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 0,
+        "step": 5000,
+        "help": "The amount you plan to invest today in one go."
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected annual return",
+        "unit": "%",
+        "default": 12,
+        "min": 1,
+        "max": 30,
+        "step": 0.5,
+        "help": "Use a realistic assumption. Long-run equity returns are often assumed around 10-12%; debt lower."
+      },
+      {
+        "key": "tenureYears",
+        "label": "Investment period",
+        "unit": "years",
+        "default": 10,
+        "min": 1,
+        "max": 40,
+        "step": 1,
+        "help": "How long you plan to stay invested."
+      },
+      {
+        "key": "inflationRate",
+        "label": "Assumed inflation",
+        "unit": "%",
+        "default": 6,
+        "min": 0,
+        "max": 15,
+        "step": 0.5,
+        "help": "Used to show what the future corpus is worth in today's money."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "futureValue",
+        "label": "Estimated future value",
+        "formula": "investmentAmount * (1 + expectedReturn/100) ^ tenureYears",
+        "format": "currency"
+      },
+      {
+        "key": "totalGain",
+        "label": "Total estimated gain",
+        "formula": "futureValue - investmentAmount",
+        "format": "currency"
+      },
+      {
+        "key": "inflationAdjustedValue",
+        "label": "Value in today's money",
+        "formula": "futureValue / (1 + inflationRate/100) ^ tenureYears",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Future value = investment x (1 + r)^n, where r is the expected annual return and n is the number of years. The inflation-adjusted value divides that result by (1 + inflation)^n to show purchasing power in today's rupees.",
+    "example": "Rs 1,00,000 invested once at an assumed 12% for 10 years grows to about Rs 3,10,585 — a gain of about Rs 2,10,585. Adjusted for 6% inflation, that corpus is worth about Rs 1,73,429 in today's money.",
+    "quickAnswer": {
+      "title": "Lumpsum Quick Answer",
+      "question": "How much will 1 lakh grow to in 10 years?",
+      "answer": "At an assumed 12% annual return, Rs 1 lakh invested once grows to about Rs 3.11 lakh in 10 years; at 8% it grows to about Rs 2.16 lakh. Compounding accelerates with time — the same investment at 12% becomes about Rs 9.65 lakh in 20 years. Returns are assumptions, not guarantees.",
+      "formula": "Future value = Investment x (1 + r)^n",
+      "example": "Rs 1,00,000 at 12% for 10 years gives about Rs 3,10,585.",
+      "note": "Educational estimate using a constant assumed return. Market returns vary and are not guaranteed."
+    },
+    "faqs": [
+      {
+        "question": "What is a lumpsum investment?",
+        "answer": "A lumpsum investment puts the full amount to work in one go, unlike a SIP which invests in monthly instalments. It suits money already available, such as a bonus, maturity proceeds or sale proceeds."
+      },
+      {
+        "question": "Is lumpsum better than SIP?",
+        "answer": "Neither is universally better. A lumpsum benefits fully from time in the market but takes on point-of-entry risk; a SIP averages the entry price and suits monthly income. Many investors use a lumpsum for existing money and a SIP for ongoing savings."
+      },
+      {
+        "question": "What return should I assume for a lumpsum calculation?",
+        "answer": "Use conservative assumptions: long-run Indian equity returns are often modelled around 10-12%, hybrid funds lower, and debt around 6-8%. Assuming high returns produces misleading plans."
+      },
+      {
+        "question": "How does inflation affect my lumpsum returns?",
+        "answer": "Inflation erodes purchasing power. This calculator shows the future value divided by (1+inflation)^years so you can see the corpus in today's money — a Rs 3.1 lakh future corpus at 6% inflation is worth about Rs 1.73 lakh today."
+      },
+      {
+        "question": "How is tax applied on lumpsum equity investments?",
+        "answer": "Gains on equity funds follow capital gains rules: 20% short-term, and 12.5% long-term above the Rs 1.25 lakh annual exemption. Use RupeeKit's capital gains tax calculator to estimate the tax on redemption."
+      },
+      {
+        "question": "Does this calculator guarantee returns?",
+        "answer": "No. It compounds a constant assumed return for illustration. Actual market returns vary year to year and can be negative."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "fd-calculator-india",
+      "ppf-calculator-india",
+      "capital-gains-tax-calculator-india"
+    ],
+    "howToUse": [
+      "Enter the one-time amount you plan to invest.",
+      "Set a realistic expected annual return for the chosen asset.",
+      "Choose the number of years you plan to stay invested.",
+      "Set an inflation assumption to see the corpus in today's money."
+    ],
+    "assumptions": [
+      "A constant annual return compounded yearly; real market returns fluctuate.",
+      "No taxes, exit loads or fund expenses are modelled.",
+      "Educational estimate only, not investment advice or a return guarantee."
+    ],
+    "commonMistakes": [
+      "Assuming optimistic returns like 15-18% for planning.",
+      "Ignoring inflation when judging the future corpus.",
+      "Forgetting capital gains tax on redemption.",
+      "Comparing a lumpsum projection against a SIP of the same monthly amount — the cashflows differ.",
+      "Investing an emergency fund as a locked-in lumpsum."
+    ],
+    "contentSections": [
+      {
+        "heading": "How compounding works in a lumpsum investment",
+        "body": "A lumpsum compounds on the full amount from day one: each year's growth is earned on both the principal and all past growth. That is why time matters more than timing — Rs 1 lakh at 12% becomes about Rs 3.1 lakh in 10 years but about Rs 9.65 lakh in 20 years, tripling the gain by doubling the period."
+      },
+      {
+        "heading": "Lumpsum vs SIP: when each fits",
+        "body": "Use a lumpsum when the money already exists and your horizon is long; use a SIP to invest from monthly income and to average entry prices in volatile markets.",
+        "bullets": [
+          "Lumpsum: full market exposure immediately, higher entry-point risk.",
+          "SIP: rupee-cost averaging, suits salaried cashflows.",
+          "Combining both is common: lumpsum for windfalls, SIP for salary."
+        ]
+      },
+      {
+        "heading": "Always check the inflation-adjusted number",
+        "body": "A projection that looks large in nominal rupees may be modest in purchasing power. At 6% inflation, prices roughly double every 12 years, so a 10-year corpus needs to be judged in today's money — which is exactly what the inflation-adjusted output shows."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator compounds your one-time investment at the assumed annual return for the chosen period and discounts the result by the assumed inflation rate. It does not model taxes, expenses or market volatility. Educational estimate only."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "epf-corpus-calculator-india",
+    "name": "EPF Corpus Calculator India",
+    "category": "Retirement",
+    "status": "live",
+    "targetKeyword": "epf calculator",
+    "shortDescription": "Estimate your Employees' Provident Fund corpus at retirement from monthly basic salary, employee and employer EPF contributions and the current EPF interest rate.",
+    "metaDescription": "EPF corpus calculator for India — estimate your provident fund balance at retirement from basic salary, contributions and interest. Calculate now.",
+    "inputs": [
+      {
+        "key": "monthlyBasicDa",
+        "label": "Monthly basic salary + DA",
+        "unit": "Rs",
+        "default": 30000,
+        "min": 0,
+        "step": 1000,
+        "help": "EPF contributions are calculated on basic salary plus dearness allowance, not full CTC."
+      },
+      {
+        "key": "employeePercent",
+        "label": "Employee contribution",
+        "unit": "%",
+        "default": 12,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "help": "The standard employee EPF contribution is 12% of basic + DA. Voluntary PF (VPF) can add more."
+      },
+      {
+        "key": "employerEpfPercent",
+        "label": "Employer contribution to EPF",
+        "unit": "%",
+        "default": 3.67,
+        "min": 0,
+        "max": 12,
+        "step": 0.01,
+        "help": "Of the employer's 12%, typically 8.33% goes to the pension scheme (EPS) and 3.67% to your EPF account."
+      },
+      {
+        "key": "annualRate",
+        "label": "EPF interest rate",
+        "unit": "%",
+        "default": 8.25,
+        "min": 1,
+        "max": 15,
+        "step": 0.05,
+        "help": "EPFO declares the rate yearly. Recent years have been around 8.1-8.25%."
+      },
+      {
+        "key": "years",
+        "label": "Years until withdrawal",
+        "unit": "years",
+        "default": 20,
+        "min": 1,
+        "max": 40,
+        "step": 1,
+        "help": "Years of continued contribution until retirement or planned withdrawal."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyContribution",
+        "label": "Total monthly EPF contribution",
+        "formula": "monthlyBasicDa * (employeePercent + employerEpfPercent) / 100",
+        "format": "currency"
+      },
+      {
+        "key": "totalContributed",
+        "label": "Total contributions over the period",
+        "formula": "monthlyContribution * years * 12",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedCorpus",
+        "label": "Estimated EPF corpus",
+        "formula": "monthlyContribution * (((1 + annualRate/12/100) ^ (years*12)) - 1) / (annualRate/12/100)",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest earned",
+        "formula": "estimatedCorpus - totalContributed",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Monthly contribution = basic+DA x (employee% + employer EPF%). The corpus is the future value of that monthly contribution compounded at the EPF rate: contribution x ((1+i)^n - 1)/i, where i is the monthly rate and n the number of months. Salary is assumed constant; real corpora grow faster as salary rises.",
+    "example": "On a Rs 30,000 basic+DA with 12% employee and 3.67% employer EPF contributions (Rs 4,701 per month), 20 years at 8.25% builds a corpus of about Rs 28,57,000 — Rs 11,28,000 of contributions plus about Rs 17,28,000 of interest.",
+    "quickAnswer": {
+      "title": "EPF Quick Answer",
+      "question": "How much EPF corpus will I have at retirement?",
+      "answer": "Your EPF corpus is the future value of monthly contributions — 12% of basic+DA from you plus 3.67% from your employer (8.33% of the employer share goes to EPS pension) — compounded at the EPFO-declared rate, currently around 8.25%. On a Rs 30,000 basic, that builds roughly Rs 28.6 lakh in 20 years even with no salary growth; real corpora are larger because salaries rise.",
+      "formula": "Corpus = Monthly contribution x ((1+i)^n - 1) / i",
+      "example": "Rs 30,000 basic+DA for 20 years at 8.25% gives about Rs 28.57 lakh.",
+      "note": "Educational estimate with constant salary. EPS pension contributions and rate changes are not included in the corpus figure."
+    },
+    "faqs": [
+      {
+        "question": "How is EPF contribution calculated?",
+        "answer": "You contribute 12% of basic salary plus DA. Your employer also contributes 12%, but typically 8.33% of that goes to the Employees' Pension Scheme (capped on Rs 15,000 wages) and only 3.67% reaches your EPF account."
+      },
+      {
+        "question": "What is the current EPF interest rate?",
+        "answer": "EPFO declares the rate each year; recent years have been in the 8.1-8.25% range. The rate applies to monthly running balances and is credited annually."
+      },
+      {
+        "question": "Why does my employer's full 12% not reach my EPF?",
+        "answer": "Because 8.33% of employer contribution (on wages up to Rs 15,000) is diverted to the pension scheme (EPS), which pays a monthly pension after 58 rather than adding to the lump-sum corpus."
+      },
+      {
+        "question": "Does this calculator account for salary increases?",
+        "answer": "No, it assumes constant basic+DA, making the estimate conservative. With yearly increments, contributions and the final corpus are meaningfully higher."
+      },
+      {
+        "question": "Is EPF interest taxable?",
+        "answer": "Interest on employee contributions above Rs 2.5 lakh per year is taxable; below that, EPF interest and maturity are generally tax-exempt for eligible withdrawals after 5 years of continuous service."
+      },
+      {
+        "question": "Can I contribute more than 12% to EPF?",
+        "answer": "Yes, through Voluntary Provident Fund (VPF) you can contribute up to 100% of basic+DA at the same interest rate. Employer contribution does not increase with VPF."
+      },
+      {
+        "question": "What happens to EPF when I change jobs?",
+        "answer": "Transfer the balance to the new employer using your UAN rather than withdrawing. Withdrawals before 5 years of continuous service can be taxable, and breaking continuity loses compounding."
+      },
+      {
+        "question": "Is EPF enough for retirement?",
+        "answer": "For many people EPF alone falls short of a full retirement corpus because contributions are tied to basic salary. It pairs well with PPF, NPS and equity SIPs. Use this estimate alongside your other savings."
+      }
+    ],
+    "related": [
+      "salary-in-hand-calculator-india",
+      "ppf-calculator-india",
+      "gratuity-calculator-india",
+      "sip-calculator-india"
+    ],
+    "howToUse": [
+      "Enter your monthly basic salary plus DA from your payslip.",
+      "Keep 12% employee contribution, or raise it if you use VPF.",
+      "Keep 3.67% employer EPF share unless your structure differs.",
+      "Set the current EPF rate and years until retirement or withdrawal.",
+      "Read your estimated corpus, total contributions and interest."
+    ],
+    "assumptions": [
+      "Basic+DA stays constant for the whole period — real corpora are larger as salaries grow.",
+      "Interest compounds monthly at a constant rate; EPFO's actual crediting is annual on monthly running balances.",
+      "EPS pension contributions are excluded from the corpus figure.",
+      "Educational estimate only. Check your actual balance on the EPFO portal or UMANG app."
+    ],
+    "commonMistakes": [
+      "Using full CTC instead of basic+DA for contributions.",
+      "Counting the employer's full 12% toward EPF and ignoring the EPS split.",
+      "Withdrawing EPF at every job change and losing compounding and tax benefits.",
+      "Ignoring the tax on interest for employee contributions above Rs 2.5 lakh a year.",
+      "Treating this constant-salary estimate as the final retirement number."
+    ],
+    "contentSections": [
+      {
+        "heading": "How EPF builds your retirement corpus",
+        "body": "Every month, 12% of your basic+DA plus 3.67% from your employer flows into your EPF account and compounds at the EPFO-declared rate. Over a full career, interest usually ends up larger than the contributions themselves — in the 20-year example above, about Rs 17.3 lakh of a Rs 28.6 lakh corpus is interest.",
+        "bullets": [
+          "Contributions are on basic+DA, not CTC.",
+          "Employer share splits: 8.33% to EPS pension, 3.67% to EPF.",
+          "Interest compounds on the running balance year after year."
+        ]
+      },
+      {
+        "heading": "EPF vs PPF vs NPS",
+        "body": "EPF is automatic and employer-matched for salaried employees; PPF is a voluntary 15-year account anyone can open; NPS adds market-linked growth with an annuity requirement at exit. Many salaried savers run EPF and PPF together for the safe core of retirement money.",
+        "bullets": [
+          "EPF: salary-linked, employer match, ~8.25% declared yearly.",
+          "PPF: voluntary, Rs 1.5 lakh a year cap, tax-free maturity.",
+          "NPS: market-linked, extra 80CCD deductions, annuity at exit."
+        ]
+      },
+      {
+        "heading": "Why job changes matter",
+        "body": "EPF rewards continuity. Transferring the balance via your UAN keeps the service period intact, protects the tax exemption that comes with 5 years of continuous service, and keeps the full balance compounding. Withdrawing between jobs restarts everything and can trigger tax."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator computes the future value of a constant monthly EPF contribution (employee plus employer EPF share) compounded monthly at the rate you enter. EPS contributions, salary growth, VPF changes and the Rs 2.5 lakh interest-tax threshold are not modelled. Educational estimate only."
       }
     ],
     "lastReviewed": "July 2026"

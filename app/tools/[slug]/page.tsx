@@ -742,6 +742,12 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       {
         '@type': 'ListItem',
         position: 2,
+        name: 'Calculators',
+        item: `${SITE_URL}/tools`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
         name: heading,
         item: pageUrl,
       },
@@ -790,6 +796,10 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       <nav className="text-sm text-slate-500">
         <Link href="/" className="hover:text-slate-950">
           Home
+        </Link>
+        <span className="mx-2">/</span>
+        <Link href="/tools" className="hover:text-slate-950">
+          Calculators
         </Link>
         <span className="mx-2">/</span>
         <span>{heading}</span>

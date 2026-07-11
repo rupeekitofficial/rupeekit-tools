@@ -8,7 +8,7 @@ export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Tools', href: '/#calculators' },
+    { name: 'Tools', href: '/tools' },
     { name: 'Blog', href: '/blog' },
     { name: 'Resources', href: '/resources' },
     { name: 'Start Here', href: '/start-here' },
