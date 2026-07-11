@@ -108,6 +108,7 @@
     ],
     "related": [
       "hra-exemption-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
       "gst-calculator-india",
       "emi-calculator-india"
     ]
@@ -183,6 +184,7 @@
     ],
     "related": [
       "personal-loan-emi-calculator-india",
+      "home-loan-emi-calculator-india",
       "salary-in-hand-calculator-india",
       "fd-calculator-india",
       "sip-calculator-india"
@@ -424,13 +426,18 @@
       {
         "question": "Does this calculator guarantee loan approval?",
         "answer": "No. It provides educational estimates only and cannot guarantee eligibility, approval, or final lender terms."
+      },
+      {
+        "question": "Is this also a personal loan interest rate calculator?",
+        "answer": "Yes. Alongside your monthly EMI, this calculator shows the total interest payable at your entered interest rate, so you can use it to compare how different rates and tenures change your total borrowing cost."
       }
     ],
     "related": [
+      "personal-loan-eligibility-calculator-india",
       "emi-calculator-india",
       "salary-in-hand-calculator-india",
-      "fd-calculator-india",
-      "sip-calculator-india"
+      "emergency-fund-calculator-india",
+      "gold-loan-calculator-india"
     ],
     "howToUse": [
       "Enter loan amount, annual interest rate, and tenure in months.",
@@ -504,7 +511,7 @@
         "body": "No. RupeeKit is an educational calculator platform and does not provide lending, approval, or disbursal."
       }
     ],
-    "lastReviewed": "May 2026"
+    "lastReviewed": "July 2026"
   },
   {
     "slug": "emergency-fund-calculator-india",
@@ -673,6 +680,10 @@
       {
         "question": "Is this emergency fund calculator financial advice?",
         "answer": "No. This is an educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice."
+      },
+      {
+        "question": "Is this the same as a savings or emergency savings calculator?",
+        "answer": "Yes, in effect. It estimates the emergency savings corpus you should target based on your expenses, EMIs, dependants and income stability, so it works as an emergency savings calculator for Indian households."
       }
     ],
     "related": [
@@ -763,7 +774,7 @@
         "body": "This calculator estimates emergency fund needs using monthly essential expenses, EMI commitments, current emergency savings, target months and monthly saving capacity. It is designed for household planning support and does not recommend any specific financial product."
       }
     ],
-    "lastReviewed": "May 2026"
+    "lastReviewed": "July 2026"
   },
   {
     "slug": "sip-calculator-india",
@@ -1286,10 +1297,10 @@
       }
     ],
     "related": [
+      "capital-gains-tax-calculator-india",
       "salary-in-hand-calculator-india",
       "emi-calculator-india",
-      "sip-calculator-india",
-      "gst-calculator-india"
+      "sip-calculator-india"
     ]
   },
   {
@@ -1438,6 +1449,7 @@
     "related": [
       "salary-in-hand-calculator-india",
       "80c-deduction-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
       "emi-calculator-india"
     ],
     "howToUse": [
@@ -1491,7 +1503,7 @@
         ]
       }
     ],
-    "lastReviewed": "May 2026"
+    "lastReviewed": "July 2026"
   },
   {
     "slug": "80c-deduction-calculator-india",
@@ -1606,7 +1618,8 @@
     "related": [
       "hra-exemption-calculator-india",
       "salary-in-hand-calculator-india",
-      "gst-calculator-india"
+      "income-tax-calculator-old-vs-new-regime-india",
+      "capital-gains-tax-calculator-india"
     ],
     "howToUse": [
       "Enter your annual Employee Provident Fund (EPF) contribution in the designated field.",
@@ -2021,6 +2034,714 @@
       }
     ],
     "lastReviewed": "May 2026"
+  },
+  {
+    "slug": "home-loan-emi-calculator-india",
+    "name": "Home Loan EMI Calculator India",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "home loan emi calculator",
+    "shortDescription": "Calculate home loan EMI, total interest and total repayment in India from loan amount, interest rate and tenure in years. Compare 15, 20 and 30 year costs before committing.",
+    "metaDescription": "Free Home Loan EMI Calculator for India — get monthly EMI, total interest and total repayment for any loan amount, rate and tenure. Calculate now.",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Home loan amount",
+        "unit": "Rs",
+        "default": 3000000,
+        "min": 0,
+        "step": 100000,
+        "help": "Loan amount you plan to borrow, usually property cost minus your down payment."
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual interest rate",
+        "unit": "%",
+        "default": 8.5,
+        "min": 1,
+        "max": 20,
+        "step": 0.05,
+        "help": "Use the rate from your lender's offer or sanction letter. Home loan rates are usually floating."
+      },
+      {
+        "key": "tenureYears",
+        "label": "Loan tenure",
+        "unit": "years",
+        "default": 20,
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "help": "Home loans in India commonly run 15 to 30 years. Longer tenure lowers EMI but raises total interest."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyEmi",
+        "label": "Monthly EMI",
+        "formula": "principal * ((annualRate/12/100) * (1 + annualRate/12/100) ^ (tenureYears*12)) / (((1 + annualRate/12/100) ^ (tenureYears*12)) - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "totalPayment",
+        "label": "Total repayment",
+        "formula": "monthlyEmi * tenureYears * 12",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest payable",
+        "formula": "totalPayment - principal",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "EMI = P x r x (1+r)^n / ((1+r)^n - 1), where P is the home loan amount, r is the monthly interest rate (annual rate divided by 12 and 100), and n is the tenure in months (years x 12).",
+    "example": "For a Rs 30,00,000 home loan at 8.5% for 20 years, monthly EMI is about Rs 26,035, total repayment is about Rs 62,48,400, and total interest is about Rs 32,48,400 — more than the loan amount itself.",
+    "quickAnswer": {
+      "title": "Home Loan EMI Quick Answer",
+      "question": "How is home loan EMI calculated in India?",
+      "answer": "Home loan EMI is calculated using the standard reducing-balance formula: EMI = P x r x (1+r)^n / ((1+r)^n - 1), where P is the loan amount, r is the monthly interest rate and n is the tenure in months. A Rs 30 lakh loan at 8.5% for 20 years works out to roughly Rs 26,000 per month.",
+      "formula": "EMI = P x r x (1+r)^n / ((1+r)^n - 1)",
+      "example": "Rs 30,00,000 at 8.5% for 20 years gives an EMI of about Rs 26,035 and total interest of about Rs 32.5 lakh.",
+      "note": "Educational estimate only. Actual EMI depends on the lender's rate, reset cycle, fees and sanction terms."
+    },
+    "faqs": [
+      {
+        "question": "How is home loan EMI calculated?",
+        "answer": "Home loan EMI uses the reducing-balance formula EMI = P x r x (1+r)^n / ((1+r)^n - 1), where P is the loan amount, r is the monthly rate and n is tenure in months. This calculator applies the same formula to your inputs."
+      },
+      {
+        "question": "What is the EMI for a Rs 30 lakh home loan for 20 years?",
+        "answer": "At 8.5% per annum, a Rs 30 lakh home loan for 20 years has an EMI of about Rs 26,035. The exact figure changes with the interest rate, so enter your lender's offered rate for a closer estimate."
+      },
+      {
+        "question": "What is the EMI for a Rs 60 lakh home loan for 15 years?",
+        "answer": "At 8.5% per annum, a Rs 60 lakh home loan for 15 years has an EMI of about Rs 59,086. Use the calculator with your own rate and tenure to see total interest as well."
+      },
+      {
+        "question": "Is a longer home loan tenure better?",
+        "answer": "Longer tenure lowers the monthly EMI but significantly increases total interest paid. A 30-year loan can cost far more in interest than a 15-year loan for the same amount. Compare tenures in this calculator before deciding."
+      },
+      {
+        "question": "Does home loan EMI change when interest rates change?",
+        "answer": "Most Indian home loans are floating-rate, linked to a benchmark such as the repo rate. When rates change, lenders typically adjust either your EMI or your remaining tenure."
+      },
+      {
+        "question": "Can I reduce home loan interest with prepayment?",
+        "answer": "Yes. Part-prepayments on a floating-rate home loan reduce the outstanding principal, which lowers total interest. RBI rules generally prohibit prepayment penalties on floating-rate home loans for individuals."
+      },
+      {
+        "question": "What tax benefits apply to a home loan?",
+        "answer": "Under the old tax regime, principal repayment may qualify under Section 80C (within the overall limit) and interest on a self-occupied home may qualify under Section 24(b) up to the applicable cap. Most of these deductions are not available in the new regime. Verify with current-year rules."
+      },
+      {
+        "question": "Does this calculator include processing fees or insurance?",
+        "answer": "No. It estimates EMI, total interest and total repayment from loan amount, rate and tenure only. Processing fees, legal charges and insurance premiums add to your real cost."
+      },
+      {
+        "question": "Does RupeeKit show live home loan interest rates?",
+        "answer": "No. RupeeKit does not fetch live lender rates. Enter the rate from your lender's official offer for an accurate estimate."
+      },
+      {
+        "question": "Can I use this for SBI, HDFC, LIC HFL or any other lender?",
+        "answer": "Yes. The EMI formula is the same across lenders. Enter the specific lender's rate, amount and tenure. RupeeKit is not affiliated with any lender."
+      }
+    ],
+    "related": [
+      "emi-calculator-india",
+      "personal-loan-emi-calculator-india",
+      "salary-in-hand-calculator-india",
+      "hra-exemption-calculator-india"
+    ],
+    "howToUse": [
+      "Enter the home loan amount you plan to borrow.",
+      "Enter the annual interest rate from your lender's offer.",
+      "Set the tenure in years, commonly 15 to 30 for home loans.",
+      "Read the monthly EMI, total interest and total repayment.",
+      "Change tenure or rate to compare scenarios before committing."
+    ],
+    "assumptions": [
+      "Fixed EMI over the full tenure using the reducing-balance method; floating-rate resets are not simulated.",
+      "Processing fees, insurance, stamp duty and other charges are excluded.",
+      "Educational estimate only. Final EMI and terms are set by your lender's sanction letter."
+    ],
+    "commonMistakes": [
+      "Choosing the longest tenure only for a lower EMI without checking total interest.",
+      "Ignoring processing fees, insurance and stamp duty when budgeting.",
+      "Assuming the EMI stays fixed on a floating-rate loan.",
+      "Borrowing the maximum sanctioned amount instead of what the household budget supports.",
+      "Not planning part-prepayments that could cut years of interest."
+    ],
+    "contentSections": [
+      {
+        "heading": "How is home loan EMI calculated?",
+        "body": "Home loan EMI uses the standard reducing-balance formula EMI = P x r x (1+r)^n / ((1+r)^n - 1). Each EMI first covers the month's interest on the outstanding balance, and the remainder reduces principal. Early in the tenure most of the EMI is interest; the principal share grows over time.",
+        "bullets": [
+          "P = loan amount, r = monthly rate, n = tenure in months.",
+          "Longer tenure lowers EMI but raises total interest sharply.",
+          "Small rate differences compound into large cost differences over 20-30 years."
+        ]
+      },
+      {
+        "heading": "15 vs 20 vs 30 Year Home Loan: What Changes",
+        "body": "For a Rs 30 lakh loan at 8.5%, a 15-year tenure means an EMI of about Rs 29,542 and total interest of about Rs 23.2 lakh. At 20 years, EMI drops to about Rs 26,035 but total interest rises to about Rs 32.5 lakh. At 30 years, EMI falls further to about Rs 23,067 while total interest exceeds Rs 53 lakh — more than 1.7 times the loan itself. Choose tenure by comparing total cost, not EMI alone."
+      },
+      {
+        "heading": "Home Loan Tax Context: Section 24(b) and 80C",
+        "body": "Under the old tax regime, interest on a self-occupied property may be deductible under Section 24(b) up to the applicable annual cap, and principal repayment may count toward the Section 80C limit. These deductions are generally not available under the default new tax regime, so compare regimes before assuming tax savings from a home loan.",
+        "bullets": [
+          "Section 24(b): interest deduction for self-occupied property, subject to cap.",
+          "Section 80C: principal repayment within the overall 80C limit.",
+          "Compare old vs new regime impact before counting on these benefits."
+        ]
+      },
+      {
+        "heading": "Prepayment and Floating Rates",
+        "body": "Most Indian home loans are floating-rate. When the benchmark rate changes, lenders adjust the EMI or the remaining tenure. Part-prepayment reduces outstanding principal directly, and on floating-rate home loans to individuals, lenders generally cannot charge prepayment penalties. Even one extra EMI per year can shorten a 20-year loan meaningfully."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator applies the standard reducing-balance EMI formula to the loan amount, annual interest rate and tenure you enter. It does not fetch live lender rates and does not include fees, insurance or taxes. Results are educational estimates for planning and comparison only."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "personal-loan-eligibility-calculator-india",
+    "name": "Personal Loan Eligibility Calculator India",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "personal loan eligibility calculator",
+    "shortDescription": "Estimate how much personal loan you may be eligible for in India using your monthly income, existing EMIs and a FOIR-based affordable EMI, plus the interest rate and tenure you expect.",
+    "metaDescription": "Personal loan eligibility calculator for India — estimate your maximum EMI and eligible loan amount from income, existing EMIs and FOIR. Check now.",
+    "inputs": [
+      {
+        "key": "monthlyIncome",
+        "label": "Net monthly income",
+        "unit": "Rs",
+        "default": 75000,
+        "min": 0,
+        "step": 1000,
+        "help": "Take-home monthly income after tax and deductions."
+      },
+      {
+        "key": "existingMonthlyEmi",
+        "label": "Existing monthly EMIs",
+        "unit": "Rs",
+        "default": 10000,
+        "min": 0,
+        "step": 500,
+        "help": "Total of all current EMIs and fixed loan obligations."
+      },
+      {
+        "key": "foirPercent",
+        "label": "FOIR / income-to-obligation cap",
+        "unit": "%",
+        "default": 50,
+        "min": 10,
+        "max": 70,
+        "step": 5,
+        "help": "Lenders commonly cap total EMIs at 40-55% of net income. 50% is a typical planning value."
+      },
+      {
+        "key": "annualRate",
+        "label": "Expected annual interest rate",
+        "unit": "%",
+        "default": 14,
+        "min": 1,
+        "max": 40,
+        "step": 0.25,
+        "help": "Personal loan rates in India commonly range from about 10% to 24% depending on profile."
+      },
+      {
+        "key": "tenureMonths",
+        "label": "Expected tenure",
+        "unit": "months",
+        "default": 48,
+        "min": 6,
+        "max": 84,
+        "step": 6,
+        "help": "Personal loans usually run 12 to 60 months; some lenders allow up to 84."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "maxAffordableEmi",
+        "label": "Maximum affordable EMI",
+        "formula": "max(monthlyIncome * foirPercent / 100 - existingMonthlyEmi, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "eligibleLoanAmount",
+        "label": "Estimated eligible loan amount",
+        "formula": "maxAffordableEmi * (((1 + annualRate/12/100) ^ tenureMonths) - 1) / ((annualRate/12/100) * (1 + annualRate/12/100) ^ tenureMonths)",
+        "format": "currency"
+      },
+      {
+        "key": "totalRepayment",
+        "label": "Total repayment at max EMI",
+        "formula": "maxAffordableEmi * tenureMonths",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest at max EMI",
+        "formula": "totalRepayment - eligibleLoanAmount",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Maximum affordable EMI = (Net monthly income x FOIR%) minus existing EMIs. Eligible loan amount is the present value of that EMI over the chosen tenure at the expected rate: EMI x ((1+r)^n - 1) / (r x (1+r)^n).",
+    "example": "With Rs 75,000 net monthly income, Rs 10,000 existing EMIs and a 50% FOIR cap, the maximum affordable EMI is Rs 27,500. At 14% for 48 months, that supports an estimated eligible loan of about Rs 10.1 lakh.",
+    "quickAnswer": {
+      "title": "Personal Loan Eligibility Quick Answer",
+      "question": "How much personal loan can I get on my salary in India?",
+      "answer": "Lenders typically cap your total EMIs at around 40-55% of net monthly income (called FOIR). Your maximum affordable EMI is that cap minus existing EMIs, and your eligible loan amount is what that EMI supports over the tenure at the offered rate. On a Rs 75,000 net income with Rs 10,000 existing EMIs and a 50% cap, that is roughly a Rs 10 lakh loan at 14% over 48 months.",
+      "formula": "Max EMI = (Net income x FOIR%) - existing EMIs; Eligible loan = Max EMI x ((1+r)^n - 1) / (r x (1+r)^n)",
+      "example": "Rs 75,000 income, Rs 10,000 existing EMI, 50% FOIR, 14%, 48 months gives about Rs 10.1 lakh eligibility.",
+      "note": "Educational estimate only. Actual eligibility depends on the lender's credit policy, credit score, employer category and documentation."
+    },
+    "faqs": [
+      {
+        "question": "How is personal loan eligibility calculated in India?",
+        "answer": "Most lenders use an income-to-obligation ratio (FOIR): total EMIs including the new loan should stay within roughly 40-55% of net monthly income. The eligible amount is the loan that your remaining EMI capacity supports at the offered rate and tenure."
+      },
+      {
+        "question": "What is FOIR in loan eligibility?",
+        "answer": "FOIR (Fixed Obligation to Income Ratio) is the share of your net monthly income that can go toward fixed obligations like EMIs. If a lender uses 50% FOIR and you earn Rs 75,000, your total EMIs should stay within Rs 37,500."
+      },
+      {
+        "question": "How much personal loan can I get on a Rs 50,000 salary?",
+        "answer": "At a 50% FOIR with no existing EMIs, your affordable EMI is about Rs 25,000, which supports roughly Rs 9.1 lakh at 14% over 48 months. Existing EMIs, credit score and lender policy change this figure."
+      },
+      {
+        "question": "Does credit score affect personal loan eligibility?",
+        "answer": "Yes. A higher credit score (often 750+) improves approval chances and rates. This calculator estimates capacity from income and obligations only; lenders also weigh score, employment and history."
+      },
+      {
+        "question": "Do existing EMIs reduce my eligibility?",
+        "answer": "Yes, directly. Every rupee of existing EMI reduces the EMI capacity available for the new loan within the FOIR cap, which lowers the eligible amount."
+      },
+      {
+        "question": "Can a longer tenure increase my eligible loan amount?",
+        "answer": "Yes. The same affordable EMI supports a larger loan over a longer tenure, but total interest paid increases. Compare tenures before choosing."
+      },
+      {
+        "question": "Is this an approval or a guarantee?",
+        "answer": "No. This is an educational estimate of borrowing capacity. Actual eligibility, approval and terms are decided solely by the lender."
+      },
+      {
+        "question": "Does RupeeKit share my data with lenders?",
+        "answer": "No. Values are processed in your browser and RupeeKit is not a lender, broker or loan aggregator."
+      }
+    ],
+    "related": [
+      "personal-loan-emi-calculator-india",
+      "emi-calculator-india",
+      "salary-in-hand-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "howToUse": [
+      "Enter your net (take-home) monthly income.",
+      "Enter the total of your existing monthly EMIs.",
+      "Keep FOIR at 50% or adjust to match your target lender's norm.",
+      "Enter the interest rate and tenure you expect to be offered.",
+      "Read your maximum affordable EMI and estimated eligible loan amount."
+    ],
+    "assumptions": [
+      "Eligibility is estimated purely from income and obligations using a FOIR cap; credit score, employer category and lender policy are not modelled.",
+      "The eligible amount assumes a standard reducing-balance loan at a constant rate over the chosen tenure.",
+      "Educational estimate only. Lenders decide actual eligibility, and offers vary widely."
+    ],
+    "commonMistakes": [
+      "Using gross salary instead of net take-home income.",
+      "Forgetting credit-card EMIs or buy-now-pay-later obligations in existing EMIs.",
+      "Assuming the calculator's estimate is a sanctioned amount.",
+      "Stretching FOIR to the maximum, leaving no room for emergencies.",
+      "Ignoring how a longer tenure raises total interest even when eligibility rises."
+    ],
+    "contentSections": [
+      {
+        "heading": "How lenders decide personal loan eligibility",
+        "body": "Indian lenders primarily test whether your income can absorb the new EMI. The common tool is FOIR — the share of net income already committed to fixed obligations. Most lenders keep total EMIs within roughly 40-55% of net monthly income, then check credit score, employment stability and documentation before sanctioning.",
+        "bullets": [
+          "FOIR cap: total EMIs within ~40-55% of net income.",
+          "Credit score: 750+ typically improves offers.",
+          "Stability: salaried applicants with steady employers often get better terms."
+        ]
+      },
+      {
+        "heading": "Worked example",
+        "body": "Net income Rs 75,000, existing EMIs Rs 10,000, FOIR 50%: EMI capacity is Rs 37,500 - Rs 10,000 = Rs 27,500. At 14% for 48 months, Rs 27,500 per month supports a loan of about Rs 10.1 lakh, with total repayment of Rs 13.2 lakh. The gap of about Rs 3.1 lakh is interest — check whether the purpose of the loan justifies that cost."
+      },
+      {
+        "heading": "How to improve your eligibility",
+        "body": "Eligibility improves when EMI capacity rises or perceived risk falls.",
+        "bullets": [
+          "Close small existing EMIs before applying.",
+          "Improve your credit score and correct report errors.",
+          "Consider a modest tenure increase rather than maxing FOIR.",
+          "Apply with income documents that show your full net income."
+        ]
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator estimates borrowing capacity using a FOIR-based affordable EMI and the present-value formula for a reducing-balance loan. It does not access credit bureaus, lender policies or live rates, and it does not constitute an offer, approval or advice."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "gold-loan-calculator-india",
+    "name": "Gold Loan Calculator India",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "gold loan calculator",
+    "shortDescription": "Estimate your gold's value, the loan amount you may get at up to 75% LTV, and the monthly EMI and interest for a gold loan in India based on weight, purity, rate and tenure.",
+    "metaDescription": "Gold loan calculator for India — estimate gold value, eligible loan at up to 75% LTV, monthly EMI and interest from weight and purity. Calculate now.",
+    "inputs": [
+      {
+        "key": "goldWeightGrams",
+        "label": "Gold weight",
+        "unit": "grams",
+        "default": 50,
+        "min": 0,
+        "step": 1,
+        "help": "Net weight of the gold jewellery or coins you plan to pledge. Stones and non-gold parts are excluded by lenders."
+      },
+      {
+        "key": "goldPurityKarat",
+        "label": "Gold purity",
+        "unit": "karat",
+        "default": 22,
+        "min": 18,
+        "max": 24,
+        "step": 1,
+        "help": "Most Indian jewellery is 22K. Lenders value gold by its pure-gold content."
+      },
+      {
+        "key": "pricePerGram24k",
+        "label": "24K gold price per gram",
+        "unit": "Rs",
+        "default": 7200,
+        "min": 0,
+        "step": 50,
+        "help": "Enter the current 24K price per gram. Lenders use their own reference price, often an average of recent days."
+      },
+      {
+        "key": "ltvPercent",
+        "label": "Loan-to-value (LTV)",
+        "unit": "%",
+        "default": 75,
+        "min": 10,
+        "max": 75,
+        "step": 5,
+        "help": "RBI caps gold loan LTV at 75% of gold value. Many lenders offer 60-75%."
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual interest rate",
+        "unit": "%",
+        "default": 9.5,
+        "min": 1,
+        "max": 30,
+        "step": 0.25,
+        "help": "Gold loan rates in India commonly range from about 8% to 18% depending on lender and scheme."
+      },
+      {
+        "key": "tenureMonths",
+        "label": "Tenure",
+        "unit": "months",
+        "default": 12,
+        "min": 3,
+        "max": 36,
+        "step": 3,
+        "help": "Gold loans are usually short: 6 to 24 months is common."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "goldValue",
+        "label": "Estimated gold value",
+        "formula": "goldWeightGrams * pricePerGram24k * goldPurityKarat / 24",
+        "format": "currency"
+      },
+      {
+        "key": "eligibleLoanAmount",
+        "label": "Estimated eligible loan (LTV applied)",
+        "formula": "goldValue * ltvPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyEmi",
+        "label": "Monthly EMI on eligible amount",
+        "formula": "eligibleLoanAmount * ((annualRate/12/100) * (1 + annualRate/12/100) ^ tenureMonths) / (((1 + annualRate/12/100) ^ tenureMonths) - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest over tenure",
+        "formula": "monthlyEmi * tenureMonths - eligibleLoanAmount",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Gold value = weight x 24K price per gram x (karat / 24). Eligible loan = gold value x LTV%. EMI on the eligible amount uses the standard reducing-balance formula over the chosen tenure.",
+    "example": "50 grams of 22K gold at Rs 7,200 per gram (24K) is worth about Rs 3,30,000. At 75% LTV, the eligible loan is about Rs 2,47,500. At 9.5% for 12 months, EMI is about Rs 21,700 and total interest about Rs 12,900.",
+    "quickAnswer": {
+      "title": "Gold Loan Quick Answer",
+      "question": "How much gold loan can I get per gram in India?",
+      "answer": "Lenders value your gold by pure-gold content (weight x price x karat/24) and can lend up to 75% of that value under the RBI LTV cap. For 22K gold at a Rs 7,200 24K price, that is roughly Rs 4,950 per gram at maximum LTV. Actual per-gram rates vary with the lender's reference price and scheme.",
+      "formula": "Eligible loan = Weight x 24K price x (Karat/24) x LTV%",
+      "example": "50g of 22K gold at Rs 7,200/g and 75% LTV gives an eligible loan of about Rs 2.47 lakh.",
+      "note": "Educational estimate only. Lenders use their own gold price reference, purity assessment and scheme rules."
+    },
+    "faqs": [
+      {
+        "question": "How is gold loan amount calculated?",
+        "answer": "Lenders compute your gold's value as net weight x reference price x purity factor (karat/24), then apply a loan-to-value percentage capped at 75% by RBI. This calculator follows the same method with your inputs."
+      },
+      {
+        "question": "What is the maximum LTV for gold loans in India?",
+        "answer": "RBI caps gold loan LTV at 75% of the gold's assessed value. Many lenders offer between 60% and 75% depending on the scheme and repayment structure."
+      },
+      {
+        "question": "How much loan can I get for 10 grams of gold?",
+        "answer": "For 22K gold at a Rs 7,200 per-gram 24K price, 10 grams is worth about Rs 66,000, so a 75% LTV loan is roughly Rs 49,500. The figure moves with the gold price and the lender's valuation."
+      },
+      {
+        "question": "Which bank gives the lowest gold loan interest rate?",
+        "answer": "Rates change frequently and vary by scheme, so no single lender is always cheapest. Public-sector banks often advertise lower rates than NBFCs, but compare the current rate, processing fee and valuation practice of each lender. RupeeKit does not show live rates."
+      },
+      {
+        "question": "Is 22K jewellery valued lower than 24K?",
+        "answer": "Yes. Valuation is based on pure-gold content, so 22K gold is valued at 22/24 (about 91.7%) of the 24K price. Stones, clasps and non-gold parts are excluded from weight."
+      },
+      {
+        "question": "What repayment options do gold loans have?",
+        "answer": "Common options are regular EMI, interest-only payments with principal at the end (bullet repayment), and upfront interest schemes. This calculator models the EMI option; bullet schemes cost more total interest for the same rate."
+      },
+      {
+        "question": "What happens if I cannot repay a gold loan?",
+        "answer": "The lender can auction the pledged gold after due notice to recover dues. Any surplus after recovery is returned to you. Avoid borrowing at maximum LTV if repayment is uncertain."
+      },
+      {
+        "question": "Does this calculator show live gold prices?",
+        "answer": "No. Enter the current 24K price per gram yourself. Lenders also use their own reference price, often an average of recent trading days, which may differ from the market price you see."
+      }
+    ],
+    "related": [
+      "personal-loan-emi-calculator-india",
+      "emi-calculator-india",
+      "fd-calculator-india"
+    ],
+    "howToUse": [
+      "Enter the net weight of gold you plan to pledge, in grams.",
+      "Select the purity in karat; most Indian jewellery is 22K.",
+      "Enter the current 24K gold price per gram.",
+      "Set the LTV your lender offers, up to the 75% RBI cap.",
+      "Enter the interest rate and tenure to see EMI and total interest."
+    ],
+    "assumptions": [
+      "Gold is valued purely by weight x price x karat/24; making charges, stones and non-gold parts are excluded.",
+      "The EMI repayment structure is modelled; bullet or interest-only schemes differ.",
+      "Educational estimate only. Lender valuation, reference price and scheme rules decide the actual offer."
+    ],
+    "commonMistakes": [
+      "Using the 22K market price with the karat factor applied again, undervaluing the gold.",
+      "Including stone weight in the gold weight.",
+      "Assuming all lenders offer the full 75% LTV.",
+      "Ignoring processing and valuation fees in the total cost.",
+      "Taking bullet-repayment schemes without comparing total interest against EMI schemes."
+    ],
+    "contentSections": [
+      {
+        "heading": "How gold loans work in India",
+        "body": "A gold loan is secured credit against pledged gold jewellery or coins. Because the lender holds collateral, approval is fast and credit-score requirements are lighter than personal loans, and rates are usually lower. The gold stays in the lender's custody until the loan is closed.",
+        "bullets": [
+          "Secured loan: gold is pledged and stored by the lender.",
+          "Faster approval and lighter credit checks than unsecured loans.",
+          "RBI caps the loan at 75% of assessed gold value."
+        ]
+      },
+      {
+        "heading": "Gold valuation: weight, purity and reference price",
+        "body": "Lenders weigh only the gold content — stones and attachments are excluded — and apply a purity factor of karat/24. The price used is the lender's reference rate, commonly an average of recent days, not necessarily today's headline price. That is why two lenders can quote different per-gram loan amounts on the same jewellery."
+      },
+      {
+        "heading": "Gold loan vs personal loan",
+        "body": "For borrowers who own gold, a gold loan is often cheaper and faster than a personal loan, but it puts the gold at risk and suits shorter tenures. A personal loan needs no collateral but depends heavily on income and credit score.",
+        "bullets": [
+          "Gold loan: lower rate, short tenure, collateral at risk.",
+          "Personal loan: no collateral, higher rate, income-dependent eligibility.",
+          "Compare total interest for your amount and tenure before choosing."
+        ]
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator estimates gold value from weight, purity and the 24K price you enter, applies your chosen LTV within the RBI cap, and computes EMI with the standard reducing-balance formula. It does not fetch live gold prices or lender rates and is for educational planning only."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "capital-gains-tax-calculator-india",
+    "name": "Capital Gains Tax Calculator India (Equity)",
+    "category": "Tax",
+    "status": "live",
+    "targetKeyword": "capital gains tax calculator india",
+    "shortDescription": "Estimate tax on listed equity and equity mutual fund gains in India: 20% on short-term gains, 12.5% on long-term gains above the Rs 1.25 lakh exemption, plus 4% cess.",
+    "metaDescription": "Capital gains tax calculator for Indian equity — apply 20% STCG, 12.5% LTCG and the Rs 1.25 lakh exemption to estimate your tax. Calculate now.",
+    "inputs": [
+      {
+        "key": "stcgAmount",
+        "label": "Short-term capital gains (STCG)",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 0,
+        "step": 5000,
+        "help": "Gains on listed equity shares or equity mutual funds sold within 12 months of purchase (STT paid)."
+      },
+      {
+        "key": "ltcgAmount",
+        "label": "Long-term capital gains (LTCG)",
+        "unit": "Rs",
+        "default": 300000,
+        "min": 0,
+        "step": 5000,
+        "help": "Gains on listed equity or equity mutual funds held for more than 12 months before sale."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "taxableLtcg",
+        "label": "Taxable LTCG after Rs 1.25 lakh exemption",
+        "formula": "max(ltcgAmount - 125000, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "ltcgTax",
+        "label": "LTCG tax at 12.5%",
+        "formula": "taxableLtcg * 0.125",
+        "format": "currency"
+      },
+      {
+        "key": "stcgTax",
+        "label": "STCG tax at 20%",
+        "formula": "stcgAmount * 0.20",
+        "format": "currency"
+      },
+      {
+        "key": "totalTaxBeforeCess",
+        "label": "Total tax before cess",
+        "formula": "ltcgTax + stcgTax",
+        "format": "currency"
+      },
+      {
+        "key": "totalTaxWithCess",
+        "label": "Total tax with 4% cess",
+        "formula": "totalTaxBeforeCess * 1.04",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Taxable LTCG = max(LTCG - 1,25,000, 0), taxed at 12.5%. STCG on specified equity is taxed at 20%. Health and education cess of 4% applies on the tax amount. Rates follow the post-23 July 2024 rules for STT-paid listed equity and equity mutual funds.",
+    "example": "With Rs 1,00,000 STCG and Rs 3,00,000 LTCG: taxable LTCG is Rs 1,75,000, LTCG tax is Rs 21,875, STCG tax is Rs 20,000, total Rs 41,875 plus Rs 1,675 cess = about Rs 43,550.",
+    "quickAnswer": {
+      "title": "Equity Capital Gains Quick Answer",
+      "question": "How are capital gains on shares and equity mutual funds taxed in India?",
+      "answer": "For STT-paid listed equity and equity mutual funds, short-term gains (held 12 months or less) are taxed at 20%, and long-term gains (held over 12 months) are taxed at 12.5% on the amount above the Rs 1.25 lakh annual exemption. A 4% health and education cess applies on the tax. These gains are typically reported in ITR-2 for salaried taxpayers.",
+      "formula": "Tax = 20% x STCG + 12.5% x max(LTCG - 1,25,000, 0), plus 4% cess",
+      "example": "Rs 3 lakh LTCG and Rs 1 lakh STCG give about Rs 43,550 total tax including cess.",
+      "note": "Educational estimate for specified equity only. Debt funds, property, gold and unlisted shares follow different rules. Verify with current-year provisions and a tax professional."
+    },
+    "faqs": [
+      {
+        "question": "What is the LTCG tax rate on equity in India?",
+        "answer": "Long-term capital gains on STT-paid listed equity and equity mutual funds are taxed at 12.5% on the amount exceeding the Rs 1.25 lakh annual exemption, plus 4% cess."
+      },
+      {
+        "question": "What is the STCG tax rate on equity shares?",
+        "answer": "Short-term capital gains on specified equity (held 12 months or less, STT paid) are taxed at 20% under Section 111A, plus 4% cess."
+      },
+      {
+        "question": "Is the first Rs 1.25 lakh of LTCG tax-free?",
+        "answer": "Yes. Long-term gains on specified equity up to Rs 1.25 lakh per financial year are exempt. Only the amount above that is taxed at 12.5%."
+      },
+      {
+        "question": "Which ITR form do I need for capital gains?",
+        "answer": "Salaried taxpayers with capital gains generally cannot use ITR-1 and typically file ITR-2 (or ITR-3 with business income). See RupeeKit's ITR-2 filing guide for who must file and how to prepare."
+      },
+      {
+        "question": "How long must I hold equity for gains to be long-term?",
+        "answer": "For listed equity shares and equity mutual funds, holding more than 12 months makes the gain long-term. Shorter holding makes it short-term."
+      },
+      {
+        "question": "Can I set off capital losses against gains?",
+        "answer": "Generally, short-term capital losses can be set off against both STCG and LTCG, while long-term capital losses set off only against LTCG, with carry-forward allowed for up to 8 years if the return is filed on time. This calculator does not model set-offs."
+      },
+      {
+        "question": "Does this calculator cover property, gold or debt funds?",
+        "answer": "No. It covers only STT-paid listed equity shares and equity mutual funds. Property, gold, debt funds and unlisted shares have different rates, holding periods and indexation rules."
+      },
+      {
+        "question": "Do capital gains change my tax regime choice?",
+        "answer": "STCG and LTCG on specified equity are taxed at their own flat rates in both regimes. Your regime choice mainly affects salary and other income; compare using RupeeKit's old vs new tax regime calculator."
+      },
+      {
+        "question": "Is this calculator tax advice?",
+        "answer": "No. It is an educational estimate using post-23 July 2024 rates for specified equity. Surcharge, set-offs, and special cases are not modelled. Verify with official utilities and a qualified professional before filing."
+      }
+    ],
+    "related": [
+      "income-tax-calculator-old-vs-new-regime-india",
+      "sip-calculator-india",
+      "80c-deduction-calculator-india"
+    ],
+    "howToUse": [
+      "Add up your short-term gains on listed equity and equity funds for the financial year.",
+      "Add up your long-term gains (holding over 12 months) for the same year.",
+      "Enter both amounts to see taxable LTCG after the Rs 1.25 lakh exemption.",
+      "Read the LTCG tax, STCG tax and total including 4% cess.",
+      "Use the estimate to plan advance tax and ITR-2 preparation."
+    ],
+    "assumptions": [
+      "Applies only to STT-paid listed equity shares and equity-oriented mutual funds.",
+      "Uses post-23 July 2024 rates: 20% STCG (Section 111A) and 12.5% LTCG (Section 112A) above Rs 1.25 lakh.",
+      "Surcharge, loss set-offs, carry-forwards and grandfathering are not modelled.",
+      "Educational estimate only. Verify with official filing utilities, AIS/Form 26AS and a tax professional."
+    ],
+    "commonMistakes": [
+      "Applying the Rs 1.25 lakh exemption to short-term gains — it applies only to LTCG.",
+      "Forgetting the 4% health and education cess on the tax amount.",
+      "Using these equity rates for debt funds, property or gold, which follow different rules.",
+      "Ignoring capital gains while choosing between ITR-1 and ITR-2.",
+      "Missing advance tax instalments when gains are large, which can trigger interest."
+    ],
+    "contentSections": [
+      {
+        "heading": "Equity capital gains rules at a glance",
+        "body": "For listed equity shares and equity mutual funds where STT is paid, gains on holdings of 12 months or less are short-term and taxed at 20% (Section 111A). Gains on longer holdings are long-term and taxed at 12.5% (Section 112A) on the amount above the Rs 1.25 lakh annual exemption. A 4% health and education cess applies on the computed tax.",
+        "bullets": [
+          "STCG (12 months or less): 20% flat.",
+          "LTCG (over 12 months): 12.5% above Rs 1.25 lakh per year.",
+          "4% cess on the tax; surcharge may apply at high incomes."
+        ]
+      },
+      {
+        "heading": "Worked example",
+        "body": "Suppose you booked Rs 1,00,000 of short-term gains and Rs 3,00,000 of long-term gains in a year. Taxable LTCG is Rs 3,00,000 - Rs 1,25,000 = Rs 1,75,000, giving LTCG tax of Rs 21,875. STCG tax is 20% of Rs 1,00,000 = Rs 20,000. Total tax is Rs 41,875, and with 4% cess the payable amount is about Rs 43,550."
+      },
+      {
+        "heading": "Capital gains and your ITR form",
+        "body": "Capital gains generally push salaried taxpayers from ITR-1 to ITR-2, because ITR-1 does not accommodate capital gains schedules. Keep broker capital-gains statements, and reconcile with AIS and Form 26AS before filing. RupeeKit's ITR-2 guide covers who must file, deadlines and a document checklist."
+      },
+      {
+        "heading": "Harvesting the Rs 1.25 lakh exemption",
+        "body": "Because the LTCG exemption resets every financial year, some investors realise long-term gains up to Rs 1.25 lakh annually and reinvest, stepping up their cost base without tax. Weigh transaction costs, exit loads and market risk before using this approach, and keep records for reporting."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator applies Section 111A (20% STCG) and Section 112A (12.5% LTCG above Rs 1.25 lakh) rates for STT-paid listed equity, plus 4% health and education cess, to the gain amounts you enter. Surcharge, set-offs and non-equity assets are out of scope. Educational estimate only, not tax advice."
+      }
+    ],
+    "lastReviewed": "July 2026"
   }
 ]
 

@@ -16,12 +16,10 @@ const latestSupportedFy = availableTaxYears[0];
 const latestSupportedRules = indiaIncomeTaxRules[latestSupportedFy];
 const supportsTargetYear = availableTaxYears.includes(TARGET_FY);
 
-const pageTitle = supportsTargetYear
-  ? 'Old vs New Tax Regime Calculator India FY 2025-26 | RupeeKit'
-  : 'Old vs New Tax Regime Calculator India FY 2025-26 Planning | RupeeKit';
+const pageTitle = 'Old vs New Tax Regime Calculator India FY 2025-26 | Free';
 const pageDescription = supportsTargetYear
-  ? 'Compare old vs new tax regime in India for FY 2025-26. Estimate tax, deductions, HRA, 80C, rebate, cess and savings with RupeeKit\'s free calculator.'
-  : `Compare old vs new tax regime in India for FY 2025-26 planning. Estimate tax, deductions, HRA, 80C, rebate, cess and savings with RupeeKit's free calculator using currently supported rule years (${availableTaxYears.map((year) => `FY ${year}`).join(', ')}).`;
+  ? 'Free Old vs New Tax Regime Calculator for India FY 2025-26 — compare tax, deductions, HRA, 80C and rebate instantly. Calculate your savings now.'
+  : 'Free Old vs New Tax Regime Calculator for India FY 2025-26 planning — estimate tax, deductions, HRA, 80C and rebate. Calculate your savings now.';
 
 function formatInr(value: number) {
   return `Rs ${Math.round(value).toLocaleString('en-IN')}`;
@@ -178,10 +176,15 @@ const faqs = [
     answer:
       'No. This page provides educational estimates only. Verify final tax with official filing utilities, Form 16, AIS/Form 26AS, and a qualified tax professional.',
   },
+  {
+    question: 'Is there a free online calculator to compare old vs new tax regime?',
+    answer:
+      'Yes. This page is a free online old vs new tax regime calculator for India. Enter your income and deductions to instantly compare estimated tax under both regimes, with no signup required.',
+  },
 ];
 
 export const metadata: Metadata = {
-  title: pageTitle,
+  title: { absolute: pageTitle },
   description: pageDescription,
   alternates: {
     canonical: PAGE_URL,
@@ -244,6 +247,11 @@ export default function IncomeTaxCalculatorPage() {
     operatingSystem: 'Any',
     url: PAGE_URL,
     description: pageDescription,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'INR',
+    },
     publisher: {
       '@type': 'Organization',
       name: 'RupeeKit',
@@ -494,7 +502,7 @@ export default function IncomeTaxCalculatorPage() {
 
       <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 no-print">
         <h2 className="text-2xl font-bold text-brandDeepNavy">Source and methodology</h2>
-        <p className="mt-2 text-sm text-slate-500">Last reviewed: June 1, 2026 (IST)</p>
+        <p className="mt-2 text-sm text-slate-500">Last reviewed: July 11, 2026 (IST)</p>
         <p className="mt-4 leading-8 text-slate-700">
           Method: This calculator applies configured slab rules, standard deduction, selected deduction inputs, rebate
           logic, and 4% health and education cess to estimate old and new regime outcomes.

@@ -17,16 +17,16 @@ const HRA_META_DESCRIPTION =
   'Calculate HRA exemption under the old tax regime using 2026 city rules. Compare actual HRA, rent minus 10% of salary, and 50% or 40% salary caps.';
 const HRA_H1 = 'HRA Exemption Calculator India';
 const PERSONAL_LOAN_SLUG = 'personal-loan-emi-calculator-india';
-const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India | Monthly EMI & Interest';
+const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India 2026 | Free & Instant';
 const PERSONAL_LOAN_META_DESCRIPTION =
-  'Calculate personal loan EMI, total interest and total repayment in India using loan amount, interest rate and tenure in months. Compare EMI changes before applying.';
+  'Free Personal Loan EMI Calculator for India — get instant EMI, interest and total repayment. Enter loan amount, rate and tenure to calculate now.';
 const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
   'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
-const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | 3, 6, 9 & 12 Month Corpus';
+const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | Free 3-12 Month Plan';
 const EMERGENCY_FUND_META_DESCRIPTION =
-  'Estimate how much emergency fund you need in India based on expenses, EMIs, dependants and income stability. Plan a 3, 6, 9 or 12 month safety corpus.';
+  'Free Emergency Fund Calculator for India — find your ideal 3, 6, 9 or 12 month safety corpus based on expenses and EMIs. Calculate your target now.';
 const EMERGENCY_FUND_H1 = 'Emergency Fund Calculator India';
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));
@@ -187,8 +187,15 @@ function buildGenericCalculatorFacts(tool: Tool) {
   ];
 }
 
+// This slug has its own literal route at app/tools/income-tax-calculator-old-vs-new-regime-india/page.tsx.
+// It must be excluded here too, otherwise this dynamic route and that literal route both try to
+// pre-render the same output path, and the build nondeterministically picks a winner.
+const SLUGS_WITH_DEDICATED_ROUTE = new Set(['income-tax-calculator-old-vs-new-regime-india']);
+
 export function generateStaticParams() {
-  return getLiveTools().map((tool) => ({ slug: tool.slug }));
+  return getLiveTools()
+    .filter((tool) => !SLUGS_WITH_DEDICATED_ROUTE.has(tool.slug))
+    .map((tool) => ({ slug: tool.slug }));
 }
 
 export function generateMetadata({
@@ -196,6 +203,7 @@ export function generateMetadata({
 }: {
   params: { slug: string };
 }): Metadata {
+  if (SLUGS_WITH_DEDICATED_ROUTE.has(params.slug)) return {};
   const tool = getToolBySlug(params.slug);
   if (!tool) return {};
 
@@ -544,6 +552,7 @@ function SipEducationalContent({ links, lastReviewed }: { links: ContextualLink[
 }
 
 export default function ToolPage({ params }: { params: { slug: string } }) {
+  if (SLUGS_WITH_DEDICATED_ROUTE.has(params.slug)) notFound();
   const tool = getToolBySlug(params.slug);
   if (!tool) notFound();
 
@@ -581,6 +590,21 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       href: '/blog/how-much-emergency-fund',
       label: 'emergency fund guide',
     } : null,
+  ].filter((item): item is ContextualLink => item !== null);
+
+  const hraLinks: ContextualLink[] = [
+    liveToolSlugs.has('income-tax-calculator-old-vs-new-regime-india')
+      ? { href: '/tools/income-tax-calculator-old-vs-new-regime-india', label: 'Old vs New Tax Regime Calculator' }
+      : null,
+    liveToolSlugs.has('80c-deduction-calculator-india')
+      ? { href: '/tools/80c-deduction-calculator-india', label: '80C deduction calculator' }
+      : null,
+    liveToolSlugs.has('salary-in-hand-calculator-india')
+      ? { href: '/tools/salary-in-hand-calculator-india', label: 'salary in-hand calculator' }
+      : null,
+    blogSlugs.has('itr-2-ay-2026-27-filing-guide')
+      ? { href: '/blog/itr-2-ay-2026-27-filing-guide', label: 'ITR-2 filing guide' }
+      : null,
   ].filter((item): item is ContextualLink => item !== null);
 
   const hasLowerEmiBlog = blogSlugs.has('lower-emi-not-always-cheaper');
@@ -734,6 +758,11 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     description: isHraPage
       ? 'Calculate likely HRA exemption under Indian tax rules.'
       : tool.metaDescription,
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'INR',
+    },
     publisher: {
       '@type': 'Organization',
       name: 'RupeeKit',
@@ -1247,6 +1276,24 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   <p className="mt-4 leading-8 text-slate-700">
                     You can continue planning with these RupeeKit resources:{' '}
                     {emergencyFundLinks.map((link, index) => (
+                      <span key={link.href}>
+                        {index > 0 ? ', ' : ''}
+                        <Link href={link.href} className="font-medium text-sky-700 hover:underline">
+                          {link.label}
+                        </Link>
+                      </span>
+                    ))}
+                    .
+                  </p>
+                </section>
+              ) : null}
+
+              {isHraPage && hraLinks.length ? (
+                <section className="mt-8">
+                  <h2 className="text-2xl font-bold">Related calculators and guides</h2>
+                  <p className="mt-4 leading-8 text-slate-700">
+                    HRA exemption only applies under the old tax regime, so also compare using:{' '}
+                    {hraLinks.map((link, index) => (
                       <span key={link.href}>
                         {index > 0 ? ', ' : ''}
                         <Link href={link.href} className="font-medium text-sky-700 hover:underline">

@@ -830,7 +830,7 @@ export const blogPosts: BlogPost[] = [
     visualTitle: 'ITR-2 Filing Preparation Flow',
     visualSubtitle: 'Step-by-step checklist for AY 2026-27',
     visualAlt: 'ITR-2 filing flow with steps from Form 16 to final submission',
-    seoTitle: 'ITR-2 AY 2026-27 Guide: Due Date, Eligibility, Checklist',
+    seoTitle: 'ITR-2 AY 2026-27 Filing Guide: Deadline, Eligibility, Steps',
     heroImage: '/blog/itr-2-ay-2026-27-hero-1600x900.jpg',
     heroImageAlt: 'Desk workspace with laptop, calculator, checklist icons, and rupee symbols representing ITR-2 tax filing preparation in India',
     heroImageWidth: 1600,
@@ -838,7 +838,7 @@ export const blogPosts: BlogPost[] = [
     publishedDateISO: '2026-05-27T08:00:00Z',
     modifiedDateISO: '2026-05-27T08:00:00Z',
     title: 'ITR-2 AY 2026-27: Who Must File, Due Date & Preparation Guide',
-    metaDescription: 'Filing ITR-2 for AY 2026-27? Learn who must file, the latest capital gains tax changes, deadlines, and a preparation checklist for salaried Indians.',
+    metaDescription: 'ITR-2 AY 2026-27 filing guide — check eligibility, due date, capital gains rules and a step-by-step checklist to file your return correctly. Read now.',
     category: 'Tax',
     date: 'May 2026',
     readTime: '8 min read',
@@ -851,7 +851,7 @@ export const blogPosts: BlogPost[] = [
       note: 'Educational information only. Verify applicability with official income-tax guidance, AIS/Form 26AS data, and a qualified tax professional where needed.',
     },
     answerEngineSummary: 'This guide explains who usually falls under ITR-2 for AY 2026-27, what key changes to review, and how to prepare filing documents before submission. It also outlines checklist-driven steps to reconcile Form 16, AIS, and capital-gains records. Use RupeeKit tax calculators for preliminary educational comparison before final filing checks.',
-    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india'],
+    relatedCalculators: ['capital-gains-tax-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india'],
     sections: [
       {
         title: 'Who should read this?',
