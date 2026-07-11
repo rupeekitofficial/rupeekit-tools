@@ -17,16 +17,16 @@ const HRA_META_DESCRIPTION =
   'Calculate HRA exemption under the old tax regime using 2026 city rules. Compare actual HRA, rent minus 10% of salary, and 50% or 40% salary caps.';
 const HRA_H1 = 'HRA Exemption Calculator India';
 const PERSONAL_LOAN_SLUG = 'personal-loan-emi-calculator-india';
-const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India | Monthly EMI & Interest';
+const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India 2026 | Free & Instant';
 const PERSONAL_LOAN_META_DESCRIPTION =
-  'Calculate personal loan EMI, total interest and total repayment in India using loan amount, interest rate and tenure in months. Compare EMI changes before applying.';
+  'Free Personal Loan EMI Calculator for India — get instant EMI, interest and total repayment. Enter loan amount, rate and tenure to calculate now.';
 const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
   'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
-const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | 3, 6, 9 & 12 Month Corpus';
+const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | Free 3-12 Month Plan';
 const EMERGENCY_FUND_META_DESCRIPTION =
-  'Estimate how much emergency fund you need in India based on expenses, EMIs, dependants and income stability. Plan a 3, 6, 9 or 12 month safety corpus.';
+  'Free Emergency Fund Calculator for India — find your ideal 3, 6, 9 or 12 month safety corpus based on expenses and EMIs. Calculate your target now.';
 const EMERGENCY_FUND_H1 = 'Emergency Fund Calculator India';
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));

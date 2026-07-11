@@ -16,12 +16,10 @@ const latestSupportedFy = availableTaxYears[0];
 const latestSupportedRules = indiaIncomeTaxRules[latestSupportedFy];
 const supportsTargetYear = availableTaxYears.includes(TARGET_FY);
 
-const pageTitle = supportsTargetYear
-  ? 'Old vs New Tax Regime Calculator India FY 2025-26 | RupeeKit'
-  : 'Old vs New Tax Regime Calculator India FY 2025-26 Planning | RupeeKit';
+const pageTitle = 'Old vs New Tax Regime Calculator India FY 2025-26 | Free';
 const pageDescription = supportsTargetYear
-  ? 'Compare old vs new tax regime in India for FY 2025-26. Estimate tax, deductions, HRA, 80C, rebate, cess and savings with RupeeKit\'s free calculator.'
-  : `Compare old vs new tax regime in India for FY 2025-26 planning. Estimate tax, deductions, HRA, 80C, rebate, cess and savings with RupeeKit's free calculator using currently supported rule years (${availableTaxYears.map((year) => `FY ${year}`).join(', ')}).`;
+  ? 'Free Old vs New Tax Regime Calculator for India FY 2025-26 — compare tax, deductions, HRA, 80C and rebate instantly. Calculate your savings now.'
+  : 'Free Old vs New Tax Regime Calculator for India FY 2025-26 planning — estimate tax, deductions, HRA, 80C and rebate. Calculate your savings now.';
 
 function formatInr(value: number) {
   return `Rs ${Math.round(value).toLocaleString('en-IN')}`;
@@ -181,7 +179,7 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
-  title: pageTitle,
+  title: { absolute: pageTitle },
   description: pageDescription,
   alternates: {
     canonical: PAGE_URL,

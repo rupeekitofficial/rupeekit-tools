@@ -26,7 +26,7 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   const imageUrl = post.heroImage ? `${siteUrl}${post.heroImage}` : undefined;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical: pageUrl,
