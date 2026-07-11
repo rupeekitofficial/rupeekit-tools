@@ -108,6 +108,7 @@
     ],
     "related": [
       "hra-exemption-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
       "gst-calculator-india",
       "emi-calculator-india"
     ]
@@ -424,11 +425,16 @@
       {
         "question": "Does this calculator guarantee loan approval?",
         "answer": "No. It provides educational estimates only and cannot guarantee eligibility, approval, or final lender terms."
+      },
+      {
+        "question": "Is this also a personal loan interest rate calculator?",
+        "answer": "Yes. Alongside your monthly EMI, this calculator shows the total interest payable at your entered interest rate, so you can use it to compare how different rates and tenures change your total borrowing cost."
       }
     ],
     "related": [
       "emi-calculator-india",
       "salary-in-hand-calculator-india",
+      "emergency-fund-calculator-india",
       "fd-calculator-india",
       "sip-calculator-india"
     ],
@@ -504,7 +510,7 @@
         "body": "No. RupeeKit is an educational calculator platform and does not provide lending, approval, or disbursal."
       }
     ],
-    "lastReviewed": "May 2026"
+    "lastReviewed": "July 2026"
   },
   {
     "slug": "emergency-fund-calculator-india",
@@ -673,6 +679,10 @@
       {
         "question": "Is this emergency fund calculator financial advice?",
         "answer": "No. This is an educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice."
+      },
+      {
+        "question": "Is this the same as a savings or emergency savings calculator?",
+        "answer": "Yes, in effect. It estimates the emergency savings corpus you should target based on your expenses, EMIs, dependants and income stability, so it works as an emergency savings calculator for Indian households."
       }
     ],
     "related": [
@@ -763,7 +773,7 @@
         "body": "This calculator estimates emergency fund needs using monthly essential expenses, EMI commitments, current emergency savings, target months and monthly saving capacity. It is designed for household planning support and does not recommend any specific financial product."
       }
     ],
-    "lastReviewed": "May 2026"
+    "lastReviewed": "July 2026"
   },
   {
     "slug": "sip-calculator-india",
@@ -1438,6 +1448,7 @@
     "related": [
       "salary-in-hand-calculator-india",
       "80c-deduction-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
       "emi-calculator-india"
     ],
     "howToUse": [
@@ -1491,7 +1502,7 @@
         ]
       }
     ],
-    "lastReviewed": "May 2026"
+    "lastReviewed": "July 2026"
   },
   {
     "slug": "80c-deduction-calculator-india",
@@ -1606,6 +1617,7 @@
     "related": [
       "hra-exemption-calculator-india",
       "salary-in-hand-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
       "gst-calculator-india"
     ],
     "howToUse": [
