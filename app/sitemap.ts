@@ -43,12 +43,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/updates',
   ];
 
+  const hubRoutes = new Set(['/blog', '/tools']);
+  const lowPriorityRoutes = new Set(['/privacy-policy', '/terms', '/disclaimer', '/affiliate-disclosure']);
+
   return [
     ...staticRoutes.map((route) => ({
       url: `${baseUrl}${route}`,
       lastModified: route === '' ? new Date() : STATIC_LAST_MODIFIED,
-      changeFrequency: route === '' ? 'daily' as const : 'monthly' as const,
-      priority: route === '' ? 1 : 0.5,
+      changeFrequency: (
+        route === '' ? 'daily' :
+        hubRoutes.has(route) ? 'weekly' :
+        'monthly'
+      ) as 'daily' | 'weekly' | 'monthly' | 'yearly',
+      priority:
+        route === '' ? 1 :
+        hubRoutes.has(route) ? 0.8 :
+        lowPriorityRoutes.has(route) ? 0.3 :
+        0.5,
     })),
     ...getLiveTools().map((tool) => {
       const lastModified = resolveToolLastModified(tool.lastReviewed);
