@@ -233,6 +233,12 @@ export default function IncomeTaxCalculatorPage() {
       {
         '@type': 'ListItem',
         position: 2,
+        name: 'Calculators',
+        item: `${SITE_URL}/tools`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
         name: 'Old vs New Tax Regime Calculator',
         item: PAGE_URL,
       },
@@ -278,6 +284,8 @@ export default function IncomeTaxCalculatorPage() {
 
       <nav className="mb-8 text-sm text-slate-500 no-print">
         <Link href="/" className="transition hover:text-slate-950">Home</Link>
+        <span className="mx-2">/</span>
+        <Link href="/tools" className="transition hover:text-slate-950">Calculators</Link>
         <span className="mx-2">/</span>
         <span className="font-medium text-slate-900">Old vs New Tax Regime Calculator</span>
       </nav>

@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
   const staticRoutes = [
     '',
+    '/tools',
     '/about',
     '/contact',
     '/privacy-policy',

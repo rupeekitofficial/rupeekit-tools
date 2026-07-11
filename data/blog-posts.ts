@@ -1109,5 +1109,161 @@ export const blogPosts: BlogPost[] = [
         answer: 'Yes. Comparing HRA and deduction assumptions across regimes helps decision-making, but final applicability must be checked with current-year rules.'
       }
     ]
-  }
+  },
+  {
+    slug: 'old-vs-new-tax-regime-which-saves-more',
+    seoTitle: 'Old vs New Tax Regime: Which Saves More? Worked Examples',
+    publishedDateISO: '2026-07-11T08:00:00Z',
+    modifiedDateISO: '2026-07-11T08:00:00Z',
+    title: 'Old vs New Tax Regime: Which Saves More Tax? Worked Examples from Rs 7L to Rs 20L',
+    metaDescription: 'Old vs new tax regime compared with worked examples at Rs 7L to Rs 20L salary. See how much deduction you need before the old regime wins. Read now.',
+    category: 'Tax',
+    date: 'July 2026',
+    readTime: '9 min read',
+    h1: 'Old vs New Tax Regime: Which Saves More Tax?',
+    intro: 'Every salaried taxpayer in India faces the same choice each year: stay with the default new tax regime, or opt for the old regime and claim deductions like HRA, 80C and home loan interest. The right answer is not the same for everyone — it depends almost entirely on how much you can legitimately claim as deductions. This guide walks through worked comparisons at five salary levels, computed with RupeeKit\'s calculator engine, and gives you a practical break-even rule you can apply to your own payslip.',
+    quickAnswer: {
+      title: 'Regime Choice Quick Answer',
+      question: 'Which is better: old or new tax regime?',
+      answer: 'With few or no deductions, the new tax regime produces lower tax at every common salary level. The old regime starts winning only when your total old-regime deductions (beyond the standard deduction) cross roughly Rs 3.7 to 4.3 lakh a year — typically people combining HRA, full 80C, 80D and home loan interest. Compare both regimes with your own numbers before deciding.',
+      note: 'Educational comparison computed under the calculator\'s supported rule years. Verify with current-year slabs and official utilities before filing.',
+      links: [
+        { label: 'Old vs New Tax Regime Calculator', href: '/tools/income-tax-calculator-old-vs-new-regime-india' },
+      ],
+    },
+    answerEngineSummary: 'This guide compares Indian old vs new tax regime outcomes at Rs 7 lakh, 10 lakh, 12 lakh, 15 lakh and 20 lakh salary levels using RupeeKit\'s calculator engine. With no deductions the new regime wins at every level. With typical deductions (80C, 80D, moderate HRA) the new regime still wins by Rs 5,000 to 34,000. The old regime wins only when total deductions cross roughly Rs 3.7 to 4.3 lakh, such as when HRA and home loan interest combine with full 80C. Figures are educational estimates computed under supported rule years.',
+    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india', 'salary-in-hand-calculator-india'],
+    sections: [
+      {
+        title: 'How the two regimes differ',
+        paragraphs: [
+          'The old regime taxes income at higher slab rates but lets you reduce taxable income with a long list of deductions and exemptions — HRA, 80C investments, 80D health insurance, home loan interest under 24(b), and more. The new regime applies lower slab rates but removes almost all of those deductions, keeping mainly the standard deduction for salaried taxpayers and employer NPS under 80CCD(2). Since the new regime is the default, using the old regime requires actively opting for it.',
+        ],
+        bullets: [
+          'Old regime: higher rates, many deductions available.',
+          'New regime: lower rates, very few deductions, default option.',
+          'Salaried taxpayers without business income can generally re-choose every year.',
+        ],
+      },
+      {
+        title: 'Scenario 1: No deductions — new regime wins everywhere',
+        paragraphs: [
+          'If you claim nothing beyond the standard deduction, the new regime is better at every salary level we tested. Computed with RupeeKit\'s engine under its latest supported rule year, estimated tax (including cess, after rebate where applicable) comes out as follows:',
+        ],
+        bullets: [
+          'Rs 7,00,000 salary: old regime Rs 44,200 vs new regime Rs 0 — new wins.',
+          'Rs 10,00,000 salary: old Rs 1,06,600 vs new Rs 44,200 — new saves Rs 62,400.',
+          'Rs 12,00,000 salary: old Rs 1,63,800 vs new Rs 71,500 — new saves Rs 92,300.',
+          'Rs 15,00,000 salary: old Rs 2,57,400 vs new Rs 1,30,000 — new saves Rs 1,27,400.',
+          'Rs 20,00,000 salary: old Rs 4,13,400 vs new Rs 2,78,200 — new saves Rs 1,35,200.',
+        ],
+      },
+      {
+        title: 'Scenario 2: Typical deductions — new regime still usually wins',
+        paragraphs: [
+          'Now assume a fairly common deduction profile: full 80C of Rs 1.5 lakh, 80D health insurance of Rs 25,000, and a moderate HRA exemption of Rs 1 lakh to Rs 1.5 lakh. Even then, the new regime stays ahead in our computations:',
+        ],
+        bullets: [
+          'Rs 7,00,000: both regimes reach Rs 0 after rebate — effectively equal.',
+          'Rs 10,00,000: old Rs 49,400 vs new Rs 44,200 — new still saves Rs 5,200.',
+          'Rs 12,00,000: old Rs 80,600 vs new Rs 71,500 — new saves Rs 9,100.',
+          'Rs 15,00,000: old Rs 1,56,000 vs new Rs 1,30,000 — new saves Rs 26,000.',
+          'Rs 20,00,000: old Rs 3,12,000 vs new Rs 2,78,200 — new saves Rs 33,800.',
+        ],
+        example: {
+          title: 'Why typical deductions are not enough',
+          details: 'A Rs 2.75 lakh deduction stack sounds substantial, but the new regime\'s lower slab rates are worth more than the tax saved by those deductions at the old regime\'s higher rates. The old regime needs a bigger deduction stack to catch up.',
+        },
+      },
+      {
+        title: 'Scenario 3: Heavy deductions — where the old regime wins',
+        paragraphs: [
+          'The picture flips for taxpayers who combine rent and a home loan. Assume full 80C (Rs 1.5 lakh), 80D (Rs 25,000), HRA exemption of Rs 2 lakh and home loan interest of Rs 2 lakh — about Rs 5.75 lakh of deductions:',
+        ],
+        bullets: [
+          'Rs 10,00,000: old Rs 0 vs new Rs 44,200 — old saves Rs 44,200.',
+          'Rs 12,00,000: old Rs 28,600 vs new Rs 71,500 — old saves Rs 42,900.',
+          'Rs 15,00,000: old Rs 91,000 vs new Rs 1,30,000 — old saves Rs 39,000.',
+          'Rs 20,00,000: old Rs 2,34,000 vs new Rs 2,78,200 — old saves Rs 44,200.',
+        ],
+      },
+      {
+        title: 'The break-even rule: how much deduction do you need?',
+        paragraphs: [
+          'Running the comparison across deduction levels gives a practical threshold. Under the supported rule years, the old regime starts beating the new regime when your total old-regime deductions (beyond the standard deduction) cross approximately:',
+          'If your realistic deduction stack is clearly below these numbers, the new regime is very likely better for you. If you are close to or above them — usually because HRA or home loan interest is in play — run both regimes with exact figures before choosing.',
+        ],
+        bullets: [
+          'Rs 12,00,000 salary: about Rs 3.7 lakh of deductions to break even.',
+          'Rs 15,00,000 salary: about Rs 4.1 lakh to break even.',
+          'Rs 20,00,000 salary: about Rs 4.3 lakh to break even.',
+        ],
+      },
+      {
+        title: 'How to decide in 4 steps',
+        paragraphs: [
+          'You do not need to guess. A structured comparison takes about five minutes:',
+        ],
+        bullets: [
+          'List your real deductions: HRA you can document, 80C total, 80D premiums, home loan interest, NPS.',
+          'Add them up and compare against the break-even range above for your salary.',
+          'Enter your exact numbers in the RupeeKit old vs new tax regime calculator to see both outcomes side by side.',
+          'Re-check every year — salary changes, a new home loan, or ending a lease can flip the answer.',
+        ],
+      },
+      {
+        title: 'Common mistakes when choosing a regime',
+        paragraphs: [
+          'A few recurring errors push people into the wrong regime:',
+        ],
+        bullets: [
+          'Counting deductions you cannot document — HRA without rent receipts, or 80C investments planned but never made.',
+          'Ignoring that most deductions simply do not exist in the new regime.',
+          'Choosing the old regime out of habit after a home loan is fully repaid.',
+          'Forgetting that taxpayers with business income face restrictions on switching back.',
+          'Deciding once and never revisiting the choice as rules and salaries change.',
+        ],
+      },
+      {
+        title: 'A note on rule years and methodology',
+        paragraphs: [
+          'All figures above were computed with RupeeKit\'s open calculator engine under its latest supported rule year (FY 2024-25 rules, including standard deduction, Section 87A rebate and 4% cess). Slab structures change with Budgets, so the exact rupee figures will differ for later years — but the comparison logic and the shape of the break-even rule stay the same: the old regime only wins when deductions are large. Always verify with current-year slabs and official filing utilities before submitting a return.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which regime is better for a Rs 12 lakh salary?',
+        answer: 'With no or typical deductions, the new regime produces lower tax at Rs 12 lakh in our computations (Rs 71,500 vs Rs 80,600 with typical deductions). The old regime wins only if your total deductions exceed roughly Rs 3.7 lakh, for example when HRA and home loan interest combine with full 80C.',
+      },
+      {
+        question: 'Which regime is better for a Rs 15 lakh salary?',
+        answer: 'The new regime wins at Rs 15 lakh unless old-regime deductions cross roughly Rs 4.1 lakh. With a Rs 5.75 lakh deduction stack (HRA, 80C, 80D, home loan interest), the old regime saved about Rs 39,000 in our computation.',
+      },
+      {
+        question: 'How much deduction is needed for the old regime to be better?',
+        answer: 'Under the rule years supported by our calculator, the break-even is roughly Rs 3.7 lakh of deductions at a Rs 12 lakh salary, rising to about Rs 4.3 lakh at Rs 20 lakh. Below that, the new regime generally wins.',
+      },
+      {
+        question: 'Can I switch between old and new regime every year?',
+        answer: 'Salaried taxpayers without business income can generally choose afresh each year while filing. Taxpayers with business income face restrictions once they opt out of the new regime.',
+      },
+      {
+        question: 'Is HRA allowed in the new tax regime?',
+        answer: 'No. HRA exemption is an old-regime benefit. If a large HRA claim is your main deduction, that is often the single biggest factor pushing the old regime ahead.',
+      },
+      {
+        question: 'Is the standard deduction available in both regimes?',
+        answer: 'Yes, salaried taxpayers get a standard deduction in both regimes under the years our calculator supports, so it does not tilt the comparison either way.',
+      },
+      {
+        question: 'Do capital gains change which regime I should pick?',
+        answer: 'Generally no. STCG and LTCG on listed equity are taxed at their own flat rates in both regimes. The regime choice mainly affects salary and other regular income.',
+      },
+      {
+        question: 'Are these figures valid for the current financial year?',
+        answer: 'The rupee figures are computed under the latest rule year supported by our calculator engine and are meant to teach the comparison logic. Slabs change with Budgets, so verify current-year numbers in the calculator and official utilities before filing.',
+      },
+    ],
+  },
 ];

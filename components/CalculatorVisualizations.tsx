@@ -382,6 +382,123 @@ export function CalculatorResultChart({ tool, values, results }: { tool: Tool; v
       };
     }
 
+    // 10. Home Loan EMI
+    if (slug === 'home-loan-emi-calculator-india') {
+      const principal = values.principal || 0;
+      const totalInterest = resMap.get('totalInterest')?.value || 0;
+      return {
+        type: 'donut',
+        title: 'Total Cost',
+        ariaLabel: 'Home loan breakdown donut chart showing Principal Loan Amount and Total Interest Paid.',
+        accessibilityText: `Principal loan amount is ${formatValue(principal, 'currency')} and total interest is ${formatValue(totalInterest, 'currency')}.`,
+        data: [
+          { label: 'Principal Loan', value: principal, color: '#003080', formatted: formatValue(principal, 'currency') },
+          { label: 'Total Interest', value: totalInterest, color: '#43A047', formatted: formatValue(totalInterest, 'currency') },
+        ],
+      };
+    }
+
+    // 11. Gold Loan
+    if (slug === 'gold-loan-calculator-india') {
+      const goldValue = resMap.get('goldValue')?.value || 0;
+      const eligibleLoan = resMap.get('eligibleLoanAmount')?.value || 0;
+      const margin = Math.max(0, goldValue - eligibleLoan);
+      return {
+        type: 'donut',
+        title: 'Gold Value',
+        ariaLabel: 'Gold loan donut chart showing the eligible loan amount and the margin retained by the lender out of total gold value.',
+        accessibilityText: `Eligible loan is ${formatValue(eligibleLoan, 'currency')} and the lender margin is ${formatValue(margin, 'currency')} out of a gold value of ${formatValue(goldValue, 'currency')}.`,
+        data: [
+          { label: 'Eligible Loan', value: eligibleLoan, color: '#003080', formatted: formatValue(eligibleLoan, 'currency') },
+          { label: 'Margin (LTV gap)', value: margin, color: '#43A047', formatted: formatValue(margin, 'currency') },
+        ],
+      };
+    }
+
+    // 12. Personal Loan Eligibility — income allocation
+    if (slug === 'personal-loan-eligibility-calculator-india') {
+      const income = values.monthlyIncome || 0;
+      const existingEmi = values.existingMonthlyEmi || 0;
+      const maxEmi = resMap.get('maxAffordableEmi')?.value || 0;
+      const remaining = Math.max(0, income - existingEmi - maxEmi);
+      return {
+        type: 'stacked',
+        ariaLabel: 'Income allocation stacked bar chart showing new EMI capacity, existing EMIs and remaining income.',
+        accessibilityText: `Of ${formatValue(income, 'currency')} monthly income, new EMI capacity is ${formatValue(maxEmi, 'currency')}, existing EMIs take ${formatValue(existingEmi, 'currency')}, and ${formatValue(remaining, 'currency')} remains for living costs.`,
+        total: income,
+        segments: [
+          { label: 'New EMI Capacity', value: maxEmi, color: '#003080', formatted: formatValue(maxEmi, 'currency') },
+          { label: 'Existing EMIs', value: existingEmi, color: '#94A3B8', colorHex: '#64748B', formatted: formatValue(existingEmi, 'currency') },
+          { label: 'Living Expenses', value: remaining, color: '#43A047', formatted: formatValue(remaining, 'currency') },
+        ],
+      };
+    }
+
+    // 13. Capital Gains Tax
+    if (slug === 'capital-gains-tax-calculator-india') {
+      const totalGains = (values.stcgAmount || 0) + (values.ltcgAmount || 0);
+      const tax = resMap.get('totalTaxWithCess')?.value || 0;
+      const kept = Math.max(0, totalGains - tax);
+      return {
+        type: 'donut',
+        title: 'Total Gains',
+        ariaLabel: 'Capital gains donut chart showing tax payable and gains retained after tax.',
+        accessibilityText: `Of ${formatValue(totalGains, 'currency')} total gains, estimated tax with cess is ${formatValue(tax, 'currency')} and ${formatValue(kept, 'currency')} is retained.`,
+        data: [
+          { label: 'Gains After Tax', value: kept, color: '#43A047', formatted: formatValue(kept, 'currency') },
+          { label: 'Tax + Cess', value: tax, color: '#003080', formatted: formatValue(tax, 'currency') },
+        ],
+      };
+    }
+
+    // 14. PPF
+    if (slug === 'ppf-calculator-india') {
+      const invested = resMap.get('totalInvested')?.value || 0;
+      const interest = resMap.get('totalInterest')?.value || 0;
+      return {
+        type: 'donut',
+        title: 'Maturity Val',
+        ariaLabel: 'PPF breakdown donut chart showing total invested amount and tax-free interest earned.',
+        accessibilityText: `Total invested is ${formatValue(invested, 'currency')} and interest earned is ${formatValue(interest, 'currency')}.`,
+        data: [
+          { label: 'Total Invested', value: invested, color: '#003080', formatted: formatValue(invested, 'currency') },
+          { label: 'Interest Earned', value: interest, color: '#43A047', formatted: formatValue(interest, 'currency') },
+        ],
+      };
+    }
+
+    // 15. Lumpsum
+    if (slug === 'lumpsum-calculator-india') {
+      const invested = values.investmentAmount || 0;
+      const gain = resMap.get('totalGain')?.value || 0;
+      return {
+        type: 'donut',
+        title: 'Future Value',
+        ariaLabel: 'Lumpsum investment donut chart showing invested amount and estimated gains.',
+        accessibilityText: `Invested amount is ${formatValue(invested, 'currency')} and estimated gain is ${formatValue(gain, 'currency')}.`,
+        data: [
+          { label: 'Invested Amount', value: invested, color: '#003080', formatted: formatValue(invested, 'currency') },
+          { label: 'Estimated Gain', value: gain, color: '#43A047', formatted: formatValue(gain, 'currency') },
+        ],
+      };
+    }
+
+    // 16. EPF Corpus
+    if (slug === 'epf-corpus-calculator-india') {
+      const contributed = resMap.get('totalContributed')?.value || 0;
+      const interest = resMap.get('totalInterest')?.value || 0;
+      return {
+        type: 'donut',
+        title: 'EPF Corpus',
+        ariaLabel: 'EPF corpus donut chart showing total contributions and interest earned.',
+        accessibilityText: `Total contributions are ${formatValue(contributed, 'currency')} and interest earned is ${formatValue(interest, 'currency')}.`,
+        data: [
+          { label: 'Contributions', value: contributed, color: '#003080', formatted: formatValue(contributed, 'currency') },
+          { label: 'Interest Earned', value: interest, color: '#43A047', formatted: formatValue(interest, 'currency') },
+        ],
+      };
+    }
+
     return null;
   }, [tool.slug, values, results]);
 
@@ -774,6 +891,13 @@ export function CalculatorScenarioComparison({ tool, values }: { tool: Tool; val
       'income-tax-calculator-old-vs-new-regime-india': ['grossAnnualIncome', 'taxPayableNewRegime', 'Gross Income', 'New Regime Tax'],
       'hra-exemption-calculator-india': ['basicSalary', 'annualHraExemption', 'Monthly Basic Salary', 'Annual HRA Exemption'],
       'gratuity-calculator-india': ['lastDrawnBasicPlusDA', 'finalGratuityPayable', 'Basic + DA Salary', 'Gratuity Payout'],
+      'home-loan-emi-calculator-india': ['principal', 'monthlyEmi', 'Loan Amount', 'Monthly EMI'],
+      'personal-loan-eligibility-calculator-india': ['monthlyIncome', 'eligibleLoanAmount', 'Net Monthly Income', 'Eligible Loan Amount'],
+      'gold-loan-calculator-india': ['pricePerGram24k', 'eligibleLoanAmount', '24K Gold Price per Gram', 'Eligible Loan'],
+      'capital-gains-tax-calculator-india': ['ltcgAmount', 'totalTaxWithCess', 'Long-Term Capital Gains', 'Total Tax with Cess'],
+      'ppf-calculator-india': ['yearlyInvestment', 'maturityValue', 'Yearly Investment', 'Maturity Value'],
+      'lumpsum-calculator-india': ['investmentAmount', 'futureValue', 'Investment Amount', 'Future Value'],
+      'epf-corpus-calculator-india': ['monthlyBasicDa', 'estimatedCorpus', 'Monthly Basic + DA', 'EPF Corpus'],
     };
 
     return mappings[slug] || null;

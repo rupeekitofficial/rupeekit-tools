@@ -107,6 +107,13 @@ function StandardCalculator({ tool }: { tool: Tool }) {
       'hra-exemption-calculator-india',
       'gratuity-calculator-india',
       '80c-deduction-calculator-india',
+      'home-loan-emi-calculator-india',
+      'personal-loan-eligibility-calculator-india',
+      'gold-loan-calculator-india',
+      'capital-gains-tax-calculator-india',
+      'ppf-calculator-india',
+      'lumpsum-calculator-india',
+      'epf-corpus-calculator-india',
     ].includes(tool.slug);
   }, [tool.slug]);
 
@@ -120,6 +127,13 @@ function StandardCalculator({ tool }: { tool: Tool }) {
       'income-tax-calculator-old-vs-new-regime-india',
       'hra-exemption-calculator-india',
       'gratuity-calculator-india',
+      'home-loan-emi-calculator-india',
+      'personal-loan-eligibility-calculator-india',
+      'gold-loan-calculator-india',
+      'capital-gains-tax-calculator-india',
+      'ppf-calculator-india',
+      'lumpsum-calculator-india',
+      'epf-corpus-calculator-india',
     ].includes(tool.slug);
   }, [tool.slug]);
 
