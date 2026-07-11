@@ -514,6 +514,147 @@ export function BlogVisualRenderer({ type, mode, title, subtitle }: VisualProps)
           </svg>
         );
 
+      case 'home-loan-vs-rent':
+        return (
+          <svg viewBox="0 0 400 220" className="w-full h-full select-none" aria-label="Home loan vs rent comparison in India">
+            <title>Home Loan vs Rent Comparison</title>
+
+            {/* Left panel: Renting */}
+            <rect x="8" y="16" width="170" height="192" rx="12" className={bgClass} stroke={isDark ? '#475569' : '#CBD5E1'} strokeWidth="1.5" />
+            <text x="93" y="36" textAnchor="middle" className={textClass} fontSize="11" fontWeight="bold">RENTING</text>
+
+            {/* Dashed house outline */}
+            <polygon points="93,55 116,72 116,97 70,97 70,72" fill="none" stroke={isDark ? '#64748B' : '#94A3B8'} strokeWidth="1.5" strokeDasharray="4 3" />
+            <polygon points="93,44 121,68 65,68" fill="none" stroke={isDark ? '#64748B' : '#94A3B8'} strokeWidth="1.5" strokeDasharray="4 3" />
+            <text x="93" y="114" textAnchor="middle" fontSize="10" className={labelClass}>Monthly: ₹20,000</text>
+
+            <circle cx="22" cy="131" r="3" fill={growthGreenColor} />
+            <text x="30" y="134" fontSize="8.5" className={labelClass}>Flexibility to relocate</text>
+            <circle cx="22" cy="147" r="3" fill={growthGreenColor} />
+            <text x="30" y="150" fontSize="8.5" className={labelClass}>No maintenance cost</text>
+            <circle cx="22" cy="163" r="3" fill="#EF4444" />
+            <text x="30" y="166" fontSize="8.5" fill={isDark ? '#FCA5A5' : '#DC2626'}>Zero equity built</text>
+            <circle cx="22" cy="179" r="3" fill="#EF4444" />
+            <text x="30" y="182" fontSize="8.5" fill={isDark ? '#FCA5A5' : '#DC2626'}>Rent rises yearly</text>
+
+            {/* Right panel: Buying */}
+            <rect x="222" y="16" width="170" height="192" rx="12" fill={isDark ? 'rgba(0,48,128,0.2)' : 'rgba(0,48,128,0.05)'} stroke={navyColor} strokeWidth="1.5" />
+            <text x="307" y="36" textAnchor="middle" className={textClass} fontSize="11" fontWeight="bold" fill={navyColor}>BUYING</text>
+
+            {/* Filled house */}
+            <polygon points="307,55 330,72 330,97 284,97 284,72" fill={isDark ? 'rgba(0,48,128,0.3)' : 'rgba(0,48,128,0.08)'} stroke={navyColor} strokeWidth="1.5" />
+            <polygon points="307,44 335,68 279,68" fill={isDark ? 'rgba(0,48,128,0.3)' : 'rgba(0,48,128,0.08)'} stroke={navyColor} strokeWidth="1.5" />
+            <text x="307" y="114" textAnchor="middle" fontSize="10" className={labelClass}>Monthly: ₹35,000 EMI</text>
+
+            <circle cx="236" cy="131" r="3" fill={growthGreenColor} />
+            <text x="244" y="134" fontSize="8.5" className={labelClass}>Equity builds monthly</text>
+            <circle cx="236" cy="147" r="3" fill={growthGreenColor} />
+            <text x="244" y="150" fontSize="8.5" className={labelClass}>Sec 24b: ₹2L deduction</text>
+            <circle cx="236" cy="163" r="3" fill={growthGreenColor} />
+            <text x="244" y="166" fontSize="8.5" className={labelClass}>80C: principal savings</text>
+            <circle cx="236" cy="179" r="3" fill="#EF4444" />
+            <text x="244" y="182" fontSize="8.5" fill={isDark ? '#FCA5A5' : '#DC2626'}>Lower liquidity</text>
+
+            {/* VS badge */}
+            <circle cx="200" cy="110" r="16" fill={navyColor} />
+            <text x="200" y="115" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="bold">VS</text>
+          </svg>
+        );
+
+      case 'capital-gains-rates':
+        return (
+          <svg viewBox="0 0 400 220" className="w-full h-full select-none" aria-label="STCG vs LTCG tax rates for equity AY 2026-27">
+            <title>Capital Gains Tax Rates AY 2026-27</title>
+
+            <text x="200" y="20" textAnchor="middle" className={textClass} fontSize="11" fontWeight="bold">Equity Capital Gains — AY 2026-27</text>
+
+            {/* Timeline */}
+            <line x1="40" y1="78" x2="360" y2="78" stroke={isDark ? '#475569' : '#CBD5E1'} strokeWidth="3" strokeLinecap="round" />
+
+            {/* BUY marker */}
+            <circle cx="40" cy="78" r="8" fill={growthGreenColor} />
+            <text x="40" y="98" textAnchor="middle" fontSize="9" className={labelClass}>BUY</text>
+
+            {/* 12-month divider */}
+            <line x1="210" y1="53" x2="210" y2="106" stroke={isDark ? '#64748B' : '#94A3B8'} strokeWidth="1.5" strokeDasharray="4 3" />
+            <text x="210" y="48" textAnchor="middle" fontSize="9" className={subtextClass}>12 months</text>
+
+            {/* SELL marker */}
+            <circle cx="360" cy="78" r="8" fill={navyColor} />
+            <text x="360" y="98" textAnchor="middle" fontSize="9" className={labelClass}>SELL</text>
+
+            {/* Zone shadings */}
+            <rect x="42" y="61" width="166" height="17" rx="3" fill={isDark ? 'rgba(239,68,68,0.18)' : 'rgba(239,68,68,0.09)'} />
+            <text x="125" y="73" textAnchor="middle" fontSize="9" fill={isDark ? '#FCA5A5' : '#DC2626'} fontWeight="bold">SHORT-TERM</text>
+            <rect x="212" y="61" width="146" height="17" rx="3" fill={isDark ? 'rgba(67,160,71,0.18)' : 'rgba(67,160,71,0.09)'} />
+            <text x="285" y="73" textAnchor="middle" fontSize="9" fill={growthGreenColor} fontWeight="bold">LONG-TERM</text>
+
+            {/* STCG rate card */}
+            <rect x="20" y="112" width="160" height="85" rx="10" fill={isDark ? 'rgba(239,68,68,0.12)' : 'rgba(239,68,68,0.06)'} stroke={isDark ? 'rgba(239,68,68,0.5)' : '#FECACA'} strokeWidth="1.5" />
+            <text x="100" y="132" textAnchor="middle" fontSize="10" className={textClass} fontWeight="bold">STCG Tax</text>
+            <text x="100" y="157" textAnchor="middle" fontSize="22" fill={isDark ? '#FCA5A5' : '#DC2626'} fontWeight="bold">20%</text>
+            <text x="100" y="175" textAnchor="middle" fontSize="8.5" className={subtextClass}>Held &lt; 12 months</text>
+            <text x="100" y="189" textAnchor="middle" fontSize="8.5" className={subtextClass}>No exemption limit</text>
+
+            {/* LTCG rate card */}
+            <rect x="220" y="112" width="160" height="85" rx="10" fill={isDark ? 'rgba(67,160,71,0.12)' : 'rgba(67,160,71,0.06)'} stroke={isDark ? 'rgba(67,160,71,0.5)' : 'rgba(67,160,71,0.35)'} strokeWidth="1.5" />
+            <text x="300" y="132" textAnchor="middle" fontSize="10" className={textClass} fontWeight="bold">LTCG Tax</text>
+            <text x="300" y="157" textAnchor="middle" fontSize="22" fill={growthGreenColor} fontWeight="bold">12.5%</text>
+            <text x="300" y="175" textAnchor="middle" fontSize="8.5" className={subtextClass}>Held ≥ 12 months</text>
+            <text x="300" y="189" textAnchor="middle" fontSize="8.5" fill={growthGreenColor} fontWeight="bold">₹1.25L exempt/year</text>
+          </svg>
+        );
+
+      case 'tax-saving-trio':
+        return (
+          <svg viewBox="0 0 400 220" className="w-full h-full select-none" aria-label="PPF vs ELSS vs FD comparison under Section 80C">
+            <title>PPF vs ELSS vs FD — Section 80C Comparison</title>
+
+            <text x="200" y="18" textAnchor="middle" className={textClass} fontSize="11" fontWeight="bold">Section 80C: PPF vs ELSS vs FD</text>
+
+            {/* PPF Column */}
+            <rect x="8" y="28" width="118" height="182" rx="10" fill={isDark ? 'rgba(0,48,128,0.2)' : 'rgba(0,48,128,0.05)'} stroke={navyColor} strokeWidth="1.5" />
+            <path d="M 67 47 L 78 51 L 78 60 C 78 66, 67 71, 67 71 C 67 71, 56 66, 56 60 L 56 51 Z" fill="none" stroke={navyColor} strokeWidth="2" />
+            <text x="67" y="83" textAnchor="middle" className={textClass} fontSize="11" fontWeight="bold" fill={navyColor}>PPF</text>
+            <text x="67" y="101" textAnchor="middle" fontSize="18" fontWeight="bold" fill={navyColor}>7.1%</text>
+            <text x="67" y="115" textAnchor="middle" fontSize="8" className={subtextClass}>per annum</text>
+            <line x1="18" y1="124" x2="118" y2="124" stroke={isDark ? '#475569' : '#E2E8F0'} strokeWidth="1" />
+            <text x="67" y="139" textAnchor="middle" fontSize="8.5" className={labelClass}>15-yr lock-in</text>
+            <text x="67" y="154" textAnchor="middle" fontSize="8.5" fill={growthGreenColor} fontWeight="bold">EEE Tax Status</text>
+            <text x="67" y="168" textAnchor="middle" fontSize="8" className={subtextClass}>Govt-backed safe</text>
+            <text x="67" y="182" textAnchor="middle" fontSize="8" className={subtextClass}>Best: Low risk</text>
+            <text x="67" y="200" textAnchor="middle" fontSize="7.5" className={subtextClass}>₹1.5L/yr limit</text>
+
+            {/* ELSS Column */}
+            <rect x="141" y="28" width="118" height="182" rx="10" fill={isDark ? 'rgba(67,160,71,0.15)' : 'rgba(67,160,71,0.05)'} stroke={growthGreenColor} strokeWidth="1.5" />
+            <path d="M 175 68 L 200 46 L 225 68" fill="none" stroke={growthGreenColor} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M 200 46 L 200 70" stroke={growthGreenColor} strokeWidth="2.5" strokeLinecap="round" />
+            <text x="200" y="83" textAnchor="middle" className={textClass} fontSize="11" fontWeight="bold" fill={growthGreenColor}>ELSS</text>
+            <text x="200" y="101" textAnchor="middle" fontSize="18" fontWeight="bold" fill={growthGreenColor}>12–14%</text>
+            <text x="200" y="115" textAnchor="middle" fontSize="8" className={subtextClass}>historical CAGR</text>
+            <line x1="151" y1="124" x2="251" y2="124" stroke={isDark ? '#475569' : '#E2E8F0'} strokeWidth="1" />
+            <text x="200" y="139" textAnchor="middle" fontSize="8.5" className={labelClass}>3-yr lock-in</text>
+            <text x="200" y="154" textAnchor="middle" fontSize="8.5" fill="#EAB308" fontWeight="bold">LTCG taxable</text>
+            <text x="200" y="168" textAnchor="middle" fontSize="8" className={subtextClass}>Market-linked</text>
+            <text x="200" y="182" textAnchor="middle" fontSize="8" className={subtextClass}>Best: Long term</text>
+            <text x="200" y="200" textAnchor="middle" fontSize="7.5" className={subtextClass}>₹1.5L/yr limit</text>
+
+            {/* FD Column */}
+            <rect x="274" y="28" width="118" height="182" rx="10" fill={isDark ? 'rgba(100,116,139,0.15)' : 'rgba(100,116,139,0.05)'} stroke={isDark ? '#64748B' : '#94A3B8'} strokeWidth="1.5" />
+            <rect x="326" y="53" width="14" height="12" rx="2" fill="none" stroke={isDark ? '#94A3B8' : '#64748B'} strokeWidth="1.5" />
+            <path d="M 329 53 L 329 49 C 329 45, 337 45, 337 49 L 337 53" fill="none" stroke={isDark ? '#94A3B8' : '#64748B'} strokeWidth="1.5" />
+            <text x="333" y="83" textAnchor="middle" className={textClass} fontSize="11" fontWeight="bold">FD (5yr)</text>
+            <text x="333" y="101" textAnchor="middle" fontSize="18" fontWeight="bold" className={textClass}>~7%</text>
+            <text x="333" y="115" textAnchor="middle" fontSize="8" className={subtextClass}>per annum</text>
+            <line x1="284" y1="124" x2="384" y2="124" stroke={isDark ? '#475569' : '#E2E8F0'} strokeWidth="1" />
+            <text x="333" y="139" textAnchor="middle" fontSize="8.5" className={labelClass}>5-yr lock-in</text>
+            <text x="333" y="154" textAnchor="middle" fontSize="8.5" fill={isDark ? '#FCA5A5' : '#DC2626'} fontWeight="bold">Interest taxable</text>
+            <text x="333" y="168" textAnchor="middle" fontSize="8" className={subtextClass}>Guaranteed return</text>
+            <text x="333" y="182" textAnchor="middle" fontSize="8" className={subtextClass}>Best: Short term</text>
+            <text x="333" y="200" textAnchor="middle" fontSize="7.5" className={subtextClass}>₹1.5L/yr limit</text>
+          </svg>
+        );
+
       default:
         return null;
     }
