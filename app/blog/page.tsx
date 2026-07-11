@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { blogPosts } from '@/data/blog-posts';
 import BlogListingClient from '@/components/blog/BlogListingClient';
 
+const SITE_URL_CONST = 'https://www.rupeekit.co.in';
+
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
 export const metadata: Metadata = {
@@ -46,6 +48,35 @@ export default function BlogListingPage() {
 
       {/* Client component handles search, filter, featured badge */}
       <BlogListingClient posts={blogPosts} />
+
+      {/* JSON-LD: BreadcrumbList + CollectionPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL_CONST },
+                { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL_CONST}/blog` },
+              ],
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'CollectionPage',
+              name: 'Personal Finance Blog & Money Guides | RupeeKit',
+              url: `${SITE_URL_CONST}/blog`,
+              description: 'Free, practical personal finance articles covering budgeting, savings, investing, taxes, and financial planning for Indian salaried employees.',
+              hasPart: blogPosts.map((p) => ({
+                '@type': 'Article',
+                name: p.seoTitle ?? p.title,
+                url: `${SITE_URL_CONST}/blog/${p.slug}`,
+              })),
+            },
+          ]),
+        }}
+      />
 
       {/* Bottom Educational Banner */}
       <section className="mt-16 rounded-[2rem] border border-brandBorder bg-white p-8 text-center shadow-sm max-w-4xl mx-auto">

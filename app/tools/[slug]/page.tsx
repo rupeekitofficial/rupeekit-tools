@@ -229,7 +229,9 @@ export function generateMetadata({
     title:
       tool.slug === HRA_SLUG || tool.slug === PERSONAL_LOAN_SLUG || tool.slug === EMERGENCY_FUND_SLUG
         ? { absolute: pageTitle }
-        : tool.name,
+        : tool.seoTitle
+          ? { absolute: tool.seoTitle }
+          : tool.name,
     description,
     alternates: {
       canonical: pageUrl,
@@ -790,6 +792,23 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
+      {tool.howToUse && tool.howToUse.length > 0 ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'HowTo',
+              name: `How to use the ${tool.name}`,
+              step: tool.howToUse.map((text, i) => ({
+                '@type': 'HowToStep',
+                position: i + 1,
+                text,
+              })),
+            }),
+          }}
         />
       ) : null}
 

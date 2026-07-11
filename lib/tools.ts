@@ -47,6 +47,7 @@ export type ToolQuickAnswer = {
 export type Tool = {
   slug: string;
   name: string;
+  seoTitle?: string;
   category: string;
   status: string;
   targetKeyword: string;
