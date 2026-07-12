@@ -195,6 +195,7 @@
     {
     "slug": "personal-loan-emi-calculator-india",
     "name": "Personal Loan EMI Calculator India",
+    "seoTitle": "Free Personal Loan EMI Calculator India 2026 — Calculate Now",
     "category": "Loans",
     "status": "live",
     "targetKeyword": "personal loan emi calculator",
@@ -518,6 +519,7 @@
   {
     "slug": "emergency-fund-calculator-india",
     "name": "Emergency Fund Calculator India",
+    "seoTitle": "Free Emergency Fund Calculator India 2026 — Find Your Target",
     "category": "Savings",
     "status": "live",
     "targetKeyword": "emergency fund calculator",
@@ -1135,6 +1137,7 @@
   {
     "slug": "income-tax-calculator-old-vs-new-regime-india",
     "name": "Income Tax Calculator: Old vs New Regime India",
+    "seoTitle": "Income Tax Calculator India FY 2026-27 — Old vs New Regime",
     "category": "Tax",
     "status": "live",
     "targetKeyword": "income tax calculator old vs new regime India",
@@ -1312,6 +1315,7 @@
   {
     "slug": "hra-exemption-calculator-india",
     "name": "HRA Exemption Calculator India",
+    "seoTitle": "Free HRA Exemption Calculator India 2026 — Save Tax on Rent",
     "category": "Tax",
     "status": "live",
     "targetKeyword": "HRA exemption calculator India",
@@ -2219,6 +2223,7 @@
   {
     "slug": "personal-loan-eligibility-calculator-india",
     "name": "Personal Loan Eligibility Calculator India",
+    "seoTitle": "Personal Loan Eligibility Calculator India 2026 — Check Instantly",
     "category": "Loans",
     "status": "live",
     "targetKeyword": "personal loan eligibility calculator",
@@ -3256,6 +3261,1038 @@
       {
         "heading": "Source and Methodology",
         "body": "This calculator computes the future value of a constant monthly EPF contribution (employee plus employer EPF share) compounded monthly at the rate you enter. EPS contributions, salary growth, VPF changes and the Rs 2.5 lakh interest-tax threshold are not modelled. Educational estimate only."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "8th-pay-commission-salary-calculator-india",
+    "name": "8th Pay Commission Salary Calculator India",
+    "seoTitle": "8th Pay Commission Salary Calculator India 2026 — Free Estimate",
+    "category": "Salary",
+    "status": "live",
+    "targetKeyword": "8th pay commission salary calculator",
+    "shortDescription": "Estimate your revised basic pay, DA, HRA and gross salary under the expected 8th Pay Commission fitment factor for central government employees.",
+    "metaDescription": "8th Pay Commission salary calculator India — estimate revised basic pay and gross salary using the expected 2.57 fitment factor. Free, instant estimate.",
+    "inputs": [
+      {
+        "key": "currentBasic",
+        "label": "Current basic pay",
+        "unit": "Rs",
+        "default": 44900,
+        "min": 18000,
+        "max": 250000,
+        "step": 100,
+        "help": "Your current basic pay from payslip (7th Pay Commission scale). Minimum is Rs 18,000 (Level 1)."
+      },
+      {
+        "key": "fitmentFactor",
+        "label": "Fitment factor",
+        "unit": "x",
+        "default": 2.57,
+        "min": 2.0,
+        "max": 3.5,
+        "step": 0.01,
+        "help": "Expected fitment factor for 8th Pay Commission. The 7th CPC used 2.57. Adjust if an official figure is announced."
+      },
+      {
+        "key": "daPercent",
+        "label": "Current DA %",
+        "unit": "%",
+        "default": 55,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "help": "Dearness Allowance as percentage of basic pay. DA is revised twice a year (January and July)."
+      },
+      {
+        "key": "hraPercent",
+        "label": "HRA %",
+        "unit": "%",
+        "default": 24,
+        "min": 8,
+        "max": 30,
+        "step": 1,
+        "help": "HRA is 24% (X cities), 16% (Y cities) or 8% (Z cities) of revised basic pay."
+      },
+      {
+        "key": "taAmount",
+        "label": "Transport allowance",
+        "unit": "Rs",
+        "default": 3600,
+        "min": 0,
+        "max": 20000,
+        "step": 100,
+        "help": "Transport allowance depends on level and city. Enter 0 if not applicable."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "revisedBasic",
+        "label": "Revised basic pay (estimated)",
+        "formula": "currentBasic * fitmentFactor",
+        "format": "currency"
+      },
+      {
+        "key": "newDA",
+        "label": "DA on revised basic",
+        "formula": "revisedBasic * daPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "newHRA",
+        "label": "HRA on revised basic",
+        "formula": "revisedBasic * hraPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedGross",
+        "label": "Estimated gross salary",
+        "formula": "revisedBasic + newDA + newHRA + taAmount",
+        "format": "currency"
+      },
+      {
+        "key": "incrementAmount",
+        "label": "Salary increase from current",
+        "formula": "revisedBasic - currentBasic",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Revised basic = current basic × fitment factor. DA = revised basic × DA%. HRA = revised basic × HRA%. Gross = revised basic + DA + HRA + transport allowance. The fitment factor is the key multiplier; until officially notified, 2.57 (same as 7th CPC) is the most common estimate.",
+    "example": "On current basic Rs 44,900 with fitment 2.57, revised basic = Rs 1,15,393. With 55% DA (Rs 63,466), 24% HRA (Rs 27,694) and Rs 3,600 TA, estimated gross = Rs 2,10,153.",
+    "quickAnswer": {
+      "title": "8th Pay Commission Quick Answer",
+      "question": "How much will my salary increase under the 8th Pay Commission?",
+      "answer": "Your revised basic pay = current basic × fitment factor. The 7th Pay Commission used 2.57; if the 8th CPC uses the same, a current basic of Rs 44,900 becomes Rs 1,15,393. DA, HRA and TA are recalculated on the new basic. The 8th Pay Commission was constituted in November 2025 and is expected to be implemented from January 2026.",
+      "formula": "Revised basic = Current basic × fitment factor (expected: 2.57)",
+      "example": "Current basic Rs 44,900 × 2.57 = revised basic Rs 1,15,393.",
+      "note": "Estimate only. Official fitment factor not yet announced. Actual pay may differ."
+    },
+    "faqs": [
+      {
+        "question": "When will the 8th Pay Commission be implemented?",
+        "answer": "The 8th Pay Commission was constituted by the Union Cabinet in November 2025. Implementation is expected from January 2026, but the official report and fitment factor will be notified by the government — check the official 8CPC portal and Ministry of Finance notifications for the latest."
+      },
+      {
+        "question": "What is the expected fitment factor for the 8th Pay Commission?",
+        "answer": "The most widely cited expectation is 2.57 (same as the 7th Pay Commission) to 3.0. The official factor will only be known after the commission submits its report. This calculator defaults to 2.57 as the conservative baseline."
+      },
+      {
+        "question": "Does this calculator cover all allowances?",
+        "answer": "It covers basic pay, DA, HRA and transport allowance — the four largest components. Other allowances (CEA, NPS contribution, medical allowance) vary significantly by individual circumstances and are not included."
+      },
+      {
+        "question": "Is NPS contribution calculated on revised basic?",
+        "answer": "Yes. Employee NPS contribution (10% of basic+DA) and employer NPS contribution (14% of basic+DA) are both calculated on the revised basic. Your take-home net of NPS will be lower than the gross shown here."
+      },
+      {
+        "question": "Will DA be reset to 0 after the 8th Pay Commission?",
+        "answer": "Typically yes. The DA accumulated up to the Pay Commission implementation date is usually merged into basic pay via the fitment, and DA is reset to 0% on the new basic — then rises again from the next revision cycle."
+      }
+    ],
+    "related": [
+      "salary-in-hand-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
+      "hra-exemption-calculator-india",
+      "epf-corpus-calculator-india"
+    ],
+    "howToUse": [
+      "Enter your current basic pay from your payslip (7th Pay Commission scale).",
+      "Keep the fitment factor at 2.57 or adjust when an official figure is announced.",
+      "Set your current DA% — currently 55% for central government employees.",
+      "Select your HRA city category: 24% (X cities), 16% (Y cities), or 8% (Z cities).",
+      "Enter your transport allowance and read the estimated revised gross salary."
+    ],
+    "assumptions": [
+      "Fitment factor of 2.57 is an estimate; official value is not yet announced.",
+      "DA is assumed at the entered percentage; it will be revised after implementation.",
+      "Only basic pay, DA, HRA and TA are included. NPS, CGHS, CEA and other allowances are excluded.",
+      "Educational estimate only. Actual pay revision will follow the official government notification."
+    ],
+    "commonMistakes": [
+      "Treating this estimate as the official revised salary — it will change once the 8CPC report is published.",
+      "Forgetting that NPS (10% employee + 14% employer) is deducted from the revised salary.",
+      "Using full CTC instead of basic pay as the starting figure.",
+      "Assuming DA percentage remains the same after implementation — DA typically resets to 0%."
+    ],
+    "contentSections": [
+      {
+        "heading": "What is the 8th Pay Commission?",
+        "body": "The 8th Central Pay Commission (8th CPC) was constituted by the Union Cabinet on 16 November 2025 to review and revise pay, pension and allowances for central government employees. It is expected to submit its recommendations and implement revised pay from 1 January 2026, though the official timeline may shift. The previous 7th Pay Commission was implemented in January 2016 with a 2.57 fitment factor.",
+        "bullets": [
+          "Constituted: November 2025 by Union Cabinet.",
+          "Expected implementation: January 2026 (subject to official notification).",
+          "Covers: basic pay, grade pay, allowances and pension for ~50 lakh central govt employees and ~65 lakh pensioners."
+        ]
+      },
+      {
+        "heading": "How the fitment factor works",
+        "body": "The fitment factor is a single multiplier applied to your current basic pay to arrive at the revised basic pay. The 7th Pay Commission used 2.57, which effectively increased the minimum basic pay from Rs 7,000 to Rs 18,000. If the 8th CPC uses 2.57 again, a current basic of Rs 44,900 becomes Rs 1,15,393 revised basic.",
+        "bullets": [
+          "7th Pay Commission fitment: 2.57.",
+          "Widely expected range for 8th CPC: 2.57 to 3.0.",
+          "Higher fitment = larger salary jump but also larger fiscal impact for the government."
+        ]
+      },
+      {
+        "heading": "DA, HRA and TA on revised basic",
+        "body": "All major allowances are recalculated on the new basic pay. Dearness Allowance (currently 55%) is usually merged into basic via the fitment and then reset to 0%. HRA is 24% for X cities (metro), 16% for Y cities, and 8% for Z cities. Transport allowance is tiered by pay level and city."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator uses the entered fitment factor to project revised basic pay and calculates DA, HRA and TA as percentages of the revised basic. No official 8th Pay Commission figures have been released as of July 2026. All outputs are estimates for planning purposes only."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "cagr-calculator-india",
+    "name": "CAGR Calculator India",
+    "seoTitle": "Free CAGR Calculator India 2026 — Compound Annual Growth Rate",
+    "category": "Investing",
+    "status": "live",
+    "targetKeyword": "cagr calculator india",
+    "shortDescription": "Calculate the compound annual growth rate (CAGR) of any investment — mutual funds, stocks, FDs or real estate — from start value, end value and number of years.",
+    "metaDescription": "Free CAGR calculator India — find the compound annual growth rate of your investment from start value, end value and years held. Calculate CAGR instantly.",
+    "inputs": [
+      {
+        "key": "startValue",
+        "label": "Initial investment value",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 1,
+        "step": 1000,
+        "help": "The value of the investment at the start — the amount you invested or the NAV/price at purchase."
+      },
+      {
+        "key": "endValue",
+        "label": "Final investment value",
+        "unit": "Rs",
+        "default": 200000,
+        "min": 1,
+        "step": 1000,
+        "help": "The current value or the value at the end of the holding period."
+      },
+      {
+        "key": "years",
+        "label": "Investment duration",
+        "unit": "years",
+        "default": 5,
+        "min": 0.5,
+        "max": 50,
+        "step": 0.5,
+        "help": "Total time the investment was held. Use 0.5 for 6 months, 1.5 for 18 months, etc."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "cagrPercent",
+        "label": "CAGR",
+        "formula": "(((endValue / startValue) ^ (1 / years)) - 1) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "absoluteReturn",
+        "label": "Absolute return",
+        "formula": "((endValue - startValue) / startValue) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "totalGain",
+        "label": "Total gain / loss",
+        "formula": "endValue - startValue",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "CAGR = ((End Value / Start Value) ^ (1 / Years)) − 1. It represents the smoothed annual growth rate that would take the start value to the end value over the given period, assuming reinvestment and constant compounding. It does not reflect volatility or interim drawdowns.",
+    "example": "Rs 1,00,000 growing to Rs 2,00,000 in 5 years gives CAGR = (2,00,000/1,00,000)^(1/5) − 1 = 2^0.2 − 1 = 14.87% per year. Absolute return = 100%. The CAGR is the useful annualised figure for comparison.",
+    "quickAnswer": {
+      "title": "CAGR Quick Answer",
+      "question": "How do I calculate CAGR in India?",
+      "answer": "CAGR = ((Final Value ÷ Initial Value) raised to the power of (1 ÷ Years)) minus 1. For example, Rs 1 lakh growing to Rs 2 lakh in 5 years gives a CAGR of 14.87% per year. Use CAGR to compare mutual fund, stock or real estate returns on an apples-to-apples annual basis.",
+      "formula": "CAGR = ((End Value / Start Value)^(1/Years)) − 1",
+      "example": "Rs 1,00,000 to Rs 2,00,000 in 5 years = 14.87% CAGR."
+    },
+    "faqs": [
+      {
+        "question": "What is CAGR and why does it matter?",
+        "answer": "CAGR (Compound Annual Growth Rate) is the annualised return of an investment assuming profits are reinvested each year. It lets you compare investments held for different durations — a 40% absolute return over 2 years (18.3% CAGR) is much better than a 40% return over 5 years (6.96% CAGR)."
+      },
+      {
+        "question": "How is CAGR different from absolute return?",
+        "answer": "Absolute return is total percentage gain without accounting for time. CAGR normalises it per year. A mutual fund returning 100% absolute over 10 years has only 7.18% CAGR — modest annual growth. Absolute return is useful for knowing total gain; CAGR is useful for annual comparison."
+      },
+      {
+        "question": "Is CAGR the same as XIRR?",
+        "answer": "No. CAGR assumes a single lump-sum investment and one final value. XIRR handles irregular cash flows — multiple investments and partial withdrawals at different dates. For SIP returns, XIRR is more accurate; for a single lump-sum investment or fund comparison, CAGR is appropriate."
+      },
+      {
+        "question": "What is a good CAGR for mutual funds in India?",
+        "answer": "Large-cap equity funds have historically delivered 10–13% CAGR over 10-year periods. Mid and small-cap funds have averaged 14–18% CAGR over the same horizon, with higher volatility. Debt funds typically deliver 6–8% CAGR. Always compare CAGR over the same period and against the category average."
+      },
+      {
+        "question": "Can CAGR be negative?",
+        "answer": "Yes, if the end value is less than the start value. A negative CAGR represents an annualised loss. For example, Rs 1 lakh falling to Rs 70,000 in 3 years gives a CAGR of approximately −11.3% per year."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "lumpsum-calculator-india",
+      "ppf-calculator-india",
+      "epf-corpus-calculator-india"
+    ],
+    "howToUse": [
+      "Enter the initial investment value (what you paid or the starting NAV/price).",
+      "Enter the final value (current value or selling price).",
+      "Set the number of years the investment was held.",
+      "Read your CAGR, absolute return percentage and total gain."
+    ],
+    "assumptions": [
+      "Single lump-sum investment — CAGR is not suitable for SIP or multiple investments; use XIRR for those.",
+      "No intermediate cash flows (dividends reinvested or partial redemptions affect the actual return).",
+      "Educational estimate only. Actual mutual fund CAGR includes expense ratio; compare net-of-expenses figures."
+    ],
+    "commonMistakes": [
+      "Comparing absolute returns across different time periods instead of CAGR.",
+      "Using CAGR for SIP investments — use XIRR instead.",
+      "Ignoring dividends or distributions that came out of the investment before the final value.",
+      "Mixing up the start and end values, which gives an incorrect (inflated or negative) result."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why CAGR matters for Indian investors",
+        "body": "Indian mutual fund factsheets, stock screeners and insurance brochures quote returns as CAGR (or annualised returns) to allow fair comparison. A fund returning 14.87% CAGR doubles your money in 5 years; one returning 7.2% CAGR doubles it in 10 years. Understanding CAGR helps you evaluate if your portfolio is outperforming or underperforming benchmarks.",
+        "bullets": [
+          "SEBI mandates mutual fund performance disclosures in CAGR for periods longer than 1 year.",
+          "The Nifty 50 has delivered approximately 12% CAGR over the last 20 years.",
+          "PPF at 7.1% doubles money in approximately 10 years (CAGR = 7.1%)."
+        ]
+      },
+      {
+        "heading": "CAGR vs XIRR — which to use?",
+        "body": "CAGR is ideal for a single lump-sum investment or for comparing two funds over the same period. XIRR (Extended Internal Rate of Return) is the right metric for SIP investments, where you invest different amounts at different dates. Most mutual fund apps in India show XIRR for SIP portfolios and CAGR for lump-sum investments.",
+        "bullets": [
+          "Single lump-sum → use CAGR.",
+          "Monthly SIP or multiple cash flows → use XIRR.",
+          "Fund comparison over same period → CAGR is fine."
+        ]
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator computes CAGR using the standard formula: (End Value / Start Value)^(1/Years) − 1. Absolute return is (End − Start) / Start × 100%. Both calculations assume no intermediate cash flows."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "nps-calculator-india",
+    "name": "NPS Calculator India",
+    "seoTitle": "Free NPS Calculator India 2026 — Estimate Retirement Corpus & Pension",
+    "category": "Retirement",
+    "status": "live",
+    "targetKeyword": "nps calculator india",
+    "shortDescription": "Estimate your National Pension System (NPS) corpus at age 60 and the monthly pension from the mandatory annuity purchase, based on your monthly contribution and expected returns.",
+    "metaDescription": "NPS calculator India — estimate your NPS corpus at retirement and monthly pension under the National Pension System. Free NPS retirement calculator.",
+    "inputs": [
+      {
+        "key": "currentAge",
+        "label": "Current age",
+        "unit": "years",
+        "default": 30,
+        "min": 18,
+        "max": 59,
+        "step": 1,
+        "help": "NPS contributions must begin before age 65. Corpus is computed until age 60 (standard NPS maturity age)."
+      },
+      {
+        "key": "monthlyContribution",
+        "label": "Monthly contribution",
+        "unit": "Rs",
+        "default": 5000,
+        "min": 500,
+        "step": 500,
+        "help": "Total monthly NPS contribution (your Tier 1 contribution). Include employer's NPS contribution if applicable."
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected annual return",
+        "unit": "%",
+        "default": 10,
+        "min": 4,
+        "max": 15,
+        "step": 0.5,
+        "help": "NPS returns depend on asset allocation (equity/government bonds/corporate bonds). Aggressive (75% equity) has historically returned 10–12%; conservative (100% government bonds) around 7–8%."
+      },
+      {
+        "key": "annuityPercent",
+        "label": "Annuity purchase %",
+        "unit": "%",
+        "default": 40,
+        "min": 40,
+        "max": 100,
+        "step": 5,
+        "help": "At maturity, at least 40% of the corpus must be used to buy an annuity (monthly pension). The rest (up to 60%) can be withdrawn lump-sum tax-free."
+      },
+      {
+        "key": "annuityRate",
+        "label": "Annuity rate",
+        "unit": "%",
+        "default": 6,
+        "min": 3,
+        "max": 10,
+        "step": 0.5,
+        "help": "The annuity rate offered by PFRDA-empanelled insurers typically ranges from 5.5–7% per annum depending on the annuity type chosen."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "contributionYears",
+        "label": "Contribution years",
+        "formula": "60 - currentAge",
+        "format": "number"
+      },
+      {
+        "key": "totalCorpus",
+        "label": "Estimated NPS corpus at 60",
+        "formula": "monthlyContribution * (((1 + expectedReturn/12/100) ^ (contributionYears*12)) - 1) / (expectedReturn/12/100)",
+        "format": "currency"
+      },
+      {
+        "key": "lumpSumWithdrawal",
+        "label": "Lump-sum withdrawal (60% max)",
+        "formula": "totalCorpus * (1 - annuityPercent/100)",
+        "format": "currency"
+      },
+      {
+        "key": "annuityCorpus",
+        "label": "Annuity corpus used for pension",
+        "formula": "totalCorpus * annuityPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyPension",
+        "label": "Estimated monthly pension",
+        "formula": "annuityCorpus * annuityRate / 100 / 12",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "NPS corpus = future value of monthly contribution compounded at the expected annual return until age 60. At maturity, at least 40% buys an annuity; monthly pension = annuity corpus × annuity rate / 12. The remaining 60% (or less) can be withdrawn tax-free.",
+    "example": "Age 30, Rs 5,000/month, 10% return, 40% annuity at 6%: corpus at 60 = Rs 1,13,02,000. Lump-sum = Rs 67,81,000. Annuity corpus = Rs 45,21,000. Monthly pension = Rs 22,605.",
+    "quickAnswer": {
+      "title": "NPS Quick Answer",
+      "question": "How much NPS corpus will I have at 60?",
+      "answer": "NPS corpus = future value of monthly contributions at your chosen return rate until age 60. At 60, you must buy an annuity with at least 40% of the corpus (for monthly pension), and can withdraw up to 60% tax-free. Starting Rs 5,000/month at age 30 with 10% returns builds roughly Rs 1.13 crore by 60, giving about Rs 22,600/month pension on 40% annuity at 6%.",
+      "formula": "Corpus = Monthly contribution × ((1+r)^n − 1) / r, where r = monthly rate, n = months to age 60",
+      "example": "Rs 5,000/month at age 30 at 10% CAGR → Rs 1.13 cr corpus at 60 → Rs 22,600/month pension.",
+      "note": "NPS 2.0: PFRDA increased tax-free lump-sum withdrawal to 80% for corpus below Rs 5 lakh. Check current rules."
+    },
+    "faqs": [
+      {
+        "question": "What is the minimum NPS contribution per year?",
+        "answer": "For Tier 1 (mandatory) NPS account, the minimum annual contribution is Rs 1,000. No maximum limit applies for individual contributions, but 80CCD(1) deduction is capped at 10% of salary (Rs 1.5L under 80C limit) and additional 80CCD(1B) gives up to Rs 50,000 more."
+      },
+      {
+        "question": "Is NPS withdrawal taxable at maturity?",
+        "answer": "The lump-sum withdrawal (up to 60% of corpus) at maturity (age 60) is completely tax-free. The annuity income (monthly pension) is taxable as income at your applicable slab rate in the year of receipt."
+      },
+      {
+        "question": "What are the tax benefits of NPS?",
+        "answer": "Employee's own NPS contribution: deductible under 80CCD(1) up to 10% of salary (capped within Rs 1.5L 80C limit). Additional self-contribution: Rs 50,000 under 80CCD(1B) over and above 80C. Employer NPS contribution: deductible under 80CCD(2) — 10% of salary for private sector (14% for govt employees), NO cap."
+      },
+      {
+        "question": "Can I withdraw NPS before 60?",
+        "answer": "Partial withdrawal (up to 25% of your own contributions) is allowed after 3 years for specific purposes (education, marriage, medical, home). Premature exit before 60 (after 5 years) requires 80% annuity purchase; only 20% can be withdrawn. On death, the entire corpus is paid to the nominee tax-free."
+      },
+      {
+        "question": "What is NPS 2.0?",
+        "answer": "Under NPS 2.0 amendments (effective FY 2025-26 onwards), if the NPS corpus at maturity is Rs 5 lakh or less, the subscriber can withdraw the entire corpus tax-free without buying an annuity. Above Rs 5 lakh, the 40% annuity rule continues."
+      },
+      {
+        "question": "Which NPS scheme is better — Tier 1 or Tier 2?",
+        "answer": "Tier 1 is mandatory for NPS and has tax benefits and withdrawal restrictions. Tier 2 is an optional savings account with no withdrawal restrictions but also no additional tax benefits (except for central govt employees). Most investors use Tier 1 for retirement; Tier 2 for liquid savings."
+      }
+    ],
+    "related": [
+      "epf-corpus-calculator-india",
+      "ppf-calculator-india",
+      "sip-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india"
+    ],
+    "howToUse": [
+      "Enter your current age — corpus is estimated until age 60.",
+      "Enter your monthly NPS Tier 1 contribution (include employer contribution if adding both).",
+      "Set the expected annual return based on your NPS fund allocation (10% for aggressive, 7–8% for conservative).",
+      "Set annuity purchase % — minimum 40% is mandatory; higher % means more monthly pension.",
+      "Set the annuity rate offered by insurers (typically 5.5–7%) to estimate monthly pension."
+    ],
+    "assumptions": [
+      "Constant monthly contribution throughout the period — actual contributions may vary.",
+      "Constant return rate — NPS equity allocation returns are market-linked and volatile.",
+      "Annuity rate is an estimate; actual rates depend on the insurer and annuity type chosen at maturity.",
+      "Employer NPS contributions (80CCD(2)) are not separately tracked — add them to monthly contribution if including both.",
+      "Educational estimate only. Verify current NPS rules and annuity rates on the NPS Trust website."
+    ],
+    "commonMistakes": [
+      "Using the equity CAGR (10–12%) for a conservative NPS allocation with high government bond exposure.",
+      "Forgetting that monthly pension (annuity income) is taxable at your slab rate.",
+      "Not using the extra Rs 50,000 80CCD(1B) deduction available over and above 80C.",
+      "Ignoring employer's 80CCD(2) NPS contribution — it is deductible without any cap for the employer."
+    ],
+    "contentSections": [
+      {
+        "heading": "How NPS works",
+        "body": "The National Pension System (NPS) is a voluntary, long-term retirement savings scheme regulated by PFRDA. Contributions go into Tier 1 (retirement-locked) and optionally Tier 2 (liquid). Tier 1 funds are invested across equity (E), government securities (G) and corporate bonds (C) in the allocation you choose. At age 60, you withdraw up to 60% tax-free and must buy an annuity with at least 40% for a monthly pension.",
+        "bullets": [
+          "Tax benefits: 80CCD(1) up to Rs 1.5L + extra Rs 50,000 under 80CCD(1B).",
+          "Employer NPS (80CCD(2)): deductible without any cap on salary percentage.",
+          "Maturity: 60% lump-sum tax-free + 40% annuity (monthly pension, taxable)."
+        ]
+      },
+      {
+        "heading": "NPS vs EPF vs PPF",
+        "body": "EPF is automatic for organised-sector employees (12% employee + 3.67% employer to EPF). PPF is a 15-year government-backed investment with full EEE tax status. NPS is more flexible in investment choice (equity to bonds) and has the extra Rs 50,000 deduction under 80CCD(1B), but requires an annuity purchase at maturity. Many salaried investors use EPF + PPF as the safe core and NPS as an additional retirement vehicle.",
+        "bullets": [
+          "NPS: market-linked, flexible allocation, extra tax deduction, annuity required.",
+          "EPF: auto-deducted, employer-matched, ~8.25% declared rate.",
+          "PPF: voluntary, risk-free, full EEE, 15-year lock-in."
+        ]
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "Corpus is computed as the future value of a constant monthly contribution compounded monthly at the entered annual rate until age 60. Lump-sum and annuity splits are applied on the total corpus. Monthly pension = annuity corpus × annuity rate / 12. All figures are pre-tax estimates."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "step-up-sip-calculator-india",
+    "name": "Step-Up SIP Calculator India",
+    "seoTitle": "Free Step-Up SIP Calculator India 2026 — Boost Your SIP Returns",
+    "category": "Investing",
+    "status": "live",
+    "targetKeyword": "step up sip calculator india",
+    "shortDescription": "Calculate your mutual fund corpus when you increase your SIP amount every year. Step-up SIP (also called top-up SIP) significantly boosts wealth compared to a flat SIP.",
+    "metaDescription": "Step-up SIP calculator India — estimate the corpus when you increase your monthly SIP by a fixed percentage every year. Free step-up SIP calculator.",
+    "inputs": [
+      {
+        "key": "monthlySip",
+        "label": "Initial monthly SIP",
+        "unit": "Rs",
+        "default": 5000,
+        "min": 500,
+        "step": 500,
+        "help": "The SIP amount you start with in the first year. It will be increased by the step-up % each subsequent year."
+      },
+      {
+        "key": "stepUpPercent",
+        "label": "Annual step-up %",
+        "unit": "%",
+        "default": 10,
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "help": "Percentage by which you increase your SIP every year. 10% step-up means Rs 5,000 becomes Rs 5,500 in year 2, Rs 6,050 in year 3, and so on."
+      },
+      {
+        "key": "years",
+        "label": "Investment period",
+        "unit": "years",
+        "default": 15,
+        "min": 1,
+        "max": 40,
+        "step": 1,
+        "help": "Total number of years the SIP will run."
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected annual return",
+        "unit": "%",
+        "default": 12,
+        "min": 4,
+        "max": 25,
+        "step": 0.5,
+        "help": "Expected CAGR of the mutual fund. Equity funds have historically returned 11–14% CAGR over 10-year periods; use 10–12% for a conservative estimate."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "totalInvested",
+        "label": "Total amount invested",
+        "formula": "monthlySip * 12 * ((((1 + stepUpPercent/100) ^ years) - 1) / (stepUpPercent/100))",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedCorpus",
+        "label": "Estimated corpus",
+        "formula": "monthlySip * 12 * ((((1 + stepUpPercent/100) ^ years) - 1) / (stepUpPercent/100)) * (1 + expectedReturn/100/2)",
+        "format": "currency"
+      },
+      {
+        "key": "wealthGained",
+        "label": "Wealth gained (interest)",
+        "formula": "estimatedCorpus - totalInvested",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Step-up SIP involves compound growth on two axes: the contributions increase annually (geometric series at the step-up rate) and the corpus compounds monthly at the fund return rate. The exact formula sums the future value of each year's stepped-up SIP over the investment period. This calculator uses an approximation that closely tracks the exact result for typical step-up and return values.",
+    "example": "Starting Rs 5,000/month SIP with 10% annual step-up for 15 years at 12% expected return: total invested = approximately Rs 19.1 lakh; estimated corpus = approximately Rs 55.7 lakh vs Rs 25.2 lakh for a flat Rs 5,000 SIP — more than double the wealth from annual step-ups.",
+    "quickAnswer": {
+      "title": "Step-Up SIP Quick Answer",
+      "question": "How much more wealth does a step-up SIP build vs a flat SIP?",
+      "answer": "A step-up SIP (increasing SIP by 10% every year) typically builds 2–3x the corpus of a flat SIP over 15 years. Starting at Rs 5,000/month with 10% annual step-up at 12% returns builds roughly Rs 55 lakh in 15 years, versus Rs 25 lakh for a flat Rs 5,000 SIP — the difference comes from compounding higher contributions in later years.",
+      "formula": "Year N SIP amount = Initial SIP × (1 + step-up%)^(N-1)",
+      "example": "Rs 5,000/month, 10% step-up, 15 years, 12% returns → ~Rs 55 lakh corpus."
+    },
+    "faqs": [
+      {
+        "question": "What is a step-up SIP?",
+        "answer": "A step-up SIP (also called top-up SIP) automatically increases your monthly SIP contribution by a fixed percentage each year. For example, a 10% step-up on Rs 5,000 makes it Rs 5,500 in year 2, Rs 6,050 in year 3, and so on. This matches salary growth and boosts long-term corpus significantly."
+      },
+      {
+        "question": "How do I set up a step-up SIP?",
+        "answer": "Most mutual fund platforms — Groww, Kuvera, Coin (Zerodha), MF Central, and fund house apps — allow you to set a step-up SIP when registering a new SIP. Select the step-up amount or percentage during the setup. You can also manually increase SIP amounts each year on flat SIPs."
+      },
+      {
+        "question": "Is step-up SIP better than a higher flat SIP?",
+        "answer": "They differ in cash flow. A step-up SIP starts with a lower monthly outflow and increases as income grows, making it easier on early budgets. A higher flat SIP requires a larger commitment from day one. Both build wealth; the step-up approach aligns better with growing salaries. Over 15 years, a Rs 5,000 SIP with 10% step-up typically exceeds the corpus of a flat Rs 8,000 SIP."
+      },
+      {
+        "question": "Can I pause step-up SIP increases?",
+        "answer": "Yes. You can modify or pause step-up instructions on most platforms. In some cases, you need to cancel the step-up instruction and re-register. Contact your platform's customer support or update via the MF Central account portability feature."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "lumpsum-calculator-india",
+      "cagr-calculator-india",
+      "ppf-calculator-india"
+    ],
+    "howToUse": [
+      "Enter your starting monthly SIP amount.",
+      "Set the annual step-up percentage (10% is a common rule of thumb matching typical salary increments).",
+      "Set the investment duration in years.",
+      "Set the expected annual return (10–12% for equity funds, 7–8% for debt or hybrid).",
+      "Read the estimated corpus, total invested and wealth gained."
+    ],
+    "assumptions": [
+      "SIP amounts increase once per year at the start of each anniversary year.",
+      "Returns are assumed constant throughout the period — actual mutual fund returns are market-linked and volatile.",
+      "Step-up is applied to the SIP amount, not to lump-sum contributions.",
+      "Educational estimate only. Past returns are not a guarantee of future performance."
+    ],
+    "commonMistakes": [
+      "Comparing step-up SIP corpus to a flat SIP at only the initial amount — step-up corpus is higher because total investment is also higher.",
+      "Using equity CAGR of 15–18% — this is historical maximum performance; 10–12% is a more reasonable planning figure.",
+      "Forgetting that LTCG tax (12.5% above Rs 1.25L per year) applies on equity fund gains at redemption.",
+      "Not reviewing and increasing the step-up percentage when income grows faster than planned."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why step-up SIP beats flat SIP",
+        "body": "A flat Rs 5,000 SIP for 15 years at 12% builds approximately Rs 25 lakh. The same Rs 5,000 starting SIP with 10% annual step-up builds approximately Rs 55 lakh — more than double — because contributions compound on both the larger invested amounts and market returns. The benefit comes from increasing contributions in the middle and later years when time for compounding is shorter but corpus is largest.",
+        "bullets": [
+          "Step-up aligns SIP growth with salary increments.",
+          "Higher contributions in later years maximise corpus even with shorter compounding periods.",
+          "Behavioural benefit: you commit to growth without feeling the pinch early on."
+        ]
+      },
+      {
+        "heading": "Choosing the right step-up percentage",
+        "body": "A step-up percentage matching your expected salary increment is a practical rule. Indian salaried employees average 8–12% annual increments. A 10% step-up is a conservative baseline. You can also choose a fixed annual increase in rupees (e.g., +Rs 500 per year) rather than a percentage, though percentage step-ups grow faster over time.",
+        "bullets": [
+          "10% step-up: conservative, matches average increment.",
+          "15% step-up: aggressive, suitable for high-growth careers.",
+          "5% step-up: minimal, still better than a flat SIP."
+        ]
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator sums the future value of each year's annual SIP contribution (monthly SIP × 12, increased by step-up% each year) compounded at the expected annual return for the remaining period. The result closely approximates the exact month-by-month step-up calculation for typical values."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "sukanya-samriddhi-yojana-calculator-india",
+    "name": "Sukanya Samriddhi Yojana Calculator India",
+    "seoTitle": "Free Sukanya Samriddhi Calculator India 2026 — SSY Maturity Amount",
+    "category": "Savings",
+    "status": "live",
+    "targetKeyword": "sukanya samriddhi calculator 2026",
+    "shortDescription": "Calculate the maturity amount of a Sukanya Samriddhi Yojana (SSY) account based on the girl child's age, annual deposit amount and the current SSY interest rate.",
+    "metaDescription": "Sukanya Samriddhi Yojana (SSY) calculator India — estimate the maturity corpus, total interest and 80C savings for your daughter's SSY account. Free SSY calculator.",
+    "inputs": [
+      {
+        "key": "girlAge",
+        "label": "Girl child's current age",
+        "unit": "years",
+        "default": 5,
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "help": "SSY account can be opened for a girl child below 10 years of age. The account matures when she turns 21."
+      },
+      {
+        "key": "annualDeposit",
+        "label": "Annual deposit amount",
+        "unit": "Rs",
+        "default": 50000,
+        "min": 250,
+        "max": 150000,
+        "step": 250,
+        "help": "Minimum Rs 250 per year; maximum Rs 1,50,000 per year (same as 80C limit). Deposits can be made until the girl turns 15."
+      },
+      {
+        "key": "interestRate",
+        "label": "SSY interest rate",
+        "unit": "%",
+        "default": 8.2,
+        "min": 4,
+        "max": 12,
+        "step": 0.1,
+        "help": "Current SSY interest rate for FY 2025-26 is 8.2% per annum, compounded annually. The government revises it quarterly."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "depositYears",
+        "label": "Deposit years (age 0 to 15)",
+        "formula": "15 - girlAge",
+        "format": "number"
+      },
+      {
+        "key": "maturityAge",
+        "label": "Maturity age",
+        "formula": "21",
+        "format": "number"
+      },
+      {
+        "key": "yearsToMaturity",
+        "label": "Years to maturity",
+        "formula": "21 - girlAge",
+        "format": "number"
+      },
+      {
+        "key": "totalDeposited",
+        "label": "Total amount deposited",
+        "formula": "annualDeposit * depositYears",
+        "format": "currency"
+      },
+      {
+        "key": "maturityAmount",
+        "label": "Estimated maturity amount",
+        "formula": "annualDeposit * (((1 + interestRate/100) ^ depositYears) - 1) / (interestRate/100) * (1 + interestRate/100) ^ (yearsToMaturity - depositYears)",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest earned",
+        "formula": "maturityAmount - totalDeposited",
+        "format": "currency"
+      },
+      {
+        "key": "taxSavingPerYear",
+        "label": "80C tax saving per year (30% bracket)",
+        "formula": "annualDeposit * 0.3 * 1.04",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "SSY compounds annually. Deposits are made at the beginning of each year from the girl's current age until she turns 15 (15 − current age deposit years). The accumulated corpus at age 15 then grows at the SSY rate with no additional deposits until maturity at 21. The formula: future value of deposits at year 15 × (1 + r)^(21−15). Tax saving per year = deposit × 31.2% (30% + 4% cess).",
+    "example": "Girl age 5, Rs 50,000/year deposit at 8.2% for 10 years, then 6 years of compounding to maturity at age 21: total deposit = Rs 5,00,000; estimated maturity = approximately Rs 15,26,000; total interest = Rs 10,26,000. Annual 80C tax saving (30% bracket) = Rs 15,600.",
+    "quickAnswer": {
+      "title": "SSY Quick Answer",
+      "question": "How much will my daughter's SSY account be worth at 21?",
+      "answer": "SSY maturity amount depends on the girl's age (account matures at 21), annual deposit (up to Rs 1.5L), and the current SSY rate (8.2% for FY 2025-26, compounded annually). Deposits can be made until she turns 15; the corpus then keeps compounding until 21. A Rs 50,000/year deposit starting at age 5 for 10 years gives roughly Rs 15.3 lakh at maturity — all of it tax-free.",
+      "formula": "Maturity = Future value of deposits at age 15 × (1 + SSY rate)^6",
+      "example": "Rs 50,000/year for 10 years (ages 5–15) at 8.2% → ~Rs 15.3 lakh at 21. Fully tax-free.",
+      "note": "SSY rate is revised quarterly. Verify the current rate on the India Post or RBI website before investing."
+    },
+    "faqs": [
+      {
+        "question": "What is Sukanya Samriddhi Yojana (SSY)?",
+        "answer": "Sukanya Samriddhi Yojana is a government-backed small savings scheme for girl children launched under Beti Bachao Beti Padhao. It offers EEE (Exempt-Exempt-Exempt) tax status: 80C deduction on contributions, tax-free interest, and tax-free maturity proceeds. The account matures when the girl turns 21 or on marriage after age 18."
+      },
+      {
+        "question": "What is the current SSY interest rate?",
+        "answer": "The SSY interest rate for Q1 FY 2025-26 is 8.2% per annum, compounded annually. The government revises the rate quarterly. SSY consistently offers a higher rate than PPF and is among the highest rates in the government small-savings basket."
+      },
+      {
+        "question": "Up to what age can an SSY account be opened?",
+        "answer": "An SSY account can only be opened for a girl child below 10 years of age. Deposits continue until she turns 15 (15 years of deposits), and the account matures when she turns 21."
+      },
+      {
+        "question": "How many SSY accounts can a family have?",
+        "answer": "A maximum of two SSY accounts per family — one for each girl child. If the second birth results in twins or triplets, a third account may be opened. One account per girl child only."
+      },
+      {
+        "question": "Can I withdraw from SSY before maturity?",
+        "answer": "Partial withdrawal of up to 50% of the balance (as of the previous financial year end) is allowed after the girl turns 18, for education purposes. Full premature closure is permitted only in limited circumstances — serious illness of the account holder or death of the guardian."
+      },
+      {
+        "question": "Is SSY better than PPF?",
+        "answer": "SSY offers a slightly higher rate (currently 8.2% vs PPF 7.1%), same EEE tax status, and is purpose-built for a girl child's education or marriage. The key difference: SSY matures when the girl turns 21 and deposits are limited to Rs 1.5L/year. PPF is open to all, matures in 15 years and is extendable. If you have a girl child below 10, SSY is generally preferred over PPF for that goal."
+      }
+    ],
+    "related": [
+      "ppf-calculator-india",
+      "80c-deduction-calculator-india",
+      "epf-corpus-calculator-india",
+      "sip-calculator-india"
+    ],
+    "howToUse": [
+      "Enter the girl child's current age (must be below 10 to open an SSY account).",
+      "Enter the amount you plan to deposit each year (Rs 250 to Rs 1,50,000 maximum).",
+      "Keep the SSY interest rate at the current rate (8.2%) or update it if revised.",
+      "Read the estimated maturity amount, total deposit, interest earned and annual 80C tax saving."
+    ],
+    "assumptions": [
+      "Annual deposits are made at the start of each year from the current age until age 15.",
+      "The SSY interest rate is assumed constant — in reality it is revised quarterly.",
+      "Interest compounds annually as per SSY scheme rules.",
+      "80C tax saving is shown at 31.2% (30% tax + 4% cess) for illustration only.",
+      "Educational estimate only. Open SSY at a post office or authorised bank and verify the current rate."
+    ],
+    "commonMistakes": [
+      "Opening SSY after the girl turns 10 — accounts can only be opened before age 10.",
+      "Depositing more than Rs 1,50,000 per year — the excess earns no interest and gets no tax benefit.",
+      "Confusing SSY with PPF — SSY is only for girl children and has a fixed 21-year term, not 15-year.",
+      "Withdrawing before 18 — SSY does not permit withdrawal until the girl is 18 (except for account closure on guardian's death or serious illness)."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why SSY is one of India's best savings schemes for daughters",
+        "body": "SSY offers the highest interest rate among government small-savings schemes, full EEE tax status, and is specifically designed for a daughter's future — education, wedding or financial independence. Unlike PPF which is open-ended, SSY has a defined purpose and term, making it a disciplined vehicle for long-term child goal planning.",
+        "bullets": [
+          "Rate: 8.2% (Q1 FY 2025-26), revised quarterly — consistently higher than PPF.",
+          "Tax: EEE — deposit deductible under 80C, interest tax-free, maturity tax-free.",
+          "Term: Matures at age 21 (or on marriage after 18).",
+          "Deposit: Rs 250 minimum, Rs 1.5L maximum per year."
+        ]
+      },
+      {
+        "heading": "SSY vs PPF — which should you choose?",
+        "body": "Choose SSY if you have a girl child below 10 and want a dedicated, higher-rate vehicle for her goals. Choose PPF for general long-term savings open to everyone. You can do both — use SSY for the daughter's corpus and PPF for your own retirement savings. Both qualify for the Rs 1.5L 80C deduction.",
+        "bullets": [
+          "SSY: 8.2% rate, purpose-specific, deposits until age 15, maturity at 21.",
+          "PPF: 7.1% rate, general savings, 15-year term (extendable), open to all.",
+          "Both: EEE status, Rs 1.5L annual cap."
+        ]
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "Deposits are modelled as end-of-year payments for the years from the girl's current age to age 15. The accumulated corpus at age 15 grows at the entered rate to age 21 with no further deposits. This matches the SSY scheme mechanics. The 80C tax saving illustrates the benefit at 30% slab + 4% cess."
+      }
+    ],
+    "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "net-worth-calculator-india",
+    "name": "Net Worth Calculator India",
+    "seoTitle": "Free Net Worth Calculator India 2026 — Know Your Financial Health",
+    "category": "Savings",
+    "status": "live",
+    "targetKeyword": "net worth calculator india",
+    "shortDescription": "Calculate your personal net worth by adding up all your assets (savings, investments, property, gold) and subtracting your liabilities (loans, credit card debt) to get a clear financial snapshot.",
+    "metaDescription": "Free net worth calculator India — add your assets and subtract liabilities to find your personal net worth. Track your financial health in minutes.",
+    "inputs": [
+      {
+        "key": "cashSavings",
+        "label": "Cash & savings accounts",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 0,
+        "step": 1000,
+        "help": "Total balance in savings accounts, current accounts and cash at hand."
+      },
+      {
+        "key": "fdRdBalance",
+        "label": "Fixed & recurring deposits",
+        "unit": "Rs",
+        "default": 200000,
+        "min": 0,
+        "step": 1000,
+        "help": "Current value of all FDs and RDs."
+      },
+      {
+        "key": "mutualFunds",
+        "label": "Mutual funds & stocks",
+        "unit": "Rs",
+        "default": 300000,
+        "min": 0,
+        "step": 1000,
+        "help": "Current market value of mutual fund units and equity shares."
+      },
+      {
+        "key": "ppfEpfBalance",
+        "label": "PPF, EPF & NPS balance",
+        "unit": "Rs",
+        "default": 500000,
+        "min": 0,
+        "step": 1000,
+        "help": "Total balance in PPF, EPF passbook and NPS account."
+      },
+      {
+        "key": "realEstate",
+        "label": "Real estate (market value)",
+        "unit": "Rs",
+        "default": 3000000,
+        "min": 0,
+        "step": 10000,
+        "help": "Current market value of property you own — home, plot, commercial property. Exclude property with outstanding loans if you want to net off elsewhere."
+      },
+      {
+        "key": "goldJewellery",
+        "label": "Gold & jewellery",
+        "unit": "Rs",
+        "default": 200000,
+        "min": 0,
+        "step": 1000,
+        "help": "Estimated current value of gold coins, jewellery and Sovereign Gold Bonds."
+      },
+      {
+        "key": "otherAssets",
+        "label": "Other assets",
+        "unit": "Rs",
+        "default": 0,
+        "min": 0,
+        "step": 1000,
+        "help": "Vehicles, business equity, receivables or any other assets not listed above."
+      },
+      {
+        "key": "homeLoanBalance",
+        "label": "Home loan outstanding",
+        "unit": "Rs",
+        "default": 1500000,
+        "min": 0,
+        "step": 1000,
+        "help": "Current outstanding balance on home loan(s)."
+      },
+      {
+        "key": "personalLoan",
+        "label": "Personal loan & car loan",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 0,
+        "step": 1000,
+        "help": "Outstanding balance on personal loans, car loans and other EMI-based loans."
+      },
+      {
+        "key": "creditCardDebt",
+        "label": "Credit card dues",
+        "unit": "Rs",
+        "default": 0,
+        "min": 0,
+        "step": 500,
+        "help": "Outstanding credit card balance (not the limit — only the amount you currently owe)."
+      },
+      {
+        "key": "otherLiabilities",
+        "label": "Other liabilities",
+        "unit": "Rs",
+        "default": 0,
+        "min": 0,
+        "step": 1000,
+        "help": "Any other debts — family loans, gold loans, business loans not listed above."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "totalAssets",
+        "label": "Total assets",
+        "formula": "cashSavings + fdRdBalance + mutualFunds + ppfEpfBalance + realEstate + goldJewellery + otherAssets",
+        "format": "currency"
+      },
+      {
+        "key": "totalLiabilities",
+        "label": "Total liabilities",
+        "formula": "homeLoanBalance + personalLoan + creditCardDebt + otherLiabilities",
+        "format": "currency"
+      },
+      {
+        "key": "netWorth",
+        "label": "Net worth",
+        "formula": "totalAssets - totalLiabilities",
+        "format": "currency"
+      },
+      {
+        "key": "debtToAssetRatio",
+        "label": "Debt-to-asset ratio",
+        "formula": "totalLiabilities / totalAssets * 100",
+        "format": "percent"
+      }
+    ],
+    "formulaExplanation": "Net Worth = Total Assets − Total Liabilities. Assets include liquid assets (cash, FDs), investment assets (MF, stocks, PPF, EPF, NPS), real assets (property, gold) and other assets. Liabilities include all outstanding loans and credit card debt. Debt-to-asset ratio = (Total Liabilities / Total Assets) × 100 — lower is better.",
+    "example": "Assets: cash Rs 1L + FDs Rs 2L + MF Rs 3L + PPF/EPF Rs 5L + property Rs 30L + gold Rs 2L = Rs 43L. Liabilities: home loan Rs 15L + personal loan Rs 1L = Rs 16L. Net worth = Rs 27L. Debt-to-asset ratio = 37.2%.",
+    "quickAnswer": {
+      "title": "Net Worth Quick Answer",
+      "question": "How do I calculate my net worth in India?",
+      "answer": "Net worth = Total assets − Total liabilities. Add up everything you own (cash, FDs, mutual funds, stocks, EPF, PPF, property, gold) and subtract everything you owe (home loan, personal loan, car loan, credit card dues). A positive and growing net worth is the primary indicator of financial health.",
+      "formula": "Net Worth = Total Assets − Total Liabilities",
+      "example": "Assets Rs 43L − Liabilities Rs 16L = Net Worth Rs 27L."
+    },
+    "faqs": [
+      {
+        "question": "What is a good net worth in India by age?",
+        "answer": "A common rule of thumb: Net worth = Age × Annual income / 10. So a 35-year-old earning Rs 12L/year should aim for Rs 42L net worth. Another benchmark: by 30, target 1× annual salary; by 40, target 3–4× salary; by 50, target 7–8× salary. These are guidelines, not mandates — your expenses, goals and city of residence matter more."
+      },
+      {
+        "question": "Should I include my home in net worth?",
+        "answer": "Yes, at current market value, minus the outstanding home loan. A home you live in is an asset, but it generates no income and cannot be easily sold, so some financial planners exclude the primary residence and calculate a liquid net worth separately. Both views are valid — track them separately for a complete picture."
+      },
+      {
+        "question": "How often should I calculate my net worth?",
+        "answer": "Once or twice a year is sufficient for most people — after your annual salary increment (April) and before the financial year end (March). The trend matters more than the absolute number. A steadily rising net worth over years is the goal."
+      },
+      {
+        "question": "Does a high salary automatically mean high net worth?",
+        "answer": "No. Net worth is about assets minus liabilities, not income. A high earner who spends everything and has large loans can have a low or negative net worth. A modest earner who saves consistently and avoids debt builds net worth faster. Financial independence requires net worth growth, not just income growth."
+      }
+    ],
+    "related": [
+      "emergency-fund-calculator-india",
+      "sip-calculator-india",
+      "epf-corpus-calculator-india",
+      "ppf-calculator-india"
+    ],
+    "howToUse": [
+      "Enter the current value of each asset category — be honest with market values, not purchase prices.",
+      "Enter all outstanding loan balances — home loan, personal loan, car loan, credit card dues.",
+      "Read your total assets, total liabilities, net worth and debt-to-asset ratio.",
+      "Track this every 6–12 months to monitor your financial progress."
+    ],
+    "assumptions": [
+      "All values are entered at current market value, not original cost (especially for property, gold and mutual funds).",
+      "Illiquid assets like property are included at estimated market value — actual realisation may differ.",
+      "Educational snapshot only. Consult a financial advisor for comprehensive financial planning."
+    ],
+    "commonMistakes": [
+      "Using the purchase price of property instead of current market value.",
+      "Forgetting to include EPF, PPF and NPS balances — these are significant assets for salaried employees.",
+      "Including the credit card limit as debt instead of the actual outstanding dues.",
+      "Not tracking net worth over time — the trend is more important than a single snapshot."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why net worth matters more than income",
+        "body": "Net worth is the single most important number in personal finance — it tells you where you actually stand financially, not just how much you earn. Two people earning Rs 10L/year can have wildly different net worths: one who saves 20% and invests builds net worth fast; one who spends Rs 10L/year and carries loans has near-zero net worth despite the same income. Tracking net worth annually keeps you focused on what matters.",
+        "bullets": [
+          "Positive net worth: you own more than you owe.",
+          "Negative net worth: liabilities exceed assets — focus on reducing debt first.",
+          "Growing net worth year-on-year: the core goal of financial planning."
+        ]
+      },
+      {
+        "heading": "What to do with your net worth number",
+        "body": "Use your net worth to benchmark progress. If liabilities are more than 40% of assets, prioritise debt reduction. If liquid assets (cash + FDs + MF) cover less than 6 months of expenses, build your emergency fund first. If liquid net worth (excluding property) is low despite high total net worth, consider diversifying out of real estate.",
+        "bullets": [
+          "Debt-to-asset ratio < 30%: healthy.",
+          "30–50%: manageable but monitor closely.",
+          "> 50%: focus on debt reduction urgently."
+        ]
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "This calculator sums user-entered values across asset and liability categories. Net worth = total assets − total liabilities. Debt-to-asset ratio = total liabilities / total assets × 100. All calculations are based solely on the values you enter — no data is stored or shared."
       }
     ],
     "lastReviewed": "July 2026"

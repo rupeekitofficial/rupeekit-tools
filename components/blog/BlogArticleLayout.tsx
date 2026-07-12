@@ -9,6 +9,7 @@ import RelatedCalculatorLinks from './RelatedCalculatorLinks';
 import FAQSection from './FAQSection';
 import FinanceDisclaimer from './FinanceDisclaimer';
 import AffiliateDisclosure from './AffiliateDisclosure';
+import BrokerAffiliateDisclosure from './BrokerAffiliateDisclosure';
 import BookRecommendationCard from './BookRecommendationCard';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
@@ -96,6 +97,9 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
           
           {/* Amazon affiliate disclosure at top if applicable */}
           {post.amazonDisclosure && <AffiliateDisclosure />}
+
+          {/* Broker affiliate disclosure at top if applicable */}
+          {post.brokerAffiliateDisclosure && <BrokerAffiliateDisclosure />}
 
           <div className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8">
             {/* Intro */}
