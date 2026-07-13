@@ -39,17 +39,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!update) return { title: 'Update Not Found | RupeeKit' };
   const pageUrl = `${SITE_URL}/government-salary-updates/${update.slug}`;
   const cleanSummary = update.summary.substring(0, 155);
+  const isSample = update.status === 'sample';
   return {
     title: { absolute: `${update.title} | Government Salary Updates | RupeeKit` },
     description: cleanSummary,
     alternates: {
       canonical: pageUrl,
     },
-    robots: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-    },
+    robots: isSample
+      ? { index: false, follow: false }
+      : { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
       title: `${update.title} | Government Salary Updates | RupeeKit`,
       description: cleanSummary,
