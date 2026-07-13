@@ -14,6 +14,7 @@ import BookRecommendationCard from './BookRecommendationCard';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import { BlogInlineVisual, BlogSharePreviewCard } from './BlogVisuals';
+import BrokerComparisonCard from './BrokerComparisonCard';
 import { Tax2026Stats, Tax2026CTA, Tax2026CompactCTA, CommonMistakesCards } from './Tax2026Visuals';
 import {
   FilingDeadlineTimeline,
@@ -297,6 +298,11 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                 );
               })}
             </div>
+
+            {/* Broker comparison table with real CTA links */}
+            {post.slug === 'zerodha-vs-upstox-vs-angel-one-demat-account' && (
+              <BrokerComparisonCard />
+            )}
 
             {/* Book lists for the books article */}
             {post.books && post.books.length > 0 && (

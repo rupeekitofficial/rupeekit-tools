@@ -53,7 +53,7 @@ export interface BlogPost {
   brokerAffiliateDisclosure?: boolean;
   affiliateLinks?: { broker: string; label: string; href: string }[];
   books?: BookItem[];
-  visualType?: 'monthly-budget' | '50-30-20' | 'emergency-fund' | 'bookshelf' | 'expense-tracking' | 'saving-vs-investing' | 'family-expense' | 'debt-ladder' | 'habit-tracker' | 'salary-checklist' | 'process-timeline' | 'home-loan-vs-rent' | 'capital-gains-rates' | 'tax-saving-trio';
+  visualType?: 'monthly-budget' | '50-30-20' | 'emergency-fund' | 'bookshelf' | 'expense-tracking' | 'saving-vs-investing' | 'family-expense' | 'debt-ladder' | 'habit-tracker' | 'salary-checklist' | 'process-timeline' | 'home-loan-vs-rent' | 'capital-gains-rates' | 'tax-saving-trio' | 'broker-comparison' | 'mutual-fund-sip' | 'tax-regime-comparison';
   visualTitle?: string;
   visualSubtitle?: string;
   visualAlt?: string;
@@ -1189,6 +1189,10 @@ export const blogPosts: BlogPost[] = [
     category: 'Tax',
     date: 'July 2026',
     readTime: '9 min read',
+    visualType: 'tax-regime-comparison',
+    visualTitle: 'Old vs New Tax Regime — Tax at Key Salary Levels',
+    visualSubtitle: 'Which regime pays less tax at Rs 7L, 10L, 12L, 15L and 20L?',
+    visualAlt: 'Bar chart comparing old and new income tax regime tax payable at key salary levels',
     h1: 'Old vs New Tax Regime: Which Saves More Tax?',
     intro: 'Every salaried taxpayer in India faces the same choice each year: stay with the default new tax regime, or opt for the old regime and claim deductions like HRA, 80C and home loan interest. The right answer is not the same for everyone — it depends almost entirely on how much you can legitimately claim as deductions. This guide walks through worked comparisons at five salary levels, computed with RupeeKit\'s calculator engine, and gives you a practical break-even rule you can apply to your own payslip.',
     quickAnswer: {
@@ -1727,10 +1731,14 @@ export const blogPosts: BlogPost[] = [
     publishedDateISO: '2026-07-12',
     brokerAffiliateDisclosure: true,
     affiliateLinks: [
-      { broker: 'Angel One', label: 'Open Angel One Account', href: '#angel-one-affiliate' },
-      { broker: 'Upstox', label: 'Open Upstox Account', href: '#upstox-affiliate' },
-      { broker: 'Zerodha', label: 'Open Zerodha Account', href: '#zerodha-referral' },
+      { broker: 'Zerodha', label: 'Open Zerodha Account', href: 'https://zerodha.com/open-account?c=IZ8333' },
+      { broker: 'Upstox', label: 'Open Upstox Account', href: 'https://upstox.onelink.me/0H1s/ZT66' },
+      { broker: 'Angel One', label: 'Open Angel One Account', href: 'https://angel-one.onelink.me/Wjgr/jbmek9om' },
     ],
+    visualType: 'broker-comparison',
+    visualTitle: 'Zerodha vs Upstox vs Angel One — Key Charges Compared',
+    visualSubtitle: 'AMC fees, brokerage model, and account types at a glance',
+    visualAlt: 'Bar chart comparing Zerodha, Upstox and Angel One broker AMC fees and key metrics',
     h1: 'Zerodha vs Upstox vs Angel One: Best Demat Account in India (2026)',
     intro: 'India now has over 19 crore demat accounts — but choosing the wrong broker can cost you money in unnecessary charges and poor platform experience. This guide compares the three most popular discount brokers in India — Zerodha, Upstox and Angel One — on the metrics that actually matter: charges, platform quality and who each broker is best for.',
     quickAnswer: {
@@ -1841,6 +1849,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     readTime: '9 min read',
     publishedDateISO: '2026-07-12',
+    visualType: 'mutual-fund-sip',
+    visualTitle: 'SIP Compounding — How ₹12,000/Month Grows Over 20 Years',
+    visualSubtitle: 'The power of staying invested: corpus vs total amount put in',
+    visualAlt: 'Line chart showing SIP mutual fund corpus growth over 20 years vs total invested amount',
     h1: 'Mutual Funds for Beginners in India: The Complete 2026 Guide',
     intro: 'Mutual funds are the easiest way for most Indians to invest in the stock market without picking individual stocks. This guide covers everything a first-time investor needs to know — what mutual funds are, the main types, how SIPs work, what expense ratio and NAV mean, and the simplest way to start investing today.',
     quickAnswer: {
@@ -1962,6 +1974,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     readTime: '8 min read',
     publishedDateISO: '2026-07-12',
+    visualType: 'tax-regime-comparison',
+    visualTitle: 'New vs Old Tax Regime — FY 2026-27 Tax Comparison',
+    visualSubtitle: 'See which regime pays less tax at your salary level',
+    visualAlt: 'Bar chart comparing new and old tax regime tax payable in FY 2026-27',
     h1: 'New Tax Regime vs Old Tax Regime FY 2026-27: Complete Comparison',
     intro: 'The Budget 2025 overhauled the new tax regime — raising the nil-tax threshold to Rs 12 lakh (effectively zero tax under the new regime for income up to Rs 12.75 lakh including standard deduction). This makes the regime comparison more important than ever. Here is everything you need to know about both regimes and how to decide which one saves you more tax in FY 2026-27.',
     quickAnswer: {
@@ -2080,6 +2096,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
     readTime: '5 min read',
+    visualType: 'home-loan-vs-rent',
+    visualTitle: 'Home Loan Eligibility on Rs 25,000 Salary',
+    visualSubtitle: 'FOIR-based calculation: eligible amount vs EMI across tenures',
+    visualAlt: 'Chart showing home loan eligibility calculation for Rs 25,000 monthly salary',
     h1: 'How Much Home Loan Can You Get on Rs 25,000 Salary in India?',
     intro: 'On a Rs 25,000 per month salary, most banks in India will sanction a home loan of Rs 12 lakh to Rs 14 lakh — sometimes a bit more if your credit score is strong and you have no existing EMIs. The number banks give you is driven by your FOIR (Fixed Obligation to Income Ratio): the percentage of your take-home that can go toward loan repayment. Read on for the exact calculation, real examples, and the practical levers you can pull to push the amount higher.',
     quickAnswer: {
@@ -2185,6 +2205,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
     readTime: '5 min read',
+    visualType: 'home-loan-vs-rent',
+    visualTitle: 'Home Loan Eligibility on Rs 40,000 Salary',
+    visualSubtitle: 'FOIR-based calculation across tenures — 20yr, 25yr, 30yr',
+    visualAlt: 'Chart showing home loan eligibility calculation for Rs 40,000 monthly salary',
     h1: 'How Much Home Loan Can You Get on Rs 40,000 Salary in India?',
     intro: 'A Rs 40,000 take-home salary puts you in a comfortable bracket for home loans — most banks will sanction somewhere between Rs 20 lakh and Rs 24 lakh, depending on how long the tenure is and whether you carry any existing EMIs. Banks cap your total EMI burden at 50% of net salary, so the maths is straightforward once you know the rate. Below is the exact working, plus what changes if you go for 30 years instead of 20.',
     quickAnswer: {
@@ -2271,6 +2295,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
     readTime: '4 min read',
+    visualType: 'home-loan-vs-rent',
+    visualTitle: 'Home Loan Eligibility on Rs 45,000 Salary',
+    visualSubtitle: 'Eligible loan amount at different tenures and FOIR levels',
+    visualAlt: 'Chart showing home loan eligibility calculation for Rs 45,000 monthly salary',
     h1: 'How Much Home Loan Can You Get on Rs 45,000 Salary in India?',
     intro: 'A Rs 45,000 per month net salary qualifies you for a home loan of approximately Rs 23 lakh to Rs 27 lakh in India. The calculation is based on a 50% FOIR, standard 9% interest rate, and a 20–30 year tenure. This guide gives you the exact number and explains how to increase it.',
     quickAnswer: {
@@ -2339,6 +2367,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
     readTime: '6 min read',
+    visualType: 'home-loan-vs-rent',
+    visualTitle: 'Home Loan Eligibility by Salary — Rs 20K to Rs 1L',
+    visualSubtitle: 'Ready-reckoner: eligible loan at 50% FOIR, 9% rate, 20yr tenure',
+    visualAlt: 'Chart showing home loan eligibility across different salary levels in India',
     h1: 'Home Loan Eligibility by Salary India 2026: How Much Can You Get?',
     intro: 'Home loan eligibility in India is primarily determined by your net monthly salary and the bank\'s Fixed Obligation to Income Ratio (FOIR). Most banks set a 50% FOIR limit, meaning your total monthly EMIs (including the new home loan) cannot exceed half your take-home pay. This guide gives you a ready-reckoner table across salary ranges, plus the key factors that change the final number.',
     quickAnswer: {
@@ -2426,6 +2458,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
     readTime: '6 min read',
+    visualType: 'tax-regime-comparison',
+    visualTitle: 'Zero Tax on Rs 12L: How the 87A Rebate Works',
+    visualSubtitle: 'New regime slab breakdown and rebate for Rs 12 lakh income',
+    visualAlt: 'Chart showing income tax computation on Rs 12 lakh salary under new regime with Section 87A rebate',
     h1: 'Income Tax on Rs 12 Lakh Salary Under the New Regime FY 2026-27: Full Calculation',
     intro: 'Under the new tax regime for FY 2026-27 (AY 2027-28), income up to Rs 12 lakh is genuinely tax-free. This is not a reduction in tax rates — it is a full rebate under Section 87A of the Income Tax Act that wipes out the computed tax entirely. For salaried employees, the standard deduction of Rs 75,000 extends this zero-tax threshold to Rs 12.75 lakh of gross salary. This guide explains the exact calculation, the critical cliff at Rs 12.1 lakh, and what changes when income crosses Rs 12 lakh.',
     quickAnswer: {
@@ -2528,6 +2564,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
     readTime: '7 min read',
+    visualType: 'salary-checklist',
+    visualTitle: 'CTC to In-Hand Salary — What Gets Deducted?',
+    visualSubtitle: 'Breakdown of PF, TDS, professional tax and gratuity deductions',
+    visualAlt: 'Checklist diagram showing how CTC converts to in-hand salary in India',
     h1: 'How to Calculate In-Hand Salary from CTC in India 2026: Step-by-Step',
     intro: 'CTC (Cost to Company) and take-home (in-hand) salary are very different numbers. A Rs 15 lakh CTC offer typically translates to Rs 80,000–90,000 per month in hand — not Rs 1.25 lakh as many candidates assume. Understanding the gap helps you negotiate better and plan more accurately. This guide breaks down every deduction, with real worked examples across CTC ranges.',
     quickAnswer: {
@@ -2618,6 +2658,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
     readTime: '7 min read',
+    visualType: 'process-timeline',
+    visualTitle: 'EPF Withdrawal After Resignation — 6-Step Online Process',
+    visualSubtitle: 'From last working day to credit: timeline and steps',
+    visualAlt: 'Process timeline showing steps to withdraw EPF online after resignation in India',
     h1: 'How to Withdraw EPF After Resignation in India 2026: Complete Online Process',
     intro: 'After resigning, you can withdraw your full EPF balance — but not right away. You need to wait 2 months from your last working day, and then file the claim online using your UAN. The whole thing is paperless if your KYC is already linked. Here is the step-by-step process, what documents you will need, and when the withdrawal becomes taxable.',
     quickAnswer: {
@@ -2712,6 +2756,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
     readTime: '6 min read',
+    visualType: 'process-timeline',
+    visualTitle: 'EPF Partial Withdrawal — Purposes, Eligibility & Limits',
+    visualSubtitle: 'Housing, medical, education, marriage — what is allowed and when',
+    visualAlt: 'Process diagram showing EPF partial withdrawal purposes, eligibility and withdrawal limits',
     h1: 'EPF Partial Withdrawal Rules in India 2026: All Allowed Purposes and How to Apply',
     intro: 'The EPFO allows members to make partial withdrawals (called "advances") from their EPF account for specific purposes without resigning from their job. These are not loans — the amount is deducted from your EPF balance and does not need to be repaid. The six main purposes are housing, medical, education, marriage, pre-retirement, and natural calamity. Each has different eligibility criteria, waiting period, and withdrawal limits.',
     quickAnswer: {
@@ -2806,6 +2854,10 @@ export const blogPosts: BlogPost[] = [
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
     readTime: '6 min read',
+    visualType: 'salary-checklist',
+    visualTitle: 'New Labour Code Gratuity — 1 Year vs 5 Year Rule',
+    visualSubtitle: 'Who benefits, how it is calculated, and implementation status',
+    visualAlt: 'Checklist diagram comparing old and new gratuity eligibility rules under India Labour Code 2020',
     h1: 'New Labour Code Gratuity Rules India 2026: 1-Year Rule for Contract Workers Explained',
     intro: 'Right now, you need 5 years of continuous service to receive gratuity in India. But the Code on Social Security, 2020 — part of the New Labour Codes — changes this for fixed-term contract workers: they become eligible after just 1 year. The law received Presidential assent in September 2020, but most states have not yet notified implementation rules as of July 2026. Here is what the change means, who it applies to, and where things stand right now.',
     quickAnswer: {
@@ -2897,6 +2949,10 @@ export const blogPosts: BlogPost[] = [
     metaDescription: 'Stuck at a CIBIL score of 650? Step-by-step guide to move from 650 to 750 in India with realistic timelines, common mistakes to avoid, and free tools. Read now.',
     category: 'Personal Finance',
     date: 'July 2026',
+    visualType: 'debt-ladder',
+    visualTitle: 'CIBIL Score Improvement Ladder: 650 → 750',
+    visualSubtitle: '6 proven steps to raise your credit score in 6–12 months',
+    visualAlt: 'Ladder diagram showing steps to improve CIBIL score from 650 to 750 in India',
     publishedDateISO: '2026-07-13',
     readTime: '7 min read',
     h1: 'How to Improve CIBIL Score from 650 to 750 in India 2026: 6 Proven Steps',

@@ -655,6 +655,181 @@ export function BlogVisualRenderer({ type, mode, title, subtitle }: VisualProps)
           </svg>
         );
 
+      case 'broker-comparison':
+        return (
+          <svg viewBox="0 0 400 220" className="w-full h-full select-none" aria-label="Zerodha vs Upstox vs Angel One broker comparison">
+            <title>Broker Comparison: Zerodha vs Upstox vs Angel One</title>
+            {/* Background */}
+            <rect x="0" y="0" width="400" height="220" rx="12" fill={isDark ? 'rgba(15,23,42,0.8)' : 'rgba(248,250,252,0.9)'} />
+
+            {/* Title */}
+            <text x="200" y="22" textAnchor="middle" className={textClass} fontSize="11" fontWeight="bold">Zerodha · Upstox · Angel One</text>
+
+            {/* AMC Fee Bar Chart — Rs 240 to Rs 300 */}
+            {/* Zerodha bar */}
+            <rect x="40" y="45" width="88" height="110" rx="8" fill={isDark ? 'rgba(56,126,209,0.15)' : 'rgba(56,126,209,0.08)'} stroke={isDark ? '#5B9BD5' : '#387ED1'} strokeWidth="1.5" />
+            <rect x="60" y="85" width="48" height="56" rx="4" fill={isDark ? 'rgba(56,126,209,0.6)' : 'rgba(56,126,209,0.9)'} />
+            <text x="84" y="80" textAnchor="middle" className={textClass} fontSize="9" fontWeight="bold">ZERODHA</text>
+            <text x="84" y="155" textAnchor="middle" fontSize="11" fontWeight="bold" fill={isDark ? '#93C5FD' : '#1D4ED8'}>₹300/yr</text>
+            <text x="84" y="167" textAnchor="middle" fontSize="8" className={subtextClass}>AMC</text>
+
+            {/* Upstox bar */}
+            <rect x="156" y="45" width="88" height="110" rx="8" fill={isDark ? 'rgba(123,47,247,0.15)' : 'rgba(123,47,247,0.08)'} stroke={isDark ? '#A78BFA' : '#7B2FF7'} strokeWidth="1.5" />
+            <rect x="176" y="85" width="48" height="56" rx="4" fill={isDark ? 'rgba(123,47,247,0.6)' : 'rgba(123,47,247,0.85)'} />
+            <text x="200" y="80" textAnchor="middle" className={textClass} fontSize="9" fontWeight="bold">UPSTOX</text>
+            <text x="200" y="155" textAnchor="middle" fontSize="11" fontWeight="bold" fill={isDark ? '#C4B5FD' : '#6D28D9'}>₹300/yr</text>
+            <text x="200" y="167" textAnchor="middle" fontSize="8" className={subtextClass}>AMC</text>
+
+            {/* Angel One bar — shorter (lower AMC) */}
+            <rect x="272" y="45" width="88" height="110" rx="8" fill={isDark ? 'rgba(220,38,38,0.12)' : 'rgba(220,38,38,0.07)'} stroke={isDark ? '#FCA5A5' : '#DC2626'} strokeWidth="1.5" />
+            <rect x="292" y="97" width="48" height="44" rx="4" fill={isDark ? 'rgba(220,38,38,0.6)' : 'rgba(220,38,38,0.85)'} />
+            <text x="316" y="80" textAnchor="middle" className={textClass} fontSize="9" fontWeight="bold">ANGEL ONE</text>
+            <text x="316" y="155" textAnchor="middle" fontSize="11" fontWeight="bold" fill={isDark ? '#FCA5A5' : '#DC2626'}>₹240/yr</text>
+            <text x="316" y="167" textAnchor="middle" fontSize="8" className={subtextClass}>AMC</text>
+
+            {/* Common Metrics Row */}
+            <line x1="20" y1="180" x2="380" y2="180" stroke={isDark ? '#334155' : '#E2E8F0'} strokeWidth="1" />
+            <text x="200" y="196" textAnchor="middle" fontSize="9" className={labelClass}>Delivery: ₹0 · Intraday/F&O: ₹20/order — all three brokers</text>
+            <text x="200" y="212" textAnchor="middle" fontSize="8.5" fill={growthGreenColor} fontWeight="bold">All SEBI-registered · Securities held in your name at CDSL/NSDL</text>
+          </svg>
+        );
+
+      case 'mutual-fund-sip':
+        return (
+          <svg viewBox="0 0 400 220" className="w-full h-full select-none" aria-label="SIP mutual fund growth over time">
+            <title>SIP Mutual Fund Growth</title>
+            {/* Background */}
+            <rect x="0" y="0" width="400" height="220" rx="12" fill={isDark ? 'rgba(15,23,42,0.8)' : 'rgba(248,250,252,0.9)'} />
+
+            {/* Y-axis */}
+            <line x1="55" y1="20" x2="55" y2="168" stroke={isDark ? '#334155' : '#CBD5E1'} strokeWidth="1.5" />
+            {/* X-axis */}
+            <line x1="55" y1="168" x2="380" y2="168" stroke={isDark ? '#334155' : '#CBD5E1'} strokeWidth="1.5" />
+
+            {/* Y-axis labels */}
+            <text x="50" y="168" textAnchor="end" fontSize="8" className={subtextClass}>0</text>
+            <text x="50" y="128" textAnchor="end" fontSize="8" className={subtextClass}>₹5L</text>
+            <text x="50" y="88" textAnchor="end" fontSize="8" className={subtextClass}>₹15L</text>
+            <text x="50" y="48" textAnchor="end" fontSize="8" className={subtextClass}>₹30L</text>
+            <line x1="53" y1="128" x2="57" y2="128" stroke={isDark ? '#334155' : '#CBD5E1'} strokeWidth="1" />
+            <line x1="53" y1="88" x2="57" y2="88" stroke={isDark ? '#334155' : '#CBD5E1'} strokeWidth="1" />
+            <line x1="53" y1="48" x2="57" y2="48" stroke={isDark ? '#334155' : '#CBD5E1'} strokeWidth="1" />
+
+            {/* Invested Amount Area (grey) */}
+            <path
+              d={`M 55 168 L 145 143 L 235 118 L 325 93 L 380 80 L 380 168 Z`}
+              fill={isDark ? 'rgba(100,116,139,0.3)' : 'rgba(100,116,139,0.15)'}
+            />
+            <path
+              d={`M 55 168 L 145 143 L 235 118 L 325 93 L 380 80`}
+              fill="none"
+              stroke={isDark ? '#94A3B8' : '#64748B'}
+              strokeWidth="2"
+              strokeDasharray="5 3"
+            />
+
+            {/* Corpus / Returns Area (green) */}
+            <path
+              d={`M 55 168 L 115 162 L 175 150 L 235 130 L 295 103 L 355 65 L 380 52 L 380 168 Z`}
+              fill={isDark ? 'rgba(67,160,71,0.2)' : 'rgba(67,160,71,0.12)'}
+            />
+            <path
+              d={`M 55 168 L 115 162 L 175 150 L 235 130 L 295 103 L 355 65 L 380 52`}
+              fill="none"
+              stroke={growthGreenColor}
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            />
+
+            {/* X-axis labels */}
+            <text x="55" y="180" textAnchor="middle" fontSize="8" className={subtextClass}>Yr 0</text>
+            <text x="145" y="180" textAnchor="middle" fontSize="8" className={subtextClass}>Yr 5</text>
+            <text x="235" y="180" textAnchor="middle" fontSize="8" className={subtextClass}>Yr 10</text>
+            <text x="325" y="180" textAnchor="middle" fontSize="8" className={subtextClass}>Yr 15</text>
+            <text x="380" y="180" textAnchor="middle" fontSize="8" className={subtextClass}>Yr 20</text>
+
+            {/* Corpus point marker */}
+            <circle cx="380" cy="52" r="4" fill={growthGreenColor} stroke={isDark ? '#0F172A' : '#fff'} strokeWidth="2" />
+
+            {/* Legend */}
+            <rect x="70" y="30" width="10" height="8" rx="2" fill={isDark ? 'rgba(67,160,71,0.6)' : growthGreenColor} />
+            <text x="85" y="38" fontSize="8.5" className={textClass}>Corpus (₹12K SIP, 12% p.a.)</text>
+            <rect x="230" y="30" width="10" height="8" rx="2" fill={isDark ? 'rgba(100,116,139,0.5)' : 'rgba(100,116,139,0.4)'} />
+            <text x="245" y="38" fontSize="8.5" className={textClass}>Amount invested</text>
+
+            {/* Callout at yr 20 */}
+            <rect x="260" y="40" width="120" height="36" rx="6" fill={isDark ? 'rgba(67,160,71,0.2)' : 'rgba(67,160,71,0.1)'} stroke={growthGreenColor} strokeWidth="1.5" />
+            <text x="320" y="56" textAnchor="middle" fontSize="9" fontWeight="bold" fill={growthGreenColor}>~₹1.2 Cr at Yr 20</text>
+            <text x="320" y="69" textAnchor="middle" fontSize="8" className={subtextClass}>invested ₹28.8L total</text>
+
+            {/* Title */}
+            <text x="200" y="210" textAnchor="middle" fontSize="9" className={labelClass}>Power of SIP compounding — start early, stay invested</text>
+          </svg>
+        );
+
+      case 'tax-regime-comparison':
+        return (
+          <svg viewBox="0 0 400 220" className="w-full h-full select-none" aria-label="Old vs new tax regime comparison chart">
+            <title>Old vs New Tax Regime Comparison</title>
+            {/* Background */}
+            <rect x="0" y="0" width="400" height="220" rx="12" fill={isDark ? 'rgba(15,23,42,0.8)' : 'rgba(248,250,252,0.9)'} />
+
+            {/* Title */}
+            <text x="200" y="18" textAnchor="middle" className={textClass} fontSize="10" fontWeight="bold">Old vs New Tax Regime — Tax Payable at Key Salary Levels</text>
+
+            {/* Y-axis */}
+            <line x1="60" y1="28" x2="60" y2="158" stroke={isDark ? '#334155' : '#CBD5E1'} strokeWidth="1.5" />
+            {/* X-axis */}
+            <line x1="60" y1="158" x2="385" y2="158" stroke={isDark ? '#334155' : '#CBD5E1'} strokeWidth="1.5" />
+
+            {/* Y-axis ticks & labels */}
+            {[0, 50000, 100000, 150000].map((val, i) => {
+              const y = 158 - (val / 150000) * 130;
+              return (
+                <g key={val}>
+                  <line x1="58" y1={y} x2="62" y2={y} stroke={isDark ? '#334155' : '#CBD5E1'} strokeWidth="1" />
+                  <text x="56" y={y + 3} textAnchor="end" fontSize="7.5" className={subtextClass}>
+                    {val === 0 ? '0' : `₹${val / 1000}K`}
+                  </text>
+                </g>
+              );
+            })}
+
+            {/* Data: [salary, old regime tax, new regime tax] */}
+            {[
+              { label: '₹7L', x: 90, old: 22500, newTax: 0 },
+              { label: '₹10L', x: 160, old: 61500, newTax: 33800 },
+              { label: '₹12L', x: 230, old: 93600, newTax: 0 },
+              { label: '₹15L', x: 300, old: 123500, newTax: 105000 },
+              { label: '₹20L', x: 370, old: 195500, newTax: 177000 },
+            ].map(({ label, x, old, newTax }) => {
+              const oldH = Math.round((old / 150000) * 130);
+              const newH = Math.round((newTax / 150000) * 130);
+              return (
+                <g key={label}>
+                  {/* Old regime bar */}
+                  <rect x={x - 20} y={158 - oldH} width="16" height={oldH} rx="3"
+                    fill={isDark ? 'rgba(0,48,128,0.7)' : navyColor} />
+                  {/* New regime bar */}
+                  <rect x={x + 4} y={158 - newH} width="16" height={newH} rx="3"
+                    fill={isDark ? 'rgba(67,160,71,0.7)' : growthGreenColor} />
+                  <text x={x} y="170" textAnchor="middle" fontSize="8" className={subtextClass}>{label}</text>
+                </g>
+              );
+            })}
+
+            {/* Legend */}
+            <rect x="60" y="185" width="10" height="8" rx="2" fill={isDark ? 'rgba(0,48,128,0.7)' : navyColor} />
+            <text x="74" y="193" fontSize="8.5" className={textClass}>Old Regime</text>
+            <rect x="155" y="185" width="10" height="8" rx="2" fill={isDark ? 'rgba(67,160,71,0.7)' : growthGreenColor} />
+            <text x="169" y="193" fontSize="8.5" className={textClass}>New Regime</text>
+            <text x="280" y="193" fontSize="8" className={subtextClass} textAnchor="middle">₹0 = zero tax (87A rebate)</text>
+
+            {/* Note */}
+            <text x="200" y="210" textAnchor="middle" fontSize="8" className={subtextClass}>Estimates after standard deduction. Verify with RupeeKit calculator for your exact numbers.</text>
+          </svg>
+        );
+
       default:
         return null;
     }
