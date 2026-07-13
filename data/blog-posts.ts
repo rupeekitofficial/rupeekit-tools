@@ -64,6 +64,7 @@ export interface BlogPost {
   heroImageHeight?: number;
   publishedDateISO?: string;
   modifiedDateISO?: string;
+  officialSources?: { label: string; href: string }[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -2064,6 +2065,927 @@ export const blogPosts: BlogPost[] = [
       {
         question: 'What is the standard deduction in the new vs old regime for FY 2026-27?',
         answer: 'New tax regime: Rs 75,000 standard deduction for salaried employees (increased from Rs 50,000 in Budget 2024). Old tax regime: Rs 50,000 standard deduction. The new regime has a higher standard deduction but no other deductions available.',
+      },
+    ],
+  },
+
+  // ─── LOW-COMPETITION KEYWORD SPRINT — BATCH 1 (July 2026) ────────────────
+
+  {
+    slug: 'home-loan-eligibility-25000-salary-india',
+    seoTitle: 'Home Loan Eligibility Rs 25,000 Salary India 2026',
+    title: 'Home Loan Eligibility for Rs 25,000 Monthly Salary in India 2026',
+    metaDescription: 'Find out how much home loan you can get on a Rs 25,000 per month salary in India. Calculation based on FOIR, interest rate, and tenure with official RBI guidelines. Read now.',
+    category: 'Loans',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '5 min read',
+    h1: 'How Much Home Loan Can You Get on Rs 25,000 Salary in India?',
+    intro: 'On a Rs 25,000 per month salary, most Indian banks will offer a home loan of approximately Rs 12 lakh to Rs 15 lakh. The exact amount depends on your FOIR (Fixed Obligation to Income Ratio), existing EMIs, credit score, tenure, and the lender\'s internal policy. This guide breaks down the exact calculation and practical steps to maximise your eligible amount.',
+    quickAnswer: {
+      question: 'How much home loan can I get on Rs 25,000 salary per month in India?',
+      answer: 'On a Rs 25,000 monthly salary with no existing EMIs, you can get approximately Rs 12 lakh to Rs 14 lakh as a home loan. This estimate uses a 50% FOIR, 9% annual interest rate, and 20-year tenure. If you have existing EMIs (car loan, personal loan), the eligible amount will be lower.',
+      formula: 'Maximum EMI = Salary × FOIR (50%) = Rs 12,500. Loan Amount = Max EMI / EMI per lakh ≈ 12,500 / 900 × 1,00,000 ≈ Rs 13.9 lakh.',
+      example: 'Example: Net salary Rs 25,000, no existing EMI, 20-year tenure, 9% rate — eligible home loan ≈ Rs 13.5 lakh.',
+      note: 'Official RBI guidelines require lenders to assess FOIR before sanctioning. Use the RupeeKit Home Loan EMI Calculator to estimate your EMI at any loan amount.',
+    },
+    answerEngineSummary: 'On a Rs 25,000 monthly salary in India, you are eligible for a home loan of approximately Rs 12–14 lakh based on the standard 50% FOIR norm. Banks consider net take-home salary, existing loan obligations, credit score, and chosen tenure (typically up to 30 years). Verify exact eligibility with your lender as criteria differ.',
+    officialSources: [
+      { label: 'RBI — Master Direction on Housing Finance', href: 'https://www.rbi.org.in' },
+    ],
+    sections: [
+      {
+        title: 'How is home loan eligibility calculated in India?',
+        paragraphs: [
+          'Banks in India use the Fixed Obligation to Income Ratio (FOIR) as the primary metric. FOIR is the percentage of your monthly net take-home salary that can go towards all loan EMIs combined. Most lenders set a FOIR of 40–55%, with 50% being the industry norm for salaried employees.',
+          'The Reserve Bank of India (RBI) mandates that banks evaluate repayment capacity and maintain prudent lending standards. While RBI does not prescribe a fixed FOIR limit, lenders align their internal policies with RBI\'s responsible lending guidelines.',
+          'Formula: Maximum eligible EMI = Net monthly salary × FOIR. Home Loan Amount = (Max eligible EMI / EMI per lakh) × 1,00,000. At 9% annual interest rate and 20-year tenure, the EMI per lakh is approximately Rs 900.',
+        ],
+        bullets: [
+          'FOIR norm: 40–55% (most lenders use 50% for salaried)',
+          'Higher the credit score (750+), higher the loan amount',
+          'Longer tenure (25–30 years) increases loan eligibility but also total interest paid',
+          'Co-applicant income (spouse) significantly raises the eligible amount',
+        ],
+      },
+      {
+        title: 'Home loan eligibility on Rs 25,000 salary: exact calculation',
+        paragraphs: [
+          'Net monthly salary: Rs 25,000. Maximum EMI at 50% FOIR: Rs 12,500. At a 9% annual interest rate over 20 years, the EMI for every Rs 1 lakh of loan is approximately Rs 900. Dividing Rs 12,500 by Rs 900 gives 13.9 — meaning the maximum eligible loan is approximately Rs 13.9 lakh.',
+          'This reduces if you already have running EMIs. For example, if you have a personal loan EMI of Rs 3,000, your available EMI for home loan drops to Rs 9,500, giving an eligibility of roughly Rs 10.5 lakh.',
+          'At a lower interest rate (8.5%), the EMI per lakh drops to around Rs 870, and your eligibility increases to approximately Rs 14.4 lakh. Interest rates vary by lender and are linked to RBI\'s repo rate. As of July 2026, home loan interest rates from public sector banks generally range from 8.5% to 9.5%.',
+        ],
+        example: {
+          title: 'Rs 25,000 salary — step-by-step calculation',
+          details: 'Net salary: Rs 25,000 | FOIR: 50% | Max EMI: Rs 12,500 | Rate: 9% p.a. | Tenure: 20 years | EMI per lakh: ~Rs 900 | Home Loan Estimate: Rs 13.5–14 lakh. If FOIR is 40%: max EMI = Rs 10,000 → loan estimate Rs 11 lakh.',
+        },
+      },
+      {
+        title: 'Which banks offer home loans to Rs 25,000 salary earners?',
+        paragraphs: [
+          'Most major public sector and private banks offer home loans to salaried applicants with a minimum net salary of Rs 15,000–Rs 20,000. On a Rs 25,000 salary, you meet the minimum income threshold at SBI, HDFC Bank, Bank of Baroda, PNB Housing Finance, and LIC Housing Finance.',
+          'Public sector banks (SBI, BOB, PNB) tend to be more flexible with lower-income applicants, especially under government schemes like PMAY (Pradhan Mantri Awas Yojana). Under PMAY Credit Linked Subsidy Scheme (CLSS), first-time home buyers in the EWS (income up to Rs 3 lakh/year) and LIG (Rs 3–6 lakh/year) categories receive an interest subsidy of 6.5%, which significantly reduces the effective loan cost.',
+          'Under PMAY-Urban, you may also be eligible for a subsidy even at a Rs 25,000 salary if buying in the MIG-I category. Check the PMAY portal (pmaymis.gov.in) for updated subsidy slabs and eligibility.',
+        ],
+        bullets: [
+          'SBI — minimum net salary Rs 15,000 for home loans',
+          'HDFC Bank — minimum Rs 20,000 net salary',
+          'LIC Housing Finance — accepts co-applicant income',
+          'PMAY CLSS subsidy: reduces effective rate by 6.5% for EWS/LIG buyers',
+        ],
+      },
+      {
+        title: 'How to increase home loan eligibility on Rs 25,000 salary',
+        paragraphs: [
+          'Add a co-applicant with income. If your spouse also earns, say, Rs 20,000, the combined income of Rs 45,000 pushes your eligibility to Rs 24–26 lakh. Banks routinely consider combined income for joint home loan applications.',
+          'Clear all existing loans before applying. Every Rs 1,000 in existing EMI reduces your home loan eligibility by roughly Rs 1.1 lakh. Prepaying personal loans or car loans before applying for a home loan has an outsized impact.',
+          'Maintain a credit score of 750+. A high CIBIL score does not directly increase the loan amount formula, but it can help you secure a lower interest rate. A 0.5% lower interest rate at the same EMI means roughly Rs 1–1.5 lakh extra loan eligibility.',
+          'Opt for a longer tenure (25–30 years). A 30-year tenure at 9% reduces the EMI per lakh from Rs 900 to Rs 805, increasing your eligible loan amount by about 12%.',
+        ],
+      },
+      {
+        title: 'Steps to apply for a home loan on Rs 25,000 salary',
+        paragraphs: [
+          'Step 1 — Check CIBIL score (free via Bajaj Finserv, Paytm, or CRIF). A score above 700 is needed; 750+ is preferred. Step 2 — Calculate eligibility using the RupeeKit Home Loan EMI Calculator to understand your budget range. Step 3 — Compare interest rates across SBI, HDFC, PNB HFL, and LIC HFL. Step 4 — Gather documents: salary slips (3 months), Form 16, bank statements (6 months), PAN, Aadhaar, and property documents. Step 5 — Apply online or at a branch.',
+          'For government employees and PSU employees earning Rs 25,000 monthly, some lenders offer preferential rates and higher FOIR allowances (up to 60%) due to the perceived job security.',
+        ],
+      },
+    ],
+    relatedCalculators: ['home-loan-emi-calculator-india', 'personal-loan-eligibility-calculator-india', 'emi-calculator-india'],
+    faqs: [
+      {
+        question: 'Can I get a home loan on Rs 25,000 salary in India?',
+        answer: 'Yes. A Rs 25,000 monthly salary qualifies you for a home loan at most major Indian banks. The eligible amount is approximately Rs 12–14 lakh with no existing EMIs. Adding a co-applicant raises the eligibility significantly.',
+      },
+      {
+        question: 'What is the maximum home loan I can get on Rs 25,000 salary?',
+        answer: 'The maximum is approximately Rs 13.9 lakh on a 50% FOIR, 9% rate, and 20-year tenure. With a 30-year tenure, this rises to about Rs 15.5 lakh. These are estimates — actual sanction depends on credit score, lender policy, and property value.',
+      },
+      {
+        question: 'Does PMAY subsidy help if I earn Rs 25,000 per month?',
+        answer: 'Yes. If your annual household income is up to Rs 6 lakh (Rs 50,000/month), you fall in the LIG category under PMAY and are eligible for a 6.5% interest subsidy on loan amounts up to Rs 6 lakh. This subsidy reduces your effective EMI significantly. Check pmaymis.gov.in for updated eligibility.',
+      },
+      {
+        question: 'Which documents do I need for a home loan on Rs 25,000 salary?',
+        answer: 'You need: last 3 months salary slips, Form 16 or ITR, last 6 months bank statements, PAN and Aadhaar, employment letter or appointment letter, and the property documents (sale agreement, title deed, approved plan). Some lenders also ask for rent receipts if you are living in a rented house.',
+      },
+      {
+        question: 'Can I get a Rs 20 lakh home loan on Rs 25,000 salary?',
+        answer: 'With a single applicant earning Rs 25,000, a Rs 20 lakh home loan is unlikely under standard FOIR norms (the required EMI would exceed 50% of salary). However, with a co-applicant earning another Rs 15,000+, the combined eligibility can comfortably reach Rs 20 lakh.',
+      },
+    ],
+  },
+
+  {
+    slug: 'home-loan-eligibility-40000-salary-india',
+    seoTitle: 'Home Loan Eligibility Rs 40,000 Salary India 2026',
+    title: 'Home Loan Eligibility for Rs 40,000 Monthly Salary in India 2026',
+    metaDescription: 'Calculate how much home loan you can get on a Rs 40,000 monthly salary in India. Based on FOIR, tenure, and rate. With official bank norms and practical tips. Read now.',
+    category: 'Loans',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '5 min read',
+    h1: 'How Much Home Loan Can You Get on Rs 40,000 Salary in India?',
+    intro: 'On a Rs 40,000 per month take-home salary, you can typically qualify for a home loan of Rs 20 lakh to Rs 24 lakh in India. Banks calculate eligibility based on FOIR (usually 50%), your existing loan obligations, credit score, and the tenure you choose. This guide walks through the exact calculation and tips to maximise your loan amount.',
+    quickAnswer: {
+      question: 'How much home loan can I get on Rs 40,000 salary in India?',
+      answer: 'On Rs 40,000 net monthly salary with no existing EMIs, you are eligible for a home loan of approximately Rs 20 lakh to Rs 23 lakh. Calculation: 50% FOIR gives a max EMI of Rs 20,000. At 9% rate and 20-year tenure (EMI per lakh ≈ Rs 900), eligible loan = Rs 22.2 lakh.',
+      formula: 'Max EMI = Rs 40,000 × 50% = Rs 20,000. Loan = 20,000 / 900 × 1,00,000 ≈ Rs 22.2 lakh.',
+      example: 'With a 30-year tenure (EMI per lakh ≈ Rs 805), eligibility increases to ~Rs 24.8 lakh.',
+      note: 'Use the RupeeKit Home Loan EMI Calculator to check monthly payments at different loan amounts and rates.',
+    },
+    answerEngineSummary: 'A Rs 40,000 per month salary in India qualifies you for a home loan of approximately Rs 20–24 lakh under the standard 50% FOIR norm. The exact eligibility depends on existing EMIs, credit score, tenure (up to 30 years), and lender-specific criteria. Adding a co-applicant can significantly raise the eligible amount.',
+    officialSources: [
+      { label: 'RBI — Guidelines on Responsible Lending', href: 'https://www.rbi.org.in' },
+    ],
+    sections: [
+      {
+        title: 'Home loan eligibility calculation for Rs 40,000 salary',
+        paragraphs: [
+          'The standard industry formula: Net salary Rs 40,000 × 50% FOIR = maximum available EMI of Rs 20,000. At 9% annual interest rate over 20 years, the EMI for Rs 1 lakh of loan is approximately Rs 900. Home loan eligibility = (Rs 20,000 / Rs 900) × Rs 1,00,000 = Rs 22.2 lakh.',
+          'If you opt for a 25-year tenure, the EMI per lakh falls to about Rs 840, pushing eligibility to Rs 23.8 lakh. At 30 years, it drops to Rs 805 per lakh — eligibility ≈ Rs 24.8 lakh.',
+          'If you already have a car loan EMI of Rs 5,000 or a personal loan EMI of Rs 3,000, your available home loan EMI reduces by that amount. Example: Rs 20,000 max EMI minus Rs 5,000 car EMI = Rs 15,000 for home loan → eligibility drops to ~Rs 16.7 lakh.',
+        ],
+        example: {
+          title: 'Rs 40,000 salary — quick reference table',
+          details: 'No existing EMI, 9% rate — 20yr tenure: ~Rs 22L | 25yr: ~Rs 24L | 30yr: ~Rs 25L. With existing EMI of Rs 5,000 (20yr, 9%): ~Rs 16.7L. With co-applicant adding Rs 20,000 income (joint): ~Rs 33L.',
+        },
+      },
+      {
+        title: 'Which banks will approve a home loan on Rs 40,000 salary?',
+        paragraphs: [
+          'A Rs 40,000 monthly salary is above the minimum income threshold at every major bank in India. You are eligible to apply at SBI, HDFC Bank, ICICI Bank, Axis Bank, Kotak Mahindra Bank, PNB Housing Finance, LIC HFL, and Bank of Baroda.',
+          'SBI offers some of the most competitive rates (linked to its External Benchmark Lending Rate, currently around 8.5–9.5%). For government and PSU employees, SBI Privilege and SBI Shaurya schemes offer preferential rates. Check official SBI Home Loans portal (sbi.co.in/homeloan) for current rates.',
+          'HDFC Bank and ICICI Bank have digital sanctioning that can pre-approve your loan amount within 30 minutes based on salary account data. Their FOIR norms are 40–50% and they generally require a CIBIL score of 700+.',
+        ],
+        bullets: [
+          'SBI — competitive rates, accepts up to 30-year tenure',
+          'HDFC — fast digital processing for salaried',
+          'PNB Housing Finance — higher LTV ratios for existing customers',
+          'LIC HFL — good for government employees with LIC policies',
+        ],
+      },
+      {
+        title: 'Impact of credit score on home loan at Rs 40,000 salary',
+        paragraphs: [
+          'Your CIBIL score directly determines the interest rate offered, not just the approval decision. A score of 750+ typically qualifies for the bank\'s prime rate. A score between 650–750 may attract a 0.25–0.5% higher rate, which at Rs 22 lakh over 20 years translates to Rs 30,000–60,000 in additional interest.',
+          'The RBI mandates credit bureaus (CIBIL, Equifax, CRIF High Mark, Experian) to provide one free credit report per year. Check your score at the official CIBIL website (cibil.com) or via RBI-authorised platforms before applying.',
+        ],
+      },
+      {
+        title: 'How to maximise home loan eligibility on Rs 40,000 salary',
+        paragraphs: [
+          'Clear smaller loans first: personal loans, car loans, and credit card outstanding balances all count toward your FOIR. Clearing even one loan EMI of Rs 5,000 can add Rs 5.5 lakh to your home loan eligibility.',
+          'Add a co-applicant: if your spouse earns Rs 25,000, the combined net salary of Rs 65,000 raises the max eligible EMI to Rs 32,500 and the home loan eligibility to approximately Rs 36 lakh.',
+          'Choose a longer tenure: opting for 30 years instead of 20 increases eligibility by about 12%. However, you pay significantly more interest over the loan life — run the numbers on the RupeeKit Home Loan EMI Calculator to weigh this trade-off.',
+        ],
+      },
+    ],
+    relatedCalculators: ['home-loan-emi-calculator-india', 'personal-loan-eligibility-calculator-india', 'emi-calculator-india'],
+    faqs: [
+      {
+        question: 'Can I get a Rs 25 lakh home loan on Rs 40,000 salary?',
+        answer: 'Yes, if your tenure is 25–30 years and your FOIR allows it. At 9% rate and 30-year tenure, max eligible loan on Rs 40,000 salary (no existing EMIs) is approximately Rs 24.8 lakh — just under Rs 25 lakh. A slight salary increment, or opting for a slightly lower rate, can bridge the gap. Adding a co-applicant is the surest way.',
+      },
+      {
+        question: 'What is the FOIR limit for home loans in India?',
+        answer: 'There is no single RBI-mandated FOIR limit. Most banks use 40–55%, with 50% being the most common benchmark for salaried employees. Higher FOIRs (up to 60%) are sometimes granted to government employees or professionals with stable income histories. The exact FOIR policy is set by individual lenders.',
+      },
+      {
+        question: 'Does my employer matter for home loan eligibility?',
+        answer: 'Yes, significantly. Employees of listed companies, government bodies, PSUs, and reputed MNCs are seen as lower credit risk. Some banks offer a 0.05–0.25% lower interest rate for such employees. Startups and self-employed applicants on a salary structure may face slightly stricter scrutiny.',
+      },
+      {
+        question: 'How long does home loan approval take on Rs 40,000 salary?',
+        answer: 'Digital lenders like HDFC and ICICI can give in-principle approval within 30 minutes to 2 hours via net banking and salary account data. Full sanction (including property verification) typically takes 7–15 working days. Public sector banks may take 15–30 days.',
+      },
+    ],
+  },
+
+  {
+    slug: 'home-loan-eligibility-45000-salary-india',
+    seoTitle: 'Home Loan Eligibility Rs 45,000 Salary India 2026',
+    title: 'Home Loan Eligibility for Rs 45,000 Monthly Salary in India 2026',
+    metaDescription: 'Find out the home loan amount you can get on Rs 45,000 per month salary in India. Exact FOIR-based calculation with practical tips and official bank norms. Read now.',
+    category: 'Loans',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '4 min read',
+    h1: 'How Much Home Loan Can You Get on Rs 45,000 Salary in India?',
+    intro: 'A Rs 45,000 per month net salary qualifies you for a home loan of approximately Rs 23 lakh to Rs 27 lakh in India. The calculation is based on a 50% FOIR, standard 9% interest rate, and a 20–30 year tenure. This guide gives you the exact number and explains how to increase it.',
+    quickAnswer: {
+      question: 'How much home loan can I get on Rs 45,000 salary in India?',
+      answer: 'With Rs 45,000 net monthly salary and no existing EMIs, you can get approximately Rs 23 lakh to Rs 25 lakh as a home loan. At 50% FOIR, your max EMI is Rs 22,500. At 9% rate over 20 years (EMI per lakh ≈ Rs 900), the eligible loan is ~Rs 25 lakh.',
+      formula: 'Max EMI = Rs 45,000 × 50% = Rs 22,500. Eligible Loan = 22,500 / 900 × 1,00,000 = Rs 25 lakh.',
+      example: 'At 30-year tenure (EMI per lakh ≈ Rs 805), eligibility rises to ~Rs 27.9 lakh.',
+    },
+    answerEngineSummary: 'On a Rs 45,000 per month salary in India, home loan eligibility is approximately Rs 23–27 lakh, depending on tenure, interest rate, and existing EMIs. Banks apply a 50% FOIR norm for salaried employees. Adding a co-applicant or choosing a 30-year tenure increases the eligible amount.',
+    officialSources: [
+      { label: 'RBI — Responsible Lending Practices', href: 'https://www.rbi.org.in' },
+    ],
+    sections: [
+      {
+        title: 'Exact home loan calculation for Rs 45,000 monthly salary',
+        paragraphs: [
+          'Formula: Net salary Rs 45,000 × 50% FOIR = Rs 22,500 max EMI. At 9% annual rate over 20 years, EMI per lakh ≈ Rs 900. Eligible loan = Rs 22,500 / Rs 900 × Rs 1,00,000 = Rs 25 lakh.',
+          'Over 25 years (EMI ≈ Rs 840 per lakh): eligible loan ≈ Rs 26.8 lakh. Over 30 years (EMI ≈ Rs 805 per lakh): eligible loan ≈ Rs 27.9 lakh.',
+          'If you carry an existing car loan EMI of Rs 7,000, your available EMI for home loan is Rs 15,500 → eligible loan ≈ Rs 17.2 lakh (20-year tenure).',
+        ],
+        example: {
+          title: 'Rs 45,000 salary — eligibility reference',
+          details: 'No existing EMI, 9% rate — 20yr: ~Rs 25L | 25yr: ~Rs 26.8L | 30yr: ~Rs 27.9L. With Rs 5,000 existing EMI (20yr, 9%): ~Rs 19.4L. With co-applicant earning Rs 20,000 (combined Rs 65K): ~Rs 36L.',
+        },
+      },
+      {
+        title: 'Practical tips to get a higher home loan on Rs 45,000 salary',
+        paragraphs: [
+          'At Rs 45,000, you are in a strong eligibility range for first-time home buyers in Tier-2 and Tier-3 cities, and for affordable housing projects in metro suburbs. A few steps can push your eligibility closer to Rs 30 lakh.',
+          'Prepay any personal loan or vehicle loan before applying. Each Rs 5,000 reduction in existing monthly obligations adds approximately Rs 5.5 lakh to your home loan eligibility.',
+          'Consider applying under PMAY MIG-I (Middle Income Group) if you have not owned a home before. Under PMAY CLSS, MIG-I buyers (income Rs 6–12 lakh/year — which at Rs 45,000/month = Rs 5.4 lakh/year, you may qualify) get an interest subsidy of 4% on a Rs 9 lakh loan. This reduces EMI by roughly Rs 2,200/month.',
+        ],
+      },
+      {
+        title: 'Which tenure is best for home loan on Rs 45,000 salary?',
+        paragraphs: [
+          'Choosing a 20-year tenure at Rs 25 lakh loan (9%) means an EMI of Rs 22,493 — exactly at your 50% FOIR limit. There is very little headroom for life events or income dips.',
+          'Opting for 25 years reduces the same Rs 25 lakh loan\'s EMI to about Rs 21,000 — giving you Rs 1,500 monthly buffer. It also increases your eligible loan amount slightly.',
+          'A 30-year term is suitable if you are under 35 years of age (since most banks cap the loan period at age 60–65). Beyond improving eligibility, it provides the lowest mandatory EMI — you can always prepay when income rises. Use the RupeeKit Home Loan EMI Calculator to model these scenarios.',
+        ],
+      },
+    ],
+    relatedCalculators: ['home-loan-emi-calculator-india', 'personal-loan-eligibility-calculator-india', 'emi-calculator-india'],
+    faqs: [
+      {
+        question: 'Can I get a Rs 30 lakh home loan on Rs 45,000 salary?',
+        answer: 'Yes, but only with a co-applicant or by choosing a 30-year tenure and having no existing EMIs. At 9% rate and 30-year tenure, Rs 45,000 salary alone gives ~Rs 27.9 lakh. Adding a spouse earning Rs 15,000 pushes combined eligibility to ~Rs 33 lakh, making Rs 30 lakh comfortably achievable.',
+      },
+      {
+        question: 'What is a good CIBIL score for home loan at Rs 45,000 salary?',
+        answer: 'A CIBIL score of 750 or above is considered excellent and gives you access to the best interest rates. A score of 700–750 will still get approval but possibly at a 0.25–0.5% higher rate. Below 650, most banks will decline or ask for a higher co-applicant income.',
+      },
+      {
+        question: 'Can I include my rental income in home loan eligibility?',
+        answer: 'Yes. Most banks accept 70–80% of documented rental income (with rent agreement and bank receipts) as additional income. This can meaningfully increase your eligible loan amount. However, the rental property itself may be included in the bank\'s assessment of your assets and liabilities.',
+      },
+    ],
+  },
+
+  {
+    slug: 'home-loan-eligibility-by-salary-india',
+    seoTitle: 'Home Loan Eligibility by Salary India 2026: Full Table',
+    title: 'Home Loan Eligibility by Monthly Salary in India 2026: Complete Guide',
+    metaDescription: 'Home loan eligibility table by salary for Rs 20,000 to Rs 1 lakh monthly income in India 2026. Based on RBI FOIR norms, bank benchmarks, and 9% interest rate. Read now.',
+    category: 'Loans',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '6 min read',
+    h1: 'Home Loan Eligibility by Salary India 2026: How Much Can You Get?',
+    intro: 'Home loan eligibility in India is primarily determined by your net monthly salary and the bank\'s Fixed Obligation to Income Ratio (FOIR). Most banks set a 50% FOIR limit, meaning your total monthly EMIs (including the new home loan) cannot exceed half your take-home pay. This guide gives you a ready-reckoner table across salary ranges, plus the key factors that change the final number.',
+    quickAnswer: {
+      question: 'How much home loan can I get based on my salary in India?',
+      answer: 'Rule of thumb: You can borrow approximately 55–60 times your monthly net salary as a home loan (20-year tenure, 9% rate, 50% FOIR). Examples: Rs 25K salary → ~Rs 14L | Rs 40K → ~Rs 22L | Rs 50K → ~Rs 27.7L | Rs 75K → ~Rs 41.7L | Rs 1 lakh → ~Rs 55.6L.',
+      formula: 'Home Loan ≈ (Net Salary × 50% FOIR) / (EMI per lakh) × 1,00,000. At 9%, 20yr: EMI per lakh ≈ Rs 900.',
+      note: 'These are estimates. Actual sanction depends on credit score, existing obligations, tenure chosen, and lender policy.',
+    },
+    answerEngineSummary: 'Home loan eligibility in India is roughly 55 times monthly salary for a 20-year tenure at 9% interest under the 50% FOIR norm. A Rs 30,000 salary gives ~Rs 16.7L, Rs 50,000 gives ~Rs 27.7L, and Rs 1 lakh salary gives ~Rs 55.6L, assuming no existing EMIs and a CIBIL score above 700.',
+    officialSources: [
+      { label: 'RBI — Guidelines on Housing Finance', href: 'https://www.rbi.org.in' },
+      { label: 'PMAY — Pradhan Mantri Awas Yojana (eligibility calculator)', href: 'https://pmaymis.gov.in' },
+    ],
+    sections: [
+      {
+        title: 'Home loan eligibility table by salary (India 2026)',
+        paragraphs: [
+          'The table below uses standard industry benchmarks: 50% FOIR, 9% annual interest, 20-year tenure, and no existing EMIs. Amounts are approximate. Actual bank sanction may differ by ±10–15% based on your credit profile and lender policy.',
+          'Monthly salary Rs 20,000: Max EMI Rs 10,000 → Eligible loan ~Rs 11.1 lakh. Monthly salary Rs 25,000: Max EMI Rs 12,500 → Eligible loan ~Rs 13.9 lakh. Monthly salary Rs 30,000: Max EMI Rs 15,000 → Eligible loan ~Rs 16.7 lakh. Monthly salary Rs 40,000: Max EMI Rs 20,000 → Eligible loan ~Rs 22.2 lakh. Monthly salary Rs 45,000: Max EMI Rs 22,500 → Eligible loan ~Rs 25 lakh. Monthly salary Rs 50,000: Max EMI Rs 25,000 → Eligible loan ~Rs 27.7 lakh. Monthly salary Rs 75,000: Max EMI Rs 37,500 → Eligible loan ~Rs 41.7 lakh. Monthly salary Rs 1,00,000: Max EMI Rs 50,000 → Eligible loan ~Rs 55.6 lakh.',
+        ],
+        bullets: [
+          'Tenure 30yr instead of 20yr increases eligibility by ~12%',
+          'Adding a co-applicant nearly doubles the eligible amount',
+          'Clearing existing EMIs frees up full FOIR headroom',
+          'PMAY subsidy can reduce effective loan cost by Rs 2–2.5 lakh for eligible buyers',
+        ],
+      },
+      {
+        title: 'Key factors that affect eligibility beyond salary',
+        paragraphs: [
+          'CIBIL score: A score of 750+ is the gateway to best rates. Below 650, most banks decline. A higher score does not directly change the formula amount but can result in a lower rate, which means you can afford a higher loan at the same EMI.',
+          'Existing EMIs: Every Rs 5,000 in existing monthly obligations reduces eligible home loan by approximately Rs 5.5 lakh. Clearing small loans before applying has significant impact.',
+          'Age: Most banks cap the loan tenure at retirement age (60 for salaried, 65 for self-employed). A 50-year-old applying for a 20-year home loan can only get a 10-year tenure in practice, which raises the EMI per lakh from Rs 900 to Rs 1,100, reducing eligibility by roughly 18%.',
+          'Employment type: Government employees and PSU staff often get a higher FOIR allowance (up to 60%) and preferential rates. Private sector employees at listed companies generally get the same rates as government employees at most banks.',
+        ],
+      },
+      {
+        title: 'How to increase home loan eligibility at any salary',
+        paragraphs: [
+          'Add a co-applicant: a spouse, parent, or sibling with regular income is the single most effective way to increase eligibility. Banks add both incomes to calculate the combined FOIR headroom.',
+          'Prepay existing debt: before applying, channel any savings into prepaying personal loans or car loans. This is often more impactful than salary increases.',
+          'Choose a longer tenure: 30 years vs 20 years increases eligibility by ~12% — a meaningful difference. Only do this if you plan to prepay when income rises.',
+          'Use PMAY CLSS: if you are a first-time home buyer with income up to Rs 18 lakh/year, apply for the PMAY Credit Linked Subsidy. The subsidy is credited upfront to the loan, effectively reducing your outstanding principal.',
+        ],
+      },
+      {
+        title: 'When does the 55x rule not apply?',
+        paragraphs: [
+          'The 55x salary rule (i.e., home loan ≈ 55 months of salary) breaks down in certain scenarios: (1) If you have significant existing EMIs (car loan, personal loan), the effective multiplier drops to 30–40x. (2) If your tenure is limited due to age, the multiplier is lower. (3) If the property value is less than the eligible loan amount — banks cap the loan at 75–90% of property value (LTV ratio). (4) If your salary has irregular components (contract bonuses, incentives), only the fixed basic+HRA portion may be considered.',
+          'Use the RupeeKit Home Loan EMI Calculator to check what EMI you would pay at different loan amounts and compare it with your FOIR headroom.',
+        ],
+      },
+    ],
+    relatedCalculators: ['home-loan-emi-calculator-india', 'personal-loan-eligibility-calculator-india', 'emi-calculator-india'],
+    faqs: [
+      {
+        question: 'What salary is needed for a Rs 50 lakh home loan in India?',
+        answer: 'For a Rs 50 lakh home loan at 9% rate and 20-year tenure, the EMI is approximately Rs 44,986. At 50% FOIR, you need a minimum net salary of Rs 90,000/month. With a 30-year tenure, the EMI drops to Rs 40,231, requiring a minimum salary of Rs 80,462. Adding a co-applicant makes Rs 50 lakh achievable at lower individual salaries.',
+      },
+      {
+        question: 'How much home loan can I get on Rs 30,000 salary?',
+        answer: 'On a Rs 30,000 net monthly salary with no existing EMIs, you are eligible for approximately Rs 16.7 lakh at 9% rate and 20-year tenure. This assumes a 50% FOIR (max EMI = Rs 15,000). With a 30-year tenure, eligibility rises to ~Rs 18.6 lakh.',
+      },
+      {
+        question: 'What is the LTV ratio for home loans in India?',
+        answer: 'RBI mandates maximum LTV (Loan-to-Value) ratios: up to 90% for loans up to Rs 30 lakh, 80% for Rs 30–75 lakh, and 75% for loans above Rs 75 lakh. So for a Rs 20 lakh property, you can borrow up to Rs 18 lakh (90% LTV). The remaining 10% must come from your own down payment.',
+      },
+      {
+        question: 'Can I include variable salary (bonus) in home loan income calculation?',
+        answer: 'Some banks accept 50% of the last 2 years\' average annual bonus as income, provided it is reflected in salary slips or Form 16. Most banks prefer to use only the fixed (basic + HRA + fixed allowances) component. Verify with your chosen lender before applying.',
+      },
+      {
+        question: 'Does a higher down payment increase my home loan eligibility?',
+        answer: 'A higher down payment reduces the loan amount needed, which lowers the required EMI. This can make an otherwise marginal application viable. For example, if you need Rs 25 lakh for a property but only qualify for Rs 22 lakh, paying Rs 3 lakh more upfront resolves the gap. It also reduces total interest paid over the loan tenure.',
+      },
+    ],
+  },
+
+  {
+    slug: 'income-tax-on-12-lakh-salary-new-regime-india-2026',
+    seoTitle: 'Income Tax on Rs 12 Lakh Salary New Regime India 2026',
+    title: 'Income Tax on Rs 12 Lakh Salary: Zero Tax Under New Regime FY 2026-27',
+    metaDescription: 'Is income tax really zero on Rs 12 lakh salary in FY 2026-27? Complete calculation under the new tax regime with Section 87A rebate, the Rs 12.1L cliff, and FAQs. Read now.',
+    category: 'Tax',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '6 min read',
+    h1: 'Income Tax on Rs 12 Lakh Salary Under the New Regime FY 2026-27: Full Calculation',
+    intro: 'Under the new tax regime for FY 2026-27 (AY 2027-28), income up to Rs 12 lakh is genuinely tax-free. This is not a reduction in tax rates — it is a full rebate under Section 87A of the Income Tax Act that wipes out the computed tax entirely. For salaried employees, the standard deduction of Rs 75,000 extends this zero-tax threshold to Rs 12.75 lakh of gross salary. This guide explains the exact calculation, the critical cliff at Rs 12.1 lakh, and what changes when income crosses Rs 12 lakh.',
+    quickAnswer: {
+      question: 'Is income tax zero on Rs 12 lakh salary under the new regime in FY 2026-27?',
+      answer: 'Yes. Under the new tax regime in FY 2026-27, a taxable income of up to Rs 12 lakh is completely tax-free because of the Section 87A rebate (increased to Rs 60,000 in Union Budget 2025). The computed tax on Rs 12 lakh is Rs 60,000, which is fully wiped out by the rebate. Net tax payable = Rs 0.',
+      formula: 'Tax on Rs 12L: 0–4L = 0 | 4–8L = 5% = Rs 20,000 | 8–12L = 10% = Rs 40,000 | Total = Rs 60,000. Less: Section 87A rebate = Rs 60,000. Tax payable = Rs 0.',
+      note: 'Source: Section 87A of the Income Tax Act, as amended by Finance Act 2025. Verify at incometax.gov.in.',
+    },
+    answerEngineSummary: 'Income of Rs 12 lakh or less is completely tax-free under the new regime in FY 2026-27 due to the Section 87A rebate of up to Rs 60,000. For salaried employees, zero tax applies up to Rs 12.75 lakh gross salary (after Rs 75,000 standard deduction). A single rupee above Rs 12 lakh makes the full computed tax payable — this is the tax cliff to watch.',
+    officialSources: [
+      { label: 'Income Tax Department — Section 87A Rebate', href: 'https://incometax.gov.in' },
+      { label: 'Finance Act 2025 — Tax Slabs and Rebate Changes', href: 'https://eportal.incometax.gov.in' },
+    ],
+    sections: [
+      {
+        title: 'New tax regime slabs for FY 2026-27 (AY 2027-28)',
+        paragraphs: [
+          'The Finance Act 2025 revised the new tax regime slabs effective from FY 2025-26 (continuing in FY 2026-27). The slab structure is: Taxable income 0–4 lakh: 0% tax. Rs 4–8 lakh: 5% (tax = Rs 20,000). Rs 8–12 lakh: 10% (tax = Rs 40,000). Rs 12–16 lakh: 15%. Rs 16–20 lakh: 20%. Rs 20–24 lakh: 25%. Above Rs 24 lakh: 30%.',
+          'Additionally, salaried employees receive a standard deduction of Rs 75,000 under the new regime (raised from Rs 50,000 in Budget 2024). This means a gross salary of Rs 12.75 lakh, after deducting Rs 75,000, results in a taxable income of Rs 12 lakh — exactly at the zero-tax threshold.',
+        ],
+        bullets: [
+          'Standard deduction (new regime): Rs 75,000',
+          'Zero tax threshold: taxable income up to Rs 12 lakh',
+          'For salaried: zero tax on gross salary up to Rs 12.75 lakh',
+          'Section 87A rebate amount: Rs 60,000',
+          'Rebate available only if total income does not exceed Rs 12 lakh',
+        ],
+      },
+      {
+        title: 'Exact tax calculation at Rs 12 lakh income',
+        paragraphs: [
+          'Taxable income: Rs 12,00,000. Step-by-step calculation: First Rs 4 lakh: 0% = Rs 0. Next Rs 4 lakh (Rs 4L–8L): 5% = Rs 20,000. Next Rs 4 lakh (Rs 8L–12L): 10% = Rs 40,000. Total computed tax: Rs 60,000.',
+          'Section 87A rebate: Income Tax Act Section 87A, as amended by Finance Act 2025, provides a rebate of up to Rs 60,000 for individuals whose taxable income does not exceed Rs 12 lakh. Since computed tax (Rs 60,000) ≤ maximum rebate (Rs 60,000), the rebate is applied in full.',
+          'Tax payable after rebate: Rs 60,000 − Rs 60,000 = Rs 0. Health and Education Cess (4%): Rs 0. Final tax liability: Rs 0.',
+        ],
+        example: {
+          title: 'Tax at exactly Rs 12 lakh — complete working',
+          details: 'Gross salary: Rs 12,75,000 | Standard deduction: Rs 75,000 | Taxable income: Rs 12,00,000 | Computed tax: Rs 60,000 | 87A rebate: Rs 60,000 | Cess (4%): Rs 0 | Final tax: Rs 0.',
+        },
+      },
+      {
+        title: 'The Rs 12.1 lakh cliff: what happens when income crosses Rs 12 lakh',
+        paragraphs: [
+          'This is the most important aspect of the new regime rebate that most people misunderstand. The Section 87A rebate is an all-or-nothing mechanism — it is available only when taxable income is Rs 12 lakh or below. If your income is Rs 12,00,001 — even a single rupee more — the entire rebate of Rs 60,000 is withdrawn.',
+          'Taxable income Rs 12,10,000 (Rs 10,000 above the limit): Rs 4–8L = 5% = Rs 20,000; Rs 8–12L = 10% = Rs 40,000; Rs 12–12.1L = 15% = Rs 1,500. Total tax = Rs 61,500. No Section 87A rebate (income exceeds Rs 12L). Add 4% cess: Rs 61,500 × 1.04 = Rs 63,960. For earning Rs 10,000 more, you pay Rs 63,960 extra in tax.',
+          'This is the "cliff effect" and it is real. If your taxable income is likely to be Rs 12.1–12.5 lakh, you are in the worst possible zone — earning slightly more than Rs 12 lakh means your take-home may actually be lower than if you had earned exactly Rs 12 lakh.',
+        ],
+        example: {
+          title: 'Rs 12.1 lakh vs Rs 12 lakh — the Rs 63,960 tax cliff',
+          details: 'At Rs 12L taxable income: Tax = Rs 0. At Rs 12.1L taxable income: Tax = Rs 63,960. Extra earning: Rs 10,000. Extra tax: Rs 63,960. Net loss from earning more: Rs 53,960. Lesson: If your taxable income is Rs 12–12.6L, consider maximising NPS 80CCD(1B) or other new regime-allowed deductions to bring it back to Rs 12L.',
+        },
+      },
+      {
+        title: 'New regime vs old regime at Rs 12 lakh salary',
+        paragraphs: [
+          'At Rs 12 lakh taxable income, the new regime is unambiguously better — the tax is Rs 0 vs potentially Rs 52,500 in the old regime (before any deductions). Even with maximum old regime deductions of Rs 3.5 lakh (HRA Rs 1.5L + 80C Rs 1.5L + 80D Rs 50K), the old regime tax on Rs 8.5 lakh taxable income would be approximately Rs 85,500 → still much higher than zero.',
+          'However, if your gross salary is above Rs 12.75 lakh (making taxable income above Rs 12 lakh under the new regime), the comparison changes and depends on your actual deductions. Use the RupeeKit Income Tax Calculator (Old vs New Regime) to compare your specific situation.',
+        ],
+      },
+      {
+        title: 'How to keep income within Rs 12 lakh to avoid tax',
+        paragraphs: [
+          'Under the new tax regime, very few deductions are allowed. The main one available in FY 2026-27 is NPS contribution under Section 80CCD(1B) — up to Rs 50,000 extra deduction for employee voluntary NPS contributions, on top of the standard Rs 75,000 deduction. This means a salaried employee with Rs 13.25 lakh gross salary can reach Rs 12 lakh taxable income via: Rs 13.25L − Rs 75K standard deduction − Rs 50K NPS 80CCD(1B) = Rs 12.5L (not quite, but close).',
+          'Employer contribution to NPS is fully exempt under Section 80CCD(2) without any Rs 50,000 cap. Many employers who offer structured salary now route a portion of CTC as employer NPS to help employees stay below the Rs 12 lakh threshold.',
+          'Verify all deduction details at the official Income Tax Department website (incometax.gov.in) or use the e-Filing portal (eportal.incometax.gov.in) for AY 2027-28 ITR-related information.',
+        ],
+      },
+    ],
+    relatedCalculators: ['income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india'],
+    faqs: [
+      {
+        question: 'Is Rs 12 lakh salary completely tax-free in FY 2026-27?',
+        answer: 'Yes, under the new tax regime. If your taxable income does not exceed Rs 12 lakh, the Section 87A rebate of Rs 60,000 fully offsets the computed tax. The condition is that income must not exceed Rs 12 lakh — even Rs 1 above removes the rebate entirely.',
+      },
+      {
+        question: 'What is the Section 87A rebate for FY 2026-27?',
+        answer: 'Section 87A provides a tax rebate of up to Rs 60,000 for individuals (resident) whose total income does not exceed Rs 12 lakh in FY 2026-27, under the new tax regime. This was increased from Rs 25,000 (Rs 7 lakh threshold) to Rs 60,000 (Rs 12 lakh threshold) in Union Budget 2025. The official source is Section 87A of the Income Tax Act, 1961.',
+      },
+      {
+        question: 'What if I earn Rs 12,50,000 — how much tax do I pay under new regime?',
+        answer: 'At Rs 12.5 lakh taxable income, there is no Section 87A rebate. Tax: 4–8L = Rs 20,000; 8–12L = Rs 40,000; 12–12.5L (15%) = Rs 7,500. Total = Rs 67,500. Add 4% cess = Rs 70,200. So income of Rs 12.5L costs Rs 70,200 in tax while income of Rs 12L costs Rs 0.',
+      },
+      {
+        question: 'Is the Rs 12 lakh threshold applicable to old regime also?',
+        answer: 'No. Section 87A in the old regime provides a rebate of up to Rs 12,500 for income up to Rs 5 lakh only. The Rs 60,000 rebate for income up to Rs 12 lakh is exclusively available under the new tax regime for FY 2026-27.',
+      },
+      {
+        question: 'Does capital gains income count toward the Rs 12 lakh threshold?',
+        answer: 'This is a nuanced point. Long-term and short-term capital gains (LTCG/STCG) are included in total income for checking the Rs 12 lakh threshold. However, the rebate is calculated differently — special-rate capital gains are excluded from the rebate computation. As per IT rules, 87A rebate cannot be applied to offset the tax on LTCG on equity (taxed at 12.5%) or STCG on equity (20%). This is a complex area — verify at incometax.gov.in or consult a CA for your specific situation.',
+      },
+    ],
+  },
+
+  {
+    slug: 'how-to-calculate-in-hand-salary-from-ctc-india',
+    seoTitle: 'CTC to In-Hand Salary Calculator India 2026 Guide',
+    title: 'How to Calculate In-Hand Salary from CTC in India 2026',
+    metaDescription: 'Learn exactly how to calculate your take-home (in-hand) salary from CTC in India. Step-by-step with worked examples at Rs 10L, Rs 15L, Rs 20L, and Rs 30L CTC. Read now.',
+    category: 'Salary & Tax',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '7 min read',
+    h1: 'How to Calculate In-Hand Salary from CTC in India 2026: Step-by-Step',
+    intro: 'CTC (Cost to Company) and take-home (in-hand) salary are very different numbers. A Rs 15 lakh CTC offer typically translates to Rs 80,000–90,000 per month in hand — not Rs 1.25 lakh as many candidates assume. Understanding the gap helps you negotiate better and plan more accurately. This guide breaks down every deduction, with real worked examples across CTC ranges.',
+    quickAnswer: {
+      question: 'How do I calculate in-hand salary from CTC in India?',
+      answer: 'In-Hand Salary ≈ CTC − Employer PF − Employer Gratuity − TDS − Employee PF − Professional Tax. Typically, in-hand is 65–80% of CTC depending on tax bracket. Example: Rs 15L CTC ≈ Rs 82,000–88,000/month in-hand (new regime, no HRA benefit).',
+      formula: 'Take-Home = Gross Salary − Employee PF (12% of Basic) − TDS − Professional Tax. Where Gross Salary = CTC − Employer PF − Employer Gratuity.',
+      example: 'Rs 10L CTC → ~Rs 71,000–76,000/month | Rs 15L CTC → ~Rs 83,000–90,000/month | Rs 20L CTC → ~Rs 1,02,000–1,10,000/month | Rs 30L CTC → ~Rs 1,40,000–1,55,000/month.',
+    },
+    answerEngineSummary: 'In-hand salary from CTC in India is typically 65–80% of CTC after deducting employer PF, gratuity provision, employee PF, income tax (TDS), and professional tax. At Rs 15L CTC, expect Rs 83,000–90,000/month in-hand under the new tax regime. Use the RupeeKit Salary In-Hand Calculator for a personalised estimate.',
+    officialSources: [
+      { label: 'EPFO — PF Deduction Rules (12% of Basic)', href: 'https://www.epfindia.gov.in' },
+      { label: 'Income Tax Department — TDS on Salary (Section 192)', href: 'https://incometax.gov.in' },
+    ],
+    sections: [
+      {
+        title: 'What is CTC and why is it not your actual salary?',
+        paragraphs: [
+          'CTC (Cost to Company) is the total amount a company spends on an employee per year. It includes your cash salary but also employer PF contributions, gratuity provision, medical insurance premium, ESOPs, joining bonus, and other benefits. Many of these do not reach your bank account directly.',
+          'Your "gross salary" is what the company pays you as cash (before tax deductions). Your "net salary" or "take-home salary" is what lands in your bank after TDS, employee PF, and professional tax are deducted.',
+          'The most common CTC components are: (1) Basic Salary — typically 30–50% of CTC. (2) HRA (House Rent Allowance) — typically 40–50% of Basic. (3) Special Allowance — balancing figure to make up CTC. (4) Other allowances (LTA, Medical). (5) Employer PF — 12% of Basic (provident fund contribution). (6) Gratuity provision — 4.81% of Basic. (7) Variable pay / bonus — paid quarterly or annually.',
+        ],
+        bullets: [
+          'Employer PF (12% of Basic) is part of CTC but does not reach your salary account directly',
+          'Gratuity provision (~4.81% of Basic) is part of CTC, paid only on exit after 5 years',
+          'Variable pay / bonus is often included in CTC at target but may be partially paid',
+          'Health insurance premium paid by employer is part of CTC (no cash benefit)',
+        ],
+      },
+      {
+        title: 'Step-by-step: how to derive take-home from CTC',
+        paragraphs: [
+          'Step 1 — Identify non-cash CTC components: Employer PF (12% of Basic) + Gratuity (4.81% of Basic) + Insurance premium + any other benefits. Subtract these from CTC to get Gross Monthly Salary.',
+          'Step 2 — Calculate Gross Monthly Salary: Gross Salary = (CTC − Employer PF − Gratuity) / 12.',
+          'Step 3 — Compute Employee PF: 12% of Basic salary per month (or capped at Rs 1,800/month if Basic ≤ Rs 15,000).',
+          'Step 4 — Compute TDS (monthly): Estimate annual taxable income = Gross Salary × 12 − Standard Deduction (Rs 75,000 under new regime) − NPS 80CCD(1B) if any. Apply new regime slabs and divide annual TDS by 12 for monthly deduction.',
+          'Step 5 — Professional Tax: Typically Rs 200/month in most states (varies — Karnataka, Maharashtra, AP, Telangana apply it; many states do not).',
+          'Step 6 — In-Hand = Gross Monthly Salary − Employee PF − TDS − Professional Tax.',
+        ],
+      },
+      {
+        title: 'Worked examples: CTC to take-home at different salary levels',
+        paragraphs: [
+          'Example 1 — Rs 10 lakh CTC (new regime): Assume Basic = Rs 4L/year (40% CTC). Employer PF = 12% × 4L = Rs 48K. Gratuity = 4.81% × 4L = Rs 19.2K. Gross annual salary = 10L − 48K − 19.2K = Rs 9.33L → Rs 77,700/month. Employee PF = 12% × 33,333/month Basic = Rs 4,000/month. Taxable income = 9.33L − 75K SD = Rs 8.58L. Tax (new regime): 4–8L = 20K; 8–8.58L (10%) = 5,800. Total = Rs 25,800 → monthly TDS ≈ Rs 2,150. In-hand ≈ Rs 77,700 − Rs 4,000 − Rs 2,150 − Rs 200 = Rs 71,350/month.',
+          'Example 2 — Rs 15 lakh CTC (new regime): Basic = Rs 6L/year. Employer PF = Rs 72K. Gratuity = Rs 28.8K. Gross = 15L − 72K − 28.8K = Rs 13.99L → Rs 1,16,583/month (note: this is too high for basic structure, let me use typical split). More commonly, Basic Rs 50K/month, HRA Rs 25K, Special Rs 42K → Gross Rs 1,17,000/month. Employee PF = Rs 6,000/month. Taxable income = 15L − 72K (employer PF not counted) − 28.8K (gratuity) leaves gross 13.99L; after standard deduction 13.99L − 75K = 13.24L. Tax: 4–8L=20K; 8–12L=40K; 12–13.24L (15%)=18.6K. Total = Rs 78,600 + cess 4% = Rs 81,744 → TDS ≈ Rs 6,812/month. In-hand ≈ Rs 1,17,000 − Rs 6,000 − Rs 6,812 − Rs 200 = Rs 1,03,988/month.',
+          'Example 3 — Rs 30 lakh CTC (new regime): At this level, the 30% slab applies partially. Expect in-hand of approximately Rs 1,45,000–1,60,000/month. Exact amount depends on Basic split, HRA (old regime only), NPS contributions, and bonus timing. Use the RupeeKit Salary In-Hand Calculator for a precise computation.',
+        ],
+        example: {
+          title: 'Quick reference table — CTC to approximate in-hand',
+          details: 'Rs 6L CTC → ~Rs 42,000–46,000/month | Rs 8L CTC → ~Rs 54,000–58,000/month | Rs 10L CTC → ~Rs 70,000–75,000/month | Rs 12L CTC → ~Rs 79,000–85,000/month | Rs 15L CTC → ~Rs 85,000–95,000/month | Rs 20L CTC → ~Rs 1,02,000–1,12,000/month | Rs 25L CTC → ~Rs 1,22,000–1,35,000/month | Rs 30L CTC → ~Rs 1,42,000–1,58,000/month. (New regime; actual varies by PF structure and bonus timing.)',
+        },
+      },
+      {
+        title: 'Tips to maximise take-home from CTC',
+        paragraphs: [
+          'Salary restructuring: ask HR to maximise tax-exempt allowances. Under the new regime, LTA (Leave Travel Allowance) and meal vouchers do not provide a deduction, but under the old regime they do. If you stay in the old regime, structuring higher HRA, LTA, and professional development allowances can reduce taxable income.',
+          'Employer NPS: ask your employer to route a portion of CTC as employer NPS contribution. Employer NPS up to 10% of basic salary is fully tax-exempt under Section 80CCD(2) in both old and new regimes — it does not consume any of your Rs 1.5 lakh 80C limit. This can reduce taxable income without reducing CTC.',
+          'Voluntary PF: if you want to save more, you can increase voluntary PF contribution (EPFO allows up to 100% of basic). However, it reduces take-home — useful for forced saving, not for maximising monthly cash.',
+        ],
+      },
+    ],
+    relatedCalculators: ['salary-in-hand-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india'],
+    faqs: [
+      {
+        question: 'What percentage of CTC is take-home salary in India?',
+        answer: 'For most salaried employees in India, take-home (net in-hand) salary is 65–80% of CTC. The lower the CTC, the higher the percentage (less tax). At Rs 6–8L CTC, take-home may be 75–80% of CTC. At Rs 20–30L CTC, take-home drops to 60–70% due to higher tax brackets.',
+      },
+      {
+        question: 'Is employer PF part of CTC?',
+        answer: 'Yes. Most companies include the employer\'s 12% PF contribution (on Basic salary) as part of CTC. This amount goes to your EPF account, not your salary account. It accumulates and is accessible at retirement or resignation. EPFO rules mandate the 12% employer contribution for establishments with 20+ employees. Source: The Employees\' Provident Funds and Miscellaneous Provisions Act, 1952 (administered by EPFO — epfindia.gov.in).',
+      },
+      {
+        question: 'Is gratuity included in CTC?',
+        answer: 'Yes, most companies include a gratuity provision in CTC (approximately 4.81% of basic salary per year). However, you only receive this amount upon leaving the company after completing 5 years of service. Under the current Payment of Gratuity Act, 1972, the 5-year rule applies to most establishments.',
+      },
+      {
+        question: 'How is TDS on salary deducted?',
+        answer: 'Your employer deducts TDS (Tax Deducted at Source) under Section 192 of the Income Tax Act. You declare your tax regime and investments to HR in April, and HR computes estimated annual tax and deducts 1/12th per month. Shortfalls are collected in the last 2–3 months of the financial year. TDS is deposited to the government and shows in your Form 26AS and AIS on the IT portal (incometax.gov.in).',
+      },
+    ],
+  },
+
+  {
+    slug: 'how-to-withdraw-epf-after-resignation-india-2026',
+    seoTitle: 'How to Withdraw EPF After Resignation India 2026',
+    title: 'How to Withdraw EPF After Resignation in India 2026: Step-by-Step Online Guide',
+    metaDescription: 'Complete guide to withdrawing EPF after resignation in India. Step-by-step online process via EPFO UAN portal, documents needed, waiting period, and tax rules. Read now.',
+    category: 'Savings',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '7 min read',
+    h1: 'How to Withdraw EPF After Resignation in India 2026: Complete Online Process',
+    intro: 'After resigning, you can withdraw your full EPF balance — but only after a waiting period of 2 months of unemployment. The process is entirely online through the EPFO Unified Member Portal using your UAN (Universal Account Number). This guide walks through every step, including document requirements, the waiting period rule, and when your withdrawal will be taxed.',
+    quickAnswer: {
+      question: 'How do I withdraw EPF after resignation in India?',
+      answer: 'Wait 2 months after resignation date. Then log in to the EPFO Unified Member Portal (unifiedportal-mem.epfindia.gov.in), go to Online Services → Claim (Form-31, 19 & 10C), select Full EPF Settlement, and submit. Processing takes 15–20 working days. Your Aadhaar must be linked to UAN.',
+      note: 'Official source: EPFO India (epfindia.gov.in). The Employees\' Provident Funds & Miscellaneous Provisions Act, 1952 governs withdrawal rules.',
+    },
+    answerEngineSummary: 'EPF can be withdrawn after resignation by waiting 2 months and then applying online via the EPFO Unified Member Portal. You need an active UAN linked to Aadhaar and verified bank account. Full withdrawal is tax-free if total service across all employers is 5 years or more. Processing takes 15–20 working days. Source: EPFO India (epfindia.gov.in).',
+    officialSources: [
+      { label: 'EPFO Unified Member Portal (for withdrawal)', href: 'https://unifiedportal-mem.epfindia.gov.in' },
+      { label: 'EPFO — Withdrawal Guidelines', href: 'https://www.epfindia.gov.in' },
+    ],
+    sections: [
+      {
+        title: 'When can you withdraw EPF after resignation?',
+        paragraphs: [
+          'Under the EPF (Employees\' Provident Funds & Miscellaneous Provisions) Act, 1952, you can withdraw your full EPF balance only after leaving a job and remaining unemployed for at least 2 months. This rule is enforced to preserve retirement savings — EPF is primarily a retirement corpus.',
+          'If you resign and immediately join a new employer, you should transfer your old EPF account to the new employer\'s PF trust (via EPFO\'s online transfer facility) rather than withdrawing. This preserves tax-free status and maintains the 5-year continuous service count.',
+          'EPFO allows partial advance withdrawal (without the 2-month waiting period) for specific purposes like housing, medical, education, or marriage — even while employed. This is separate from the full resignation-based withdrawal.',
+        ],
+        bullets: [
+          'Full withdrawal: requires 2 months of unemployment after resignation',
+          'Transfer to new employer: can be done immediately — preferred for continuity',
+          'Partial withdrawal (advance): allowed while employed, for specific purposes',
+          'EPFO online portal: unifiedportal-mem.epfindia.gov.in',
+        ],
+      },
+      {
+        title: 'Step-by-step: withdraw EPF online after resignation',
+        paragraphs: [
+          'Step 1 — Activate UAN: Your UAN (Universal Account Number) must be activated at the EPFO Member Portal. If you have not activated it, go to unifiedportal-mem.epfindia.gov.in → Activate UAN, and complete KYC (Aadhaar, PAN, bank account).',
+          'Step 2 — Ensure Aadhaar is linked and verified: Go to Manage → KYC in the portal. Your Aadhaar and bank account details must show as "Verified" (green tick). Unverified details will block your claim.',
+          'Step 3 — Wait 2 months after the last day of employment: The system checks the date of exit recorded by your previous employer. If your employer has not updated your Exit Date on the EPFO portal, contact HR to update it first.',
+          'Step 4 — Submit the claim: Log in → Online Services → Claim (Form-31, 19 & 10C). Select "PF Advance (Form 31)" or "Only PF Withdrawal (Form 19)" for full settlement. Verify bank account details. Enter the reason and submit the claim.',
+          'Step 5 — Track and receive: Track at Online Services → Track Claim Status. Processing takes 15–20 working days. Amount is credited to your registered bank account.',
+        ],
+      },
+      {
+        title: 'Documents needed for EPF withdrawal',
+        paragraphs: [
+          'For online claims through the EPFO member portal, no physical documents need to be submitted. The online process is completely paperless if your UAN KYC is complete. However, you should have ready: Aadhaar-linked mobile number (for OTP), bank account linked to UAN, and the reason for withdrawal.',
+          'For offline claims (if UAN is not activated or Aadhaar is not linked), you need to fill the Composite Claim Form (Aadhaar) or Composite Claim Form (Non-Aadhaar) and submit it to the EPFO regional office along with: cancelled cheque, identity proof, and address proof. Download forms from epfindia.gov.in.',
+        ],
+        bullets: [
+          'Online: No physical documents needed if KYC is complete',
+          'Offline: Composite Claim Form (Aadhaar) or (Non-Aadhaar)',
+          'Cancelled cheque or bank passbook copy (for offline)',
+          'Form 15G/15H: submit if total EPF is less than Rs 2.5 lakh and service < 5 years to avoid TDS',
+        ],
+      },
+      {
+        title: 'Tax on EPF withdrawal: when is it taxable?',
+        paragraphs: [
+          'EPF withdrawal is completely tax-free if your total continuous service (combined across all employers, provided you transferred EPF without gap) is 5 years or more. This is one of the most significant tax benefits for long-term EPF members.',
+          'If you withdraw before completing 5 years of service, the entire withdrawal amount is taxable in the year of withdrawal. Your employer\'s contribution and interest earned are added to your income and taxed at your applicable slab rate. Additionally, EPFO deducts TDS at 10% (if withdrawal exceeds Rs 50,000 and PAN is provided) or 30% (if PAN is not provided).',
+          'If your taxable income for that year is below the basic exemption limit, you can submit Form 15G (below 60 years) or Form 15H (senior citizens) to EPFO to avoid TDS. Submit these at the time of filing the withdrawal claim on the member portal.',
+          'For tax on EPF, refer to Section 10(12) of the Income Tax Act and Rule 8 of Part A of the 4th Schedule to the IT Act. Verify the latest rules at incometax.gov.in.',
+        ],
+      },
+    ],
+    relatedCalculators: ['epf-corpus-calculator-india', 'salary-in-hand-calculator-india'],
+    faqs: [
+      {
+        question: 'How long does EPF withdrawal take after resignation?',
+        answer: 'EPF withdrawal processing typically takes 15–20 working days from the date of claim submission. Claims submitted via the EPFO online portal tend to be processed faster than offline claims. You can track claim status at unifiedportal-mem.epfindia.gov.in → Online Services → Track Claim Status.',
+      },
+      {
+        question: 'Can I withdraw EPF immediately after resignation?',
+        answer: 'No. You must wait 2 months after your resignation date before submitting a full EPF withdrawal claim. This 2-month waiting period is mandated by the EPF scheme rules. During this time, you can initiate the UAN KYC process and ensure your exit date has been updated by your previous employer.',
+      },
+      {
+        question: 'What if my employer has not updated my exit date on EPFO?',
+        answer: 'Your claim will be rejected if the exit date is not updated. Contact your previous employer\'s HR department and request them to update the date of exit on the EPFO employer portal. If the employer is unresponsive, you can approach your regional EPFO office with your resignation letter and last payslip.',
+      },
+      {
+        question: 'Is EPF withdrawal taxable if I have less than 5 years of service?',
+        answer: 'Yes. EPF withdrawal before completing 5 years of continuous service is taxable. The withdrawal amount (employer contribution + interest) is added to your income for the year and taxed at your slab rate. EPFO also deducts TDS at 10% (with PAN) or 30% (without PAN) on amounts exceeding Rs 50,000. Submit Form 15G to avoid TDS if your income is below the basic exemption.',
+      },
+      {
+        question: 'Can I transfer EPF instead of withdrawing after resignation?',
+        answer: 'Yes, and it is strongly recommended. If you join a new employer, transfer your old EPF account to your new account via the EPFO online transfer facility. This maintains continuity of the 5-year service period (important for tax-free status) and keeps the corpus compounding. Withdrawal is a last resort — EPF corpus withdrawn cannot be re-invested back into EPF.',
+      },
+    ],
+  },
+
+  {
+    slug: 'epf-partial-withdrawal-rules-india',
+    seoTitle: 'EPF Partial Withdrawal Rules India 2026: Full Guide',
+    title: 'EPF Partial Withdrawal Rules India 2026: Housing, Medical, Education & More',
+    metaDescription: 'Complete guide to EPF partial withdrawal rules in India for housing loan, medical emergency, education, and marriage. Eligibility, amounts, and online application steps. Read now.',
+    category: 'Savings',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '6 min read',
+    h1: 'EPF Partial Withdrawal Rules in India 2026: All Allowed Purposes and How to Apply',
+    intro: 'The EPFO allows members to make partial withdrawals (called "advances") from their EPF account for specific purposes without resigning from their job. These are not loans — the amount is deducted from your EPF balance and does not need to be repaid. The six main purposes are housing, medical, education, marriage, pre-retirement, and natural calamity. Each has different eligibility criteria, waiting period, and withdrawal limits.',
+    quickAnswer: {
+      question: 'Can I withdraw EPF partially while still employed in India?',
+      answer: 'Yes. EPFO allows partial withdrawal (advance) from your EPF account while employed for specific purposes: housing (up to 90% after 5 years), medical (up to 6 months basic salary, anytime), education/marriage (up to 50% employee share after 7 years), and pre-retirement (up to 90% after age 57). Apply online at unifiedportal-mem.epfindia.gov.in.',
+      note: 'Source: The Employees\' Provident Funds Scheme, 1952 (Paragraphs 68B, 68BB, 68K, 68N, 68NN). Official site: epfindia.gov.in.',
+    },
+    answerEngineSummary: 'EPF partial withdrawal (advance) is allowed in India for housing, medical, education, marriage, and pre-retirement without quitting the job. The housing withdrawal permits up to 90% of EPF balance after 5 years of service. Medical advances are available at any time with no minimum service requirement. Apply online via the EPFO Unified Member Portal.',
+    officialSources: [
+      { label: 'EPFO — EPF Scheme 1952 (Paragraphs 68B, 68K, 68N)', href: 'https://www.epfindia.gov.in' },
+      { label: 'EPFO Unified Member Portal (apply online)', href: 'https://unifiedportal-mem.epfindia.gov.in' },
+    ],
+    sections: [
+      {
+        title: 'EPF partial withdrawal for housing loan or purchase (Paragraph 68B)',
+        paragraphs: [
+          'Under Paragraph 68B of the EPF Scheme 1952, you can withdraw up to 90% of your EPF balance (employee + employer share + interest) for purchasing or constructing a house or land, or repaying an outstanding housing loan.',
+          'Eligibility: minimum 5 years of EPF membership (not just service at current employer — cumulative across all employers). The property must be registered in your name or jointly with your spouse.',
+          'This advance can be taken only once in a lifetime. For repaying a housing loan, the remaining loan term must be at least 3 years.',
+          'Under Paragraph 68BB (introduced in 2017), you can also withdraw up to 90% specifically for construction on land you already own — with the same 5-year membership condition.',
+        ],
+        bullets: [
+          'Purpose: purchase land, construct house, or repay home loan',
+          'Amount: up to 90% of total EPF balance',
+          'Minimum service: 5 years EPF membership',
+          'Can be claimed only once in a lifetime',
+          'Property must be in your name or spouse\'s name',
+        ],
+      },
+      {
+        title: 'EPF withdrawal for medical emergency (Paragraph 68J)',
+        paragraphs: [
+          'Under Paragraph 68J, you can withdraw from EPF for major medical treatment of yourself, spouse, children, or dependent parents. There is no minimum service requirement — you can claim this even in the first year of employment.',
+          'The maximum amount allowed is 6 months of your basic salary plus dearness allowance (or your entire employee share with interest, whichever is lower).',
+          'Eligible medical conditions: hospitalisation of more than 1 month, major surgery, or treatment for specified serious illnesses like cancer, tuberculosis, paralysis, heart disease, leprosy, or mental illness. Your doctor\'s certificate recommending hospitalisation or treatment is required.',
+          'Medical advances are tax-free when received. Verify the latest list of eligible illnesses at epfindia.gov.in.',
+        ],
+      },
+      {
+        title: 'EPF withdrawal for marriage or higher education (Paragraph 68K)',
+        paragraphs: [
+          'Under Paragraph 68K, you can withdraw up to 50% of your own (employee) contribution with interest for: your own marriage, marriage of a sibling or child, or higher education of yourself or your child after Class 10.',
+          'Minimum service required: 7 years of EPF membership. This advance can be taken a maximum of 3 times in your working life.',
+          'For marriage, a wedding invitation or marriage certificate is required. For education, an admission letter from a college or educational institution is needed.',
+        ],
+        bullets: [
+          'Purpose: own wedding, sibling/child wedding, or higher education',
+          'Amount: up to 50% of employee EPF contribution (not employer share)',
+          'Minimum service: 7 years EPF membership',
+          'Can be claimed up to 3 times in total',
+        ],
+      },
+      {
+        title: 'How to apply for EPF partial withdrawal online',
+        paragraphs: [
+          'Step 1 — Log in to EPFO Unified Member Portal (unifiedportal-mem.epfindia.gov.in) using UAN and password.',
+          'Step 2 — Ensure KYC is complete: Aadhaar, PAN, and bank account must be verified (green tick under Manage → KYC).',
+          'Step 3 — Go to Online Services → Claim (Form-31, 19 & 10C). Select "PF Advance (Form 31)".',
+          'Step 4 — Choose the purpose of advance from the dropdown (housing, medical, marriage, etc.). Enter the required amount.',
+          'Step 5 — Upload supporting documents if required (medical certificate for 68J; wedding invitation for 68K). Submit.',
+          'Processing time: 15–20 working days. Amount is credited to your registered bank account. You can track at Online Services → Track Claim Status.',
+        ],
+      },
+    ],
+    relatedCalculators: ['epf-corpus-calculator-india', 'home-loan-emi-calculator-india'],
+    faqs: [
+      {
+        question: 'Is EPF partial withdrawal taxable in India?',
+        answer: 'Generally, EPF partial withdrawal is not taxable if it is for permitted purposes under the EPF scheme. Medical advances are fully tax-free. Advances for housing, education, and marriage are also generally not treated as income. However, if the total EPF withdrawal exceeds Rs 50,000 and you have less than 5 years of continuous service, TDS applies. Consult incometax.gov.in or a CA for your specific situation.',
+      },
+      {
+        question: 'How much EPF can I withdraw for a home loan down payment?',
+        answer: 'Under Paragraph 68B of the EPF Scheme, you can withdraw up to 90% of your total EPF balance (employee + employer contributions + interest) after 5 years of membership, for the purpose of purchasing or constructing a house. The amount can be used as a down payment. However, this reduces your EPF retirement corpus significantly — carefully weigh this before withdrawing.',
+      },
+      {
+        question: 'Can I withdraw EPF for my sister\'s wedding?',
+        answer: 'Yes. Under Paragraph 68K of the EPF Scheme 1952, you can withdraw up to 50% of your employee contribution with interest for the wedding of a sibling (brother or sister), subject to a minimum of 7 years of EPF membership. Supporting document (wedding invitation or marriage certificate) is required.',
+      },
+      {
+        question: 'What is the maximum number of EPF advances allowed?',
+        answer: 'It depends on the purpose. Housing advance (68B): once in a lifetime. Medical advance (68J): no explicit limit, but subject to reason and documentation. Marriage/education advance (68K): maximum 3 times in your working life.',
+      },
+    ],
+  },
+
+  {
+    slug: 'new-labour-code-gratuity-rules-india-2026',
+    seoTitle: 'New Labour Code Gratuity Rules India 2026 Guide',
+    title: 'New Labour Code Gratuity Rules in India 2026: Contract Workers Eligible After 1 Year',
+    metaDescription: 'How gratuity rules change under the New Labour Code in India. Contract workers become eligible after 1 year vs 5 years currently. Calculation, who benefits, and current status. Read now.',
+    category: 'Salary & Tax',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '6 min read',
+    h1: 'New Labour Code Gratuity Rules India 2026: 1-Year Rule for Contract Workers Explained',
+    intro: 'Under India\'s current Payment of Gratuity Act, 1972, you need 5 years of continuous service to claim gratuity. The New Labour Codes — specifically the Code on Social Security, 2020 — propose changing this for fixed-term contract employees to just 1 year of service. The Code received Presidential assent in 2020 but is not yet fully implemented across all states as of July 2026. This guide explains what changes, who benefits, and what to expect.',
+    quickAnswer: {
+      question: 'What are the new gratuity rules under the New Labour Code in India?',
+      answer: 'Under the Code on Social Security, 2020 (part of India\'s New Labour Codes), fixed-term contract employees will become eligible for gratuity after completing just 1 year of service, compared to 5 years under the current Payment of Gratuity Act. This specifically applies to employees on fixed-term employment contracts, not permanent employees.',
+      note: 'The New Labour Codes were passed in 2020 but are not yet implemented. Status as of July 2026: most states have not notified the rules under all four codes. Official source: Ministry of Labour and Employment (labour.gov.in).',
+    },
+    answerEngineSummary: 'The New Labour Codes (Code on Social Security, 2020) propose reducing the gratuity eligibility threshold for fixed-term contract workers from 5 years to 1 year. For permanent employees, the 5-year rule continues. The codes are yet to be fully implemented across India as of mid-2026. Once implemented, this will significantly benefit short-tenure contract workers in IT, manufacturing, and services sectors.',
+    officialSources: [
+      { label: 'Ministry of Labour & Employment — Labour Codes', href: 'https://labour.gov.in' },
+      { label: 'Code on Social Security, 2020 (received Presidential assent September 28, 2020)', href: 'https://labour.gov.in' },
+    ],
+    sections: [
+      {
+        title: 'Current gratuity rules under the Payment of Gratuity Act, 1972',
+        paragraphs: [
+          'The Payment of Gratuity Act, 1972 currently governs gratuity for establishments with 10 or more employees. Under this law: you must complete 5 years of continuous service to be eligible for gratuity. Gratuity is paid on resignation, retirement, or death/disability.',
+          'Gratuity calculation formula: (Last drawn basic salary + DA) × 15/26 × number of years of service. The "15/26" factor represents 15 working days for every 26 working days (one month). Example: Basic salary Rs 50,000, 6 years service → Gratuity = Rs 50,000 × 15/26 × 6 = Rs 1,73,077.',
+          'Maximum gratuity: Rs 20 lakh (tax-free). Any amount above Rs 20 lakh is taxable. This limit was last revised from Rs 10 lakh to Rs 20 lakh in 2018.',
+        ],
+        bullets: [
+          'Current rule: 5 years continuous service required',
+          'Formula: (Basic + DA) × 15/26 × years of service',
+          'Maximum gratuity: Rs 20 lakh (fully tax-free)',
+          'Applicable to: establishments with 10+ employees',
+          'Official law: Payment of Gratuity Act, 1972',
+        ],
+      },
+      {
+        title: 'What the New Labour Code changes for gratuity',
+        paragraphs: [
+          'The Code on Social Security, 2020 (one of the four new Labour Codes) proposes two significant gratuity changes: (1) Fixed-term contract employees become eligible for gratuity proportionately after completing 1 year of service (instead of 5 years). (2) The definition of "continuous service" is broadened.',
+          'For fixed-term contract workers, the calculation will be pro-rated based on actual service. A fixed-term employee who works for 2 years and 6 months on a Rs 40,000 basic salary would receive: Rs 40,000 × 15/26 × 2.5 = Rs 57,692 in gratuity — under the current law, they would receive Rs 0 (as they did not complete 5 years).',
+          'For permanent/regular employees, the 5-year continuous service requirement continues unchanged under the new codes.',
+        ],
+        example: {
+          title: 'New 1-year rule — who benefits and by how much',
+          details: 'IT contractor on Rs 60,000 basic salary, 3-year fixed-term contract. Current law: Rs 0 gratuity (< 5 years). New Labour Code: Rs 60,000 × 15/26 × 3 = Rs 1,03,846 in gratuity. Benefit from the change: Rs 1.04 lakh.',
+        },
+      },
+      {
+        title: 'When will the New Labour Codes be implemented?',
+        paragraphs: [
+          'The four Labour Codes — Code on Wages (2019), Industrial Relations Code (2020), Code on Social Security (2020), and Occupational Safety Code (2020) — were passed by Parliament between 2019 and 2020 and received Presidential assent. Implementation requires each state to notify its rules under the codes.',
+          'As of July 2026, implementation is partial. Several states have drafted rules, but full national rollout has been delayed. The central government has been in consultation with states and industry bodies. The Ministry of Labour and Employment (labour.gov.in) publishes the latest status of state notifications.',
+          'Until the codes are notified and implemented by state governments, the existing laws (including the 5-year gratuity rule under the Payment of Gratuity Act, 1972) continue to apply. Monitor labour.gov.in for the latest updates.',
+        ],
+        bullets: [
+          'Labour Codes: passed 2019–2020, implementation pending in most states (as of July 2026)',
+          'State-level notification required for implementation',
+          'Until notified: old Payment of Gratuity Act (5-year rule) applies',
+          'Check: Ministry of Labour & Employment (labour.gov.in) for state-wise status',
+        ],
+      },
+      {
+        title: 'How to calculate your gratuity under current rules',
+        paragraphs: [
+          'Use the formula: Gratuity = (Last Basic + DA) × 15/26 × Number of completed years of service. Round the number of years: if service is 4 years and 7 months or more, round up to 5 years; below 7 months, round down.',
+          'Example: Basic salary Rs 45,000, DA Rs 0 (private sector), 7 years 8 months service → 8 years (rounded up). Gratuity = Rs 45,000 × 15/26 × 8 = Rs 2,07,692.',
+          'Use the RupeeKit Gratuity Calculator to estimate your gratuity quickly. For disputes, the Controlling Authority under the Payment of Gratuity Act is the Labour Commissioner of your state.',
+        ],
+      },
+    ],
+    relatedCalculators: ['gratuity-calculator-india', 'salary-in-hand-calculator-india', 'epf-corpus-calculator-india'],
+    faqs: [
+      {
+        question: 'Can I get gratuity if I resign before 5 years?',
+        answer: 'Under the current Payment of Gratuity Act, 1972, no gratuity is payable if you resign before completing 5 years of continuous service. The only exception is death or total disablement, for which gratuity is paid regardless of service duration. The New Labour Codes (when implemented) will allow pro-rated gratuity for fixed-term contract workers after 1 year.',
+      },
+      {
+        question: 'Is gratuity taxable in India?',
+        answer: 'For employees covered under the Payment of Gratuity Act, gratuity up to Rs 20 lakh is fully tax-exempt under Section 10(10)(ii) of the Income Tax Act. Any gratuity above Rs 20 lakh is taxable as income. For government employees, gratuity is completely tax-free without any limit under Section 10(10)(i).',
+      },
+      {
+        question: 'What is a fixed-term employment contract?',
+        answer: 'A fixed-term employment contract is an employment agreement with a specific end date, as opposed to a permanent open-ended contract. The Code on Social Security, 2020 defines "fixed-term employment" as employment for a fixed period on the basis of a written contract, with the same benefits as permanent workers during the contract period, including EPF and ESI. Under the new codes, these workers get gratuity after 1 year.',
+      },
+      {
+        question: 'Does the New Labour Code affect gratuity for IT companies?',
+        answer: 'Yes. IT companies (and BPOs, staffing companies) routinely hire on fixed-term contracts. Once the Code on Social Security, 2020 is fully implemented, fixed-term employees at these companies will be eligible for pro-rated gratuity after 1 year. This will increase costs for employers and benefit a large segment of the contract workforce in the IT sector.',
+      },
+    ],
+  },
+
+  {
+    slug: 'how-to-improve-cibil-score-from-650-to-750-india',
+    seoTitle: 'Improve CIBIL Score from 650 to 750 in India 2026',
+    title: 'How to Improve CIBIL Score from 650 to 750 in India 2026: Actionable Guide',
+    metaDescription: 'Stuck at a CIBIL score of 650? Step-by-step guide to move from 650 to 750 in India with realistic timelines, common mistakes to avoid, and free tools. Read now.',
+    category: 'Personal Finance',
+    date: 'July 2026',
+    publishedDateISO: '2026-07-13',
+    readTime: '7 min read',
+    h1: 'How to Improve CIBIL Score from 650 to 750 in India 2026: 6 Proven Steps',
+    intro: 'A CIBIL score of 650 sits in the "fair" range — it is enough to get credit in some cases, but lenders will either reject your application or charge you a significantly higher interest rate. Moving from 650 to 750 can take 6–18 months with consistent action, and can save you lakhs in lower interest on home loans, personal loans, and credit cards. Here is exactly what to do, in priority order.',
+    quickAnswer: {
+      question: 'How do I improve my CIBIL score from 650 to 750 in India?',
+      answer: '6 steps: (1) Pay all EMIs and credit card bills on or before the due date — this has the highest single impact. (2) Keep credit card utilisation below 30% of your limit. (3) Do not close old credit cards. (4) Avoid applying for multiple loans at once. (5) Dispute any errors in your CIBIL report (free at cibil.com). (6) Add a secured credit card or credit-builder loan if you have thin credit history. Timeline: 6–12 months for a 100-point improvement.',
+      note: 'RBI mandates that Credit Information Companies (TransUnion CIBIL, Equifax, CRIF, Experian) must provide one free credit report per year. Source: Credit Information Companies (Regulation) Act, 2005 — rbi.org.in.',
+    },
+    answerEngineSummary: 'Improving CIBIL score from 650 to 750 in India takes 6–18 months. The most impactful steps are: paying all dues on time, reducing credit card utilisation below 30%, and disputing CIBIL report errors. RBI mandates one free annual credit report from each bureau. A 750+ score reduces home loan interest rate by 0.25–0.5%, saving Rs 1–2 lakh on a Rs 30 lakh loan.',
+    officialSources: [
+      { label: 'RBI — Credit Information Companies Regulation Act, 2005', href: 'https://www.rbi.org.in' },
+      { label: 'TransUnion CIBIL — Free Annual Credit Report (per RBI mandate)', href: 'https://www.cibil.com' },
+    ],
+    sections: [
+      {
+        title: 'Why 650 is a problem: what lenders see at this score',
+        paragraphs: [
+          'Credit scores in India are calculated by four RBI-licensed credit bureaus: TransUnion CIBIL, Equifax, CRIF High Mark, and Experian. Each scores on a scale of 300–900. A score of 650 falls in the "fair" range (600–700) and is considered high-risk by most lenders.',
+          'The practical consequences of a 650 score: home loan interest rate may be 0.5–1% higher than rates offered to 750+ borrowers (on a Rs 30 lakh, 20-year home loan, 1% extra rate = Rs 3.7 lakh extra interest over tenure); personal loan applications may be rejected or offered at 18–24% interest vs 10–13% for good score borrowers; credit card upgrades and higher limits are denied.',
+          'The good news: CIBIL scores are calculated from current and recent data. Past defaults matter less as they age beyond 7 years. Consistent positive behaviour over 6–12 months produces measurable improvement.',
+        ],
+      },
+      {
+        title: 'What affects your CIBIL score most?',
+        paragraphs: [
+          'Payment history (35% weight): The single biggest factor. Every on-time payment strengthens the score; every missed EMI or credit card payment damages it. Even a 30-day delay on a Rs 5,000 bill is reported and hurts the score. Set up auto-pay or NACH mandates for all EMIs and minimum credit card payments.',
+          'Credit utilisation (30% weight): The ratio of your current credit card balance to your total credit limit. If your credit limit is Rs 1 lakh and your outstanding is Rs 45,000, your utilisation is 45% — above the recommended 30%. Pay down balances or request a credit limit increase to lower this ratio.',
+          'Length of credit history (15% weight): Older accounts help. A 10-year-old credit card with clean payment history is a valuable asset. Do not close old accounts — the oldest line of credit anchors your credit age.',
+          'Credit mix (10% weight): A mix of secured (home loan, car loan) and unsecured (personal loan, credit card) credit is better than only unsecured credit. If you only have credit cards, consider a small gold loan or a credit-builder loan.',
+          'New credit inquiries (10% weight): Every time you apply for a loan or credit card, the lender does a "hard pull" of your report, which reduces your score by 5–10 points temporarily. Multiple applications in a short window look desperate and signal credit stress.',
+        ],
+        bullets: [
+          'Payment history: 35% — pay on time, always',
+          'Credit utilisation: 30% — keep below 30% of limit',
+          'Credit history age: 15% — never close your oldest card',
+          'Credit mix: 10% — have at least one secured loan',
+          'New inquiries: 10% — apply for credit only when needed',
+        ],
+      },
+      {
+        title: '6 steps to move from CIBIL 650 to 750 in India',
+        paragraphs: [
+          'Step 1 — Get your free credit report first. Before taking any action, check your report at cibil.com (one free report per year per RBI mandate) or via Bajaj Finserv, Paytm, or OneScore. Look for errors: wrong personal details, closed accounts shown as open, duplicate entries, or payments incorrectly marked as missed.',
+          'Step 2 — Dispute all errors immediately. Errors in credit reports are more common than people realise. File a dispute at cibil.com → Dispute Centre, providing supporting documents (bank statement, payment receipt). The bureau is required to investigate and respond within 30 days under RBI\'s Credit Information Companies Regulation.',
+          'Step 3 — Set up auto-pay for all EMIs and minimum credit card payment. This removes human error from the most impactful factor. Even one missed payment sets back progress by 3–6 months.',
+          'Step 4 — Reduce credit card utilisation. If your usage is above 30%, pay it down aggressively. Alternatively, request a credit limit increase from your card issuer (without applying for a new card) — same balance at a higher limit = lower utilisation.',
+          'Step 5 — Do not close old credit cards. If you have an old credit card with Rs 0 annual fee and a clean payment history, keep it open. Pay for one small recurring expense on it (like a streaming subscription) and pay in full each month.',
+          'Step 6 — Avoid applying for new credit for 6 months. During your improvement period, every hard inquiry hurts. Resist offers of pre-approved loans and new credit cards. Wait until your score crosses 700 before applying for any new credit product.',
+        ],
+      },
+      {
+        title: 'Realistic timeline: how long does it take to go from 650 to 750?',
+        paragraphs: [
+          'With consistent action, here is what to expect: Month 1–2: correcting errors in credit report (if any) can produce a quick 20–40 point gain almost immediately. Month 3–6: consistently on-time payments and reduced utilisation should move the score from 650 into the 680–700 range. Month 6–12: continued positive behaviour, especially the ageing of on-time payment history, should push the score above 720–730. Month 12–18: reaching 750 typically requires 12–18 months of clean credit behaviour with no missed payments.',
+          'The rate of improvement depends on the root cause of the low score. If it was primarily missed payments, consistent on-time payment will improve it steadily. If there is a settled account or written-off account in the history, it will suppress the score for longer — settled/written-off accounts stay on the report for 7 years.',
+        ],
+      },
+      {
+        title: 'Common mistakes that keep your score stuck at 650',
+        paragraphs: [
+          'Paying only the minimum due on credit cards: the bank reports your outstanding balance, and consistently carrying a balance drives up utilisation. "Minimum payment" is not "good standing" from a CIBIL perspective.',
+          'Closing credit cards after paying them off: this reduces your total available credit (raises utilisation ratio) and shortens credit history age — both negative impacts.',
+          'Applying for multiple loans or cards simultaneously: each hard inquiry drops the score 5–10 points. Six applications in two months = potentially 50+ points of damage from inquiries alone.',
+          'Ignoring the credit report: an error or fraudulent account on your report silently drags your score down. Check your report at least once a year.',
+        ],
+      },
+    ],
+    relatedCalculators: ['personal-loan-eligibility-calculator-india', 'home-loan-emi-calculator-india', 'emi-calculator-india'],
+    faqs: [
+      {
+        question: 'How can I check my CIBIL score for free in India?',
+        answer: 'RBI mandates that all four credit bureaus (TransUnion CIBIL, Equifax, CRIF High Mark, Experian) must provide one free credit report per calendar year to individuals. You can get your free CIBIL score at cibil.com → Get Free CIBIL Score. Third-party platforms like Bajaj Finserv, Paytm, OneScore, and BankBazaar also offer free credit score checks (they do a soft pull, which does not affect your score).',
+      },
+      {
+        question: 'Does checking my own CIBIL score affect it?',
+        answer: 'No. When you check your own credit report, it is called a "soft inquiry" and does not affect your CIBIL score. Only "hard inquiries" (when a bank or lender checks your score to evaluate a loan or credit card application) affect the score temporarily.',
+      },
+      {
+        question: 'Can I improve my CIBIL score from 650 to 750 in 3 months?',
+        answer: 'A 100-point improvement in 3 months is unlikely unless there are significant errors in your report that can be disputed and corrected quickly. Error correction is the fastest path (1–2 months), but beyond that, on-time payment history takes time to build. Most people see 30–50 points of improvement in the first 3 months with consistent action, and reach 750 in 9–15 months.',
+      },
+      {
+        question: 'What CIBIL score is needed for a home loan at the best rate?',
+        answer: 'Most banks offer their best home loan interest rate to borrowers with a CIBIL score of 750 or above. Some lenders (like SBI and HDFC) have specific rate tiers: 750–799 gets a standard good rate; 800+ gets the bank\'s absolute lowest rate. A score of 650 may still get approved (at a 0.5–1% higher rate) or declined, depending on the lender and loan amount.',
+      },
+      {
+        question: 'Does a settled loan help or hurt the CIBIL score?',
+        answer: 'A "Settled" status (where the lender agreed to accept less than the full outstanding amount) is negative for CIBIL score — it indicates that the loan was not repaid in full. It is better than "Written Off" but worse than "Closed" (fully repaid). A settled account stays on your report for 7 years and suppresses the score. If possible, pay the remaining balance to convert the account from "Settled" to "Closed."',
       },
     ],
   },
