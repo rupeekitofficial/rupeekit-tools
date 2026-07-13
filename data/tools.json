@@ -3824,7 +3824,7 @@
       {
         "key": "estimatedCorpus",
         "label": "Estimated corpus",
-        "formula": "monthlySip * 12 * ((((1 + stepUpPercent/100) ^ years) - 1) / (stepUpPercent/100)) * (1 + expectedReturn/100/2)",
+        "formula": "monthlySip * 12 * (((1 + expectedReturn/100/12) ^ (years * 12) - (1 + stepUpPercent/100) ^ years) / (expectedReturn/100 - stepUpPercent/100)) * (1 + expectedReturn/100/12)",
         "format": "currency"
       },
       {
@@ -3835,7 +3835,7 @@
       }
     ],
     "formulaExplanation": "Step-up SIP involves compound growth on two axes: the contributions increase annually (geometric series at the step-up rate) and the corpus compounds monthly at the fund return rate. The exact formula sums the future value of each year's stepped-up SIP over the investment period. This calculator uses an approximation that closely tracks the exact result for typical step-up and return values.",
-    "example": "Starting Rs 5,000/month SIP with 10% annual step-up for 15 years at 12% expected return: total invested = approximately Rs 19.1 lakh; estimated corpus = approximately Rs 55.7 lakh vs Rs 25.2 lakh for a flat Rs 5,000 SIP — more than double the wealth from annual step-ups.",
+    "example": "Starting Rs 5,000/month SIP with 10% annual step-up for 15 years at 12% expected return: total invested = approximately Rs 19.1 lakh; estimated corpus = approximately Rs 55 lakh vs Rs 25.2 lakh for a flat Rs 5,000 SIP — more than double the wealth from annual step-ups.",
     "quickAnswer": {
       "title": "Step-Up SIP Quick Answer",
       "question": "How much more wealth does a step-up SIP build vs a flat SIP?",
@@ -3940,7 +3940,7 @@
         "min": 250,
         "max": 150000,
         "step": 250,
-        "help": "Minimum Rs 250 per year; maximum Rs 1,50,000 per year (same as 80C limit). Deposits can be made until the girl turns 15."
+        "help": "Minimum Rs 250 per year; maximum Rs 1,50,000 per year (same as 80C limit). Deposits are made for 15 years from account opening date."
       },
       {
         "key": "interestRate",
@@ -3956,8 +3956,8 @@
     "outputs": [
       {
         "key": "depositYears",
-        "label": "Deposit years (age 0 to 15)",
-        "formula": "15 - girlAge",
+        "label": "Deposit years from account opening",
+        "formula": "15",
         "format": "number"
       },
       {
