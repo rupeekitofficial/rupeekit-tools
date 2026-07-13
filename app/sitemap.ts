@@ -94,18 +94,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       };
     }),
-    ...governmentSalaryUpdates.map((u) => {
-      const lastModified =
-        parseIsoDate((u as { modifiedDate?: string }).modifiedDate) ??
-        parseIsoDate(u.publishedDate) ??
-        STATIC_LAST_MODIFIED;
-      return {
-        url: `${baseUrl}/government-salary-updates/${u.slug}`,
-        lastModified,
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-      };
-    }),
+    ...governmentSalaryUpdates
+      .filter((u) => u.status !== 'sample')
+      .map((u) => {
+        const lastModified =
+          parseIsoDate((u as { modifiedDate?: string }).modifiedDate) ??
+          parseIsoDate(u.publishedDate) ??
+          STATIC_LAST_MODIFIED;
+        return {
+          url: `${baseUrl}/government-salary-updates/${u.slug}`,
+          lastModified,
+          changeFrequency: 'monthly' as const,
+          priority: 0.6,
+        };
+      }),
   ];
 }
 
