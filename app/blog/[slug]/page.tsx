@@ -82,12 +82,22 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     description: post.metaDescription,
     image: imageUrl ? [imageUrl] : undefined,
     datePublished: post.publishedDateISO || undefined,
-    dateModified: post.modifiedDateISO || undefined,
+    dateModified: post.modifiedDateISO || post.publishedDateISO || undefined,
     author: {
+      '@type': 'Person',
+      name: 'RupeeKit Editorial Team',
+      jobTitle: 'Personal Finance Research',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'RupeeKit',
+        url: siteUrl,
+      },
+    },
+    publisher: {
       '@type': 'Organization',
       name: 'RupeeKit',
-      url: siteUrl
-    }
+      url: siteUrl,
+    },
   };
 
   const breadcrumbSchema = {
