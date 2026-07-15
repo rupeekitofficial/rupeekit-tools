@@ -46,6 +46,7 @@ export default function SiteFooter() {
   const quickLinks = [
     { name: 'Tools', href: '/#calculators' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Guides', href: '/guides' },
     { name: 'Resources', href: '/resources' },
     { name: 'Recommended Tools', href: '/resources/recommended-money-tools' },
   ];

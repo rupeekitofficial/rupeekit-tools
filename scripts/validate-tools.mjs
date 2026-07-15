@@ -2,8 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Parser } from 'expr-eval';
 
-const file = path.join(process.cwd(), 'data', 'tools.json');
-const tools = JSON.parse(fs.readFileSync(file, 'utf8'));
+const toolFiles = ['tools.json', 'growth-tools.json'];
+const tools = toolFiles.flatMap((fileName) => {
+  const file = path.join(process.cwd(), 'data', fileName);
+  return JSON.parse(fs.readFileSync(file, 'utf8'));
+});
 
 const parser = new Parser({
   operators: {
@@ -138,4 +141,3 @@ if (errors > 0) {
 }
 
 console.log(`✅ Validated ${tools.length} tool(s).`);
-

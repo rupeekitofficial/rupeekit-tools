@@ -114,6 +114,11 @@ function StandardCalculator({ tool }: { tool: Tool }) {
     });
   }, [tool.outputs, numericValues]);
 
+  const visibleResults = useMemo(
+    () => results.filter((result) => !result.hidden),
+    [results]
+  );
+
   const hasChart = useMemo(() => {
     return [
       'sip-calculator-india',
@@ -508,7 +513,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
           <div>
             <h2 className="text-xl font-bold text-brandDeepNavy">Estimated results</h2>
             <div className="mt-6">
-              <CalculatorResultSummary results={results} />
+              <CalculatorResultSummary results={visibleResults} />
             </div>
 
             {hraEstimateSummary ? (
@@ -747,4 +752,3 @@ function StandardCalculator({ tool }: { tool: Tool }) {
     </div>
   );
 }
-

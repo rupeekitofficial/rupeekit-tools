@@ -1,0 +1,1232 @@
+[
+  {
+    "slug": "home-loan-swp-stress-test-india",
+    "name": "Home Loan + SWP Stress Test India",
+    "seoTitle": "Home Loan + SWP Stress Test India | Can SWP Pay EMI?",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "home loan SWP calculator India",
+    "shortDescription": "Test whether an investment corpus can fund a home-loan EMI under steady returns and a bad first market year, after an annual return-drag assumption.",
+    "metaDescription": "Test if an SWP can pay your home-loan EMI in India. Model an Rs 80 lakh corpus, market fall, return drag, cash reserve and ending corpus.",
+    "inputs": [
+      {
+        "key": "propertyPrice",
+        "label": "Property price",
+        "unit": "Rs",
+        "default": 10000000,
+        "min": 100000,
+        "step": 100000,
+        "help": "Total purchase price before registration, stamp duty and other buying costs."
+      },
+      {
+        "key": "downPayment",
+        "label": "Down payment",
+        "unit": "Rs",
+        "default": 2000000,
+        "min": 0,
+        "step": 100000,
+        "help": "Amount paid from your own funds toward the property price."
+      },
+      {
+        "key": "loanRate",
+        "label": "Home-loan interest rate",
+        "unit": "% p.a.",
+        "default": 8,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1,
+        "help": "Use the current reducing-balance rate from the lender, not an advertised starting rate."
+      },
+      {
+        "key": "loanYears",
+        "label": "Loan tenure",
+        "unit": "years",
+        "default": 20,
+        "min": 2,
+        "max": 30,
+        "step": 1,
+        "help": "Remaining or proposed home-loan tenure."
+      },
+      {
+        "key": "swpCorpus",
+        "label": "Investment corpus used for SWP",
+        "unit": "Rs",
+        "default": 8000000,
+        "min": 10000,
+        "step": 100000,
+        "help": "Corpus from which the monthly EMI-sized withdrawal will be made."
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected gross annual return",
+        "unit": "%",
+        "default": 12,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1,
+        "help": "A planning assumption, not a guaranteed mutual-fund or market return."
+      },
+      {
+        "key": "annualDrag",
+        "label": "Annual tax, cost and return drag",
+        "unit": "%",
+        "default": 0.75,
+        "min": 0,
+        "max": 10,
+        "step": 0.05,
+        "help": "A simplified reduction for expense ratio, tax timing, exit load and implementation costs."
+      },
+      {
+        "key": "firstYearReturn",
+        "label": "Stress-test first-year return",
+        "unit": "%",
+        "default": -20,
+        "min": -60,
+        "max": -0.1,
+        "step": 1,
+        "help": "Use a negative return to test sequence-of-returns risk at the start of the loan."
+      },
+      {
+        "key": "recoveryReturn",
+        "label": "Gross return after stress year",
+        "unit": "%",
+        "default": 12,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1,
+        "help": "Annual planning return assumed from month 13 onward."
+      },
+      {
+        "key": "cashReserveMonths",
+        "label": "EMI cash reserve",
+        "unit": "months",
+        "default": 12,
+        "min": 0,
+        "max": 36,
+        "step": 1,
+        "help": "Number of EMIs you want outside the market to avoid selling after a fall."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "loanPrincipal",
+        "label": "Estimated home-loan amount",
+        "formula": "max(propertyPrice - downPayment, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "loanMonths",
+        "label": "Loan payments",
+        "formula": "loanYears * 12",
+        "format": "number"
+      },
+      {
+        "key": "monthlyLoanRate",
+        "label": "Monthly loan rate",
+        "formula": "loanRate / 12 / 100",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "monthlyEmi",
+        "label": "Monthly home-loan EMI",
+        "formula": "loanPrincipal * monthlyLoanRate * (1 + monthlyLoanRate) ^ loanMonths / ((1 + monthlyLoanRate) ^ loanMonths - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "totalLoanInterest",
+        "label": "Total loan interest if rate stays unchanged",
+        "formula": "monthlyEmi * loanMonths - loanPrincipal",
+        "format": "currency"
+      },
+      {
+        "key": "requiredGrossReturn",
+        "label": "Approx. gross return needed to fund annual EMI",
+        "formula": "monthlyEmi * 12 / max(swpCorpus, 1) * 100 + annualDrag",
+        "format": "percent"
+      },
+      {
+        "key": "netAnnualReturn",
+        "label": "Steady-case net annual return assumption",
+        "formula": "max(expectedReturn - annualDrag, 0.01)",
+        "format": "percent"
+      },
+      {
+        "key": "netMonthlyReturn",
+        "label": "Steady-case monthly return assumption",
+        "formula": "(1 + netAnnualReturn / 100) ^ (1 / 12) - 1",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "steadyEndCorpus",
+        "label": "Corpus after loan in steady-return scenario",
+        "formula": "max(swpCorpus * (1 + netMonthlyReturn) ^ loanMonths - monthlyEmi * ((1 + netMonthlyReturn) ^ loanMonths - 1) / netMonthlyReturn, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "badYearMonthlyReturn",
+        "label": "Stress-year monthly return assumption",
+        "formula": "(1 + firstYearReturn / 100) ^ (1 / 12) - 1",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "corpusAfterStressYear",
+        "label": "Corpus after first stress year and 12 EMIs",
+        "formula": "max(swpCorpus * (1 + badYearMonthlyReturn) ^ 12 - monthlyEmi * ((1 + badYearMonthlyReturn) ^ 12 - 1) / badYearMonthlyReturn, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "recoveryNetAnnualReturn",
+        "label": "Post-stress net annual return assumption",
+        "formula": "max(recoveryReturn - annualDrag, 0.01)",
+        "format": "percent"
+      },
+      {
+        "key": "recoveryMonthlyReturn",
+        "label": "Post-stress monthly return assumption",
+        "formula": "(1 + recoveryNetAnnualReturn / 100) ^ (1 / 12) - 1",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "stressEndCorpus",
+        "label": "Corpus after loan in stress-first scenario",
+        "formula": "max(corpusAfterStressYear * (1 + recoveryMonthlyReturn) ^ (loanMonths - 12) - monthlyEmi * ((1 + recoveryMonthlyReturn) ^ (loanMonths - 12) - 1) / recoveryMonthlyReturn, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "cashReserveNeeded",
+        "label": "Separate EMI cash reserve",
+        "formula": "monthlyEmi * cashReserveMonths",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "The calculator first computes the reducing-balance home-loan EMI. It then models monthly EMI-sized withdrawals from the investment corpus under a smooth net-return case and a stress-first case. The required-return output is a simple annual withdrawal-yield screen, while ending-corpus outputs use monthly compounding and withdrawals. Tax, cost and exit-load effects are represented only by the user-entered annual drag.",
+    "example": "For a Rs 1 crore home, Rs 20 lakh down payment, Rs 80 lakh loan at 8% for 20 years and Rs 80 lakh SWP corpus, the EMI is about Rs 66,900. A 12% gross return may cover that EMI in a smooth illustration, but a bad first year can materially reduce the ending corpus.",
+    "quickAnswer": {
+      "title": "Home Loan + SWP Quick Answer",
+      "question": "Can a 12% SWP return pay an Rs 80 lakh home-loan EMI?",
+      "answer": "It can in a smooth mathematical illustration when the net return after costs and tax drag stays above the withdrawal rate. It is not guaranteed: returns vary, home-loan rates can reset and early market falls can deplete the corpus much faster.",
+      "formula": "Loan EMI is withdrawn monthly; remaining corpus compounds at the assumed net return.",
+      "example": "Rs 80 lakh at 12% gross versus an Rs 80 lakh, 8%, 20-year loan should be tested in both steady and stress-first scenarios.",
+      "note": "Do not treat 12% as assured. Keep an EMI cash reserve and test lower returns before using this strategy."
+    },
+    "faqs": [
+      {
+        "question": "Can an SWP safely pay a home-loan EMI?",
+        "answer": "An SWP can be sized to match an EMI, but safety depends on actual returns, withdrawal rate, tax, loan-rate resets and the order of market returns. A matched monthly amount does not make the strategy guaranteed."
+      },
+      {
+        "question": "Is a 12% mutual-fund return guaranteed?",
+        "answer": "No. Market-linked investments do not offer a fixed or guaranteed 12% return. Use multiple scenarios, including lower long-term returns and a large early fall."
+      },
+      {
+        "question": "Why does the first market year matter so much?",
+        "answer": "Withdrawing during an early fall sells more units at lower values. That leaves fewer units to participate in a later recovery, which is sequence-of-returns risk."
+      },
+      {
+        "question": "Does this calculator include mutual-fund tax?",
+        "answer": "It does not calculate scheme-specific tax lots. Use annual drag as a simplified planning allowance and verify actual capital-gains tax, expense ratio and exit load separately."
+      },
+      {
+        "question": "Should I keep EMIs outside the market?",
+        "answer": "A separate liquid EMI reserve can reduce the need to sell investments after a fall. The suitable reserve depends on income stability, other emergency savings and risk capacity."
+      }
+    ],
+    "related": [
+      "home-loan-emi-calculator-india",
+      "invest-vs-prepay-home-loan-calculator-india",
+      "reduce-emi-vs-tenure-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "howToUse": [
+      "Enter the property price, down payment, loan rate and loan tenure.",
+      "Enter the corpus you would use for the monthly SWP.",
+      "Set a gross return and a conservative annual drag for costs and tax effects.",
+      "Enter a negative first-year return and a post-stress recovery assumption.",
+      "Compare the steady and stress-first ending corpus, then size a separate EMI reserve."
+    ],
+    "assumptions": [
+      "Investment returns are scenario assumptions, not forecasts or guarantees.",
+      "The home-loan rate and EMI are held constant even though floating rates may reset.",
+      "Withdrawals occur monthly and return drag is a simplified proxy, not a tax calculation.",
+      "Property appreciation, stamp duty, registration, maintenance and rent are excluded."
+    ],
+    "commonMistakes": [
+      "Treating 12% as a fixed return.",
+      "Comparing gross investment return with loan rate without tax, fees and risk.",
+      "Ignoring a market fall early in the withdrawal period.",
+      "Investing the entire liquidity buffer while also taking a large loan."
+    ],
+    "contentSections": [
+      {
+        "heading": "What this stress test answers",
+        "body": "This is not a simple 12% minus 8% comparison. It calculates the actual EMI, the annual withdrawal pressure on the corpus, a smooth-return ending value and a bad-first-year ending value."
+      },
+      {
+        "heading": "Why 12% return and 8% loan does not create a guaranteed 4% profit",
+        "body": "Loan interest is contractual and calculated on a reducing balance. Investment return is uncertain, uneven and affected by withdrawals, tax and costs. The difference between headline percentages is therefore not risk-free arbitrage."
+      },
+      {
+        "heading": "Sequence risk is the key failure mode",
+        "body": "The same average return can produce very different outcomes when withdrawals are running. A large fall near the beginning can cause permanent damage because units are sold before recovery."
+      },
+      {
+        "heading": "Use an EMI reserve",
+        "body": "The reserve output shows the cash required to keep a chosen number of EMIs outside the market. It is separate from a household emergency fund and does not remove investment risk."
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "SEBI investor SIP calculator disclaimer",
+        "href": "https://investor.sebi.gov.in/calculators/sip_calculator.html"
+      },
+      {
+        "label": "SEBI Riskometer guidance",
+        "href": "https://investor.sebi.gov.in/riskometer.html"
+      },
+      {
+        "label": "SEBI exit-load explainer",
+        "href": "https://investor.sebi.gov.in/exit_load.html"
+      }
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
+  },
+  {
+    "slug": "gratuity-2026-old-vs-new-calculator-india",
+    "name": "Gratuity 2026 Old vs New Calculator",
+    "seoTitle": "Gratuity 2026 Old vs New Calculator | Wage-Base Impact",
+    "category": "Salary",
+    "status": "live",
+    "targetKeyword": "gratuity 2026 old vs new calculator",
+    "shortDescription": "Compare gratuity estimates using your current eligible wage and a 2026 wage-base scenario, with service years and a configurable statutory cap.",
+    "metaDescription": "Compare old and new gratuity estimates for 2026 using current Basic+DA, a 50% wage-base scenario, service years and statutory cap.",
+    "inputs": [
+      {
+        "key": "monthlyRemuneration",
+        "label": "Monthly remuneration for scenario",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 1,
+        "step": 1000,
+        "help": "Use the monthly remuneration base you want to test; this is not automatically the same as CTC."
+      },
+      {
+        "key": "currentBasicDa",
+        "label": "Current eligible Basic + DA",
+        "unit": "Rs",
+        "default": 40000,
+        "min": 1,
+        "step": 1000,
+        "help": "Enter the monthly wage currently used for your gratuity estimate."
+      },
+      {
+        "key": "newWageSharePercent",
+        "label": "New wage-base scenario",
+        "unit": "%",
+        "default": 50,
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "help": "50% is a common scenario for testing the wage-definition inclusion rule; actual payroll treatment can differ."
+      },
+      {
+        "key": "eligibleServiceYears",
+        "label": "Eligible service used in estimate",
+        "unit": "years",
+        "default": 10,
+        "min": 0.1,
+        "max": 50,
+        "step": 0.5,
+        "help": "Enter the legally eligible service period for your case. The calculator does not decide eligibility."
+      },
+      {
+        "key": "statutoryCap",
+        "label": "Gratuity cap used",
+        "unit": "Rs",
+        "default": 2000000,
+        "min": 1,
+        "step": 100000,
+        "help": "Keep this editable and verify the current applicable cap and employer policy."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "newEligibleWage",
+        "label": "New scenario eligible monthly wage",
+        "formula": "max(currentBasicDa, monthlyRemuneration * newWageSharePercent / 100)",
+        "format": "currency"
+      },
+      {
+        "key": "oldUncappedGratuity",
+        "label": "Current-base gratuity before cap",
+        "formula": "currentBasicDa * 15 / 26 * eligibleServiceYears",
+        "format": "currency"
+      },
+      {
+        "key": "oldGratuity",
+        "label": "Current-base gratuity after cap",
+        "formula": "min(oldUncappedGratuity, statutoryCap)",
+        "format": "currency"
+      },
+      {
+        "key": "newUncappedGratuity",
+        "label": "New-base scenario before cap",
+        "formula": "newEligibleWage * 15 / 26 * eligibleServiceYears",
+        "format": "currency"
+      },
+      {
+        "key": "newGratuity",
+        "label": "New-base scenario after cap",
+        "formula": "min(newUncappedGratuity, statutoryCap)",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedChange",
+        "label": "Estimated change",
+        "formula": "newGratuity - oldGratuity",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedChangePercent",
+        "label": "Estimated change percentage",
+        "formula": "estimatedChange / max(oldGratuity, 1) * 100",
+        "format": "percent"
+      }
+    ],
+    "formulaExplanation": "For a monthly-rated employee scenario, gratuity is estimated as eligible monthly wage x 15/26 x eligible service years, subject to the entered cap. The comparison changes only the eligible wage base. It does not determine whether a person is legally eligible or reconstruct the statutory wage definition from a payslip.",
+    "example": "At Rs 1,00,000 monthly remuneration, Rs 40,000 current Basic+DA and a 50% new wage-base scenario, the comparison uses Rs 40,000 versus Rs 50,000 before applying 15/26, service years and the cap.",
+    "quickAnswer": {
+      "title": "Gratuity 2026 Quick Answer",
+      "question": "Can a new wage base increase gratuity?",
+      "answer": "Yes, a higher eligible wage base can increase the mathematical gratuity estimate, but only if it applies to your employment and the result is not already limited by the applicable cap.",
+      "formula": "Eligible monthly wage x 15/26 x eligible service years, subject to the applicable cap.",
+      "note": "Eligibility, rounding of service, exclusions and transition treatment must be verified from current law and employer records."
+    },
+    "faqs": [
+      {
+        "question": "Does the calculator decide gratuity eligibility?",
+        "answer": "No. Enter only the service period legally applicable to your case. Fixed-term employment, death, disablement and other cases can follow different eligibility rules."
+      },
+      {
+        "question": "Does 50% of CTC always become the gratuity wage?",
+        "answer": "No. The statutory wage definition and excluded components must be applied to the relevant remuneration, and CTC can include employer costs. The 50% field is a scenario input, not a payroll ruling."
+      },
+      {
+        "question": "Why is the gratuity cap editable?",
+        "answer": "Caps and employer policies can change or differ by coverage. An editable cap lets you test the figure that applies to your case after checking an official source or HR."
+      },
+      {
+        "question": "Are fixed-term employees eligible after one year?",
+        "answer": "The Labour Ministry's March 2026 FAQ states that a fixed-term employee directly engaged by an employer is eligible for gratuity after one year, subject to the applicable legal conditions."
+      }
+    ],
+    "related": [
+      "gratuity-calculator-india",
+      "salary-in-hand-calculator-india",
+      "epf-corpus-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india"
+    ],
+    "howToUse": [
+      "Enter the monthly remuneration amount you want to test.",
+      "Enter the current Basic + DA used for gratuity.",
+      "Choose a new wage-base percentage scenario.",
+      "Enter only the eligible service years for your case.",
+      "Verify and enter the applicable cap, then compare the two results."
+    ],
+    "assumptions": [
+      "The 15/26 monthly-rated employee formula is used for both scenarios.",
+      "The entered service period is assumed to be legally eligible.",
+      "The wage-share input is a planning scenario and not an interpretation of an individual payslip.",
+      "Tax treatment and employer benefits above the statutory formula are excluded."
+    ],
+    "commonMistakes": [
+      "Entering CTC without checking which components form statutory wages.",
+      "Assuming the calculator determines eligibility.",
+      "Ignoring the applicable cap or a more generous employer policy.",
+      "Applying a disputed service-rounding shortcut without checking the governing rule."
+    ],
+    "officialSources": [
+      {
+        "label": "Ministry of Labour fixed-term employee FAQ, March 2026",
+        "href": "https://www.labour.gov.in/static/uploads/2026/03/a4ccf4c6d97c4f1f36a6d83f8c64213d.pdf"
+      },
+      {
+        "label": "Ministry of Labour general FAQ, January 2026",
+        "href": "https://www.labour.gov.in/static/uploads/2026/01/de4758d5bfeffc456d7de97a801891b0.pdf"
+      }
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
+  },
+  {
+    "slug": "personal-loan-true-apr-calculator-india",
+    "name": "Personal Loan True APR Calculator India",
+    "seoTitle": "Personal Loan True APR Calculator | Fees, GST & Net Cash",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "personal loan APR calculator India",
+    "shortDescription": "Estimate effective personal-loan APR from net cash received and scheduled repayments after processing fee, GST, insurance and advance-EMI deductions.",
+    "metaDescription": "Estimate personal-loan APR from EMI, processing fee, GST, insurance, advance EMI and net disbursal. Compare the result with the lender's KFS APR.",
+    "inputs": [
+      {
+        "key": "principal",
+        "label": "Sanctioned loan amount",
+        "unit": "Rs",
+        "default": 500000,
+        "min": 1000,
+        "step": 1000,
+        "help": "The principal on which the lender calculates EMI."
+      },
+      {
+        "key": "annualInterestRate",
+        "label": "Quoted reducing-balance rate",
+        "unit": "% p.a.",
+        "default": 12,
+        "min": 0.1,
+        "max": 60,
+        "step": 0.1,
+        "help": "Use the reducing-balance interest rate shown in the offer."
+      },
+      {
+        "key": "tenureMonths",
+        "label": "Tenure",
+        "unit": "months",
+        "default": 36,
+        "min": 1,
+        "max": 120,
+        "step": 1,
+        "help": "Total scheduled monthly instalments before any advance EMI adjustment."
+      },
+      {
+        "key": "processingFeePercent",
+        "label": "Processing fee",
+        "unit": "%",
+        "default": 2,
+        "min": 0,
+        "max": 20,
+        "step": 0.1,
+        "help": "Percentage of sanctioned loan deducted or charged as processing fee."
+      },
+      {
+        "key": "gstPercent",
+        "label": "GST on processing fee",
+        "unit": "%",
+        "default": 18,
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "help": "GST rate applied to the processing fee in this model."
+      },
+      {
+        "key": "insuranceAndOtherUpfront",
+        "label": "Insurance and other upfront charges",
+        "unit": "Rs",
+        "default": 5000,
+        "min": 0,
+        "step": 500,
+        "help": "Include attributable compulsory charges; optional services should be compared separately."
+      },
+      {
+        "key": "advanceEmis",
+        "label": "Advance EMIs deducted",
+        "unit": "months",
+        "default": 0,
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "help": "EMIs collected at disbursal. The interactive calculator reduces both net cash and later EMI count."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyRate",
+        "label": "Monthly quoted rate",
+        "formula": "annualInterestRate / 12 / 100",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "monthlyEmi",
+        "label": "Scheduled monthly EMI",
+        "formula": "principal * monthlyRate * (1 + monthlyRate) ^ tenureMonths / ((1 + monthlyRate) ^ tenureMonths - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "processingFee",
+        "label": "Processing fee",
+        "formula": "principal * processingFeePercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "processingFeeGst",
+        "label": "GST on processing fee",
+        "formula": "processingFee * gstPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "netCashReceived",
+        "label": "Net cash received after upfront deductions",
+        "formula": "max(principal - processingFee - processingFeeGst - insuranceAndOtherUpfront - monthlyEmi * advanceEmis, 1)",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Scheduled interest",
+        "formula": "monthlyEmi * tenureMonths - principal",
+        "format": "currency"
+      },
+      {
+        "key": "totalBorrowingCost",
+        "label": "Total interest and upfront charges",
+        "formula": "totalInterest + processingFee + processingFeeGst + insuranceAndOtherUpfront",
+        "format": "currency"
+      },
+      {
+        "key": "screeningApr",
+        "label": "Approx. annualised cost screen",
+        "formula": "2 * tenureMonths * totalBorrowingCost / (max(netCashReceived, 1) * (tenureMonths + 1)) * 12 * 100",
+        "format": "percent"
+      }
+    ],
+    "formulaExplanation": "The interactive calculator computes EMI on the sanctioned amount, subtracts attributable upfront charges and advance EMIs to find net cash received, then solves the monthly internal rate of return of the remaining repayment cash flows and annualises it. The data-formula output also includes a clearly labelled approximation for validation and non-interactive contexts. Compare the result with the APR in the lender's Key Facts Statement.",
+    "example": "A Rs 5 lakh loan quoted at 12% for 36 months has an EMI based on Rs 5 lakh. If fees, GST and insurance reduce the cash actually received, effective APR is higher than the quoted rate.",
+    "quickAnswer": {
+      "title": "Personal Loan APR Quick Answer",
+      "question": "Why is personal-loan APR higher than the quoted interest rate?",
+      "answer": "The quoted rate usually prices interest on the sanctioned principal. APR measures the annualised cost against the net amount actually available after attributable charges, so fees and deductions can raise it.",
+      "formula": "APR is the annualised internal rate that equates net disbursal with scheduled borrower repayments.",
+      "note": "The lender's Key Facts Statement is the authoritative offer-specific disclosure; verify charge timing and cash-flow dates."
+    },
+    "faqs": [
+      {
+        "question": "Is APR the same as the personal-loan interest rate?",
+        "answer": "No. The rate is used to calculate loan interest, while APR annualises interest plus attributable charges against the net disbursed amount."
+      },
+      {
+        "question": "What is a Key Facts Statement?",
+        "answer": "RBI requires regulated entities to give retail and MSME term-loan borrowers a standard Key Facts Statement containing key loan facts, including APR and an amortisation schedule, subject to the applicable directions."
+      },
+      {
+        "question": "Should optional insurance be included?",
+        "answer": "Include a charge in the main comparison when it is attributable and effectively required for the offered loan. Keep genuinely optional services separate and compare both cases."
+      },
+      {
+        "question": "Why can my lender's APR differ from this result?",
+        "answer": "Actual disbursal dates, broken-period interest, charge treatment, payment timing and rounding affect IRR. Use this for offer screening and the lender's KFS for the disclosed APR."
+      }
+    ],
+    "related": [
+      "personal-loan-emi-calculator-india",
+      "personal-loan-eligibility-calculator-india",
+      "loan-foreclosure-net-savings-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "howToUse": [
+      "Enter the sanctioned amount, quoted reducing rate and tenure.",
+      "Add processing fee, GST, insurance and other attributable upfront charges.",
+      "Enter advance EMIs only if collected at disbursal.",
+      "Compare quoted rate, net cash, total borrowing cost and effective APR.",
+      "Check every input against the lender's Key Facts Statement."
+    ],
+    "assumptions": [
+      "EMIs are monthly and evenly spaced after disbursal.",
+      "Advance EMIs reduce net cash and the number of later instalments in the interactive model.",
+      "Processing fee GST is applied only to the processing fee input.",
+      "Broken-period interest, late fees and optional future charges are excluded."
+    ],
+    "commonMistakes": [
+      "Comparing loans only by EMI or advertised interest rate.",
+      "Ignoring GST and compulsory insurance deducted before disbursal.",
+      "Counting optional products as unavoidable without asking the lender.",
+      "Using flat-rate interest as if it were a reducing-balance rate."
+    ],
+    "officialSources": [
+      {
+        "label": "RBI Key Facts Statement for Loans and Advances",
+        "href": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12663&Mode=0"
+      }
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
+  },
+  {
+    "slug": "invest-vs-prepay-home-loan-calculator-india",
+    "name": "Invest vs Prepay Home Loan Calculator India",
+    "seoTitle": "Invest vs Prepay Home Loan Calculator India | Compare Outcomes",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "invest vs prepay home loan calculator India",
+    "shortDescription": "Compare the interest saved by prepaying a home loan with the after-drag future gain from investing the same lump sum over the remaining tenure.",
+    "metaDescription": "Compare investing a lump sum versus prepaying your home loan. Estimate loan interest saved, investment gain, break-even return and risk-adjusted gap.",
+    "inputs": [
+      {
+        "key": "outstandingPrincipal",
+        "label": "Outstanding home-loan principal",
+        "unit": "Rs",
+        "default": 5000000,
+        "min": 1000,
+        "step": 10000,
+        "help": "Use the current principal outstanding from the latest lender statement."
+      },
+      {
+        "key": "loanRate",
+        "label": "Current home-loan rate",
+        "unit": "% p.a.",
+        "default": 8.5,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1,
+        "help": "Use the current reducing-balance rate."
+      },
+      {
+        "key": "remainingMonths",
+        "label": "Remaining tenure",
+        "unit": "months",
+        "default": 180,
+        "min": 1,
+        "max": 360,
+        "step": 1,
+        "help": "Remaining scheduled EMI count."
+      },
+      {
+        "key": "lumpSum",
+        "label": "Lump sum to invest or prepay",
+        "unit": "Rs",
+        "default": 500000,
+        "min": 0,
+        "step": 10000,
+        "help": "Use only funds available after protecting emergency liquidity."
+      },
+      {
+        "key": "expectedInvestmentReturn",
+        "label": "Expected gross investment return",
+        "unit": "% p.a.",
+        "default": 10,
+        "min": 0,
+        "max": 30,
+        "step": 0.1,
+        "help": "Scenario assumption only; market-linked returns are not guaranteed."
+      },
+      {
+        "key": "annualDrag",
+        "label": "Annual tax and cost drag",
+        "unit": "%",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1,
+        "help": "Simplified allowance for tax, expense ratio and implementation costs."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyLoanRate",
+        "label": "Monthly loan rate",
+        "formula": "loanRate / 12 / 100",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "currentEmi",
+        "label": "Current EMI",
+        "formula": "outstandingPrincipal * monthlyLoanRate * (1 + monthlyLoanRate) ^ remainingMonths / ((1 + monthlyLoanRate) ^ remainingMonths - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "interestWithoutPrepayment",
+        "label": "Remaining interest without prepayment",
+        "formula": "currentEmi * remainingMonths - outstandingPrincipal",
+        "format": "currency"
+      },
+      {
+        "key": "principalAfterPrepayment",
+        "label": "Principal after prepayment",
+        "formula": "max(outstandingPrincipal - lumpSum, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "newTenureMonths",
+        "label": "Estimated tenure with same EMI",
+        "formula": "-log(max(1 - monthlyLoanRate * principalAfterPrepayment / max(currentEmi, 1), 0.000001)) / log(1 + monthlyLoanRate)",
+        "format": "number"
+      },
+      {
+        "key": "interestAfterPrepayment",
+        "label": "Interest after prepayment with same EMI",
+        "formula": "max(currentEmi * newTenureMonths - principalAfterPrepayment, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "interestSaved",
+        "label": "Estimated interest saved by prepaying",
+        "formula": "max(interestWithoutPrepayment - interestAfterPrepayment, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "netInvestmentReturn",
+        "label": "Net annual investment return assumption",
+        "formula": "max(expectedInvestmentReturn - annualDrag, 0)",
+        "format": "percent"
+      },
+      {
+        "key": "investmentFutureValue",
+        "label": "Investment value at original loan end",
+        "formula": "lumpSum * (1 + netInvestmentReturn / 100) ^ (remainingMonths / 12)",
+        "format": "currency"
+      },
+      {
+        "key": "investmentGain",
+        "label": "Estimated investment gain",
+        "formula": "investmentFutureValue - lumpSum",
+        "format": "currency"
+      },
+      {
+        "key": "investmentMinusInterestSaved",
+        "label": "Investment gain minus prepayment interest saved",
+        "formula": "investmentGain - interestSaved",
+        "format": "currency"
+      },
+      {
+        "key": "simpleBreakEvenGrossReturn",
+        "label": "Simple gross break-even return",
+        "formula": "loanRate + annualDrag",
+        "format": "percent"
+      }
+    ],
+    "formulaExplanation": "The prepayment scenario keeps the EMI unchanged and estimates a shorter tenure, then calculates remaining interest saved. The investment scenario compounds the same lump sum at the entered gross return minus annual drag until the original loan end. The comparison is pre-tax and excludes home-loan tax benefits unless represented in your adjusted inputs.",
+    "example": "For a Rs 50 lakh outstanding loan at 8.5% with 15 years left, compare using Rs 5 lakh for immediate principal reduction versus investing it at a conservative after-drag return.",
+    "quickAnswer": {
+      "title": "Invest vs Prepay Quick Answer",
+      "question": "Should I invest a bonus or prepay my home loan?",
+      "answer": "Prepayment offers a predictable saving tied to the loan rate. Investing may produce more, but the return is uncertain and can arrive in a poor sequence. Compare after-tax outcomes and preserve emergency liquidity first.",
+      "formula": "Compare loan interest avoided with after-drag investment gain over the same horizon.",
+      "note": "A higher assumed investment return is not equivalent to a guaranteed saving."
+    },
+    "faqs": [
+      {
+        "question": "Is prepaying equal to earning the home-loan rate?",
+        "answer": "It is similar to avoiding future interest at the applicable loan rate, but timing, tax benefits, prepayment terms and rate resets can change the exact value."
+      },
+      {
+        "question": "Why subtract annual drag from investment return?",
+        "answer": "Gross return is not fully available after product costs and tax effects. Annual drag is a simplified planning adjustment, not a tax calculation."
+      },
+      {
+        "question": "Should I use my emergency fund to prepay?",
+        "answer": "Using essential liquidity can create a cash-flow problem even if interest falls. Test prepayment only after protecting a suitable emergency and EMI reserve."
+      },
+      {
+        "question": "Does the calculator include home-loan tax deductions?",
+        "answer": "No. Actual benefit depends on eligibility, tax regime, property use and current law. Adjust your comparison separately if a verified benefit applies."
+      }
+    ],
+    "related": [
+      "home-loan-swp-stress-test-india",
+      "reduce-emi-vs-tenure-calculator-india",
+      "loan-foreclosure-net-savings-calculator-india",
+      "home-loan-emi-calculator-india"
+    ],
+    "howToUse": [
+      "Enter outstanding principal, current rate and remaining EMI count.",
+      "Enter the lump sum available after emergency reserves.",
+      "Set a conservative gross investment return and annual drag.",
+      "Compare interest saved with the investment gain over the original horizon.",
+      "Retest at lower returns and after checking tax and lender terms."
+    ],
+    "assumptions": [
+      "The prepayment keeps EMI unchanged and reduces tenure.",
+      "The loan rate and investment return remain constant in each scenario.",
+      "Annual drag is a simplified proxy for investment cost and tax effects.",
+      "Tax deductions, prepayment charges and liquidity value are excluded."
+    ],
+    "commonMistakes": [
+      "Using an optimistic equity return as a certainty.",
+      "Ignoring emergency liquidity and near-term goals.",
+      "Comparing gross return with loan rate without tax and cost drag.",
+      "Forgetting that floating home-loan rates can change."
+    ],
+    "officialSources": [
+      {
+        "label": "SEBI Riskometer guidance",
+        "href": "https://investor.sebi.gov.in/riskometer.html"
+      },
+      {
+        "label": "RBI pre-payment charges directions",
+        "href": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=12878&Mode=0"
+      }
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
+  },
+  {
+    "slug": "loan-foreclosure-net-savings-calculator-india",
+    "name": "Loan Foreclosure Net Savings Calculator India",
+    "seoTitle": "Loan Foreclosure Net Savings Calculator | Charges & GST",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "loan foreclosure savings calculator India",
+    "shortDescription": "Estimate interest avoided by closing a loan now, subtract foreclosure fee and GST, and compare net savings with the opportunity cost of using the cash.",
+    "metaDescription": "Calculate loan-foreclosure net savings after foreclosure charges and GST. Compare future interest avoided with the opportunity cost of cash used.",
+    "inputs": [
+      {
+        "key": "outstandingPrincipal",
+        "label": "Outstanding principal",
+        "unit": "Rs",
+        "default": 500000,
+        "min": 1000,
+        "step": 1000,
+        "help": "Use principal outstanding, not the total of future EMIs."
+      },
+      {
+        "key": "annualInterestRate",
+        "label": "Current loan rate",
+        "unit": "% p.a.",
+        "default": 14,
+        "min": 0.1,
+        "max": 60,
+        "step": 0.1,
+        "help": "Current reducing-balance annual rate."
+      },
+      {
+        "key": "remainingMonths",
+        "label": "Remaining tenure",
+        "unit": "months",
+        "default": 30,
+        "min": 1,
+        "max": 360,
+        "step": 1,
+        "help": "Number of EMIs remaining."
+      },
+      {
+        "key": "foreclosureFeePercent",
+        "label": "Foreclosure charge",
+        "unit": "%",
+        "default": 3,
+        "min": 0,
+        "max": 20,
+        "step": 0.1,
+        "help": "Enter the charge shown in the agreement or lender quote; use zero only when confirmed."
+      },
+      {
+        "key": "gstPercent",
+        "label": "GST on foreclosure charge",
+        "unit": "%",
+        "default": 18,
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "help": "GST assumption applied to the entered foreclosure charge."
+      },
+      {
+        "key": "alternativeReturn",
+        "label": "Alternative net annual return on cash",
+        "unit": "%",
+        "default": 6,
+        "min": 0,
+        "max": 30,
+        "step": 0.1,
+        "help": "Opportunity-cost assumption if the outstanding amount were retained or invested."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyRate",
+        "label": "Monthly loan rate",
+        "formula": "annualInterestRate / 12 / 100",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "monthlyEmi",
+        "label": "Estimated EMI",
+        "formula": "outstandingPrincipal * monthlyRate * (1 + monthlyRate) ^ remainingMonths / ((1 + monthlyRate) ^ remainingMonths - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "futureInterest",
+        "label": "Future interest avoided before charges",
+        "formula": "monthlyEmi * remainingMonths - outstandingPrincipal",
+        "format": "currency"
+      },
+      {
+        "key": "foreclosureFee",
+        "label": "Foreclosure charge",
+        "formula": "outstandingPrincipal * foreclosureFeePercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "feeGst",
+        "label": "GST on foreclosure charge",
+        "formula": "foreclosureFee * gstPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "cashNeededToClose",
+        "label": "Cash needed to close loan",
+        "formula": "outstandingPrincipal + foreclosureFee + feeGst",
+        "format": "currency"
+      },
+      {
+        "key": "netInterestSaved",
+        "label": "Net interest saved after charges",
+        "formula": "futureInterest - foreclosureFee - feeGst",
+        "format": "currency"
+      },
+      {
+        "key": "opportunityGrowth",
+        "label": "Estimated growth forgone on principal cash",
+        "formula": "outstandingPrincipal * ((1 + alternativeReturn / 100) ^ (remainingMonths / 12) - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "netDecisionGap",
+        "label": "Net saving after opportunity cost",
+        "formula": "netInterestSaved - opportunityGrowth",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "The calculator reconstructs remaining EMI interest, subtracts the entered foreclosure charge and GST, then compares the net interest saving with the estimated growth forgone by using principal cash today. Obtain an exact dated foreclosure statement before acting.",
+    "example": "For Rs 5 lakh outstanding at 14% with 30 months remaining, compare future interest avoided with a 3% foreclosure charge, GST and the return the cash could otherwise earn.",
+    "quickAnswer": {
+      "title": "Foreclosure Net Savings Quick Answer",
+      "question": "When is loan foreclosure financially useful?",
+      "answer": "Foreclosure is financially attractive when interest avoided exceeds charges, taxes and the value of alternative uses for the cash, while still leaving adequate emergency liquidity.",
+      "formula": "Net saving = future interest avoided - foreclosure fee - GST - opportunity cost.",
+      "note": "Use the lender's dated foreclosure statement; actual daily interest and charges may differ."
+    },
+    "faqs": [
+      {
+        "question": "Are foreclosure charges always allowed?",
+        "answer": "No. Treatment depends on lender type, loan purpose, rate type, sanction or renewal date and current RBI directions. Confirm the exact rule and contract for your loan."
+      },
+      {
+        "question": "Why subtract opportunity cost?",
+        "answer": "Closing a loan uses cash that could remain liquid or earn a return. Including that alternative helps avoid overstating the financial benefit."
+      },
+      {
+        "question": "Does this equal the lender's foreclosure quote?",
+        "answer": "No. Lenders can include daily accrued interest and contract-specific items. Request a dated quote and use this calculator to understand the components."
+      },
+      {
+        "question": "Should I foreclose using my emergency fund?",
+        "answer": "Removing high-cost debt can help, but losing essential liquidity can create new borrowing risk. Preserve a suitable emergency reserve in the decision."
+      }
+    ],
+    "related": [
+      "personal-loan-true-apr-calculator-india",
+      "personal-loan-emi-calculator-india",
+      "invest-vs-prepay-home-loan-calculator-india",
+      "reduce-emi-vs-tenure-calculator-india"
+    ],
+    "howToUse": [
+      "Enter principal outstanding, current rate and remaining EMI count.",
+      "Copy the foreclosure charge from the agreement or lender quote.",
+      "Enter the GST treatment and a conservative alternative return.",
+      "Review interest avoided, charges, cash required and net decision gap.",
+      "Replace the estimate with the lender's dated foreclosure statement before payment."
+    ],
+    "assumptions": [
+      "Remaining EMI is reconstructed from principal, rate and tenure.",
+      "Foreclosure charge is a percentage of principal outstanding.",
+      "GST is applied only to that charge.",
+      "Daily interest, documentation fees and tax effects are excluded."
+    ],
+    "commonMistakes": [
+      "Comparing principal with total future EMIs instead of future interest.",
+      "Ignoring GST, daily interest or contract-specific charges.",
+      "Assuming every floating-rate loan has the same charge rule.",
+      "Using all liquid cash and leaving no emergency reserve."
+    ],
+    "officialSources": [
+      {
+        "label": "RBI pre-payment charges directions",
+        "href": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=12878&Mode=0"
+      }
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
+  },
+  {
+    "slug": "reduce-emi-vs-tenure-calculator-india",
+    "name": "Reduce EMI vs Tenure Calculator India",
+    "seoTitle": "Reduce EMI vs Tenure After Prepayment Calculator India",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "reduce EMI vs tenure calculator",
+    "shortDescription": "Compare reducing EMI with keeping EMI unchanged to shorten tenure after a home-loan or other reducing-balance loan prepayment.",
+    "metaDescription": "After loan prepayment, compare lower EMI versus shorter tenure. See new EMI, months saved, interest in both options and the extra tenure-saving benefit.",
+    "inputs": [
+      {
+        "key": "outstandingPrincipal",
+        "label": "Outstanding principal",
+        "unit": "Rs",
+        "default": 5000000,
+        "min": 1000,
+        "step": 10000,
+        "help": "Use principal outstanding from your latest statement."
+      },
+      {
+        "key": "annualInterestRate",
+        "label": "Current loan rate",
+        "unit": "% p.a.",
+        "default": 8.5,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1,
+        "help": "Current reducing-balance annual interest rate."
+      },
+      {
+        "key": "remainingMonths",
+        "label": "Remaining tenure",
+        "unit": "months",
+        "default": 180,
+        "min": 1,
+        "max": 360,
+        "step": 1,
+        "help": "Remaining number of scheduled monthly payments."
+      },
+      {
+        "key": "prepaymentAmount",
+        "label": "Prepayment amount",
+        "unit": "Rs",
+        "default": 500000,
+        "min": 0,
+        "step": 10000,
+        "help": "Principal amount to prepay, excluding any lender charges."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyRate",
+        "label": "Monthly loan rate",
+        "formula": "annualInterestRate / 12 / 100",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "currentEmi",
+        "label": "Current EMI",
+        "formula": "outstandingPrincipal * monthlyRate * (1 + monthlyRate) ^ remainingMonths / ((1 + monthlyRate) ^ remainingMonths - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "principalAfterPrepayment",
+        "label": "Principal after prepayment",
+        "formula": "max(outstandingPrincipal - prepaymentAmount, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "newReducedEmi",
+        "label": "New EMI if tenure stays same",
+        "formula": "principalAfterPrepayment * monthlyRate * (1 + monthlyRate) ^ remainingMonths / ((1 + monthlyRate) ^ remainingMonths - 1)",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyEmiRelief",
+        "label": "Monthly EMI reduction",
+        "formula": "currentEmi - newReducedEmi",
+        "format": "currency"
+      },
+      {
+        "key": "newTenureMonths",
+        "label": "New tenure if EMI stays same",
+        "formula": "-log(max(1 - monthlyRate * principalAfterPrepayment / max(currentEmi, 1), 0.000001)) / log(1 + monthlyRate)",
+        "format": "number"
+      },
+      {
+        "key": "monthsSaved",
+        "label": "Months saved by keeping EMI unchanged",
+        "formula": "max(remainingMonths - newTenureMonths, 0)",
+        "format": "number"
+      },
+      {
+        "key": "interestBefore",
+        "label": "Remaining interest before prepayment",
+        "formula": "currentEmi * remainingMonths - outstandingPrincipal",
+        "format": "currency"
+      },
+      {
+        "key": "interestWithReducedEmi",
+        "label": "Interest if EMI is reduced",
+        "formula": "max(newReducedEmi * remainingMonths - principalAfterPrepayment, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "interestWithShorterTenure",
+        "label": "Interest if tenure is reduced",
+        "formula": "max(currentEmi * newTenureMonths - principalAfterPrepayment, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "extraInterestSavedByTenure",
+        "label": "Extra interest saved by reducing tenure",
+        "formula": "max(interestWithReducedEmi - interestWithShorterTenure, 0)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Both options start after the same principal prepayment. The lower-EMI option keeps the original remaining tenure and recalculates EMI. The shorter-tenure option keeps the original EMI and solves the remaining payment count, allowing a like-for-like interest comparison.",
+    "example": "For Rs 50 lakh outstanding at 8.5% with 180 months left, test a Rs 5 lakh prepayment. Lower EMI improves monthly cash flow; keeping EMI unchanged usually saves more interest and closes the loan sooner.",
+    "quickAnswer": {
+      "title": "Reduce EMI vs Tenure Quick Answer",
+      "question": "After prepayment, should I reduce EMI or tenure?",
+      "answer": "Keeping EMI unchanged generally reduces tenure and saves more interest. Reducing EMI gives immediate cash-flow relief. The better option depends on affordability, emergency reserves and other high-cost debts.",
+      "formula": "Compare recalculated EMI at original tenure with solved tenure at original EMI.",
+      "note": "Ask the lender to confirm how the prepayment will be applied and whether a request form is required."
+    },
+    "faqs": [
+      {
+        "question": "Which option saves more interest?",
+        "answer": "With the same prepayment and rate, keeping EMI unchanged generally saves more interest because principal is repaid faster."
+      },
+      {
+        "question": "When can reducing EMI be useful?",
+        "answer": "A lower EMI can help when cash flow is tight, income is uncertain or you need room to rebuild an emergency fund or repay costlier debt."
+      },
+      {
+        "question": "Will my lender automatically reduce tenure?",
+        "answer": "Not always. Lender processes differ, so give written instructions and verify the revised amortisation schedule."
+      },
+      {
+        "question": "Does this include prepayment charges?",
+        "answer": "No. Check current RBI directions and your lender terms, then subtract any applicable charge from the estimated benefit."
+      }
+    ],
+    "related": [
+      "invest-vs-prepay-home-loan-calculator-india",
+      "loan-foreclosure-net-savings-calculator-india",
+      "home-loan-swp-stress-test-india",
+      "home-loan-emi-calculator-india"
+    ],
+    "howToUse": [
+      "Enter principal outstanding, current rate and remaining months.",
+      "Enter the amount you plan to prepay.",
+      "Compare the recalculated EMI with the solved shorter tenure.",
+      "Review interest under both options and the extra saving from shorter tenure.",
+      "Confirm the chosen instruction and revised schedule with the lender."
+    ],
+    "assumptions": [
+      "The rate remains unchanged after prepayment.",
+      "The lower-EMI option retains the original remaining tenure.",
+      "The shorter-tenure option retains the original EMI.",
+      "Charges, daily interest and tax benefits are excluded."
+    ],
+    "commonMistakes": [
+      "Assuming the lender will apply the preferred option automatically.",
+      "Comparing only EMI relief and ignoring total interest.",
+      "Prepaying before protecting emergency liquidity.",
+      "Using an outdated principal, rate or remaining tenure."
+    ],
+    "officialSources": [
+      {
+        "label": "RBI pre-payment charges directions",
+        "href": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=12878&Mode=0"
+      }
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
+  }
+]

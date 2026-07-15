@@ -564,6 +564,26 @@
         "help": "Use 3, 6, 9 or 12 depending on income stability and dependants."
       },
       {
+        "key": "dependantBufferMonths",
+        "label": "Extra buffer for dependants",
+        "unit": "months",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "help": "Add a planning buffer when children, parents or other family members depend on the same income."
+      },
+      {
+        "key": "incomeRiskBufferMonths",
+        "label": "Extra buffer for income risk",
+        "unit": "months",
+        "default": 2,
+        "min": 0,
+        "max": 6,
+        "step": 1,
+        "help": "Add more months for freelance, commission, business, single-income or uncertain employment."
+      },
+      {
         "key": "monthlySavingCapacity",
         "label": "Monthly saving capacity",
         "unit": "Rs",
@@ -593,6 +613,24 @@
         "key": "targetEmergencyFund",
         "label": "Target emergency fund",
         "formula": "(monthlyEssentialExpenses + monthlyEmiCommitments) * targetMonths",
+        "format": "currency"
+      },
+      {
+        "key": "riskAdjustedMonths",
+        "label": "Risk-adjusted target months",
+        "formula": "min(targetMonths + dependantBufferMonths + incomeRiskBufferMonths, 12)",
+        "format": "number"
+      },
+      {
+        "key": "riskAdjustedTarget",
+        "label": "Risk-adjusted emergency fund",
+        "formula": "(monthlyEssentialExpenses + monthlyEmiCommitments) * riskAdjustedMonths",
+        "format": "currency"
+      },
+      {
+        "key": "riskAdjustedShortfall",
+        "label": "Risk-adjusted shortfall",
+        "formula": "max(riskAdjustedTarget - currentEmergencySavings, 0)",
         "format": "currency"
       },
       {
@@ -638,8 +676,8 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "This emergency savings calculator estimates your monthly survival cost as essential expenses plus EMI commitments. It then multiplies that number by your selected month target (3, 6, 9 or 12) to calculate the target emergency fund corpus.",
-    "example": "If monthly essential expenses are Rs 30,000 and EMI commitments are Rs 10,000, monthly survival cost becomes Rs 40,000. A 6 month emergency fund target is Rs 2,40,000. If current emergency savings are Rs 50,000, shortfall is Rs 1,90,000. At Rs 10,000 monthly saving capacity, it may take about 19 months to reach the target.",
+    "formulaExplanation": "This emergency savings calculator estimates monthly survival cost as essential expenses plus EMI commitments. It multiplies that amount by the selected baseline months, then adds optional dependant and income-risk buffer months up to a 12-month planning cap.",
+    "example": "If essential expenses are Rs 30,000 and EMIs are Rs 10,000, monthly survival cost is Rs 40,000. A 6-month baseline is Rs 2,40,000. Adding one dependant month and two income-risk months creates a 9-month risk-adjusted target of Rs 3,60,000.",
     "quickAnswer": {
       "title": "Emergency Fund Quick Answer",
       "question": "How much emergency fund should I have in India?",
@@ -701,6 +739,7 @@
       "Add your monthly EMI commitments.",
       "Enter current emergency savings already available.",
       "Select a target such as 3, 6, 9 or 12 months.",
+      "Add optional buffer months for dependants and income uncertainty.",
       "Enter monthly saving capacity to estimate months needed.",
       "Optionally add an inflation/top-up buffer for planning."
     ],
@@ -775,10 +814,11 @@
       },
       {
         "heading": "Source and Methodology",
-        "body": "This calculator estimates emergency fund needs using monthly essential expenses, EMI commitments, current emergency savings, target months and monthly saving capacity. It is designed for household planning support and does not recommend any specific financial product."
+        "body": "This calculator estimates emergency fund needs using monthly essential expenses, EMI commitments, current emergency savings, baseline target months, dependant buffer, income-risk buffer and monthly saving capacity. It is designed for household planning support and does not recommend any specific financial product."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
   },
   {
     "slug": "sip-calculator-india",
@@ -1513,7 +1553,8 @@
         ]
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
   },
   {
     "slug": "80c-deduction-calculator-india",
@@ -4298,4 +4339,3 @@
     "lastReviewed": "July 2026"
   }
 ]
-
