@@ -185,12 +185,17 @@ function StandardCalculator({ tool }: { tool: Tool }) {
     const monthlyEmi = Number.isFinite(resultMap.get('monthlyEmi')?.value)
       ? resultMap.get('monthlyEmi')!.value
       : fallbackEmi;
-    const emiToIncomePercent = Number.isFinite(resultMap.get('emiToIncomePercent')?.value)
-      ? resultMap.get('emiToIncomePercent')!.value
-      : (monthlyEmi / Math.max(monthlyIncome, 1)) * 100;
-    const totalEmiBurdenPercent = Number.isFinite(resultMap.get('totalEmiBurdenPercent')?.value)
-      ? resultMap.get('totalEmiBurdenPercent')!.value
-      : ((monthlyEmi + existingMonthlyEmi) / Math.max(monthlyIncome, 1)) * 100;
+    const hasMonthlyIncome = monthlyIncome > 0;
+    const emiToIncomePercent = hasMonthlyIncome
+      ? Number.isFinite(resultMap.get('emiToIncomePercent')?.value)
+        ? resultMap.get('emiToIncomePercent')!.value
+        : (monthlyEmi / monthlyIncome) * 100
+      : 0;
+    const totalEmiBurdenPercent = hasMonthlyIncome
+      ? Number.isFinite(resultMap.get('totalEmiBurdenPercent')?.value)
+        ? resultMap.get('totalEmiBurdenPercent')!.value
+        : ((monthlyEmi + existingMonthlyEmi) / monthlyIncome) * 100
+      : 0;
 
     return {
       monthlyEmi,
@@ -562,10 +567,16 @@ function StandardCalculator({ tool }: { tool: Tool }) {
                 <p className="font-semibold text-emerald-900">Based on your inputs:</p>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
                   <li>Estimated monthly EMI: {formatValue(personalLoanSummary.monthlyEmi, 'currency')}</li>
-                  <li>Monthly income used: {formatValue(personalLoanSummary.monthlyIncome, 'currency')}</li>
-                  <li>Existing monthly EMI: {formatValue(personalLoanSummary.existingMonthlyEmi, 'currency')}</li>
-                  <li>EMI as % of income: {formatValue(personalLoanSummary.emiToIncomePercent, 'percent')}</li>
-                  <li>Total EMI burden: {formatValue(personalLoanSummary.totalEmiBurdenPercent, 'percent')}</li>
+                  {personalLoanSummary.monthlyIncome > 0 ? (
+                    <>
+                      <li>Monthly income used: {formatValue(personalLoanSummary.monthlyIncome, 'currency')}</li>
+                      <li>Existing monthly EMI: {formatValue(personalLoanSummary.existingMonthlyEmi, 'currency')}</li>
+                      <li>EMI as % of income: {formatValue(personalLoanSummary.emiToIncomePercent, 'percent')}</li>
+                      <li>Total EMI burden: {formatValue(personalLoanSummary.totalEmiBurdenPercent, 'percent')}</li>
+                    </>
+                  ) : (
+                    <li>Add monthly income to calculate EMI affordability and total EMI burden.</li>
+                  )}
                 </ul>
               </div>
             ) : null}
