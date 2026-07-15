@@ -43,6 +43,24 @@ function loadTools(): ToolRecord[] {
 }
 
 describe('tool formula smoke test', () => {
+  it('returns zero affordability ratios when optional monthly income is omitted', () => {
+    const personalLoan = loadTools().find((tool) => tool.slug === 'personal-loan-emi-calculator-india');
+    expect(personalLoan).toBeDefined();
+
+    const context: Record<string, number> = {};
+    for (const input of personalLoan?.inputs ?? []) {
+      context[input.key] = Number.isFinite(input.default) ? input.default : 0;
+    }
+
+    for (const output of personalLoan?.outputs ?? []) {
+      context[output.key] = parser.parse(output.formula).evaluate(context);
+    }
+
+    expect(context.monthlyIncome).toBe(0);
+    expect(context.emiToIncomePercent).toBe(0);
+    expect(context.totalEmiBurdenPercent).toBe(0);
+  });
+
   it('evaluates all tool output formulas with default inputs', () => {
     const tools = loadTools();
 
