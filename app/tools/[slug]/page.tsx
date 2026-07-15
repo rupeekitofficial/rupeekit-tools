@@ -12,22 +12,29 @@ import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuick
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 const HRA_SLUG = 'hra-exemption-calculator-india';
-const HRA_META_TITLE = 'HRA Exemption Calculator India 2026 | Old Regime Rule 279';
+const HRA_META_TITLE = 'HRA Calculator FY 2026-27 | Rule 279 & 50% City Check';
 const HRA_META_DESCRIPTION =
-  'Calculate HRA exemption under the old tax regime using 2026 city rules. Compare actual HRA, rent minus 10% of salary, and 50% or 40% salary caps.';
+  'Calculate HRA exemption under Rule 279. Check the 50% city list and compare actual HRA, rent minus 10% of salary, and old-regime exempt HRA.';
 const HRA_H1 = 'HRA Exemption Calculator India';
 const PERSONAL_LOAN_SLUG = 'personal-loan-emi-calculator-india';
-const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India 2026 | Free & Instant';
+const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator 2026 | EMI, Fees & Total Cost';
 const PERSONAL_LOAN_META_DESCRIPTION =
-  'Free Personal Loan EMI Calculator for India — get instant EMI, interest and total repayment. Enter loan amount, rate and tenure to calculate now.';
+  'Calculate personal loan EMI, interest, processing fee, GST and total repayment in India. Compare tenure and check affordability before applying.';
 const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
   'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
-const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | Free 3-12 Month Plan';
+const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India 2026 | Include EMIs';
 const EMERGENCY_FUND_META_DESCRIPTION =
-  'Free Emergency Fund Calculator for India — find your ideal 3, 6, 9 or 12 month safety corpus based on expenses and EMIs. Calculate your target now.';
+  'Calculate a 3, 6, 9 or 12-month emergency fund from essential expenses and home, personal or car-loan EMIs. See your shortfall and savings plan.';
 const EMERGENCY_FUND_H1 = 'Emergency Fund Calculator India';
+const LAST_REVIEWED_ISO_BY_SLUG: Record<string, string> = {
+  [HRA_SLUG]: '2026-07-16',
+  [PERSONAL_LOAN_SLUG]: '2026-07-16',
+  [EMERGENCY_FUND_SLUG]: '2026-07-16',
+  [SIP_SLUG]: '2026-05-01',
+  'fd-calculator-india': '2026-05-01',
+};
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));
 const blogSlugs = new Set(blogPosts.map((post) => post.slug));
@@ -766,6 +773,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     description: isHraPage
       ? 'Calculate likely HRA exemption under Indian tax rules.'
       : tool.metaDescription,
+    dateModified: LAST_REVIEWED_ISO_BY_SLUG[tool.slug],
+    isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -838,12 +847,12 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
           {isHraPage ? (
             <p className="mt-4 text-sm text-slate-500">
-              Last updated: May 2026
+              Last reviewed: {tool.lastReviewed ?? 'July 2026'}
               <br />
               Reviewed for FY 2026-27 HRA city-rule changes.
             </p>
           ) : isPersonalLoanPage ? (
-            <p className="mt-4 text-sm text-slate-500">Last updated: May 2026</p>
+            <p className="mt-4 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
           ) : tool.lastReviewed ? (
             <p className="mt-4 text-sm text-slate-500">Last reviewed: {tool.lastReviewed}</p>
           ) : null}
@@ -1025,7 +1034,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 >
                   <h2 className="text-2xl font-bold">{section.heading}</h2>
                   {isEmergencyFundPage && section.heading === 'Source and Methodology' ? (
-                    <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+                    <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
                   ) : null}
                   <p className="mt-4 leading-8 text-slate-700">{section.body}</p>
                   {isEmergencyFundPage && section.heading === 'Source and Methodology' ? (
@@ -1433,7 +1442,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           <p className="mt-4 text-sm leading-6 text-slate-700">
             Official source:{' '}
             <a
-              href="https://www.incometaxindia.gov.in/documents/d/guest/en-notified-it-rules-2026-20-03-2026-pdf"
+              href="https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf?mobile-app=1"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-sky-700 hover:underline"
@@ -1489,7 +1498,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       {isPersonalLoanPage ? (
         <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
           <h2 className="text-2xl font-bold">Source and methodology</h2>
-          <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+          <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
           <p className="mt-4 leading-8 text-slate-700">
             This calculator uses the standard reducing-balance EMI formula based on loan amount, monthly interest rate,
             and tenure in months. It also estimates processing fee impact and EMI burden using user-entered values.
