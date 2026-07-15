@@ -361,13 +361,13 @@
       {
         "key": "emiToIncomePercent",
         "label": "EMI as % of income",
-        "formula": "(principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) / max(monthlyIncome, 1) * 100",
+        "formula": "(principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) / max(monthlyIncome, 1) * 100 * min(monthlyIncome, 1)",
         "format": "percent"
       },
       {
         "key": "totalEmiBurdenPercent",
         "label": "Total EMI burden",
-        "formula": "((principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) + existingMonthlyEmi) / max(monthlyIncome, 1) * 100",
+        "formula": "((principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) + existingMonthlyEmi) / max(monthlyIncome, 1) * 100 * min(monthlyIncome, 1)",
         "format": "percent"
       }
     ],
