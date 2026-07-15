@@ -38,8 +38,10 @@ type ToolRecord = {
 };
 
 function loadTools(): ToolRecord[] {
-  const filePath = path.join(process.cwd(), 'data', 'tools.json');
-  return JSON.parse(fs.readFileSync(filePath, 'utf8')) as ToolRecord[];
+  return ['tools.json', 'growth-tools.json'].flatMap((fileName) => {
+    const filePath = path.join(process.cwd(), 'data', fileName);
+    return JSON.parse(fs.readFileSync(filePath, 'utf8')) as ToolRecord[];
+  });
 }
 
 describe('tool formula smoke test', () => {

@@ -8,6 +8,7 @@ import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLo
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import { getGuidesForTool } from '@/data/calculator-guides';
 import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
@@ -138,7 +139,7 @@ function firstSentence(text: string) {
 
 function buildFallbackQuickAnswer(tool: Tool): ToolQuickAnswer {
   const keyInputs = tool.inputs.slice(0, 3).map((input) => input.label);
-  const keyOutputs = tool.outputs.slice(0, 3).map((output) => output.label);
+  const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 3).map((output) => output.label);
   const conciseFormula = firstSentence(tool.formulaExplanation);
   const conciseExample = firstSentence(tool.example);
 
@@ -158,7 +159,7 @@ function buildFallbackQuickAnswer(tool: Tool): ToolQuickAnswer {
 
 function buildGenericAnswerEngineSummary(tool: Tool) {
   const keyInputs = tool.inputs.slice(0, 4).map((input) => input.label);
-  const keyOutputs = tool.outputs.slice(0, 4).map((output) => output.label);
+  const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 4).map((output) => output.label);
   const methodLine = firstSentence(tool.formulaExplanation);
   const inputText = keyInputs.length > 0 ? listLabels(keyInputs) : 'the values you enter';
   const outputText = keyOutputs.length > 0 ? listLabels(keyOutputs) : 'the result metrics';
@@ -168,7 +169,7 @@ function buildGenericAnswerEngineSummary(tool: Tool) {
 
 function buildGenericCalculatorFacts(tool: Tool) {
   const keyInputs = tool.inputs.slice(0, 4).map((input) => input.label);
-  const keyOutputs = tool.outputs.slice(0, 4).map((output) => output.label);
+  const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 4).map((output) => output.label);
   return [
     {
       topic: 'Calculation type',
@@ -573,6 +574,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const description = getToolDescription(tool.slug, tool.shortDescription);
 
   const related = getRelatedTools(tool);
+  const supportingGuides = getGuidesForTool(tool.slug);
 
   const contextualLinks: ContextualLink[] = [
     liveToolSlugs.has('salary-in-hand-calculator-india') ? {
@@ -773,7 +775,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     description: isHraPage
       ? 'Calculate likely HRA exemption under Indian tax rules.'
       : tool.metaDescription,
-    dateModified: LAST_REVIEWED_ISO_BY_SLUG[tool.slug],
+    dateModified: tool.lastReviewedIso ?? LAST_REVIEWED_ISO_BY_SLUG[tool.slug],
     isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
@@ -919,6 +921,31 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           />
         </>
       )}
+
+      {supportingGuides.length > 0 ? (
+        <section className="mt-8 rounded-3xl border border-sky-200 bg-sky-50 p-5 md:p-7">
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-sky-800">Supporting answers</p>
+              <h2 className="mt-2 text-2xl font-bold text-slate-950">Questions this calculator helps answer</h2>
+            </div>
+            <Link href="/guides" className="text-sm font-bold text-sky-800 hover:underline">
+              Browse all calculator guides
+            </Link>
+          </div>
+          <div className="mt-5 grid gap-3 md:grid-cols-2">
+            {supportingGuides.map((guide) => (
+              <Link
+                key={guide.slug}
+                href={`/guides/${guide.slug}`}
+                className="rounded-2xl border border-sky-100 bg-white p-4 font-bold text-slate-900 transition hover:border-sky-300 hover:text-sky-800 hover:shadow-sm"
+              >
+                {guide.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {isEmergencyFundPage ? (
         <section className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
@@ -1476,6 +1503,25 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             Inputs are processed in-page to show planning outputs. RupeeKit does not provide personalized financial,
             tax, legal, investment, or loan advice.
           </p>
+          {tool.officialSources?.length ? (
+            <>
+              <h3 className="mt-6 text-lg font-bold text-slate-950">Primary references</h3>
+              <ul className="mt-3 space-y-2 text-sm leading-6">
+                {tool.officialSources.map((source) => (
+                  <li key={source.href}>
+                    <a
+                      href={source.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-sky-700 hover:underline"
+                    >
+                      {source.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
         </section>
       ) : null}
 

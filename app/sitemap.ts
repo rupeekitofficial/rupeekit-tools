@@ -3,6 +3,7 @@ import { getLiveTools } from '@/lib/tools';
 import { blogPosts } from '@/data/blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 import { governmentSalaryUpdates } from '@/data/government-salary-updates';
+import { calculatorGuides } from '@/data/calculator-guides';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
 
@@ -32,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/terms',
     '/disclaimer',
     '/blog',
+    '/guides',
     '/resources',
     '/affiliate-disclosure',
     '/money-health-check',
@@ -43,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/updates',
   ];
 
-  const hubRoutes = new Set(['/blog', '/tools']);
+  const hubRoutes = new Set(['/blog', '/tools', '/guides']);
   const lowPriorityRoutes = new Set(['/privacy-policy', '/terms', '/disclaimer', '/affiliate-disclosure']);
 
   return [
@@ -62,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         0.5,
     })),
     ...getLiveTools().map((tool) => {
-      const lastModified = resolveToolLastModified(tool.lastReviewed);
+      const lastModified = resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed);
       return {
         url: `${baseUrl}/tools/${tool.slug}`,
         lastModified,
@@ -70,6 +72,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       };
     }),
+    ...calculatorGuides.map((guide) => ({
+      url: `${baseUrl}/guides/${guide.slug}`,
+      lastModified: parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
     ...blogPosts.map((post) => {
       const lastModified =
         parseIsoDate(post.modifiedDateISO) ??
@@ -110,4 +118,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
   ];
 }
-

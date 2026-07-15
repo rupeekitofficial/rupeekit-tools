@@ -36,7 +36,10 @@ function readJson(...segments) {
   return JSON.parse(readText(...segments));
 }
 
-const tools = readJson('data', 'tools.json');
+const tools = [
+  ...readJson('data', 'tools.json'),
+  ...readJson('data', 'growth-tools.json'),
+];
 const toolBySlug = new Map(tools.map((tool) => [tool.slug, tool]));
 
 const toolPageSource = readText('app', 'tools', '[slug]', 'page.tsx');

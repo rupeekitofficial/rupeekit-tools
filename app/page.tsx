@@ -253,6 +253,22 @@ export default function HomePage() {
         <ul className="mt-4 grid gap-2 sm:grid-cols-2">
           <li>
             <Link
+              href="/guides/can-swp-pay-home-loan-emi"
+              className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
+            >
+              Can an SWP pay my home-loan EMI?
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/tools/personal-loan-true-apr-calculator-india"
+              className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
+            >
+              What is my personal loan&apos;s true APR?
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/tools/income-tax-calculator-old-vs-new-regime-india"
               className="text-sm font-semibold text-brandNavy hover:text-brandDeepNavy hover:underline"
             >
@@ -310,6 +326,29 @@ export default function HomePage() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Card: Home Loan + SWP Stress Test */}
+          <Link
+            href="/tools/home-loan-swp-stress-test-india"
+            className="group flex flex-col justify-between rounded-2xl border border-sky-200 bg-sky-50 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md hover:border-brandNavy/35"
+          >
+            <div>
+              <span className="inline-block rounded-full bg-sky-100 border border-sky-200 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-sky-800">
+                New stress test
+              </span>
+              <h3 className="mt-3 text-base font-bold tracking-tight text-brandDeepNavy transition group-hover:text-brandNavy">
+                Home Loan + SWP Stress Test
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-brandMuted">
+                Test whether an investment corpus can pay EMI after return drag and a bad first market year.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-sky-200">
+              <p className="text-xs font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
+                Run stress test →
+              </p>
+            </div>
+          </Link>
+
           {/* Card 1: Emergency Fund */}
           <Link
             href="/tools/emergency-fund-calculator-india"
@@ -544,10 +583,10 @@ export default function HomePage() {
               </p>
             </div>
             <Link
-              href="/blog"
+              href="/guides"
               className="mt-6 inline-flex items-center text-xs font-bold text-brandNavy hover:text-brandDeepNavy transition"
             >
-              Read Guides <span className="ml-1">→</span>
+              Read Calculator Guides <span className="ml-1">→</span>
             </Link>
           </div>
         </div>
