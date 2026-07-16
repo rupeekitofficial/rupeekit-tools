@@ -59,12 +59,22 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
       '@type': 'Article',
       headline: guide.title,
       description: guide.metaDescription,
-      mainEntityOfPage: canonical,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
       dateModified: guide.lastReviewedIso,
       datePublished: guide.lastReviewedIso,
-      author: { '@type': 'Organization', name: 'RupeeKit', url: SITE_URL },
-      publisher: { '@type': 'Organization', name: 'RupeeKit', url: SITE_URL },
-      about: cluster.title,
+      inLanguage: 'en-IN',
+      author: { '@id': `${SITE_URL}/#organization` },
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      about: { '@type': 'Thing', name: cluster.title },
+      mentions: {
+        '@type': 'WebApplication',
+        name: cluster.toolName,
+        url: `${SITE_URL}/tools/${cluster.toolSlug}`,
+      },
+      ...(cluster.sources.length
+        ? { citation: cluster.sources.map((source) => source.href) }
+        : {}),
     },
     {
       '@context': 'https://schema.org',

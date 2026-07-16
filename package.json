@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "validate": "npm run validate:tools && npm run validate:growth",
+    "validate": "npm run validate:tools && npm run validate:growth && npm run validate:ai-seo",
     "validate:ai-seo": "node scripts/validate-ai-seo-readiness.mjs",
     "validate:growth": "node scripts/validate-growth-clusters.mjs",
     "validate:tools": "node scripts/validate-tools.mjs"
