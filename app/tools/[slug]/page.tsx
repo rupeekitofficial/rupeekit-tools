@@ -771,11 +771,14 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     name: isHraPage ? 'HRA Exemption Calculator India' : tool.name,
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires a JavaScript-enabled web browser.',
     url: pageUrl,
     description: isHraPage
       ? 'Calculate likely HRA exemption under Indian tax rules.'
       : tool.metaDescription,
     dateModified: tool.lastReviewedIso ?? LAST_REVIEWED_ISO_BY_SLUG[tool.slug],
+    inLanguage: 'en-IN',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
     isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
@@ -783,9 +786,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       priceCurrency: 'INR',
     },
     publisher: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
+      '@id': `${SITE_URL}/#organization`,
     },
   };
 

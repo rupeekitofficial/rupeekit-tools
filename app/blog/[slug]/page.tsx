@@ -81,23 +81,21 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     headline: post.seoTitle || post.title,
     description: post.metaDescription,
     image: imageUrl ? [imageUrl] : undefined,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
     datePublished: post.publishedDateISO || undefined,
     dateModified: post.modifiedDateISO || post.publishedDateISO || undefined,
+    inLanguage: 'en-IN',
     author: {
       '@type': 'Person',
       name: 'RupeeKit Editorial Team',
       jobTitle: 'Personal Finance Research',
-      worksFor: {
-        '@type': 'Organization',
-        name: 'RupeeKit',
-        url: siteUrl,
-      },
+      worksFor: { '@id': `${siteUrl}/#organization` },
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: siteUrl,
-    },
+    publisher: { '@id': `${siteUrl}/#organization` },
+    isPartOf: { '@id': `${siteUrl}/#website` },
+    ...(post.officialSources?.length
+      ? { citation: post.officialSources.map((source) => source.href) }
+      : {}),
   };
 
   const breadcrumbSchema = {

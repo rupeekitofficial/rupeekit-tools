@@ -251,18 +251,19 @@ export default function IncomeTaxCalculatorPage() {
     name: 'Old vs New Tax Regime Calculator India',
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires a JavaScript-enabled web browser.',
     url: PAGE_URL,
     description: pageDescription,
+    dateModified: '2026-07-11',
+    inLanguage: 'en-IN',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'INR',
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
-    },
+    publisher: { '@id': `${SITE_URL}/#organization` },
   };
 
   return (

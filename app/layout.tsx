@@ -14,6 +14,8 @@ const siteUrl =
 const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "rupeekitofficial@gmail.com";
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
+const siteDescription =
+  "RupeeKit offers free India-focused salary, EMI, SIP, GST, and FD calculators with simple explanations and examples.";
 
 const socialLinks = [
   {
@@ -40,8 +42,7 @@ export const metadata: Metadata = {
     default: `${siteName} - Free India Salary & Finance Calculators`,
     template: `%s | ${siteName}`,
   },
-  description:
-    "RupeeKit offers free India-focused salary, EMI, SIP, GST, and FD calculators with simple explanations and examples.",
+  description: siteDescription,
   keywords: [
     "RupeeKit",
     "salary calculator India",
@@ -81,13 +82,34 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const organizationSchema = {
+  const siteEntitySchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: siteName,
-    url: siteUrl,
-    email: contactEmail,
-    sameAs: socialLinks.map((link) => link.href),
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: siteName,
+        url: siteUrl,
+        description: siteDescription,
+        email: contactEmail,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/brand/rupeekit_icon_from_social_logo_transparent_square.png`,
+          width: 797,
+          height: 797,
+        },
+        sameAs: socialLinks.map((link) => link.href),
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        name: siteName,
+        url: siteUrl,
+        description: siteDescription,
+        inLanguage: "en-IN",
+        publisher: { "@id": `${siteUrl}/#organization` },
+      },
+    ],
   };
 
   return (
@@ -96,7 +118,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(siteEntitySchema),
           }}
         />
 
