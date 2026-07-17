@@ -67,7 +67,8 @@ export default function BlogHero({
                   alt={heroImageAlt || visualAlt || title}
                   width={heroImageWidth || 1600}
                   height={heroImageHeight || 900}
-                  className="object-cover"
+                  className="h-full w-full object-cover"
+                  sizes="(min-width: 1024px) 38vw, 100vw"
                   priority
                 />
               </div>
@@ -80,4 +81,3 @@ export default function BlogHero({
     </section>
   );
 }
-
