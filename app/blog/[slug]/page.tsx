@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/blog-posts';
+import { getDiscoverImage } from '@/data/discover-images';
 import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
 
 export function generateStaticParams() {
@@ -23,7 +24,12 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   const pageUrl = `${siteUrl}/blog/${post.slug}`;
   const title = post.seoTitle || post.title;
   const description = post.metaDescription;
-  const imageUrl = post.heroImage ? `${siteUrl}${post.heroImage}` : undefined;
+  const discoverImage = getDiscoverImage(`/blog/${post.slug}`);
+  const heroImage = post.heroImage || discoverImage?.src;
+  const heroImageAlt = post.heroImageAlt || discoverImage?.alt || title;
+  const heroImageWidth = post.heroImageWidth || discoverImage?.width || 1600;
+  const heroImageHeight = post.heroImageHeight || discoverImage?.height || 900;
+  const imageUrl = heroImage ? `${siteUrl}${heroImage}` : undefined;
 
   return {
     title: { absolute: title },
@@ -47,9 +53,9 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
         images: [
           {
             url: imageUrl,
-            width: post.heroImageWidth || 1200,
-            height: post.heroImageHeight || 630,
-            alt: post.heroImageAlt || title,
+            width: heroImageWidth,
+            height: heroImageHeight,
+            alt: heroImageAlt,
           },
         ],
       }),
@@ -73,7 +79,18 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
   const pageUrl = `${siteUrl}/blog/${post.slug}`;
-  const imageUrl = post.heroImage ? `${siteUrl}${post.heroImage}` : undefined;
+  const discoverImage = getDiscoverImage(`/blog/${post.slug}`);
+  const heroImage = post.heroImage || discoverImage?.src;
+  const imageUrl = heroImage ? `${siteUrl}${heroImage}` : undefined;
+  const postWithHero = heroImage
+    ? {
+        ...post,
+        heroImage,
+        heroImageAlt: post.heroImageAlt || discoverImage?.alt || post.title,
+        heroImageWidth: post.heroImageWidth || discoverImage?.width || 1600,
+        heroImageHeight: post.heroImageHeight || discoverImage?.height || 900,
+      }
+    : post;
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -128,7 +145,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
-      <BlogArticleLayout post={post} />
+      <BlogArticleLayout post={postWithHero} />
     </>
   );
 }

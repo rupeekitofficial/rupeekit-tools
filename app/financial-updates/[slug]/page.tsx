@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { financialUpdates } from '@/data/financial-updates';
+import { getDiscoverImage } from '@/data/discover-images';
 import UpdateVisual from '@/components/updates/UpdateVisual';
+import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -51,6 +53,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!update) return { title: 'Update Not Found | RupeeKit' };
   const cleanSummary = update.summary.substring(0, 155);
   const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;
+  const discoverImage = getDiscoverImage(`/financial-updates/${update.slug}`);
+  const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
   return {
     title: { absolute: `${update.title} | RupeeKit Updates` },
     description: cleanSummary,
@@ -69,11 +73,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: 'RupeeKit',
       type: 'article',
       locale: 'en_IN',
+      ...(discoverImageUrl && discoverImage
+        ? {
+            images: [
+              {
+                url: discoverImageUrl,
+                width: discoverImage.width,
+                height: discoverImage.height,
+                alt: discoverImage.alt,
+              },
+            ],
+          }
+        : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: `${update.title} | RupeeKit Updates`,
       description: cleanSummary,
+      ...(discoverImageUrl ? { images: [discoverImageUrl] } : {}),
     },
   };
 }
@@ -82,6 +99,8 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
   const update = financialUpdates.find((u) => u.slug === params.slug);
   if (!update) notFound();
   const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;
+  const discoverImage = getDiscoverImage(`/financial-updates/${update.slug}`);
+  const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
   const dateModified = (update as { modifiedDate?: string }).modifiedDate || update.publishedDate;
 
   const visualType = (categoryVisualMap[update.category] ?? 'financial-updates') as VisualKey;
@@ -105,6 +124,7 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
       url: SITE_URL,
     },
     mainEntityOfPage: pageUrl,
+    ...(discoverImageUrl ? { image: [discoverImageUrl] } : {}),
   };
 
   const breadcrumbSchema = {
@@ -157,30 +177,33 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
       {/* Hero Header */}
       <section className="rounded-3xl bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 px-6 py-8 md:px-10 md:py-10 text-white shadow-xl relative overflow-hidden">
         <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none" />
-        <div className="relative z-10">
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <UpdateVisual type={visualType} size="sm" />
-            <span className={`inline-block rounded-full border px-3 py-0.5 text-[10px] font-bold uppercase tracking-wide ${catColor}`}>
-              {update.category}
-            </span>
-            <span className="inline-block rounded-full border border-white/20 bg-white/10 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white/80">
-              Educational Summary
-            </span>
+        <div className="relative z-10 grid items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              <UpdateVisual type={visualType} size="sm" />
+              <span className={`inline-block rounded-full border px-3 py-0.5 text-[10px] font-bold uppercase tracking-wide ${catColor}`}>
+                {update.category}
+              </span>
+              <span className="inline-block rounded-full border border-white/20 bg-white/10 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white/80">
+                Educational Summary
+              </span>
+            </div>
+            <h1 className="text-2xl font-black tracking-tight leading-snug md:text-3xl text-white">
+              {update.title}
+            </h1>
+            <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-slate-300">
+              <span>{update.sourceName}</span>
+              <span>·</span>
+              <span>
+                {new Date(update.publishedDate).toLocaleDateString('en-IN', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </span>
+            </div>
           </div>
-          <h1 className="text-2xl font-black tracking-tight leading-snug md:text-3xl text-white">
-            {update.title}
-          </h1>
-          <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-slate-300">
-            <span>{update.sourceName}</span>
-            <span>·</span>
-            <span>
-              {new Date(update.publishedDate).toLocaleDateString('en-IN', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              })}
-            </span>
-          </div>
+          {discoverImage ? <DiscoverHeroImage image={discoverImage} priority /> : null}
         </div>
       </section>
 

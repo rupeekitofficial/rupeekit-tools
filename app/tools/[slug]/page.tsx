@@ -8,7 +8,9 @@ import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLo
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
 import { getGuidesForTool } from '@/data/calculator-guides';
+import { getDiscoverImage } from '@/data/discover-images';
 import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
@@ -216,6 +218,8 @@ export function generateMetadata({
   if (!tool) return {};
 
   const pageUrl = `${SITE_URL}/tools/${tool.slug}`;
+  const discoverImage = getDiscoverImage(`/tools/${tool.slug}`);
+  const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
   const description =
     tool.slug === HRA_SLUG
       ? HRA_META_DESCRIPTION
@@ -256,11 +260,24 @@ export function generateMetadata({
       siteName: 'RupeeKit',
       type: 'article',
       locale: 'en_IN',
+      ...(discoverImageUrl && discoverImage
+        ? {
+            images: [
+              {
+                url: discoverImageUrl,
+                width: discoverImage.width,
+                height: discoverImage.height,
+                alt: discoverImage.alt,
+              },
+            ],
+          }
+        : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: pageTitle,
       description,
+      ...(discoverImageUrl ? { images: [discoverImageUrl] } : {}),
     },
   };
 }
@@ -572,6 +589,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const isEmergencyFundPage = tool.slug === EMERGENCY_FUND_SLUG;
   const heading = getToolHeading(tool.slug, tool.name);
   const description = getToolDescription(tool.slug, tool.shortDescription);
+  const discoverImage = getDiscoverImage(`/tools/${tool.slug}`);
 
   const related = getRelatedTools(tool);
   const supportingGuides = getGuidesForTool(tool.slug);
@@ -726,6 +744,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     !isHraPage && !isPersonalLoanPage && !isSipPage && !hasSourceMethodologyInSections;
 
   const pageUrl = `${SITE_URL}/tools/${tool.slug}`;
+  const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
 
   const faqSchema =
     tool.faqs.length > 0
@@ -788,6 +807,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     publisher: {
       '@id': `${SITE_URL}/#organization`,
     },
+    ...(discoverImageUrl ? { image: discoverImageUrl } : {}),
   };
 
   return (
@@ -861,28 +881,31 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           ) : null}
         </div>
 
-        <div className="rounded-3xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-900">
-          <p className="font-bold">Educational estimate only</p>
-          <p className="mt-2">
-            Results can vary based on company policy, lender terms, tax law, and personal assumptions.
-          </p>
-          {isHraPage ? (
+        <div className="space-y-4">
+          {discoverImage ? <DiscoverHeroImage image={discoverImage} priority /> : null}
+          <div className="rounded-3xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-900">
+            <p className="font-bold">Educational estimate only</p>
             <p className="mt-2">
-              For HRA claims, verify final eligibility and documentation with your employer payroll team, CA, and
-              official rules before filing.
+              Results can vary based on company policy, lender terms, tax law, and personal assumptions.
             </p>
-          ) : null}
-          {isPersonalLoanPage ? (
-            <p className="mt-2">
-              RupeeKit is not a lender, does not provide loan approval, and does not publish official live bank rates.
-            </p>
-          ) : null}
-          {isEmergencyFundPage ? (
-            <p className="mt-2">
-              Emergency fund outputs are planning estimates only and are not financial or investment advice.
-            </p>
-          ) : null}
-          <p className="mt-2 text-xs text-amber-800">See the Source and methodology section below for details.</p>
+            {isHraPage ? (
+              <p className="mt-2">
+                For HRA claims, verify final eligibility and documentation with your employer payroll team, CA, and
+                official rules before filing.
+              </p>
+            ) : null}
+            {isPersonalLoanPage ? (
+              <p className="mt-2">
+                RupeeKit is not a lender, does not provide loan approval, and does not publish official live bank rates.
+              </p>
+            ) : null}
+            {isEmergencyFundPage ? (
+              <p className="mt-2">
+                Emergency fund outputs are planning estimates only and are not financial or investment advice.
+              </p>
+            ) : null}
+            <p className="mt-2 text-xs text-amber-800">See the Source and methodology section below for details.</p>
+          </div>
         </div>
       </header>
 
