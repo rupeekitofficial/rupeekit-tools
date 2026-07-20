@@ -85,6 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog',
     '/guides',
     '/resources',
+    '/api-docs',
     '/affiliate-disclosure',
     '/money-health-check',
     '/resources/30-day-budget-challenge',
