@@ -1,44 +1,119 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { listPublicCalculators } from '@/lib/public-calculator-api';
 
 export const metadata: Metadata = {
-  title: 'Free Calculator API and MCP Tools',
-  description: 'Use RupeeKit India-focused finance calculators through a public JSON API or MCP tools with methodology, assumptions, sources, and disclaimers.',
+  title: 'RupeeKit Calculator API and MCP Documentation',
+  description: 'Complete documentation for using every RupeeKit India-focused finance calculator through JSON API and MCP tools.',
   alternates: { canonical: '/api-docs' },
 };
 
-const example = `POST /api/v1/calculators/emergency-fund-calculator-india\nContent-Type: application/json\n\n{\n  "inputs": {\n    "monthlyEssentialExpenses": 30000,\n    "monthlyEmiCommitments": 10000,\n    "targetMonths": 6\n  }\n}`;
+const requestExample = `POST https://www.rupeekit.co.in/api/v1/calculators/emergency-fund-calculator-india
+Content-Type: application/json
+
+{
+  "inputs": {
+    "monthlyEssentialExpenses": 30000,
+    "monthlyEmiCommitments": 10000,
+    "currentEmergencySavings": 50000,
+    "monthlySavingCapacity": 10000,
+    "targetMonths": 6
+  }
+}`;
+
+const mcpExample = `{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "calculate",
+    "arguments": {
+      "slug": "emi-calculator-india",
+      "inputs": {
+        "loanAmount": 500000,
+        "annualInterestRate": 12,
+        "tenureMonths": 36
+      }
+    }
+  }
+}`;
 
 export default function ApiDocsPage() {
+  const calculators = listPublicCalculators();
+
   return (
-    <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-      <p className="text-sm font-semibold text-brandOrange">RupeeKit for developers and AI assistants</p>
-      <h1 className="mt-2 text-4xl font-bold text-brandDeepNavy">Calculator API and MCP tools</h1>
-      <p className="mt-5 text-lg text-slate-700">Access RupeeKit’s live calculator definitions and educational estimates in a machine-readable format. Every calculation includes its methodology page, assumptions, review date, sources, privacy note, and safe disclaimer.</p>
+    <article className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <p className="text-sm font-semibold text-brandOrange">RupeeKit for AI assistants and developers</p>
+      <h1 className="mt-2 text-4xl font-bold text-brandDeepNavy">Calculator API and MCP documentation</h1>
+      <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-700">
+        Use all {calculators.length} live RupeeKit calculators through one read-only JSON API or MCP endpoint. Calculator inputs, defaults, limits, output names, methodology, assumptions, canonical page, reviewed date, sources, privacy note, and disclaimer are returned in machine-readable form.
+      </p>
+
+      <nav className="mt-8 flex flex-wrap gap-3 text-sm font-semibold">
+        <a className="rounded-full bg-brandDeepNavy px-4 py-2 text-white" href="/api/v1/calculators">Calculator catalog JSON</a>
+        <a className="rounded-full border border-brandBorder bg-white px-4 py-2 text-brandDeepNavy" href="/api/openapi">OpenAPI 3.1 JSON</a>
+        <a className="rounded-full border border-brandBorder bg-white px-4 py-2 text-brandDeepNavy" href="/.well-known/mcp.json">MCP discovery JSON</a>
+      </nav>
 
       <section className="mt-10 rounded-2xl border border-brandBorder bg-white p-6">
-        <h2 className="text-2xl font-bold text-brandDeepNavy">JSON API</h2>
-        <ul className="mt-4 space-y-2 text-slate-700">
-          <li><code>GET /api/v1/calculators</code> — list live calculators.</li>
-          <li><code>GET /api/v1/calculators/{'{slug}'}</code> — get inputs, outputs, methodology, and sources.</li>
-          <li><code>POST /api/v1/calculators/{'{slug}'}</code> — calculate an estimate.</li>
-        </ul>
-        <pre className="mt-5 overflow-x-auto rounded-xl bg-slate-950 p-4 text-sm text-slate-100"><code>{example}</code></pre>
-        <p className="mt-4"><a className="font-semibold text-brandOrange underline" href="/api/openapi">OpenAPI 3.1 document</a></p>
+        <h2 className="text-2xl font-bold text-brandDeepNavy">JSON API endpoints</h2>
+        <div className="mt-5 overflow-x-auto">
+          <table className="w-full border-collapse text-left text-sm">
+            <thead><tr className="border-b"><th className="p-3">Method</th><th className="p-3">Endpoint</th><th className="p-3">Purpose</th></tr></thead>
+            <tbody className="text-slate-700">
+              <tr className="border-b"><td className="p-3 font-bold">GET</td><td className="p-3"><code>/api/v1/calculators</code></td><td className="p-3">List every available calculator and its exact input contract.</td></tr>
+              <tr className="border-b"><td className="p-3 font-bold">GET</td><td className="p-3"><code>/api/v1/calculators/{'{slug}'}</code></td><td className="p-3">Get one calculator’s inputs, defaults, output fields, methodology and sources.</td></tr>
+              <tr><td className="p-3 font-bold">POST</td><td className="p-3"><code>/api/v1/calculators/{'{slug}'}</code></td><td className="p-3">Run the calculator. Send numeric values inside an <code>inputs</code> object.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 className="mt-7 text-lg font-bold text-brandDeepNavy">REST calculation example</h3>
+        <pre className="mt-3 overflow-x-auto rounded-xl bg-slate-950 p-4 text-sm text-slate-100"><code>{requestExample}</code></pre>
+        <p className="mt-4 text-sm leading-6 text-slate-600">Inputs omitted from the request use the documented calculator defaults. Unknown keys, non-numeric values, and values outside documented minimum or maximum limits are rejected.</p>
       </section>
 
       <section className="mt-8 rounded-2xl border border-brandBorder bg-white p-6">
-        <h2 className="text-2xl font-bold text-brandDeepNavy">MCP endpoint</h2>
-        <p className="mt-3 text-slate-700">Connect an MCP-compatible client to <code>https://www.rupeekit.co.in/api/mcp</code>. Available tools are <code>list_calculators</code>, <code>get_calculator</code>, and <code>calculate</code>.</p>
-        <p className="mt-3 text-slate-700">AI assistants should cite the canonical calculator or methodology URL returned by each tool and must preserve the educational-use disclaimer.</p>
+        <h2 className="text-2xl font-bold text-brandDeepNavy">MCP for AI tools</h2>
+        <p className="mt-3 text-slate-700">Streamable HTTP endpoint: <code>https://www.rupeekit.co.in/api/mcp</code></p>
+        <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
+          <li><code>list_calculators</code> discovers calculators and valid input fields.</li>
+          <li><code>get_calculator</code> retrieves the complete contract for one slug.</li>
+          <li><code>calculate</code> runs the selected calculator and returns structured results with sources.</li>
+        </ul>
+        <h3 className="mt-7 text-lg font-bold text-brandDeepNavy">MCP tool-call example</h3>
+        <pre className="mt-3 overflow-x-auto rounded-xl bg-slate-950 p-4 text-sm text-slate-100"><code>{mcpExample}</code></pre>
+        <h3 className="mt-7 text-lg font-bold text-brandDeepNavy">Instructions for AI assistants</h3>
+        <ol className="mt-3 list-decimal space-y-2 pl-6 text-slate-700">
+          <li>Call <code>list_calculators</code> or <code>get_calculator</code> before calculating; never invent an input key.</li>
+          <li>Ask the user only for missing values that should not use the documented default.</li>
+          <li>Present the returned units and assumptions with the result.</li>
+          <li>Cite the returned canonical calculator URL and relevant official sources.</li>
+          <li>Preserve the returned disclaimer and never represent an estimate as personalized advice or guaranteed outcome.</li>
+        </ol>
+      </section>
+
+      <section className="mt-8">
+        <h2 className="text-2xl font-bold text-brandDeepNavy">Available calculators</h2>
+        <p className="mt-2 text-slate-600">This table is generated from the same live calculator registry used by the website and API.</p>
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-brandBorder bg-white">
+          <table className="w-full border-collapse text-left text-sm">
+            <thead><tr className="border-b bg-slate-50"><th className="p-3">Calculator</th><th className="p-3">Slug</th><th className="p-3">Inputs</th><th className="p-3">API definition</th></tr></thead>
+            <tbody>{calculators.map((calculator) => (
+              <tr key={calculator.slug} className="border-b last:border-0">
+                <td className="p-3"><Link className="font-semibold text-brandDeepNavy underline" href={`/tools/${calculator.slug}`}>{calculator.name}</Link></td>
+                <td className="p-3"><code>{calculator.slug}</code></td>
+                <td className="p-3 text-slate-600">{calculator.inputs.map((input) => input.key).join(', ')}</td>
+                <td className="p-3"><a className="font-semibold text-brandOrange underline" href={`/api/v1/calculators/${calculator.slug}`}>JSON</a></td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
       </section>
 
       <section className="mt-8 rounded-2xl bg-amber-50 p-6 text-amber-950">
-        <h2 className="text-xl font-bold">Responsible-use rules</h2>
-        <p className="mt-2">Do not send PAN, Aadhaar, bank details, or other sensitive information. Results are general educational estimates—not personalized financial, tax, legal, loan, or investment advice. Review the linked calculator page before relying on a result.</p>
+        <h2 className="text-xl font-bold">Data, privacy and responsible use</h2>
+        <p className="mt-2 leading-7">Only calculator inputs are accepted. Do not send PAN, Aadhaar, bank-account details or other sensitive information. Values are processed for the request and are not saved by default. Results are educational estimates—not personalized financial, tax, legal, lending or investment advice.</p>
       </section>
-
-      <p className="mt-8 text-slate-700">Want to inspect the calculators first? <Link className="font-semibold text-brandOrange underline" href="/tools">Browse all RupeeKit tools</Link>.</p>
     </article>
   );
 }
