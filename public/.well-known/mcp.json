@@ -1,0 +1,8 @@
+{
+  "name": "RupeeKit",
+  "description": "India-focused educational personal finance calculator tools with methodology and sources.",
+  "transport": "streamable-http",
+  "url": "https://www.rupeekit.co.in/api/mcp",
+  "protocolVersion": "2025-03-26",
+  "documentation": "https://www.rupeekit.co.in/api-docs"
+}
