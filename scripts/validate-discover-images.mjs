@@ -4,6 +4,9 @@ import path from 'node:path';
 const root = process.cwd();
 const manifestPath = path.join(root, 'data', 'discover-images.json');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const baseTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tools.json'), 'utf8'));
+const growthTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'growth-tools.json'), 'utf8'));
+const tools = [...baseTools, ...growthTools];
 const errors = [];
 
 const imageSitemapSource = fs.readFileSync(
@@ -19,8 +22,8 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 24) {
-  errors.push(`Expected 24 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 38) {
+  errors.push(`Expected 38 Discover images, found ${manifest.length}.`);
 }
 
 const paths = new Set();
@@ -61,6 +64,14 @@ for (const image of manifest) {
   const header = fs.readFileSync(filePath, { start: 0, end: 11 });
   if (header.subarray(0, 4).toString('ascii') !== 'RIFF' || header.subarray(8, 12).toString('ascii') !== 'WEBP') {
     errors.push(`Image is not a valid WebP container: ${image.src}`);
+  }
+}
+
+for (const tool of tools) {
+  const isLive = tool.status !== 'draft' && tool.status !== 'hidden';
+  const calculatorPath = `/tools/${tool.slug}`;
+  if (isLive && !paths.has(calculatorPath)) {
+    errors.push(`Live calculator is missing a Discover image: ${calculatorPath}`);
   }
 }
 
