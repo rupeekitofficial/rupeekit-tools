@@ -1,6 +1,5 @@
 import { Parser } from 'expr-eval';
 import { getLiveTools, getToolBySlug, type Tool } from '@/lib/tools';
-import { isAdvancedCalculator } from '@/lib/advanced-calculators';
 
 const parser = new Parser({
   operators: {
@@ -21,12 +20,13 @@ export class CalculatorApiError extends Error {
 }
 
 function publicDefinition(tool: Tool) {
+  const defaultInputs = Object.fromEntries(tool.inputs.map((input) => [input.key, input.default]));
   return {
     slug: tool.slug,
     name: tool.name,
     description: tool.shortDescription,
     category: tool.category,
-    inputs: tool.inputs,
+    inputs: tool.inputs.map((input) => ({ ...input, required: false })),
     outputs: tool.outputs.map(({ formula: _formula, ...output }) => output),
     formulaExplanation: tool.formulaExplanation,
     assumptions: tool.assumptions ?? [],
@@ -34,22 +34,24 @@ function publicDefinition(tool: Tool) {
     calculatorUrl: `${SITE_URL}/tools/${tool.slug}`,
     apiUrl: `${SITE_URL}/api/v1/calculators/${tool.slug}`,
     officialSources: tool.officialSources ?? [],
+    exampleRequest: { inputs: defaultInputs },
+    responseIncludes: ['inputs', 'outputs', 'methodology', 'assumptions', 'sources', 'disclaimer', 'privacy'],
   };
 }
 
 export function listPublicCalculators() {
-  return getLiveTools().filter((tool) => !isAdvancedCalculator(tool.slug)).map(publicDefinition);
+  return getLiveTools().map(publicDefinition);
 }
 
 export function getPublicCalculator(slug: string) {
   const tool = getToolBySlug(slug);
-  if (!tool || isAdvancedCalculator(tool.slug)) throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
+  if (!tool) throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
   return publicDefinition(tool);
 }
 
 export function calculate(slug: string, suppliedInputs: unknown) {
   const tool = getToolBySlug(slug);
-  if (!tool || isAdvancedCalculator(tool.slug)) throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
+  if (!tool) throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
   if (suppliedInputs === null || typeof suppliedInputs !== 'object' || Array.isArray(suppliedInputs)) {
     throw new CalculatorApiError(400, 'invalid_inputs', 'inputs must be a JSON object containing numeric values.');
   }
@@ -95,6 +97,8 @@ export function calculate(slug: string, suppliedInputs: unknown) {
     inputs,
     outputs,
     methodology: tool.formulaExplanation,
+    example: tool.example,
+    quickAnswer: tool.quickAnswer ?? null,
     assumptions: tool.assumptions ?? [],
     lastReviewed: tool.lastReviewedIso ?? tool.lastReviewed ?? null,
     sources: [
