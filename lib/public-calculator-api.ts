@@ -1,5 +1,6 @@
 import { Parser } from 'expr-eval';
 import { getLiveTools, getToolBySlug, type Tool } from '@/lib/tools';
+import { isAdvancedCalculator } from '@/lib/advanced-calculators';
 
 const parser = new Parser({
   operators: {
@@ -37,18 +38,18 @@ function publicDefinition(tool: Tool) {
 }
 
 export function listPublicCalculators() {
-  return getLiveTools().map(publicDefinition);
+  return getLiveTools().filter((tool) => !isAdvancedCalculator(tool.slug)).map(publicDefinition);
 }
 
 export function getPublicCalculator(slug: string) {
   const tool = getToolBySlug(slug);
-  if (!tool) throw new CalculatorApiError(404, 'calculator_not_found', `No live calculator found for slug: ${slug}`);
+  if (!tool || isAdvancedCalculator(tool.slug)) throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
   return publicDefinition(tool);
 }
 
 export function calculate(slug: string, suppliedInputs: unknown) {
   const tool = getToolBySlug(slug);
-  if (!tool) throw new CalculatorApiError(404, 'calculator_not_found', `No live calculator found for slug: ${slug}`);
+  if (!tool || isAdvancedCalculator(tool.slug)) throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
   if (suppliedInputs === null || typeof suppliedInputs !== 'object' || Array.isArray(suppliedInputs)) {
     throw new CalculatorApiError(400, 'invalid_inputs', 'inputs must be a JSON object containing numeric values.');
   }
