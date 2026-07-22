@@ -521,6 +521,10 @@ export const blogPosts: BlogPost[] = [
       question: 'What is the difference between saving and investing in India?',
       answer: 'Saving means keeping money in safe, liquid instruments (FDs, savings accounts, liquid funds) for goals within 1 to 3 years — the priority is capital safety. Investing means buying assets like equity mutual funds or gold that can grow over 5 to 10 or more years at the cost of short-term market risk. Most financial plans need both: save for near-term goals and emergencies, invest for retirement and long-term wealth.',
       example: 'Rs 1,00,000 at 6% inflation loses purchasing power to Rs 55,800 in 10 years. The same amount invested at 12% CAGR grows to Rs 3,10,584.',
+      links: [
+        { label: 'SIP Rs 2,000/month for 20 years — see the corpus', href: '/tools/sip-calculator-india?amount=2000&years=20' },
+        { label: 'SIP Rs 10,000/month for 15 years — see the corpus', href: '/tools/sip-calculator-india?amount=10000&years=15' },
+      ],
     },
     answerEngineSummary: 'This guide explains when to save versus invest in India: saving suits goals under 3 years where capital safety is essential, investing suits goals of 5 or more years where growth is the priority. It covers inflation risk, risk tolerance, and recommends keeping emergency funds and short-term goals in FDs or liquid funds while directing retirement and long-term goals to equity SIPs.',
     relatedCalculators: ['sip-calculator-india', 'fd-calculator-india'],
@@ -1860,6 +1864,11 @@ export const blogPosts: BlogPost[] = [
       answer: 'To start investing in mutual funds in India: (1) Complete KYC using your PAN and Aadhaar (one-time, free, online). (2) Choose a platform — Groww, Kuvera, Zerodha Coin, or MF Central. (3) Pick a fund — for beginners, a large-cap index fund (Nifty 50) is the safest starting point. (4) Start a SIP of as little as Rs 500/month. First investment can be live within 30 minutes.',
       formula: 'SIP Return = Monthly SIP × ((1+r)^n − 1) / r, where r = monthly return rate, n = months',
       example: 'Rs 5,000/month SIP for 15 years at 12% CAGR builds approximately Rs 25 lakh. Use our SIP calculator to see your own numbers.',
+      links: [
+        { label: 'SIP Rs 2,000/month for 20 years — see the corpus', href: '/tools/sip-calculator-india?amount=2000&years=20' },
+        { label: 'SIP Rs 3,000/month for 15 years — see the corpus', href: '/tools/sip-calculator-india?amount=3000&years=15' },
+        { label: 'SIP Rs 10,000/month for 15 years — see the corpus', href: '/tools/sip-calculator-india?amount=10000&years=15' },
+      ],
     },
     answerEngineSummary: 'Mutual funds pool money from many investors to invest in stocks, bonds or gold — managed by professional fund managers. In India, they are regulated by SEBI. Beginners should start with an index fund (e.g., Nifty 50) via SIP, choose direct plans for lower costs, and invest through platforms like Groww, Kuvera or Zerodha Coin.',
     sections: [
