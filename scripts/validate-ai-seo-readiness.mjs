@@ -36,7 +36,10 @@ function readJson(...segments) {
   return JSON.parse(readText(...segments));
 }
 
-const tools = readJson('data', 'tools.json');
+const tools = [
+  ...readJson('data', 'tools.json'),
+  ...readJson('data', 'growth-tools.json'),
+];
 const toolBySlug = new Map(tools.map((tool) => [tool.slug, tool]));
 
 const toolPageSource = readText('app', 'tools', '[slug]', 'page.tsx');
@@ -48,8 +51,13 @@ const blogFaqSectionSource = readText('components', 'blog', 'FAQSection.tsx');
 const factsTableSource = readText('components', 'seo', 'FactsTable.tsx');
 const sipCalculatorSource = readText('components', 'sip', 'SipPlannerCalculator.tsx');
 const dedicatedIncomeTaxToolSource = readText('app', 'tools', 'income-tax-calculator-old-vs-new-regime-india', 'page.tsx');
+const rootLayoutSource = readText('app', 'layout.tsx');
+const guidePageSource = readText('app', 'guides', '[slug]', 'page.tsx');
+const robotsSource = readText('app', 'robots.ts');
 const sitemapSource = readText('app', 'sitemap.ts');
 const blogDataSource = readText('data', 'blog-posts.ts');
+const llmsFullRouteSource = readText('app', 'llms-full.txt', 'route.ts');
+const llmsFullCatalogSource = readText('lib', 'seo', 'llms-full.ts');
 const llmsTxtPath = path.join(root, 'public', 'llms.txt');
 const llmsTxtSource = fs.existsSync(llmsTxtPath) ? fs.readFileSync(llmsTxtPath, 'utf8') : '';
 
@@ -218,6 +226,54 @@ ensure(
   'public/llms.txt should include the SIP calculator URL'
 );
 
+for (const tool of tools.filter((item) => item.status === 'live')) {
+  ensure(
+    llmsTxtSource.includes(`https://www.rupeekit.co.in/tools/${tool.slug}`),
+    `public/llms.txt is missing live calculator URL: ${tool.slug}`
+  );
+}
+
+ensure(
+  llmsTxtSource.includes('https://www.rupeekit.co.in/llms-full.txt'),
+  'public/llms.txt should link to the full machine-readable catalog'
+);
+ensure(
+  llmsFullRouteSource.includes('buildLlmsFullCatalog')
+    && llmsFullRouteSource.includes("'Content-Type': 'text/plain; charset=utf-8'"),
+  'llms-full.txt route should return the generated catalog as plain text'
+);
+ensure(
+  llmsFullCatalogSource.includes('getLiveTools')
+    && llmsFullCatalogSource.includes('calculatorGuides')
+    && llmsFullCatalogSource.includes('blogPosts')
+    && llmsFullCatalogSource.includes('financialUpdates'),
+  'Full content catalog must derive calculators, guides, articles, and explainers from source data'
+);
+
+ensure(
+  rootLayoutSource.includes('"@graph"')
+    && rootLayoutSource.includes('"@type": "Organization"')
+    && rootLayoutSource.includes('"@type": "WebSite"')
+    && rootLayoutSource.includes('/#organization')
+    && rootLayoutSource.includes('/#website'),
+  'Root JSON-LD should define linked Organization and WebSite entities'
+);
+ensure(
+  guidePageSource.includes("inLanguage: 'en-IN'")
+    && guidePageSource.includes('citation: cluster.sources.map')
+    && guidePageSource.includes("isPartOf: { '@id': `${SITE_URL}/#website` }"),
+  'Guide Article schema should identify language, site entity, and visible primary-source citations'
+);
+ensure(
+  toolPageSource.includes("browserRequirements: 'Requires a JavaScript-enabled web browser.'")
+    && toolPageSource.includes("publisher: {\n      '@id': `${SITE_URL}/#organization`,"),
+  'Calculator WebApplication schema should link to the site publisher and state browser requirements'
+);
+ensure(
+  robotsSource.includes('disallow: "/api/"'),
+  'robots.txt generation should keep internal API routes out of crawl paths'
+);
+
 ensure(
   toolPageSource.includes('@type\': \'FAQPage\'') && toolPageSource.includes('tool.faqs.map((faq) =>'),
   'Tool FAQPage schema should be generated from visible tool.faqs'
@@ -252,6 +308,11 @@ ensure(
 ensure(
   dedicatedIncomeTaxToolSource.includes('const faqSchema = faqs.length > 0 ?'),
   'Dedicated income-tax FAQPage schema must be conditional on visible FAQs'
+);
+ensure(
+  dedicatedIncomeTaxToolSource.includes("inLanguage: 'en-IN'")
+    && dedicatedIncomeTaxToolSource.includes("publisher: { '@id': `${SITE_URL}/#organization` }"),
+  'Dedicated income-tax WebApplication schema should link to the site publisher and identify language'
 );
 ensure(
   [...dedicatedIncomeTaxToolSource.matchAll(/question:\s*'[^']+'/g)].length >= 8,
@@ -303,6 +364,16 @@ for (const pagePath of priorityPaths) {
   ensure(sitemapPaths.has(pagePath), `Priority path missing from sitemap derivation: ${pagePath}`);
 }
 ensure(staticRoutes.has(''), 'Homepage root route is missing from sitemap staticRoutes');
+ensure(
+  !sitemapSource.includes("route === '' ? new Date()"),
+  'Homepage sitemap lastModified must be derived from real content dates, not generation time'
+);
+ensure(
+  sitemapSource.includes("['', latestSiteDate]")
+    && sitemapSource.includes("['/tools', latestToolDate]")
+    && sitemapSource.includes("['/guides', latestGuideDate]"),
+  'Sitemap hubs should use the newest verifiable date from their underlying content'
+);
 
 for (const slug of PRIORITY_BLOG_SLUGS) {
   ensure(blogSlugs.has(slug), `Priority blog slug missing from data/blog-posts.ts: ${slug}`);
@@ -346,6 +417,13 @@ ensure(
 ensure(
   blogPageSource.includes("'@type': 'Article'"),
   'Blog page is missing Article schema'
+);
+ensure(
+  blogPageSource.includes("mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl }")
+    && blogPageSource.includes("inLanguage: 'en-IN'")
+    && blogPageSource.includes('citation: post.officialSources.map')
+    && blogPageSource.includes("isPartOf: { '@id': `${siteUrl}/#website` }"),
+  'Blog Article schema should identify the canonical page, language, site entity, and visible citations'
 );
 
 ensure(

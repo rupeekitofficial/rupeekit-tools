@@ -10,6 +10,7 @@ export default function SiteHeader() {
   const navLinks = [
     { name: 'Tools', href: '/tools' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Guides', href: '/guides' },
     { name: 'Resources', href: '/resources' },
     { name: 'Start Here', href: '/start-here' },
   ];

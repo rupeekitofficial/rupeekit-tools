@@ -1,4 +1,5 @@
 import tools from '../data/tools.json';
+import growthTools from '../data/growth-tools.json';
 
 export type ToolInput = {
   key: string;
@@ -16,6 +17,7 @@ export type ToolOutput = {
   label: string;
   formula: string;
   format: 'currency' | 'number' | 'percent';
+  hidden?: boolean;
 };
 
 export type ToolFaq = {
@@ -44,6 +46,11 @@ export type ToolQuickAnswer = {
   links?: ToolQuickAnswerLink[];
 };
 
+export type ToolOfficialSource = {
+  label: string;
+  href: string;
+};
+
 export type Tool = {
   slug: string;
   name: string;
@@ -67,9 +74,11 @@ export type Tool = {
   contentSections?: ToolContentSection[];
   quickAnswer?: ToolQuickAnswer;
   lastReviewed?: string;
+  lastReviewedIso?: string;
+  officialSources?: ToolOfficialSource[];
 };
 
-export const allTools = tools as Tool[];
+export const allTools = [...tools, ...growthTools] as Tool[];
 
 export function getLiveTools(): Tool[] {
   return allTools.filter((tool) => tool.status === 'live');

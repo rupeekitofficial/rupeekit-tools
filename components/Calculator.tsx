@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Parser } from 'expr-eval';
 import type { Tool } from '@/lib/tools';
 
@@ -75,24 +75,6 @@ function StandardCalculator({ tool }: { tool: Tool }) {
 
   const [values, setValues] = useState<Record<string, number | ''>>(initialValues);
 
-  const isGoldLoan = tool.slug === 'gold-loan-calculator-india';
-  const [goldPriceSource, setGoldPriceSource] = useState<'live' | 'default' | 'loading'>(
-    isGoldLoan ? 'loading' : 'default'
-  );
-
-  useEffect(() => {
-    if (!isGoldLoan) return;
-    fetch('/api/gold-price')
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.pricePerGram24k) {
-          setValues((prev) => ({ ...prev, pricePerGram24k: data.pricePerGram24k }));
-        }
-        setGoldPriceSource(data.source ?? 'default');
-      })
-      .catch(() => setGoldPriceSource('default'));
-  }, [isGoldLoan]);
-
   const numericValues = useMemo(() => {
     const next: Record<string, number> = {};
     for (const [k, v] of Object.entries(values)) {
@@ -113,6 +95,11 @@ function StandardCalculator({ tool }: { tool: Tool }) {
       }
     });
   }, [tool.outputs, numericValues]);
+
+  const visibleResults = useMemo(
+    () => results.filter((result) => !result.hidden),
+    [results]
+  );
 
   const hasChart = useMemo(() => {
     return [
@@ -185,12 +172,17 @@ function StandardCalculator({ tool }: { tool: Tool }) {
     const monthlyEmi = Number.isFinite(resultMap.get('monthlyEmi')?.value)
       ? resultMap.get('monthlyEmi')!.value
       : fallbackEmi;
-    const emiToIncomePercent = Number.isFinite(resultMap.get('emiToIncomePercent')?.value)
-      ? resultMap.get('emiToIncomePercent')!.value
-      : (monthlyEmi / Math.max(monthlyIncome, 1)) * 100;
-    const totalEmiBurdenPercent = Number.isFinite(resultMap.get('totalEmiBurdenPercent')?.value)
-      ? resultMap.get('totalEmiBurdenPercent')!.value
-      : ((monthlyEmi + existingMonthlyEmi) / Math.max(monthlyIncome, 1)) * 100;
+    const hasMonthlyIncome = monthlyIncome > 0;
+    const emiToIncomePercent = hasMonthlyIncome
+      ? Number.isFinite(resultMap.get('emiToIncomePercent')?.value)
+        ? resultMap.get('emiToIncomePercent')!.value
+        : (monthlyEmi / monthlyIncome) * 100
+      : 0;
+    const totalEmiBurdenPercent = hasMonthlyIncome
+      ? Number.isFinite(resultMap.get('totalEmiBurdenPercent')?.value)
+        ? resultMap.get('totalEmiBurdenPercent')!.value
+        : ((monthlyEmi + existingMonthlyEmi) / monthlyIncome) * 100
+      : 0;
 
     return {
       monthlyEmi,
@@ -479,21 +471,6 @@ function StandardCalculator({ tool }: { tool: Tool }) {
                   className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base font-semibold outline-none transition focus:border-brandNavy focus:bg-white focus:ring-4 focus:ring-brandNavy/10"
                 />
                 {input.help ? <span className="mt-2 block text-xs leading-5 text-slate-500">{input.help}</span> : null}
-                {isGoldLoan && input.key === 'pricePerGram24k' && (
-                  <span className={`mt-1.5 inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                    goldPriceSource === 'live'
-                      ? 'bg-green-100 text-green-700'
-                      : goldPriceSource === 'loading'
-                      ? 'bg-slate-100 text-slate-400'
-                      : 'bg-amber-100 text-amber-700'
-                  }`}>
-                    {goldPriceSource === 'live'
-                      ? '● Live price'
-                      : goldPriceSource === 'loading'
-                      ? '⋯ Fetching price…'
-                      : '○ Showing default'}
-                  </span>
-                )}
               </label>
             ))}
           </div>
@@ -503,7 +480,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
           <div>
             <h2 className="text-xl font-bold text-brandDeepNavy">Estimated results</h2>
             <div className="mt-6">
-              <CalculatorResultSummary results={results} />
+              <CalculatorResultSummary results={visibleResults} />
             </div>
 
             {hraEstimateSummary ? (
@@ -562,10 +539,16 @@ function StandardCalculator({ tool }: { tool: Tool }) {
                 <p className="font-semibold text-emerald-900">Based on your inputs:</p>
                 <ul className="mt-2 list-disc space-y-1 pl-5">
                   <li>Estimated monthly EMI: {formatValue(personalLoanSummary.monthlyEmi, 'currency')}</li>
-                  <li>Monthly income used: {formatValue(personalLoanSummary.monthlyIncome, 'currency')}</li>
-                  <li>Existing monthly EMI: {formatValue(personalLoanSummary.existingMonthlyEmi, 'currency')}</li>
-                  <li>EMI as % of income: {formatValue(personalLoanSummary.emiToIncomePercent, 'percent')}</li>
-                  <li>Total EMI burden: {formatValue(personalLoanSummary.totalEmiBurdenPercent, 'percent')}</li>
+                  {personalLoanSummary.monthlyIncome > 0 ? (
+                    <>
+                      <li>Monthly income used: {formatValue(personalLoanSummary.monthlyIncome, 'currency')}</li>
+                      <li>Existing monthly EMI: {formatValue(personalLoanSummary.existingMonthlyEmi, 'currency')}</li>
+                      <li>EMI as % of income: {formatValue(personalLoanSummary.emiToIncomePercent, 'percent')}</li>
+                      <li>Total EMI burden: {formatValue(personalLoanSummary.totalEmiBurdenPercent, 'percent')}</li>
+                    </>
+                  ) : (
+                    <li>Add monthly income to calculate EMI affordability and total EMI burden.</li>
+                  )}
                 </ul>
               </div>
             ) : null}
@@ -736,4 +719,3 @@ function StandardCalculator({ tool }: { tool: Tool }) {
     </div>
   );
 }
-

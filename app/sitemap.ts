@@ -3,6 +3,7 @@ import { getLiveTools } from '@/lib/tools';
 import { blogPosts } from '@/data/blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 import { governmentSalaryUpdates } from '@/data/government-salary-updates';
+import { calculatorGuides } from '@/data/calculator-guides';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
 
@@ -21,8 +22,58 @@ function resolveToolLastModified(lastReviewed?: string): Date {
   return parseIsoDate(trimmed) ?? STATIC_LAST_MODIFIED;
 }
 
+function latestDate(dates: Date[], fallback = STATIC_LAST_MODIFIED): Date {
+  if (dates.length === 0) return fallback;
+  return new Date(Math.max(...dates.map((date) => date.getTime())));
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
+  const liveTools = getLiveTools();
+  const indexableGovernmentUpdates = governmentSalaryUpdates.filter((update) => update.status !== 'sample');
+
+  const toolDates = liveTools.map((tool) =>
+    resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed)
+  );
+  const guideDates = calculatorGuides.map(
+    (guide) => parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED
+  );
+  const blogDates = blogPosts.map(
+    (post) =>
+      parseIsoDate(post.modifiedDateISO) ??
+      parseIsoDate(post.publishedDateISO) ??
+      STATIC_LAST_MODIFIED
+  );
+  const financialUpdateDates = financialUpdates.map(
+    (update) =>
+      parseIsoDate((update as { modifiedDate?: string }).modifiedDate) ??
+      parseIsoDate(update.publishedDate) ??
+      STATIC_LAST_MODIFIED
+  );
+  const governmentUpdateDates = indexableGovernmentUpdates.map(
+    (update) =>
+      parseIsoDate((update as { modifiedDate?: string }).modifiedDate) ??
+      parseIsoDate(update.publishedDate) ??
+      STATIC_LAST_MODIFIED
+  );
+
+  const latestToolDate = latestDate(toolDates);
+  const latestGuideDate = latestDate(guideDates);
+  const latestBlogDate = latestDate(blogDates);
+  const latestFinancialUpdateDate = latestDate(financialUpdateDates);
+  const latestGovernmentUpdateDate = latestDate(governmentUpdateDates);
+  const latestUpdateDate = latestDate([
+    ...financialUpdateDates,
+    ...governmentUpdateDates,
+  ]);
+  const latestSiteDate = latestDate([
+    ...toolDates,
+    ...guideDates,
+    ...blogDates,
+    ...financialUpdateDates,
+    ...governmentUpdateDates,
+  ]);
+
   const staticRoutes = [
     '',
     '/tools',
@@ -32,7 +83,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/terms',
     '/disclaimer',
     '/blog',
+    '/guides',
     '/resources',
+    '/api-docs',
     '/affiliate-disclosure',
     '/money-health-check',
     '/resources/30-day-budget-challenge',
@@ -43,13 +96,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/updates',
   ];
 
-  const hubRoutes = new Set(['/blog', '/tools']);
+  const staticRouteLastModified = new Map<string, Date>([
+    ['', latestSiteDate],
+    ['/tools', latestToolDate],
+    ['/guides', latestGuideDate],
+    ['/blog', latestBlogDate],
+    ['/financial-updates', latestFinancialUpdateDate],
+    ['/government-salary-updates', latestGovernmentUpdateDate],
+    ['/updates', latestUpdateDate],
+  ]);
+
+  const hubRoutes = new Set(['/blog', '/tools', '/guides']);
   const lowPriorityRoutes = new Set(['/privacy-policy', '/terms', '/disclaimer', '/affiliate-disclosure']);
 
   return [
     ...staticRoutes.map((route) => ({
       url: `${baseUrl}${route}`,
-      lastModified: route === '' ? new Date() : STATIC_LAST_MODIFIED,
+      lastModified: staticRouteLastModified.get(route) ?? STATIC_LAST_MODIFIED,
       changeFrequency: (
         route === '' ? 'daily' :
         hubRoutes.has(route) ? 'weekly' :
@@ -61,8 +124,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lowPriorityRoutes.has(route) ? 0.3 :
         0.5,
     })),
-    ...getLiveTools().map((tool) => {
-      const lastModified = resolveToolLastModified(tool.lastReviewed);
+    ...liveTools.map((tool) => {
+      const lastModified = resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed);
       return {
         url: `${baseUrl}/tools/${tool.slug}`,
         lastModified,
@@ -70,6 +133,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       };
     }),
+    ...calculatorGuides.map((guide) => ({
+      url: `${baseUrl}/guides/${guide.slug}`,
+      lastModified: parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
     ...blogPosts.map((post) => {
       const lastModified =
         parseIsoDate(post.modifiedDateISO) ??
@@ -94,8 +163,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       };
     }),
-    ...governmentSalaryUpdates
-      .filter((u) => u.status !== 'sample')
+    ...indexableGovernmentUpdates
       .map((u) => {
         const lastModified =
           parseIsoDate((u as { modifiedDate?: string }).modifiedDate) ??
@@ -110,4 +178,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
   ];
 }
-

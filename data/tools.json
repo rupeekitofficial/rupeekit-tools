@@ -195,12 +195,12 @@
     {
     "slug": "personal-loan-emi-calculator-india",
     "name": "Personal Loan EMI Calculator India",
-    "seoTitle": "Free Personal Loan EMI Calculator India 2026 — Calculate Now",
+    "seoTitle": "Personal Loan EMI Calculator 2026 | EMI, Fees & Total Cost",
     "category": "Loans",
     "status": "live",
     "targetKeyword": "personal loan emi calculator",
     "shortDescription": "Use this personal loan EMI calculator to estimate monthly EMI, true borrowing cost, total interest, and repayment outcomes before applying.",
-    "metaDescription": "Calculate personal loan EMI in India, compare tenure impact, true cost with fees and GST, prepayment scenarios, and affordability indicators.",
+    "metaDescription": "Calculate personal loan EMI, interest, processing fee, GST and total repayment in India. Compare tenure and check affordability before applying.",
     "inputs": [
       {
         "key": "principal",
@@ -361,13 +361,13 @@
       {
         "key": "emiToIncomePercent",
         "label": "EMI as % of income",
-        "formula": "(principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) / max(monthlyIncome, 1) * 100",
+        "formula": "(principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) / max(monthlyIncome, 1) * 100 * min(monthlyIncome, 1)",
         "format": "percent"
       },
       {
         "key": "totalEmiBurdenPercent",
         "label": "Total EMI burden",
-        "formula": "((principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) + existingMonthlyEmi) / max(monthlyIncome, 1) * 100",
+        "formula": "((principal * (annualInterestRate / 12 / 100) * (1 + annualInterestRate / 12 / 100) ^ tenureMonths / ((1 + annualInterestRate / 12 / 100) ^ tenureMonths - 1)) + existingMonthlyEmi) / max(monthlyIncome, 1) * 100 * min(monthlyIncome, 1)",
         "format": "percent"
       }
     ],
@@ -519,12 +519,12 @@
   {
     "slug": "emergency-fund-calculator-india",
     "name": "Emergency Fund Calculator India",
-    "seoTitle": "Free Emergency Fund Calculator India 2026 — Find Your Target",
+    "seoTitle": "Emergency Fund Calculator India 2026 | Include EMIs",
     "category": "Savings",
     "status": "live",
     "targetKeyword": "emergency fund calculator",
     "shortDescription": "Find out how much emergency fund your household may need in India. Use your essential monthly expenses, EMI burden and income stability to estimate a 3, 6, 9 or 12 month safety corpus and the monthly savings needed to build it.",
-    "metaDescription": "Estimate how much emergency fund you need in India based on expenses, EMIs, dependants and income stability. Plan a 3, 6, 9 or 12 month safety corpus.",
+    "metaDescription": "Calculate a 3, 6, 9 or 12-month emergency fund from essential expenses and home, personal or car-loan EMIs. See your shortfall and savings plan.",
     "inputs": [
       {
         "key": "monthlyEssentialExpenses",
@@ -564,6 +564,26 @@
         "help": "Use 3, 6, 9 or 12 depending on income stability and dependants."
       },
       {
+        "key": "dependantBufferMonths",
+        "label": "Extra buffer for dependants",
+        "unit": "months",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "help": "Add a planning buffer when children, parents or other family members depend on the same income."
+      },
+      {
+        "key": "incomeRiskBufferMonths",
+        "label": "Extra buffer for income risk",
+        "unit": "months",
+        "default": 2,
+        "min": 0,
+        "max": 6,
+        "step": 1,
+        "help": "Add more months for freelance, commission, business, single-income or uncertain employment."
+      },
+      {
         "key": "monthlySavingCapacity",
         "label": "Monthly saving capacity",
         "unit": "Rs",
@@ -593,6 +613,24 @@
         "key": "targetEmergencyFund",
         "label": "Target emergency fund",
         "formula": "(monthlyEssentialExpenses + monthlyEmiCommitments) * targetMonths",
+        "format": "currency"
+      },
+      {
+        "key": "riskAdjustedMonths",
+        "label": "Risk-adjusted target months",
+        "formula": "min(targetMonths + dependantBufferMonths + incomeRiskBufferMonths, 12)",
+        "format": "number"
+      },
+      {
+        "key": "riskAdjustedTarget",
+        "label": "Risk-adjusted emergency fund",
+        "formula": "(monthlyEssentialExpenses + monthlyEmiCommitments) * riskAdjustedMonths",
+        "format": "currency"
+      },
+      {
+        "key": "riskAdjustedShortfall",
+        "label": "Risk-adjusted shortfall",
+        "formula": "max(riskAdjustedTarget - currentEmergencySavings, 0)",
         "format": "currency"
       },
       {
@@ -638,8 +676,8 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "This emergency savings calculator estimates your monthly survival cost as essential expenses plus EMI commitments. It then multiplies that number by your selected month target (3, 6, 9 or 12) to calculate the target emergency fund corpus.",
-    "example": "If monthly essential expenses are Rs 30,000 and EMI commitments are Rs 10,000, monthly survival cost becomes Rs 40,000. A 6 month emergency fund target is Rs 2,40,000. If current emergency savings are Rs 50,000, shortfall is Rs 1,90,000. At Rs 10,000 monthly saving capacity, it may take about 19 months to reach the target.",
+    "formulaExplanation": "This emergency savings calculator estimates monthly survival cost as essential expenses plus EMI commitments. It multiplies that amount by the selected baseline months, then adds optional dependant and income-risk buffer months up to a 12-month planning cap.",
+    "example": "If essential expenses are Rs 30,000 and EMIs are Rs 10,000, monthly survival cost is Rs 40,000. A 6-month baseline is Rs 2,40,000. Adding one dependant month and two income-risk months creates a 9-month risk-adjusted target of Rs 3,60,000.",
     "quickAnswer": {
       "title": "Emergency Fund Quick Answer",
       "question": "How much emergency fund should I have in India?",
@@ -701,6 +739,7 @@
       "Add your monthly EMI commitments.",
       "Enter current emergency savings already available.",
       "Select a target such as 3, 6, 9 or 12 months.",
+      "Add optional buffer months for dependants and income uncertainty.",
       "Enter monthly saving capacity to estimate months needed.",
       "Optionally add an inflation/top-up buffer for planning."
     ],
@@ -775,20 +814,21 @@
       },
       {
         "heading": "Source and Methodology",
-        "body": "This calculator estimates emergency fund needs using monthly essential expenses, EMI commitments, current emergency savings, target months and monthly saving capacity. It is designed for household planning support and does not recommend any specific financial product."
+        "body": "This calculator estimates emergency fund needs using monthly essential expenses, EMI commitments, current emergency savings, baseline target months, dependant buffer, income-risk buffer and monthly saving capacity. It is designed for household planning support and does not recommend any specific financial product."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
   },
   {
     "slug": "sip-calculator-india",
     "name": "SIP Calculator India",
-    "seoTitle": "Free SIP Calculator India 2026 — Estimate SIP Returns & Corpus",
+    "seoTitle": "SIP Calculator India 2026 | Step-Up, Goal & Delay Cost",
     "category": "Investments",
     "status": "live",
     "targetKeyword": "sip calculator india",
     "shortDescription": "Plan SIP goals with regular SIP, step-up SIP, goal SIP, delay cost, milestones and inflation-adjusted estimates.",
-    "metaDescription": "Free SIP calculator for India. Estimate returns on regular, step-up and goal-based SIPs with inflation-adjusted corpus, delay cost and milestone tracking. Plan now.",
+    "metaDescription": "Estimate regular, step-up and goal-based SIP returns with inflation-adjusted corpus, delay cost and milestone tracking. Plan your SIP in India.",
     "inputs": [
       {
         "key": "monthlyInvestment",
@@ -957,7 +997,7 @@
     "status": "live",
     "targetKeyword": "gst calculator india",
     "shortDescription": "Calculate GST amount and final invoice value by adding or removing GST from a price.",
-    "metaDescription": "Free GST calculator for India. Instantly add or remove 5%, 12%, 18% or 28% GST from any invoice value and calculate CGST, SGST and total GST payable. Calculate now.",
+    "metaDescription": "Add or remove 5%, 12%, 18% or 28% GST from any invoice value and calculate CGST, SGST and total GST payable with this India GST calculator.",
     "inputs": [
       {
         "key": "taxableAmount",
@@ -1025,12 +1065,12 @@
   {
     "slug": "fd-calculator-india",
     "name": "FD Calculator India",
-    "seoTitle": "Free FD Calculator India 2026 — Estimate FD Maturity & Interest",
+    "seoTitle": "FD Calculator India 2026 | ₹1 Lakh Maturity & Interest",
     "category": "Savings",
     "status": "live",
     "targetKeyword": "fd calculator india",
     "shortDescription": "Estimate fixed deposit maturity amount and interest earned using deposit amount, interest rate and tenure.",
-    "metaDescription": "Free FD calculator for India. Estimate fixed deposit maturity amount and interest earned using rate, tenure and compounding frequency.",
+    "metaDescription": "Calculate FD maturity and interest for any deposit, including 444-day FDs. Enter amount, rate, tenure and compounding frequency; no live bank rates.",
     "inputs": [
       {
         "key": "principal",
@@ -1315,12 +1355,12 @@
   {
     "slug": "hra-exemption-calculator-india",
     "name": "HRA Exemption Calculator India",
-    "seoTitle": "Free HRA Exemption Calculator India 2026 — Save Tax on Rent",
+    "seoTitle": "HRA Calculator FY 2026-27 | Rule 279 & 50% City Check",
     "category": "Tax",
     "status": "live",
     "targetKeyword": "HRA exemption calculator India",
     "shortDescription": "Calculate your likely HRA exemption under Rule 279 in seconds. Enter your salary, HRA, rent, and city type to compare the three legal limits and estimate how much HRA can stay tax-exempt under the old regime. Includes FY 2026-27 metro-city rules, a worked example, and a document checklist.",
-    "metaDescription": "Calculate HRA exemption under the old tax regime using 2026 city rules. Compare actual HRA, rent minus 10% of salary, and 50% or 40% salary caps.",
+    "metaDescription": "Calculate HRA exemption under Rule 279. Check the 50% city list and compare actual HRA, rent minus 10% of salary, and old-regime exempt HRA.",
     "inputs": [
       {
         "key": "basicSalary",
@@ -1513,7 +1553,8 @@
         ]
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-16"
   },
   {
     "slug": "80c-deduction-calculator-india",
@@ -1523,7 +1564,7 @@
     "status": "live",
     "targetKeyword": "80C deduction calculator India",
     "shortDescription": "Estimate your potential tax savings under Section 80C with RupeeKit's calculator. Maximize deductions from EPF, PPF, ELSS, home loan principal, and more.",
-    "metaDescription": "Free 80C deduction calculator for India. Estimate annual tax savings from EPF, PPF, ELSS, life insurance and other eligible investments under Section 80C. Plan now.",
+    "metaDescription": "Estimate annual Section 80C tax savings from EPF, PPF, ELSS, life insurance and other eligible investments with this India 80C calculator.",
     "inputs": [
       {
         "key": "epfContribution",
@@ -3920,7 +3961,7 @@
     "status": "live",
     "targetKeyword": "sukanya samriddhi calculator 2026",
     "shortDescription": "Calculate the maturity amount of a Sukanya Samriddhi Yojana (SSY) account based on the girl child's age, annual deposit amount and the current SSY interest rate.",
-    "metaDescription": "Sukanya Samriddhi Yojana (SSY) calculator India — estimate the maturity corpus, total interest and 80C savings for your daughter's SSY account. Free SSY calculator.",
+    "metaDescription": "Estimate Sukanya Samriddhi Yojana maturity corpus, total interest and 80C savings for your daughter's SSY account with this India calculator.",
     "inputs": [
       {
         "key": "girlAge",
@@ -4298,4 +4339,3 @@
     "lastReviewed": "July 2026"
   }
 ]
-

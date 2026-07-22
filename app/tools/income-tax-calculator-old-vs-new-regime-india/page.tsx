@@ -3,7 +3,9 @@ import Link from 'next/link';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
 import { TaxCalculatorApp } from '@/components/tax/TaxCalculatorApp';
+import { getDiscoverImage } from '@/data/discover-images';
 import { calculateIndianIncomeTax, type TaxInput } from '@/lib/tax/calculator';
 import { availableTaxYears, indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
 
@@ -11,6 +13,8 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in
 const TARGET_FY = '2025-26';
 const TARGET_AY = '2026-27';
 const PAGE_URL = `${SITE_URL}/tools/income-tax-calculator-old-vs-new-regime-india`;
+const DISCOVER_IMAGE = getDiscoverImage('/tools/income-tax-calculator-old-vs-new-regime-india');
+const DISCOVER_IMAGE_URL = DISCOVER_IMAGE ? `${SITE_URL}${DISCOVER_IMAGE.src}` : undefined;
 
 const latestSupportedFy = availableTaxYears[0];
 const latestSupportedRules = indiaIncomeTaxRules[latestSupportedFy];
@@ -201,11 +205,24 @@ export const metadata: Metadata = {
     siteName: 'RupeeKit',
     type: 'article',
     locale: 'en_IN',
+    ...(DISCOVER_IMAGE_URL && DISCOVER_IMAGE
+      ? {
+          images: [
+            {
+              url: DISCOVER_IMAGE_URL,
+              width: DISCOVER_IMAGE.width,
+              height: DISCOVER_IMAGE.height,
+              alt: DISCOVER_IMAGE.alt,
+            },
+          ],
+        }
+      : {}),
   },
   twitter: {
     card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
+    ...(DISCOVER_IMAGE_URL ? { images: [DISCOVER_IMAGE_URL] } : {}),
   },
 };
 
@@ -251,18 +268,20 @@ export default function IncomeTaxCalculatorPage() {
     name: 'Old vs New Tax Regime Calculator India',
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires a JavaScript-enabled web browser.',
     url: PAGE_URL,
     description: pageDescription,
+    dateModified: '2026-07-11',
+    inLanguage: 'en-IN',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'INR',
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
-    },
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    ...(DISCOVER_IMAGE_URL ? { image: DISCOVER_IMAGE_URL } : {}),
   };
 
   return (
@@ -303,12 +322,15 @@ export default function IncomeTaxCalculatorPage() {
             FY {TARGET_FY} planning and currently computes using supported rule years only.
           </p>
         </div>
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-relaxed text-amber-900 shadow-sm">
-          <p className="font-bold">Educational estimate only</p>
-          <p className="mt-2 text-amber-800">
-            Final tax outcomes can differ based on return data, official utilities, and year-specific provisions.
-            Verify before filing.
-          </p>
+        <div className="space-y-4">
+          {DISCOVER_IMAGE ? <DiscoverHeroImage image={DISCOVER_IMAGE} priority /> : null}
+          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-relaxed text-amber-900 shadow-sm">
+            <p className="font-bold">Educational estimate only</p>
+            <p className="mt-2 text-amber-800">
+              Final tax outcomes can differ based on return data, official utilities, and year-specific provisions.
+              Verify before filing.
+            </p>
+          </div>
         </div>
       </header>
 

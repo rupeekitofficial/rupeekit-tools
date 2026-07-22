@@ -8,26 +8,36 @@ import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLo
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
+import { getGuidesForTool } from '@/data/calculator-guides';
+import { getDiscoverImage } from '@/data/discover-images';
 import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 const HRA_SLUG = 'hra-exemption-calculator-india';
-const HRA_META_TITLE = 'HRA Exemption Calculator India 2026 | Old Regime Rule 279';
+const HRA_META_TITLE = 'HRA Calculator FY 2026-27 | Rule 279 & 50% City Check';
 const HRA_META_DESCRIPTION =
-  'Calculate HRA exemption under the old tax regime using 2026 city rules. Compare actual HRA, rent minus 10% of salary, and 50% or 40% salary caps.';
+  'Calculate HRA exemption under Rule 279. Check the 50% city list and compare actual HRA, rent minus 10% of salary, and old-regime exempt HRA.';
 const HRA_H1 = 'HRA Exemption Calculator India';
 const PERSONAL_LOAN_SLUG = 'personal-loan-emi-calculator-india';
-const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator India 2026 | Free & Instant';
+const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator 2026 | EMI, Fees & Total Cost';
 const PERSONAL_LOAN_META_DESCRIPTION =
-  'Free Personal Loan EMI Calculator for India — get instant EMI, interest and total repayment. Enter loan amount, rate and tenure to calculate now.';
+  'Calculate personal loan EMI, interest, processing fee, GST and total repayment in India. Compare tenure and check affordability before applying.';
 const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
   'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
-const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India | Free 3-12 Month Plan';
+const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India 2026 | Include EMIs';
 const EMERGENCY_FUND_META_DESCRIPTION =
-  'Free Emergency Fund Calculator for India — find your ideal 3, 6, 9 or 12 month safety corpus based on expenses and EMIs. Calculate your target now.';
+  'Calculate a 3, 6, 9 or 12-month emergency fund from essential expenses and home, personal or car-loan EMIs. See your shortfall and savings plan.';
 const EMERGENCY_FUND_H1 = 'Emergency Fund Calculator India';
+const LAST_REVIEWED_ISO_BY_SLUG: Record<string, string> = {
+  [HRA_SLUG]: '2026-07-16',
+  [PERSONAL_LOAN_SLUG]: '2026-07-16',
+  [EMERGENCY_FUND_SLUG]: '2026-07-16',
+  [SIP_SLUG]: '2026-05-01',
+  'fd-calculator-india': '2026-05-01',
+};
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));
 const blogSlugs = new Set(blogPosts.map((post) => post.slug));
@@ -131,7 +141,7 @@ function firstSentence(text: string) {
 
 function buildFallbackQuickAnswer(tool: Tool): ToolQuickAnswer {
   const keyInputs = tool.inputs.slice(0, 3).map((input) => input.label);
-  const keyOutputs = tool.outputs.slice(0, 3).map((output) => output.label);
+  const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 3).map((output) => output.label);
   const conciseFormula = firstSentence(tool.formulaExplanation);
   const conciseExample = firstSentence(tool.example);
 
@@ -151,7 +161,7 @@ function buildFallbackQuickAnswer(tool: Tool): ToolQuickAnswer {
 
 function buildGenericAnswerEngineSummary(tool: Tool) {
   const keyInputs = tool.inputs.slice(0, 4).map((input) => input.label);
-  const keyOutputs = tool.outputs.slice(0, 4).map((output) => output.label);
+  const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 4).map((output) => output.label);
   const methodLine = firstSentence(tool.formulaExplanation);
   const inputText = keyInputs.length > 0 ? listLabels(keyInputs) : 'the values you enter';
   const outputText = keyOutputs.length > 0 ? listLabels(keyOutputs) : 'the result metrics';
@@ -161,7 +171,7 @@ function buildGenericAnswerEngineSummary(tool: Tool) {
 
 function buildGenericCalculatorFacts(tool: Tool) {
   const keyInputs = tool.inputs.slice(0, 4).map((input) => input.label);
-  const keyOutputs = tool.outputs.slice(0, 4).map((output) => output.label);
+  const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 4).map((output) => output.label);
   return [
     {
       topic: 'Calculation type',
@@ -208,6 +218,8 @@ export function generateMetadata({
   if (!tool) return {};
 
   const pageUrl = `${SITE_URL}/tools/${tool.slug}`;
+  const discoverImage = getDiscoverImage(`/tools/${tool.slug}`);
+  const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
   const description =
     tool.slug === HRA_SLUG
       ? HRA_META_DESCRIPTION
@@ -248,11 +260,24 @@ export function generateMetadata({
       siteName: 'RupeeKit',
       type: 'article',
       locale: 'en_IN',
+      ...(discoverImageUrl && discoverImage
+        ? {
+            images: [
+              {
+                url: discoverImageUrl,
+                width: discoverImage.width,
+                height: discoverImage.height,
+                alt: discoverImage.alt,
+              },
+            ],
+          }
+        : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: pageTitle,
       description,
+      ...(discoverImageUrl ? { images: [discoverImageUrl] } : {}),
     },
   };
 }
@@ -564,8 +589,10 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const isEmergencyFundPage = tool.slug === EMERGENCY_FUND_SLUG;
   const heading = getToolHeading(tool.slug, tool.name);
   const description = getToolDescription(tool.slug, tool.shortDescription);
+  const discoverImage = getDiscoverImage(`/tools/${tool.slug}`);
 
   const related = getRelatedTools(tool);
+  const supportingGuides = getGuidesForTool(tool.slug);
 
   const contextualLinks: ContextualLink[] = [
     liveToolSlugs.has('salary-in-hand-calculator-india') ? {
@@ -717,6 +744,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     !isHraPage && !isPersonalLoanPage && !isSipPage && !hasSourceMethodologyInSections;
 
   const pageUrl = `${SITE_URL}/tools/${tool.slug}`;
+  const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
 
   const faqSchema =
     tool.faqs.length > 0
@@ -762,20 +790,24 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     name: isHraPage ? 'HRA Exemption Calculator India' : tool.name,
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'Any',
+    browserRequirements: 'Requires a JavaScript-enabled web browser.',
     url: pageUrl,
     description: isHraPage
       ? 'Calculate likely HRA exemption under Indian tax rules.'
       : tool.metaDescription,
+    dateModified: tool.lastReviewedIso ?? LAST_REVIEWED_ISO_BY_SLUG[tool.slug],
+    inLanguage: 'en-IN',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'INR',
     },
     publisher: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
+      '@id': `${SITE_URL}/#organization`,
     },
+    ...(discoverImageUrl ? { image: discoverImageUrl } : {}),
   };
 
   return (
@@ -838,39 +870,42 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
           {isHraPage ? (
             <p className="mt-4 text-sm text-slate-500">
-              Last updated: May 2026
+              Last reviewed: {tool.lastReviewed ?? 'July 2026'}
               <br />
               Reviewed for FY 2026-27 HRA city-rule changes.
             </p>
           ) : isPersonalLoanPage ? (
-            <p className="mt-4 text-sm text-slate-500">Last updated: May 2026</p>
+            <p className="mt-4 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
           ) : tool.lastReviewed ? (
             <p className="mt-4 text-sm text-slate-500">Last reviewed: {tool.lastReviewed}</p>
           ) : null}
         </div>
 
-        <div className="rounded-3xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-900">
-          <p className="font-bold">Educational estimate only</p>
-          <p className="mt-2">
-            Results can vary based on company policy, lender terms, tax law, and personal assumptions.
-          </p>
-          {isHraPage ? (
+        <div className="space-y-4">
+          {discoverImage ? <DiscoverHeroImage image={discoverImage} priority /> : null}
+          <div className="rounded-3xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-900">
+            <p className="font-bold">Educational estimate only</p>
             <p className="mt-2">
-              For HRA claims, verify final eligibility and documentation with your employer payroll team, CA, and
-              official rules before filing.
+              Results can vary based on company policy, lender terms, tax law, and personal assumptions.
             </p>
-          ) : null}
-          {isPersonalLoanPage ? (
-            <p className="mt-2">
-              RupeeKit is not a lender, does not provide loan approval, and does not publish official live bank rates.
-            </p>
-          ) : null}
-          {isEmergencyFundPage ? (
-            <p className="mt-2">
-              Emergency fund outputs are planning estimates only and are not financial or investment advice.
-            </p>
-          ) : null}
-          <p className="mt-2 text-xs text-amber-800">See the Source and methodology section below for details.</p>
+            {isHraPage ? (
+              <p className="mt-2">
+                For HRA claims, verify final eligibility and documentation with your employer payroll team, CA, and
+                official rules before filing.
+              </p>
+            ) : null}
+            {isPersonalLoanPage ? (
+              <p className="mt-2">
+                RupeeKit is not a lender, does not provide loan approval, and does not publish official live bank rates.
+              </p>
+            ) : null}
+            {isEmergencyFundPage ? (
+              <p className="mt-2">
+                Emergency fund outputs are planning estimates only and are not financial or investment advice.
+              </p>
+            ) : null}
+            <p className="mt-2 text-xs text-amber-800">See the Source and methodology section below for details.</p>
+          </div>
         </div>
       </header>
 
@@ -910,6 +945,31 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           />
         </>
       )}
+
+      {supportingGuides.length > 0 ? (
+        <section className="mt-8 rounded-3xl border border-sky-200 bg-sky-50 p-5 md:p-7">
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-sky-800">Supporting answers</p>
+              <h2 className="mt-2 text-2xl font-bold text-slate-950">Questions this calculator helps answer</h2>
+            </div>
+            <Link href="/guides" className="text-sm font-bold text-sky-800 hover:underline">
+              Browse all calculator guides
+            </Link>
+          </div>
+          <div className="mt-5 grid gap-3 md:grid-cols-2">
+            {supportingGuides.map((guide) => (
+              <Link
+                key={guide.slug}
+                href={`/guides/${guide.slug}`}
+                className="rounded-2xl border border-sky-100 bg-white p-4 font-bold text-slate-900 transition hover:border-sky-300 hover:text-sky-800 hover:shadow-sm"
+              >
+                {guide.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {isEmergencyFundPage ? (
         <section className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
@@ -1025,7 +1085,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 >
                   <h2 className="text-2xl font-bold">{section.heading}</h2>
                   {isEmergencyFundPage && section.heading === 'Source and Methodology' ? (
-                    <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+                    <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
                   ) : null}
                   <p className="mt-4 leading-8 text-slate-700">{section.body}</p>
                   {isEmergencyFundPage && section.heading === 'Source and Methodology' ? (
@@ -1433,7 +1493,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           <p className="mt-4 text-sm leading-6 text-slate-700">
             Official source:{' '}
             <a
-              href="https://www.incometaxindia.gov.in/documents/d/guest/en-notified-it-rules-2026-20-03-2026-pdf"
+              href="https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf?mobile-app=1"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-sky-700 hover:underline"
@@ -1467,6 +1527,25 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             Inputs are processed in-page to show planning outputs. RupeeKit does not provide personalized financial,
             tax, legal, investment, or loan advice.
           </p>
+          {tool.officialSources?.length ? (
+            <>
+              <h3 className="mt-6 text-lg font-bold text-slate-950">Primary references</h3>
+              <ul className="mt-3 space-y-2 text-sm leading-6">
+                {tool.officialSources.map((source) => (
+                  <li key={source.href}>
+                    <a
+                      href={source.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-sky-700 hover:underline"
+                    >
+                      {source.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
         </section>
       ) : null}
 
@@ -1489,7 +1568,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       {isPersonalLoanPage ? (
         <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
           <h2 className="text-2xl font-bold">Source and methodology</h2>
-          <p className="mt-2 text-sm text-slate-500">Last updated: May 2026</p>
+          <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
           <p className="mt-4 leading-8 text-slate-700">
             This calculator uses the standard reducing-balance EMI formula based on loan amount, monthly interest rate,
             and tenure in months. It also estimates processing fee impact and EMI burden using user-entered values.
