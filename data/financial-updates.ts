@@ -31,7 +31,7 @@ export interface FinancialUpdate {
 }
 
 // All previous placeholder/explainer updates have been removed.
-// Only the current review-only EPFO story remains in the Financial Updates hub.
+// Only the current reviewed EPFO story remains in the Financial Updates hub.
 export const financialUpdates: FinancialUpdate[] = [
   {
     id: 'epfo-services-restored-july-2026',
