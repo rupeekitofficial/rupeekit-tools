@@ -72,6 +72,13 @@ type AssumptionWarning = {
 
 const BREAKPOINT_TARGETS = [100000, 500000, 1000000, 2500000, 5000000, 10000000];
 
+function parsePositiveIntegerParam(value: string | null) {
+  if (!value || !/^\d+$/.test(value)) return null;
+
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : null;
+}
+
 const SIP_MODE_OPTIONS: Array<{ key: SipMode; label: string }> = [
   { key: 'regular', label: 'Regular SIP' },
   { key: 'step-up', label: 'Step-Up SIP' },
@@ -911,6 +918,17 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
   const [emergencyFundAcknowledged, setEmergencyFundAcknowledged] = useState(false);
   const [explanationMode, setExplanationMode] = useState<ExplanationMode>('simple');
   const [imageDownloadError, setImageDownloadError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const amountParam = parsePositiveIntegerParam(searchParams.get('amount'));
+    const yearsParam = parsePositiveIntegerParam(searchParams.get('years'));
+
+    if (amountParam === null || yearsParam === null) return;
+
+    setMonthlySip(amountParam);
+    setDurationYears(yearsParam);
+  }, []);
 
   useEffect(() => {
     if (!isSipReturnPreset(expectedReturn)) {
