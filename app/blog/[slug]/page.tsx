@@ -25,10 +25,10 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   const title = post.seoTitle || post.title;
   const description = post.metaDescription;
   const discoverImage = getDiscoverImage(`/blog/${post.slug}`);
-  const heroImage = post.heroImage || discoverImage?.src;
-  const heroImageAlt = post.heroImageAlt || discoverImage?.alt || title;
-  const heroImageWidth = post.heroImageWidth || discoverImage?.width || 1600;
-  const heroImageHeight = post.heroImageHeight || discoverImage?.height || 900;
+  const heroImage = discoverImage?.src || post.heroImage;
+  const heroImageAlt = discoverImage?.alt || post.heroImageAlt || title;
+  const heroImageWidth = discoverImage?.width || post.heroImageWidth || 1600;
+  const heroImageHeight = discoverImage?.height || post.heroImageHeight || 900;
   const imageUrl = heroImage ? `${siteUrl}${heroImage}` : undefined;
 
   return {
@@ -80,15 +80,15 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
   const pageUrl = `${siteUrl}/blog/${post.slug}`;
   const discoverImage = getDiscoverImage(`/blog/${post.slug}`);
-  const heroImage = post.heroImage || discoverImage?.src;
+  const heroImage = discoverImage?.src || post.heroImage;
   const imageUrl = heroImage ? `${siteUrl}${heroImage}` : undefined;
   const postWithHero = heroImage
     ? {
         ...post,
         heroImage,
-        heroImageAlt: post.heroImageAlt || discoverImage?.alt || post.title,
-        heroImageWidth: post.heroImageWidth || discoverImage?.width || 1600,
-        heroImageHeight: post.heroImageHeight || discoverImage?.height || 900,
+        heroImageAlt: discoverImage?.alt || post.heroImageAlt || post.title,
+        heroImageWidth: discoverImage?.width || post.heroImageWidth || 1600,
+        heroImageHeight: discoverImage?.height || post.heroImageHeight || 900,
       }
     : post;
 
