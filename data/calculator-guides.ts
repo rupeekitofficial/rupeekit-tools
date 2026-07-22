@@ -12,6 +12,7 @@ export type CalculatorGuideCluster = {
   methodSteps: string[];
   riskNote: string;
   sources: GuideSource[];
+  relatedToolLinks?: { label: string; href: string }[];
 };
 
 export type CalculatorGuide = {
@@ -98,6 +99,10 @@ export const calculatorGuideClusters: CalculatorGuideCluster[] = [
     sources: [
       { label: 'RBI Key Facts Statement for Loans and Advances', href: 'https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12663&Mode=0' },
     ],
+    relatedToolLinks: [
+      { label: 'Personal Loan EMI Calculator India', href: '/tools/personal-loan-emi-calculator-india' },
+      { label: 'Personal Loan Eligibility Calculator India', href: '/tools/personal-loan-eligibility-calculator-india' },
+    ],
   },
   {
     id: 'emergency-fund-emi',
@@ -113,6 +118,9 @@ export const calculatorGuideClusters: CalculatorGuideCluster[] = [
     ],
     riskNote: 'An emergency-fund target is personal and cannot guarantee coverage of every event. Keep core emergency money accessible and separate from volatile long-term investments.',
     sources: [],
+    relatedToolLinks: [
+      { label: 'Personal Loan EMI Calculator India', href: '/tools/personal-loan-emi-calculator-india' },
+    ],
   },
   {
     id: 'invest-vs-prepay',
@@ -148,6 +156,10 @@ export const calculatorGuideClusters: CalculatorGuideCluster[] = [
     sources: [
       { label: 'RBI pre-payment charges directions', href: 'https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=12878&Mode=0' },
     ],
+    relatedToolLinks: [
+      { label: 'Personal Loan EMI Calculator India', href: '/tools/personal-loan-emi-calculator-india' },
+      { label: 'Personal Loan True APR Calculator India', href: '/tools/personal-loan-true-apr-calculator-india' },
+    ],
   },
   {
     id: 'reduce-emi-tenure',
@@ -164,6 +176,10 @@ export const calculatorGuideClusters: CalculatorGuideCluster[] = [
     riskNote: 'The lender may not apply your preferred option automatically. Submit instructions and verify the revised amortisation schedule and any applicable charge.',
     sources: [
       { label: 'RBI pre-payment charges directions', href: 'https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=12878&Mode=0' },
+    ],
+    relatedToolLinks: [
+      { label: 'Personal Loan EMI Calculator India', href: '/tools/personal-loan-emi-calculator-india' },
+      { label: 'Home Loan EMI Calculator India', href: '/tools/home-loan-emi-calculator-india' },
     ],
   },
 ];

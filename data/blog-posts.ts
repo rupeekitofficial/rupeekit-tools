@@ -898,15 +898,15 @@ export const blogPosts: BlogPost[] = [
     visualTitle: 'ITR-2 Filing Preparation Flow',
     visualSubtitle: 'Step-by-step checklist for AY 2026-27',
     visualAlt: 'ITR-2 filing flow with steps from Form 16 to final submission',
-    seoTitle: 'ITR-2 AY 2026-27 Filing Guide: Deadline, Eligibility, Steps',
+    seoTitle: 'ITR-2 Filing AY 2026-27: July 31 Deadline, Who Must File',
     heroImage: '/blog/itr-2-ay-2026-27-hero-1600x900.jpg',
     heroImageAlt: 'Desk workspace with laptop, calculator, checklist icons, and rupee symbols representing ITR-2 tax filing preparation in India',
     heroImageWidth: 1600,
     heroImageHeight: 900,
     publishedDateISO: '2026-05-27T08:00:00Z',
-    modifiedDateISO: '2026-05-27T08:00:00Z',
+    modifiedDateISO: '2026-07-22T08:00:00Z',
     title: 'ITR-2 AY 2026-27: Who Must File, Due Date & Preparation Guide',
-    metaDescription: 'ITR-2 AY 2026-27 filing guide — check eligibility, due date, capital gains rules and a step-by-step checklist to file your return correctly. Read now.',
+    metaDescription: 'ITR-2 due date for AY 2026-27 is July 31, 2026 — late filing costs up to Rs 5,000 and you lose capital-loss carry-forward. Check who must file ITR-2 and the step-by-step checklist.',
     category: 'Tax',
     date: 'May 2026',
     readTime: '8 min read',
@@ -1842,7 +1842,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'mutual-funds-for-beginners-india',
-    seoTitle: 'Mutual Funds for Beginners India 2026: How to Start Investing',
+    seoTitle: 'Mutual Funds for Beginners India 2026: Start With Rs 500',
     title: 'Mutual Funds for Beginners India 2026: How to Start Investing',
     metaDescription: 'Complete beginner guide to mutual funds in India 2026. Learn what mutual funds are, types, SIP vs lumpsum, NAV, expense ratio, and how to start investing. Read now.',
     category: 'Investing',
@@ -2451,7 +2451,7 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'income-tax-on-12-lakh-salary-new-regime-india-2026',
-    seoTitle: 'Income Tax on Rs 12 Lakh Salary New Regime India 2026',
+    seoTitle: 'Income Tax on 12 Lakh Salary 2026: Rs 0 Under New Regime',
     title: 'Income Tax on Rs 12 Lakh Salary: Zero Tax Under New Regime FY 2026-27',
     metaDescription: 'Is income tax really zero on Rs 12 lakh salary in FY 2026-27? Complete calculation under the new tax regime with Section 87A rebate, the Rs 12.1L cliff, and FAQs. Read now.',
     category: 'Tax',
@@ -2557,7 +2557,7 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'how-to-calculate-in-hand-salary-from-ctc-india',
-    seoTitle: 'CTC to In-Hand Salary Calculator India 2026 Guide',
+    seoTitle: 'CTC to In-Hand Salary India 2026: Exact Take-Home Steps',
     title: 'How to Calculate In-Hand Salary from CTC in India 2026',
     metaDescription: 'Learn exactly how to calculate your take-home (in-hand) salary from CTC in India. Step-by-step with worked examples at Rs 10L, Rs 15L, Rs 20L, and Rs 30L CTC. Read now.',
     category: 'Salary & Tax',
@@ -2651,7 +2651,7 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'how-to-withdraw-epf-after-resignation-india-2026',
-    seoTitle: 'How to Withdraw EPF After Resignation India 2026',
+    seoTitle: 'Withdraw EPF After Resignation 2026: Online in 5 Steps',
     title: 'How to Withdraw EPF After Resignation in India 2026: Step-by-Step Online Guide',
     metaDescription: 'Complete guide to withdrawing EPF after resignation in India. Step-by-step online process via EPFO UAN portal, documents needed, waiting period, and tax rules. Read now.',
     category: 'Savings',
@@ -2749,7 +2749,7 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'epf-partial-withdrawal-rules-india',
-    seoTitle: 'EPF Partial Withdrawal Rules India 2026: Full Guide',
+    seoTitle: 'EPF Partial Withdrawal Rules 2026: Limits by Purpose',
     title: 'EPF Partial Withdrawal Rules India 2026: Housing, Medical, Education & More',
     metaDescription: 'Complete guide to EPF partial withdrawal rules in India for housing loan, medical emergency, education, and marriage. Eligibility, amounts, and online application steps. Read now.',
     category: 'Savings',

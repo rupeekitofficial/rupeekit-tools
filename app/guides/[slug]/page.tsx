@@ -149,6 +149,20 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
             >
               Open free calculator
             </Link>
+            {cluster.relatedToolLinks?.length ? (
+              <div className="mt-6 border-t border-sky-200 pt-4">
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-sky-800">Related calculators</p>
+                <ul className="mt-3 space-y-2">
+                  {cluster.relatedToolLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-sm font-semibold text-sky-700 hover:underline">
+                        {link.label} →
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </aside>
         </div>
 
