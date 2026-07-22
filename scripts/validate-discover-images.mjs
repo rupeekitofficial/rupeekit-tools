@@ -28,7 +28,7 @@ if (manifest.length !== 38) {
 
 const paths = new Set();
 const sources = new Set();
-const temporarilyReusableSources = new Set([
+const reusableSources = new Set([
   '/images/discover/epf-corpus-calculator-india.webp',
 ]);
 
@@ -40,7 +40,7 @@ for (const image of manifest) {
   if (!image.src?.startsWith('/images/discover/') || !image.src.endsWith('.webp')) {
     errors.push(`Unexpected image source for ${image.path}: ${image.src}`);
   }
-  if (sources.has(image.src) && !temporarilyReusableSources.has(image.src)) {
+  if (sources.has(image.src) && !reusableSources.has(image.src)) {
     errors.push(`Duplicate image source: ${image.src}`);
   }
   sources.add(image.src);
