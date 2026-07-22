@@ -1070,7 +1070,7 @@
     "status": "live",
     "targetKeyword": "fd calculator india",
     "shortDescription": "Estimate fixed deposit maturity amount and interest earned using deposit amount, interest rate and tenure.",
-    "metaDescription": "Free FD calculator — get maturity and interest for any deposit in seconds, including special 444-day FDs. Choose amount, rate, tenure and compounding. No login needed.",
+    "metaDescription": "Free FD calculator — maturity and interest for any deposit in seconds, including special 444-day FDs. Set amount, rate, tenure, compounding. No login.",
     "inputs": [
       {
         "key": "principal",
