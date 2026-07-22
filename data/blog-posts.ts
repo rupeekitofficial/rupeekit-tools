@@ -2847,12 +2847,13 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'new-labour-code-gratuity-rules-india-2026',
-    seoTitle: 'New Labour Code Gratuity Rules India 2026 Guide',
+    seoTitle: 'Gratuity Rules 2026: New 1-Year Rule for Contract Workers',
     title: 'New Labour Code Gratuity Rules in India 2026: Contract Workers Eligible After 1 Year',
-    metaDescription: 'How gratuity rules change under the New Labour Code in India. Contract workers become eligible after 1 year vs 5 years currently. Calculation, who benefits, and current status. Read now.',
+    metaDescription: 'New gratuity rules 2026: contract workers eligible after just 1 year (vs 5 years under current law). Who qualifies, calculation formula, and implementation status as of July 2026.',
     category: 'Salary & Tax',
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
+    modifiedDateISO: '2026-07-22',
     readTime: '6 min read',
     visualType: 'salary-checklist',
     visualTitle: 'New Labour Code Gratuity — 1 Year vs 5 Year Rule',
@@ -2871,6 +2872,18 @@ export const blogPosts: BlogPost[] = [
       { label: 'Code on Social Security, 2020 (received Presidential assent September 28, 2020)', href: 'https://labour.gov.in' },
     ],
     sections: [
+      {
+        title: 'Gratuity rule change at a glance: old vs new',
+        paragraphs: [
+          'The single biggest change: fixed-term contract workers will qualify for gratuity after 1 year of service instead of 5 years. Here is the old-vs-new comparison in one view.',
+        ],
+        bullets: [
+          'Old rule (current law, still in force): 5 years of continuous service required — resign before 5 years and you get no gratuity',
+          'New rule (Code on Social Security, 2020): fixed-term contract workers eligible after just 1 year, pro-rated to actual service',
+          'Permanent employees: the 5-year rule stays unchanged under the new codes',
+          'Status as of July 2026: codes passed by Parliament and received Presidential assent, but most states have not yet notified implementation rules — the old law still applies today',
+        ],
+      },
       {
         title: 'Current gratuity rules under the Payment of Gratuity Act, 1972',
         paragraphs: [
@@ -2938,6 +2951,14 @@ export const blogPosts: BlogPost[] = [
       {
         question: 'Does the New Labour Code affect gratuity for IT companies?',
         answer: 'Yes. IT companies (and BPOs, staffing companies) routinely hire on fixed-term contracts. Once the Code on Social Security, 2020 is fully implemented, fixed-term employees at these companies will be eligible for pro-rated gratuity after 1 year. This will increase costs for employers and benefit a large segment of the contract workforce in the IT sector.',
+      },
+      {
+        question: 'What are the new gratuity rules for permanent employees in 2026?',
+        answer: 'For permanent (regular, open-ended contract) employees, the gratuity rules do not change under the New Labour Codes: 5 years of continuous service is still required, the formula remains (Basic + DA) × 15/26 × years of service, and the Rs 20 lakh tax-free ceiling continues. The 1-year eligibility rule under the Code on Social Security, 2020 applies only to fixed-term contract employees, not permanent staff.',
+      },
+      {
+        question: 'Where can I download the official New Labour Code gratuity rules PDF?',
+        answer: 'The full text of the Code on Social Security, 2020 — which contains the new gratuity provisions in Chapter V — is published by the Ministry of Labour and Employment at labour.gov.in under the Labour Codes section. The current law, the Payment of Gratuity Act, 1972, is also available there. Always download from labour.gov.in or indiacode.nic.in rather than third-party sites to ensure you have the authentic, current version.',
       },
     ],
   },
