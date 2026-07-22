@@ -192,7 +192,7 @@
       "sip-calculator-india"
     ]
   },
-    {
+  {
     "slug": "personal-loan-emi-calculator-india",
     "name": "Personal Loan EMI Calculator India",
     "seoTitle": "Personal Loan EMI Calculator 2026 | EMI, Fees & Total Cost",
@@ -823,12 +823,12 @@
   {
     "slug": "sip-calculator-india",
     "name": "SIP Calculator India",
-    "seoTitle": "SIP Calculator India 2026 | Step-Up, Goal & Delay Cost",
+    "seoTitle": "SIP Calculator India 2026: Corpus, Step-Up & Cost of Delay",
     "category": "Investments",
     "status": "live",
     "targetKeyword": "sip calculator india",
     "shortDescription": "Plan SIP goals with regular SIP, step-up SIP, goal SIP, delay cost, milestones and inflation-adjusted estimates.",
-    "metaDescription": "Estimate regular, step-up and goal-based SIP returns with inflation-adjusted corpus, delay cost and milestone tracking. Plan your SIP in India.",
+    "metaDescription": "See your SIP corpus instantly — regular, step-up and goal-based, with inflation-adjusted values and what delaying 1 year costs you. Free, no login needed.",
     "inputs": [
       {
         "key": "monthlyInvestment",
@@ -987,7 +987,7 @@
         "body": "This SIP calculator estimates future value using user-entered monthly SIP amount, expected annual return, investment duration, and optional annual step-up assumptions. It uses monthly compounding-style projection for educational planning. It does not recommend any mutual fund, does not fetch live fund returns, and does not guarantee outcomes."
       }
     ],
-    "lastReviewed": "May 2026"
+    "lastReviewed": "July 2026"
   },
   {
     "slug": "gst-calculator-india",
@@ -1065,12 +1065,12 @@
   {
     "slug": "fd-calculator-india",
     "name": "FD Calculator India",
-    "seoTitle": "FD Calculator India 2026 | ₹1 Lakh Maturity & Interest",
+    "seoTitle": "FD Calculator India 2026: Maturity for Any Tenure incl. 444 Days",
     "category": "Savings",
     "status": "live",
     "targetKeyword": "fd calculator india",
     "shortDescription": "Estimate fixed deposit maturity amount and interest earned using deposit amount, interest rate and tenure.",
-    "metaDescription": "Calculate FD maturity and interest for any deposit, including 444-day FDs. Enter amount, rate, tenure and compounding frequency; no live bank rates.",
+    "metaDescription": "Free FD calculator — get maturity and interest for any deposit in seconds, including special 444-day FDs. Choose amount, rate, tenure and compounding. No login needed.",
     "inputs": [
       {
         "key": "principal",
@@ -1165,7 +1165,7 @@
       "salary-in-hand-calculator-india",
       "emi-calculator-india"
     ],
-    "lastReviewed": "May 2026",
+    "lastReviewed": "July 2026",
     "quickAnswer": {
       "title": "FD Quick Answer",
       "question": "How does an FD calculator estimate maturity amount?",
@@ -1355,12 +1355,12 @@
   {
     "slug": "hra-exemption-calculator-india",
     "name": "HRA Exemption Calculator India",
-    "seoTitle": "HRA Calculator FY 2026-27 | Rule 279 & 50% City Check",
+    "seoTitle": "HRA Calculator FY 2026-27: Your Tax-Free HRA + 50% City List",
     "category": "Tax",
     "status": "live",
     "targetKeyword": "HRA exemption calculator India",
     "shortDescription": "Calculate your likely HRA exemption under Rule 279 in seconds. Enter your salary, HRA, rent, and city type to compare the three legal limits and estimate how much HRA can stay tax-exempt under the old regime. Includes FY 2026-27 metro-city rules, a worked example, and a document checklist.",
-    "metaDescription": "Calculate HRA exemption under Rule 279. Check the 50% city list and compare actual HRA, rent minus 10% of salary, and old-regime exempt HRA.",
+    "metaDescription": "Check exactly how much of your HRA is tax-free under Rule 279 in seconds. Includes the 50% metro city list and the 3-way comparison lenders use. Free, no login.",
     "inputs": [
       {
         "key": "basicSalary",
@@ -2642,12 +2642,12 @@
   {
     "slug": "capital-gains-tax-calculator-india",
     "name": "Capital Gains Tax Calculator India (Equity)",
-    "seoTitle": "Capital Gains Tax Calculator India AY 2026-27 — STCG & LTCG",
+    "seoTitle": "Capital Gains Tax Calculator AY 2026-27: 20% STCG, 12.5% LTCG",
     "category": "Tax",
     "status": "live",
     "targetKeyword": "capital gains tax calculator india",
     "shortDescription": "Estimate tax on listed equity and equity mutual fund gains in India: 20% on short-term gains, 12.5% on long-term gains above the Rs 1.25 lakh exemption, plus 4% cess.",
-    "metaDescription": "Capital gains tax calculator for Indian equity — apply 20% STCG, 12.5% LTCG and the Rs 1.25 lakh exemption to estimate your tax. Calculate now.",
+    "metaDescription": "Calculate your equity capital gains tax in seconds — 20% STCG, 12.5% LTCG and the Rs 1.25 lakh exemption applied automatically. Free, updated for AY 2026-27.",
     "inputs": [
       {
         "key": "stcgAmount",
