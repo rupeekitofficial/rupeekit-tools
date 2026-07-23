@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+  <title id="title">Next steps after downloading Foreign Assets Information</title>
+  <desc id="desc">Indian taxpayer comparing the AIS foreign-assets report with personal bank and investment records before filing.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#114e3d"/><stop offset="1" stop-color="#0a2d39"/></linearGradient><filter id="s"><feDropShadow dy="14" stdDeviation="14" flood-opacity=".2"/></filter></defs>
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <circle cx="92" cy="78" r="22" fill="#1a8e68"/><text x="92" y="88" text-anchor="middle" fill="#fff" font-size="25" font-weight="700" font-family="Arial">₹</text><text x="130" y="87" fill="#fff" font-size="25" font-weight="700" font-family="Arial">RupeeKit</text>
+  <text x="70" y="178" fill="#fff" font-size="58" font-weight="800" font-family="Arial">Neha’s calm next step</text>
+  <text x="70" y="240" fill="#d9efe8" font-size="28" font-family="Arial">Use the report as a cross-check, compare it with personal</text><text x="70" y="278" fill="#d9efe8" font-size="28" font-family="Arial">records, and verify the correct return schedules.</text>
+  <rect x="70" y="340" width="940" height="840" rx="42" fill="#fafdfb" filter="url(#s)"/>
+  <g transform="translate(100 515)">
+    <ellipse cx="185" cy="120" rx="80" ry="92" fill="#e0a078"/>
+    <path d="M105 115c10-90 150-100 160 0v-45C235 0 132 0 105 70z" fill="#2a1f1f"/>
+    <circle cx="158" cy="120" r="7" fill="#12253f"/><circle cx="210" cy="120" r="7" fill="#12253f"/>
+    <path d="M160 158q25 20 50 0" fill="none" stroke="#12253f" stroke-width="5" stroke-linecap="round"/>
+    <rect x="70" y="215" width="230" height="290" rx="72" fill="#f4bf3e"/>
+    <rect x="5" y="385" width="360" height="40" rx="18" fill="#0a2040"/>
+    <rect x="45" y="255" width="280" height="140" rx="20" fill="#143864"/><rect x="63" y="275" width="244" height="102" rx="12" fill="#e2f0ff"/>
+  </g>
+  <rect x="525" y="435" width="410" height="590" rx="32" fill="#fff" stroke="#cbe0d7" stroke-width="3"/>
+  <text x="730" y="505" text-anchor="middle" fill="#0a2040" font-size="39" font-weight="800" font-family="Arial">Before filing</text>
+  <g font-family="Arial">
+    <circle cx="585" cy="590" r="25" fill="#1a8e68"/><text x="585" y="600" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">✓</text><text x="630" y="580" fill="#12253f" font-size="24" font-weight="700">Download the correct</text><text x="630" y="610" fill="#12253f" font-size="24" font-weight="700">calendar-year report</text>
+    <circle cx="585" cy="700" r="25" fill="#1a8e68"/><text x="585" y="710" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">✓</text><text x="630" y="690" fill="#12253f" font-size="24" font-weight="700">Compare with bank and</text><text x="630" y="720" fill="#12253f" font-size="24" font-weight="700">investment records</text>
+    <circle cx="585" cy="810" r="25" fill="#1a8e68"/><text x="585" y="820" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">✓</text><text x="630" y="800" fill="#12253f" font-size="24" font-weight="700">Review Schedule FA and</text><text x="630" y="830" fill="#12253f" font-size="24" font-weight="700">Schedule FSI applicability</text>
+    <circle cx="585" cy="920" r="25" fill="#1a8e68"/><text x="585" y="930" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">✓</text><text x="630" y="910" fill="#12253f" font-size="24" font-weight="700">Use official or qualified</text><text x="630" y="940" fill="#12253f" font-size="24" font-weight="700">tax help when needed</text>
+  </g>
+  <text x="540" y="1120" text-anchor="middle" fill="#1a8e68" font-size="35" font-weight="800" font-family="Arial">Cross-check. Don’t panic. Don’t ignore.</text>
+  <text x="70" y="1290" fill="#fff" font-size="23" font-weight="700" font-family="Arial">Story 6 of 6</text><text x="1010" y="1290" text-anchor="end" fill="#fff" font-size="20" font-family="Arial">Educational update • Verify official source</text>
+</svg>
