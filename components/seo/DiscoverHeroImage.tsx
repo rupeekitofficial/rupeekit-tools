@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import type { DiscoverImage } from '@/data/discover-images';
 
+type HeroImage = Pick<DiscoverImage, 'src' | 'alt' | 'width' | 'height'>;
+
 type DiscoverHeroImageProps = {
-  image: DiscoverImage;
+  image: HeroImage;
   className?: string;
   priority?: boolean;
 };
