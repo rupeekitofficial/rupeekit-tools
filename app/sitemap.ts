@@ -30,6 +30,7 @@ function latestDate(dates: Date[], fallback = STATIC_LAST_MODIFIED): Date {
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
   const liveTools = getLiveTools();
+  const indexableFinancialUpdates = financialUpdates.filter((update) => update.status !== 'sample');
   const indexableGovernmentUpdates = governmentSalaryUpdates.filter((update) => update.status !== 'sample');
 
   const toolDates = liveTools.map((tool) =>
@@ -44,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       parseIsoDate(post.publishedDateISO) ??
       STATIC_LAST_MODIFIED
   );
-  const financialUpdateDates = financialUpdates.map(
+  const financialUpdateDates = indexableFinancialUpdates.map(
     (update) =>
       parseIsoDate((update as { modifiedDate?: string }).modifiedDate) ??
       parseIsoDate(update.publishedDate) ??
@@ -151,7 +152,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
       };
     }),
-    ...financialUpdates.map((u) => {
+    ...indexableFinancialUpdates.map((u) => {
       const lastModified =
         parseIsoDate((u as { modifiedDate?: string }).modifiedDate) ??
         parseIsoDate(u.publishedDate) ??
