@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+  <title id="title">AIS may not show every foreign asset or income item</title>
+  <desc id="desc">Visual warning that the Foreign Assets Information report in AIS may not contain every applicable foreign asset or income item.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5c315b"/><stop offset="1" stop-color="#2c1f4a"/></linearGradient><filter id="s"><feDropShadow dy="14" stdDeviation="14" flood-opacity=".2"/></filter></defs>
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <circle cx="92" cy="78" r="22" fill="#1a8e68"/><text x="92" y="88" text-anchor="middle" fill="#fff" font-size="25" font-weight="700" font-family="Arial">₹</text><text x="130" y="87" fill="#fff" font-size="25" font-weight="700" font-family="Arial">RupeeKit</text>
+  <text x="70" y="178" fill="#fff" font-size="58" font-weight="800" font-family="Arial">AIS may not show everything</text>
+  <text x="70" y="240" fill="#f0deef" font-size="28" font-family="Arial">The foreign-assets view is not a complete or exhaustive</text><text x="70" y="278" fill="#f0deef" font-size="28" font-family="Arial">record of every foreign asset or income item.</text>
+  <rect x="70" y="340" width="940" height="840" rx="42" fill="#fdfafd" filter="url(#s)"/>
+  <rect x="125" y="430" width="830" height="335" rx="34" fill="#f5e8f5"/>
+  <text x="175" y="500" fill="#5c315b" font-size="39" font-weight="800" font-family="Arial">AIS report</text>
+  <rect x="175" y="560" width="570" height="34" rx="14" fill="#d9bfd9"/>
+  <rect x="175" y="618" width="455" height="34" rx="14" fill="#d9bfd9"/>
+  <rect x="175" y="676" width="620" height="34" rx="14" fill="#d9bfd9"/>
+  <rect x="175" y="805" width="620" height="58" rx="16" fill="#eee3ef" stroke="#b091b3" stroke-width="3" stroke-dasharray="12 8"/>
+  <text x="485" y="842" text-anchor="middle" fill="#77537b" font-size="26" font-weight="700" font-family="Arial">Some information may not be present</text>
+  <rect x="125" y="910" width="830" height="205" rx="32" fill="#fff5df"/>
+  <text x="540" y="970" text-anchor="middle" fill="#8e5a14" font-size="35" font-weight="800" font-family="Arial">Important</text>
+  <text x="180" y="1028" fill="#12253f" font-size="27" font-family="Arial">Applicable foreign assets and foreign-source income may</text>
+  <text x="180" y="1065" fill="#12253f" font-size="27" font-family="Arial">still need complete reporting, even when an item is absent.</text>
+  <text x="70" y="1290" fill="#fff" font-size="23" font-weight="700" font-family="Arial">Story 5 of 6</text><text x="1010" y="1290" text-anchor="end" fill="#fff" font-size="20" font-family="Arial">Educational update • Verify official source</text>
+</svg>
