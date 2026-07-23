@@ -1,4 +1,5 @@
 import { discoverImages } from '@/data/discover-images';
+import { financialUpdates } from '@/data/financial-updates';
 
 function escapeXml(value: string) {
   return value
@@ -11,7 +12,18 @@ function escapeXml(value: string) {
 
 export function GET() {
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in').replace(/\/$/, '');
-  const entries = discoverImages
+  const discoverPaths = new Set(discoverImages.map((image) => image.path));
+  const financialUpdateHeroImages = financialUpdates.flatMap((update) => {
+    const path = `/financial-updates/${update.slug}`;
+    if (!update.heroImage || discoverPaths.has(path) || update.status === 'sample') return [];
+    return [{ path, src: update.heroImage.src }];
+  });
+  const sitemapImages = [
+    ...discoverImages.map((image) => ({ path: image.path, src: image.src })),
+    ...financialUpdateHeroImages,
+  ];
+
+  const entries = sitemapImages
     .map(
       (image) => `  <url>
     <loc>${escapeXml(`${siteUrl}${image.path}`)}</loc>

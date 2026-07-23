@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+  <title id="title">Neha sees the new Foreign Assets Information report</title>
+  <desc id="desc">Indian professional Neha notices the Foreign Assets Information option under Reports in the AIS portal.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0a2040"/><stop offset="1" stop-color="#143864"/></linearGradient><filter id="s"><feDropShadow dy="14" stdDeviation="14" flood-opacity=".2"/></filter></defs>
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <circle cx="92" cy="78" r="22" fill="#1a8e68"/><text x="92" y="88" text-anchor="middle" fill="#fff" font-size="25" font-weight="700" font-family="Arial">₹</text><text x="130" y="87" fill="#fff" font-size="25" font-weight="700" font-family="Arial">RupeeKit</text>
+  <text x="70" y="178" fill="#fff" font-size="58" font-weight="800" font-family="Arial">Neha saw a new AIS section</text>
+  <text x="70" y="240" fill="#dce8f5" font-size="29" font-family="Arial">While preparing her return, she noticed</text><text x="70" y="278" fill="#dce8f5" font-size="29" font-family="Arial">“Foreign Assets Information” under Reports.</text>
+  <rect x="70" y="340" width="940" height="840" rx="42" fill="#fcfbf7" filter="url(#s)"/>
+  <g transform="translate(120 470)">
+    <ellipse cx="180" cy="145" rx="82" ry="96" fill="#e0a078"/>
+    <path d="M98 138c8-92 157-105 165 0v-48C235 10 125 10 98 90z" fill="#2a1f1f"/>
+    <circle cx="150" cy="140" r="7" fill="#12253f"/><circle cx="207" cy="140" r="7" fill="#12253f"/>
+    <path d="M157 178q25 20 50 0" fill="none" stroke="#12253f" stroke-width="5" stroke-linecap="round"/>
+    <rect x="55" y="240" width="250" height="310" rx="76" fill="#f4bf3e"/>
+    <rect x="275" y="320" width="145" height="40" rx="18" fill="#e0a078"/>
+    <rect x="390" y="245" width="92" height="165" rx="18" fill="#0a2040"/><rect x="404" y="267" width="64" height="120" rx="10" fill="#fff"/>
+  </g>
+  <g transform="translate(565 455)" filter="url(#s)">
+    <rect width="345" height="535" rx="34" fill="#0a2040"/>
+    <rect x="28" y="50" width="289" height="430" rx="22" fill="#fff"/>
+    <text x="173" y="105" text-anchor="middle" fill="#0a2040" font-size="28" font-weight="700" font-family="Arial">Income Tax Portal</text>
+    <text x="70" y="185" fill="#1a8e68" font-size="44" font-weight="800" font-family="Arial">AIS</text>
+    <rect x="62" y="235" width="220" height="66" rx="18" fill="#e2f0ff"/><text x="172" y="278" text-anchor="middle" fill="#143864" font-size="28" font-weight="700" font-family="Arial">Reports</text>
+    <rect x="62" y="335" width="220" height="94" rx="18" fill="#eaf8f2"/><text x="172" y="375" text-anchor="middle" fill="#1a8e68" font-size="24" font-weight="700" font-family="Arial">Foreign Assets</text><text x="172" y="407" text-anchor="middle" fill="#1a8e68" font-size="24" font-weight="700" font-family="Arial">Information</text>
+  </g>
+  <text x="155" y="1100" fill="#12253f" font-size="44" font-weight="800" font-family="Arial">“Is this a tax notice?”</text>
+  <text x="70" y="1290" fill="#fff" font-size="23" font-weight="700" font-family="Arial">Story 1 of 6</text><text x="1010" y="1290" text-anchor="end" fill="#fff" font-size="20" font-family="Arial">Educational update • Verify official source</text>
+</svg>

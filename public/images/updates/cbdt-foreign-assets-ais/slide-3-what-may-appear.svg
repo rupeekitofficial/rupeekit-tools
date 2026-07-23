@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+  <title id="title">What may appear in the Foreign Assets Information report</title>
+  <desc id="desc">Story slide showing foreign bank accounts, custodial accounts, investments, interest and dividends that may appear in AIS.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#273c75"/><stop offset="1" stop-color="#16274c"/></linearGradient><filter id="s"><feDropShadow dy="14" stdDeviation="14" flood-opacity=".2"/></filter></defs>
+  <rect width="1080" height="1350" fill="url(#bg)"/>
+  <circle cx="92" cy="78" r="22" fill="#1a8e68"/><text x="92" y="88" text-anchor="middle" fill="#fff" font-size="25" font-weight="700" font-family="Arial">₹</text><text x="130" y="87" fill="#fff" font-size="25" font-weight="700" font-family="Arial">RupeeKit</text>
+  <text x="70" y="178" fill="#fff" font-size="56" font-weight="800" font-family="Arial">What may appear in the report</text>
+  <text x="70" y="240" fill="#dce5ff" font-size="28" font-family="Arial">Information received from partner jurisdictions can include</text><text x="70" y="278" fill="#dce5ff" font-size="28" font-family="Arial">several kinds of foreign financial data.</text>
+  <rect x="70" y="340" width="940" height="840" rx="42" fill="#fafbff" filter="url(#s)"/>
+  <g font-family="Arial">
+    <rect x="120" y="430" width="390" height="300" rx="30" fill="#fff" stroke="#d2daed" stroke-width="3"/>
+    <circle cx="195" cy="510" r="48" fill="#e2ebff"/><text x="195" y="528" text-anchor="middle" fill="#273c75" font-size="44" font-weight="800">₹</text>
+    <text x="155" y="620" fill="#12253f" font-size="31" font-weight="800">Foreign bank accounts</text>
+    <text x="155" y="670" fill="#53677e" font-size="23">Balances or related account details</text>
+    <rect x="570" y="430" width="390" height="300" rx="30" fill="#fff" stroke="#d2daed" stroke-width="3"/>
+    <circle cx="645" cy="510" r="48" fill="#e2ebff"/><rect x="625" y="490" width="40" height="40" rx="6" fill="#273c75"/>
+    <text x="605" y="620" fill="#12253f" font-size="31" font-weight="800">Custodial accounts</text>
+    <text x="605" y="670" fill="#53677e" font-size="23">Securities held through custodians</text>
+    <rect x="120" y="775" width="390" height="300" rx="30" fill="#fff" stroke="#d2daed" stroke-width="3"/>
+    <circle cx="195" cy="855" r="48" fill="#e2ebff"/><text x="195" y="872" text-anchor="middle" fill="#273c75" font-size="44" font-weight="800">↗</text>
+    <text x="155" y="965" fill="#12253f" font-size="31" font-weight="800">Investments</text>
+    <text x="155" y="1015" fill="#53677e" font-size="23">Certain reported financial investments</text>
+    <rect x="570" y="775" width="390" height="300" rx="30" fill="#fff" stroke="#d2daed" stroke-width="3"/>
+    <circle cx="645" cy="855" r="48" fill="#e2ebff"/><text x="645" y="872" text-anchor="middle" fill="#273c75" font-size="44" font-weight="800">%</text>
+    <text x="605" y="965" fill="#12253f" font-size="31" font-weight="800">Interest &amp; dividends</text>
+    <text x="605" y="1015" fill="#53677e" font-size="23">Specified foreign-source income</text>
+  </g>
+  <text x="540" y="1130" text-anchor="middle" fill="#273c75" font-size="29" font-weight="800" font-family="Arial">Only information received by the Department will appear.</text>
+  <text x="70" y="1290" fill="#fff" font-size="23" font-weight="700" font-family="Arial">Story 3 of 6</text><text x="1010" y="1290" text-anchor="end" fill="#fff" font-size="20" font-family="Arial">Educational update • Verify official source</text>
+</svg>
