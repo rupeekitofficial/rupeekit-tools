@@ -40,9 +40,22 @@ if (!fs.existsSync(imageSitemapPath)) {
 } else {
   const xml = fs.readFileSync(imageSitemapPath, 'utf8');
   const imageEntryCount = (xml.match(/<image:image>/g) ?? []).length;
-  if (imageEntryCount !== manifest.length) {
-    errors.push(`Expected ${manifest.length} image sitemap entries, found ${imageEntryCount}.`);
+
+  if (imageEntryCount < manifest.length) {
+    errors.push(`Expected at least ${manifest.length} image sitemap entries, found ${imageEntryCount}.`);
   }
+
+  for (const image of manifest) {
+    const pageUrl = `${siteUrl}${image.path}`;
+    const imageUrl = `${siteUrl}${image.src}`;
+    if (!xml.includes(`<loc>${pageUrl}</loc>`)) {
+      errors.push(`Image sitemap is missing the page URL for ${image.path}.`);
+    }
+    if (!xml.includes(`<image:loc>${imageUrl}</image:loc>`)) {
+      errors.push(`Image sitemap is missing the image URL for ${image.path}.`);
+    }
+  }
+
   if (xml.includes('<image:caption>')) {
     errors.push('Image sitemap uses the deprecated image:caption tag.');
   }
@@ -60,4 +73,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Rendered Discover image validation passed for ${manifest.length} pages.`);
+console.log(`Rendered Discover image validation passed for ${manifest.length} required pages.`);
