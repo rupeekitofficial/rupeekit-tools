@@ -185,39 +185,39 @@ export const financialUpdates: FinancialUpdate[] = [
   visualType: 'income-tax',
   schemaType: 'NewsArticle',
   heroImage: {
-    src: '/images/updates/income-tax-helpdesk-24x7/hero-income-tax-helpdesk-24x7.webp',
+    src: '/images/updates/income-tax-helpdesk-24x7/hero-income-tax-helpdesk-24x7.svg',
     alt: 'Indian taxpayer using the Income Tax e-Filing helpdesk late at night during the temporary 24x7 support window ending 31 July 2026',
     width: 1600,
     height: 900,
   },
   carouselSlides: [
     {
-      src: '/images/updates/income-tax-helpdesk-24x7/slide-1-late-night-error.webp',
+      src: '/images/updates/income-tax-helpdesk-24x7/slide-1-late-night-error.svg',
       alt: 'Indian taxpayer Rohan sees an e-filing validation error on his laptop at 11:45 PM',
       caption: 'Rohan reaches the final filing step late at night and sees a portal error.',
     },
     {
-      src: '/images/updates/income-tax-helpdesk-24x7/slide-2-support-window.webp',
+      src: '/images/updates/income-tax-helpdesk-24x7/slide-2-support-window.svg',
       alt: 'Timeline showing the Income Tax e-Filing and CPC helpdesk operating 24x7 from 25 to 31 July 2026',
       caption: 'The special continuous-support window runs from 25 July morning to the end of 31 July.',
     },
     {
-      src: '/images/updates/income-tax-helpdesk-24x7/slide-3-choose-right-number.webp',
+      src: '/images/updates/income-tax-helpdesk-24x7/slide-3-choose-right-number.svg',
       alt: 'Three contact cards separating e-Filing and CPC, AIS and Reporting Portal, and PAN and TAN help channels',
       caption: 'Choose the contact channel that matches the exact problem.',
     },
     {
-      src: '/images/updates/income-tax-helpdesk-24x7/slide-4-prepare-before-call.webp',
+      src: '/images/updates/income-tax-helpdesk-24x7/slide-4-prepare-before-call.svg',
       alt: 'Checklist of assessment year, form name, error message and acknowledgement details to prepare before calling the helpdesk',
       caption: 'A short preparation checklist can make the support call clearer.',
     },
     {
-      src: '/images/updates/income-tax-helpdesk-24x7/slide-5-hours-not-extension.webp',
+      src: '/images/updates/income-tax-helpdesk-24x7/slide-5-hours-not-extension.svg',
       alt: 'Myth versus fact slide explaining that longer helpdesk hours do not announce an income-tax filing deadline extension',
       caption: 'Extended support hours are not the same as an extended filing deadline.',
     },
     {
-      src: '/images/updates/income-tax-helpdesk-24x7/slide-6-call-safely.webp',
+      src: '/images/updates/income-tax-helpdesk-24x7/slide-6-call-safely.svg',
       alt: 'Indian taxpayer records a grievance reference and keeps password and OTP information private after an official helpdesk call',
       caption: 'Use official contacts, protect credentials and record the service reference.',
     },
