@@ -255,11 +255,11 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
           <div>
             <p className="text-xs font-black uppercase tracking-[0.16em] text-brandGrowthGreen">Visual story</p>
             <h2 id="story-carousel-title" className="mt-2 text-2xl font-black text-brandDeepNavy">
-              Swipe through the AIS story
+              Swipe through this update story
             </h2>
             <p className="mt-2 text-sm text-brandMuted">Each slide explains one part of the official update in simple language.</p>
           </div>
-          <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4" aria-label="Foreign Assets Information in AIS story slides">
+          <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4" aria-label={`${update.title} story slides`}>
             {update.carouselSlides.map((slide, index) => (
               <figure
                 key={slide.src}
@@ -284,7 +284,7 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
 
       <section className="grid gap-5 md:grid-cols-2">
         <article className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8">
-          <h2 className="text-xl font-black text-brandDeepNavy">What did CBDT officially confirm?</h2>
+          <h2 className="text-xl font-black text-brandDeepNavy">What did the official source confirm?</h2>
           {update.whatHappened ? <p className="mt-3 leading-relaxed text-slate-700">{update.whatHappened}</p> : null}
           {update.officialFacts && update.officialFacts.length > 0 ? (
             <ul className="mt-5 space-y-3 text-sm leading-relaxed text-slate-700">
