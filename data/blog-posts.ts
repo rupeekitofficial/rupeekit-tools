@@ -2600,7 +2600,7 @@ export const blogPosts: BlogPost[] = [
         ],
         bullets: [
           'Employer PF (12% of Basic) is part of CTC but does not reach your salary account directly',
-          'Gratuity provision (~4.81% of Basic) is part of CTC, paid only on exit after 5 years',
+          'Gratuity provision (~4.81% of Basic) is part of CTC; the general rule requires 5 years of continuous service, though eligible fixed-term employees qualify after 1 year',
           'Variable pay / bonus is often included in CTC at target but may be partially paid',
           'Health insurance premium paid by employer is part of CTC (no cash benefit)',
         ],
@@ -2964,7 +2964,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: 'What are the new gratuity rules for permanent employees in 2026?',
-        answer: 'For permanent (regular, open-ended contract) employees, the gratuity rules do not change under the New Labour Codes: 5 years of continuous service is still required, the formula remains (Basic + DA) × 15/26 × years of service, and the Rs 20 lakh tax-free ceiling continues. The 1-year eligibility rule under the Code on Social Security, 2020 applies only to fixed-term contract employees, not permanent staff.',
+        answer: 'For permanent (regular, open-ended contract) employees, the gratuity rules under the Code on Social Security, 2020 (effective 21 November 2025) keep the general 5-year continuous-service condition, and the formula remains (Basic + DA) × 15/26 × years of service. Verify the current tax-free ceiling and exemption applicable to your case from official sources before filing a return. The 1-year eligibility rule applies only to eligible fixed-term contract employees, not permanent staff.',
       },
       {
         question: 'Where can I download the official New Labour Code gratuity rules PDF?',
