@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { mcpCalculateExampleText } from '@/lib/api-docs-examples';
 import { listPublicCalculators } from '@/lib/public-calculator-api';
 
 export const metadata: Metadata = {
@@ -18,23 +19,6 @@ Content-Type: application/json
     "currentEmergencySavings": 50000,
     "monthlySavingCapacity": 10000,
     "targetMonths": 6
-  }
-}`;
-
-const mcpExample = `{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "tools/call",
-  "params": {
-    "name": "calculate",
-    "arguments": {
-      "slug": "emi-calculator-india",
-      "inputs": {
-        "loanAmount": 500000,
-        "annualInterestRate": 12,
-        "tenureMonths": 36
-      }
-    }
   }
 }`;
 
@@ -74,14 +58,19 @@ export default function ApiDocsPage() {
 
       <section className="mt-8 rounded-2xl border border-brandBorder bg-white p-6">
         <h2 className="text-2xl font-bold text-brandDeepNavy">MCP for AI tools</h2>
-        <p className="mt-3 text-slate-700">Streamable HTTP endpoint: <code>https://www.rupeekit.co.in/api/mcp</code></p>
+        <p className="mt-3 text-slate-700">Beta JSON-RPC HTTP endpoint: <code>https://www.rupeekit.co.in/api/mcp</code></p>
+        <p className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+          Compatibility note: this beta currently advertises MCP protocol version <code>2025-03-26</code>.
+          Verification and transport hardening for the current <code>2025-11-25</code> specification are pending,
+          so do not treat it as a production-SLA integration yet.
+        </p>
         <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
           <li><code>list_calculators</code> discovers calculators and valid input fields.</li>
           <li><code>get_calculator</code> retrieves the complete contract for one slug.</li>
           <li><code>calculate</code> runs the selected calculator and returns structured results with sources.</li>
         </ul>
         <h3 className="mt-7 text-lg font-bold text-brandDeepNavy">MCP tool-call example</h3>
-        <pre className="mt-3 overflow-x-auto rounded-xl bg-slate-950 p-4 text-sm text-slate-100"><code>{mcpExample}</code></pre>
+        <pre className="mt-3 overflow-x-auto rounded-xl bg-slate-950 p-4 text-sm text-slate-100"><code>{mcpCalculateExampleText}</code></pre>
         <h3 className="mt-7 text-lg font-bold text-brandDeepNavy">Instructions for AI assistants</h3>
         <ol className="mt-3 list-decimal space-y-2 pl-6 text-slate-700">
           <li>Call <code>list_calculators</code> or <code>get_calculator</code> before calculating; never invent an input key.</li>
