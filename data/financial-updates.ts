@@ -77,6 +77,197 @@ export interface FinancialUpdate {
 
 export const financialUpdates: FinancialUpdate[] = [
   {
+    id: 'income-tax-demand-facilitation-centre-july-2026',
+    slug: 'income-tax-demand-facilitation-centre-july-2026',
+    title: 'Old Income Tax Demand Showing Against Your PAN? A New Help Centre Can Guide You',
+    category: 'Income Tax',
+    sourceName: 'Income Tax Department, Ministry of Finance, Government of India',
+    sourceUrl: 'https://www.incometax.gov.in/iec/foportal/',
+    officialSources: [
+      {
+        label: 'Income Tax Department homepage announcement for the Demand Management Facilitation Centre',
+        href: 'https://www.incometax.gov.in/iec/foportal/',
+      },
+      {
+        label: 'Official Respond to Outstanding Demand FAQs',
+        href: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/response-outstanding-demand',
+      },
+      {
+        label: 'Official Respond to Outstanding Demand user manual',
+        href: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/response-outstanding-demand-UM',
+      },
+    ],
+    publishedDate: '2026-07-26',
+    modifiedDate: '2026-07-26',
+    lastReviewed: '26 July 2026',
+    effectiveDate:
+      'The Income Tax Department homepage displayed the Demand Management Facilitation Centre contact details when reviewed on 26 July 2026. The announcement does not state a closing date. Taxpayers should recheck the official portal before contacting the centre because operational details may change.',
+    summary:
+      'The Income Tax Department has introduced a Demand Management Facilitation Centre to guide taxpayers who have questions or grievances about outstanding tax demands. The centre can explain the available process, but it does not automatically cancel, reduce or decide whether a demand is correct.',
+    quickAnswer:
+      'An old tax demand appearing against your PAN does not mean you should pay immediately without checking it. The Income Tax Department now lists a Demand Management Facilitation Centre for guidance on outstanding-demand issues. First open Pending Actions on the official e-Filing portal, review the demand and notice, then choose the correct response: agree, partly disagree or fully disagree.',
+    storyTitle: 'Ananya saw a seven-year-old demand just as she expected a refund',
+    story:
+      'Ananya filed her return and expected a refund. When she opened the e-Filing portal, she found an old outstanding demand from an earlier assessment year. Her first reaction was to pay quickly so the refund would not be affected. Instead, she downloaded the demand details, checked her earlier return and challan, and used the newly listed Demand Management Facilitation Centre to understand the process. The centre did not decide her tax case for her, but it helped her identify where to respond and what records to keep ready.',
+    whatHappened:
+      'The Income Tax Department homepage announced that a Demand Management Facilitation Centre has been set up to guide taxpayers on issues and grievances relating to outstanding demands. It lists the email taxdemand@cpc.incometax.gov.in, toll-free number 1800 309 0131 and chargeable number 0821-6671200.',
+    officialFacts: [
+      'The centre is described as a guidance and facilitation channel for outstanding-demand issues and grievances.',
+      'The official e-Filing portal allows registered users to view demands under Pending Actions, then Response to Outstanding Demand.',
+      'A taxpayer can agree with a demand, partly disagree or fully disagree and provide the applicable reasons and supporting details.',
+      'The official FAQ says an unanswered demand may be confirmed and adjusted against a refund, or continue to appear as payable when no refund is due.',
+      'If a taxpayer partly disagrees, the official guidance says the undisputed portion should be paid while the disputed portion is explained through the response process.',
+    ],
+    plainLanguageExplanation:
+      'Think of the new centre as a help desk for understanding the route, not as a court or an automatic demand-cancellation service. It can guide you, but the demand must still be checked and responded to through the official portal using your records.',
+    whyItMatters:
+      'Old demands can delay or reduce an expected refund and can remain attached to a PAN for years. Taxpayers may also panic and pay an amount that was already paid, corrected or disputed. A dedicated guidance channel may make it easier to understand the next step without sharing sensitive login details with an unknown intermediary.',
+    whoMayBeAffected:
+      'Registered taxpayers who see a pending outstanding demand, receive a section 245 adjustment communication, expect a refund that may be adjusted, have already paid but the payment is not reflected, or disagree fully or partly with a demand raised by CPC or an Assessing Officer.',
+    whoMayNotBeAffected:
+      'Taxpayers with no outstanding demand shown under Pending Actions may not need this service. The centre is also not a replacement for filing an appeal, rectification request or other formal remedy when one is legally required.',
+    realisticExample: {
+      title: 'Example: ₹18,000 demand, but ₹12,000 was already paid',
+      body:
+        'Suppose Ananya sees an ₹18,000 demand. Her records show that ₹12,000 was already paid through a valid challan, while she agrees that ₹6,000 remains unpaid. She should not mark the full demand as correct without checking. She can use the official response flow, enter the challan details for the amount already paid, verify the remaining amount, and retain the transaction or response reference. This is only an example; the correct response depends on the actual notice and records.',
+    },
+    practicalSteps: [
+      'Log in only through the official Income Tax e-Filing portal.',
+      'Open Pending Actions, then Response to Outstanding Demand.',
+      'Download and read the demand details and any available section 245 notice.',
+      'Compare the demand with the relevant return, intimation, challan, rectification order and tax-credit records.',
+      'Choose Agree, Partly Disagree or Fully Disagree only after checking the records and enter the required details.',
+      'Save the transaction ID, acknowledgement and submitted response for future reference.',
+      'Use the official Demand Management Facilitation Centre when you need guidance, but never share passwords or OTPs.',
+    ],
+    commonMisunderstandings: [
+      {
+        claim: 'A demand on the portal is automatically correct and must be paid immediately.',
+        reality:
+          'The Department gives taxpayers an opportunity to review and respond. The demand may be accepted, partly disputed or fully disputed with reasons and details.',
+      },
+      {
+        claim: 'Calling the facilitation centre will cancel the demand.',
+        reality:
+          'The announcement describes the centre as a guidance channel. It does not promise cancellation, reduction or a decision on the merits of a demand.',
+      },
+      {
+        claim: 'Ignoring the demand has no effect if I am expecting a refund.',
+        reality:
+          'The official FAQ says an unanswered demand may be confirmed and adjusted against a refund, subject to the applicable process.',
+      },
+      {
+        claim: 'I should send my portal password, OTP or complete financial records by email.',
+        reality:
+          'Do not share passwords or OTPs. Use the official portal for formal responses and provide only what the official process requires.',
+      },
+    ],
+    whatToVerify:
+      'Verify the assessment year, demand reference, notice, amount, earlier payment details and the status of any revised return or rectification request. Recheck the centre contact details on the official Income Tax portal before calling or emailing. For legal interpretation, appeal deadlines or case-specific tax advice, consult a qualified tax professional.',
+    announcementVsOrderNote:
+      'The new announcement creates a facilitation channel; it does not amend tax law, extend a response deadline or decide an individual demand. Formal action still takes place through the e-Filing portal and the applicable statutory process.',
+    methodology:
+      'RupeeKit reviewed the Income Tax Department homepage announcement, the official outstanding-demand FAQ and the complete user manual. The article separates the new facilitation-centre announcement from the existing response process and does not infer any power to cancel demands or provide personalised tax advice.',
+    relatedRupeeKitLinks: [
+      {
+        label: 'ITR-2 Filing Guide for AY 2026-27',
+        href: '/blog/itr-2-ay-2026-27-filing-guide',
+      },
+      {
+        label: 'Income Tax Old vs New Regime Calculator',
+        href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+      },
+      {
+        label: 'Salary In-Hand Calculator India',
+        href: '/tools/salary-in-hand-calculator-india',
+      },
+    ],
+    tags: ['Outstanding Tax Demand', 'Income Tax Refund', 'Section 245', 'CPC', 'Demand Management Facilitation Centre'],
+    visualType: 'income-tax',
+    schemaType: 'NewsArticle',
+    heroImage: {
+      src: '/images/updates/income-tax-demand-help-centre/hero-old-tax-demand-help.svg',
+      alt: 'Indian taxpayer reviewing an old outstanding income-tax demand and the official Demand Management Facilitation Centre guidance options',
+      width: 1600,
+      height: 900,
+    },
+    carouselSlides: [
+      {
+        src: '/images/updates/income-tax-demand-help-centre/slide-1-ananya-sees-demand.svg',
+        alt: 'Indian taxpayer Ananya sees an old outstanding tax demand while waiting for an income-tax refund',
+        caption: 'Ananya sees an old demand and pauses before making a payment.',
+      },
+      {
+        src: '/images/updates/income-tax-demand-help-centre/slide-2-what-centre-does.svg',
+        alt: 'Visual explaining that the Demand Management Facilitation Centre provides guidance but does not cancel tax demands',
+        caption: 'The new centre guides taxpayers; it does not decide or cancel a demand.',
+      },
+      {
+        src: '/images/updates/income-tax-demand-help-centre/slide-3-check-portal.svg',
+        alt: 'Step-by-step visual for opening Pending Actions and Response to Outstanding Demand on the official e-Filing portal',
+        caption: 'Check the demand and notice through the official portal first.',
+      },
+      {
+        src: '/images/updates/income-tax-demand-help-centre/slide-4-three-responses.svg',
+        alt: 'Three response choices for an income-tax demand: agree, partly disagree or fully disagree',
+        caption: 'Choose the response that matches your records.',
+      },
+      {
+        src: '/images/updates/income-tax-demand-help-centre/slide-5-refund-risk.svg',
+        alt: 'Illustration showing that an unanswered outstanding demand may be adjusted against an expected tax refund',
+        caption: 'An unanswered demand may affect an expected refund.',
+      },
+      {
+        src: '/images/updates/income-tax-demand-help-centre/slide-6-safe-checklist.svg',
+        alt: 'Safe checklist for tax-demand guidance showing official portal, records, acknowledgement and no password or OTP sharing',
+        caption: 'Keep records ready, save references and protect your login credentials.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the Demand Management Facilitation Centre?',
+        answer:
+          'It is a guidance channel listed by the Income Tax Department for taxpayers with issues or grievances relating to outstanding demands. The announcement does not say that it can cancel or decide a demand.',
+      },
+      {
+        question: 'How can I check an outstanding demand against my PAN?',
+        answer:
+          'Log in to the official e-Filing portal and open Pending Actions, then Response to Outstanding Demand. The page shows the status of past and existing demands and provides Pay Now or Submit Response options where applicable.',
+      },
+      {
+        question: 'What happens if I do not respond to an outstanding demand?',
+        answer:
+          'The official FAQ says the demand may be confirmed and adjusted against a refund, or continue to show as payable when no refund is due.',
+      },
+      {
+        question: 'Can I disagree with an income-tax demand?',
+        answer:
+          'Yes. The official portal allows a taxpayer to disagree fully or partly, select the relevant reasons and provide the required details before submitting the response.',
+      },
+      {
+        question: 'What if I already paid the tax but the demand still appears?',
+        answer:
+          'The user manual provides a response option for a demand already paid. Taxpayers may need to enter challan details such as amount, BSR code, serial number and payment date and upload the challan copy where required.',
+      },
+      {
+        question: 'Can the facilitation centre extend my response or appeal deadline?',
+        answer:
+          'The official announcement does not state that the centre can extend statutory deadlines. Check the notice and applicable official process immediately.',
+      },
+      {
+        question: 'What are the official Demand Management Facilitation Centre contacts?',
+        answer:
+          'When reviewed on 26 July 2026, the Income Tax Department homepage listed taxdemand@cpc.incometax.gov.in, toll-free number 1800 309 0131 and chargeable number 0821-6671200. Recheck the official portal before use.',
+      },
+      {
+        question: 'Should I share my password or OTP with a helpdesk caller?',
+        answer:
+          'No. Never share your e-Filing password or OTP. Use official portal workflows for formal responses and verify contact details directly on the Income Tax Department website.',
+      },
+    ],
+    status: 'official',
+  },
+  {
   id: 'income-tax-helpdesk-24x7-july-2026',
   slug: 'income-tax-helpdesk-24x7-july-2026',
   title: 'Income Tax Helpdesk Is Open 24x7 Until 31 July: Which Number Should You Call?',
