@@ -1,5 +1,6 @@
 import tools from '../data/tools.json';
 import growthTools from '../data/growth-tools.json';
+import decisionTools from '../data/decision-tools-2026.json';
 
 export type ToolInput = {
   key: string;
@@ -78,7 +79,7 @@ export type Tool = {
   officialSources?: ToolOfficialSource[];
 };
 
-export const allTools = [...tools, ...growthTools] as Tool[];
+export const allTools = [...tools, ...growthTools, ...decisionTools] as Tool[];
 
 export function getLiveTools(): Tool[] {
   return allTools.filter((tool) => tool.status === 'live');
