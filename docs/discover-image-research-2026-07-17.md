@@ -8,7 +8,7 @@ Inputs: settled Google Search Console performance through 13 July 2026, Google T
 
 ## Decision
 
-RupeeKit will use original, human-led editorial hero photography that shows a recognisable Indian money decision. Calculator screenshots, generic logos, currency piles, text-heavy thumbnails, fabricated official documents, and exaggerated wealth or distress are excluded.
+RupeeKit will use original, human-led editorial hero visuals that show a recognisable Indian money decision. Calculator screenshots, third-party logos, currency piles, text-heavy thumbnails, fabricated official documents, and exaggerated wealth or distress are excluded. A small, legible RupeeKit brand mark is permitted when it is unobscured and secondary to the editorial scene.
 
 Every rollout image is:
 
@@ -16,7 +16,7 @@ Every rollout image is:
 - A compressed WebP served from the same RupeeKit origin.
 - Visible on the page and connected to Open Graph, Twitter card and relevant structured-data image fields.
 - Unique to one canonical URL, with descriptive alt text and a crop-safe central subject.
-- Generated as an original editorial asset and reviewed for logos, private data, misleading claims and obvious visual defects.
+- Generated as an original editorial asset and reviewed for third-party logos or official emblems, private data, misleading claims and obvious visual defects. A legible RupeeKit brand mark is permitted.
 
 ## What the trend research changed
 
