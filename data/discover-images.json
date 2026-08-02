@@ -425,5 +425,75 @@
     "alt": "Indian borrower reviewing bills and credit usage while working to improve a CIBIL score",
     "width": 1600,
     "height": 900
+  },
+  {
+    "path": "/tools/rent-vs-buy-calculator-india",
+    "src": "/images/discover/rent-vs-buy-calculator-india.webp",
+    "alt": "Indian household comparing renting and buying costs with a home, calculator and RupeeKit planning card",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/home-affordability-calculator-india",
+    "src": "/images/discover/home-affordability-calculator-india.webp",
+    "alt": "Indian home affordability planning scene with income, EMI, down payment and a RupeeKit calculator card",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/job-offer-comparison-calculator-india",
+    "src": "/images/discover/job-offer-comparison-calculator-india.webp",
+    "alt": "Indian professional comparing two job offer folders, expected value and work costs with RupeeKit",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/salary-increment-calculator-india",
+    "src": "/images/discover/salary-increment-calculator-india.webp",
+    "alt": "Indian salary increment planning visual showing revised pay, monthly difference and inflation impact",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/bonus-tax-calculator-india",
+    "src": "/images/discover/bonus-tax-calculator-india.webp",
+    "alt": "Indian employee estimating bonus deductions and net bonus using a RupeeKit educational planning visual",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/fire-retirement-calculator-india",
+    "src": "/images/discover/fire-retirement-calculator-india.webp",
+    "alt": "Indian financial independence planning scene with a retirement target path and RupeeKit corpus estimate",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/net-worth-tracker-calculator-india",
+    "src": "/images/discover/net-worth-tracker-calculator-india.webp",
+    "alt": "Indian personal net worth planning visual balancing assets, loans and liabilities with RupeeKit",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/education-loan-emi-tax-benefit-calculator-india",
+    "src": "/images/discover/education-loan-emi-tax-benefit-calculator-india.webp",
+    "alt": "Indian education loan planning scene with graduation, EMI schedule and an illustrative tax benefit estimate",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/rental-yield-calculator-india",
+    "src": "/images/discover/rental-yield-calculator-india.webp",
+    "alt": "Indian property owner comparing rent, vacancy, costs and net rental yield with RupeeKit",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/debt-snowball-calculator-india",
+    "src": "/images/discover/debt-snowball-calculator-india.webp",
+    "alt": "Indian borrower arranging three debts into a practical snowball payoff order with RupeeKit",
+    "width": 1600,
+    "height": 900
   }
 ]
