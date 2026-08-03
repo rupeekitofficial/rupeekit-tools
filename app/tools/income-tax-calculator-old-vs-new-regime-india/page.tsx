@@ -18,12 +18,10 @@ const DISCOVER_IMAGE_URL = DISCOVER_IMAGE ? `${SITE_URL}${DISCOVER_IMAGE.src}` :
 
 const latestSupportedFy = availableTaxYears[0];
 const latestSupportedRules = indiaIncomeTaxRules[latestSupportedFy];
-const supportsTargetYear = availableTaxYears.includes(TARGET_FY);
 
 const pageTitle = 'Old vs New Tax Regime Calculator India FY 2025-26 | Free';
-const pageDescription = supportsTargetYear
-  ? 'Free Old vs New Tax Regime Calculator for India FY 2025-26 — compare tax, deductions, HRA, 80C and rebate instantly. Calculate your savings now.'
-  : 'Free Old vs New Tax Regime Calculator for India FY 2025-26 planning — estimate tax, deductions, HRA, 80C and rebate. Calculate your savings now.';
+const pageDescription =
+  'Compare old and new tax regimes for FY 2025-26 (AY 2026-27) using salary, standard deduction, HRA, 80C, 80D, NPS and home-loan assumptions. Free and instant.';
 
 function formatInr(value: number) {
   return `Rs ${Math.round(value).toLocaleString('en-IN')}`;
@@ -173,7 +171,12 @@ const faqs = [
   },
   {
     question: 'Which financial years are currently supported here?',
-    answer: `This calculator currently supports ${availableTaxYears.map((year) => `FY ${year}`).join(' and ')}. FY ${TARGET_FY} support is shown only after rules are configured and verified in code.`,
+    answer: `This calculator supports ${availableTaxYears.map((year) => `FY ${year}`).join(', ')}. FY 2025-26 (AY 2026-27) is the default and uses the Finance Act, 2025 new-regime slabs, the Rs 75,000 standard deduction for salaried taxpayers, the Section 87A rebate up to Rs 60,000 with marginal relief, and 4% health and education cess.`,
+  },
+  {
+    question: 'Does this calculator handle capital gains or other special-rate income?',
+    answer:
+      'No. It compares regimes for normal slab-rate income such as salary for a resident individual. Equity STCG, LTCG and other special-rate income follow separate rates and different Section 87A rebate treatment, so total tax can differ when such income exists. Use the capital gains calculator for equity gains and verify combined liability in the official filing utility.',
   },
   {
     question: 'Should I rely on this as final tax advice?',
@@ -271,7 +274,7 @@ export default function IncomeTaxCalculatorPage() {
     browserRequirements: 'Requires a JavaScript-enabled web browser.',
     url: PAGE_URL,
     description: pageDescription,
-    dateModified: '2026-07-11',
+    dateModified: '2026-08-03',
     inLanguage: 'en-IN',
     isPartOf: { '@id': `${SITE_URL}/#website` },
     isAccessibleForFree: true,
@@ -318,8 +321,10 @@ export default function IncomeTaxCalculatorPage() {
             Old vs New Tax Regime Calculator India
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Compare old vs new regime tax estimates using your income and deduction inputs. This page is optimized for
-            FY {TARGET_FY} planning and currently computes using supported rule years only.
+            Compare old vs new regime tax estimates for FY {TARGET_FY} (AY {TARGET_AY}) using your salary and
+            deduction inputs. FY {TARGET_FY} slabs, the Rs 75,000 new-regime standard deduction, the Section 87A
+            rebate up to Rs 60,000 with marginal relief, and 4% cess are configured and tested. Earlier years remain
+            selectable.
           </p>
         </div>
         <div className="space-y-4">
@@ -334,17 +339,20 @@ export default function IncomeTaxCalculatorPage() {
         </div>
       </header>
 
-      {!supportsTargetYear ? (
-        <section className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 no-print">
-          <h2 className="text-base font-bold text-amber-900">FY {TARGET_FY} support status</h2>
-          <p className="mt-2 text-sm leading-6 text-amber-900">
-            FY {TARGET_FY} (AY {TARGET_AY}) is not yet configured in the rule engine. Current supported years:
-            {' '}
-            {availableTaxYears.map((year) => `FY ${year}`).join(', ')}
-            . Use this page for planning comparisons only until FY {TARGET_FY} rules are implemented and verified.
-          </p>
-        </section>
-      ) : null}
+      <section className="mb-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 no-print">
+        <h2 className="text-base font-bold text-slate-900">Scope of this calculator</h2>
+        <p className="mt-2 text-sm leading-6 text-slate-700">
+          This comparison assumes a resident individual with normal slab-rate income (mainly salary) and the
+          deduction inputs shown below. Capital gains and other special-rate income (for example, equity STCG or
+          LTCG) are taxed at separate rates with different Section 87A treatment and are not modelled here. If you
+          have special-rate income, your total tax can be more than this estimate even when taxable income is
+          within the rebate limit — income up to Rs 12 lakh is not automatically tax-free in that case. Use the{' '}
+          <Link href="/tools/capital-gains-tax-calculator-india" className="font-semibold text-sky-700 hover:underline">
+            Capital Gains Tax Calculator
+          </Link>{' '}
+          for equity gains.
+        </p>
+      </section>
 
       <section className="mb-6">
         <QuickAnswerBox
@@ -525,14 +533,15 @@ export default function IncomeTaxCalculatorPage() {
           { topic: 'Calculation type', explanation: 'Rule-driven educational estimate from user-entered values' },
           { topic: 'Key inputs', explanation: 'Income, deductions, exemptions, year selection, and salaried profile toggle' },
           { topic: 'Primary outputs', explanation: 'Old/new regime taxable income, estimated tax, difference, and lower-tax indicator' },
-          { topic: 'Supported years', explanation: `Currently configured years: ${availableTaxYears.map((year) => `FY ${year}`).join(' and ')}` },
+          { topic: 'Supported years', explanation: `Currently configured years: ${availableTaxYears.map((year) => `FY ${year}`).join(', ')}` },
+          { topic: 'Scope', explanation: 'Resident individual, normal slab-rate income. Capital gains and other special-rate income are not modelled.' },
           { topic: 'Advice boundary', explanation: 'Educational information only. Not personalized tax, legal, or investment advice.' },
         ]}
       />
 
       <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 no-print">
         <h2 className="text-2xl font-bold text-brandDeepNavy">Source and methodology</h2>
-        <p className="mt-2 text-sm text-slate-500">Last reviewed: July 11, 2026 (IST)</p>
+        <p className="mt-2 text-sm text-slate-500">Last reviewed: August 3, 2026 (IST)</p>
         <p className="mt-4 leading-8 text-slate-700">
           Method: This calculator applies configured slab rules, standard deduction, selected deduction inputs, rebate
           logic, and 4% health and education cess to estimate old and new regime outcomes.

@@ -53,6 +53,13 @@ export type ToolOfficialSource = {
   href: string;
 };
 
+export type ToolPreset = {
+  id: string;
+  label: string;
+  description?: string;
+  values: Record<string, number>;
+};
+
 export type Tool = {
   slug: string;
   name: string;
@@ -78,6 +85,7 @@ export type Tool = {
   lastReviewed?: string;
   lastReviewedIso?: string;
   officialSources?: ToolOfficialSource[];
+  presets?: ToolPreset[];
 };
 
 export const allTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools] as Tool[];

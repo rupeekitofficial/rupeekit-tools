@@ -51,6 +51,7 @@ import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLo
 import EmergencyFundVisualBreakdown from '@/components/emergency-fund/EmergencyFundVisualBreakdown';
 import DownloadEmergencyFundPlanButton from '@/components/emergency-fund/DownloadEmergencyFundPlanButton';
 import SipPlannerCalculator from '@/components/sip/SipPlannerCalculator';
+import CalculatorPresets, { type CalculatorPreset } from '@/components/calculators/CalculatorPresets';
 import type { PersonalLoanEmiReportPdfData } from '@/components/personal-loan/PersonalLoanEmiReportPdfDocument';
 import type { EmergencyFundPlanPdfData } from '@/components/emergency-fund/EmergencyFundPlanPdfDocument';
 
@@ -74,6 +75,28 @@ function StandardCalculator({ tool }: { tool: Tool }) {
 
 
   const [values, setValues] = useState<Record<string, number | ''>>(initialValues);
+  const [activePresetId, setActivePresetId] = useState<string | null>(null);
+
+  const inputByKey = useMemo(
+    () => new Map(tool.inputs.map((input) => [input.key, input])),
+    [tool.inputs]
+  );
+
+  const applyPreset = (preset: CalculatorPreset) => {
+    setValues((current) => {
+      const next = { ...current };
+      for (const [key, rawValue] of Object.entries(preset.values)) {
+        const inputDef = inputByKey.get(key);
+        if (!inputDef || typeof rawValue !== 'number' || !Number.isFinite(rawValue)) continue;
+        let value = rawValue;
+        if (typeof inputDef.min === 'number') value = Math.max(inputDef.min, value);
+        if (typeof inputDef.max === 'number') value = Math.min(inputDef.max, value);
+        next[key] = value;
+      }
+      return next;
+    });
+    setActivePresetId(preset.id);
+  };
 
   const numericValues = useMemo(() => {
     const next: Record<string, number> = {};
@@ -149,6 +172,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
   const showHraRuleUpdate = tool.slug === 'hra-exemption-calculator-india';
   const isPersonalLoanPage = tool.slug === 'personal-loan-emi-calculator-india';
   const isEmergencyFundPage = tool.slug === 'emergency-fund-calculator-india';
+  const isEighthPayPage = tool.slug === '8th-pay-commission-salary-calculator-india';
   const resultMap = useMemo(
     () => new Map(results.map((result) => [result.key, result])),
     [results]
@@ -447,6 +471,14 @@ function StandardCalculator({ tool }: { tool: Tool }) {
       <section className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
         <div className="rounded-3xl border border-brandBorder bg-white p-5 shadow-sm md:p-8">
           <h2 className="text-xl font-bold text-brandDeepNavy">Enter your values</h2>
+          {tool.presets?.length ? (
+            <CalculatorPresets
+              className="mt-4"
+              presets={tool.presets}
+              activePresetId={activePresetId}
+              onApply={applyPreset}
+            />
+          ) : null}
           <div className="mt-6 grid gap-5">
             {tool.inputs.map((input) => (
               <label key={input.key} className="block">
@@ -463,6 +495,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
                   onFocus={(e) => e.target.select()}
                   onChange={(event) => {
                     const val = event.target.value;
+                    setActivePresetId(null);
                     setValues((current) => ({
                       ...current,
                       [input.key]: val === '' ? '' : (Number.isFinite(Number(val)) ? Number(val) : 0),
@@ -633,6 +666,44 @@ function StandardCalculator({ tool }: { tool: Tool }) {
           targetWithBuffer={emergencyFundSummary.targetWithBuffer}
           reportData={emergencyFundReportData ?? undefined}
         />
+      ) : null}
+
+      {isEighthPayPage ? (
+        <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-brandDeepNavy">Fitment-Factor Scenarios Side by Side</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            Revised basic pay for your current basic of {formatValue(Math.max(0, numericValues.currentBasic ?? 0), 'currency')}{' '}
+            under each user-selectable scenario. These are planning scenarios, not official recommendations.
+          </p>
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-100">
+            <table className="w-full min-w-[560px] text-left text-xs text-slate-700 md:text-sm">
+              <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+                <tr>
+                  <th className="px-4 py-3">Fitment-factor scenario</th>
+                  <th className="px-4 py-3 text-right">Revised basic pay (estimate)</th>
+                  <th className="px-4 py-3 text-right">Increase over current basic</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {[1.92, 2.08, 2.57, 2.86, 3.0].map((factor) => {
+                  const currentBasic = Math.max(0, numericValues.currentBasic ?? 0);
+                  const revised = currentBasic * factor;
+                  return (
+                    <tr key={factor}>
+                      <td className="px-4 py-3 font-semibold text-slate-900">{factor.toFixed(2)}× scenario</td>
+                      <td className="px-4 py-3 text-right">{formatValue(revised, 'currency')}</td>
+                      <td className="px-4 py-3 text-right">{formatValue(revised - currentBasic, 'currency')}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-900">
+            The 8th Central Pay Commission has not notified a final fitment factor. These values are user-selectable
+            planning scenarios, not official salary recommendations.
+          </p>
+        </section>
       ) : null}
 
       {isPersonalLoanPage ? (

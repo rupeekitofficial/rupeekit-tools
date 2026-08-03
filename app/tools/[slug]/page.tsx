@@ -15,28 +15,71 @@ import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuick
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 const HRA_SLUG = 'hra-exemption-calculator-india';
-const HRA_META_TITLE = 'HRA Calculator FY 2026-27 | Rule 279 & 50% City Check';
-const HRA_META_DESCRIPTION =
-  'Calculate HRA exemption under Rule 279. Check the 50% city list and compare actual HRA, rent minus 10% of salary, and old-regime exempt HRA.';
-const HRA_H1 = 'HRA Exemption Calculator India';
 const PERSONAL_LOAN_SLUG = 'personal-loan-emi-calculator-india';
-const PERSONAL_LOAN_META_TITLE = 'Personal Loan EMI Calculator 2026 | EMI, Fees & Total Cost';
-const PERSONAL_LOAN_META_DESCRIPTION =
-  'Calculate personal loan EMI, interest, processing fee, GST and total repayment in India. Compare tenure and check affordability before applying.';
-const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
-  'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
-const EMERGENCY_FUND_META_TITLE = 'Emergency Fund Calculator India 2026 | Include EMIs';
-const EMERGENCY_FUND_META_DESCRIPTION =
-  'Calculate a 3, 6, 9 or 12-month emergency fund from essential expenses and home, personal or car-loan EMIs. See your shortfall and savings plan.';
-const EMERGENCY_FUND_H1 = 'Emergency Fund Calculator India';
-const LAST_REVIEWED_ISO_BY_SLUG: Record<string, string> = {
-  [HRA_SLUG]: '2026-07-16',
-  [PERSONAL_LOAN_SLUG]: '2026-07-16',
-  [EMERGENCY_FUND_SLUG]: '2026-07-16',
-  [SIP_SLUG]: '2026-05-01',
-  'fd-calculator-india': '2026-05-01',
+const CAPITAL_GAINS_SLUG = 'capital-gains-tax-calculator-india';
+const EIGHTH_PAY_SLUG = '8th-pay-commission-salary-calculator-india';
+const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
+  'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
+
+/**
+ * Single source of truth for per-calculator SEO/content overrides.
+ * Every field falls back to the tool's own data (tool.seoTitle, tool.name,
+ * tool.metaDescription, tool.shortDescription, tool.lastReviewedIso) when omitted.
+ */
+type ToolSeoOverride = {
+  title?: string;
+  description?: string;
+  h1?: string;
+  heroDescription?: string;
+  lastReviewedIso?: string;
+};
+
+const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
+  [HRA_SLUG]: {
+    title: 'HRA Calculator FY 2026-27 | Rule 279 & 50% City Check',
+    description:
+      'Calculate HRA exemption under Rule 279. Check the 50% city list and compare actual HRA, rent minus 10% of salary, and old-regime exempt HRA.',
+    h1: 'HRA Exemption Calculator India',
+    heroDescription:
+      'Calculate your likely HRA exemption under Rule 279 in seconds. Enter your salary, HRA, rent, and city type to compare the three legal limits and estimate how much HRA can stay tax-exempt under the old regime. Includes FY 2026-27 metro-city rules, a worked example, and a document checklist.',
+    lastReviewedIso: '2026-07-16',
+  },
+  [PERSONAL_LOAN_SLUG]: {
+    title: 'Personal Loan EMI Calculator 2026 | EMI, Fees & Total Cost',
+    description:
+      'Calculate personal loan EMI, interest, processing fee, GST and total repayment in India. Compare tenure and check affordability before applying.',
+    lastReviewedIso: '2026-08-03',
+  },
+  [EMERGENCY_FUND_SLUG]: {
+    title: 'Emergency Fund Calculator India | 3-12 Months + EMI',
+    description:
+      'Calculate a 3, 6, 9 or 12-month emergency fund using essential expenses and home, personal or car-loan EMIs. Check your shortfall and savings target.',
+    h1: 'Emergency Fund Calculator India',
+    lastReviewedIso: '2026-08-03',
+  },
+  [SIP_SLUG]: {
+    title: 'SIP Calculator India 2026 | Step-Up, Goal & Delay Cost',
+    description:
+      'Calculate SIP returns, step-up SIP, goal-based investment, inflation-adjusted corpus and the cost of delaying, pausing or missing SIPs.',
+    lastReviewedIso: '2026-08-03',
+  },
+  [CAPITAL_GAINS_SLUG]: {
+    title: 'Capital Gains Tax Calculator India 2026 | STCG & LTCG',
+    description:
+      'Calculate tax on equity shares and equity-oriented mutual funds using current STCG, LTCG, exemption and cess rules for FY 2025-26.',
+    lastReviewedIso: '2026-08-03',
+  },
+  [EIGHTH_PAY_SLUG]: {
+    title: '8th Pay Commission Calculator | Fitment Factor Scenarios',
+    description:
+      'Estimate revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Results are illustrative until official recommendations are notified.',
+    lastReviewedIso: '2026-08-03',
+  },
+  'fd-calculator-india': {
+    lastReviewedIso: '2026-05-01',
+  },
 };
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));
@@ -116,15 +159,11 @@ type ContextualLink = {
 };
 
 function getToolHeading(slug: string, fallback: string) {
-  if (slug === HRA_SLUG) return HRA_H1;
-  if (slug === EMERGENCY_FUND_SLUG) return EMERGENCY_FUND_H1;
-  return fallback;
+  return TOOL_SEO_OVERRIDES[slug]?.h1 ?? fallback;
 }
 
 function getToolDescription(slug: string, fallback: string) {
-  return slug === HRA_SLUG ?
-    'Calculate your likely HRA exemption under Rule 279 in seconds. Enter your salary, HRA, rent, and city type to compare the three legal limits and estimate how much HRA can stay tax-exempt under the old regime. Includes FY 2026-27 metro-city rules, a worked example, and a document checklist.' :
-    fallback;
+  return TOOL_SEO_OVERRIDES[slug]?.heroDescription ?? fallback;
 }
 
 function listLabels(labels: string[]) {
@@ -220,30 +259,13 @@ export function generateMetadata({
   const pageUrl = `${SITE_URL}/tools/${tool.slug}`;
   const discoverImage = getDiscoverImage(`/tools/${tool.slug}`);
   const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
-  const description =
-    tool.slug === HRA_SLUG
-      ? HRA_META_DESCRIPTION
-      : tool.slug === PERSONAL_LOAN_SLUG
-        ? PERSONAL_LOAN_META_DESCRIPTION
-        : tool.slug === EMERGENCY_FUND_SLUG
-          ? EMERGENCY_FUND_META_DESCRIPTION
-        : tool.metaDescription;
-  const pageTitle =
-    tool.slug === HRA_SLUG
-      ? HRA_META_TITLE
-      : tool.slug === PERSONAL_LOAN_SLUG
-        ? PERSONAL_LOAN_META_TITLE
-        : tool.slug === EMERGENCY_FUND_SLUG
-          ? EMERGENCY_FUND_META_TITLE
-        : tool.name;
+  const override = TOOL_SEO_OVERRIDES[tool.slug];
+  const description = override?.description ?? tool.metaDescription;
+  const absoluteTitle = override?.title ?? tool.seoTitle;
+  const pageTitle = absoluteTitle ?? tool.name;
 
   return {
-    title:
-      tool.slug === HRA_SLUG || tool.slug === PERSONAL_LOAN_SLUG || tool.slug === EMERGENCY_FUND_SLUG
-        ? { absolute: pageTitle }
-        : tool.seoTitle
-          ? { absolute: tool.seoTitle }
-          : tool.name,
+    title: absoluteTitle ? { absolute: absoluteTitle } : tool.name,
     description,
     alternates: {
       canonical: pageUrl,
@@ -587,6 +609,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const isPersonalLoanPage = tool.slug === PERSONAL_LOAN_SLUG;
   const isSipPage = tool.slug === SIP_SLUG;
   const isEmergencyFundPage = tool.slug === EMERGENCY_FUND_SLUG;
+  const isCapitalGainsPage = tool.slug === CAPITAL_GAINS_SLUG;
+  const isEighthPayPage = tool.slug === EIGHTH_PAY_SLUG;
   const heading = getToolHeading(tool.slug, tool.name);
   const description = getToolDescription(tool.slug, tool.shortDescription);
   const discoverImage = getDiscoverImage(`/tools/${tool.slug}`);
@@ -594,8 +618,27 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const related = getRelatedTools(tool);
   const supportingGuides = getGuidesForTool(tool.slug);
 
+  const salaryClusterSlugs = new Set([
+    'gratuity-calculator-india',
+    EIGHTH_PAY_SLUG,
+    'salary-in-hand-calculator-india',
+  ]);
+  const isSalaryClusterPage = salaryClusterSlugs.has(tool.slug);
+
   const contextualLinks: ContextualLink[] = [
-    liveToolSlugs.has('salary-in-hand-calculator-india') ? {
+    isSalaryClusterPage && blogSlugs.has('new-labour-code-gratuity-rules-india-2026') ? {
+      href: '/blog/new-labour-code-gratuity-rules-india-2026',
+      label: 'new gratuity rules 2026 guide covering the 1-year vs 5-year rule',
+    } : null,
+    isSalaryClusterPage && tool.slug !== 'gratuity-calculator-india' && liveToolSlugs.has('gratuity-calculator-india') ? {
+      href: '/tools/gratuity-calculator-india',
+      label: 'gratuity calculator',
+    } : null,
+    isSalaryClusterPage && tool.slug !== EIGHTH_PAY_SLUG && liveToolSlugs.has(EIGHTH_PAY_SLUG) ? {
+      href: '/tools/8th-pay-commission-salary-calculator-india',
+      label: '8th Pay Commission fitment-factor scenario calculator',
+    } : null,
+    liveToolSlugs.has('salary-in-hand-calculator-india') && tool.slug !== 'salary-in-hand-calculator-india' ? {
       href: '/tools/salary-in-hand-calculator-india',
       label: 'salary in-hand calculator',
     } : null,
@@ -648,6 +691,26 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           label: 'personal loan processing fee explained guide',
         }
       : null,
+    liveToolSlugs.has('personal-loan-eligibility-calculator-india')
+      ? {
+          href: '/tools/personal-loan-eligibility-calculator-india',
+          label: 'personal loan eligibility calculator to estimate a safe loan amount',
+        }
+      : null,
+    { href: '/guides/personal-loan-apr-processing-fee-gst', label: 'true APR guide covering processing fee and GST' },
+    {
+      href: '/guides/flat-rate-vs-reducing-rate-personal-loan',
+      label: 'flat-rate versus reducing-balance interest guide',
+    },
+    liveToolSlugs.has('loan-foreclosure-net-savings-calculator-india')
+      ? {
+          href: '/tools/loan-foreclosure-net-savings-calculator-india',
+          label: 'loan foreclosure net-savings calculator',
+        }
+      : null,
+    liveToolSlugs.has('salary-in-hand-calculator-india')
+      ? { href: '/tools/salary-in-hand-calculator-india', label: 'in-hand salary calculator to check EMI affordability' }
+      : null,
     liveToolSlugs.has('emergency-fund-calculator-india')
       ? { href: '/tools/emergency-fund-calculator-india', label: 'emergency fund calculator for cash-buffer planning' }
       : null,
@@ -673,6 +736,10 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     liveToolSlugs.has('recurring-deposit-calculator-india')
       ? { href: '/tools/recurring-deposit-calculator-india', label: 'recurring deposit calculator' }
       : null,
+    liveToolSlugs.has('salary-in-hand-calculator-india')
+      ? { href: '/tools/salary-in-hand-calculator-india', label: 'in-hand salary calculator to size monthly savings' }
+      : null,
+    { href: '/guides/emergency-fund-with-home-loan-emi', label: 'guide to emergency funds when you have a home-loan EMI' },
   ].filter((item): item is ContextualLink => item !== null);
 
   const sipLinks: ContextualLink[] = [
@@ -687,6 +754,12 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       : null,
     blogSlugs.has('how-much-emergency-fund')
       ? { href: '/blog/how-much-emergency-fund', label: 'guide on how much emergency fund may be practical' }
+      : null,
+    blogSlugs.has('mutual-funds-for-beginners-india')
+      ? { href: '/blog/mutual-funds-for-beginners-india', label: 'beginner guide to mutual funds in India' }
+      : null,
+    liveToolSlugs.has('net-worth-calculator-india')
+      ? { href: '/tools/net-worth-calculator-india', label: 'net worth calculator to track overall progress' }
       : null,
     { href: '/resources', label: 'RupeeKit resources hub' },
   ].filter((item): item is ContextualLink => item !== null);
@@ -795,7 +868,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     description: isHraPage
       ? 'Calculate likely HRA exemption under Indian tax rules.'
       : tool.metaDescription,
-    dateModified: tool.lastReviewedIso ?? LAST_REVIEWED_ISO_BY_SLUG[tool.slug],
+    dateModified: tool.lastReviewedIso ?? TOOL_SEO_OVERRIDES[tool.slug]?.lastReviewedIso,
     inLanguage: 'en-IN',
     isPartOf: { '@id': `${SITE_URL}/#website` },
     isAccessibleForFree: true,
@@ -908,6 +981,65 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </header>
+
+      {isCapitalGainsPage ? (
+        <section className="mt-6 rounded-2xl border border-sky-200 bg-sky-50 p-5">
+          <p className="text-xs font-bold uppercase tracking-wide text-sky-800">What this calculator covers</p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            For <strong>listed equity shares and equity-oriented mutual funds</strong> where STT applies: 20% short-term
+            capital gains tax, 12.5% long-term capital gains tax above the Rs 1.25 lakh annual exemption, plus 4% cess.
+            It does <strong>not</strong> calculate capital gains on property, debt funds, gold, cryptocurrency or
+            unlisted shares — those follow different rules and rates.
+          </p>
+        </section>
+      ) : null}
+
+      {isSipPage ? (
+        <section className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+          <p className="text-xs font-bold uppercase tracking-wide text-emerald-800">
+            More than a basic SIP calculator
+          </p>
+          <ul className="mt-3 grid gap-x-6 gap-y-1.5 text-sm leading-6 text-slate-700 sm:grid-cols-2 lg:grid-cols-4">
+            <li>Regular SIP projection</li>
+            <li>Step-up SIP</li>
+            <li>Goal-based SIP</li>
+            <li>Cost of delaying 1 year</li>
+            <li>Missed-SIP impact</li>
+            <li>Pause-and-restart scenario</li>
+            <li>Inflation-adjusted value</li>
+            <li>EMI-to-SIP redirect</li>
+          </ul>
+          <p className="mt-3 text-xs leading-5 text-slate-600">
+            All projections use your own return assumption. Mutual fund returns are market-linked and not guaranteed.
+          </p>
+        </section>
+      ) : null}
+
+      {isEmergencyFundPage ? (
+        <section className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+          <p className="text-xs font-bold uppercase tracking-wide text-emerald-800">Direct answer</p>
+          <p className="mt-2 text-sm font-semibold leading-7 text-slate-900">
+            Emergency fund target = essential monthly expenses plus unavoidable EMIs, multiplied by the number of
+            months of protection required.
+          </p>
+          <p className="mt-2 text-sm leading-7 text-slate-700">
+            Choose 3, 6, 9 or 12 months based on income stability, dependants and financial obligations: 3 months can
+            suit stable dual-income households, 6 months is a common baseline, and 9-12 months suits single-income
+            families, freelancers and variable-income households.
+          </p>
+        </section>
+      ) : null}
+
+      {isEighthPayPage ? (
+        <section className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+          <p className="text-xs font-bold uppercase tracking-wide text-amber-900">Scenario-based estimates</p>
+          <p className="mt-2 text-sm leading-7 text-amber-900">
+            The 8th Central Pay Commission has not notified a final fitment factor. These values are user-selectable
+            planning scenarios, not official salary recommendations. Verify current status on the official 8th CPC and
+            PIB websites before relying on any figure.
+          </p>
+        </section>
+      ) : null}
 
       {isPersonalLoanPage ? (
           <div className="mt-10">
@@ -1336,6 +1468,24 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                     <p className="mt-4 leading-8 text-slate-700">
                       The yearly amortization summary shows how each year&apos;s EMI is split between principal and
                       interest. It helps you understand how repayment composition changes over the loan tenure.
+                    </p>
+                  </section>
+
+                  <section id="flat-rate-vs-reducing-balance" className="mt-8 scroll-mt-24">
+                    <h2 className="text-2xl font-bold">Flat rate vs reducing-balance rate</h2>
+                    <p className="mt-4 leading-8 text-slate-700">
+                      This calculator uses the <strong>reducing-balance</strong> method, where interest is charged only
+                      on the outstanding principal each month — the standard for most bank personal loans. A{' '}
+                      <strong>flat rate</strong> charges interest on the full original loan amount for the whole tenure,
+                      so a &quot;10% flat&quot; loan can cost roughly as much as an 17-19% reducing-balance loan over a
+                      typical tenure. Always confirm which method a lender quotes before comparing offers, and read the{' '}
+                      <Link
+                        href="/guides/flat-rate-vs-reducing-rate-personal-loan"
+                        className="font-medium text-sky-700 hover:underline"
+                      >
+                        flat-rate versus reducing-balance guide
+                      </Link>{' '}
+                      for worked examples.
                     </p>
                   </section>
                 </>

@@ -1,7 +1,7 @@
 export const filingDeadlines = [
-  { label: 'Original return (non-audit)', date: '31 Jul 2026', type: 'original' },
+  { label: 'Original return (non-audit)', date: '31 Jul 2026*', type: 'original' },
   { label: 'Belated return u/s 139(4)', date: '31 Dec 2026', type: 'belated' },
-  { label: 'Revised return u/s 139(5)', date: 'before 31 Mar 2027*', type: 'revised' }
+  { label: 'Revised return u/s 139(5)', date: '31 Dec 2026', type: 'revised' }
 ];
 
 export const lateFees = [

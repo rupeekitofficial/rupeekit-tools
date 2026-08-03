@@ -19,7 +19,7 @@ const initialInput: TaxInput = {
 
 export function TaxCalculatorApp() {
   const [input, setInput] = useState<TaxInput>(initialInput);
-  const [taxYear, setTaxYear] = useState<string>('2024-25');
+  const [taxYear, setTaxYear] = useState<string>('2025-26');
   const [activeTab, setActiveTab] = useState<'current' | 'future'>('current');
   const [mounted, setMounted] = useState(false);
 

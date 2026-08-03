@@ -902,25 +902,31 @@ export const blogPosts: BlogPost[] = [
     visualTitle: 'ITR-2 Filing Preparation Flow',
     visualSubtitle: 'Step-by-step checklist for AY 2026-27',
     visualAlt: 'ITR-2 filing flow with steps from Form 16 to final submission',
-    seoTitle: 'ITR-2 Filing AY 2026-27: July 31 Deadline, Who Must File',
+    seoTitle: 'ITR-2 AY 2026-27: Deadline, Documents & Late Filing',
     heroImage: '/blog/itr-2-ay-2026-27-hero-1600x900.jpg',
     heroImageAlt: 'Desk workspace with laptop, calculator, checklist icons, and rupee symbols representing ITR-2 tax filing preparation in India',
     heroImageWidth: 1600,
     heroImageHeight: 900,
     publishedDateISO: '2026-05-27T08:00:00Z',
-    modifiedDateISO: '2026-07-22T08:00:00Z',
-    title: 'ITR-2 AY 2026-27: Who Must File, Due Date & Preparation Guide',
-    metaDescription: 'ITR-2 due date for AY 2026-27 is July 31, 2026 — late filing costs up to Rs 5,000 and you lose capital-loss carry-forward. Check who must file ITR-2 and the step-by-step checklist.',
+    modifiedDateISO: '2026-08-03T08:00:00Z',
+    title: 'ITR-2 AY 2026-27: Deadline, Documents & Late Filing',
+    metaDescription: 'File ITR-2 for AY 2026-27 with eligibility, documents, capital gains, foreign assets, revised-return and belated-return guidance.',
     category: 'Tax',
-    date: 'May 2026',
-    readTime: '8 min read',
-    h1: 'ITR-2 AY 2026-27: Who Must File, Major Changes, Due Date, and How to Prepare',
+    date: 'August 2026',
+    readTime: '9 min read',
+    h1: 'ITR-2 AY 2026-27: Deadline, Documents and Late Filing Guide',
     intro: 'Tax season can bring anxiety, especially if your income sources have grown over the last year. If you recently started investing in mutual funds, sold some company stocks, or bought a second house, the basic ITR-1 form might no longer apply to you. Instead, you will need to step up to ITR-2.',
     quickAnswer: {
-      title: 'ITR-2 Quick Answer',
-      question: 'Who must file ITR-2 for AY 2026-27?',
-      answer: 'Based on this guide, ITR-2 is generally used when ITR-1 is not applicable and your profile includes conditions such as capital gains, total income above Rs 50 lakhs, multiple house properties, foreign assets or foreign income, company directorship, unlisted equity shares, or agricultural income above Rs 5,000.',
-      note: 'Educational information only. Verify applicability with official income-tax guidance, AIS/Form 26AS data, and a qualified tax professional where needed.',
+      title: 'ITR-2 AY 2026-27: Deadline and Filing Status',
+      question: 'What is the ITR-2 filing and deadline status for AY 2026-27?',
+      answer: 'The statutory due date for non-audit individual taxpayers is 31 July of the assessment year, and the CBDT can extend it by notification — check the current applicable date on the official e-filing portal before assuming the regular window is open or closed. If you miss the regular due date, you can generally still file a belated return up to 31 December 2026 (subject to assessment completion), with a late filing fee under Section 234F of Rs 1,000 where total income is up to Rs 5 lakh and Rs 5,000 above that, plus interest on unpaid tax. A late filing also generally forfeits carry-forward of most capital losses. If you have already filed and spot an error, a revised return can be filed up to 31 December 2026.',
+      note: 'Deadline status last verified: 3 August 2026 against Income Tax Department guidance. Deadlines can change by CBDT notification — confirm on incometax.gov.in before filing. Educational information only, not personal tax advice.',
+      links: [
+        { label: 'Estimate equity capital gains tax before filling Schedule CG', href: '/tools/capital-gains-tax-calculator-india' },
+        { label: 'Compare old vs new regime for FY 2025-26 before you choose', href: '/tools/income-tax-calculator-old-vs-new-regime-india' },
+        { label: 'Check your in-hand salary and TDS assumptions', href: '/tools/salary-in-hand-calculator-india' },
+        { label: 'How to use the Rs 1.25 lakh LTCG exemption', href: '/blog/save-capital-gains-tax-equity-india' },
+      ],
     },
     answerEngineSummary: 'This guide explains who usually falls under ITR-2 for AY 2026-27, what key changes to review, and how to prepare filing documents before submission. It also outlines checklist-driven steps to reconcile Form 16, AIS, and capital-gains records. Use RupeeKit tax calculators for preliminary educational comparison before final filing checks.',
     relatedCalculators: ['capital-gains-tax-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india'],
@@ -972,8 +978,69 @@ export const blogPosts: BlogPost[] = [
       {
         title: 'ITR-2 due date and key deadlines',
         paragraphs: [
-          'For individuals whose accounts do not require a tax audit, the due date to file ITR-2 for AY 2026-27 is generally July 31, 2026.',
-          'Filing after this deadline can attract a late fee of up to ₹5,000 under Section 234F, along with penal interest on any unpaid tax dues. Furthermore, if you file late, you lose the right to carry forward capital losses to offset future gains.'
+          'Under the Income-tax law, the standard due date for individuals whose accounts do not require a tax audit is 31 July of the assessment year. The CBDT can extend this by notification in any year, so always confirm the currently applicable due date on the official e-filing portal (incometax.gov.in) rather than relying on a fixed calendar date.',
+          'Missing the regular due date does not end your filing options. A belated return can generally be filed up to 31 December 2026 for AY 2026-27 (subject to completion of assessment), with a Section 234F late fee of ₹1,000 where total income is up to ₹5 lakh and ₹5,000 otherwise, along with penal interest on any unpaid tax dues. Importantly, if you file late you generally lose the right to carry forward most capital losses to offset future gains.',
+        ],
+        bullets: [
+          'Standard non-audit due date: 31 July of the assessment year, subject to CBDT extension notifications.',
+          'Belated return window for AY 2026-27: up to 31 December 2026, subject to assessment completion.',
+          'Section 234F late fee: ₹1,000 (total income up to ₹5 lakh) or ₹5,000 (above ₹5 lakh).',
+          'Interest under Sections 234A/234B/234C can apply on unpaid tax.',
+          'Late filing generally forfeits carry-forward of most capital losses.',
+          'Deadline status last verified: 3 August 2026 — confirm on incometax.gov.in before acting.',
+        ]
+      },
+      {
+        title: 'Who should not file ITR-2?',
+        paragraphs: [
+          'ITR-2 is not for everyone. If your only income is salary or pension, one house property and other sources (like interest), your total income is up to ₹50 lakh, and you have no capital gains, foreign assets, directorship or unlisted shares, the simpler ITR-1 (Sahaj) usually applies.',
+          'At the other end, if you have income from business or profession — including intraday trading treated as speculative business income or F&O trading treated as non-speculative business income — ITR-2 cannot be used; ITR-3 (or ITR-4 for presumptive cases) is the relevant form. When in doubt, check the form-applicability help on the e-filing portal or consult a professional.'
+        ],
+        bullets: [
+          'Simple salary + one house property + interest income within ₹50 lakh: usually ITR-1, not ITR-2.',
+          'Any business or professional income (including F&O/intraday trading): ITR-3 or ITR-4, not ITR-2.',
+          'Presumptive business income under Sections 44AD/44ADA/44AE: usually ITR-4.',
+        ]
+      },
+      {
+        title: 'Salary, pension and house-property income in ITR-2',
+        paragraphs: [
+          'Salary and pension income go into Schedule S, largely pre-filled from your employer\'s TDS returns and Form 16. Cross-check gross salary, exempt allowances, standard deduction and TDS against Form 16 Part A and Part B before accepting pre-filled values, especially if you changed jobs during the year and have two Form 16s.',
+          'House-property income goes into Schedule HP. ITR-2 supports more than one house property — report gross rent, municipal taxes paid, the 30% standard deduction and home-loan interest for each property. For self-occupied property, the Section 24(b) interest deduction is capped (₹2 lakh in typical old-regime cases), while let-out property interest follows set-off limits against other heads.'
+        ]
+      },
+      {
+        title: 'Capital gains in ITR-2 (Schedule CG)',
+        paragraphs: [
+          'Schedule CG is the most detail-heavy part of ITR-2 for most investors. Equity and equity-mutual-fund gains are split by holding period: gains on listed equity held 12 months or less are short-term (taxed at 20% for transfers on or after 23 July 2024), while gains on holdings above 12 months are long-term (taxed at 12.5% above the ₹1.25 lakh annual exemption). Property and other assets follow their own periods and rates.',
+          'Download consolidated capital-gains statements from each broker and RTA, reconcile them with AIS/TIS, and use the scrip-wise reporting format where required. Use the RupeeKit capital gains tax calculator for a quick educational estimate of your equity STCG and LTCG liability before you start data entry.'
+        ]
+      },
+      {
+        title: 'Foreign assets and foreign income (Schedule FA)',
+        paragraphs: [
+          'If you held any foreign asset at any time during the relevant period — foreign bank accounts, foreign stocks (including employer RSUs of a foreign parent company), foreign mutual funds or ESOPs — Schedule FA disclosure is mandatory in ITR-2, even if you sold nothing and earned no income from them.',
+          'Foreign income (dividends on US stocks, foreign interest) must also be reported, with foreign tax credit claimed via Form 67 where a tax treaty applies. Non-disclosure of foreign assets carries severe penalties under the Black Money Act, so treat Schedule FA as a hard requirement, not an optional extra.'
+        ]
+      },
+      {
+        title: 'Unlisted shares and company directorship',
+        paragraphs: [
+          'Holding unlisted equity shares at any time during the year — including startup ESOP exercises and pre-IPO shares — must be reported in ITR-2 with company details, opening balance, acquisitions and disposals. Being a director in any company also triggers ITR-2 (or ITR-3) and requires DIN and company details in the return.',
+        ]
+      },
+      {
+        title: 'Revised return: fixing mistakes after filing',
+        paragraphs: [
+          'If you discover an error after filing — a missed income entry, wrong bank account, unclaimed deduction or a TDS mismatch — you can file a revised return under Section 139(5) any time up to 31 December 2026 for AY 2026-27 (or before completion of assessment, whichever is earlier). A revised return replaces the original, and there is no separate fee for revising.',
+          'File the revision from the same e-filing portal by selecting "Revised return under 139(5)" and quoting the original acknowledgement number, then e-verify it like the original.'
+        ]
+      },
+      {
+        title: 'Belated return: filing after the due date',
+        paragraphs: [
+          'If the regular due date has passed, a belated return under Section 139(4) can generally be filed up to 31 December 2026 for AY 2026-27, subject to completion of assessment. The Section 234F late fee applies — ₹1,000 where total income is up to ₹5 lakh, ₹5,000 otherwise — plus interest on unpaid tax.',
+          'Two practical consequences of belated filing: most capital losses cannot be carried forward, and certain regime and deduction choices can be restricted. If you missed the deadline, file the belated return as early as possible rather than waiting for December — interest accrues monthly.'
         ]
       },
       {
@@ -1019,7 +1086,7 @@ export const blogPosts: BlogPost[] = [
           'Before hitting submit, ensure you have chosen the best tax regime for your situation:'
         ],
         bullets: [
-          'New Tax Regime: Offers lower tax rates and a ₹50,000 standard deduction, but you must surrender almost all other deductions (like HRA, 80C, LTA). It is highly beneficial if your investments are low.',
+          'New Tax Regime: Offers lower tax rates, a ₹75,000 standard deduction for salaried taxpayers (AY 2026-27) and a Section 87A rebate that makes normal income up to ₹12 lakh tax-free, but you must surrender almost all other deductions (like HRA, 80C, LTA). It is highly beneficial if your investments are low.',
           'Old Tax Regime: Has higher slab rates but allows you to reduce your taxable income using HRA, home loan interest, Section 80C (EPF, PPF, ELSS), and health insurance premiums (80D).'
         ],
         example: {
@@ -1037,6 +1104,18 @@ export const blogPosts: BlogPost[] = [
           'Forgetting to carry forward losses: If you had a net loss in the stock market, you must file your ITR-2 on time to carry those losses forward to set off against future gains.',
           'Missing Foreign Asset Disclosure (Schedule FA): Holding RSUs (Restricted Stock Units) of a foreign parent company (like Google, Amazon, or Microsoft) means you hold foreign assets. This is mandatory to disclose in ITR-2, even if you did not sell them.'
         ]
+      },
+      {
+        title: 'What you should do next',
+        paragraphs: [
+          'First, confirm the currently applicable due date and your form applicability on incometax.gov.in. Second, download Form 26AS and AIS/TIS and reconcile them with Form 16 and broker statements. Third, run a quick regime comparison and capital-gains estimate with the RupeeKit calculators linked on this page so you enter the filing utility with clear numbers. Finally, file, e-verify within the permitted window, and save the acknowledgement and computation sheet with your records.'
+        ],
+        bullets: [
+          'Verify the current due date and belated/revised windows on the official e-filing portal.',
+          'Reconcile Form 16, Form 26AS and AIS/TIS before starting the utility.',
+          'Estimate equity capital gains tax and compare regimes with RupeeKit calculators first.',
+          'File, e-verify, and archive the acknowledgement and computation sheet.',
+        ]
       }
     ],
     faqs: [
@@ -1046,11 +1125,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: 'Which tax regime is better if my salary is Rs 12 lakhs?',
-        answer: 'It depends on deductions. If HRA and 80C deductions are meaningful, old regime may be better; without deductions, new regime can be more tax-efficient.'
+        answer: 'For FY 2025-26 (AY 2026-27), the new regime taxes normal income up to Rs 12 lakh at nil after the Section 87A rebate (up to Rs 60,000), and salaried taxpayers also get a Rs 75,000 standard deduction — so a Rs 12.75 lakh salary can attract zero tax on normal income. The old regime can still win when HRA, 80C, 80D and home-loan deductions are large. Note that special-rate income such as equity capital gains is taxed separately and is not covered by this comparison. Use the RupeeKit old vs new regime calculator to compare your own numbers.'
       },
       {
-        question: 'What happens if I miss the July 31 deadline for ITR-2?',
-        answer: 'Belated filing may still be possible within permitted timelines, but late fees and other consequences can apply under applicable rules.'
+        question: 'What happens if I miss the regular ITR-2 deadline?',
+        answer: 'You can generally file a belated return for AY 2026-27 up to 31 December 2026, subject to completion of assessment. A Section 234F late fee applies — Rs 1,000 if total income is up to Rs 5 lakh, Rs 5,000 otherwise — plus interest on unpaid tax, and most capital losses cannot be carried forward. Deadlines can change by CBDT notification, so verify the current position on incometax.gov.in.'
+      },
+      {
+        question: 'Can I revise my ITR-2 after filing it?',
+        answer: 'Yes. A revised return under Section 139(5) can be filed up to 31 December 2026 for AY 2026-27, or before completion of assessment if earlier. The revised return replaces the original and needs e-verification like the original filing.'
       },
       {
         question: 'Do I need to attach broker capital-gains statements to the ITR?',
@@ -1062,7 +1145,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: 'Is standard deduction available in the new tax regime?',
-        answer: 'This should be verified against the applicable year rules and official utilities before filing, since regime provisions can change over time.'
+        answer: 'Yes. For FY 2025-26 (AY 2026-27), salaried taxpayers get a Rs 75,000 standard deduction in the new regime and Rs 50,000 in the old regime. Verify against the official utility for your specific case before filing.'
       },
       {
         question: 'I changed jobs this year and have two Form 16s. Can I file ITR-2?',
@@ -1726,13 +1809,14 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'zerodha-vs-upstox-vs-angel-one-demat-account',
-    seoTitle: 'Zerodha vs Upstox vs Angel One 2026: Best Demat Account India',
-    title: 'Zerodha vs Upstox vs Angel One 2026: Best Demat Account India',
-    metaDescription: 'Compare Zerodha, Upstox and Angel One on brokerage, AMC, features and ease of use. Pick the best demat account in India for 2026 for your goals. Read now.',
+    seoTitle: 'Zerodha vs Upstox vs Angel One 2026: Brokerage & AMC',
+    title: 'Zerodha vs Upstox vs Angel One 2026: Brokerage & AMC Compared',
+    metaDescription: 'Compare Zerodha, Upstox and Angel One brokerage, AMC, delivery, intraday, mutual-fund and platform features using charges verified in 2026.',
     category: 'Investing',
-    date: 'July 2026',
+    date: 'August 2026',
     readTime: '8 min read',
     publishedDateISO: '2026-07-12',
+    modifiedDateISO: '2026-08-03',
     brokerAffiliateDisclosure: true,
     affiliateLinks: [
       { broker: 'Zerodha', label: 'Open Zerodha Account', href: 'https://zerodha.com/open-account?c=IZ8333' },
@@ -1746,24 +1830,26 @@ export const blogPosts: BlogPost[] = [
     h1: 'Zerodha vs Upstox vs Angel One: Best Demat Account in India (2026)',
     intro: 'India now has over 19 crore demat accounts — but choosing the wrong broker can cost you money in unnecessary charges and poor platform experience. This guide compares the three most popular discount brokers in India — Zerodha, Upstox and Angel One — on the metrics that actually matter: charges, platform quality and who each broker is best for.',
     quickAnswer: {
-      question: 'Which is the best demat account in India in 2026?',
-      answer: 'Zerodha is best for simplicity and reliability (Kite platform, Rs 300 AMC). Upstox is best for a modern, feature-rich experience (3-in-1 account, Rs 300 AMC). Angel One is best for investors who want research and advisory tools plus NRI trading support (Rs 240 AMC). All three charge zero brokerage on delivery trades and Rs 20 per order for intraday/F&O.',
-      note: 'Zerodha does not have a formal affiliate programme. Angel One and Upstox run partner programmes — affiliate links above go to their respective partner portals.',
+      question: 'How do Zerodha, Upstox and Angel One compare in 2026?',
+      answer: 'Zerodha suits self-directed investors (Kite platform, Rs 0 delivery brokerage, Rs 300 AMC free in year 1). Upstox suits traders who want a modern 3-in-1 account (delivery Rs 20 or 0.1% per order whichever is lower, Rs 300 AMC free in year 1). Angel One suits investors who want research and advisory tools plus NRI trading support (delivery Rs 20 or 0.1% per order whichever is lower, Rs 240 AMC). All three open accounts free and charge around Rs 20 per order for intraday and F&O. Charges last verified: 3 August 2026.',
+      note: 'No broker is universally best — the right choice depends on how you invest or trade. Zerodha does not have a formal affiliate programme. Angel One and Upstox run partner programmes — affiliate links on this page go to their respective partner portals.',
     },
-    answerEngineSummary: 'Zerodha, Upstox and Angel One are India\'s three largest discount brokers. All charge zero delivery brokerage and Rs 20/order for intraday. Zerodha (Kite) leads in simplicity; Upstox offers a 3-in-1 account and modern UI; Angel One adds research and advisory tools. AMC varies: Rs 240 (Angel One) vs Rs 300 (Zerodha, Upstox). Best choice depends on your trading style and need for guidance.',
+    answerEngineSummary: 'Zerodha, Upstox and Angel One are India\'s three largest discount brokers. Zerodha charges Rs 0 delivery brokerage; Upstox and Angel One charge Rs 20 or 0.1% per delivery order (whichever is lower). All three charge about Rs 20 per order for intraday and F&O. AMC: Rs 240/year (Angel One) vs Rs 300/year (Zerodha, Upstox — both free in year 1). Zerodha (Kite) leads in simplicity; Upstox offers a 3-in-1 account and modern UI; Angel One adds research, advisory and NRI support. Charges last verified 3 August 2026 from official broker pricing pages.',
     sections: [
       {
         title: 'Brokerage and Charges Comparison',
         paragraphs: [
-          'All three brokers follow the discount brokerage model — zero commission on delivery trades and a flat Rs 20 per order (or 0.03% whichever is lower) for intraday and futures and options trading. The differences show up in annual maintenance charges and other fees.',
-          'Zerodha charges Rs 300 per annum as AMC for the demat account (free for the first year). Upstox also charges Rs 300 per annum AMC (free for the first year). Angel One charges Rs 240 per annum for the demat account — slightly lower, and it does not waive the first year.',
-          'Key additional charges to watch: all three charge Securities Transaction Tax (STT) and SEBI turnover charges as pass-through. Zerodha charges Rs 50 per pledge/unpledge for margin against securities; Upstox charges a flat Rs 20; Angel One charges Rs 25. For active traders, these small differences add up over time.',
+          'All three are discount brokers, but their delivery pricing is no longer identical. Zerodha still charges Rs 0 brokerage on equity delivery. Upstox and Angel One both now charge Rs 20 or 0.1% per delivery order, whichever is lower. For intraday and F&O, all three charge around a flat Rs 20 per executed order (Zerodha intraday is Rs 20 or 0.03% whichever is lower; Upstox intraday is Rs 20 or 0.05% whichever is lower).',
+          'Account opening is free at all three. For annual maintenance, Zerodha charges Rs 300 per annum AMC for the demat account (free for the first year). Upstox also charges Rs 300 per annum AMC (free for the first year). Angel One charges Rs 240 per annum — slightly lower; confirm current first-year treatment on its pricing page.',
+          'Statutory and incidental charges apply on top at all three: Securities Transaction Tax (STT), exchange transaction fees, SEBI turnover charges, GST, stamp duty and DP (demat debit) charges on sells. These pass-through charges are broadly similar across brokers but change periodically, so verify each broker\'s official pricing page before opening an account. Charges in this article were last verified on 3 August 2026.',
         ],
         bullets: [
-          'Delivery brokerage: Rs 0 — all three brokers.',
-          'Intraday / F&O brokerage: Rs 20 per order (or 0.03%, whichever is lower) — all three.',
+          'Account opening: Rs 0 — all three brokers.',
+          'Delivery brokerage: Zerodha Rs 0 | Upstox Rs 20 or 0.1%/order (lower) | Angel One Rs 20 or 0.1%/order (lower).',
+          'Intraday / F&O brokerage: about Rs 20 per executed order at all three.',
           'Demat AMC: Zerodha Rs 300/year (free yr 1) | Upstox Rs 300/year (free yr 1) | Angel One Rs 240/year.',
           'Account type: Zerodha 2-in-1 (trading + demat) | Upstox 3-in-1 (trading + demat + savings) | Angel One 2-in-1.',
+          'API access: Zerodha Kite Connect (paid) | Upstox API | Angel One SmartAPI.',
         ],
       },
       {
@@ -1808,11 +1894,11 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        title: 'Affiliate Disclosure and Final Recommendation',
+        title: 'Affiliate Disclosure and How to Choose',
         paragraphs: [
-          'RupeeKit may earn a commission if you open a demat account through the affiliate links on this page. This does not affect our editorial judgement — the recommendations above are based solely on charges, features and user experience.',
-          'Our honest recommendation for 2026: start with Zerodha if you are a first-time investor — its simplicity and educational content make the learning curve gentle. If you are an active F&O trader or want a 3-in-1 bank account, choose Upstox. If you want research guidance or are an NRI, choose Angel One.',
-          'Important: Before signing up, replace the placeholder links above with your broker\'s current offer page and partner tracking URL to earn your referral commissions.',
+          'RupeeKit may earn a commission if you open a demat account through the affiliate links on this page (Angel One and Upstox run partner programmes; the Zerodha link is a referral that gives brokerage credits to both sides). This does not affect our editorial judgement — the comparisons above are based on published charges, features and user experience.',
+          'No single broker is universally best. A reasonable way to decide for 2026: consider Zerodha if you are a self-directed, buy-and-hold investor who values Rs 0 delivery brokerage and simplicity; consider Upstox if you are an active F&O trader or want a 3-in-1 bank-linked account; consider Angel One if you want research and advisory features or need an NRI trading account.',
+          'Whichever you pick, verify the current charge sheet on the broker\'s official pricing page before opening the account — brokers revise pricing from time to time, and this article\'s charges were last verified on 3 August 2026.',
         ],
       },
     ],
@@ -1835,8 +1921,8 @@ export const blogPosts: BlogPost[] = [
         answer: 'Zerodha has a referral programme where you and a friend each get Rs 300 to Rs 500 in brokerage credits when the friend opens an account. It is not a formal CPA affiliate programme like Angel One Partner or Upstox Partner. For meaningful affiliate income, Angel One and Upstox are the better options.',
       },
       {
-        question: 'What are the affiliate earnings for Angel One and Upstox?',
-        answer: 'Angel One Partner pays Rs 300 to Rs 700 per activated demat account depending on whether the client funds and trades. Upstox Partner pays Rs 200 to Rs 400 per account. Both programmes are free to join at their respective partner portals. You need to replace the placeholder links in this article with your own tracking links after joining.',
+        question: 'Do these brokers still offer zero delivery brokerage?',
+        answer: 'Only Zerodha still charges Rs 0 brokerage on equity delivery as of the last verification (3 August 2026). Upstox and Angel One both charge Rs 20 or 0.1% per delivery order, whichever is lower. Statutory charges such as STT, exchange fees, GST, stamp duty and DP charges apply at all three brokers regardless of brokerage. Check each broker\'s official pricing page for the latest charge sheet.',
       },
       {
         question: 'Which broker is best for mutual fund investing?',
@@ -2856,24 +2942,29 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'new-labour-code-gratuity-rules-india-2026',
-    seoTitle: 'Gratuity Rules 2026: New 1-Year Rule for Contract Workers',
-    title: 'New Labour Code Gratuity Rules in India 2026: Contract Workers Eligible After 1 Year',
-    metaDescription: 'Gratuity rules 2026: fixed-term employees qualify after 1 year, while the general 5-year rule continues. See the current rule, formula and examples.',
+    seoTitle: 'New Gratuity Rules 2026: 1-Year vs 5-Year Rule',
+    title: 'New Gratuity Rules 2026: 1-Year vs 5-Year Rule Explained',
+    metaDescription: 'Understand gratuity eligibility for regular and fixed-term employees, the 1-year and 5-year rules, calculation formula and practical examples.',
     category: 'Salary & Tax',
-    date: 'July 2026',
+    date: 'August 2026',
     publishedDateISO: '2026-07-13',
-    modifiedDateISO: '2026-07-27',
+    modifiedDateISO: '2026-08-03',
     readTime: '6 min read',
     visualType: 'salary-checklist',
     visualTitle: 'New Labour Code Gratuity — 1 Year vs 5 Year Rule',
     visualSubtitle: 'Who benefits, how it is calculated, and the effective date',
     visualAlt: 'Checklist diagram comparing old and new gratuity eligibility rules under India Labour Code 2020',
-    h1: 'New Labour Code Gratuity Rules India 2026: 1-Year Rule for Contract Workers Explained',
+    h1: 'New Gratuity Rules India 2026: The 1-Year vs 5-Year Rule Explained',
     intro: 'India made the four Labour Codes effective from 21 November 2025. Under the Code on Social Security, 2020, an employee engaged under a genuine fixed-term employment contract becomes eligible for gratuity after one year of service under that contract. The general five-year continuous-service condition continues for employees who do not fall within an exception. Here is what the current rule means and who it affects.',
     quickAnswer: {
       question: 'What are the new gratuity rules under the New Labour Code in India?',
-      answer: 'Under the Code on Social Security, 2020, a fixed-term employee is eligible for gratuity after completing one year of service under the contract. The general five-year continuous-service condition continues for regular employees unless another statutory exception applies.',
+      answer: 'Under the Code on Social Security, 2020, an eligible fixed-term employee qualifies for gratuity after completing one year of service under the contract. The general five-year continuous-service condition continues for regular permanent employees, and separate statutory exceptions apply on death or disablement. A short tenure alone does not make someone a fixed-term employee — the written contract and applicable legal conditions decide eligibility.',
       note: 'The Government made the four Labour Codes effective from 21 November 2025. Verify the employment contract and current official rules before applying the fixed-term exception.',
+      links: [
+        { label: 'Estimate your gratuity with the Gratuity Calculator', href: '/tools/gratuity-calculator-india' },
+        { label: 'Compare old vs new gratuity wage-base scenarios', href: '/guides/gratuity-2026-old-vs-new' },
+        { label: 'Fixed-term employee one-year gratuity guide', href: '/guides/fixed-term-employee-gratuity-one-year' },
+      ],
     },
     answerEngineSummary: 'India\'s four Labour Codes took effect on 21 November 2025. Under the Code on Social Security, 2020, a fixed-term employee qualifies for gratuity after one year of service under the contract. The general five-year continuous-service condition continues for regular employees unless another statutory exception applies.',
     officialSources: [
@@ -2941,6 +3032,26 @@ export const blogPosts: BlogPost[] = [
           'Use the formula: Gratuity = (Last Basic + DA) × 15/26 × Number of completed years of service. Round the number of years: if service is 4 years and 7 months or more, round up to 5 years; below 7 months, round down.',
           'Example: Basic salary Rs 45,000, DA Rs 0 (private sector), 7 years 8 months service → 8 years (rounded up). Gratuity = Rs 45,000 × 15/26 × 8 = Rs 2,07,692.',
           'Use the RupeeKit Gratuity Calculator to estimate your gratuity quickly. For disputes, the Controlling Authority under the Payment of Gratuity Act is the Labour Commissioner of your state.',
+        ],
+      },
+      {
+        title: 'Death and disablement: separate statutory exceptions',
+        paragraphs: [
+          'The five-year continuous-service condition does not apply when employment ends due to death or disablement caused by accident or disease. In such cases gratuity is payable for the service actually rendered, and on death it is paid to the nominee or legal heirs.',
+          'These are statutory exceptions with their own conditions and procedures — nomination records (commonly maintained via the prescribed gratuity nomination form with the employer) matter here, so employees should keep nominations current and families should check with the employer and the applicable rules.',
+        ],
+      },
+      {
+        title: 'Common misconceptions about the 2026 gratuity rules',
+        paragraphs: [
+          'Several viral summaries of the Labour Codes overstate what changed. The points below separate the rule from the myth.',
+        ],
+        bullets: [
+          'Myth: every employee now gets gratuity after 1 year. Reality: the one-year threshold applies to eligible fixed-term employees under a qualifying written contract; regular permanent employees generally still need five years of continuous service.',
+          'Myth: any short-tenure or contract worker automatically qualifies. Reality: engagement through a staffing agency or a short stint does not by itself create fixed-term status — the written contract terms and applicable legal conditions decide.',
+          'Myth: gratuity is always tax-free. Reality: exemption limits differ by employee category and can change; verify the current ceiling before filing.',
+          'Myth: gratuity is calculated on full CTC. Reality: the statutory formula uses last drawn basic plus DA (with wage-definition rules under the Code), not total CTC.',
+          'Myth: resignation before five years always means zero gratuity. Reality: statutory exceptions (eligible fixed-term service, death, disablement) can still create entitlement.',
         ],
       },
     ],

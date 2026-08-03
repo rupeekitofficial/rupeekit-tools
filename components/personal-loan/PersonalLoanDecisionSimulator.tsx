@@ -15,6 +15,7 @@ import type {
 } from '@/components/personal-loan/PersonalLoanEmiReportPdfDocument';
 import type { Tool, ToolInput, ToolQuickAnswer } from '@/lib/tools';
 import { trackToolEvent } from '@/lib/events';
+import CalculatorPresets, { type CalculatorPreset } from '@/components/calculators/CalculatorPresets';
 
 const parser = new Parser({
   operators: {
@@ -628,6 +629,30 @@ export default function PersonalLoanDecisionSimulator({
 
   const [values, setValues] = useState<Record<string, number>>(initialValues);
   const [draftValues, setDraftValues] = useState<Record<string, string>>(initialDraftValues);
+  const [activePresetId, setActivePresetId] = useState<string | null>(null);
+
+  const inputByKey = useMemo(() => new Map(tool.inputs.map((input) => [input.key, input])), [tool.inputs]);
+
+  const applyPreset = (preset: CalculatorPreset) => {
+    const applied: Record<string, number> = {};
+    for (const [key, rawValue] of Object.entries(preset.values)) {
+      const inputDef = inputByKey.get(key);
+      if (!inputDef || typeof rawValue !== 'number' || !Number.isFinite(rawValue)) continue;
+      applied[key] = clampNumber(rawValue, inputDef.min ?? Number.NEGATIVE_INFINITY, inputDef.max);
+    }
+    setValues((current) => ({ ...current, ...applied }));
+    setDraftValues((current) => ({
+      ...current,
+      ...Object.fromEntries(Object.entries(applied).map(([key, value]) => [key, String(value)])),
+    }));
+    setActivePresetId(preset.id);
+    trackToolEvent({
+      eventName: 'personal_loan_preset_applied',
+      page: '/tools/personal-loan-emi-calculator-india',
+      toolSlug: 'personal-loan-emi-calculator-india',
+      context: preset.id,
+    });
+  };
   const [prepaymentAmount, setPrepaymentAmount] = useState(0);
   const [prepaymentAfterMonth, setPrepaymentAfterMonth] = useState(12);
   const [prepaymentMode, setPrepaymentMode] = useState<PrepaymentMode>('reduce-tenure');
@@ -962,6 +987,14 @@ export default function PersonalLoanDecisionSimulator({
       <section className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
         <div className="rounded-3xl border border-brandBorder bg-white p-5 shadow-sm md:p-8">
           <h2 className="text-xl font-bold text-brandDeepNavy">Enter your values</h2>
+          {tool.presets?.length ? (
+            <CalculatorPresets
+              className="mt-4"
+              presets={tool.presets}
+              activePresetId={activePresetId}
+              onApply={applyPreset}
+            />
+          ) : null}
           <div className="mt-6 grid gap-5">
             {tool.inputs.map((input) => (
               <PersonalLoanInput
@@ -969,6 +1002,7 @@ export default function PersonalLoanDecisionSimulator({
                 input={input}
                 value={draftValues[input.key] ?? ''}
                 onChange={(raw) => {
+                  setActivePresetId(null);
                   setDraftValues((current) => ({ ...current, [input.key]: raw }));
                   if (raw === '') {
                     setValues((current) => ({ ...current, [input.key]: 0 }));
