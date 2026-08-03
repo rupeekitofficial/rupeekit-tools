@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TaxInput } from '@/lib/tax/calculator';
+import { availableTaxYears, indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
 import { extractDigits, parseIntegerFromTextInput, stripLeadingZeros } from '@/lib/forms/numeric-input';
 
 interface TaxInputFormProps {
@@ -73,10 +74,13 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
           onChange={(e) => onTaxYearChange(e.target.value)}
           className="w-full rounded-xl border border-brandBorder bg-slate-50 px-4 py-3 text-sm text-brandDeepNavy outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
         >
-          <option value="2024-25">FY 2024-25 (AY 2025-26)</option>
-          <option value="2023-24">FY 2023-24 (AY 2024-25)</option>
+          {availableTaxYears.map((year) => (
+            <option key={year} value={year}>
+              FY {year} (AY {indiaIncomeTaxRules[year].ay})
+            </option>
+          ))}
         </select>
-        <p className="mt-1.5 text-[10px] text-brandMuted">Rules last reviewed: May 2026. Verify official tax rules before filing.</p>
+        <p className="mt-1.5 text-[10px] text-brandMuted">Rules last reviewed: August 2026. Verify official tax rules before filing.</p>
         <div className="mt-4 flex items-center gap-3">
           <input 
             type="checkbox" 

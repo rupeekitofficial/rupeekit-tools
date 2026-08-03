@@ -514,17 +514,96 @@
         "body": "No. RupeeKit is an educational calculator platform and does not provide lending, approval, or disbursal."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "August 2026",
+    "presets": [
+      {
+        "id": "loan-5l-3y",
+        "label": "Rs 5 lakh - 3 yr - 11%",
+        "description": "Rs 5,00,000 loan over 36 months at an 11% example rate. Example rates are illustrations, not live lender offers.",
+        "values": {
+          "principal": 500000,
+          "tenureMonths": 36,
+          "annualInterestRate": 11
+        }
+      },
+      {
+        "id": "loan-5l-5y",
+        "label": "Rs 5 lakh - 5 yr - 11%",
+        "description": "The same Rs 5,00,000 loan stretched to 60 months at 11% - compare EMI relief against extra total interest.",
+        "values": {
+          "principal": 500000,
+          "tenureMonths": 60,
+          "annualInterestRate": 11
+        }
+      },
+      {
+        "id": "loan-10l-5y",
+        "label": "Rs 10 lakh - 5 yr - 14%",
+        "description": "Rs 10,00,000 over 60 months at a 14% example rate. Example rates are illustrations, not live lender offers.",
+        "values": {
+          "principal": 1000000,
+          "tenureMonths": 60,
+          "annualInterestRate": 14
+        }
+      },
+      {
+        "id": "loan-15l-5y",
+        "label": "Rs 15 lakh - 5 yr - 14%",
+        "description": "Rs 15,00,000 over 60 months at a 14% example rate. Example rates are illustrations, not live lender offers.",
+        "values": {
+          "principal": 1500000,
+          "tenureMonths": 60,
+          "annualInterestRate": 14
+        }
+      },
+      {
+        "id": "loan-20l-5y",
+        "label": "Rs 20 lakh - 5 yr - 14%",
+        "description": "Rs 20,00,000 over 60 months at a 14% example rate. Example rates are illustrations, not live lender offers.",
+        "values": {
+          "principal": 2000000,
+          "tenureMonths": 60,
+          "annualInterestRate": 14
+        }
+      },
+      {
+        "id": "rate-18",
+        "label": "18% rate example",
+        "description": "Applies an 18% example annual rate to your current loan amount and tenure. Not a live lender offer.",
+        "values": {
+          "annualInterestRate": 18
+        }
+      },
+      {
+        "id": "rate-24",
+        "label": "24% rate example",
+        "description": "Applies a 24% example annual rate, common for riskier profiles. Not a live lender offer.",
+        "values": {
+          "annualInterestRate": 24
+        }
+      },
+      {
+        "id": "processing-fee-gst",
+        "label": "2% processing fee + 18% GST",
+        "description": "Adds a 2% processing fee with 18% GST on the fee to show how upfront charges raise total borrowing cost.",
+        "values": {
+          "processingFeePercent": 2,
+          "includeGstOnProcessingFee": 1,
+          "processingFeeGstRate": 18
+        }
+      }
+    ],
+    "lastReviewedIso": "2026-08-03"
   },
   {
     "slug": "emergency-fund-calculator-india",
     "name": "Emergency Fund Calculator India",
-    "seoTitle": "Emergency Fund Calculator India 2026 | Include EMIs",
+    "seoTitle": "Emergency Fund Calculator India | 3-12 Months + EMI",
     "category": "Savings",
     "status": "live",
     "targetKeyword": "emergency fund calculator",
     "shortDescription": "Find out how much emergency fund your household may need in India. Use your essential monthly expenses, EMI burden and income stability to estimate a 3, 6, 9 or 12 month safety corpus and the monthly savings needed to build it.",
-    "metaDescription": "Calculate a 3, 6, 9 or 12-month emergency fund from essential expenses and home, personal or car-loan EMIs. See your shortfall and savings plan.",
+    "metaDescription": "Calculate a 3, 6, 9 or 12-month emergency fund using essential expenses and home, personal or car-loan EMIs. Check your shortfall and savings target.",
     "inputs": [
       {
         "key": "monthlyEssentialExpenses",
@@ -817,18 +896,71 @@
         "body": "This calculator estimates emergency fund needs using monthly essential expenses, EMI commitments, current emergency savings, baseline target months, dependant buffer, income-risk buffer and monthly saving capacity. It is designed for household planning support and does not recommend any specific financial product."
       }
     ],
-    "lastReviewed": "July 2026",
-    "lastReviewedIso": "2026-07-16"
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-03",
+    "presets": [
+      {
+        "id": "stable-salaried",
+        "label": "Stable salaried employee",
+        "description": "3-month base target with no dependant or income-risk buffer. Assumes a stable job and dual/backup income sources.",
+        "values": {
+          "targetMonths": 3,
+          "dependantBufferMonths": 0,
+          "incomeRiskBufferMonths": 0
+        }
+      },
+      {
+        "id": "single-income-family",
+        "label": "Single-income family",
+        "description": "6-month base target plus 2 dependant-buffer months and 1 income-risk month, since one salary supports the household.",
+        "values": {
+          "targetMonths": 6,
+          "dependantBufferMonths": 2,
+          "incomeRiskBufferMonths": 1
+        }
+      },
+      {
+        "id": "family-home-loan-emi",
+        "label": "Family with home-loan EMI",
+        "description": "6-month base target with 1 dependant-buffer month and a Rs 25,000 monthly EMI included in survival cost.",
+        "values": {
+          "targetMonths": 6,
+          "dependantBufferMonths": 1,
+          "incomeRiskBufferMonths": 0,
+          "monthlyEmiCommitments": 25000
+        }
+      },
+      {
+        "id": "freelancer-variable-income",
+        "label": "Freelancer / variable income",
+        "description": "9-month base target plus 3 income-risk months because income can pause between projects.",
+        "values": {
+          "targetMonths": 9,
+          "dependantBufferMonths": 0,
+          "incomeRiskBufferMonths": 3
+        }
+      },
+      {
+        "id": "job-loss-preparation",
+        "label": "Job-loss preparation",
+        "description": "12-month base target plus 2 income-risk months for maximum runway while searching for new work.",
+        "values": {
+          "targetMonths": 12,
+          "dependantBufferMonths": 0,
+          "incomeRiskBufferMonths": 2
+        }
+      }
+    ]
   },
   {
     "slug": "sip-calculator-india",
     "name": "SIP Calculator India",
-    "seoTitle": "SIP Calculator India 2026: Corpus, Step-Up & Cost of Delay",
+    "seoTitle": "SIP Calculator India 2026 | Step-Up, Goal & Delay Cost",
     "category": "Investments",
     "status": "live",
     "targetKeyword": "sip calculator india",
     "shortDescription": "Plan SIP goals with regular SIP, step-up SIP, goal SIP, delay cost, milestones and inflation-adjusted estimates.",
-    "metaDescription": "See your SIP corpus instantly — regular, step-up and goal-based, with inflation-adjusted values and what delaying 1 year costs you. Free, no login needed.",
+    "metaDescription": "Calculate SIP returns, step-up SIP, goal-based investment, inflation-adjusted corpus and the cost of delaying, pausing or missing SIPs.",
     "inputs": [
       {
         "key": "monthlyInvestment",
@@ -987,7 +1119,8 @@
         "body": "This SIP calculator estimates future value using user-entered monthly SIP amount, expected annual return, investment duration, and optional annual step-up assumptions. It uses monthly compounding-style projection for educational planning. It does not recommend any mutual fund, does not fetch live fund returns, and does not guarantee outcomes."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-03"
   },
   {
     "slug": "gst-calculator-india",
@@ -1177,12 +1310,12 @@
   {
     "slug": "income-tax-calculator-old-vs-new-regime-india",
     "name": "Income Tax Calculator: Old vs New Regime India",
-    "seoTitle": "Income Tax Calculator India FY 2026-27 — Old vs New Regime",
+    "seoTitle": "Old vs New Tax Regime Calculator India FY 2025-26 | Free",
     "category": "Tax",
     "status": "live",
     "targetKeyword": "income tax calculator old vs new regime India",
-    "shortDescription": "Compare old vs new tax regime estimates in India using your income and deduction inputs. RupeeKit currently supports FY 2024-25 and FY 2023-24 rule sets for educational comparison.",
-    "metaDescription": "Compare old vs new tax regime in India with RupeeKit. Estimate taxable income, deductions, rebate, cess and regime-wise tax for supported years.",
+    "shortDescription": "Compare old vs new tax regime estimates in India using your income and deduction inputs. RupeeKit supports FY 2025-26 (AY 2026-27), FY 2024-25 and FY 2023-24 rule sets for educational comparison.",
+    "metaDescription": "Compare old and new tax regimes for FY 2025-26 (AY 2026-27) using salary, standard deduction, HRA, 80C, 80D, NPS and home-loan assumptions. Free and instant.",
     "inputs": [
       {
         "key": "grossAnnualIncome",
@@ -1350,7 +1483,9 @@
       "salary-in-hand-calculator-india",
       "emi-calculator-india",
       "sip-calculator-india"
-    ]
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-03"
   },
   {
     "slug": "hra-exemption-calculator-india",
@@ -2642,12 +2777,12 @@
   {
     "slug": "capital-gains-tax-calculator-india",
     "name": "Capital Gains Tax Calculator India (Equity)",
-    "seoTitle": "Capital Gains Tax Calculator AY 2026-27: 20% STCG, 12.5% LTCG",
+    "seoTitle": "Capital Gains Tax Calculator India 2026 | STCG & LTCG",
     "category": "Tax",
     "status": "live",
     "targetKeyword": "capital gains tax calculator india",
     "shortDescription": "Estimate tax on listed equity and equity mutual fund gains in India: 20% on short-term gains, 12.5% on long-term gains above the Rs 1.25 lakh exemption, plus 4% cess.",
-    "metaDescription": "Calculate your equity capital gains tax in seconds — 20% STCG, 12.5% LTCG and the Rs 1.25 lakh exemption applied automatically. Free, updated for AY 2026-27.",
+    "metaDescription": "Calculate tax on equity shares and equity-oriented mutual funds using current STCG, LTCG, exemption and cess rules for FY 2025-26.",
     "inputs": [
       {
         "key": "stcgAmount",
@@ -2796,11 +2931,67 @@
         "body": "Because the LTCG exemption resets every financial year, some investors realise long-term gains up to Rs 1.25 lakh annually and reinvest, stepping up their cost base without tax. Weigh transaction costs, exit loads and market risk before using this approach, and keep records for reporting."
       },
       {
+        "heading": "Why your final filing liability may differ",
+        "body": "This calculator estimates tax on the equity gains you enter, in isolation. Your actual filing liability can differ because capital gains are special-rate income: the Section 87A rebate generally does not reduce tax on equity LTCG, brought-forward or current-year capital losses can be set off against gains, surcharge can apply at higher total incomes, and gains before and after rate-change dates within a year may follow different rates. Grandfathering rules for equity bought before 31 January 2018 can also change the taxable gain. Always reconcile broker capital-gains statements with AIS/TIS and the official filing utility before submitting your return.",
+        "bullets": [
+          "Section 87A rebate treatment differs for special-rate income such as equity LTCG",
+          "Capital-loss set-off and carry-forward can reduce taxable gains",
+          "Surcharge may apply at higher total-income levels",
+          "Grandfathering for pre-31 January 2018 equity purchases can adjust the gain",
+          "Final numbers must come from the official Income Tax e-filing utility"
+        ]
+      },
+      {
         "heading": "Source and Methodology",
         "body": "This calculator applies Section 111A (20% STCG) and Section 112A (12.5% LTCG above Rs 1.25 lakh) rates for STT-paid listed equity, plus 4% health and education cess, to the gain amounts you enter. Surcharge, set-offs and non-equity assets are out of scope. Educational estimate only, not tax advice."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "August 2026",
+    "presets": [
+      {
+        "id": "stcg-1-lakh",
+        "label": "Rs 1 lakh short-term gain",
+        "description": "Sets STCG to Rs 1,00,000 and LTCG to 0. Short-term equity gains are taxed at 20% plus cess.",
+        "values": {
+          "stcgAmount": 100000,
+          "ltcgAmount": 0
+        }
+      },
+      {
+        "id": "ltcg-3-lakh",
+        "label": "Rs 3 lakh long-term gain",
+        "description": "Sets LTCG to Rs 3,00,000 and STCG to 0. Only the amount above the Rs 1.25 lakh exemption is taxed at 12.5% plus cess.",
+        "values": {
+          "stcgAmount": 0,
+          "ltcgAmount": 300000
+        }
+      },
+      {
+        "id": "ltcg-below-exemption",
+        "label": "LTCG below Rs 1.25 lakh exemption",
+        "description": "Sets LTCG to Rs 1,00,000 and STCG to 0. LTCG within the Rs 1.25 lakh annual exemption attracts no LTCG tax.",
+        "values": {
+          "stcgAmount": 0,
+          "ltcgAmount": 100000
+        }
+      },
+      {
+        "id": "both-stcg-ltcg",
+        "label": "Both STCG and LTCG",
+        "description": "Sets STCG to Rs 1,00,000 and LTCG to Rs 3,00,000 to show combined liability across both buckets.",
+        "values": {
+          "stcgAmount": 100000,
+          "ltcgAmount": 300000
+        }
+      }
+    ],
+    "lastReviewedIso": "2026-08-03",
+    "officialSources": [
+      {
+        "label": "Income Tax Department - e-filing portal (tax tools and utilities)",
+        "href": "https://www.incometax.gov.in/iec/foportal/"
+      }
+    ]
   },
   {
     "slug": "ppf-calculator-india",
@@ -3309,12 +3500,12 @@
   {
     "slug": "8th-pay-commission-salary-calculator-india",
     "name": "8th Pay Commission Salary Calculator India",
-    "seoTitle": "8th Pay Commission Salary Calculator India 2026 — Free Estimate",
+    "seoTitle": "8th Pay Commission Calculator | Fitment Factor Scenarios",
     "category": "Salary",
     "status": "live",
     "targetKeyword": "8th pay commission salary calculator",
-    "shortDescription": "Estimate your revised basic pay, DA, HRA and gross salary under the expected 8th Pay Commission fitment factor for central government employees.",
-    "metaDescription": "8th Pay Commission salary calculator India — estimate revised basic pay and gross salary using the expected 2.57 fitment factor. Free, instant estimate.",
+    "shortDescription": "Estimate your revised basic pay, DA, HRA and gross salary under selectable 8th Pay Commission fitment-factor scenarios for central government employees. The Commission has not notified a final factor, so all factors here are planning scenarios.",
+    "metaDescription": "Estimate revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Results are illustrative until official recommendations are notified.",
     "inputs": [
       {
         "key": "currentBasic",
@@ -3334,7 +3525,7 @@
         "min": 2.0,
         "max": 3.5,
         "step": 0.01,
-        "help": "Expected fitment factor for 8th Pay Commission. The 7th CPC used 2.57. Adjust if an official figure is announced."
+        "help": "Fitment-factor scenario to apply. The 7th CPC used 2.57. The 8th CPC has not notified a final factor, so treat every value as a planning scenario."
       },
       {
         "key": "daPercent",
@@ -3399,7 +3590,7 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "Revised basic = current basic × fitment factor. DA = revised basic × DA%. HRA = revised basic × HRA%. Gross = revised basic + DA + HRA + transport allowance. The fitment factor is the key multiplier; until officially notified, 2.57 (same as 7th CPC) is the most common estimate.",
+    "formulaExplanation": "Revised basic = current basic x fitment factor. DA = revised basic x DA%. HRA = revised basic x HRA%. Gross = revised basic + DA + HRA + transport allowance. The fitment factor is the key multiplier. The 8th Central Pay Commission has not notified a final fitment factor, so every factor here (including the 7th CPC's 2.57) is a user-selectable planning scenario.",
     "example": "On current basic Rs 44,900 with fitment 2.57, revised basic = Rs 1,15,393. With 55% DA (Rs 63,466), 24% HRA (Rs 27,694) and Rs 3,600 TA, estimated gross = Rs 2,10,153.",
     "quickAnswer": {
       "title": "8th Pay Commission Quick Answer",
@@ -3412,11 +3603,11 @@
     "faqs": [
       {
         "question": "When will the 8th Pay Commission be implemented?",
-        "answer": "The 8th Pay Commission was constituted by the Union Cabinet in November 2025. Implementation is expected from January 2026, but the official report and fitment factor will be notified by the government — check the official 8CPC portal and Ministry of Finance notifications for the latest."
+        "answer": "The 8th Central Pay Commission was constituted on 3 November 2025 with terms of reference approved by the Union Cabinet on 28 October 2025, and it has around 18 months to submit recommendations. No implementation date, pay matrix or fitment factor has been officially notified yet. Check PIB and Ministry of Finance notifications for the official position before relying on any date."
       },
       {
-        "question": "What is the expected fitment factor for the 8th Pay Commission?",
-        "answer": "The most widely cited expectation is 2.57 (same as the 7th Pay Commission) to 3.0. The official factor will only be known after the commission submits its report. This calculator defaults to 2.57 as the conservative baseline."
+        "question": "What fitment factor should I use in this calculator?",
+        "answer": "There is no officially notified 8th CPC fitment factor. Public commentary discusses a wide range of possibilities, and employee bodies have made their own demands, but none of these figures is official. This calculator lets you compare 1.92x, 2.08x, 2.57x (the factor the 7th CPC used), 2.86x and 3.00x side by side as planning scenarios. Treat every result as illustrative until the Commission's recommendations are notified by the government."
       },
       {
         "question": "Does this calculator cover all allowances?",
@@ -3445,7 +3636,7 @@
       "Enter your transport allowance and read the estimated revised gross salary."
     ],
     "assumptions": [
-      "Fitment factor of 2.57 is an estimate; official value is not yet announced.",
+      "All fitment factors here are user-selectable planning scenarios; the 8th CPC has not notified a final factor.",
       "DA is assumed at the entered percentage; it will be revised after implementation.",
       "Only basic pay, DA, HRA and TA are included. NPS, CGHS, CEA and other allowances are excluded.",
       "Educational estimate only. Actual pay revision will follow the official government notification."
@@ -3484,7 +3675,50 @@
         "body": "This calculator uses the entered fitment factor to project revised basic pay and calculates DA, HRA and TA as percentages of the revised basic. No official 8th Pay Commission figures have been released as of July 2026. All outputs are estimates for planning purposes only."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "August 2026",
+    "presets": [
+      {
+        "id": "fitment-1-92",
+        "label": "1.92x scenario",
+        "description": "Applies a 1.92 fitment factor to your current basic pay. A user-selectable planning scenario, not an official figure.",
+        "values": {
+          "fitmentFactor": 1.92
+        }
+      },
+      {
+        "id": "fitment-2-08",
+        "label": "2.08x scenario",
+        "description": "Applies a 2.08 fitment factor to your current basic pay. A user-selectable planning scenario, not an official figure.",
+        "values": {
+          "fitmentFactor": 2.08
+        }
+      },
+      {
+        "id": "fitment-2-57",
+        "label": "2.57x scenario",
+        "description": "Applies a 2.57 fitment factor (the factor the 7th CPC used). A user-selectable planning scenario, not an official figure.",
+        "values": {
+          "fitmentFactor": 2.57
+        }
+      },
+      {
+        "id": "fitment-2-86",
+        "label": "2.86x scenario",
+        "description": "Applies a 2.86 fitment factor to your current basic pay. A user-selectable planning scenario, not an official figure.",
+        "values": {
+          "fitmentFactor": 2.86
+        }
+      },
+      {
+        "id": "fitment-3-00",
+        "label": "3.00x scenario",
+        "description": "Applies a 3.00 fitment factor to your current basic pay. A user-selectable planning scenario, not an official figure.",
+        "values": {
+          "fitmentFactor": 3.0
+        }
+      }
+    ],
+    "lastReviewedIso": "2026-08-03"
   },
   {
     "slug": "cagr-calculator-india",

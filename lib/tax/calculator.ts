@@ -35,16 +35,16 @@ export type TaxResult = {
 
 function calculateRegimeTax(
   taxableIncome: number,
-  config: TaxRegimeConfig
+  config: TaxRegimeConfig,
+  cessRate: number
 ): Pick<RegimeTaxResult, 'slabTaxBreakdown' | 'totalSlabTax' | 'rebate' | 'taxAfterRebate' | 'cess' | 'finalTax'> {
-  let remainingIncome = taxableIncome;
   let totalSlabTax = 0;
   const slabTaxBreakdown = [];
 
   for (const slab of config.slabs) {
     const min = slab.min;
     const max = slab.max === null ? Infinity : slab.max;
-    
+
     if (taxableIncome > min) {
       const amountInSlab = Math.min(taxableIncome, max) - min;
       const tax = amountInSlab * slab.rate;
@@ -57,8 +57,9 @@ function calculateRegimeTax(
   let taxAfterRebate = totalSlabTax;
 
   if (taxableIncome <= config.rebateLimit) {
-    rebate = totalSlabTax;
-    taxAfterRebate = 0;
+    // Section 87A rebate is capped by statute (e.g. Rs 60,000 for FY 2025-26 new regime)
+    rebate = Math.min(totalSlabTax, config.maxRebate);
+    taxAfterRebate = totalSlabTax - rebate;
   } else if (config.marginalReliefOnRebate && taxableIncome > config.rebateLimit) {
     // Marginal relief for 87A: If tax > (Income - RebateLimit), then tax = Income - RebateLimit
     const incomeExceedingLimit = taxableIncome - config.rebateLimit;
@@ -68,8 +69,7 @@ function calculateRegimeTax(
     }
   }
 
-  // 4% Health and Education Cess
-  const cess = taxAfterRebate * 0.04;
+  const cess = taxAfterRebate * cessRate;
   const finalTax = Math.round(taxAfterRebate + cess);
 
   return {
@@ -114,8 +114,8 @@ export function calculateIndianIncomeTax(input: TaxInput, taxYear: string): TaxR
   const taxableIncomeNew = Math.max(0, grossSalary - totalDeductionsNew);
 
   // CALCULATE TAX
-  const oldRegimeResultBase = calculateRegimeTax(taxableIncomeOld, config.oldRegime);
-  const newRegimeResultBase = calculateRegimeTax(taxableIncomeNew, config.newRegime);
+  const oldRegimeResultBase = calculateRegimeTax(taxableIncomeOld, config.oldRegime, config.cessRate);
+  const newRegimeResultBase = calculateRegimeTax(taxableIncomeNew, config.newRegime, config.cessRate);
 
   const oldRegime: RegimeTaxResult = {
     totalDeductions: totalDeductionsOld,

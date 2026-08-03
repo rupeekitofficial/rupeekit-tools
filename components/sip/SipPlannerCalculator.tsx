@@ -8,6 +8,7 @@ import DownloadSipPlanButton from '@/components/sip/DownloadSipPlanButton';
 import type { SipPlanPdfData } from '@/components/sip/SipPlanPdfDocument';
 import { trackToolEvent } from '@/lib/events';
 import { getSipReturnPresetKey, isSipReturnPreset } from '@/lib/sip/presets';
+import CalculatorPresets, { type CalculatorPreset } from '@/components/calculators/CalculatorPresets';
 
 type SipMode = 'regular' | 'step-up' | 'goal' | 'compare';
 type CatchUpPreference = 'none' | 'equal';
@@ -84,6 +85,45 @@ const SIP_MODE_OPTIONS: Array<{ key: SipMode; label: string }> = [
   { key: 'step-up', label: 'Step-Up SIP' },
   { key: 'goal', label: 'Goal SIP' },
   { key: 'compare', label: 'Compare Regular vs Step-Up' },
+];
+
+const SIP_PRESETS: CalculatorPreset[] = [
+  {
+    id: 'sip-5k-10y',
+    label: 'Rs 5,000 monthly for 10 years',
+    description: 'Regular SIP of Rs 5,000 per month for 10 years using your expected-return assumption.',
+    values: { mode: 'regular', monthlySip: 5000, durationYears: 10 },
+  },
+  {
+    id: 'sip-10k-15y',
+    label: 'Rs 10,000 monthly for 15 years',
+    description: 'Regular SIP of Rs 10,000 per month for 15 years using your expected-return assumption.',
+    values: { mode: 'regular', monthlySip: 10000, durationYears: 15 },
+  },
+  {
+    id: 'sip-1-crore-goal',
+    label: 'Rs 1 crore goal',
+    description: 'Switches to Goal SIP mode with a Rs 1 crore target over 15 years to estimate the required monthly SIP.',
+    values: { mode: 'goal', targetCorpus: 10000000, goalYears: 15 },
+  },
+  {
+    id: 'sip-regular-vs-step-up',
+    label: 'Regular vs step-up SIP',
+    description: 'Switches to comparison mode with a 10% yearly step-up against a flat SIP of the same starting amount.',
+    values: { mode: 'compare', stepUpRate: 10 },
+  },
+  {
+    id: 'sip-start-1-year-late',
+    label: 'Start one year late',
+    description: 'Keeps your inputs and highlights the "delay SIP by 1 year" estimate shown below the results.',
+    values: { mode: 'regular' },
+  },
+  {
+    id: 'sip-pause-6-months',
+    label: 'Pause SIP for 6 months',
+    description: 'Sets the pause-and-restart scenario to a 6-month pause so you can compare continuity versus pausing.',
+    values: { mode: 'regular', pauseDurationMonths: 6 },
+  },
 ];
 
 const SIP_REVIEW_CHECKLIST = [
@@ -884,6 +924,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
   const yearsDefault = tool.inputs.find((input) => input.key === 'years')?.default ?? 10;
 
   const [mode, setMode] = useState<SipMode>('regular');
+  const [activeSipPresetId, setActiveSipPresetId] = useState<string | null>(null);
   const [monthlySip, setMonthlySip] = useState(monthlyInputDefault);
   const [expectedReturn, setExpectedReturn] = useState(expectedReturnDefault);
   const [lastCustomExpectedReturn, setLastCustomExpectedReturn] = useState(
@@ -1651,6 +1692,23 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
     planQualityBadge,
   ]);
 
+  const applySipPreset = (preset: CalculatorPreset) => {
+    const v = preset.values as Record<string, number | string>;
+    if (typeof v.mode === 'string') setMode(v.mode as SipMode);
+    if (typeof v.monthlySip === 'number' && Number.isFinite(v.monthlySip)) setMonthlySip(Math.max(0, v.monthlySip));
+    if (typeof v.durationYears === 'number' && Number.isFinite(v.durationYears)) setDurationYears(Math.max(0.5, v.durationYears));
+    if (typeof v.stepUpRate === 'number' && Number.isFinite(v.stepUpRate)) setStepUpRate(Math.max(0, v.stepUpRate));
+    if (typeof v.targetCorpus === 'number' && Number.isFinite(v.targetCorpus)) setTargetCorpus(Math.max(0, v.targetCorpus));
+    if (typeof v.goalYears === 'number' && Number.isFinite(v.goalYears)) setGoalYears(Math.max(0.5, v.goalYears));
+    if (typeof v.pauseDurationMonths === 'number' && Number.isFinite(v.pauseDurationMonths)) {
+      setPauseDurationMonths(Math.max(1, Math.round(v.pauseDurationMonths)));
+    }
+    if (typeof v.missedSipsPerYear === 'number' && Number.isFinite(v.missedSipsPerYear)) {
+      setMissedSipsPerYear(Math.max(0, Math.round(v.missedSipsPerYear)));
+    }
+    setActiveSipPresetId(preset.id);
+  };
+
   return (
     <div className="space-y-8">
       <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-8">
@@ -1660,7 +1718,10 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
             <button
               key={option.key}
               type="button"
-              onClick={() => setMode(option.key)}
+              onClick={() => {
+                setActiveSipPresetId(null);
+                setMode(option.key);
+              }}
               className={`rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition ${
                 mode === option.key
                   ? 'border-brandNavy bg-brandNavy/10 text-brandNavy'
@@ -1671,6 +1732,12 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
             </button>
           ))}
         </div>
+        <CalculatorPresets
+          className="mt-4"
+          presets={SIP_PRESETS}
+          activePresetId={activeSipPresetId}
+          onApply={applySipPreset}
+        />
       </section>
 
       <section className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">

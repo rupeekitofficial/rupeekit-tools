@@ -28,6 +28,53 @@ interface BlogArticleLayoutProps {
   post: BlogPost;
 }
 
+const GRATUITY_ELIGIBILITY_ROWS = [
+  {
+    situation: 'Regular permanent employee',
+    eligibility: 'General five-year continuous-service rule, subject to statutory exceptions',
+  },
+  {
+    situation: 'Eligible fixed-term employee',
+    eligibility: 'One-year eligibility where the applicable legal provisions and contract conditions are satisfied',
+  },
+  {
+    situation: 'Death or disablement',
+    eligibility: 'Separate statutory exceptions may apply; the five-year condition does not apply',
+  },
+] as const;
+
+function GratuityEligibilityTable() {
+  return (
+    <div className="my-8 overflow-hidden rounded-2xl border border-brandBorder bg-white shadow-sm">
+      <div className="border-b border-brandBorder bg-slate-50 px-5 py-4">
+        <h3 className="text-base font-black text-brandDeepNavy">Gratuity eligibility at a glance (2026)</h3>
+        <p className="mt-1 text-xs text-brandMuted">
+          Eligibility depends on the written contract and applicable legal conditions — not every contract worker
+          automatically qualifies after one year.
+        </p>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[520px] text-left text-sm text-slate-700">
+          <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+            <tr>
+              <th className="px-5 py-3">Employment situation</th>
+              <th className="px-5 py-3">General eligibility explanation</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100">
+            {GRATUITY_ELIGIBILITY_ROWS.map((row) => (
+              <tr key={row.situation}>
+                <td className="px-5 py-3 font-semibold text-slate-900">{row.situation}</td>
+                <td className="px-5 py-3">{row.eligibility}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 function formatBlogDateLabel(isoDate?: string, fallback?: string) {
   if (!isoDate) return fallback ?? 'Not specified';
   const parsed = new Date(isoDate);
@@ -274,6 +321,12 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                         alt={post.visualAlt || ''}
                       />
                     )}
+                    {post.slug === 'zerodha-vs-upstox-vs-angel-one-demat-account' && idx === 0 && (
+                      <BrokerComparisonCard />
+                    )}
+                    {post.slug === 'new-labour-code-gratuity-rules-india-2026' && idx === 0 && (
+                      <GratuityEligibilityTable />
+                    )}
                     {post.slug === 'itr-2-ay-2026-27-filing-guide' && section.title === 'Who must file ITR-2 for AY 2026-27?' && <ITR2TriggerMatrix />}
                     {post.slug === 'itr-2-ay-2026-27-filing-guide' && section.title === 'What changed in ITR-2 AY 2026-27?' && <CapitalGainsRateShift />}
                     {post.slug === 'itr-2-ay-2026-27-filing-guide' && section.title === 'ITR-2 due date and key deadlines' && <FilingDeadlineTimeline />}
@@ -298,11 +351,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                 );
               })}
             </div>
-
-            {/* Broker comparison table with real CTA links */}
-            {post.slug === 'zerodha-vs-upstox-vs-angel-one-demat-account' && (
-              <BrokerComparisonCard />
-            )}
 
             {/* Book lists for the books article */}
             {post.books && post.books.length > 0 && (

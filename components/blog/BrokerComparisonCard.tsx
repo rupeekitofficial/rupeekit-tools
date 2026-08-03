@@ -2,16 +2,21 @@
 
 import Link from 'next/link';
 
+export const BROKER_CHARGES_LAST_VERIFIED = '3 August 2026';
+
 const BROKERS = [
   {
     name: 'Zerodha',
-    tagline: 'Best for simplicity & beginners',
-    delivery: 'Zero',
-    intraday: 'Rs 20/order',
+    tagline: 'Simple, reliable, self-directed',
+    accountOpening: 'Rs 0',
+    delivery: 'Rs 0',
+    intraday: 'Rs 20 or 0.03%/order (lower)',
+    fo: 'Options flat Rs 20/order; futures Rs 20 or 0.03% (lower)',
     amc: 'Rs 300/yr (free yr 1)',
     accountType: '2-in-1',
     platform: 'Kite (web + mobile)',
     mf: 'Zerodha Coin — direct plans, zero commission',
+    api: 'Kite Connect (paid)',
     research: 'Varsity (free education) — no advisory',
     nri: 'Not available',
     bestFor: 'First-time investors, long-term buy-and-hold, MF via direct plans',
@@ -20,13 +25,16 @@ const BROKERS = [
   },
   {
     name: 'Upstox',
-    tagline: 'Best for active traders',
-    delivery: 'Zero',
-    intraday: 'Rs 20/order',
+    tagline: 'Modern platform, 3-in-1 account',
+    accountOpening: 'Rs 0',
+    delivery: 'Rs 20 or 0.1%/order (lower)',
+    intraday: 'Rs 20 or 0.05%/order (lower)',
+    fo: 'Flat Rs 20/order',
     amc: 'Rs 300/yr (free yr 1)',
     accountType: '3-in-1 (trading + demat + savings)',
     platform: 'Pro Web + Pro Mobile',
     mf: 'Direct plans via Upstox MF',
+    api: 'Upstox API available',
     research: 'Options analytics, stock screeners',
     nri: 'Not available',
     bestFor: 'Active F&O traders, investors wanting 3-in-1 bank linkage',
@@ -35,13 +43,16 @@ const BROKERS = [
   },
   {
     name: 'Angel One',
-    tagline: 'Best for research & NRI',
-    delivery: 'Zero',
-    intraday: 'Rs 20/order',
+    tagline: 'Research, advisory & NRI support',
+    accountOpening: 'Rs 0',
+    delivery: 'Rs 20 or 0.1%/order (lower)',
+    intraday: 'Flat Rs 20/order',
+    fo: 'Flat Rs 20/order',
     amc: 'Rs 240/yr',
     accountType: '2-in-1',
     platform: 'Angel One app',
     mf: 'Direct plans via app',
+    api: 'SmartAPI available',
     research: 'ARQ Prime AI advisory, research reports',
     nri: 'NRI trading accounts available',
     bestFor: 'Investors wanting advisory, NRIs, beginners who want guidance',
@@ -51,12 +62,15 @@ const BROKERS = [
 ] as const;
 
 const COMPARISON_ROWS: { label: string; key: keyof typeof BROKERS[0] }[] = [
+  { label: 'Account Opening', key: 'accountOpening' },
   { label: 'Delivery Brokerage', key: 'delivery' },
-  { label: 'Intraday / F&O', key: 'intraday' },
+  { label: 'Intraday Brokerage', key: 'intraday' },
+  { label: 'F&O Brokerage', key: 'fo' },
   { label: 'Demat AMC', key: 'amc' },
   { label: 'Account Type', key: 'accountType' },
   { label: 'Platform', key: 'platform' },
   { label: 'Mutual Funds', key: 'mf' },
+  { label: 'API Access', key: 'api' },
   { label: 'Research / Advisory', key: 'research' },
   { label: 'NRI Trading', key: 'nri' },
   { label: 'Best For', key: 'bestFor' },
@@ -146,8 +160,11 @@ export default function BrokerComparisonCard() {
           ))}
         </div>
         <p className="mt-3 text-[10px] text-brandMuted text-center leading-relaxed">
-          Charges current as of July 2026. Verify with each broker before opening.
-          RupeeKit earns affiliate commissions from Angel One and Upstox. Zerodha link is a referral — you and the referee each get brokerage credits.
+          Charges last verified: {BROKER_CHARGES_LAST_VERIFIED}, from each broker&apos;s published pricing. Statutory
+          charges (STT, exchange fees, GST, stamp duty, DP charges) apply in addition at all three brokers and can
+          change — always verify on the broker&apos;s official pricing page before opening an account.
+          RupeeKit earns affiliate commissions from Angel One and Upstox. Zerodha link is a referral — you and the
+          referee each get brokerage credits. No broker is universally best; the right choice depends on how you trade.
         </p>
       </div>
     </div>
