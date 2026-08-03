@@ -6,7 +6,8 @@ const manifestPath = path.join(root, 'data', 'discover-images.json');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const baseTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tools.json'), 'utf8'));
 const growthTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'growth-tools.json'), 'utf8'));
-const tools = [...baseTools, ...growthTools];
+const insuranceTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'insurance-tools-2026.json'), 'utf8'));
+const tools = [...baseTools, ...growthTools, ...insuranceTools];
 const errors = [];
 
 const imageSitemapSource = fs.readFileSync(
@@ -22,8 +23,8 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 61) {
-  errors.push(`Expected 61 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 67) {
+  errors.push(`Expected 67 Discover images, found ${manifest.length}.`);
 }
 
 const paths = new Set();

@@ -29,7 +29,7 @@ function ensure(condition, message) {
 }
 
 function readText(...segments) {
-  return fs.readFileSync(path.join(root, ...segments), 'utf8');
+  return fs.readFileSync(path.join(root, ...segments), 'utf8').replace(/\r\n/g, '\n');
 }
 
 function readJson(...segments) {
