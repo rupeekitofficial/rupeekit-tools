@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { API_RESPONSE_HEADERS, assertAllowedOrigin, readJsonBody } from '@/lib/api-request';
 import { apiError, calculate, getPublicCalculator, listPublicCalculators } from '@/lib/public-calculator-api';
 
 type JsonRpcRequest = { jsonrpc?: string; id?: string | number | null; method?: string; params?: Record<string, unknown> };
+const SITE_ORIGIN = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in').origin;
 
 const tools = [
   {
@@ -32,16 +34,28 @@ const tools = [
 ];
 
 function result(id: JsonRpcRequest['id'], value: unknown) {
-  return NextResponse.json({ jsonrpc: '2.0', id: id ?? null, result: value });
+  return NextResponse.json(
+    { jsonrpc: '2.0', id: id ?? null, result: value },
+    { headers: API_RESPONSE_HEADERS }
+  );
 }
 
 function rpcError(id: JsonRpcRequest['id'], code: number, message: string, data?: unknown) {
-  return NextResponse.json({ jsonrpc: '2.0', id: id ?? null, error: { code, message, ...(data ? { data } : {}) } });
+  return NextResponse.json(
+    { jsonrpc: '2.0', id: id ?? null, error: { code, message, ...(data ? { data } : {}) } },
+    { headers: API_RESPONSE_HEADERS }
+  );
 }
 
 export async function POST(request: NextRequest) {
   let rpc: JsonRpcRequest;
-  try { rpc = await request.json(); } catch { return rpcError(null, -32700, 'Parse error'); }
+  try {
+    assertAllowedOrigin(request, SITE_ORIGIN);
+    rpc = await readJsonBody(request) as JsonRpcRequest;
+  } catch (error) {
+    const response = apiError(error);
+    return NextResponse.json(response.body, { status: response.status, headers: API_RESPONSE_HEADERS });
+  }
   if (rpc.jsonrpc !== '2.0' || !rpc.method) return rpcError(rpc.id, -32600, 'Invalid Request');
 
   if (rpc.method === 'initialize') {
@@ -74,5 +88,8 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
-  return NextResponse.json({ name: 'RupeeKit MCP Server', transport: 'Streamable HTTP (JSON-RPC)', endpoint: '/api/mcp', protocolVersion: '2025-03-26', tools: tools.map(({ name, description }) => ({ name, description })) });
+  return NextResponse.json(
+    { name: 'RupeeKit MCP Server', transport: 'Streamable HTTP (JSON-RPC)', endpoint: '/api/mcp', protocolVersion: '2025-03-26', tools: tools.map(({ name, description }) => ({ name, description })) },
+    { headers: API_RESPONSE_HEADERS }
+  );
 }

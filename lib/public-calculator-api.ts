@@ -1,5 +1,8 @@
 import { Parser } from 'expr-eval';
-import { getLiveTools, getToolBySlug, type Tool } from '@/lib/tools';
+import { getLiveTools, getToolBySlug, type Tool } from './tools';
+import { CalculatorApiError } from './api-error';
+
+export { CalculatorApiError } from './api-error';
 
 const parser = new Parser({
   operators: {
@@ -11,13 +14,20 @@ const parser = new Parser({
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
-export type CalculatorInputs = Record<string, number>;
+// Public machine contracts are an explicit, reviewed pilot. Adding a web calculator must
+// not automatically expose it through REST and MCP before its sources and tests are ready.
+export const PUBLIC_API_CALCULATOR_SLUGS = [
+  'home-loan-swp-stress-test-india',
+  'gratuity-2026-old-vs-new-calculator-india',
+  'personal-loan-true-apr-calculator-india',
+  'invest-vs-prepay-home-loan-calculator-india',
+  'loan-foreclosure-net-savings-calculator-india',
+  'reduce-emi-vs-tenure-calculator-india',
+] as const;
 
-export class CalculatorApiError extends Error {
-  constructor(public status: number, public code: string, message: string) {
-    super(message);
-  }
-}
+const publicApiSlugs = new Set<string>(PUBLIC_API_CALCULATOR_SLUGS);
+
+export type CalculatorInputs = Record<string, number>;
 
 function publicDefinition(tool: Tool) {
   const defaultInputs = Object.fromEntries(tool.inputs.map((input) => [input.key, input.default]));
@@ -40,16 +50,22 @@ function publicDefinition(tool: Tool) {
 }
 
 export function listPublicCalculators() {
-  return getLiveTools().map(publicDefinition);
+  return getLiveTools().filter((tool) => publicApiSlugs.has(tool.slug)).map(publicDefinition);
 }
 
 export function getPublicCalculator(slug: string) {
+  if (!publicApiSlugs.has(slug)) {
+    throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
+  }
   const tool = getToolBySlug(slug);
   if (!tool) throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
   return publicDefinition(tool);
 }
 
 export function calculate(slug: string, suppliedInputs: unknown) {
+  if (!publicApiSlugs.has(slug)) {
+    throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
+  }
   const tool = getToolBySlug(slug);
   if (!tool) throw new CalculatorApiError(404, 'calculator_not_found', `No public calculator found for slug: ${slug}`);
   if (suppliedInputs === null || typeof suppliedInputs !== 'object' || Array.isArray(suppliedInputs)) {
