@@ -1,0 +1,289 @@
+name: Generate integrated tax payment update
+
+on:
+  push:
+    branches:
+      - content/integrated-tax-payment-module-2026-08-04
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: content/integrated-tax-payment-module-2026-08-04
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Generate article and visuals
+        run: |
+          cat > /tmp/generate-update.mjs <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+
+          const slug = 'income-tax-integrated-payment-module-2026';
+          const dir = `public/images/updates/${slug}`;
+          fs.mkdirSync(dir, { recursive: true });
+
+          const update = `  {
+            id: '${slug}',
+            slug: '${slug}',
+            title: 'Paying Income Tax in 2026? Choose the Correct Act and Year Before Creating the Challan',
+            category: 'Income Tax',
+            sourceName: 'Income Tax Department, Ministry of Finance, Government of India',
+            sourceUrl: 'https://www.incometax.gov.in/iec/foportal/',
+            officialSources: [
+              {
+                label: 'Income Tax Department announcement: New Integrated Payment Module Goes Live',
+                href: 'https://www.incometax.gov.in/iec/foportal/',
+              },
+              {
+                label: 'Official General Questions FAQs for e-Pay Tax',
+                href: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/general-questions-0',
+              },
+              {
+                label: 'Official Income Tax Act, 2025 Tax Payments FAQs',
+                href: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/tax-payments',
+              },
+            ],
+            publishedDate: '2026-08-04',
+            modifiedDate: '2026-08-04',
+            lastReviewed: '4 August 2026',
+            effectiveDate:
+              'The Income Tax Act, 2025 applies from 1 April 2026 for Tax Year 2026-27 onwards. The integrated payment module was live on the official e-Filing portal when reviewed on 4 August 2026. The Department homepage does not display a separate launch date for the module.',
+            summary:
+              'The Income Tax Department has introduced one payment interface for dues governed by the Income Tax Act, 1961 and the Income Tax Act, 2025. The most important step is choosing the correct period: AY 2026-27 or earlier generally belongs to the 1961 Act, while Tax Year 2026-27 onwards belongs to the 2025 Act.',
+            quickAnswer:
+              'Use the Income Tax Act, 1961 for self-assessment tax relating to FY 2025-26 and AY 2026-27, even when you pay during 2026. Use the Income Tax Act, 2025 for advance tax and other payments relating to income earned from 1 April 2026 in Tax Year 2026-27. The payment date alone does not decide the Act; the income period and liability do.',
+            storyTitle: 'Arjun saw two Acts on the payment screen and almost chose the newer one',
+            story:
+              'Arjun was paying self-assessment tax for the salary and bank interest he earned during FY 2025-26. Because he was making the payment in August 2026, he assumed the newer Income Tax Act, 2025 must apply. The official FAQs explain otherwise: his liability belongs to AY 2026-27, so he should select the Income Tax Act, 1961. His advance-tax payment for income earned from April 2026 would instead belong to Tax Year 2026-27 under the 2025 Act.',
+            whatHappened:
+              'The Income Tax Department announced that a new integrated payment module is available on the e-Filing portal. It allows payments under both the Income Tax Act, 1961 for older periods and the Income Tax Act, 2025 for Tax Year 2026-27 onwards through one interface.',
+            officialFacts: [
+              'The integrated module supports payments governed by both the Income Tax Act, 1961 and the Income Tax Act, 2025.',
+              'Payments for periods up to AY 2026-27, including self-assessment tax for FY 2025-26, use the Income Tax Act, 1961.',
+              'Payments relating to Tax Year 2026-27 onwards use the Income Tax Act, 2025.',
+              'Advance tax for income earned during FY 2026-27 is payable under the Income Tax Act, 2025.',
+              'The official transition FAQ warns taxpayers to select AY 2026-27 for FY 2025-26 liabilities and Tax Year 2026-27 for FY 2026-27 liabilities so credit is granted in the correct period.',
+              'Payment modes remain available through authorised banking channels, including net banking, debit card, payment gateway, UPI, NEFT/RTGS and eligible over-the-counter options.',
+            ],
+            plainLanguageExplanation:
+              'The screen now supports two legal systems at the same time. Do not choose the newer Act merely because the calendar says 2026. First ask which income period created the liability. Old-period dues stay under the old Act; current Tax Year 2026-27 dues use the new Act.',
+            whyItMatters:
+              'A wrong Act or year selection can make a valid payment difficult to match with the intended liability. That may lead to missing tax credit, a payment appearing under the wrong period, or extra correction work before filing or responding to a demand.',
+            whoMayBeAffected:
+              'Individuals paying self-assessment tax for AY 2026-27, advance tax for FY 2026-27, an old outstanding demand, or another challan during the transition between the two Acts. Deductors and collectors may also need the correct Act and new TDS/TCS references for transactions from 1 April 2026.',
+            whoMayNotBeAffected:
+              'Taxpayers who are not making a payment may not need to act now. The module does not change a person’s tax liability, create a new tax, extend a deadline, or decide which deductions or tax regime apply.',
+            realisticExample: {
+              title: 'Example: two payments made in August 2026',
+              body:
+                'Arjun pays ₹22,000 of self-assessment tax for FY 2025-26 and AY 2026-27. He selects the Income Tax Act, 1961 and AY 2026-27. The same week, he pays advance tax on freelance income expected during April 2026 to March 2027. For that payment he selects the Income Tax Act, 2025 and Tax Year 2026-27. The dates are similar, but the governing periods are different.',
+            },
+            practicalSteps: [
+              'Write down the income period and the exact liability before opening e-Pay Tax.',
+              'For FY 2025-26 self-assessment tax, select the Income Tax Act, 1961 and AY 2026-27.',
+              'For advance tax on FY 2026-27 income, select the Income Tax Act, 2025 and Tax Year 2026-27.',
+              'Check the PAN, payment type, amount, Act and year on the challan preview before paying.',
+              'Save the challan receipt and verify it under Payment History after successful payment.',
+              'If the payment was made under the wrong details, use the official challan-correction guidance or grievance route rather than paying again without checking.',
+            ],
+            commonMisunderstandings: [
+              {
+                claim: 'Every payment made after 1 April 2026 must use the Income Tax Act, 2025.',
+                reality:
+                  'No. A payment for an older liability can remain under the 1961 Act. Self-assessment tax for FY 2025-26 and AY 2026-27 is the clearest example.',
+              },
+              {
+                claim: 'AY 2026-27 and Tax Year 2026-27 mean the same period.',
+                reality:
+                  'No. AY 2026-27 relates to income from FY 2025-26 under the 1961 Act. Tax Year 2026-27 refers to income from 1 April 2026 to 31 March 2027 under the 2025 Act.',
+              },
+              {
+                claim: 'The integrated module has changed tax rates or payment deadlines.',
+                reality:
+                  'The announcement concerns the payment interface. The official FAQs say the core payment framework and payment modes continue; applicable rates and deadlines must be checked separately.',
+              },
+              {
+                claim: 'If I select the wrong year, I should immediately make a second payment.',
+                reality:
+                  'Do not duplicate a payment without checking. Download the receipt, review the official correction options and raise a grievance when required.',
+              },
+            ],
+            whatToVerify:
+              'Verify the Act, Assessment Year or Tax Year, payment type, PAN and amount before generating the challan. Keep the receipt and confirmation. For a wrong challan, old demand, business TDS/TCS issue or case-specific interpretation, follow the official correction process or consult a qualified tax professional.',
+            announcementVsOrderNote:
+              'This is an e-Filing portal service update and transition guidance. It does not independently amend tax rates, filing deadlines, rebate rules, tax-regime eligibility or a taxpayer’s underlying liability.',
+            methodology:
+              'RupeeKit reviewed the official homepage announcement, the complete e-Pay Tax General Questions FAQs and the 30-question Income Tax Act, 2025 Tax Payments FAQ. The article focuses on the household-level distinction between AY 2026-27 under the 1961 Act and Tax Year 2026-27 under the 2025 Act, while avoiding personalised tax conclusions.',
+            relatedRupeeKitLinks: [
+              {
+                label: 'Income Tax Old vs New Regime Calculator',
+                href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+              },
+              {
+                label: 'ITR-2 Filing Guide for AY 2026-27',
+                href: '/blog/itr-2-ay-2026-27-filing-guide',
+              },
+              {
+                label: 'Capital Gains Tax Calculator India',
+                href: '/tools/capital-gains-tax-calculator-india',
+              },
+            ],
+            tags: ['e-Pay Tax', 'Income Tax Act 2025', 'AY 2026-27', 'Tax Year 2026-27', 'Self Assessment Tax', 'Advance Tax'],
+            visualType: 'income-tax',
+            schemaType: 'NewsArticle',
+            heroImage: {
+              src: '/images/updates/${slug}/hero-choose-correct-tax-act.svg',
+              alt: 'Indian taxpayer choosing between the Income Tax Act 1961 and Income Tax Act 2025 in the integrated e-Pay Tax module',
+              width: 1600,
+              height: 900,
+            },
+            carouselSlides: [
+              {
+                src: '/images/updates/${slug}/slide-1-arjun-sees-two-acts.svg',
+                alt: 'Indian taxpayer Arjun sees two Income Tax Acts while creating an online tax challan',
+                caption: 'Arjun sees two Acts and pauses before choosing.',
+              },
+              {
+                src: '/images/updates/${slug}/slide-2-one-payment-module.svg',
+                alt: 'Visual showing one integrated e-Pay Tax module supporting the 1961 Act and the 2025 Act',
+                caption: 'One payment interface now supports both Acts.',
+              },
+              {
+                src: '/images/updates/${slug}/slide-3-ay-vs-tax-year.svg',
+                alt: 'Comparison of AY 2026-27 under the 1961 Act and Tax Year 2026-27 under the 2025 Act',
+                caption: 'AY 2026-27 and Tax Year 2026-27 refer to different income periods.',
+              },
+              {
+                src: '/images/updates/${slug}/slide-4-two-payment-examples.svg',
+                alt: 'Example comparing self-assessment tax for FY 2025-26 with advance tax for FY 2026-27',
+                caption: 'Two August payments can require different Act selections.',
+              },
+              {
+                src: '/images/updates/${slug}/slide-5-check-before-pay.svg',
+                alt: 'Checklist to verify PAN, Act, year, payment type and amount before paying income tax online',
+                caption: 'Check five details before completing the payment.',
+              },
+              {
+                src: '/images/updates/${slug}/slide-6-save-and-verify.svg',
+                alt: 'Taxpayer saving the challan receipt and verifying payment history after e-Pay Tax',
+                caption: 'Save the receipt and verify the payment under Payment History.',
+              },
+            ],
+            faqs: [
+              {
+                question: 'Which Act applies to self-assessment tax for AY 2026-27?',
+                answer:
+                  'The official FAQ says self-assessment tax for AY 2026-27 and FY 2025-26 is governed by the Income Tax Act, 1961, even when the payment is made after 1 April 2026.',
+              },
+              {
+                question: 'Which Act applies to advance tax for FY 2026-27?',
+                answer:
+                  'Advance tax relating to income earned during FY 2026-27 is paid under the Income Tax Act, 2025 using Tax Year 2026-27.',
+              },
+              {
+                question: 'Is Assessment Year the same as Tax Year?',
+                answer:
+                  'No. Assessment Year is terminology under the 1961 Act. The 2025 Act uses Tax Year, meaning the financial year beginning on 1 April.',
+              },
+              {
+                question: 'What payment modes are available through e-Pay Tax?',
+                answer:
+                  'The official FAQ lists net banking, debit card, payment gateway including credit card and UPI, NEFT or RTGS, and eligible over-the-counter payments at selected bank branches.',
+              },
+              {
+                question: 'Does the new payment module change tax rates?',
+                answer:
+                  'The announcement describes an integrated interface. It does not itself announce a change in tax rates, rebates or filing deadlines.',
+              },
+              {
+                question: 'Why does the correct year matter?',
+                answer:
+                  'The official transition FAQ says taxpayers should select the correct AY or Tax Year so the tax credit is granted in the correct period.',
+              },
+              {
+                question: 'What should I save after paying tax?',
+                answer:
+                  'Download the challan receipt, keep the payment confirmation and verify the entry under Payment History on the official portal.',
+              },
+              {
+                question: 'What if I selected the wrong Act or year?',
+                answer:
+                  'Do not assume the payment is lost and do not immediately duplicate it. Check the official challan-correction guidance or grievance facility and obtain professional help when the issue is case-specific.',
+              },
+            ],
+            status: 'official',
+          },\n`;
+
+          const dataPath = 'data/financial-updates.ts';
+          let source = fs.readFileSync(dataPath, 'utf8');
+          if (!source.includes(`id: '${slug}'`)) {
+            const marker = 'export const financialUpdates: FinancialUpdate[] = [\n';
+            if (!source.includes(marker)) throw new Error('financialUpdates marker not found');
+            source = source.replace(marker, marker + update);
+            fs.writeFileSync(dataPath, source);
+          }
+
+          const logoPath = 'public/brand/rupeekit_logo_horizontal_transparent.png';
+          const logoData = fs.existsSync(logoPath)
+            ? `data:image/png;base64,${fs.readFileSync(logoPath).toString('base64')}`
+            : '';
+
+          const escape = (s) => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+          const makeSvg = ({ w, h, kicker, title, lines, footer }) => {
+            const titleLines = title.match(/.{1,36}(?:\s|$)/g) || [title];
+            const body = lines.map((line, i) => `<text x="${w * 0.09}" y="${h * (0.56 + i * 0.075)}" font-size="${Math.round(h * 0.038)}" font-family="Arial, sans-serif" fill="#17324d">${escape(line)}</text>`).join('');
+            const titleText = titleLines.slice(0, 3).map((line, i) => `<text x="${w * 0.09}" y="${h * (0.25 + i * 0.09)}" font-size="${Math.round(h * 0.068)}" font-weight="700" font-family="Arial, sans-serif" fill="#0b2740">${escape(line.trim())}</text>`).join('');
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+              <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="0.55" stop-color="#e7f7f2"/><stop offset="1" stop-color="#fff4df"/></linearGradient></defs>
+              <rect width="${w}" height="${h}" rx="32" fill="url(#bg)"/>
+              <circle cx="${w * 0.82}" cy="${h * 0.25}" r="${h * 0.16}" fill="#36a98f" opacity="0.16"/>
+              <circle cx="${w * 0.88}" cy="${h * 0.76}" r="${h * 0.2}" fill="#f2b84b" opacity="0.18"/>
+              ${logoData ? `<image href="${logoData}" x="${w * 0.06}" y="${h * 0.055}" width="${w * 0.22}" height="${h * 0.09}" preserveAspectRatio="xMinYMid meet"/>` : `<text x="${w * 0.06}" y="${h * 0.11}" font-size="${Math.round(h * 0.05)}" font-weight="700" font-family="Arial">RupeeKit</text>`}
+              <rect x="${w * 0.7}" y="${h * 0.065}" width="${w * 0.22}" height="${h * 0.065}" rx="24" fill="#0b6b57"/>
+              <text x="${w * 0.81}" y="${h * 0.108}" text-anchor="middle" font-size="${Math.round(h * 0.026)}" font-weight="700" font-family="Arial" fill="white">${escape(kicker)}</text>
+              ${titleText}
+              <rect x="${w * 0.07}" y="${h * 0.49}" width="${w * 0.68}" height="${h * 0.34}" rx="28" fill="white" opacity="0.9"/>
+              ${body}
+              <text x="${w * 0.09}" y="${h * 0.91}" font-size="${Math.round(h * 0.027)}" font-family="Arial" fill="#48657d">${escape(footer)}</text>
+            </svg>`;
+          };
+
+          const assets = [
+            ['hero-choose-correct-tax-act.svg',1600,900,'INCOME TAX UPDATE','Two Acts. One payment screen. Choose the correct period first.',['AY 2026-27 → 1961 Act','Tax Year 2026-27 → 2025 Act'],'Official-source explainer • Reviewed 4 August 2026'],
+            ['slide-1-arjun-sees-two-acts.svg',1080,1350,'THE STORY','Arjun sees two Income Tax Acts',['He is paying in August 2026.','But the payment date alone does not decide the Act.'],'Story 1 of 6'],
+            ['slide-2-one-payment-module.svg',1080,1350,'WHAT CHANGED','One e-Pay Tax module supports both Acts',['Income Tax Act, 1961','Income Tax Act, 2025'],'Story 2 of 6'],
+            ['slide-3-ay-vs-tax-year.svg',1080,1350,'KEY DIFFERENCE','AY 2026-27 is not Tax Year 2026-27',['AY 2026-27 → FY 2025-26 income','Tax Year 2026-27 → FY 2026-27 income'],'Story 3 of 6'],
+            ['slide-4-two-payment-examples.svg',1080,1350,'REAL EXAMPLE','Two August payments. Two different selections.',['Self-assessment for FY 2025-26 → 1961 Act','Advance tax for FY 2026-27 → 2025 Act'],'Story 4 of 6'],
+            ['slide-5-check-before-pay.svg',1080,1350,'CHECKLIST','Check five details before paying',['PAN • Act • Year','Payment type • Amount'],'Story 5 of 6'],
+            ['slide-6-save-and-verify.svg',1080,1350,'SAFE NEXT STEP','Save the challan and verify Payment History',['Do not duplicate a payment without checking.','Use official correction or grievance routes.'],'Story 6 of 6'],
+          ];
+          for (const [name,w,h,kicker,title,lines,footer] of assets) {
+            fs.writeFileSync(path.join(dir, name), makeSvg({w,h,kicker,title,lines,footer}));
+          }
+          NODE
+          node /tmp/generate-update.mjs
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate
+        run: npm run validate
+      - name: Lint
+        run: npm run lint
+      - name: Build
+        run: npm run build
+      - name: Commit generated package and remove temporary workflow
+        run: |
+          rm .github/workflows/temp-integrated-tax-payment-update.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/financial-updates.ts public/images/updates/income-tax-integrated-payment-module-2026 .github/workflows/temp-integrated-tax-payment-update.yml
+          git commit -m "Add integrated income-tax payment module explainer"
+          git push origin HEAD:content/integrated-tax-payment-module-2026-08-04
