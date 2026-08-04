@@ -15,6 +15,16 @@
   --brand-muted: #64748b;
 }
 
+.dark {
+  color-scheme: dark;
+  --background: #020617;
+  --foreground: #f8fafc;
+  --brand-bg-soft: #020617;
+  --brand-border: #1e293b;
+  --brand-text: #f8fafc;
+  --brand-muted: #94a3b8;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -22,6 +32,18 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  text-rendering: optimizeLegibility;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+::selection {
+  background: rgb(67 160 71 / 0.25);
+}
+
+:focus-visible {
+  outline: 3px solid rgb(80 176 64 / 0.45);
+  outline-offset: 3px;
 }
 
 input[type='number']::-webkit-outer-spin-button,
