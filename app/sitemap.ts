@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getLiveTools } from '@/lib/tools';
-import { blogPosts } from '@/data/blog-posts';
+import { blogPosts } from '@/data/all-blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 import { governmentSalaryUpdates } from '@/data/government-salary-updates';
 import { calculatorGuides } from '@/data/calculator-guides';

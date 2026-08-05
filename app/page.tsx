@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CalculatorJumpSearch from '@/components/home/CalculatorJumpSearch';
-import { blogPosts } from '@/data/blog-posts';
+import { blogPosts } from '@/data/all-blog-posts';
 import { getLiveTools, type Tool } from '@/lib/tools';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
