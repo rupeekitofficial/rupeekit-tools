@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { blogPosts } from '@/data/blog-posts';
+import { blogPosts } from '@/data/all-blog-posts';
 import Calculator from '@/components/Calculator';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
 import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLoanDecisionSimulator';
