@@ -4,6 +4,7 @@ import { calculateIndianIncomeTax, TaxInput } from '@/lib/tax/calculator';
 import { TaxInputForm } from './TaxInputForm';
 import { TaxResultPanel } from './TaxResultPanel';
 import { TaxFutureProjection } from './TaxFutureProjection';
+import CalculatorAnalyticsBoundary from '@/components/CalculatorAnalyticsBoundary';
 
 const initialInput: TaxInput = {
   grossSalary: 1200000,
@@ -39,6 +40,10 @@ export function TaxCalculatorApp() {
   if (!mounted) return <div className="animate-pulse h-[600px] bg-slate-100 rounded-3xl w-full"></div>;
 
   return (
+    <CalculatorAnalyticsBoundary
+      toolSlug="income-tax-calculator-old-vs-new-regime-india"
+      toolCategory="Tax"
+    >
     <div className="mx-auto w-full max-w-6xl">
       <div className="mb-6 flex gap-2 border-b border-brandBorder pb-4">
         <button
@@ -73,5 +78,6 @@ export function TaxCalculatorApp() {
         </div>
       </div>
     </div>
+    </CalculatorAnalyticsBoundary>
   );
 }
