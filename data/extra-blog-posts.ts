@@ -26,10 +26,10 @@ export const extraBlogPosts: BlogPost[] = [
     visualTitle: 'How Foreign Contribution Moves Under FCRA',
     visualSubtitle: 'Approval, SBI receipt, permitted utilisation and annual reporting',
     visualAlt: 'Timeline showing an Indian organisation obtaining FCRA approval, receiving foreign contribution in the designated SBI account, using it for approved activities and filing annual returns.',
-    heroImage: '/images/blog/fcra-2-0-india-2026-guide.png',
+    heroImage: '/images/blog/fcra-2-0-india-2026-guide-v2.png',
     heroImageAlt: 'FCRA 2.0 India 2026 guide showing foreign donation, NGO compliance, SBI account and reporting stages',
-    heroImageWidth: 1600,
-    heroImageHeight: 900,
+    heroImageWidth: 1672,
+    heroImageHeight: 941,
     publishedDateISO: '2026-08-05',
     modifiedDateISO: '2026-08-05',
     officialSources: [
