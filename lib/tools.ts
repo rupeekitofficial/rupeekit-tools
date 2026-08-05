@@ -2,6 +2,7 @@ import tools from '../data/tools.json';
 import growthTools from '../data/growth-tools.json';
 import decisionTools from '../data/decision-tools-2026.json';
 import insuranceTools from '../data/insurance-tools-2026.json';
+import investingTools from '../data/investing-tools-2026.json';
 
 export type ToolInput = {
   key: string;
@@ -88,7 +89,7 @@ export type Tool = {
   presets?: ToolPreset[];
 };
 
-export const allTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools] as Tool[];
+export const allTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools] as Tool[];
 
 export function getLiveTools(): Tool[] {
   return allTools.filter((tool) => tool.status === 'live');
