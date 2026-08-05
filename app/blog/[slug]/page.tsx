@@ -3,17 +3,14 @@ import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/all-blog-posts';
 import { getDiscoverImage } from '@/data/discover-images';
 import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
+import FcraArticleLayout from '@/components/blog/FcraArticleLayout';
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
+  return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
 interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 }
 
 export function generateMetadata({ params }: BlogPostPageProps): Metadata {
@@ -34,14 +31,8 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   return {
     title: { absolute: title },
     description,
-    alternates: {
-      canonical: pageUrl,
-    },
-    robots: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-    },
+    alternates: { canonical: pageUrl },
+    robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
       title,
       description,
@@ -50,32 +41,21 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
       type: 'article',
       locale: 'en_IN',
       ...(imageUrl && {
-        images: [
-          {
-            url: imageUrl,
-            width: heroImageWidth,
-            height: heroImageHeight,
-            alt: heroImageAlt,
-          },
-        ],
+        images: [{ url: imageUrl, width: heroImageWidth, height: heroImageHeight, alt: heroImageAlt }],
       }),
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      ...(imageUrl && {
-        images: [imageUrl],
-      }),
+      ...(imageUrl && { images: [imageUrl] }),
     },
   };
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   const post = blogPosts.find((p) => p.slug === params.slug);
-  if (!post) {
-    notFound();
-  }
+  if (!post) notFound();
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
   const pageUrl = `${siteUrl}/blog/${post.slug}`;
@@ -110,9 +90,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     },
     publisher: { '@id': `${siteUrl}/#organization` },
     isPartOf: { '@id': `${siteUrl}/#website` },
-    ...(post.officialSources?.length
-      ? { citation: post.officialSources.map((source) => source.href) }
-      : {}),
+    ...(post.officialSources?.length ? { citation: post.officialSources.map((source) => source.href) } : {}),
   };
 
   const breadcrumbSchema = {
@@ -121,31 +99,30 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
       { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
-      { '@type': 'ListItem', position: 3, name: post.title, item: pageUrl }
-    ]
+      { '@type': 'ListItem', position: 3, name: post.title, item: pageUrl },
+    ],
   };
 
-  const faqSchema = post.faqs && post.faqs.length > 0 ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: post.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer
+  const faqSchema = post.faqs?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: post.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        })),
       }
-    }))
-  } : null;
+    : null;
+
+  const isFcraGuide = post.slug === 'fcra-2-0-india-2026-explained';
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      {faqSchema && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      )}
-      <BlogArticleLayout post={postWithHero} />
+      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+      {isFcraGuide ? <FcraArticleLayout post={postWithHero} /> : <BlogArticleLayout post={postWithHero} />}
     </>
   );
 }
