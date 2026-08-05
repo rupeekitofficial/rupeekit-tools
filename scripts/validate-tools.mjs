@@ -2,7 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Parser } from 'expr-eval';
 
-const toolFiles = ['tools.json', 'growth-tools.json', 'decision-tools-2026.json', 'insurance-tools-2026.json'];
+const toolFiles = [
+  'tools.json',
+  'growth-tools.json',
+  'decision-tools-2026.json',
+  'insurance-tools-2026.json',
+  'investing-tools-2026.json',
+];
 const tools = toolFiles.flatMap((fileName) => {
   const file = path.join(process.cwd(), 'data', fileName);
   return JSON.parse(fs.readFileSync(file, 'utf8'));
