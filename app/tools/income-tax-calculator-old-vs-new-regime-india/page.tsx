@@ -19,9 +19,9 @@ const DISCOVER_IMAGE_URL = DISCOVER_IMAGE ? `${SITE_URL}${DISCOVER_IMAGE.src}` :
 const latestSupportedFy = availableTaxYears[0];
 const latestSupportedRules = indiaIncomeTaxRules[latestSupportedFy];
 
-const pageTitle = 'Old vs New Tax Regime Calculator India FY 2025-26 | Free';
+const pageTitle = 'Old vs New Tax Regime Calculator | Compare Tax & Savings';
 const pageDescription =
-  'Compare old and new tax regimes for FY 2025-26 (AY 2026-27) using salary, standard deduction, HRA, 80C, 80D, NPS and home-loan assumptions. Free and instant.';
+  'Compare estimated tax under old and new regimes using salary, deductions, HRA, 80C, 80D, NPS and home-loan inputs for the selected financial year.';
 
 function formatInr(value: number) {
   return `Rs ${Math.round(value).toLocaleString('en-IN')}`;

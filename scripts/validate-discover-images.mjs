@@ -24,8 +24,8 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 73) {
-  errors.push(`Expected 73 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 70) {
+  errors.push(`Expected 70 Discover images, found ${manifest.length}.`);
 }
 
 const paths = new Set();
