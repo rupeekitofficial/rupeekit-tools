@@ -23,6 +23,25 @@ const nextConfig = {
         destination: '/tools/net-worth-calculator-india',
         statusCode: 301,
       },
+      // Slugs removed in 71d098d ("Replace old Financial Updates with EPFO
+      // story"). Google still has these indexed and keeps re-crawling them,
+      // which shows up as a coverage issue in Search Console.
+      ...[
+        'rbi-repo-rate-explainer',
+        'income-tax-regime-comparison',
+        'gst-council-explainer',
+        'sebi-mutual-fund-explainer',
+        'banking-fd-rate-tracker',
+        'personal-finance-epf-explainer',
+        'government-salary-da-link',
+        'hra-exemption-explainer',
+        'nps-tier1-explainer',
+        'tds-26as-explainer',
+      ].map((slug) => ({
+        source: `/financial-updates/${slug}`,
+        destination: '/financial-updates',
+        statusCode: 301,
+      })),
     ];
   },
   // Disable build trace collection — avoids a Next.js 14.2.x ENOENT bug on Windows
