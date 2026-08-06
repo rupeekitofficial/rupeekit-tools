@@ -88,7 +88,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     ],
   };
 
-  const faqSchema = post.faqs?.length ? {
+  const faqSchema = post.faqs && post.faqs.length > 0 ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: post.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })),
