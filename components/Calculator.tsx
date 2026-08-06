@@ -54,18 +54,26 @@ import SipPlannerCalculator from '@/components/sip/SipPlannerCalculator';
 import CalculatorPresets, { type CalculatorPreset } from '@/components/calculators/CalculatorPresets';
 import type { PersonalLoanEmiReportPdfData } from '@/components/personal-loan/PersonalLoanEmiReportPdfDocument';
 import type { EmergencyFundPlanPdfData } from '@/components/emergency-fund/EmergencyFundPlanPdfDocument';
+import CalculatorAnalyticsBoundary from '@/components/CalculatorAnalyticsBoundary';
 
 export default function Calculator({ tool }: { tool: Tool }) {
+  let calculator;
+
   if (isAdvancedCalculator(tool.slug)) {
-    return <AdvancedCalculatorRenderer tool={tool} />;
+    calculator = <AdvancedCalculatorRenderer tool={tool} />;
+  } else if (tool.slug === 'personal-loan-emi-calculator-india') {
+    calculator = <PersonalLoanDecisionSimulator tool={tool} />;
+  } else if (tool.slug === 'sip-calculator-india') {
+    calculator = <SipPlannerCalculator tool={tool} />;
+  } else {
+    calculator = <StandardCalculator tool={tool} />;
   }
-  if (tool.slug === 'personal-loan-emi-calculator-india') {
-    return <PersonalLoanDecisionSimulator tool={tool} />;
-  }
-  if (tool.slug === 'sip-calculator-india') {
-    return <SipPlannerCalculator tool={tool} />;
-  }
-  return <StandardCalculator tool={tool} />;
+
+  return (
+    <CalculatorAnalyticsBoundary toolSlug={tool.slug} toolCategory={tool.category}>
+      {calculator}
+    </CalculatorAnalyticsBoundary>
+  );
 }
 
 function StandardCalculator({ tool }: { tool: Tool }) {

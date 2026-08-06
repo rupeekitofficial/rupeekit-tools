@@ -3,6 +3,7 @@ import growthTools from '../data/growth-tools.json';
 import decisionTools from '../data/decision-tools-2026.json';
 import insuranceTools from '../data/insurance-tools-2026.json';
 import investingTools from '../data/investing-tools-2026.json';
+import { CONSOLIDATED_TOOL_SLUGS } from './consolidated-routes';
 
 export type ToolInput = {
   key: string;
@@ -92,11 +93,17 @@ export type Tool = {
 export const allTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools] as Tool[];
 
 export function getLiveTools(): Tool[] {
-  return allTools.filter((tool) => tool.status === 'live');
+  return allTools.filter(
+    (tool) => tool.status === 'live' && !CONSOLIDATED_TOOL_SLUGS.has(tool.slug)
+  );
 }
 
 export function getToolBySlug(slug: string): Tool | undefined {
-  return allTools.find((tool) => tool.slug === slug && tool.status === 'live');
+  return allTools.find(
+    (tool) => tool.slug === slug
+      && tool.status === 'live'
+      && !CONSOLIDATED_TOOL_SLUGS.has(tool.slug)
+  );
 }
 
 export function getRelatedTools(tool: Tool): Tool[] {

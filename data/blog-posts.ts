@@ -590,9 +590,9 @@ export const blogPosts: BlogPost[] = [
     visualTitle: 'Family Expense Framework',
     visualSubtitle: 'Structuring budget for household needs and goals',
     visualAlt: 'Diagram of a house with shared expense buckets: rent, groceries, school fees, medical bills, and sinking funds.',
-    seoTitle: 'Monthly Expense Planning for Families India 2026: Guide',
+    seoTitle: 'Monthly Expense Planning | Family Budget & Savings',
     title: 'Monthly Expense Planning for Indian Families: A Practical Guide',
-    metaDescription: 'Monthly expense planning for Indian families: budget for rent, child education, groceries, medical bills, and seasonal costs with a sinking fund system. Read now.',
+    metaDescription: 'Build a practical monthly family expense plan covering essentials, EMIs, goals, irregular costs and savings, with a repeatable budgeting framework.',
     category: 'Budgeting',
     date: 'May 2026',
     readTime: '6 min read',
@@ -1932,9 +1932,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'mutual-funds-for-beginners-india',
-    seoTitle: 'Mutual Funds for Beginners India 2026: Start With Rs 500',
+    seoTitle: 'Mutual Funds for Beginners India | Start With Rs 500',
     title: 'Mutual Funds for Beginners India 2026: How to Start Investing',
-    metaDescription: 'Complete beginner guide to mutual funds in India 2026. Learn what mutual funds are, types, SIP vs lumpsum, NAV, expense ratio, and how to start investing. Read now.',
+    metaDescription: 'Learn how mutual funds work in India, how to start a SIP from Rs 500, compare fund types and costs, and build a beginner-friendly investment process.',
     category: 'Investing',
     date: 'July 2026',
     readTime: '9 min read',
@@ -2546,9 +2546,9 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'income-tax-on-12-lakh-salary-new-regime-india-2026',
-    seoTitle: 'Income Tax on 12 Lakh Salary 2026: Rs 0 Under New Regime',
+    seoTitle: 'Tax on Rs 12 Lakh Salary | Rebate, Cliff & Net Tax',
     title: 'Income Tax on Rs 12 Lakh Salary: Zero Tax Under New Regime FY 2026-27',
-    metaDescription: 'Is income tax really zero on Rs 12 lakh salary in FY 2026-27? Complete calculation under the new tax regime with Section 87A rebate, the Rs 12.1L cliff, and FAQs. Read now.',
+    metaDescription: 'See the new-regime tax calculation for Rs 12 lakh taxable income, the Section 87A rebate, standard deduction and what changes above the rebate limit.',
     category: 'Tax',
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
@@ -2652,9 +2652,9 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'how-to-calculate-in-hand-salary-from-ctc-india',
-    seoTitle: 'CTC to In-Hand Salary India 2026: Exact Take-Home Steps',
+    seoTitle: 'CTC to In-Hand Salary India | PF, Tax & Take-Home',
     title: 'How to Calculate In-Hand Salary from CTC in India 2026',
-    metaDescription: 'Learn exactly how to calculate your take-home (in-hand) salary from CTC in India. Step-by-step with worked examples at Rs 10L, Rs 15L, Rs 20L, and Rs 30L CTC. Read now.',
+    metaDescription: 'Understand how annual CTC becomes monthly take-home pay after employer components, employee PF, tax and deductions, with a practical salary example.',
     category: 'Salary & Tax',
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
@@ -2844,9 +2844,9 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'epf-partial-withdrawal-rules-india',
-    seoTitle: 'EPF Partial Withdrawal Rules 2026: Limits by Purpose',
+    seoTitle: 'EPF Partial Withdrawal Rules | Limits, Reasons & Forms',
     title: 'EPF Partial Withdrawal Rules India 2026: Housing, Medical, Education & More',
-    metaDescription: 'Complete guide to EPF partial withdrawal rules in India for housing loan, medical emergency, education, and marriage. Eligibility, amounts, and online application steps. Read now.',
+    metaDescription: 'Check EPF partial-withdrawal reasons, service conditions, eligible limits and supporting documents before submitting an advance claim online.',
     category: 'Savings',
     date: 'July 2026',
     publishedDateISO: '2026-07-13',

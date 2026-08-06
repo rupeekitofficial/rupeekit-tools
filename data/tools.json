@@ -4478,6 +4478,12 @@
         "format": "currency"
       },
       {
+        "key": "liquidAssets",
+        "label": "Liquid financial assets",
+        "formula": "cashSavings + fdRdBalance + mutualFunds",
+        "format": "currency"
+      },
+      {
         "key": "totalLiabilities",
         "label": "Total liabilities",
         "formula": "homeLoanBalance + personalLoan + creditCardDebt + otherLiabilities",
@@ -4490,9 +4496,15 @@
         "format": "currency"
       },
       {
+        "key": "liquidNetWorth",
+        "label": "Liquid net worth",
+        "formula": "liquidAssets - personalLoan - creditCardDebt - otherLiabilities",
+        "format": "currency"
+      },
+      {
         "key": "debtToAssetRatio",
         "label": "Debt-to-asset ratio",
-        "formula": "totalLiabilities / totalAssets * 100",
+        "formula": "totalLiabilities / max(totalAssets, 1) * 100",
         "format": "percent"
       }
     ],
@@ -4532,7 +4544,7 @@
     "howToUse": [
       "Enter the current value of each asset category — be honest with market values, not purchase prices.",
       "Enter all outstanding loan balances — home loan, personal loan, car loan, credit card dues.",
-      "Read your total assets, total liabilities, net worth and debt-to-asset ratio.",
+      "Read your total assets, liquid assets, total liabilities, net worth, liquid net worth and debt-to-asset ratio.",
       "Track this every 6–12 months to monitor your financial progress."
     ],
     "assumptions": [
