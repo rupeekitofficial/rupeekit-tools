@@ -488,5 +488,47 @@
     "alt": "Indian educator demonstrating investment doubling time with a growing sequence of green wooden cubes",
     "width": 1600,
     "height": 900
+  },
+  {
+    "path": "/tools/ops-vs-nps-pension-comparison-calculator-india",
+    "src": "/images/discover/ops-vs-nps-pension-comparison-calculator-india.webp",
+    "alt": "Illustration of a forked road leading to a government pension building on one side and a rising NPS corpus chart on the other",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/scss-calculator-india",
+    "src": "/images/discover/scss-calculator-india.webp",
+    "alt": "Illustration of a four-quarter wheel diagram showing Senior Citizen Savings Scheme interest paid out every quarter",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/post-office-monthly-income-scheme-calculator-india",
+    "src": "/images/discover/post-office-monthly-income-scheme-calculator-india.webp",
+    "alt": "Illustration of a red Indian post office letterbox with a steady stream of coins representing monthly income scheme payouts",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/child-education-cost-planner-india",
+    "src": "/images/discover/child-education-cost-planner-india.webp",
+    "alt": "Illustration of a graduation cap above a rising staircase of coin stacks representing growing education savings",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/wedding-cost-planner-india",
+    "src": "/images/discover/wedding-cost-planner-india.webp",
+    "alt": "Illustration of interlocking wedding rings above a savings jar filling with coins for future wedding budget planning",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/rent-agreement-stamp-duty-registration-cost-calculator-india",
+    "src": "/images/discover/rent-agreement-stamp-duty-registration-cost-calculator-india.webp",
+    "alt": "Illustration of a rental agreement document with an official rupee stamp seal representing stamp duty and registration cost",
+    "width": 1600,
+    "height": 900
   }
 ]
