@@ -8,6 +8,7 @@ const toolFiles = [
   'decision-tools-2026.json',
   'insurance-tools-2026.json',
   'investing-tools-2026.json',
+  'lifestage-tools-2026.json',
 ];
 const tools = toolFiles.flatMap((fileName) => {
   const file = path.join(process.cwd(), 'data', fileName);

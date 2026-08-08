@@ -8,7 +8,8 @@ const baseTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tools.json
 const growthTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'growth-tools.json'), 'utf8'));
 const insuranceTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'insurance-tools-2026.json'), 'utf8'));
 const investingTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'investing-tools-2026.json'), 'utf8'));
-const tools = [...baseTools, ...growthTools, ...insuranceTools, ...investingTools];
+const lifestageTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'lifestage-tools-2026.json'), 'utf8'));
+const tools = [...baseTools, ...growthTools, ...insuranceTools, ...investingTools, ...lifestageTools];
 const errors = [];
 
 const imageSitemapSource = fs.readFileSync(
@@ -24,8 +25,8 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 70) {
-  errors.push(`Expected 70 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 76) {
+  errors.push(`Expected 76 Discover images, found ${manifest.length}.`);
 }
 
 const paths = new Set();
