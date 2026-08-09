@@ -53,6 +53,10 @@ export const extraBlogPosts: BlogPost[] = [
         label: 'PRS Legislative Research — FCRA Amendment Bill, 2026',
         href: 'https://prsindia.org/billtrack/the-foreign-contribution-regulation-amendment-bill-2026',
       },
+      {
+        label: 'PIB — FCRA Factsheet (Registration Statistics)',
+        href: 'https://www.pib.gov.in/FactsheetDetails.aspx?Id=150789&reg=48&lang=2',
+      },
     ],
     sections: [
       {
@@ -92,6 +96,13 @@ export const extraBlogPosts: BlogPost[] = [
           title: 'Prior permission',
           details: 'A new water-conservation trust wants Rs 25 lakh from one named UK foundation for a specific project in two districts. It may apply for prior permission for that donor and project instead of treating the permission as open approval for every future foreign donation.',
         },
+      },
+      {
+        title: 'How many organisations currently hold FCRA registration?',
+        paragraphs: [
+          'Official figures give a sense of scale. As of 15 July 2026, Ministry of Home Affairs data cited in the PIB factsheet and in the PRS Legislative Research brief on the 2026 Bill put active FCRA certificates at approximately 14,449, with roughly 22,498 certificates cancelled and about 15,212 lapsed or expired without renewal over the years.',
+          'These numbers change as certificates are renewed, cancelled or allowed to lapse, so treat any specific count as a snapshot rather than a permanent figure. The high cancellation and lapse totals relative to active registrations are also a reminder of how strictly the renewal and utilisation conditions described below are enforced in practice.',
+        ],
       },
       {
         title: 'Core rules that organisations must already follow',
@@ -235,6 +246,7 @@ export const extraBlogPosts: BlogPost[] = [
         paragraphs: [
           'The government’s position is that more precise approvals, donor tracing and digital integration improve transparency, protect national interest and make the system easier for honest organisations while strengthening enforcement against misuse.',
           'Civil-society organisations and legal commentators may worry that purpose- and geography-specific approvals, detailed monitoring and consequences connected with registration can create a heavy burden, especially for small organisations or groups working on sensitive issues.',
+          'The Bill has also drawn international commentary, including criticism from a US lawmaker over its potential impact on religious minority communities. India’s Ministry of External Affairs responded that foreign-funding regulation is an internal, sovereign legislative matter for Parliament to decide, and noted that other countries, including the United States, also regulate the inflow of foreign funds. This diplomatic exchange does not change the compliance position for Indian organisations.',
           'The correct practical approach is to separate political debate from legal status. Organisations must comply with the Rules that are already in force, monitor the pending Bill, and document any genuine implementation difficulty through professional representations and lawful remedies.',
         ],
       },
@@ -299,6 +311,14 @@ export const extraBlogPosts: BlogPost[] = [
       {
         question: 'Where should an organisation verify the latest FCRA requirements?',
         answer: 'Use the official Ministry of Home Affairs FCRA portal, Gazette notifications and official PIB material. For a specific organisation or transaction, obtain advice from an FCRA-experienced lawyer or chartered accountant.',
+      },
+      {
+        question: 'How many FCRA registrations are currently active in India?',
+        answer: 'Ministry of Home Affairs data cited in the PIB factsheet and PRS Legislative Research materials put active FCRA certificates at approximately 14,449 as of 15 July 2026, alongside roughly 22,498 cancelled and 15,212 lapsed certificates. These figures change over time, so verify the current count on the official FCRA portal.',
+      },
+      {
+        question: 'Has the FCRA Amendment Bill, 2026 drawn international reaction?',
+        answer: 'Yes. The Bill has drawn commentary from some international lawmakers. India’s Ministry of External Affairs has responded that foreign-funding regulation is a sovereign, internal legislative matter for Parliament to decide, and noted that other countries, including the United States, also regulate foreign contributions. This diplomatic discussion does not change the compliance obligations described in this guide.',
       },
     ],
   },
