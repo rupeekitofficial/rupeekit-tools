@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node -e \"const a=require('./data/discover-images.json'); const b=require('./data/discover-images-fcra.json'); if(a.length!==85||b.length!==1) process.exit(1)\" && next build",
+    "build": "npm run validate:discover-images && next build",
     "postbuild": "npm run validate:discover-rendered",
     "start": "next start",
     "lint": "next lint",
