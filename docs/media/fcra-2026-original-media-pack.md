@@ -65,14 +65,15 @@ Only the following source classes were used for the visual facts:
 
 `public/media/fcra-2026/fcra-2-0-india-2026-explainer.mp4`
 
-- 1080 x 1920 vertical
-- 20 seconds
+- 360 x 640 lightweight vertical web preview
+- 12 seconds
 - Four original RupeeKit frames
 - H.264 video + AAC audio
 - No third-party footage
 - No third-party audio recording
 - Background music was procedurally synthesized for this media pack, so no external music licence is required
 - Video does not autoplay on the article; the reader controls playback
+- A 1080 x 1920 high-resolution review master was also generated for manual social review; the repository keeps the lightweight preview to avoid unnecessarily increasing page/media transfer size
 
 ## On-page wiring
 
