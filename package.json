@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run validate:discover-images && next build",
     "postbuild": "npm run validate:discover-rendered",
     "start": "next start",
     "lint": "next lint",

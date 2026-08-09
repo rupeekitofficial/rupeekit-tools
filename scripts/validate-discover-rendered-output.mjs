@@ -9,9 +9,10 @@ const renderedImageSitemap = fs.existsSync(imageSitemapPath)
   : '';
 const siteUrl = renderedImageSitemap.match(/<loc>(https?:\/\/[^/]+)\//)?.[1]
   ?? 'https://www.rupeekit.co.in';
-const manifest = JSON.parse(
-  fs.readFileSync(path.join(root, 'data', 'discover-images.json'), 'utf8'),
-);
+const manifest = [
+  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images.json'), 'utf8')),
+  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images-fcra.json'), 'utf8')),
+];
 const errors = [];
 
 for (const image of manifest) {

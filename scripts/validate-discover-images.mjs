@@ -2,8 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const manifestPath = path.join(root, 'data', 'discover-images.json');
-const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const manifest = [
+  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images.json'), 'utf8')),
+  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images-fcra.json'), 'utf8')),
+];
 const baseTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tools.json'), 'utf8'));
 const growthTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'growth-tools.json'), 'utf8'));
 const decisionTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'decision-tools-2026.json'), 'utf8'));
@@ -34,8 +36,8 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 85) {
-  errors.push(`Expected 85 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 86) {
+  errors.push(`Expected 86 Discover images, found ${manifest.length}.`);
 }
 
 const paths = new Set();
