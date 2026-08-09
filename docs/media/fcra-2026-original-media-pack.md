@@ -4,7 +4,7 @@ Issue: #95
 
 ## Safety and originality rule
 
-This media pack was created from a blank canvas using RupeeKit's brand colours and fact-checked source material. No NDTV image, video, screenshot, infographic, caption, layout, chart design or footage was used as an input or reference. No Sansad TV footage, screenshot or broadcast artwork was used either. No claim of endorsement or affiliation with any broadcaster is made.
+This media pack was created from a blank canvas using RupeeKit's brand colours and fact-checked source material. The only pre-existing artwork placed into these assets is RupeeKit's own wordmark, `public/brand/rupeekit_logo_horizontal_transparent.png`, the same logo the site header uses. No NDTV image, video, screenshot, infographic, caption, layout, chart design or footage was used as an input or reference. No Sansad TV footage, screenshot or broadcast artwork was used either. No claim of endorsement or affiliation with any broadcaster is made.
 
 The production chain for these assets is:
 
