@@ -11,6 +11,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 HERO = ROOT / 'public/images/discover/fcra-2-0-india-2026-explained.webp'
+LOGO = ROOT / 'public/brand/rupeekit_logo_horizontal_transparent.png'
 MEDIA = ROOT / 'public/media/fcra-2026'
 TMP = ROOT / '.tmp-fcra-media'
 FRAMES = TMP / 'frames'
@@ -42,6 +43,8 @@ def require_tools() -> None:
         raise RuntimeError('Pillow WebP encoder unavailable')
     if not FONT_REG.exists() or not FONT_BOLD.exists():
         raise RuntimeError('DejaVu Sans fonts unavailable')
+    if not LOGO.exists():
+        raise RuntimeError(f'RupeeKit logo unavailable at {LOGO}')
     for tool in ('ffmpeg', 'ffprobe'):
         if not shutil.which(tool):
             raise RuntimeError(f'{tool} unavailable')
@@ -78,9 +81,23 @@ def draw_wrapped(d, x, y, text, f, fill, max_width, spacing=8):
     return y
 
 
-def brand_tag(d, x, y, dark=False):
-    rr(d, (x, y, x + 192, y + 46), 23, WHITE if dark else DEEP)
-    d.text((x + 96, y + 22), 'RUPEEKIT', font=font(24, True), fill=DEEP if dark else WHITE, anchor='mm')
+def brand_tag(im, x, y, dark=False, height=46):
+    """Place the real RupeeKit wordmark at (x, y). Returns the box it occupied.
+
+    The wordmark is navy and green, so it disappears against the navy panels;
+    on those it is seated on a white plate instead of being recoloured.
+    """
+    logo = Image.open(LOGO).convert('RGBA')
+    w = round(height * logo.width / logo.height)
+    logo = logo.resize((w, height), Image.LANCZOS)
+    if dark:
+        pad_x, pad_y = round(height * 0.39), round(height * 0.26)
+        box = (x, y, x + w + 2 * pad_x, y + height + 2 * pad_y)
+        rr(ImageDraw.Draw(im), box, (box[3] - box[1]) // 2, WHITE)
+        im.paste(logo, (x + pad_x, y + pad_y), logo)
+        return box
+    im.paste(logo, (x, y), logo)
+    return (x, y, x + w, y + height)
 
 
 def status_pill(d, x, y, label, value, green=True):
@@ -103,8 +120,8 @@ def draw_hero() -> None:
     d.ellipse((-60, -20, 300, 340), fill='#073787')
     d.ellipse((1190, -160, 1670, 320), fill='#0B3E91')
     d.ellipse((470, 470, 1170, 1170), fill='#F0F4FA')
-    brand_tag(d, 72, 54, True)
-    d.text((72, 126), 'ORIGINAL FCRA 2026 EXPLAINER', font=font(22, True), fill='#CFE0FF')
+    brand_tag(im, 72, 44, True, 44)
+    d.text((72, 138), 'ORIGINAL FCRA 2026 EXPLAINER', font=font(22, True), fill='#CFE0FF')
     d.text((800, 322), 'FCRA 2026', font=font(68, True), fill=DEEP, anchor='mm')
     d.text((800, 382), 'What is in force — and what is still pending?', font=font(31, True), fill=TEXT, anchor='mm')
     status_pill(d, 430, 430, 'Rules dated 22 Jun 2026', 'IN FORCE', True)
@@ -117,16 +134,25 @@ def draw_hero() -> None:
         d.text((x, y + 34), dt, font=font(18, True), fill=color, anchor='ma')
         d.text((x, y + 64), label, font=font(19, True), fill=TEXT, anchor='ma')
         d.text((x, y + 91), state, font=font(16, True), fill=MUTED, anchor='ma')
-    bx, by = 1080, 604
-    rr(d, (bx, by, 1520, 824), 28, WHITE, BORDER, 2)
-    d.text((bx + 28, by + 26), 'FCRA CERTIFICATE SNAPSHOT', font=font(18, True), fill=DEEP)
     rows = [('~14.4K', 'Active', GREEN), ('~22.5K', 'Cancelled', RED), ('~15.2K', 'Expired', AMBER)]
-    yy = by + 78
+    row_font, cap_font = font(27, True), font(14, True)
+    row_h = d.textbbox((0, 0), 'Ag', font=row_font)[3] + 8
+    cap_h = d.textbbox((0, 0), 'Ag', font=cap_font)[3]
+    # Size the card around its contents so neither the last row nor the dated
+    # caption can cross the border when a font metric changes.
+    bx, by = 1080, 596
+    head_h, gap, pad = 46, 14, 22
+    card_bottom = by + pad + head_h + len(rows) * row_h + gap + cap_h + pad
+    rr(d, (bx, by, 1520, card_bottom), 28, WHITE, BORDER, 2)
+    d.text((bx + 28, by + pad), 'FCRA CERTIFICATE SNAPSHOT', font=font(18, True), fill=DEEP)
+    yy = by + pad + head_h
     for value, label, color in rows:
-        d.text((bx + 28, yy), value, font=font(27, True), fill=color)
+        d.text((bx + 28, yy), value, font=row_font, fill=color)
         d.text((bx + 150, yy + 3), label, font=font(20, True), fill=TEXT)
-        yy += 45
-    d.text((bx + 28, 799), 'Checked 9 Aug 2026 • verify live portal', font=font(14, True), fill=MUTED)
+        yy += row_h
+    d.text((bx + 28, yy + gap), 'Checked 9 Aug 2026 • verify live portal', font=cap_font, fill=MUTED)
+    if card_bottom > 838:
+        raise RuntimeError(f'Hero snapshot card overruns the hero footer: {card_bottom} > 838')
     d.text((80, 858), 'Official-source facts • original RupeeKit artwork • no broadcaster/news assets', font=font(17, True), fill=MUTED)
     save_webp(im, HERO)
 
@@ -136,7 +162,7 @@ def draw_timeline() -> None:
     im = Image.new('RGB', (W, H), SOFT)
     d = ImageDraw.Draw(im)
     d.rectangle((0, 0, W, 210), fill=DEEP)
-    brand_tag(d, 64, 52, True)
+    brand_tag(im, 64, 38, True, 40)
     d.text((64, 126), 'FCRA 2026 TIMELINE', font=font(42, True), fill=WHITE)
     d.text((64, 178), 'Three milestones. Two different legal statuses.', font=font(24, True), fill='#D7E4FF')
     cards = [('25 MAR 2026', 'AMENDMENT BILL INTRODUCED', 'Introduced in Lok Sabha. Digital Sansad lists the Bill as pending.', 'PENDING', AMBER, AMBER_SOFT), ('22 JUN 2026', 'AMENDMENT RULES DATED', 'Foreign Contribution (Regulation) (Amendment) Rules, 2026.', 'IN FORCE', GREEN, GREEN_SOFT), ('30 JUN 2026', 'FCRA 2.0 PORTAL LAUNCHED', 'PIB records the launch of the redesigned FCRA 2.0 portal.', 'LAUNCHED', NAVY, BLUE_SOFT)]
@@ -163,7 +189,7 @@ def draw_snapshot() -> None:
     W, H = 1080, 1350
     im = Image.new('RGB', (W, H), SOFT)
     d = ImageDraw.Draw(im)
-    brand_tag(d, 64, 52)
+    brand_tag(im, 64, 52, False, 44)
     d.text((64, 134), 'FCRA certificate snapshot', font=font(48, True), fill=DEEP)
     d.text((64, 198), 'Rounded live-portal totals, checked 9 August 2026', font=font(24, True), fill=MUTED)
     entries = [('~14.4K', 'ACTIVE', GREEN, GREEN_SOFT, 'Currently active associations'), ('~22.5K', 'CANCELLED', RED, RED_SOFT, 'Certificates shown as cancelled'), ('~15.2K', 'EXPIRED', AMBER, AMBER_SOFT, 'Associations shown as deemed expired')]
@@ -188,7 +214,7 @@ def draw_rules_bill() -> None:
     W, H = 1080, 1350
     im = Image.new('RGB', (W, H), SOFT)
     d = ImageDraw.Draw(im)
-    brand_tag(d, 64, 52)
+    brand_tag(im, 64, 52, False, 44)
     d.text((64, 132), 'Rules vs Bill: do not mix them up', font=font(45, True), fill=DEEP)
     d.text((64, 194), 'A simple status check for FCRA 2026', font=font(24, True), fill=MUTED)
     y, h, gap = 292, 820, 28
@@ -202,31 +228,34 @@ def draw_rules_bill() -> None:
     d.text(((left[0] + left[2]) // 2, y + 68), 'RULES — IN FORCE', font=font(25, True), fill=GREEN, anchor='mm')
     d.text(((right[0] + right[2]) // 2, y + 68), 'BILL — PENDING', font=font(25, True), fill=AMBER, anchor='mm')
     lx, ly = left[0] + 36, y + 160
-    d.text((lx, ly), '22 JUN 2026', font=font(21, True), fill=GREEN)
-    ly += 48
-    draw_wrapped(d, lx, ly, 'Foreign Contribution (Regulation) (Amendment) Rules, 2026', font(27, True), TEXT, cw - 72, 10)
-    ly += 145
-    d.line((lx, ly, lx + cw - 72, ly), fill=BORDER, width=2)
-    ly += 35
-    d.text((lx, ly), '30 JUN 2026', font=font(21, True), fill=NAVY)
-    ly += 48
-    draw_wrapped(d, lx, ly, 'FCRA 2.0 portal launched', font(27, True), TEXT, cw - 72, 10)
-    ly += 98
-    d.text((lx, ly), 'What this means:', font=font(20, True), fill=MUTED)
-    ly += 42
-    draw_wrapped(d, lx, ly, 'These are current operational facts and should be treated separately from proposals in the Bill.', font(23), TEXT, cw - 72, 10)
     rx, ry = right[0] + 36, y + 160
+    d.text((lx, ly), '22 JUN 2026', font=font(21, True), fill=GREEN)
     d.text((rx, ry), '25 MAR 2026', font=font(21, True), fill=AMBER)
+    ly += 48
     ry += 48
-    draw_wrapped(d, rx, ry, 'Foreign Contribution (Regulation) Amendment Bill, 2026 introduced in Lok Sabha', font(27, True), TEXT, cw - 72, 10)
-    ry += 210
-    d.line((rx, ry, rx + cw - 72, ry), fill=BORDER, width=2)
-    ry += 35
+    # Advance by the height draw_wrapped actually consumed rather than a fixed
+    # offset, so an extra wrapped line can never run into the rule below it,
+    # and share one baseline so both columns stay aligned.
+    ly = draw_wrapped(d, lx, ly, 'Foreign Contribution (Regulation) (Amendment) Rules, 2026', font(27, True), TEXT, cw - 72, 10)
+    ry = draw_wrapped(d, rx, ry, 'Foreign Contribution (Regulation) Amendment Bill, 2026 introduced in Lok Sabha', font(27, True), TEXT, cw - 72, 10)
+    divider = max(ly, ry) + 20
+    d.line((lx, divider, lx + cw - 72, divider), fill=BORDER, width=2)
+    d.line((rx, divider, rx + cw - 72, divider), fill=BORDER, width=2)
+    ly = ry = divider + 35
+    d.text((lx, ly), '30 JUN 2026', font=font(21, True), fill=NAVY)
     d.text((rx, ry), 'STATUS', font=font(20, True), fill=MUTED)
+    ly += 48
     ry += 44
+    ly = draw_wrapped(d, lx, ly, 'FCRA 2.0 portal launched', font(27, True), TEXT, cw - 72, 10)
     d.text((rx, ry), 'PENDING', font=font(37, True), fill=AMBER)
     ry += 68
-    draw_wrapped(d, rx, ry, 'A proposal in a pending Bill should not be presented as an enacted rule.', font(23), TEXT, cw - 72, 10)
+    ly += 56
+    d.text((lx, ly), 'What this means:', font=font(20, True), fill=MUTED)
+    ly += 42
+    ly = draw_wrapped(d, lx, ly, 'These are current operational facts and should be treated separately from proposals in the Bill.', font(23), TEXT, cw - 72, 10)
+    ry = draw_wrapped(d, rx, ry, 'A proposal in a pending Bill should not be presented as an enacted rule.', font(23), TEXT, cw - 72, 10)
+    if max(ly, ry) > y + h - 24:
+        raise RuntimeError(f'Rules-vs-Bill column text overflows its card: {max(ly, ry)} > {y + h - 24}')
     rr(d, (64, 1150, 1016, 1268), 26, BLUE_SOFT, '#D9E4F6', 2)
     d.text((96, 1184), 'EDITORIAL RULE', font=font(18, True), fill=DEEP)
     d.text((96, 1222), 'Say what is law now. Label proposals as pending until status changes.', font=font(23, True), fill=TEXT)
@@ -239,12 +268,12 @@ def video_frame(i: int) -> Path:
     im = Image.new('RGB', (W, H), SOFT)
     d = ImageDraw.Draw(im)
     d.rectangle((0, 0, W, 118), fill=DEEP)
-    rr(d, (20, 24, 138, 58), 16, WHITE)
-    d.text((79, 41), 'RUPEEKIT', font=font(15, True), fill=DEEP, anchor='mm')
+    brand_tag(im, 20, 18, True, 22)
     d.text((20, 82), 'FCRA 2026', font=font(28, True), fill=WHITE)
     if i == 0:
         d.text((24, 168), 'What is in force?', font=font(31, True), fill=DEEP)
-        d.text((24, 208), 'What is still pending?', font=font(28, True), fill=TEXT)
+        # 28pt runs the question mark past the 360px frame edge.
+        d.text((24, 208), 'What is still pending?', font=font(26, True), fill=TEXT)
         rr(d, (24, 280, 336, 365), 24, GREEN_SOFT, GREEN, 2)
         d.text((44, 309), 'RULES', font=font(18, True), fill=GREEN)
         d.text((316, 323), 'IN FORCE', font=font(25, True), fill=GREEN, anchor='rm')
