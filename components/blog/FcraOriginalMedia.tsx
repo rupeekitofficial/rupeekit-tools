@@ -38,13 +38,13 @@ export default function FcraOriginalMedia() {
               playsInline
               preload="metadata"
               poster="/images/discover/fcra-2-0-india-2026-explained.webp"
-              aria-label="Twenty-second RupeeKit explainer about the FCRA 2026 timeline, certificate snapshot and pending Bill status"
+              aria-label="Twelve-second RupeeKit explainer about the FCRA 2026 timeline, certificate snapshot and pending Bill status"
             >
               <source src="/media/fcra-2026/fcra-2-0-india-2026-explainer.mp4" type="video/mp4" />
               Your browser does not support the video element.
             </video>
             <figcaption className="bg-white px-4 py-3 text-xs leading-relaxed text-brandMuted">
-              20-second vertical explainer with an original synthesized background track. No third-party audio recording is used.
+              12-second lightweight vertical web preview with an original synthesized background track. No third-party audio recording is used.
             </figcaption>
           </figure>
 
