@@ -53,11 +53,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A \
-            public/images/discover/fcra-2-0-india-2026-explained.webp \
-            public/media/fcra-2026 \
-            tmp \
-            .tmp-fcra-media
+          git add -A public/images/discover/fcra-2-0-india-2026-explained.webp public/media/fcra-2026
+          git add -A tmp 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'No generated media changes to commit.'
           else
