@@ -104,9 +104,8 @@ describe('calculateIndianIncomeTax - FY 2025-26 (AY 2026-27)', () => {
     isSalaried: true,
   };
 
-  it('is exposed as an available tax year and is the latest year', () => {
+  it('is exposed as an available tax year', () => {
     expect(availableTaxYears).toContain('2025-26');
-    expect(availableTaxYears[0]).toBe('2025-26');
     expect(indiaIncomeTaxRules['2025-26'].ay).toBe('2026-27');
   });
 
@@ -226,8 +225,13 @@ describe('calculateIndianIncomeTax - FY 2025-26 (AY 2026-27)', () => {
 // to the engine, so the two cannot drift apart again. The article previously claimed
 // an all-or-nothing cliff (Rs 63,960 of tax on Rs 12.1 lakh) while the engine had
 // always applied marginal relief correctly.
-describe('Section 87A marginal relief - published article figures (FY 2025-26 rules)', () => {
-  const taxYear = '2025-26';
+//
+// The article is written for FY 2026-27. Budget 2026 left the slabs and the rebate
+// unchanged, so both supported years must produce the same published figures — and
+// running against both is what proves the article's year is genuinely covered.
+describe.each(['2025-26', '2026-27'])(
+  'Section 87A marginal relief - published article figures (FY %s)',
+  (taxYear) => {
   const STANDARD_DEDUCTION = 75000;
   const REBATE_LIMIT = 1200000;
 
@@ -307,5 +311,46 @@ describe('Section 87A marginal relief - published article figures (FY 2025-26 ru
       expect(finalTax).toBeGreaterThanOrEqual(previousTax);
       previousTax = finalTax;
     }
+  });
+  }
+);
+
+describe('FY 2026-27 (AY 2027-28) rules', () => {
+  it('is registered and is the latest supported year', () => {
+    expect(availableTaxYears).toContain('2026-27');
+    expect(availableTaxYears[0]).toBe('2026-27');
+    expect(indiaIncomeTaxRules['2026-27'].ay).toBe('2027-28');
+  });
+
+  it('carries the Finance Act 2025 new-regime structure forward unchanged', () => {
+    // Budget 2026 announced no slab, rebate or standard-deduction change. If a future
+    // Budget does change them, this assertion should fail and be updated deliberately.
+    const y2526 = indiaIncomeTaxRules['2025-26'].newRegime;
+    const y2627 = indiaIncomeTaxRules['2026-27'].newRegime;
+    expect(y2627.slabs).toEqual(y2526.slabs);
+    expect(y2627.rebateLimit).toBe(1200000);
+    expect(y2627.maxRebate).toBe(60000);
+    expect(y2627.standardDeduction).toBe(75000);
+    expect(y2627.marginalReliefOnRebate).toBe(true);
+    expect(indiaIncomeTaxRules['2026-27'].cessRate).toBe(0.04);
+  });
+
+  it('gives zero tax at Rs 12.75 lakh gross salary, matching the article headline', () => {
+    const result = calculateIndianIncomeTax(
+      {
+        grossSalary: 1275000,
+        hraExemption: 0,
+        homeLoanInterest: 0,
+        section80C: 0,
+        section80D: 0,
+        employerNPS: 0,
+        otherDeductionsOldRegime: 0,
+        otherDeductionsBothRegimes: 0,
+        isSalaried: true,
+      },
+      '2026-27'
+    );
+    expect(result.newRegime.taxableIncome).toBe(1200000);
+    expect(result.newRegime.finalTax).toBe(0);
   });
 });

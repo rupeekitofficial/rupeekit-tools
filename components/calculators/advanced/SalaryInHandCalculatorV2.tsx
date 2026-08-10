@@ -2,7 +2,15 @@
 
 import React, { useState, useMemo } from 'react';
 import type { Tool } from '@/lib/tools';
-import { estimateIncomeTax } from '@/lib/tax/india-income-tax';
+import { estimateIncomeTax, type FinancialYear } from '@/lib/tax/india-income-tax';
+
+// Assessment year and the Budget whose slabs apply, per financial year. Keep in
+// step with FinancialYear in lib/tax/india-income-tax.ts.
+const FY_META: Record<FinancialYear, { ay: string; budget: string }> = {
+  '2026-27': { ay: '2027-28', budget: 'Budget 2025 slabs, unchanged by Budget 2026' },
+  '2025-26': { ay: '2026-27', budget: 'Budget 2025 slabs' },
+  '2024-25': { ay: '2025-26', budget: 'Budget 2024 slabs' },
+};
 
 const formatCurrency = (val: number) => {
   if (!Number.isFinite(val)) return '₹0';
@@ -24,7 +32,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
   const [otherDeductions, setOtherDeductions] = useState<number | ''>(0);
   
   const [regime, setRegime] = useState<'new' | 'old'>('new');
-  const [financialYear, setFinancialYear] = useState<'2024-25' | '2025-26'>('2025-26');
+  const [financialYear, setFinancialYear] = useState<FinancialYear>('2026-27');
   const [ageGroup, setAgeGroup] = useState<'below60' | 'senior' | 'superSenior'>('below60');
 
   // Old regime inputs
@@ -98,10 +106,10 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
       {/* Disclaimer Top Alert */}
       <div className="rounded-2xl border border-brandNavy/10 bg-brandNavy/5 p-4 text-sm leading-6 text-brandNavy">
         <p className="font-bold flex items-center gap-1.5 text-brandDeepNavy">
-          <span>💼</span> Assessment Year {financialYear === '2025-26' ? '2026-27' : '2025-26'} Estimate
+          <span>💼</span> Assessment Year {FY_META[financialYear].ay} Estimate
         </p>
         <p className="mt-1 text-slate-600">
-          This salary in-hand calculator uses revised tax brackets including the latest Union Budget changes for New Regime ({financialYear === '2025-26' ? 'Budget 2025 slabs' : 'Budget 2024 slabs'}). All calculations are estimates.
+          This salary in-hand calculator uses revised tax brackets including the latest Union Budget changes for New Regime ({FY_META[financialYear].budget}). All calculations are estimates.
         </p>
       </div>
 
@@ -249,10 +257,11 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
                 <span className="text-sm font-semibold text-slate-700">Financial Year</span>
                 <select
                   value={financialYear}
-                  onChange={(e) => setFinancialYear(e.target.value as any)}
+                  onChange={(e) => setFinancialYear(e.target.value as FinancialYear)}
                   className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base font-semibold outline-none transition focus:border-brandNavy focus:bg-white"
                 >
-                  <option value="2025-26">FY 2025-26 (AY 2026-27 - Latest)</option>
+                  <option value="2026-27">FY 2026-27 (AY 2027-28 - Latest)</option>
+                  <option value="2025-26">FY 2025-26 (AY 2026-27)</option>
                   <option value="2024-25">FY 2024-25 (AY 2025-26)</option>
                 </select>
               </label>
@@ -632,7 +641,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
           <div>
             <h5 className="font-bold text-slate-900">Is standard deduction applicable automatically?</h5>
             <p className="mt-1">
-              Yes, standard deduction is a flat tax deduction available to all salaried taxpayers and pensioners. For FY 2024-25 and FY 2025-26, it is ₹75,000 for the New Regime, and ₹50,000 for the Old Regime. This has been factored into your calculations automatically based on your regime selection.
+              Yes, standard deduction is a flat tax deduction available to all salaried taxpayers and pensioners. For FY 2024-25 through FY 2026-27, it is ₹75,000 for the New Regime, and ₹50,000 for the Old Regime. This has been factored into your calculations automatically based on your regime selection.
             </p>
           </div>
           <div>
