@@ -3902,11 +3902,11 @@
         "key": "annuityPercent",
         "label": "Annuity purchase %",
         "unit": "%",
-        "default": 40,
-        "min": 40,
+        "default": 20,
+        "min": 20,
         "max": 100,
         "step": 5,
-        "help": "At maturity, at least 40% of the corpus must be used to buy an annuity (monthly pension). The rest (up to 60%) can be withdrawn lump-sum tax-free."
+        "help": "For a normal exit under the current All Citizen Model, at least 20% of a corpus above Rs 12 lakh must buy an annuity. PFRDA withdrawal permission and income-tax exemption are separate: Section 10(12A) currently exempts lump-sum withdrawal up to 60% of the corpus."
       },
       {
         "key": "annuityRate",
@@ -3934,7 +3934,7 @@
       },
       {
         "key": "lumpSumWithdrawal",
-        "label": "Lump-sum withdrawal (60% max)",
+        "label": "Estimated lump-sum withdrawal",
         "formula": "totalCorpus * (1 - annuityPercent/100)",
         "format": "currency"
       },
@@ -3951,36 +3951,36 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "NPS corpus = future value of monthly contribution compounded at the expected annual return until age 60. At maturity, at least 40% buys an annuity; monthly pension = annuity corpus × annuity rate / 12. The remaining 60% (or less) can be withdrawn tax-free.",
-    "example": "Age 30, Rs 5,000/month, 10% return, 40% annuity at 6%: corpus at 60 = Rs 1,13,02,000. Lump-sum = Rs 67,81,000. Annuity corpus = Rs 45,21,000. Monthly pension = Rs 22,605.",
+    "formulaExplanation": "NPS corpus = future value of monthly contribution compounded at the expected annual return until age 60. Under current PFRDA normal-exit rules for the All Citizen Model, a corpus above Rs 12 lakh can use at least 20% for annuity and up to 80% for lump-sum or periodic payout. Monthly pension = annuity corpus × annuity rate / 12. Income-tax treatment is separate: Section 10(12A) currently exempts lump-sum withdrawal up to 60% of the corpus, so verify the treatment of any amount above 60% before choosing an exit split.",
+    "example": "Age 30, Rs 5,000/month, 10% return, 20% annuity at 6%: corpus at 60 = about Rs 1,13,02,000. Indicative lump-sum = Rs 90,42,000. Annuity corpus = Rs 22,60,000. Estimated monthly pension = Rs 11,302. The tax treatment of lump-sum withdrawal above 60% must be verified separately.",
     "quickAnswer": {
       "title": "NPS Quick Answer",
       "question": "How much NPS corpus will I have at 60?",
-      "answer": "NPS corpus = future value of monthly contributions at your chosen return rate until age 60. At 60, you must buy an annuity with at least 40% of the corpus (for monthly pension), and can withdraw up to 60% tax-free. Starting Rs 5,000/month at age 30 with 10% returns builds roughly Rs 1.13 crore by 60, giving about Rs 22,600/month pension on 40% annuity at 6%.",
+      "answer": "NPS corpus is the future value of monthly contributions at your chosen return rate until age 60. Under current All Citizen Model normal-exit rules, a corpus above Rs 12 lakh can use at least 20% for annuity and up to 80% for lump-sum or periodic payout. Starting Rs 5,000/month at age 30 with 10% returns builds roughly Rs 1.13 crore by 60, giving about Rs 11,300/month pension on a 20% annuity at 6%. Income-tax exemption currently covers lump-sum withdrawal up to 60%, so withdrawal permission and tax exemption should not be treated as the same limit.",
       "formula": "Corpus = Monthly contribution × ((1+r)^n − 1) / r, where r = monthly rate, n = months to age 60",
-      "example": "Rs 5,000/month at age 30 at 10% CAGR → Rs 1.13 cr corpus at 60 → Rs 22,600/month pension.",
-      "note": "NPS 2.0: PFRDA increased tax-free lump-sum withdrawal to 80% for corpus below Rs 5 lakh. Check current rules."
+      "example": "Rs 5,000/month at age 30 at 10% CAGR → about Rs 1.13 cr corpus at 60 → about Rs 11,300/month pension with 20% annuity at 6%.",
+      "note": "Current PFRDA normal-exit thresholds vary by corpus and subscriber model. Section 10(12A) currently exempts lump-sum withdrawal up to 60%; verify any amount above that separately."
     },
     "faqs": [
       {
         "question": "What is the minimum NPS contribution per year?",
-        "answer": "For Tier 1 (mandatory) NPS account, the minimum annual contribution is Rs 1,000. No maximum limit applies for individual contributions, but 80CCD(1) deduction is capped at 10% of salary (Rs 1.5L under 80C limit) and additional 80CCD(1B) gives up to Rs 50,000 more."
+        "answer": "For a Tier 1 NPS account, the minimum annual contribution is Rs 1,000. There is no maximum contribution limit, but tax deductions depend on the chosen tax regime. Employee self-contribution deductions under Sections 80CCD(1) and 80CCD(1B) generally apply under the old regime; the new regime retains the eligible employer-contribution deduction under Section 80CCD(2)."
       },
       {
         "question": "Is NPS withdrawal taxable at maturity?",
-        "answer": "The lump-sum withdrawal (up to 60% of corpus) at maturity (age 60) is completely tax-free. The annuity income (monthly pension) is taxable as income at your applicable slab rate in the year of receipt."
+        "answer": "Section 10(12A) currently exempts lump-sum withdrawal up to 60% of the corpus at normal exit. Current PFRDA rules may permit a higher lump-sum or periodic payout for some non-government subscribers, but that permission does not automatically make the amount above 60% tax-exempt. Annuity income is taxable at the applicable slab rate when received."
       },
       {
         "question": "What are the tax benefits of NPS?",
-        "answer": "Employee's own NPS contribution: deductible under 80CCD(1) up to 10% of salary (capped within Rs 1.5L 80C limit). Additional self-contribution: Rs 50,000 under 80CCD(1B) over and above 80C. Employer NPS contribution: deductible under 80CCD(2) — 10% of salary for private sector (14% for govt employees), NO cap."
+        "answer": "Under the old regime, an employee's own NPS contribution may qualify under Section 80CCD(1), within the combined Section 80C limit, plus up to Rs 50,000 under Section 80CCD(1B). Under the new regime, those self-contribution deductions are generally unavailable, while an eligible employer contribution remains deductible under Section 80CCD(2), subject to the statutory percentage of salary. Verify the regime, employer contribution and current limits before filing."
       },
       {
         "question": "Can I withdraw NPS before 60?",
         "answer": "Partial withdrawal (up to 25% of your own contributions) is allowed after 3 years for specific purposes (education, marriage, medical, home). Premature exit before 60 (after 5 years) requires 80% annuity purchase; only 20% can be withdrawn. On death, the entire corpus is paid to the nominee tax-free."
       },
       {
-        "question": "What is NPS 2.0?",
-        "answer": "Under NPS 2.0 amendments (effective FY 2025-26 onwards), if the NPS corpus at maturity is Rs 5 lakh or less, the subscriber can withdraw the entire corpus tax-free without buying an annuity. Above Rs 5 lakh, the 40% annuity rule continues."
+        "question": "What are the current NPS normal-exit rules?",
+        "answer": "For the current All Citizen Model, normal exit is generally available after age 60 or 15 years of subscription. A corpus up to Rs 8 lakh can generally be taken fully through permitted payout options; for more than Rs 8 lakh and up to Rs 12 lakh, special lump-sum and periodic-payout options apply; above Rs 12 lakh, at least 20% must generally buy an annuity. Check the latest PFRDA/NPS Trust rules for your subscriber model before exiting."
       },
       {
         "question": "Which NPS scheme is better — Tier 1 or Tier 2?",
@@ -3997,7 +3997,7 @@
       "Enter your current age — corpus is estimated until age 60.",
       "Enter your monthly NPS Tier 1 contribution (include employer contribution if adding both).",
       "Set the expected annual return based on your NPS fund allocation (10% for aggressive, 7–8% for conservative).",
-      "Set annuity purchase % — minimum 40% is mandatory; higher % means more monthly pension.",
+      "Set annuity purchase % — under current All Citizen Model normal-exit rules, use at least 20% when corpus is above Rs 12 lakh; other subscriber models and corpus thresholds can differ.",
       "Set the annuity rate offered by insurers (typically 5.5–7%) to estimate monthly pension."
     ],
     "assumptions": [
@@ -4005,29 +4005,31 @@
       "Constant return rate — NPS equity allocation returns are market-linked and volatile.",
       "Annuity rate is an estimate; actual rates depend on the insurer and annuity type chosen at maturity.",
       "Employer NPS contributions (80CCD(2)) are not separately tracked — add them to monthly contribution if including both.",
+      "The calculator models the All Citizen Model normal-exit split for a corpus above Rs 12 lakh; government-sector and lower-corpus exit rules can differ.",
+      "PFRDA permits up to 80% lump-sum or periodic payout in the modeled normal-exit scenario, while the Income Tax Department currently states a 60% lump-sum exemption under Section 10(12A).",
       "Educational estimate only. Verify current NPS rules and annuity rates on the NPS Trust website."
     ],
     "commonMistakes": [
       "Using the equity CAGR (10–12%) for a conservative NPS allocation with high government bond exposure.",
       "Forgetting that monthly pension (annuity income) is taxable at your slab rate.",
-      "Not using the extra Rs 50,000 80CCD(1B) deduction available over and above 80C.",
-      "Ignoring employer's 80CCD(2) NPS contribution — it is deductible without any cap for the employer."
+      "Assuming the extra Rs 50,000 Section 80CCD(1B) self-contribution deduction is available under the new regime; it generally belongs to the old-regime deduction set.",
+      "Treating employer NPS contribution as unlimited; Section 80CCD(2) uses a statutory percentage of salary and depends on the tax regime."
     ],
     "contentSections": [
       {
         "heading": "How NPS works",
-        "body": "The National Pension System (NPS) is a voluntary, long-term retirement savings scheme regulated by PFRDA. Contributions go into Tier 1 (retirement-locked) and optionally Tier 2 (liquid). Tier 1 funds are invested across equity (E), government securities (G) and corporate bonds (C) in the allocation you choose. At age 60, you withdraw up to 60% tax-free and must buy an annuity with at least 40% for a monthly pension.",
+        "body": "The National Pension System (NPS) is a voluntary, long-term retirement savings scheme regulated by PFRDA. Contributions go into Tier 1 and optionally Tier 2. Under current All Citizen Model normal-exit rules, a corpus above Rs 12 lakh can allocate up to 80% to lump-sum or periodic payout and at least 20% to annuity. The Income Tax Department currently describes lump-sum exemption up to 60%, so the permitted exit split and the tax-exempt split are not identical.",
         "bullets": [
-          "Tax benefits: 80CCD(1) up to Rs 1.5L + extra Rs 50,000 under 80CCD(1B).",
-          "Employer NPS (80CCD(2)): deductible without any cap on salary percentage.",
-          "Maturity: 60% lump-sum tax-free + 40% annuity (monthly pension, taxable)."
+          "Old regime: eligible self-contributions can use Section 80CCD(1) within the combined limit plus up to Rs 50,000 under Section 80CCD(1B).",
+          "New regime: eligible employer NPS contributions can be deducted under Section 80CCD(2), subject to the statutory percentage of salary.",
+          "Normal exit above Rs 12L corpus: up to 80% payout + at least 20% annuity; current lump-sum tax exemption is stated separately at up to 60%."
         ]
       },
       {
         "heading": "NPS vs EPF vs PPF",
-        "body": "EPF is automatic for organised-sector employees (12% employee + 3.67% employer to EPF). PPF is a 15-year government-backed investment with full EEE tax status. NPS is more flexible in investment choice (equity to bonds) and has the extra Rs 50,000 deduction under 80CCD(1B), but requires an annuity purchase at maturity. Many salaried investors use EPF + PPF as the safe core and NPS as an additional retirement vehicle.",
+        "body": "EPF is automatic for organised-sector employees (12% employee + 3.67% employer to EPF). PPF is a 15-year government-backed investment with full EEE tax status. NPS is more flexible in investment choice (equity to bonds) and may provide an extra Rs 50,000 Section 80CCD(1B) deduction under the old regime; the new regime instead retains the eligible employer-contribution deduction under Section 80CCD(2). NPS also requires an annuity purchase at maturity under the applicable exit rules.",
         "bullets": [
-          "NPS: market-linked, flexible allocation, extra tax deduction, annuity required.",
+          "NPS: market-linked, flexible allocation, regime-dependent tax benefits, annuity required.",
           "EPF: auto-deducted, employer-matched, ~8.25% declared rate.",
           "PPF: voluntary, risk-free, full EEE, 15-year lock-in."
         ]
@@ -4037,7 +4039,26 @@
         "body": "Corpus is computed as the future value of a constant monthly contribution compounded monthly at the entered annual rate until age 60. Lump-sum and annuity splits are applied on the total corpus. Monthly pension = annuity corpus × annuity rate / 12. All figures are pre-tax estimates."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10",
+    "officialSources": [
+      {
+        "label": "Income Tax Department — Section 115BAC new-regime deductions",
+        "href": "https://www.incometaxindia.gov.in/w/computation-of-tax-for-individual-1"
+      },
+      {
+        "label": "Income Tax Department — Section 80CCD",
+        "href": "https://www.incometaxindia.gov.in/w/section-80ccd-21"
+      },
+      {
+        "label": "PFRDA — NPS All Citizen Model exit rules",
+        "href": "https://www.pfrda.org.in/en/schemes/national-pension-system/nps-for-all-citizen-models"
+      },
+      {
+        "label": "NPS Trust — tax benefits under NPS",
+        "href": "https://npstrust.org.in/index.php/benefits-of-nps"
+      }
+    ]
   },
   {
     "slug": "step-up-sip-calculator-india",
