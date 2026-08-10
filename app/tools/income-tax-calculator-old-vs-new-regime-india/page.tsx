@@ -10,14 +10,17 @@ import { calculateIndianIncomeTax, type TaxInput } from '@/lib/tax/calculator';
 import { availableTaxYears, indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
-const TARGET_FY = '2025-26';
-const TARGET_AY = '2026-27';
 const PAGE_URL = `${SITE_URL}/tools/income-tax-calculator-old-vs-new-regime-india`;
 const DISCOVER_IMAGE = getDiscoverImage('/tools/income-tax-calculator-old-vs-new-regime-india');
 const DISCOVER_IMAGE_URL = DISCOVER_IMAGE ? `${SITE_URL}${DISCOVER_IMAGE.src}` : undefined;
 
 const latestSupportedFy = availableTaxYears[0];
 const latestSupportedRules = indiaIncomeTaxRules[latestSupportedFy];
+
+// Derived from the rules table so the copy cannot drift from the year actually
+// used for the calculations below.
+const TARGET_FY = latestSupportedFy;
+const TARGET_AY = latestSupportedRules.ay;
 
 const pageTitle = 'Old vs New Tax Regime Calculator | Compare Tax & Savings';
 const pageDescription =
@@ -171,7 +174,7 @@ const faqs = [
   },
   {
     question: 'Which financial years are currently supported here?',
-    answer: `This calculator supports ${availableTaxYears.map((year) => `FY ${year}`).join(', ')}. FY 2025-26 (AY 2026-27) is the default and uses the Finance Act, 2025 new-regime slabs, the Rs 75,000 standard deduction for salaried taxpayers, the Section 87A rebate up to Rs 60,000 with marginal relief, and 4% health and education cess.`,
+    answer: `This calculator supports ${availableTaxYears.map((year) => `FY ${year}`).join(', ')}. FY ${TARGET_FY} (AY ${TARGET_AY}) is the default. Budget 2026 left the new-regime slabs unchanged, so it applies the Finance Act, 2025 slabs, the Rs 75,000 standard deduction for salaried taxpayers, the Section 87A rebate up to Rs 60,000 with marginal relief, and 4% health and education cess.`,
   },
   {
     question: 'Does this calculator handle capital gains or other special-rate income?',
