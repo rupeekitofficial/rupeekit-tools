@@ -2546,29 +2546,30 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'income-tax-on-12-lakh-salary-new-regime-india-2026',
-    seoTitle: 'Tax on Rs 12 Lakh Salary | Rebate, Cliff & Net Tax',
+    seoTitle: 'Tax on Rs 12 Lakh Salary | Rebate & Marginal Relief',
     title: 'Income Tax on Rs 12 Lakh Salary: Zero Tax Under New Regime FY 2026-27',
     metaDescription: 'See the new-regime tax calculation for Rs 12 lakh taxable income, the Section 87A rebate, standard deduction and what changes above the rebate limit.',
     category: 'Tax',
-    date: 'July 2026',
+    date: 'August 2026',
     publishedDateISO: '2026-07-13',
+    modifiedDateISO: '2026-08-10',
     readTime: '6 min read',
     visualType: 'tax-regime-comparison',
     visualTitle: 'Zero Tax on Rs 12L: How the 87A Rebate Works',
     visualSubtitle: 'New regime slab breakdown and rebate for Rs 12 lakh income',
     visualAlt: 'Chart showing income tax computation on Rs 12 lakh salary under new regime with Section 87A rebate',
     h1: 'Income Tax on Rs 12 Lakh Salary Under the New Regime FY 2026-27: Full Calculation',
-    intro: 'Under the new tax regime for FY 2026-27 (AY 2027-28), income up to Rs 12 lakh is genuinely tax-free. This is not a reduction in tax rates — it is a full rebate under Section 87A of the Income Tax Act that wipes out the computed tax entirely. For salaried employees, the standard deduction of Rs 75,000 extends this zero-tax threshold to Rs 12.75 lakh of gross salary. This guide explains the exact calculation, the critical cliff at Rs 12.1 lakh, and what changes when income crosses Rs 12 lakh.',
+    intro: 'Under the new tax regime for FY 2026-27 (AY 2027-28), eligible normal slab-rate income up to Rs 12 lakh can become tax-free through the Section 87A rebate. For salaried employees, the Rs 75,000 standard deduction can extend this zero-tax point to Rs 12.75 lakh of gross salary. This guide explains the calculation and the marginal relief that prevents a disproportionate tax jump when taxable income moves slightly above Rs 12 lakh.',
     quickAnswer: {
       question: 'Is income tax zero on Rs 12 lakh salary under the new regime in FY 2026-27?',
       answer: 'Yes. Under the new tax regime in FY 2026-27, a taxable income of up to Rs 12 lakh is completely tax-free because of the Section 87A rebate (increased to Rs 60,000 in Union Budget 2025). The computed tax on Rs 12 lakh is Rs 60,000, which is fully wiped out by the rebate. Net tax payable = Rs 0.',
       formula: 'Tax on Rs 12L: 0–4L = 0 | 4–8L = 5% = Rs 20,000 | 8–12L = 10% = Rs 40,000 | Total = Rs 60,000. Less: Section 87A rebate = Rs 60,000. Tax payable = Rs 0.',
       note: 'Source: Section 87A of the Income Tax Act, as amended by Finance Act 2025. Verify at incometax.gov.in.',
     },
-    answerEngineSummary: 'Income of Rs 12 lakh or less is completely tax-free under the new regime in FY 2026-27 due to the Section 87A rebate of up to Rs 60,000. For salaried employees, zero tax applies up to Rs 12.75 lakh gross salary (after Rs 75,000 standard deduction). A single rupee above Rs 12 lakh makes the full computed tax payable — this is the tax cliff to watch.',
+    answerEngineSummary: 'Eligible normal slab-rate income of Rs 12 lakh or less can become tax-free under the new regime through the Section 87A rebate of up to Rs 60,000. For salaried employees, the Rs 75,000 standard deduction can make gross salary up to Rs 12.75 lakh tax-free when no special-rate income changes the result. If taxable income is slightly above Rs 12 lakh, marginal relief can cap income tax before cess at the excess over Rs 12 lakh.',
     officialSources: [
-      { label: 'Income Tax Department — Section 87A Rebate', href: 'https://incometax.gov.in' },
-      { label: 'Finance Act 2025 — Tax Slabs and Rebate Changes', href: 'https://eportal.incometax.gov.in' },
+      { label: 'Income Tax Department — computation for individuals and marginal relief', href: 'https://www.incometaxindia.gov.in/w/computation-of-tax-for-individual-1' },
+      { label: 'Income Tax Department — Section 115BAC deductions and new regime', href: 'https://www.incometaxindia.gov.in/hi/w/section-115bac-5' },
     ],
     sections: [
       {
@@ -2598,29 +2599,29 @@ export const blogPosts: BlogPost[] = [
         },
       },
       {
-        title: 'The Rs 12.1 lakh cliff: what happens when income crosses Rs 12 lakh',
+        title: 'Marginal relief when taxable income crosses Rs 12 lakh',
         paragraphs: [
-          'This is the most important aspect of the new regime rebate that most people misunderstand. The Section 87A rebate is an all-or-nothing mechanism — it is available only when taxable income is Rs 12 lakh or below. If your income is Rs 12,00,001 — even a single rupee more — the entire rebate of Rs 60,000 is withdrawn.',
-          'Taxable income Rs 12,10,000 (Rs 10,000 above the limit): Rs 4–8L = 5% = Rs 20,000; Rs 8–12L = 10% = Rs 40,000; Rs 12–12.1L = 15% = Rs 1,500. Total tax = Rs 61,500. No Section 87A rebate (income exceeds Rs 12L). Add 4% cess: Rs 61,500 × 1.04 = Rs 63,960. For earning Rs 10,000 more, you pay Rs 63,960 extra in tax.',
-          'This is the "cliff effect" and it is real. If your taxable income is likely to be Rs 12.1–12.5 lakh, you are in the worst possible zone — earning slightly more than Rs 12 lakh means your take-home may actually be lower than if you had earned exactly Rs 12 lakh.',
+          'The Section 87A rebate itself is available only when the eligibility conditions are met, including the Rs 12 lakh total-income limit. However, the new regime also provides marginal relief for a resident individual whose normal slab-rate income is slightly above that limit. The relief prevents the income tax payable before cess from exceeding the amount by which total income exceeds Rs 12 lakh.',
+          'At taxable income of Rs 12,10,000, normal slab tax is Rs 61,500: Rs 20,000 on the Rs 4–8 lakh slab, Rs 40,000 on the Rs 8–12 lakh slab and Rs 1,500 on the next Rs 10,000. Because the income exceeds Rs 12 lakh by only Rs 10,000, marginal relief reduces income tax before cess to Rs 10,000. Cess of 4% is Rs 400, giving an estimated final tax of Rs 10,400, subject to eligibility and any special-rate income.',
+          'Marginal relief tapers as income rises. Once the normal slab tax is no longer higher than the excess over Rs 12 lakh, regular slab tax applies. This is why crossing Rs 12 lakh does not automatically create the full Rs 60,000-plus tax jump described in the earlier version of this article.',
         ],
         example: {
-          title: 'Rs 12.1 lakh vs Rs 12 lakh — the Rs 63,960 tax cliff',
-          details: 'At Rs 12L taxable income: Tax = Rs 0. At Rs 12.1L taxable income: Tax = Rs 63,960. Extra earning: Rs 10,000. Extra tax: Rs 63,960. Net loss from earning more: Rs 53,960. Lesson: If your taxable income is Rs 12–12.6L, consider maximising NPS 80CCD(1B) or other new regime-allowed deductions to bring it back to Rs 12L.',
+          title: 'Rs 12.1 lakh taxable income — marginal relief calculation',
+          details: 'Normal slab tax: Rs 61,500 | Excess income over Rs 12L: Rs 10,000 | Marginal relief: Rs 51,500 | Tax after relief: Rs 10,000 | Cess at 4%: Rs 400 | Estimated final tax: Rs 10,400.',
         },
       },
       {
         title: 'New regime vs old regime at Rs 12 lakh salary',
         paragraphs: [
-          'At Rs 12 lakh taxable income, the new regime is unambiguously better — the tax is Rs 0 vs potentially Rs 52,500 in the old regime (before any deductions). Even with maximum old regime deductions of Rs 3.5 lakh (HRA Rs 1.5L + 80C Rs 1.5L + 80D Rs 50K), the old regime tax on Rs 8.5 lakh taxable income would be approximately Rs 85,500 → still much higher than zero.',
+          'At Rs 12 lakh taxable income from normal slab-rate sources, the new-regime tax can be Rs 0 after the rebate. Under the old regime, the result depends on salary deductions and exemptions; Rs 8.5 lakh of taxable income produces approximately Rs 85,800 including 4% cess. Compare using your actual eligible deductions rather than assuming either regime is always better.',
           'However, if your gross salary is above Rs 12.75 lakh (making taxable income above Rs 12 lakh under the new regime), the comparison changes and depends on your actual deductions. Use the RupeeKit Income Tax Calculator (Old vs New Regime) to compare your specific situation.',
         ],
       },
       {
-        title: 'How to keep income within Rs 12 lakh to avoid tax',
+        title: 'Which deductions are available in the new regime?',
         paragraphs: [
-          'Under the new tax regime, very few deductions are allowed — but Section 80CCD(1B) still works. You can contribute up to Rs 50,000 extra to NPS voluntarily and deduct it. Stack that with the Rs 75,000 standard deduction and a salaried employee earning Rs 13.25 lakh gross can reach exactly Rs 12 lakh taxable income: Rs 13.25L − Rs 75K (standard) − Rs 50K (NPS 80CCD(1B)) = Rs 12.00L — zero tax.',
-          'Employer contribution to NPS is fully exempt under Section 80CCD(2) without any Rs 50,000 cap. Many employers who offer structured salary now route a portion of CTC as employer NPS to help employees stay below the Rs 12 lakh threshold.',
+          'The new regime generally does not allow the employee\'s own NPS deductions under Sections 80CCD(1) or 80CCD(1B). The extra Rs 50,000 self-contribution deduction under Section 80CCD(1B) belongs to the old-regime deduction set, so it should not be subtracted in a new-regime Rs 12 lakh calculation.',
+          'An eligible employer contribution to NPS can be deducted under Section 80CCD(2). Under the new regime, the statutory percentage limit can be up to 14% of salary as defined for this provision. This is different from an employee making a voluntary NPS contribution, and the actual salary structure and employer contribution must be checked.',
           'Verify all deduction details at the official Income Tax Department website (incometax.gov.in) or use the e-Filing portal (eportal.incometax.gov.in) for AY 2027-28 ITR-related information.',
         ],
       },
@@ -2629,7 +2630,7 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       {
         question: 'Is Rs 12 lakh salary completely tax-free in FY 2026-27?',
-        answer: 'Yes, under the new tax regime. If your taxable income does not exceed Rs 12 lakh, the Section 87A rebate of Rs 60,000 fully offsets the computed tax. The condition is that income must not exceed Rs 12 lakh — even Rs 1 above removes the rebate entirely.',
+        answer: 'Eligible normal slab-rate income up to Rs 12 lakh can become tax-free under the new regime after the Section 87A rebate. Above Rs 12 lakh the full rebate is not available, but marginal relief can prevent a disproportionate tax jump when total income is only slightly higher. Special-rate income can change the result.',
       },
       {
         question: 'What is the Section 87A rebate for FY 2026-27?',
@@ -2637,7 +2638,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: 'What if I earn Rs 12,50,000 — how much tax do I pay under new regime?',
-        answer: 'At Rs 12.5 lakh taxable income, there is no Section 87A rebate. Tax: 4–8L = Rs 20,000; 8–12L = Rs 40,000; 12–12.5L (15%) = Rs 7,500. Total = Rs 67,500. Add 4% cess = Rs 70,200. So income of Rs 12.5L costs Rs 70,200 in tax while income of Rs 12L costs Rs 0.',
+        answer: 'At Rs 12.5 lakh taxable income from normal slab-rate sources, normal slab tax is Rs 67,500. The excess over Rs 12 lakh is Rs 50,000, so marginal relief can reduce income tax before cess to Rs 50,000. Add 4% cess of Rs 2,000 for an estimated final tax of Rs 52,000, subject to resident-individual eligibility and any special-rate income.',
       },
       {
         question: 'Is the Rs 12 lakh threshold applicable to old regime also?',
@@ -2697,7 +2698,7 @@ export const blogPosts: BlogPost[] = [
           'Step 1 — Identify non-cash CTC components: Employer PF (12% of Basic) + Gratuity (4.81% of Basic) + Insurance premium + any other benefits. Subtract these from CTC to get Gross Monthly Salary.',
           'Step 2 — Calculate Gross Monthly Salary: Gross Salary = (CTC − Employer PF − Gratuity) / 12.',
           'Step 3 — Compute Employee PF: 12% of Basic salary per month (or capped at Rs 1,800/month if Basic ≤ Rs 15,000).',
-          'Step 4 — Compute TDS (monthly): Estimate annual taxable income = Gross Salary × 12 − Standard Deduction (Rs 75,000 under new regime) − NPS 80CCD(1B) if any. Apply new regime slabs and divide annual TDS by 12 for monthly deduction.',
+          'Step 4 — Compute TDS (monthly): Estimate annual taxable income = Gross Salary × 12 − Standard Deduction (Rs 75,000 under new regime) − eligible employer NPS deduction under Section 80CCD(2), if included in the salary structure. Do not subtract the employee\'s Section 80CCD(1B) self-contribution under the new regime. Apply the new-regime rules and divide the annual tax estimate by 12.',
           'Step 5 — Professional Tax: Typically Rs 200/month in most states (varies — Karnataka, Maharashtra, AP, Telangana apply it; many states do not).',
           'Step 6 — In-Hand = Gross Monthly Salary − Employee PF − TDS − Professional Tax.',
         ],
