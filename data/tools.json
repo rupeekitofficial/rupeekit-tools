@@ -3902,11 +3902,11 @@
         "key": "annuityPercent",
         "label": "Annuity purchase %",
         "unit": "%",
-        "default": 20,
+        "default": 40,
         "min": 20,
         "max": 100,
         "step": 5,
-        "help": "For a normal exit under the current All Citizen Model, at least 20% of a corpus above Rs 12 lakh must buy an annuity. PFRDA withdrawal permission and income-tax exemption are separate: Section 10(12A) currently exempts lump-sum withdrawal up to 60% of the corpus."
+        "help": "PFRDA permits as little as 20% annuity on a normal exit with a corpus above Rs 12 lakh. This calculator defaults to 40% because that keeps the lump sum at 60% of the corpus — the amount Section 10(12A) currently exempts. Lowering it towards 20% raises the lump sum towards 80%, and the portion above 60% has no matching income-tax exemption today, so it may be taxable at your slab rate."
       },
       {
         "key": "annuityRate",
@@ -3934,7 +3934,7 @@
       },
       {
         "key": "lumpSumWithdrawal",
-        "label": "Estimated lump-sum withdrawal",
+        "label": "Estimated lump-sum withdrawal (before tax)",
         "formula": "totalCorpus * (1 - annuityPercent/100)",
         "format": "currency"
       },
@@ -3952,13 +3952,13 @@
       }
     ],
     "formulaExplanation": "NPS corpus = future value of monthly contribution compounded at the expected annual return until age 60. Under current PFRDA normal-exit rules for the All Citizen Model, a corpus above Rs 12 lakh can use at least 20% for annuity and up to 80% for lump-sum or periodic payout. Monthly pension = annuity corpus × annuity rate / 12. Income-tax treatment is separate: Section 10(12A) currently exempts lump-sum withdrawal up to 60% of the corpus, so verify the treatment of any amount above 60% before choosing an exit split.",
-    "example": "Age 30, Rs 5,000/month, 10% return, 20% annuity at 6%: corpus at 60 = about Rs 1,13,02,000. Indicative lump-sum = Rs 90,42,000. Annuity corpus = Rs 22,60,000. Estimated monthly pension = Rs 11,302. The tax treatment of lump-sum withdrawal above 60% must be verified separately.",
+    "example": "Age 30, Rs 5,000/month, 10% return, 40% annuity at 6% (the default): corpus at 60 = about Rs 1,13,02,000. Lump-sum = Rs 67,81,000, which sits inside the 60% currently exempt under Section 10(12A). Annuity corpus = Rs 45,21,000. Estimated monthly pension = Rs 22,605. Dropping the annuity to the permitted 20% minimum would raise the lump sum to about Rs 90,42,000 and cut the pension to about Rs 11,302, but the roughly Rs 22,60,000 above the 60% mark has no matching exemption today.",
     "quickAnswer": {
       "title": "NPS Quick Answer",
       "question": "How much NPS corpus will I have at 60?",
-      "answer": "NPS corpus is the future value of monthly contributions at your chosen return rate until age 60. Under current All Citizen Model normal-exit rules, a corpus above Rs 12 lakh can use at least 20% for annuity and up to 80% for lump-sum or periodic payout. Starting Rs 5,000/month at age 30 with 10% returns builds roughly Rs 1.13 crore by 60, giving about Rs 11,300/month pension on a 20% annuity at 6%. Income-tax exemption currently covers lump-sum withdrawal up to 60%, so withdrawal permission and tax exemption should not be treated as the same limit.",
+      "answer": "NPS corpus is the future value of monthly contributions at your chosen return rate until age 60. Under current All Citizen Model normal-exit rules, a corpus above Rs 12 lakh can use at least 20% for annuity and up to 80% for lump-sum or periodic payout. Starting Rs 5,000/month at age 30 with 10% returns builds roughly Rs 1.13 crore by 60, giving about Rs 22,600/month pension on this calculator's default 40% annuity at 6%. Income-tax exemption currently covers lump-sum withdrawal up to 60%, so withdrawal permission and tax exemption should not be treated as the same limit — the default keeps the lump sum inside the exempt 60%.",
       "formula": "Corpus = Monthly contribution × ((1+r)^n − 1) / r, where r = monthly rate, n = months to age 60",
-      "example": "Rs 5,000/month at age 30 at 10% CAGR → about Rs 1.13 cr corpus at 60 → about Rs 11,300/month pension with 20% annuity at 6%.",
+      "example": "Rs 5,000/month at age 30 at 10% CAGR → about Rs 1.13 cr corpus at 60 → about Rs 22,600/month pension with the default 40% annuity at 6%.",
       "note": "Current PFRDA normal-exit thresholds vary by corpus and subscriber model. Section 10(12A) currently exempts lump-sum withdrawal up to 60%; verify any amount above that separately."
     },
     "faqs": [
@@ -3997,7 +3997,7 @@
       "Enter your current age — corpus is estimated until age 60.",
       "Enter your monthly NPS Tier 1 contribution (include employer contribution if adding both).",
       "Set the expected annual return based on your NPS fund allocation (10% for aggressive, 7–8% for conservative).",
-      "Set annuity purchase % — under current All Citizen Model normal-exit rules, use at least 20% when corpus is above Rs 12 lakh; other subscriber models and corpus thresholds can differ.",
+      "Set annuity purchase % — the 40% default keeps your lump sum within the 60% currently exempt under Section 10(12A). Current All Citizen Model normal-exit rules allow going as low as 20% when corpus is above Rs 12 lakh, which increases the lump sum but leaves the portion above 60% without a matching exemption. Other subscriber models and corpus thresholds can differ.",
       "Set the annuity rate offered by insurers (typically 5.5–7%) to estimate monthly pension."
     ],
     "assumptions": [
@@ -4005,7 +4005,8 @@
       "Constant return rate — NPS equity allocation returns are market-linked and volatile.",
       "Annuity rate is an estimate; actual rates depend on the insurer and annuity type chosen at maturity.",
       "Employer NPS contributions (80CCD(2)) are not separately tracked — add them to monthly contribution if including both.",
-      "The calculator models the All Citizen Model normal-exit split for a corpus above Rs 12 lakh; government-sector and lower-corpus exit rules can differ.",
+      "The calculator models the All Citizen Model normal-exit split for a corpus above Rs 12 lakh; government-sector and lower-corpus exit rules can differ. A corpus of Rs 8 lakh or less can generally be taken as 100% lump sum, which this calculator's 20% minimum annuity does not model.",
+      "Lump-sum and pension figures are pre-tax. Annuity income is taxable at your slab rate, and any lump sum above 60% of the corpus has no current exemption under Section 10(12A).",
       "PFRDA permits up to 80% lump-sum or periodic payout in the modeled normal-exit scenario, while the Income Tax Department currently states a 60% lump-sum exemption under Section 10(12A).",
       "Educational estimate only. Verify current NPS rules and annuity rates on the NPS Trust website."
     ],
