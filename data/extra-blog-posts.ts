@@ -14,7 +14,7 @@ export const extraBlogPosts: BlogPost[] = [
     quickAnswer: {
       title: 'FCRA 2.0 in one minute',
       question: 'What is FCRA 2.0 in India?',
-      answer: 'FCRA 2.0 is the upgraded system for controlling and tracking foreign donations received in India. The 2026 Rules are already in force from 22 June 2026, and the new portal was launched on 30 June 2026. Registration is now tied to exact purposes and States or Union Territories, reporting is more detailed, and renewal generally requires at least Rs 10 lakh of foreign contribution to have been used in the previous two years. The 2026 Amendment Bill, including the proposed Designated Authority for foreign-funded assets, is still pending in Parliament as of 5 August 2026.',
+      answer: 'FCRA 2.0 is the upgraded system for controlling and tracking foreign donations received in India. The 2026 Rules are already in force from 22 June 2026, and the new portal was launched on 30 June 2026. Registration is now tied to exact purposes and States or Union Territories, reporting is more detailed, and renewal generally requires at least Rs 10 lakh of foreign contribution to have been used in the previous two years. The 2026 Amendment Bill, including the proposed Designated Authority for foreign-funded assets and a new compliance requirement covering crowdfunding and online donation platforms, is still pending in Parliament as of 9 August 2026, with government statements indicating it may be taken up for passage during the ongoing Monsoon Session.',
       note: 'The Rules and portal are operational. Proposals contained only in the pending Bill should not be treated as enacted law.',
       links: [
         { label: 'Official FCRA Portal', href: 'https://fcraonline.gov.in/' },
@@ -31,7 +31,7 @@ export const extraBlogPosts: BlogPost[] = [
     heroImageWidth: 1672,
     heroImageHeight: 941,
     publishedDateISO: '2026-08-05',
-    modifiedDateISO: '2026-08-05',
+    modifiedDateISO: '2026-08-09',
     officialSources: [
       {
         label: 'Ministry of Home Affairs — Official FCRA Portal',
@@ -53,6 +53,10 @@ export const extraBlogPosts: BlogPost[] = [
         label: 'PRS Legislative Research — FCRA Amendment Bill, 2026',
         href: 'https://prsindia.org/billtrack/the-foreign-contribution-regulation-amendment-bill-2026',
       },
+      {
+        label: 'PIB — FCRA Factsheet (Registration Statistics)',
+        href: 'https://www.pib.gov.in/FactsheetDetails.aspx?Id=150789&reg=48&lang=2',
+      },
     ],
     sections: [
       {
@@ -71,14 +75,14 @@ export const extraBlogPosts: BlogPost[] = [
         title: 'FCRA 2.0 is not one new law',
         paragraphs: [
           'The expression “FCRA 2.0” can be confusing because it covers several different things. The base law is still the Foreign Contribution (Regulation) Act, 2010, as amended over time. The Foreign Contribution (Regulation) Amendment Rules, 2026 were notified on 22 June 2026 and are already in force. The redesigned FCRA 2.0 portal was launched on 30 June 2026.',
-          'A separate Foreign Contribution (Regulation) Amendment Bill, 2026 was introduced in the Lok Sabha on 25 March 2026. As of 5 August 2026, it is pending in Parliament. Therefore, a proposal appearing only in that Bill is not the same as an operative rule.',
+          'A separate Foreign Contribution (Regulation) Amendment Bill, 2026 was introduced in the Lok Sabha on 25 March 2026. As of 9 August 2026, it remains pending in Parliament, though government statements around the Monsoon Session suggested it may be taken up for passage soon. Therefore, a proposal appearing only in that Bill is not the same as an operative rule.',
         ],
         bullets: [
           'FCRA Act, 2010: in force',
           'FCRA Amendment Act, 2020: in force',
           'FCRA Amendment Rules, 2026: in force from 22 June 2026',
           'FCRA 2.0 portal: launched on 30 June 2026',
-          'FCRA Amendment Bill, 2026: pending in Parliament as of 5 August 2026',
+          'FCRA Amendment Bill, 2026: pending in Parliament as of 9 August 2026 (reportedly listed for the Monsoon Session)',
         ],
       },
       {
@@ -92,6 +96,13 @@ export const extraBlogPosts: BlogPost[] = [
           title: 'Prior permission',
           details: 'A new water-conservation trust wants Rs 25 lakh from one named UK foundation for a specific project in two districts. It may apply for prior permission for that donor and project instead of treating the permission as open approval for every future foreign donation.',
         },
+      },
+      {
+        title: 'How many organisations currently hold FCRA registration?',
+        paragraphs: [
+          'Official figures give a sense of scale. As of 15 July 2026, Ministry of Home Affairs data cited in the PIB factsheet and in the PRS Legislative Research brief on the 2026 Bill put active FCRA certificates at approximately 14,449, with roughly 22,498 certificates cancelled and about 15,212 lapsed or expired without renewal over the years.',
+          'These numbers change as certificates are renewed, cancelled or allowed to lapse, so treat any specific count as a snapshot rather than a permanent figure. The high cancellation and lapse totals relative to active registrations are also a reminder of how strictly the renewal and utilisation conditions described below are enforced in practice.',
+        ],
       },
       {
         title: 'Core rules that organisations must already follow',
@@ -183,6 +194,7 @@ export const extraBlogPosts: BlogPost[] = [
           'The proposal begins with provisional vesting. If the organisation restores or renews its registration within the prescribed period, the assets and unused funds are to be returned. If registration is not restored in time, the Bill provides for permanent vesting and use or disposal for public purposes, with sale proceeds going to the Consolidated Fund of India.',
           'For a place of worship, the proposed Authority must preserve its religious character. The Bill also provides a revision route within 90 days and an appeal to the District Judge against specified orders of the Authority.',
           'The Bill further proposes automatic cessation where renewal is not completed before expiry, reduction of the general maximum imprisonment from five years to one year, and Central Government approval before a State agency begins an FCRA investigation. These points remain proposals until Parliament passes the Bill and it receives assent.',
+          'A widely discussed proposal in the Bill is bringing crowdfunding platforms and online donation intermediaries within the FCRA compliance framework. If enacted, foreign contribution routed through a crowdfunding tool, payment aggregator or fundraising platform would need to be traced back to the ultimate foreign donor in the same way as a direct bank transfer, rather than being treated as outside FCRA merely because a platform sits between the donor and the recipient.',
         ],
         example: {
           title: 'Asset created partly from foreign money',
@@ -207,6 +219,7 @@ export const extraBlogPosts: BlogPost[] = [
           'Make website and social-media descriptions consistent with declared activities',
           'Maintain an asset register showing whether each asset used foreign, domestic or mixed funding',
           'Check whether the Rs 10 lakh two-year utilisation condition may affect renewal',
+          'Track any crowdfunding or online-donation-platform receipts back to the ultimate foreign donor',
           'File Form FC-4 and all change intimations within the official deadlines',
         ],
       },
@@ -233,6 +246,7 @@ export const extraBlogPosts: BlogPost[] = [
         paragraphs: [
           'The government’s position is that more precise approvals, donor tracing and digital integration improve transparency, protect national interest and make the system easier for honest organisations while strengthening enforcement against misuse.',
           'Civil-society organisations and legal commentators may worry that purpose- and geography-specific approvals, detailed monitoring and consequences connected with registration can create a heavy burden, especially for small organisations or groups working on sensitive issues.',
+          'The Bill has also drawn international commentary, including criticism from a US lawmaker over its potential impact on religious minority communities. India’s Ministry of External Affairs responded that foreign-funding regulation is an internal, sovereign legislative matter for Parliament to decide, and noted that other countries, including the United States, also regulate the inflow of foreign funds. This diplomatic exchange does not change the compliance position for Indian organisations.',
           'The correct practical approach is to separate political debate from legal status. Organisations must comply with the Rules that are already in force, monitor the pending Bill, and document any genuine implementation difficulty through professional representations and lawful remedies.',
         ],
       },
@@ -260,7 +274,11 @@ export const extraBlogPosts: BlogPost[] = [
       },
       {
         question: 'Is the FCRA Amendment Bill, 2026 already law?',
-        answer: 'No. As of 5 August 2026, it remains pending in Parliament. Proposals in the Bill should be kept separate from the 2026 Rules that are already in force.',
+        answer: 'No. As of 9 August 2026, it remains pending in Parliament, though government statements around the Monsoon Session suggested it may be taken up for passage soon. Proposals in the Bill should be kept separate from the 2026 Rules that are already in force, and the current status should be verified before relying on any proposed provision.',
+      },
+      {
+        question: 'Does the FCRA Amendment Bill, 2026 cover crowdfunding or online donation platforms?',
+        answer: 'The pending Bill proposes bringing crowdfunding platforms and online donation intermediaries within the FCRA compliance framework, so foreign contribution routed through such a platform could need to be traced to the ultimate foreign donor. This is a proposal, not yet an operative rule, so organisations using such platforms should track donor details carefully and watch for the Bill becoming law.',
       },
       {
         question: 'What is the minimum foreign-contribution utilisation required for renewal?',
@@ -293,6 +311,14 @@ export const extraBlogPosts: BlogPost[] = [
       {
         question: 'Where should an organisation verify the latest FCRA requirements?',
         answer: 'Use the official Ministry of Home Affairs FCRA portal, Gazette notifications and official PIB material. For a specific organisation or transaction, obtain advice from an FCRA-experienced lawyer or chartered accountant.',
+      },
+      {
+        question: 'How many FCRA registrations are currently active in India?',
+        answer: 'Ministry of Home Affairs data cited in the PIB factsheet and PRS Legislative Research materials put active FCRA certificates at approximately 14,449 as of 15 July 2026, alongside roughly 22,498 cancelled and 15,212 lapsed certificates. These figures change over time, so verify the current count on the official FCRA portal.',
+      },
+      {
+        question: 'Has the FCRA Amendment Bill, 2026 drawn international reaction?',
+        answer: 'Yes. The Bill has drawn commentary from some international lawmakers. India’s Ministry of External Affairs has responded that foreign-funding regulation is a sovereign, internal legislative matter for Parliament to decide, and noted that other countries, including the United States, also regulate foreign contributions. This diplomatic discussion does not change the compliance obligations described in this guide.',
       },
     ],
   },
