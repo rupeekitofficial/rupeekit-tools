@@ -105,6 +105,14 @@
       {
         "question": "Should I use offer-letter values?",
         "answer": "Yes. Use actual basic salary, PF, tax and deduction values from your offer letter or payslip for a better estimate."
+      },
+      {
+        "question": "CTC और इन-हैंड सैलरी में क्या अंतर है?",
+        "answer": "CTC यानी Cost to Company वह कुल राशि है जो कंपनी आप पर सालाना खर्च करती है। इसमें नियोक्ता का PF अंशदान, ग्रेच्युटी और बीमा जैसी वे मदें भी शामिल होती हैं जो आपके हाथ में नहीं आतीं। इन-हैंड सैलरी वह रकम है जो कटौतियों के बाद हर महीने आपके खाते में आती है। CTC में से नियोक्ता PF और ग्रेच्युटी घटाने पर ग्रॉस सैलरी मिलती है, और उसमें से कर्मचारी PF, TDS और प्रोफेशनल टैक्स घटाने पर इन-हैंड सैलरी निकलती है।"
+      },
+      {
+        "question": "इन-हैंड सैलरी कैसे निकालें?",
+        "answer": "सबसे पहले CTC में से नियोक्ता का PF और ग्रेच्युटी घटाकर ग्रॉस सैलरी निकालें। फिर उसमें से कर्मचारी PF (आमतौर पर बेसिक का 12%), अनुमानित मासिक TDS और प्रोफेशनल टैक्स (कई राज्यों में लगभग ₹200 प्रति माह) घटाएँ। बची हुई राशि आपकी अनुमानित मासिक इन-हैंड सैलरी है। ऊपर दिया कैलकुलेटर यही गणना करता है — यह एक अनुमान है, आपकी वास्तविक सैलरी स्लिप कंपनी के वेतन ढाँचे पर निर्भर करेगी।"
       }
     ],
     "related": [
@@ -182,6 +190,14 @@
       {
         "question": "Why does interest change with tenure?",
         "answer": "Longer tenure reduces monthly EMI but usually increases total interest paid over the loan period."
+      },
+      {
+        "question": "EMI कैसे कैलकुलेट की जाती है?",
+        "answer": "EMI का सूत्र है: EMI = P × r × (1+r)^n / ((1+r)^n − 1), जहाँ P मूलधन है, r मासिक ब्याज दर (वार्षिक दर ÷ 12 ÷ 100) और n महीनों में अवधि। शुरुआती EMI में ब्याज का हिस्सा ज़्यादा और मूलधन का कम होता है; समय के साथ यह अनुपात बदलता जाता है। ऊपर दिया कैलकुलेटर यही सूत्र इस्तेमाल करता है।"
+      },
+      {
+        "question": "ब्याज दर या अवधि बदलने से EMI पर क्या असर पड़ता है?",
+        "answer": "ब्याज दर बढ़ने पर EMI बढ़ती है और कुल चुकाया गया ब्याज भी बढ़ता है। अवधि लंबी करने पर मासिक EMI घट जाती है, लेकिन कुल ब्याज काफ़ी बढ़ जाता है — यानी हर महीने राहत, पर कुल लागत ज़्यादा। इसलिए केवल EMI नहीं, कुल ब्याज भी ज़रूर देखें। दोनों आँकड़े ऊपर के कैलकुलेटर में दिखते हैं।"
       }
     ],
     "related": [
@@ -1048,6 +1064,14 @@
       {
         "question": "How is SIP future value calculated?",
         "answer": "The estimate uses monthly SIP contribution, annual return assumption converted to monthly rate, and duration. It follows a monthly compounding-style projection model."
+      },
+      {
+        "question": "SIP क्या है और यह कैसे काम करती है?",
+        "answer": "SIP यानी Systematic Investment Plan, म्यूचुअल फंड में नियमित रूप से (आमतौर पर हर महीने) एक तय राशि निवेश करने का तरीक़ा है। हर किस्त पर उस दिन के NAV के हिसाब से यूनिट मिलती हैं, इसलिए बाज़ार नीचे होने पर ज़्यादा और ऊपर होने पर कम यूनिट मिलती हैं — इसे रुपी कॉस्ट एवरेजिंग कहते हैं। लंबी अवधि में चक्रवृद्धि (compounding) का लाभ मिलता है।"
+      },
+      {
+        "question": "क्या SIP में रिटर्न की गारंटी होती है?",
+        "answer": "नहीं। SIP म्यूचुअल फंड में निवेश है और म्यूचुअल फंड बाज़ार जोखिम के अधीन होते हैं। कैलकुलेटर में डाली गई अपेक्षित वार्षिक रिटर्न दर केवल एक अनुमान है, कोई वादा नहीं — वास्तविक रिटर्न इससे ऊपर या नीचे हो सकता है और नकारात्मक भी हो सकता है। पिछला प्रदर्शन भविष्य के परिणामों की गारंटी नहीं देता। निवेश से पहले योजना संबंधी दस्तावेज़ ध्यान से पढ़ें।"
       }
     ],
     "related": [
@@ -1476,6 +1500,14 @@
       {
         "question": "Is this calculator financial or tax advice?",
         "answer": "No. This calculator is for educational and informational purposes only. It provides an estimate based on the values entered and should not be treated as tax, legal, investment, or financial advice."
+      },
+      {
+        "question": "नई और पुरानी टैक्स रिज़ीम में कौन सी बेहतर है?",
+        "answer": "यह पूरी तरह आपकी कटौतियों (deductions) पर निर्भर करता है। नई रिज़ीम में दरें कम हैं लेकिन 80C, HRA, 80D जैसी अधिकांश छूट नहीं मिलतीं; पुरानी रिज़ीम में दरें ऊँची हैं पर ये छूट उपलब्ध हैं। अगर आप HRA, होम लोन ब्याज और 80C का पूरा लाभ लेते हैं तो पुरानी रिज़ीम फ़ायदेमंद हो सकती है, वरना आमतौर पर नई रिज़ीम बेहतर बैठती है। कोई एक नियम सबके लिए सही नहीं है — ऊपर दिए कैलकुलेटर में अपने वास्तविक आँकड़े डालकर दोनों की तुलना करें।"
+      },
+      {
+        "question": "12 लाख की आय पर कितना टैक्स लगेगा?",
+        "answer": "नई टैक्स रिज़ीम में वित्त वर्ष 2026-27 के लिए, यदि आपकी सामान्य दर वाली कर योग्य आय ₹12 लाख तक है तो धारा 87A की छूट (अधिकतम ₹60,000) से कर शून्य हो सकता है। वेतनभोगी करदाताओं के लिए ₹75,000 की स्टैंडर्ड डिडक्शन जोड़कर यह सीमा लगभग ₹12.75 लाख सकल वेतन तक पहुँच जाती है। ₹12 लाख से थोड़ा ऊपर जाने पर पूरा टैक्स एकदम से नहीं लगता — मार्जिनल रिलीफ़ के कारण सेस से पहले कर उतना ही सीमित रहता है जितनी आय ₹12 लाख से ऊपर है। विशेष दर वाली आय होने पर गणना बदल सकती है।"
       }
     ],
     "related": [
@@ -3500,12 +3532,12 @@
   {
     "slug": "8th-pay-commission-salary-calculator-india",
     "name": "8th Pay Commission Salary Calculator India",
-    "seoTitle": "8th Pay Commission Calculator | Fitment Factor Scenarios",
+    "seoTitle": "8th Pay Commission Calculator | DA Merger & Fitment Factor",
     "category": "Salary",
     "status": "live",
     "targetKeyword": "8th pay commission salary calculator",
     "shortDescription": "Estimate your revised basic pay, DA, HRA and gross salary under selectable 8th Pay Commission fitment-factor scenarios for central government employees. The Commission has not notified a final factor, so all factors here are planning scenarios.",
-    "metaDescription": "Estimate revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Results are illustrative until official recommendations are notified.",
+    "metaDescription": "Estimate revised basic pay from 8th Pay Commission fitment-factor scenarios and see how the DA merger into basic pay works. Illustrative until notified.",
     "inputs": [
       {
         "key": "currentBasic",
@@ -3618,6 +3650,18 @@
         "answer": "Yes. Employee NPS contribution (10% of basic+DA) and employer NPS contribution (14% of basic+DA) are both calculated on the revised basic. Your take-home net of NPS will be lower than the gross shown here."
       },
       {
+        "question": "What is DA merger in the 8th Pay Commission?",
+        "answer": "DA merger means the Dearness Allowance accumulated up to the implementation date is folded into basic pay rather than continuing as a separate allowance. In a pay-commission revision this normally happens through the fitment factor: the existing DA is absorbed into the revised basic, and DA then restarts from 0% on that higher basic. Because every other allowance is calculated on basic pay, a DA merger raises HRA, transport allowance, NPS contribution and pension base as well, which is why it matters more than the headline DA percentage alone."
+      },
+      {
+        "question": "DA मर्जर क्या है और इससे सैलरी पर क्या असर पड़ेगा?",
+        "answer": "DA मर्जर का मतलब है कि अब तक जमा हुआ महंगाई भत्ता (Dearness Allowance) अलग भत्ते के रूप में न रहकर मूल वेतन (basic pay) में जोड़ दिया जाता है। वेतन आयोग में यह आमतौर पर फिटमेंट फैक्टर के ज़रिए होता है — पुराना DA नए बेसिक में समा जाता है और फिर DA दोबारा 0% से शुरू होता है। चूँकि HRA, परिवहन भत्ता, NPS अंशदान और पेंशन सभी बेसिक पे पर गिने जाते हैं, इसलिए DA मर्जर से कुल वेतन पर असर सिर्फ़ DA प्रतिशत से कहीं ज़्यादा होता है।"
+      },
+      {
+        "question": "8वां वेतन आयोग कब लागू होगा?",
+        "answer": "अभी आधिकारिक तारीख़ अधिसूचित नहीं हुई है। आमतौर पर वेतन आयोग की सिफ़ारिशें लागू होने से पहले सरकार द्वारा स्वीकार की जाती हैं और फिर अधिसूचना जारी होती है। इस कैलकुलेटर में दिए गए फिटमेंट फैक्टर परिदृश्य केवल अनुमान के लिए हैं — अंतिम आँकड़े आधिकारिक अधिसूचना के बाद ही तय होंगे। ताज़ा स्थिति के लिए वित्त मंत्रालय की आधिकारिक घोषणाएँ देखें।"
+      },
+      {
         "question": "Will DA be reset to 0 after the 8th Pay Commission?",
         "answer": "Typically yes. The DA accumulated up to the Pay Commission implementation date is usually merged into basic pay via the fitment, and DA is reset to 0% on the new basic — then rises again from the next revision cycle."
       }
@@ -3667,8 +3711,8 @@
         ]
       },
       {
-        "heading": "DA, HRA and TA on revised basic",
-        "body": "All major allowances are recalculated on the new basic pay. Dearness Allowance (currently 55%) is usually merged into basic via the fitment and then reset to 0%. HRA is 24% for X cities (metro), 16% for Y cities, and 8% for Z cities. Transport allowance is tiered by pay level and city."
+        "heading": "DA merger into basic pay, and HRA and TA on revised basic",
+        "body": "All major allowances are recalculated on the new basic pay. The DA merger is the key step: Dearness Allowance (currently 55%) is usually merged into basic pay via the fitment factor and then reset to 0% on the revised basic. HRA is 24% for X cities (metro), 16% for Y cities, and 8% for Z cities. Transport allowance is tiered by pay level and city."
       },
       {
         "heading": "Source and Methodology",
