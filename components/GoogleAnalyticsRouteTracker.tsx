@@ -1,66 +1,41 @@
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { trackPageView, trackUserEngagement } from '@/lib/analytics';
+import { trackPageView } from '@/lib/analytics';
+
+// gtag.js is injected with strategy="afterInteractive", so window.gtag can still
+// be undefined when this effect first runs. Because the layout sets
+// send_page_view: false, a dropped send is a permanently lost page view rather
+// than a delayed one, so keep polling until the stub exists.
+const READY_POLL_MS = 250;
+const READY_TIMEOUT_MS = 10_000;
 
 export default function GoogleAnalyticsRouteTracker() {
   const pathname = usePathname();
-  const currentPathRef = useRef<string | null>(null);
-  const activeSinceRef = useRef<number | null>(null);
-  const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const flushEngagement = useCallback(() => {
-    if (!currentPathRef.current || activeSinceRef.current === null) return;
-    const elapsed = performance.now() - activeSinceRef.current;
-    trackUserEngagement(currentPathRef.current, elapsed);
-    activeSinceRef.current = null;
-  }, []);
 
   useEffect(() => {
     const nextPath = pathname || '/';
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const deadline = Date.now() + READY_TIMEOUT_MS;
 
-    if (currentPathRef.current && currentPathRef.current !== nextPath) {
-      flushEngagement();
-    }
+    const attempt = () => {
+      if (cancelled) return;
+      // Deferred by at least one task so App Router has committed the new
+      // document.title before it is read into the page_view payload.
+      if (trackPageView(nextPath)) return;
+      if (Date.now() >= deadline) return;
+      timer = setTimeout(attempt, READY_POLL_MS);
+    };
 
-    currentPathRef.current = nextPath;
-    activeSinceRef.current = performance.now();
-
-    if (!trackPageView(nextPath)) {
-      retryTimerRef.current = setTimeout(() => {
-        trackPageView(nextPath);
-      }, 750);
-    }
+    timer = setTimeout(attempt, 0);
 
     return () => {
-      if (retryTimerRef.current) {
-        clearTimeout(retryTimerRef.current);
-        retryTimerRef.current = null;
-      }
+      cancelled = true;
+      if (timer) clearTimeout(timer);
     };
-  }, [flushEngagement, pathname]);
-
-  useEffect(() => {
-    const onVisibilityChange = () => {
-      if (document.visibilityState === 'hidden') {
-        flushEngagement();
-      } else if (activeSinceRef.current === null) {
-        activeSinceRef.current = performance.now();
-      }
-    };
-
-    const onPageHide = () => flushEngagement();
-
-    document.addEventListener('visibilitychange', onVisibilityChange);
-    window.addEventListener('pagehide', onPageHide);
-
-    return () => {
-      document.removeEventListener('visibilitychange', onVisibilityChange);
-      window.removeEventListener('pagehide', onPageHide);
-      flushEngagement();
-    };
-  }, [flushEngagement]);
+  }, [pathname]);
 
   return null;
 }

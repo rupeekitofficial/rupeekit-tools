@@ -58,11 +58,27 @@ https://support.google.com/analytics/answer/9267568
 Recommended RupeeKit interpretation:
 
 - `calculator_used`: primary product-use signal; mark as a key event.
-- `result_viewed`: useful completion signal; mark as a key event while we establish baseline completion rates.
+- `result_viewed`: **do not mark as a key event yet — see the warning below.**
 - `guide_click`: secondary engagement signal; mark if the team wants guide progression in key-event reports.
 - `tool_cta_click`: secondary engagement signal; mark if cross-tool progression is an explicit KPI.
 
 Do not create fake conversions or assign monetary values that do not exist.
+
+### Warning: `result_viewed` currently duplicates `calculator_used`
+
+In `components/CalculatorAnalyticsBoundary.tsx` both events are emitted from the
+same effect, on the same first interaction, with the same parameters:
+
+```ts
+trackAnalyticsEvent('calculator_used', parameters);
+trackAnalyticsEvent('result_viewed', parameters);
+```
+
+There is no separate condition for a result actually being viewed, so the two
+events will report identical counts. Marking both as key events would
+double-count the same user action in every key-event report. Mark only
+`calculator_used` until `result_viewed` is given a distinct trigger (for example,
+firing when a computed result is rendered rather than when an input changes).
 
 ## 3. Register `tool_slug` and `tool_category` as custom dimensions
 
@@ -125,18 +141,43 @@ That is a concrete measurement gap. It is a plausible contributor to the observe
 
 - Automatic page-view sending from the initial `gtag('config')` call is disabled with `send_page_view: false`.
 - `GoogleAnalyticsRouteTracker` explicitly emits a `page_view` on the initial route and every App Router pathname change.
-- The tracker flushes a `user_engagement` event with `engagement_time_msec` when the page becomes hidden, unloads, or the route changes.
+- Because `send_page_view: false` removes the built-in fallback, the tracker polls until `window.gtag` exists (the gtag script loads with `strategy="afterInteractive"`, so it is not ready when the first effect runs). A dropped send would be a permanently lost page view, not a delayed one.
+- The page view send is deferred by one task so App Router has committed the new `document.title` before it is read into the payload.
 - The analytics helper ignores missing `window.gtag`, so ad blockers and SSR do not throw.
+
+### Engagement time is measured by GA4, not by this repository
+
+`user_engagement` is an automatically collected GA4 event. gtag.js fires it on
+its own while the page has focus and attaches `engagement_time_msec` describing
+active focus since the previous event, and this continues to work with
+`send_page_view: false`. GA4 sums those values to produce engagement time.
+
+An earlier revision of this work also sent a hand-rolled `user_engagement` event
+on route change and page hide. That would have been added on top of GA4's own
+accounting for the same wall-clock seconds, inflating average engagement time —
+the exact metric issue #63 is about. That code was removed; engagement timing is
+left to GA4.
+
+This means the remaining fix for the `0.00s` rows is the page-view path, not an
+engagement-time path. Treat the root cause as unconfirmed until DebugView shows
+otherwise.
 
 ### How to verify after deploy
 
 1. Open DebugView.
-2. Load a calculator directly and confirm one `page_view`.
+2. Load a calculator directly and confirm exactly one `page_view`, and that it is not missing.
 3. Navigate client-side to another calculator and confirm a new `page_view` without a full reload.
-4. Spend at least 5–10 seconds on the page, interact with the calculator, then navigate away or background the tab.
-5. Inspect `user_engagement` and confirm `engagement_time_msec` is present and non-zero.
-6. Confirm there is not a duplicate initial `page_view`.
-7. Re-check the affected pages after enough fresh traffic has accumulated; do not compare the historical zero-second rows as if they were rewritten retroactively.
+4. Confirm `page_title` on that second `page_view` is the new page's title, not the previous page's.
+5. Spend at least 10–15 seconds on the page, interact with the calculator, then navigate away or background the tab.
+6. Confirm GA4's own `user_engagement` arrives with a non-zero `engagement_time_msec`, and that there is exactly one such event per engagement period.
+7. Confirm there is not a duplicate initial `page_view`.
+8. Re-check the affected pages after enough fresh traffic has accumulated; do not compare the historical zero-second rows as if they were rewritten retroactively.
+
+### Rollback
+
+If Realtime page views drop after deploy, revert `send_page_view: false` in
+`app/layout.tsx` first — that single flag is what makes page views depend on
+client-side code.
 
 ## Privacy boundary
 

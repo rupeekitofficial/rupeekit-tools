@@ -49,12 +49,3 @@ export function trackPageView(pathname: string): boolean {
     page_title: pageTitle,
   });
 }
-
-export function trackUserEngagement(pathname: string, engagementTimeMs: number): boolean {
-  if (!Number.isFinite(engagementTimeMs) || engagementTimeMs < 100) return false;
-
-  return sendGtagEvent('user_engagement', {
-    page_path: pathname,
-    engagement_time_msec: Math.min(Math.round(engagementTimeMs), 3_600_000),
-  });
-}

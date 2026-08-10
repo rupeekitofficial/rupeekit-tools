@@ -26,7 +26,15 @@ function assert(condition, message) {
 }
 
 function extractConsolidatedToolSlugs(source) {
-  const section = source.match(/CONSOLIDATED_TOOL_SLUGS\s*=\s*new Set\(\[([\s\S]*?)\]\)/)?.[1] ?? '';
+  const section = source.match(/CONSOLIDATED_TOOL_SLUGS\s*=\s*new Set\(\[([\s\S]*?)\]\)/)?.[1];
+  if (section === undefined) {
+    // Falling back to an empty set here would silently stop excluding
+    // consolidated slugs and quietly weaken this whole check.
+    console.error(
+      'Analytics coverage validation failed:\n- Could not find CONSOLIDATED_TOOL_SLUGS in lib/consolidated-routes.ts'
+    );
+    process.exit(1);
+  }
   return new Set([...section.matchAll(/['"]([^'"]+)['"]/g)].map((match) => match[1]));
 }
 
@@ -114,11 +122,6 @@ for (const sourceRoot of sourceRoots) {
       errors.push(`Raw gtag() call found outside analytics helper: ${relative}`);
     }
   }
-}
-
-const coverageBySource = new Map();
-for (const tool of liveTools) {
-  coverageBySource.set(tool.source, (coverageBySource.get(tool.source) ?? 0) + 1);
 }
 
 if (errors.length) {

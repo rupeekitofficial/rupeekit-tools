@@ -1,9 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import {
-  trackAnalyticsEvent,
-  trackPageView,
-  trackUserEngagement,
-} from './analytics';
+import { trackAnalyticsEvent, trackPageView } from './analytics';
 
 describe('issue #63 analytics plumbing', () => {
   afterEach(() => vi.unstubAllGlobals());
@@ -38,23 +34,32 @@ describe('issue #63 analytics plumbing', () => {
     });
   });
 
-  it('sends non-zero engagement time without financial inputs', () => {
+  it('preserves query strings in page_location', () => {
     const gtag = vi.fn();
-    vi.stubGlobal('window', { gtag });
-
-    expect(trackUserEngagement('/tools/sip-calculator-india', 6_250)).toBe(true);
-    expect(gtag).toHaveBeenCalledWith('event', 'user_engagement', {
-      page_path: '/tools/sip-calculator-india',
-      engagement_time_msec: 6250,
+    vi.stubGlobal('window', {
+      gtag,
+      location: {
+        origin: 'https://www.rupeekit.co.in',
+        search: '?utm_source=newsletter',
+      },
     });
+    vi.stubGlobal('document', { title: 'RupeeKit calculator' });
+
+    trackPageView('/tools/sip-calculator-india');
+    expect(gtag).toHaveBeenCalledWith(
+      'event',
+      'page_view',
+      expect.objectContaining({
+        page_location:
+          'https://www.rupeekit.co.in/tools/sip-calculator-india?utm_source=newsletter',
+      })
+    );
   });
 
-  it('drops invalid or trivial engagement intervals', () => {
-    const gtag = vi.fn();
-    vi.stubGlobal('window', { gtag });
+  it('reports a dropped send so the caller can retry until gtag exists', () => {
+    vi.stubGlobal('window', {});
+    vi.stubGlobal('document', { title: 'RupeeKit calculator' });
 
-    expect(trackUserEngagement('/tools/sip-calculator-india', Number.NaN)).toBe(false);
-    expect(trackUserEngagement('/tools/sip-calculator-india', 99)).toBe(false);
-    expect(gtag).not.toHaveBeenCalled();
+    expect(trackPageView('/tools/sip-calculator-india')).toBe(false);
   });
 });
