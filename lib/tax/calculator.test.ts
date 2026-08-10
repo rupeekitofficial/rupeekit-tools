@@ -221,3 +221,91 @@ describe('calculateIndianIncomeTax - FY 2025-26 (AY 2026-27)', () => {
     );
   });
 });
+
+// These pin the figures published in the "Income Tax on Rs 12 Lakh Salary" article
+// to the engine, so the two cannot drift apart again. The article previously claimed
+// an all-or-nothing cliff (Rs 63,960 of tax on Rs 12.1 lakh) while the engine had
+// always applied marginal relief correctly.
+describe('Section 87A marginal relief - published article figures (FY 2025-26 rules)', () => {
+  const taxYear = '2025-26';
+  const STANDARD_DEDUCTION = 75000;
+  const REBATE_LIMIT = 1200000;
+
+  const baseInput: TaxInput = {
+    grossSalary: 0,
+    hraExemption: 0,
+    homeLoanInterest: 0,
+    section80C: 0,
+    section80D: 0,
+    employerNPS: 0,
+    otherDeductionsOldRegime: 0,
+    otherDeductionsBothRegimes: 0,
+    isSalaried: true,
+  };
+
+  const atTaxableIncome = (taxableIncome: number) =>
+    calculateIndianIncomeTax(
+      { ...baseInput, grossSalary: taxableIncome + STANDARD_DEDUCTION },
+      taxYear
+    ).newRegime;
+
+  it('charges Rs 10,400 on taxable income of Rs 12.1 lakh, not the Rs 63,960 cliff', () => {
+    // Slab tax 61,500 = 20,000 + 40,000 + 10,000 * 15%.
+    // Excess over Rs 12L is 10,000, so relief caps tax before cess at 10,000.
+    const result = atTaxableIncome(1210000);
+    expect(result.taxableIncome).toBe(1210000);
+    expect(result.totalSlabTax).toBe(61500);
+    expect(result.rebate).toBe(51500);
+    expect(result.taxAfterRebate).toBe(10000);
+    expect(result.cess).toBe(400);
+    expect(result.finalTax).toBe(10400);
+    expect(result.finalTax).not.toBe(63960);
+  });
+
+  it('charges Rs 52,000 on taxable income of Rs 12.5 lakh', () => {
+    // Slab tax 67,500; excess over Rs 12L is 50,000, so relief still binds.
+    const result = atTaxableIncome(1250000);
+    expect(result.totalSlabTax).toBe(67500);
+    expect(result.taxAfterRebate).toBe(50000);
+    expect(result.cess).toBe(2000);
+    expect(result.finalTax).toBe(52000);
+  });
+
+  it('tapers relief away once slab tax no longer exceeds the excess', () => {
+    // Break-even is at 60,000 / 0.85 = Rs 70,588 above the limit.
+    const stillRelieved = atTaxableIncome(1270000);
+    expect(stillRelieved.totalSlabTax).toBe(70500);
+    expect(stillRelieved.taxAfterRebate).toBe(70000);
+    expect(stillRelieved.finalTax).toBe(72800);
+
+    const noLongerRelieved = atTaxableIncome(1271000);
+    expect(noLongerRelieved.totalSlabTax).toBe(70650);
+    expect(noLongerRelieved.rebate).toBe(0);
+    expect(noLongerRelieved.taxAfterRebate).toBe(70650);
+    expect(noLongerRelieved.finalTax).toBe(73476);
+  });
+
+  it('applies plain slab tax well above the relief band', () => {
+    const result = atTaxableIncome(1300000);
+    expect(result.totalSlabTax).toBe(75000);
+    expect(result.rebate).toBe(0);
+    expect(result.finalTax).toBe(78000);
+  });
+
+  it('caps tax before cess at the excess over Rs 12 lakh throughout the relief band', () => {
+    for (let taxableIncome = 1200500; taxableIncome <= 1270000; taxableIncome += 500) {
+      const result = atTaxableIncome(taxableIncome);
+      expect(result.taxAfterRebate).toBe(taxableIncome - REBATE_LIMIT);
+    }
+  });
+
+  it('never lets tax fall as income rises across the Rs 12 lakh boundary', () => {
+    // The defining property of marginal relief: no cliff anywhere across the threshold.
+    let previousTax = -1;
+    for (let grossSalary = 1270000; grossSalary <= 1400000; grossSalary += 5000) {
+      const { finalTax } = calculateIndianIncomeTax({ ...baseInput, grossSalary }, taxYear).newRegime;
+      expect(finalTax).toBeGreaterThanOrEqual(previousTax);
+      previousTax = finalTax;
+    }
+  });
+});
