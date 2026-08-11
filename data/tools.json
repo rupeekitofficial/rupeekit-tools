@@ -1078,7 +1078,8 @@
       "lumpsum-calculator-india",
       "fd-calculator-india",
       "ppf-calculator-india",
-      "emergency-fund-calculator-india"
+      "emergency-fund-calculator-india",
+      "mutual-fund-calculator-india"
     ],
     "quickAnswer": {
       "title": "SIP Calculator Quick Answer",
@@ -2918,7 +2919,8 @@
     "related": [
       "income-tax-calculator-old-vs-new-regime-india",
       "sip-calculator-india",
-      "80c-deduction-calculator-india"
+      "80c-deduction-calculator-india",
+      "stock-portfolio-calculator-india"
     ],
     "howToUse": [
       "Add up your short-term gains on listed equity and equity funds for the financial year.",
@@ -3298,7 +3300,8 @@
       "sip-calculator-india",
       "fd-calculator-india",
       "ppf-calculator-india",
-      "capital-gains-tax-calculator-india"
+      "capital-gains-tax-calculator-india",
+      "mutual-fund-calculator-india"
     ],
     "howToUse": [
       "Enter the one-time amount you plan to invest.",
@@ -3477,7 +3480,8 @@
       "salary-in-hand-calculator-india",
       "ppf-calculator-india",
       "gratuity-calculator-india",
-      "sip-calculator-india"
+      "sip-calculator-india",
+      "retirement-calculator-india"
     ],
     "howToUse": [
       "Enter your monthly basic salary plus DA from your payslip.",
@@ -3858,7 +3862,8 @@
       "sip-calculator-india",
       "lumpsum-calculator-india",
       "ppf-calculator-india",
-      "epf-corpus-calculator-india"
+      "epf-corpus-calculator-india",
+      "stock-portfolio-calculator-india"
     ],
     "howToUse": [
       "Enter the initial investment value (what you paid or the starting NAV/price).",
@@ -4035,7 +4040,8 @@
       "epf-corpus-calculator-india",
       "ppf-calculator-india",
       "sip-calculator-india",
-      "income-tax-calculator-old-vs-new-regime-india"
+      "income-tax-calculator-old-vs-new-regime-india",
+      "retirement-calculator-india"
     ],
     "howToUse": [
       "Enter your current age — corpus is estimated until age 60.",
@@ -4206,7 +4212,8 @@
       "sip-calculator-india",
       "lumpsum-calculator-india",
       "cagr-calculator-india",
-      "ppf-calculator-india"
+      "ppf-calculator-india",
+      "retirement-calculator-india"
     ],
     "howToUse": [
       "Enter your starting monthly SIP amount.",
@@ -4768,8 +4775,8 @@
     "related": [
       "sip-calculator-india",
       "lumpsum-calculator-india",
-      "fd-calculator-india",
-      "ppf-calculator-india"
+      "step-up-sip-calculator-india",
+      "stock-portfolio-calculator-india"
     ],
     "quickAnswer": {
       "title": "Mutual Fund Calculator Quick Answer",
@@ -5002,10 +5009,10 @@
       }
     ],
     "related": [
-      "sip-calculator-india",
-      "ppf-calculator-india",
       "nps-calculator-india",
-      "emergency-fund-calculator-india"
+      "epf-corpus-calculator-india",
+      "sip-calculator-india",
+      "fire-retirement-calculator-india"
     ],
     "quickAnswer": {
       "title": "Retirement Calculator Quick Answer",
@@ -5149,10 +5156,10 @@
       }
     ],
     "related": [
-      "sip-calculator-india",
+      "capital-gains-tax-calculator-india",
       "cagr-calculator-india",
-      "mutual-fund-calculator-india",
-      "capital-gains-tax-calculator-india"
+      "xirr-portfolio-return-calculator-india",
+      "mutual-fund-calculator-india"
     ],
     "quickAnswer": {
       "title": "Stock Portfolio Calculator Quick Answer",
