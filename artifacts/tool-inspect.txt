@@ -1,0 +1,71 @@
+MISSING: ['salary-hike-calculator-india']
+income-tax-calculator-old-vs-new-regime-india | seo=Old vs New Tax Regime Calculator India FY 2025-26 | Free
+income-tax-calculator-old-vs-new-regime-india | cat=Tax | kw=income tax calculator old vs new regime India
+income-tax-calculator-old-vs-new-regime-india | meta=Compare old and new tax regimes for FY 2025-26 (AY 2026-27) using salary, standard deduction, HRA, 80C, 80D, NPS and home-loan assumptions. Free and instant.
+income-tax-calculator-old-vs-new-regime-india | qa=False sections=0 sources=0 reviewed=2026-08-03
+income-tax-calculator-old-vs-new-regime-india | related=['capital-gains-tax-calculator-india', 'salary-in-hand-calculator-india', 'emi-calculator-india', 'sip-calculator-india']
+income-tax-calculator-old-vs-new-regime-india | faq=6
+---
+salary-in-hand-calculator-india | seo=Free Salary In-Hand Calculator India 2026 — Take-Home Pay
+salary-in-hand-calculator-india | cat=Salary | kw=salary in hand calculator india
+salary-in-hand-calculator-india | meta=Free salary in-hand calculator for Indian employees. Estimate monthly take-home salary from CTC, basic salary, PF, tax and deductions with example and FAQ.
+salary-in-hand-calculator-india | qa=False sections=0 sources=0 reviewed=None
+salary-in-hand-calculator-india | related=['hra-exemption-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', 'epf-corpus-calculator-india', 'emi-calculator-india']
+salary-in-hand-calculator-india | faq=3
+---
+epf-corpus-calculator-india | seo=Free EPF Corpus Calculator India 2026 — Estimate PF at Retirement
+epf-corpus-calculator-india | cat=Retirement | kw=epf calculator
+epf-corpus-calculator-india | meta=EPF corpus calculator for India — estimate your provident fund balance at retirement from basic salary, contributions and interest. Calculate now.
+epf-corpus-calculator-india | qa=True sections=4 sources=0 reviewed=None
+epf-corpus-calculator-india | related=['salary-in-hand-calculator-india', 'ppf-calculator-india', 'gratuity-calculator-india', 'sip-calculator-india']
+epf-corpus-calculator-india | faq=8
+---
+8th-pay-commission-salary-calculator-india | seo=8th Pay Commission Calculator | Fitment Factor Scenarios
+8th-pay-commission-salary-calculator-india | cat=Salary | kw=8th pay commission salary calculator
+8th-pay-commission-salary-calculator-india | meta=Estimate revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Results are illustrative until official recommendations are notified.
+8th-pay-commission-salary-calculator-india | qa=True sections=4 sources=0 reviewed=2026-08-03
+8th-pay-commission-salary-calculator-india | related=['salary-in-hand-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', 'epf-corpus-calculator-india']
+8th-pay-commission-salary-calculator-india | faq=5
+---
+fd-calculator-india | seo=FD Calculator India 2026: Maturity for Any Tenure incl. 444 Days
+fd-calculator-india | cat=Savings | kw=fd calculator india
+fd-calculator-india | meta=Free FD calculator — maturity and interest for any deposit in seconds, including special 444-day FDs. Set amount, rate, tenure, compounding. No login.
+fd-calculator-india | qa=True sections=0 sources=0 reviewed=None
+fd-calculator-india | related=['ppf-calculator-india', 'sip-calculator-india', 'salary-in-hand-calculator-india', 'emi-calculator-india']
+fd-calculator-india | faq=8
+---
+gst-calculator-india | seo=Free GST Calculator India 2026 — Add or Remove GST Online
+gst-calculator-india | cat=Tax | kw=gst calculator india
+gst-calculator-india | meta=Add or remove 5%, 12%, 18% or 28% GST from any invoice value and calculate CGST, SGST and total GST payable with this India GST calculator.
+gst-calculator-india | qa=False sections=0 sources=0 reviewed=None
+gst-calculator-india | related=['hra-exemption-calculator-india', 'salary-in-hand-calculator-india', 'emi-calculator-india']
+gst-calculator-india | faq=2
+---
+sip-calculator-india | seo=SIP Calculator India 2026 | Step-Up, Goal & Delay Cost
+sip-calculator-india | cat=Investments | kw=sip calculator india
+sip-calculator-india | meta=Calculate SIP returns, step-up SIP, goal-based investment, inflation-adjusted corpus and the cost of delaying, pausing or missing SIPs.
+sip-calculator-india | qa=True sections=8 sources=0 reviewed=2026-08-03
+sip-calculator-india | related=['lumpsum-calculator-india', 'fd-calculator-india', 'ppf-calculator-india', 'emergency-fund-calculator-india']
+sip-calculator-india | faq=9
+---
+capital-gains-tax-calculator-india | seo=Capital Gains Tax Calculator India 2026 | STCG & LTCG
+capital-gains-tax-calculator-india | cat=Tax | kw=capital gains tax calculator india
+capital-gains-tax-calculator-india | meta=Calculate tax on equity shares and equity-oriented mutual funds using current STCG, LTCG, exemption and cess rules for FY 2025-26.
+capital-gains-tax-calculator-india | qa=True sections=6 sources=1 reviewed=2026-08-03
+capital-gains-tax-calculator-india | related=['income-tax-calculator-old-vs-new-regime-india', 'sip-calculator-india', '80c-deduction-calculator-india']
+capital-gains-tax-calculator-india | faq=9
+---
+personal-loan-emi-calculator-india | seo=Personal Loan EMI Calculator 2026 | EMI, Fees & Total Cost
+personal-loan-emi-calculator-india | cat=Loans | kw=personal loan emi calculator
+personal-loan-emi-calculator-india | meta=Calculate personal loan EMI, interest, processing fee, GST and total repayment in India. Compare tenure and check affordability before applying.
+personal-loan-emi-calculator-india | qa=True sections=11 sources=0 reviewed=2026-08-03
+personal-loan-emi-calculator-india | related=['personal-loan-eligibility-calculator-india', 'emi-calculator-india', 'salary-in-hand-calculator-india', 'emergency-fund-calculator-india', 'gold-loan-calculator-india']
+personal-loan-emi-calculator-india | faq=13
+---
+emergency-fund-calculator-india | seo=Emergency Fund Calculator India | 3-12 Months + EMI
+emergency-fund-calculator-india | cat=Savings | kw=emergency fund calculator
+emergency-fund-calculator-india | meta=Calculate a 3, 6, 9 or 12-month emergency fund using essential expenses and home, personal or car-loan EMIs. Check your shortfall and savings target.
+emergency-fund-calculator-india | qa=True sections=10 sources=0 reviewed=2026-08-03
+emergency-fund-calculator-india | related=['personal-loan-emi-calculator-india', 'fd-calculator-india', 'sip-calculator-india', 'recurring-deposit-calculator-india']
+emergency-fund-calculator-india | faq=10
+---

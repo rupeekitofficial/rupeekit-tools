@@ -80,6 +80,15 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
   'fd-calculator-india': {
     lastReviewedIso: '2026-05-01',
   },
+  'salary-hike-calculator-india': {
+    title: 'Salary Hike Calculator India 2026 | New Salary After Hike',
+    description:
+      'Calculate your new salary after a hike percentage and see the annual and monthly increase in India. Gross estimate before tax and deductions.',
+    h1: 'Salary Hike Calculator India',
+    heroDescription:
+      'Enter your current annual salary and hike percentage to see your new annual salary, annual increase and approximate monthly increase. This is a gross before-tax estimate — your actual in-hand increase also depends on the new tax slab, PF, professional tax and other deductions.',
+    lastReviewedIso: '2026-08-08',
+  },
 };
 
 const liveToolSlugs = new Set(getLiveTools().map((tool) => tool.slug));

@@ -39,6 +39,7 @@ Last updated: 2026-08-03. This is a curated discovery index; the [full machine-r
 - [Step-Up SIP Calculator India](https://www.rupeekit.co.in/tools/step-up-sip-calculator-india): Compare a SIP that increases annually with a flat SIP using user-entered return assumptions.
 - [Sukanya Samriddhi Yojana Calculator India](https://www.rupeekit.co.in/tools/sukanya-samriddhi-yojana-calculator-india): Estimate SSY maturity value from the child's age, annual deposit and entered interest rate.
 - [Net Worth Calculator India](https://www.rupeekit.co.in/tools/net-worth-calculator-india): Add assets and subtract liabilities to estimate personal net worth and see the asset-liability split.
+- [Salary Hike Calculator India](https://www.rupeekit.co.in/tools/salary-hike-calculator-india): Calculate new salary after a hike percent and see the annual and monthly increase for a current salary.
 
 ## Guides
 
