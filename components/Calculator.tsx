@@ -35,13 +35,26 @@ function formatValue(value: number, format: string) {
   return new Intl.NumberFormat('en-IN', { maximumFractionDigits: 2 }).format(value);
 }
 
+import dynamic from 'next/dynamic';
 import {
   CalculatorResultSummary,
-  CalculatorResultChart,
-  CalculatorBreakdownTable,
-  CalculatorScenarioComparison,
   CalculatorInsightBox,
 } from './CalculatorVisualizations';
+
+// Performance: lazy-load the heavier visualization components so the calculator
+// renders below-the-fold charts/tables only after the interactive core is ready.
+const CalculatorResultChart = dynamic(() =>
+  import('./CalculatorVisualizations').then((m) => m.CalculatorResultChart),
+  { ssr: false }
+);
+const CalculatorBreakdownTable = dynamic(() =>
+  import('./CalculatorVisualizations').then((m) => m.CalculatorBreakdownTable),
+  { ssr: false }
+);
+const CalculatorScenarioComparison = dynamic(() =>
+  import('./CalculatorVisualizations').then((m) => m.CalculatorScenarioComparison),
+  { ssr: false }
+);
 import { isAdvancedCalculator } from '@/lib/advanced-calculators';
 import AdvancedCalculatorRenderer from '@/components/calculators/advanced/AdvancedCalculatorRenderer';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';

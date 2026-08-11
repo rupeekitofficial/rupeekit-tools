@@ -14,6 +14,7 @@ const siteUrl =
 const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "rupeekitofficial@gmail.com";
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
+const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 const siteDescription =
   "RupeeKit offers free India-focused salary, EMI, SIP, GST, and FD calculators with simple explanations and examples.";
 
@@ -144,6 +145,15 @@ export default function RootLayout({
               `}
             </Script>
           </>
+        ) : null}
+
+        {adsenseClient ? (
+          <Script
+            id="adsense-auto-ads"
+            strategy="afterInteractive"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+            crossOrigin="anonymous"
+          />
         ) : null}
 
         <SiteHeader />

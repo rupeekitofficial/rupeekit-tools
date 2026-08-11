@@ -39,6 +39,9 @@ Last updated: 2026-08-03. This is a curated discovery index; the [full machine-r
 - [Step-Up SIP Calculator India](https://www.rupeekit.co.in/tools/step-up-sip-calculator-india): Compare a SIP that increases annually with a flat SIP using user-entered return assumptions.
 - [Sukanya Samriddhi Yojana Calculator India](https://www.rupeekit.co.in/tools/sukanya-samriddhi-yojana-calculator-india): Estimate SSY maturity value from the child's age, annual deposit and entered interest rate.
 - [Net Worth Calculator India](https://www.rupeekit.co.in/tools/net-worth-calculator-india): Add assets and subtract liabilities to estimate personal net worth and see the asset-liability split.
+- [Mutual Fund Calculator India](https://www.rupeekit.co.in/tools/mutual-fund-calculator-india): Estimate mutual fund growth for both a monthly SIP and a one-time lumpsum from an expected return and holding period.
+- [Retirement Calculator India](https://www.rupeekit.co.in/tools/retirement-calculator-india): Estimate the retirement corpus needed from current expenses, inflation and post-retirement return, and the monthly SIP required to close any shortfall.
+- [Stock Portfolio Calculator India](https://www.rupeekit.co.in/tools/stock-portfolio-calculator-india): Calculate portfolio gain or loss, annualised return, dividend yield and annual dividend income from invested amount and current value.
 
 ## Guides
 

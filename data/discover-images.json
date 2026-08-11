@@ -593,5 +593,26 @@
     "alt": "Illustration of shrinking debt blocks rolling downhill representing the debt snowball payoff strategy",
     "width": 1600,
     "height": 900
+  },
+  {
+    "path": "/tools/mutual-fund-calculator-india",
+    "src": "/images/discover/mutual-fund-calculator-india.webp",
+    "alt": "RupeeKit mutual fund calculator card comparing SIP and lumpsum investment growth in India",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/retirement-calculator-india",
+    "src": "/images/discover/retirement-calculator-india.webp",
+    "alt": "RupeeKit retirement calculator card showing retirement corpus needed and monthly SIP required in India",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/stock-portfolio-calculator-india",
+    "src": "/images/discover/stock-portfolio-calculator-india.webp",
+    "alt": "RupeeKit stock portfolio calculator card showing returns, annualised gains and dividend yield in India",
+    "width": 1600,
+    "height": 900
   }
 ]
