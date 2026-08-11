@@ -4649,5 +4649,544 @@
       }
     ],
     "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "mutual-fund-calculator-india",
+    "name": "Mutual Fund Calculator India",
+    "seoTitle": "Mutual Fund Calculator India 2026 — SIP, Lumpsum & Returns",
+    "category": "Investments",
+    "status": "live",
+    "targetKeyword": "mutual fund calculator india",
+    "shortDescription": "Calculate mutual fund returns for SIP, lumpsum, and systematic withdrawal plans. Compare with FD, PPF and stock market returns.",
+    "metaDescription": "Free mutual fund calculator India 2026. Estimate SIP returns, lumpsum gains, SWP corpus and compare mutual fund vs FD, PPF, gold returns.",
+    "inputs": [
+      {
+        "key": "monthlyInvestment",
+        "label": "Monthly SIP amount (₹)",
+        "unit": "₹",
+        "default": 10000,
+        "min": 500,
+        "step": 500,
+        "help": "Amount invested every month."
+      },
+      {
+        "key": "lumpsumAmount",
+        "label": "Lumpsum investment (₹)",
+        "unit": "₹",
+        "default": 100000,
+        "min": 0,
+        "step": 10000,
+        "help": "One-time investment amount."
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected annual return",
+        "unit": "%",
+        "default": 12,
+        "min": 1,
+        "step": 0.5,
+        "help": "Expected average annual return from mutual funds."
+      },
+      {
+        "key": "years",
+        "label": "Investment duration",
+        "unit": "years",
+        "default": 10,
+        "min": 1,
+        "step": 1,
+        "help": "How long you plan to invest."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "sipTotalInvested",
+        "label": "SIP: total invested",
+        "formula": "monthlyInvestment * years * 12",
+        "format": "currency"
+      },
+      {
+        "key": "sipFutureValue",
+        "label": "SIP: future value",
+        "formula": "monthlyInvestment * ((((1 + (expectedReturn / 12 / 100)) ^ (years * 12)) - 1) / (expectedReturn / 12 / 100)) * (1 + (expectedReturn / 12 / 100))",
+        "format": "currency"
+      },
+      {
+        "key": "sipGains",
+        "label": "SIP: estimated gains",
+        "formula": "sipFutureValue - sipTotalInvested",
+        "format": "currency"
+      },
+      {
+        "key": "lumpsumFutureValue",
+        "label": "Lumpsum: future value",
+        "formula": "lumpsumAmount * (1 + expectedReturn / 100) ^ years",
+        "format": "currency"
+      },
+      {
+        "key": "lumpsumGains",
+        "label": "Lumpsum: estimated gains",
+        "formula": "lumpsumAmount * (1 + expectedReturn / 100) ^ years - lumpsumAmount",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "For SIP: FV = monthly investment × [((1 + monthly return)^months - 1) / monthly return] × (1 + monthly return). For lumpsum: FV = principal × (1 + annual return)^years.",
+    "example": "A ₹10,000 monthly SIP for 10 years at 12% gives an estimated future corpus based on monthly compounding.",
+    "faqs": [
+      {
+        "question": "What is the difference between SIP and lumpsum?",
+        "answer": "SIP invests regularly reducing timing risk. Lumpsum invests large amount at once."
+      },
+      {
+        "question": "What return should I expect?",
+        "answer": "Equity MF historically delivered 10-14% CAGR over 10+ years in India."
+      },
+      {
+        "question": "How does MF compare with FD or PPF?",
+        "answer": "MF offers higher potential returns than FDs (6-7%) and PPF (7.1%) but with higher risk."
+      },
+      {
+        "question": "Minimum SIP amount?",
+        "answer": "Most MFs allow SIPs starting from ₹500/month."
+      },
+      {
+        "question": "Taxes on mutual fund gains?",
+        "answer": "Equity: LTCG above ₹1L/year taxed at 12% (>12 months). STT taxed at 15% (≤12 months)."
+      },
+      {
+        "question": "What is SWP?",
+        "answer": "SWP lets you withdraw fixed amounts monthly from existing holdings."
+      },
+      {
+        "question": "Growth or dividend option?",
+        "answer": "Growth reinvests gains compounding returns. Dividend reduces corpus."
+      },
+      {
+        "question": "How to choose the right mutual fund?",
+        "answer": "Consider fund category, track record, expense ratio, and consistency."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "lumpsum-calculator-india",
+      "fd-calculator-india",
+      "ppf-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "Mutual Fund Calculator Quick Answer",
+      "question": "How does a mutual fund calculator estimate returns?",
+      "answer": "It estimates future corpus using investment mode, amount, expected annual return, and duration.",
+      "formula": "SIP FV = monthly investment × [((1 + monthly return)^months - 1) / monthly return] × (1 + monthly return)",
+      "note": "Educational estimate only. Actual returns depend on market performance."
+    },
+    "howToUse": [
+      "Choose investment mode: SIP, Lumpsum, or SWP.",
+      "Enter amount, expected return, and duration.",
+      "Review total invested, future value, and estimated gains."
+    ],
+    "assumptions": [
+      "Expected return is not guaranteed.",
+      "SIP assumes monthly investments at start of each month.",
+      "Does not include exit loads, expense ratios, or tax effects."
+    ],
+    "contentSections": [
+      {
+        "heading": "How does a mutual fund calculator work?",
+        "body": "Estimates how investments may grow using SIP, lumpsum, or SWP inputs."
+      },
+      {
+        "heading": "SIP vs lumpsum: which is better?",
+        "body": "SIP reduces timing risk through rupee-cost averaging. Lumpsum suits windfalls or market dips."
+      },
+      {
+        "heading": "Ideal investment horizon?",
+        "body": "Equity MF: 7-10+ years. Debt MF: 1-3 years. Hybrid: 3-5 years."
+      },
+      {
+        "heading": "How does inflation affect returns?",
+        "body": "If inflation is 6% and return is 12%, real return is ~6%."
+      },
+      {
+        "heading": "Is mutual fund investment safe?",
+        "body": "Regulated by SEBI. Not risk-free — equity funds can lose value short term."
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10"
+  },
+  {
+    "slug": "retirement-calculator-india",
+    "name": "Retirement Calculator India",
+    "seoTitle": "Retirement Calculator India 2026 — Corpus Needed & Monthly Savings",
+    "category": "Planning",
+    "status": "live",
+    "targetKeyword": "retirement calculator india",
+    "shortDescription": "Calculate retirement corpus needed, monthly savings required, and estimate retirement income from investments and pension.",
+    "metaDescription": "Free retirement calculator India 2026. Estimate corpus needed for retirement, monthly savings, and retirement income from investments and NPS.",
+    "inputs": [
+      {
+        "key": "currentAge",
+        "label": "Current age",
+        "unit": "years",
+        "default": 30,
+        "min": 22,
+        "max": 65,
+        "step": 1
+      },
+      {
+        "key": "retirementAge",
+        "label": "Retirement age",
+        "unit": "years",
+        "default": 60,
+        "min": 55,
+        "max": 70,
+        "step": 1
+      },
+      {
+        "key": "expectedLifeAge",
+        "label": "Expected life age",
+        "unit": "years",
+        "default": 85,
+        "min": 75,
+        "max": 95,
+        "step": 1
+      },
+      {
+        "key": "monthlyExpenseNow",
+        "label": "Current monthly expenses",
+        "unit": "₹",
+        "default": 50000,
+        "min": 10000,
+        "step": 1000
+      },
+      {
+        "key": "expenseReductionPercent",
+        "label": "Expense reduction post-retirement",
+        "unit": "%",
+        "default": 20,
+        "min": 0,
+        "max": 50,
+        "step": 5
+      },
+      {
+        "key": "inflationRate",
+        "label": "Annual inflation rate",
+        "unit": "%",
+        "default": 6,
+        "min": 2,
+        "max": 10,
+        "step": 0.5
+      },
+      {
+        "key": "postRetirementReturn",
+        "label": "Post-retirement investment return",
+        "unit": "%",
+        "default": 8,
+        "min": 4,
+        "max": 12,
+        "step": 0.5
+      },
+      {
+        "key": "existingCorpus",
+        "label": "Existing retirement corpus (₹)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "monthlySip",
+        "label": "Monthly SIP towards retirement (₹)",
+        "unit": "₹",
+        "default": 10000,
+        "min": 0,
+        "step": 500
+      },
+      {
+        "key": "sipReturn",
+        "label": "Expected SIP return",
+        "unit": "%",
+        "default": 12,
+        "min": 5,
+        "max": 18,
+        "step": 0.5
+      }
+    ],
+    "outputs": [
+      {
+        "key": "yearsToRetire",
+        "label": "Years to retirement",
+        "formula": "retirementAge - currentAge",
+        "format": "number"
+      },
+      {
+        "key": "monthlyExpenseAtRetirement",
+        "label": "Monthly expenses at retirement (today's value)",
+        "formula": "monthlyExpenseNow * (1 - expenseReductionPercent / 100)",
+        "format": "currency"
+      },
+      {
+        "key": "annualExpenseAtRetirement",
+        "label": "Annual expenses at retirement (inflation-adjusted)",
+        "formula": "monthlyExpenseNow * (1 - expenseReductionPercent / 100) * 12 * (1 + inflationRate / 100) ^ (retirementAge - currentAge)",
+        "format": "currency"
+      },
+      {
+        "key": "retirementCorpusNeeded",
+        "label": "Retirement corpus needed (in today's terms)",
+        "formula": "monthlyExpenseNow * (1 - expenseReductionPercent / 100) * 12 * ((1 - (1 + max(postRetirementReturn / 100 - inflationRate / 100, 0.01)) ^ (0 - (expectedLifeAge - retirementAge))) / max(postRetirementReturn / 100 - inflationRate / 100, 0.01))",
+        "format": "currency"
+      },
+      {
+        "key": "futureCorpusNeeded",
+        "label": "Retirement corpus needed (at retirement, inflation-adjusted)",
+        "formula": "retirementCorpusNeeded * (1 + inflationRate / 100) ^ (retirementAge - currentAge)",
+        "format": "currency"
+      },
+      {
+        "key": "futureExistingCorpus",
+        "label": "Future value of existing corpus",
+        "formula": "existingCorpus * (1 + sipReturn / 100) ^ (retirementAge - currentAge)",
+        "format": "currency"
+      },
+      {
+        "key": "futureSipCorpus",
+        "label": "Future value of monthly SIP",
+        "formula": "monthlySip * (((1 + sipReturn / 12 / 100) ^ ((retirementAge - currentAge) * 12) - 1) / (sipReturn / 12 / 100)) * (1 + sipReturn / 12 / 100)",
+        "format": "currency"
+      },
+      {
+        "key": "totalFutureCorpus",
+        "label": "Total projected retirement corpus",
+        "formula": "futureExistingCorpus + futureSipCorpus",
+        "format": "currency"
+      },
+      {
+        "key": "corpusShortfall",
+        "label": "Corpus shortfall (if any)",
+        "formula": "max(0, futureCorpusNeeded - totalFutureCorpus)",
+        "format": "currency"
+      },
+      {
+        "key": "requiredMonthlySip",
+        "label": "Required monthly SIP to meet target",
+        "formula": "corpusShortfall * (sipReturn / 12 / 100) / ((((1 + (sipReturn / 12 / 100)) ^ ((retirementAge - currentAge) * 12)) - 1) * (1 + (sipReturn / 12 / 100)))",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Retirement corpus = (monthly expenses at retirement × years in retirement) / (post-retirement return - inflation rate). Uses perpetuity formula.",
+    "example": "A 30-year-old earning ₹50,000/month wanting to retire at 60 needs approximately ₹1.5-2 crore corpus (today's value) at 6% inflation and 8% post-retirement return.",
+    "faqs": [
+      {
+        "question": "How much corpus do I need for retirement?",
+        "answer": "A common estimate is 20-25x your annual expenses at retirement. For ₹6 lakh/year expenses, you need ₹1.2-1.5 crore."
+      },
+      {
+        "question": "When should I start planning for retirement?",
+        "answer": "The earlier, the better. Starting at 25 vs 35 can reduce required monthly SIP by 40-50% due to compounding."
+      },
+      {
+        "question": "What investments are best for retirement?",
+        "answer": "Pre-retirement: Equity mutual funds (SIP) for growth. Post-retirement: Debt instruments and balanced portfolios."
+      },
+      {
+        "question": "Should I rely on NPS for retirement?",
+        "answer": "NPS is a good tool with tax benefits (80CCD), but use it as part of a diversified plan including PF, PPF, and mutual funds."
+      },
+      {
+        "question": "What is the 4% rule in retirement planning?",
+        "answer": "Withdraw 4% of corpus annually (adjusted for inflation). For ₹1 crore, this gives ₹4 lakh/year."
+      },
+      {
+        "question": "How does inflation affect retirement planning?",
+        "answer": "₹50,000/month today may need ₹1.2-1.5 lakh/month at retirement (6% inflation, 30 years)."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "ppf-calculator-india",
+      "nps-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "Retirement Calculator Quick Answer",
+      "question": "How much do I need for retirement?",
+      "answer": "Typically 20-25x your annual expenses at retirement. For ₹6 lakh/year, you need ₹1.2-1.5 crore (today's value).",
+      "note": "Educational estimate. Actual needs depend on lifestyle, healthcare costs, and inflation."
+    },
+    "howToUse": [
+      "Enter current age, retirement age, and expected life age.",
+      "Enter current monthly expenses and reduction post-retirement.",
+      "Enter existing corpus and current monthly SIP.",
+      "Review corpus needed, projected corpus, and shortfall."
+    ],
+    "assumptions": [
+      "Expenses reduce post-retirement (no EMI, fewer discretionary expenses).",
+      "Inflation is constant throughout the planning period.",
+      "Returns are estimated — actual returns vary.",
+      "No Social Security or pension income included."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why retirement planning matters",
+        "body": "India's average life expectancy is 70+ years. With retirement at 60, you may need funds for 25+ years."
+      },
+      {
+        "heading": "The power of starting early",
+        "body": "Investing ₹5,000/month from age 25 at 12% gives ₹1.1 crore by 60. Starting at 35 requires ₹12,000/month."
+      },
+      {
+        "heading": "Common retirement mistakes",
+        "body": "Underestimating expenses, ignoring inflation, not diversifying, relying only on PF/NPS, and starting too late."
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10"
+  },
+  {
+    "slug": "stock-portfolio-calculator-india",
+    "name": "Stock Portfolio Calculator India",
+    "seoTitle": "Stock Portfolio Calculator India — Returns, Gains & Dividends",
+    "category": "Investments",
+    "status": "live",
+    "targetKeyword": "stock portfolio calculator india",
+    "shortDescription": "Calculate stock portfolio returns, capital gains, dividend yield, and compare with benchmarks like Nifty 50 and Sensex.",
+    "metaDescription": "Free stock portfolio calculator India. Track gains, losses, dividend income, and returns on your equity investments. Compare with Nifty 50.",
+    "inputs": [
+      {
+        "key": "totalInvested",
+        "label": "Total invested amount (₹)",
+        "unit": "₹",
+        "default": 500000,
+        "min": 1000,
+        "step": 1000
+      },
+      {
+        "key": "currentValue",
+        "label": "Current portfolio value (₹)",
+        "unit": "₹",
+        "default": 650000,
+        "min": 1,
+        "step": 1000
+      },
+      {
+        "key": "totalDividendsReceived",
+        "label": "Total dividends received (₹)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 500
+      },
+      {
+        "key": "holdingPeriodYears",
+        "label": "Holding period (years)",
+        "unit": "years",
+        "default": 5,
+        "min": 1,
+        "max": 30,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "totalGainLoss",
+        "label": "Total capital gain/loss (₹)",
+        "formula": "currentValue - totalInvested",
+        "format": "currency"
+      },
+      {
+        "key": "totalGainLossPercent",
+        "label": "Total return % (capital only)",
+        "formula": "((currentValue - totalInvested) / totalInvested) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "totalReturnWithDividends",
+        "label": "Total return % (including dividends)",
+        "formula": "((currentValue + totalDividendsReceived - totalInvested) / totalInvested) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "annualizedReturn",
+        "label": "Annualized return % (CAGR)",
+        "formula": "(((currentValue + totalDividendsReceived) / totalInvested) ^ (1 / holdingPeriodYears) - 1) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "dividendYield",
+        "label": "Dividend yield %",
+        "formula": "(totalDividendsReceived / currentValue) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "annualDividendIncome",
+        "label": "Annual dividend income (₹)",
+        "formula": "totalDividendsReceived / holdingPeriodYears",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Capital gain = current value - total invested. CAGR = ((ending value / beginning value) ^ (1/years)) - 1.",
+    "example": "If you invested ₹5,00,000 and portfolio is now worth ₹6,50,000 with ₹25,000 in dividends over 5 years, CAGR is ~5.5% and total return is 35%.",
+    "faqs": [
+      {
+        "question": "How to calculate stock portfolio returns?",
+        "answer": "Portfolio return = (current value + dividends - total invested) / total invested × 100. For annualized: CAGR formula."
+      },
+      {
+        "question": "Difference between absolute return and CAGR?",
+        "answer": "Absolute return is total gain over the period. CAGR annualizes the return for meaningful comparison."
+      },
+      {
+        "question": "How are stock gains taxed?",
+        "answer": "Equity: ST at 15% (≤12 months). LTCG above ₹1L/year taxed at 12% (>12 months). Dividends taxed at slab rate."
+      },
+      {
+        "question": "What is a good stock market return?",
+        "answer": "Nifty 50 has historically returned 12-14% CAGR over 10+ years."
+      },
+      {
+        "question": "How to compare with Nifty 50?",
+        "answer": "Calculate your portfolio CAGR and compare with Nifty 50 over same period. Consider volatility and drawdowns too."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "cagr-calculator-india",
+      "mutual-fund-calculator-india",
+      "capital-gains-tax-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "Stock Portfolio Calculator Quick Answer",
+      "question": "How do I calculate my stock portfolio returns?",
+      "answer": "Total return = (current value + dividends - invested) / invested × 100. Annualized (CAGR) = ((ending/beginning)^(1/years)) - 1.",
+      "note": "Does not account for buy/sell transaction costs or taxes."
+    },
+    "howToUse": [
+      "Enter total amount invested in stocks.",
+      "Enter current portfolio market value.",
+      "Enter total dividends received and holding period.",
+      "Review capital gain/loss, CAGR, and dividend yield."
+    ],
+    "assumptions": [
+      "Total invested is user-entered.",
+      "Current value is approximate market value.",
+      "Dividends are fully recorded.",
+      "Does not account for transaction costs or taxes."
+    ],
+    "contentSections": [
+      {
+        "heading": "How to calculate stock portfolio returns",
+        "body": "Track total invested amount, current market value, and dividends received. Calculate absolute return and annualized CAGR."
+      },
+      {
+        "heading": "Why track portfolio returns?",
+        "body": "Tracking helps evaluate investment decisions, compare with benchmarks, identify underperformers, and make informed rebalancing decisions."
+      },
+      {
+        "heading": "How to beat the market?",
+        "body": "Focus on diversification, low-cost index funds, long-term horizon, and avoiding emotional decisions. Most active managers underperform indices over 10+ years."
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10"
   }
 ]
