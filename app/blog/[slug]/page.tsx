@@ -4,6 +4,7 @@ import { blogPosts } from '@/data/all-blog-posts';
 import { getDiscoverImage } from '@/data/discover-images';
 import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
 import FcraArticleLayout from '@/components/blog/FcraArticleLayout';
+import FcraOriginalMedia from '@/components/blog/FcraOriginalMedia';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_POLICY_URL,
@@ -108,6 +109,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
     {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
-    {isFcraGuide ? <FcraArticleLayout post={postWithHero} /> : <BlogArticleLayout post={postWithHero} />}
+    {isFcraGuide ? <><FcraArticleLayout post={postWithHero} /><FcraOriginalMedia /></> : <BlogArticleLayout post={postWithHero} />}
   </>;
 }

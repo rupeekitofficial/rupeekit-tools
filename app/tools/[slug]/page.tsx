@@ -9,6 +9,7 @@ import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
+import AnalyticsLink from '@/components/AnalyticsLink';
 import EditorialByline from '@/components/seo/EditorialByline';
 import { editorialTeamRef } from '@/lib/seo/editorial';
 import { getGuidesForTool } from '@/data/calculator-guides';
@@ -22,8 +23,6 @@ const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
 const CAPITAL_GAINS_SLUG = 'capital-gains-tax-calculator-india';
 const EIGHTH_PAY_SLUG = '8th-pay-commission-salary-calculator-india';
-const PPF_SLUG = 'ppf-calculator-india';
-const NPS_SLUG = 'nps-calculator-india';
 const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
   'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 
@@ -83,18 +82,65 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
       'Estimate your revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Illustrative until the official recommendations are notified.',
     lastReviewedIso: '2026-08-03',
   },
-  [PPF_SLUG]: {
-    title: 'PPF Calculator India 2026 - Maturity & Tax-Free Interest',
-    description:
-      'See your PPF maturity and tax-free interest at the current 7.1% notified rate. Enter yearly deposit and tenure to get the formula and a 15-year worked example.',
-  },
-  [NPS_SLUG]: {
+  // Titles for these two are the H1-aligned rewrites from the Aug 2026 SEO
+  // analysis; it calls out the previous "PPF Calculator India | 15-Year
+  // Maturity & Interest" as a title/H1 mismatch driving Google rewrites.
+  'nps-calculator-india': {
     title: 'NPS Calculator India 2026 - Pension & Corpus Estimate',
     description:
       'Estimate your NPS corpus, lump sum and monthly pension at retirement. Adjust contribution, return and annuity assumptions. Free, with a worked example.',
   },
+  'ppf-calculator-india': {
+    title: 'PPF Calculator India 2026 - Maturity & Tax-Free Interest',
+    description:
+      'See your PPF maturity and tax-free interest at the current 7.1% notified rate. Enter yearly deposit and tenure to get the formula and a 15-year worked example.',
+  },
+  'step-up-sip-calculator-india': {
+    title: 'Step-Up SIP Calculator | Annual Increase & Corpus',
+    description:
+      'Estimate your step-up SIP corpus, total invested amount and gains clearly when your monthly contribution rises by a chosen percentage every year.',
+  },
+  'cagr-calculator-india': {
+    title: 'CAGR Calculator India | Growth Rate From Start to End',
+    description:
+      'Calculate compound annual growth rate from starting value, ending value and holding period, with the absolute gain shown for your investment.',
+  },
+  'personal-loan-eligibility-calculator-india': {
+    title: 'Personal Loan Eligibility Calculator | Income & FOIR',
+    description:
+      'Estimate maximum affordable EMI and personal-loan eligibility from take-home income, existing EMIs, FOIR, expected rate and selected tenure.',
+  },
+  'net-worth-calculator-india': {
+    title: 'Net Worth Calculator India | Assets, Debt & Liquid Worth',
+    description:
+      'Calculate total assets, liabilities, personal net worth, liquid net worth and debt-to-asset ratio from your current financial balances in one view.',
+  },
+  'gold-loan-calculator-india': {
+    title: 'Gold Loan Calculator India | Value, LTV, EMI & Interest',
+    description:
+      'Estimate pledged-gold value, eligible loan amount, monthly EMI and total interest using weight, purity, entered gold price, LTV, rate and tenure.',
+  },
+  'sukanya-samriddhi-yojana-calculator-india': {
+    title: 'SSY Calculator India | Deposit, Interest & Maturity',
+    description:
+      'Estimate Sukanya Samriddhi maturity value, total deposits and interest at age 21 from the child’s age, annual contribution and entered SSY rate.',
+  },
+  'salary-in-hand-calculator-india': {
+    title: 'Salary In-Hand Calculator | CTC, PF, Tax & Take-Home',
+    description:
+      'Estimate monthly gross pay, basic salary, employee PF and take-home salary from annual CTC, salary structure, tax and other deductions each month.',
+  },
   'fd-calculator-india': {
     lastReviewedIso: '2026-05-01',
+  },
+  'salary-hike-calculator-india': {
+    title: 'Salary Hike Calculator India 2026 | New Salary After Hike',
+    description:
+      'Calculate your new salary after a hike percentage and see the annual and monthly increase in India. Gross estimate before tax and deductions.',
+    h1: 'Salary Hike Calculator India',
+    heroDescription:
+      'Enter your current annual salary and hike percentage to see your new annual salary, annual increase and approximate monthly increase. This is a gross before-tax estimate — your actual in-hand increase also depends on the new tax slab, PF, professional tax and other deductions.',
+    lastReviewedIso: '2026-08-08',
   },
 };
 
@@ -172,6 +218,93 @@ const PERSONAL_LOAN_SECTION_IDS: Record<string, string> = {
 type ContextualLink = {
   href: string;
   label: string;
+};
+
+type SearchIntentSection = {
+  heading: string;
+  body: string;
+  bullets: string[];
+};
+
+const BURIED_TOOL_INTENT_CONTENT: Record<string, SearchIntentSection[]> = {
+  'personal-loan-eligibility-calculator-india': [
+    {
+      heading: 'Personal loan eligibility by monthly salary',
+      body:
+        'Salary-band searches are only starting points because existing EMIs, FOIR, rate and tenure change the result. With no existing EMI, 50% FOIR, 14% annual rate and 48 months, the calculator gives these illustrative amounts:',
+      bullets: [
+        'Rs 12,000 salary: about Rs 2.20 lakh',
+        'Rs 13,000 salary: about Rs 2.38 lakh',
+        'Rs 14,000 salary: about Rs 2.56 lakh',
+        'Rs 25,000 salary: about Rs 4.57 lakh',
+        'Rs 40,000 salary: about Rs 7.32 lakh',
+        'Rs 45,000 salary: about Rs 8.23 lakh',
+      ],
+    },
+    {
+      heading: 'FOIR and bank-wise eligibility checks',
+      body:
+        'FOIR is the share of take-home income already committed to EMIs plus the proposed EMI. Bank-wise approval is not uniform: each lender applies its own minimum-income, employer, age, bureau-score, city, tenure and internal credit rules.',
+      bullets: [
+        'Use the calculator for an eligibility check before comparing lender offers.',
+        'Enter every current EMI; omitting one can materially overstate eligibility.',
+        'For SBI, HDFC Bank, ICICI Bank, Axis Bank or another lender, verify current criteria on that lender’s official website.',
+        'A calculator estimate is not pre-approval, sanction or a guaranteed loan amount.',
+      ],
+    },
+  ],
+  'net-worth-calculator-india': [
+    {
+      heading: 'Total net worth versus liquid net worth',
+      body:
+        'Total net worth includes property and other illiquid assets. Liquid net worth focuses on cash, deposits and market investments after non-property debts, which can be more useful for near-term resilience.',
+      bullets: [
+        'Total net worth = all assets minus all liabilities.',
+        'Liquid assets = cash, deposits, mutual funds and stocks entered above.',
+        'Liquid net worth = liquid assets minus personal loans, cards and other non-property liabilities.',
+        'Debt-to-asset ratio shows how much of the asset base is matched by debt.',
+      ],
+    },
+  ],
+  'gold-loan-calculator-india': [
+    {
+      heading: 'Gold-loan eligibility check: value, LTV and repayment',
+      body:
+        'The estimate separates assessed gold value from the eligible loan and then calculates EMI and interest. Change weight, purity, entered reference price and LTV to compare lender quotations on the same assumptions.',
+      bullets: [
+        'Only eligible gold content should be entered; stones and non-gold attachments may not be valued.',
+        'A lower LTV reduces the loan amount and repayment burden.',
+        'Compare EMI-based, interest-servicing and bullet-repayment terms directly with the lender.',
+        'The calculator does not fetch a live gold price or promise lender approval.',
+      ],
+    },
+  ],
+  'sukanya-samriddhi-yojana-calculator-india': [
+    {
+      heading: 'SSY maturity by child age and annual deposit',
+      body:
+        'Use the child’s current age to estimate the time remaining to maturity, then compare annual deposit scenarios. The output separates total deposits from estimated interest so the compounding effect is visible.',
+      bullets: [
+        'Compare the minimum planned deposit with a higher annual contribution.',
+        'Change the entered SSY rate when the government-announced rate changes.',
+        'Review total deposited, total interest and estimated maturity value together.',
+        'Verify current scheme rules and rates with India Post or another official source.',
+      ],
+    },
+  ],
+  'salary-in-hand-calculator-india': [
+    {
+      heading: 'CTC-to-take-home checks across salary offers',
+      body:
+        'Use the same fields to compare Rs 6 lakh, Rs 10 lakh, Rs 15 lakh or another annual CTC. The result is strongest when basic pay, PF, monthly TDS and deductions come from the actual offer letter or payslip.',
+      bullets: [
+        'CTC can include employer costs that are not paid as monthly cash salary.',
+        'Employee PF, TDS, professional tax and other deductions reduce take-home pay.',
+        'Bonus, variable pay, insurance and gratuity treatment varies by employer structure.',
+        'Compare offers using monthly in-hand pay as well as total annual CTC.',
+      ],
+    },
+  ],
 };
 
 function getToolHeading(slug: string, fallback: string) {
@@ -732,6 +865,18 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           label: 'loan foreclosure net-savings calculator',
         }
       : null,
+    liveToolSlugs.has('personal-loan-true-apr-calculator-india')
+      ? {
+          href: '/tools/personal-loan-true-apr-calculator-india',
+          label: 'personal loan true APR calculator including fees and GST',
+        }
+      : null,
+    liveToolSlugs.has('reduce-emi-vs-tenure-calculator-india')
+      ? {
+          href: '/tools/reduce-emi-vs-tenure-calculator-india',
+          label: 'reduce EMI versus tenure comparison calculator',
+        }
+      : null,
     liveToolSlugs.has('salary-in-hand-calculator-india')
       ? { href: '/tools/salary-in-hand-calculator-india', label: 'in-hand salary calculator to check EMI affordability' }
       : null,
@@ -767,6 +912,15 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   ].filter((item): item is ContextualLink => item !== null);
 
   const sipLinks: ContextualLink[] = [
+    liveToolSlugs.has('step-up-sip-calculator-india')
+      ? { href: '/tools/step-up-sip-calculator-india', label: 'step-up SIP calculator for annual contribution increases' }
+      : null,
+    liveToolSlugs.has('lumpsum-calculator-india')
+      ? { href: '/tools/lumpsum-calculator-india', label: 'lumpsum calculator for one-time investments' }
+      : null,
+    liveToolSlugs.has('cagr-calculator-india')
+      ? { href: '/tools/cagr-calculator-india', label: 'CAGR calculator for annualised growth' }
+      : null,
     liveToolSlugs.has('fd-calculator-india')
       ? { href: '/tools/fd-calculator-india', label: 'FD calculator for fixed-return comparison' }
       : null,
@@ -788,6 +942,16 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     { href: '/resources', label: 'RupeeKit resources hub' },
   ].filter((item): item is ContextualLink => item !== null);
 
+  if (
+    tool.slug === 'home-loan-emi-calculator-india' &&
+    liveToolSlugs.has('home-affordability-calculator-india')
+  ) {
+    contextualLinks.unshift({
+      href: '/tools/home-affordability-calculator-india',
+      label: 'home affordability calculator based on income and existing EMIs',
+    });
+  }
+
   const taxGuideHref = '/blog/itr-2-ay-2026-27-filing-guide';
   const taxGuideToolSlugs = new Set([
     'income-tax-calculator-old-vs-new-regime-india',
@@ -800,6 +964,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const effectiveQuickAnswer = tool.quickAnswer ?? buildFallbackQuickAnswer(tool);
   const genericAnswerEngineSummary = buildGenericAnswerEngineSummary(tool);
   const genericCalculatorFacts = buildGenericCalculatorFacts(tool);
+  const buriedIntentSections = BURIED_TOOL_INTENT_CONTENT[tool.slug] ?? [];
   const personalLoanFacts = [
     {
       topic: 'EMI formula',
@@ -1104,6 +1269,20 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         </>
       )}
 
+      {buriedIntentSections.length > 0 ? (
+        <section className="mt-8 grid gap-5 lg:grid-cols-2">
+          {buriedIntentSections.map((section) => (
+            <article key={section.heading} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-brandDeepNavy">{section.heading}</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-700">{section.body}</p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+                {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+              </ul>
+            </article>
+          ))}
+        </section>
+      ) : null}
+
       {supportingGuides.length > 0 ? (
         <section className="mt-8 rounded-3xl border border-sky-200 bg-sky-50 p-5 md:p-7">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -1111,19 +1290,29 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-sky-800">Supporting answers</p>
               <h2 className="mt-2 text-2xl font-bold text-slate-950">Questions this calculator helps answer</h2>
             </div>
-            <Link href="/guides" className="text-sm font-bold text-sky-800 hover:underline">
+            <AnalyticsLink
+              href="/guides"
+              analyticsEvent="tool_cta_click"
+              toolSlug={tool.slug}
+              toolCategory={tool.category}
+              ctaType="resource"
+              className="text-sm font-bold text-sky-800 hover:underline"
+            >
               Browse all calculator guides
-            </Link>
+            </AnalyticsLink>
           </div>
           <div className="mt-5 grid gap-3 md:grid-cols-2">
             {supportingGuides.map((guide) => (
-              <Link
+              <AnalyticsLink
                 key={guide.slug}
                 href={`/guides/${guide.slug}`}
+                analyticsEvent="guide_click"
+                toolSlug={tool.slug}
+                toolCategory={tool.category}
                 className="rounded-2xl border border-sky-100 bg-white p-4 font-bold text-slate-900 transition hover:border-sky-300 hover:text-sky-800 hover:shadow-sm"
               >
                 {guide.title}
-              </Link>
+              </AnalyticsLink>
             ))}
           </div>
         </section>
@@ -1525,9 +1714,16 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                     {personalLoanLinks.map((link, index) => (
                       <span key={link.href}>
                         {index > 0 ? ', ' : ''}
-                        <Link href={link.href} className="font-medium text-sky-700 hover:underline">
+                        <AnalyticsLink
+                          href={link.href}
+                          analyticsEvent={link.href.startsWith('/guides/') ? 'guide_click' : 'tool_cta_click'}
+                          toolSlug={tool.slug}
+                          toolCategory={tool.category}
+                          ctaType={link.href.startsWith('/tools/') ? 'related_tool' : 'resource'}
+                          className="font-medium text-sky-700 hover:underline"
+                        >
                           {link.label}
-                        </Link>
+                        </AnalyticsLink>
                       </span>
                     ))}
                     .
@@ -1543,9 +1739,16 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                     {emergencyFundLinks.map((link, index) => (
                       <span key={link.href}>
                         {index > 0 ? ', ' : ''}
-                        <Link href={link.href} className="font-medium text-sky-700 hover:underline">
+                        <AnalyticsLink
+                          href={link.href}
+                          analyticsEvent={link.href.startsWith('/guides/') ? 'guide_click' : 'tool_cta_click'}
+                          toolSlug={tool.slug}
+                          toolCategory={tool.category}
+                          ctaType={link.href.startsWith('/tools/') ? 'related_tool' : 'resource'}
+                          className="font-medium text-sky-700 hover:underline"
+                        >
                           {link.label}
-                        </Link>
+                        </AnalyticsLink>
                       </span>
                     ))}
                     .
@@ -1561,9 +1764,16 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                     {hraLinks.map((link, index) => (
                       <span key={link.href}>
                         {index > 0 ? ', ' : ''}
-                        <Link href={link.href} className="font-medium text-sky-700 hover:underline">
+                        <AnalyticsLink
+                          href={link.href}
+                          analyticsEvent={link.href.startsWith('/guides/') ? 'guide_click' : 'tool_cta_click'}
+                          toolSlug={tool.slug}
+                          toolCategory={tool.category}
+                          ctaType={link.href.startsWith('/tools/') ? 'related_tool' : 'resource'}
+                          className="font-medium text-sky-700 hover:underline"
+                        >
                           {link.label}
-                        </Link>
+                        </AnalyticsLink>
                       </span>
                     ))}
                     .
@@ -1579,9 +1789,16 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                     {contextualLinks.map((link, index) => (
                       <span key={link.href}>
                         {index > 0 ? ', ' : ''}
-                        <Link href={link.href} className="font-medium text-sky-700 hover:underline">
+                        <AnalyticsLink
+                          href={link.href}
+                          analyticsEvent={link.href.startsWith('/guides/') ? 'guide_click' : 'tool_cta_click'}
+                          toolSlug={tool.slug}
+                          toolCategory={tool.category}
+                          ctaType={link.href.startsWith('/tools/') ? 'related_tool' : 'resource'}
+                          className="font-medium text-sky-700 hover:underline"
+                        >
                           {link.label}
-                        </Link>
+                        </AnalyticsLink>
                       </span>
                     ))}
                     .
@@ -1610,14 +1827,18 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             <div className="mt-5 grid gap-3">
               {related.length > 0 ? (
                 related.map((item) => (
-                  <Link
+                  <AnalyticsLink
                     key={item.slug}
                     href={`/tools/${item.slug}`}
+                    analyticsEvent="tool_cta_click"
+                    toolSlug={tool.slug}
+                    toolCategory={tool.category}
+                    ctaType="related_tool"
                     className="rounded-2xl border border-slate-200 p-4 transition hover:border-sky-200 hover:bg-sky-50"
                   >
                     <p className="font-bold text-slate-950">{item.name}</p>
                     <p className="mt-1 text-sm leading-5 text-slate-600">{item.shortDescription}</p>
-                  </Link>
+                  </AnalyticsLink>
                 ))
               ) : (
                 <p className="text-sm text-slate-600">More related calculators will be added soon.</p>

@@ -67,7 +67,7 @@ export default function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-brandBorder bg-white dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
-        <div className="grid gap-8 md:grid-cols-[2fr_1fr_1fr_1fr]">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Logo & About Section */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">

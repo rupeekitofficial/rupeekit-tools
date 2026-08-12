@@ -12,8 +12,6 @@ import { calculateIndianIncomeTax, type TaxInput } from '@/lib/tax/calculator';
 import { availableTaxYears, indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
-const TARGET_FY = '2025-26';
-const TARGET_AY = '2026-27';
 const PAGE_URL = `${SITE_URL}/tools/income-tax-calculator-old-vs-new-regime-india`;
 const DISCOVER_IMAGE = getDiscoverImage('/tools/income-tax-calculator-old-vs-new-regime-india');
 const DISCOVER_IMAGE_URL = DISCOVER_IMAGE ? `${SITE_URL}${DISCOVER_IMAGE.src}` : undefined;
@@ -21,9 +19,14 @@ const DISCOVER_IMAGE_URL = DISCOVER_IMAGE ? `${SITE_URL}${DISCOVER_IMAGE.src}` :
 const latestSupportedFy = availableTaxYears[0];
 const latestSupportedRules = indiaIncomeTaxRules[latestSupportedFy];
 
-const pageTitle = 'Old vs New Tax Regime Calculator India FY 2025-26 | Free';
+// Derived from the rules table so the copy cannot drift from the year actually
+// used for the calculations below.
+const TARGET_FY = latestSupportedFy;
+const TARGET_AY = latestSupportedRules.ay;
+
+const pageTitle = 'Old vs New Tax Regime Calculator | Compare Tax & Savings';
 const pageDescription =
-  'Compare old and new tax regimes for FY 2025-26 (AY 2026-27) using salary, standard deduction, HRA, 80C, 80D, NPS and home-loan assumptions. Free and instant.';
+  'Compare estimated tax under old and new regimes using salary, deductions, HRA, 80C, 80D, NPS and home-loan inputs for the selected financial year.';
 
 function formatInr(value: number) {
   return `Rs ${Math.round(value).toLocaleString('en-IN')}`;
@@ -173,7 +176,7 @@ const faqs = [
   },
   {
     question: 'Which financial years are currently supported here?',
-    answer: `This calculator supports ${availableTaxYears.map((year) => `FY ${year}`).join(', ')}. FY 2025-26 (AY 2026-27) is the default and uses the Finance Act, 2025 new-regime slabs, the Rs 75,000 standard deduction for salaried taxpayers, the Section 87A rebate up to Rs 60,000 with marginal relief, and 4% health and education cess.`,
+    answer: `This calculator supports ${availableTaxYears.map((year) => `FY ${year}`).join(', ')}. FY ${TARGET_FY} (AY ${TARGET_AY}) is the default. Budget 2026 left the new-regime slabs unchanged, so it applies the Finance Act, 2025 slabs, the Rs 75,000 standard deduction for salaried taxpayers, the Section 87A rebate up to Rs 60,000 with marginal relief, and 4% health and education cess.`,
   },
   {
     question: 'Does this calculator handle capital gains or other special-rate income?',
@@ -189,6 +192,15 @@ const faqs = [
     question: 'Is there a free online calculator to compare old vs new tax regime?',
     answer:
       'Yes. This page is a free online old vs new tax regime calculator for India. Enter your income and deductions to instantly compare estimated tax under both regimes, with no signup required.',
+  },
+  {
+    question: 'नई और पुरानी टैक्स रिज़ीम में कौन सी बेहतर है?',
+    answer:
+      'यह पूरी तरह आपकी कटौतियों (deductions) पर निर्भर करता है। नई रिज़ीम में दरें कम हैं लेकिन 80C, HRA, 80D जैसी अधिकांश छूट नहीं मिलतीं; पुरानी रिज़ीम में दरें ऊँची हैं पर ये छूट उपलब्ध हैं। अगर आप HRA, होम लोन ब्याज और 80C का पूरा लाभ लेते हैं तो पुरानी रिज़ीम फ़ायदेमंद हो सकती है, वरना आमतौर पर नई रिज़ीम बेहतर बैठती है। कोई एक नियम सबके लिए सही नहीं है — ऊपर दिए कैलकुलेटर में अपने वास्तविक आँकड़े डालकर दोनों की तुलना करें।',
+  },
+  {
+    question: '12 लाख की आय पर कितना टैक्स लगेगा?',
+    answer: `नई टैक्स रिज़ीम में वित्त वर्ष ${TARGET_FY} के लिए, यदि आपकी सामान्य दर वाली कर योग्य आय ₹12 लाख तक है तो धारा 87A की छूट (अधिकतम ₹60,000) से कर शून्य हो सकता है। वेतनभोगी करदाताओं के लिए ₹75,000 की स्टैंडर्ड डिडक्शन जोड़कर यह सीमा लगभग ₹12.75 लाख सकल वेतन तक पहुँच जाती है। ₹12 लाख से थोड़ा ऊपर जाने पर पूरा टैक्स एकदम से नहीं लगता — मार्जिनल रिलीफ़ के कारण सेस से पहले कर उतना ही सीमित रहता है जितनी आय ₹12 लाख से ऊपर है। विशेष दर वाली आय होने पर गणना बदल सकती है।`,
   },
 ];
 

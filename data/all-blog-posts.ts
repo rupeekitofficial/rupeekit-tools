@@ -1,5 +1,8 @@
 import { blogPosts as coreBlogPosts } from './blog-posts';
 import { extraBlogPosts } from './extra-blog-posts';
+import { day4ComplianceBlogPosts } from './day4-compliance-blog-posts';
+import { day7ComparisonBlogPosts } from './day7-comparison-blog-posts';
+import { CONSOLIDATED_BLOG_SLUGS } from '../lib/consolidated-routes';
 
 export type {
   BlogPost,
@@ -9,4 +12,9 @@ export type {
   BlogQuickAnswerLink,
 } from './blog-posts';
 
-export const blogPosts = [...extraBlogPosts, ...coreBlogPosts];
+export const blogPosts = [
+  ...day7ComparisonBlogPosts,
+  ...day4ComplianceBlogPosts,
+  ...extraBlogPosts,
+  ...coreBlogPosts,
+].filter((post) => !CONSOLIDATED_BLOG_SLUGS.has(post.slug));

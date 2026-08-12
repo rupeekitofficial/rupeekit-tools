@@ -2,14 +2,26 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const manifestPath = path.join(root, 'data', 'discover-images.json');
-const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const manifest = [
+  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images.json'), 'utf8')),
+  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images-fcra.json'), 'utf8')),
+];
 const baseTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'tools.json'), 'utf8'));
 const growthTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'growth-tools.json'), 'utf8'));
+const decisionTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'decision-tools-2026.json'), 'utf8'));
 const insuranceTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'insurance-tools-2026.json'), 'utf8'));
 const investingTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'investing-tools-2026.json'), 'utf8'));
-const tools = [...baseTools, ...growthTools, ...insuranceTools, ...investingTools];
+const lifestageTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'lifestage-tools-2026.json'), 'utf8'));
+const tools = [...baseTools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools];
 const errors = [];
+
+const CONSOLIDATED_TOOL_SLUGS = new Set(
+  fs
+    .readFileSync(path.join(root, 'lib', 'consolidated-routes.ts'), 'utf8')
+    .match(/CONSOLIDATED_TOOL_SLUGS = new Set\(\[([\s\S]*?)\]\)/)[1]
+    .match(/'[^']+'/g)
+    .map((s) => s.slice(1, -1)),
+);
 
 const imageSitemapSource = fs.readFileSync(
   path.join(root, 'app', 'image-sitemap.xml', 'route.ts'),
@@ -24,8 +36,8 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 73) {
-  errors.push(`Expected 73 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 89) {
+  errors.push(`Expected 89 Discover images, found ${manifest.length}.`);
 }
 
 const paths = new Set();
@@ -75,7 +87,7 @@ for (const image of manifest) {
 }
 
 for (const tool of tools) {
-  const isLive = tool.status !== 'draft' && tool.status !== 'hidden';
+  const isLive = tool.status !== 'draft' && tool.status !== 'hidden' && !CONSOLIDATED_TOOL_SLUGS.has(tool.slug);
   const calculatorPath = `/tools/${tool.slug}`;
   if (isLive && !paths.has(calculatorPath)) {
     errors.push(`Live calculator is missing a Discover image: ${calculatorPath}`);

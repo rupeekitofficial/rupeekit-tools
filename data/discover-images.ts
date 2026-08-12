@@ -1,4 +1,5 @@
 import imageManifest from './discover-images.json';
+import fcraImageManifest from './discover-images-fcra.json';
 
 export type DiscoverImage = {
   path: string;
@@ -8,7 +9,10 @@ export type DiscoverImage = {
   height: number;
 };
 
-export const discoverImages = imageManifest as DiscoverImage[];
+export const discoverImages = [
+  ...imageManifest,
+  ...fcraImageManifest,
+] as DiscoverImage[];
 
 const discoverImageByPath = new Map(discoverImages.map((image) => [image.path, image]));
 

@@ -105,6 +105,14 @@
       {
         "question": "Should I use offer-letter values?",
         "answer": "Yes. Use actual basic salary, PF, tax and deduction values from your offer letter or payslip for a better estimate."
+      },
+      {
+        "question": "CTC और इन-हैंड सैलरी में क्या अंतर है?",
+        "answer": "CTC यानी Cost to Company वह कुल राशि है जो कंपनी आप पर सालाना खर्च करती है। इसमें नियोक्ता का PF अंशदान, ग्रेच्युटी और बीमा जैसी वे मदें भी शामिल होती हैं जो आपके हाथ में नहीं आतीं। इन-हैंड सैलरी वह रकम है जो कटौतियों के बाद हर महीने आपके खाते में आती है। CTC में से नियोक्ता PF और ग्रेच्युटी घटाने पर ग्रॉस सैलरी मिलती है, और उसमें से कर्मचारी PF, TDS और प्रोफेशनल टैक्स घटाने पर इन-हैंड सैलरी निकलती है।"
+      },
+      {
+        "question": "इन-हैंड सैलरी कैसे निकालें?",
+        "answer": "सबसे पहले CTC में से नियोक्ता का PF और ग्रेच्युटी घटाकर ग्रॉस सैलरी निकालें। फिर उसमें से कर्मचारी PF (आमतौर पर बेसिक का 12%), अनुमानित मासिक TDS और प्रोफेशनल टैक्स (कई राज्यों में लगभग ₹200 प्रति माह) घटाएँ। बची हुई राशि आपकी अनुमानित मासिक इन-हैंड सैलरी है। ऊपर दिया कैलकुलेटर यही गणना करता है — यह एक अनुमान है, आपकी वास्तविक सैलरी स्लिप कंपनी के वेतन ढाँचे पर निर्भर करेगी।"
       }
     ],
     "related": [
@@ -182,6 +190,14 @@
       {
         "question": "Why does interest change with tenure?",
         "answer": "Longer tenure reduces monthly EMI but usually increases total interest paid over the loan period."
+      },
+      {
+        "question": "EMI कैसे कैलकुलेट की जाती है?",
+        "answer": "EMI का सूत्र है: EMI = P × r × (1+r)^n / ((1+r)^n − 1), जहाँ P मूलधन है, r मासिक ब्याज दर (वार्षिक दर ÷ 12 ÷ 100) और n महीनों में अवधि। शुरुआती EMI में ब्याज का हिस्सा ज़्यादा और मूलधन का कम होता है; समय के साथ यह अनुपात बदलता जाता है। ऊपर दिया कैलकुलेटर यही सूत्र इस्तेमाल करता है।"
+      },
+      {
+        "question": "ब्याज दर या अवधि बदलने से EMI पर क्या असर पड़ता है?",
+        "answer": "ब्याज दर बढ़ने पर EMI बढ़ती है और कुल चुकाया गया ब्याज भी बढ़ता है। अवधि लंबी करने पर मासिक EMI घट जाती है, लेकिन कुल ब्याज काफ़ी बढ़ जाता है — यानी हर महीने राहत, पर कुल लागत ज़्यादा। इसलिए केवल EMI नहीं, कुल ब्याज भी ज़रूर देखें। दोनों आँकड़े ऊपर के कैलकुलेटर में दिखते हैं।"
       }
     ],
     "related": [
@@ -1048,13 +1064,22 @@
       {
         "question": "How is SIP future value calculated?",
         "answer": "The estimate uses monthly SIP contribution, annual return assumption converted to monthly rate, and duration. It follows a monthly compounding-style projection model."
+      },
+      {
+        "question": "SIP क्या है और यह कैसे काम करती है?",
+        "answer": "SIP यानी Systematic Investment Plan, म्यूचुअल फंड में नियमित रूप से (आमतौर पर हर महीने) एक तय राशि निवेश करने का तरीक़ा है। हर किस्त पर उस दिन के NAV के हिसाब से यूनिट मिलती हैं, इसलिए बाज़ार नीचे होने पर ज़्यादा और ऊपर होने पर कम यूनिट मिलती हैं — इसे रुपी कॉस्ट एवरेजिंग कहते हैं। लंबी अवधि में चक्रवृद्धि (compounding) का लाभ मिलता है।"
+      },
+      {
+        "question": "क्या SIP में रिटर्न की गारंटी होती है?",
+        "answer": "नहीं। SIP म्यूचुअल फंड में निवेश है और म्यूचुअल फंड बाज़ार जोखिम के अधीन होते हैं। कैलकुलेटर में डाली गई अपेक्षित वार्षिक रिटर्न दर केवल एक अनुमान है, कोई वादा नहीं — वास्तविक रिटर्न इससे ऊपर या नीचे हो सकता है और नकारात्मक भी हो सकता है। पिछला प्रदर्शन भविष्य के परिणामों की गारंटी नहीं देता। निवेश से पहले योजना संबंधी दस्तावेज़ ध्यान से पढ़ें।"
       }
     ],
     "related": [
       "lumpsum-calculator-india",
       "fd-calculator-india",
       "ppf-calculator-india",
-      "emergency-fund-calculator-india"
+      "emergency-fund-calculator-india",
+      "mutual-fund-calculator-india"
     ],
     "quickAnswer": {
       "title": "SIP Calculator Quick Answer",
@@ -1476,6 +1501,14 @@
       {
         "question": "Is this calculator financial or tax advice?",
         "answer": "No. This calculator is for educational and informational purposes only. It provides an estimate based on the values entered and should not be treated as tax, legal, investment, or financial advice."
+      },
+      {
+        "question": "नई और पुरानी टैक्स रिज़ीम में कौन सी बेहतर है?",
+        "answer": "यह पूरी तरह आपकी कटौतियों (deductions) पर निर्भर करता है। नई रिज़ीम में दरें कम हैं लेकिन 80C, HRA, 80D जैसी अधिकांश छूट नहीं मिलतीं; पुरानी रिज़ीम में दरें ऊँची हैं पर ये छूट उपलब्ध हैं। अगर आप HRA, होम लोन ब्याज और 80C का पूरा लाभ लेते हैं तो पुरानी रिज़ीम फ़ायदेमंद हो सकती है, वरना आमतौर पर नई रिज़ीम बेहतर बैठती है। कोई एक नियम सबके लिए सही नहीं है — ऊपर दिए कैलकुलेटर में अपने वास्तविक आँकड़े डालकर दोनों की तुलना करें।"
+      },
+      {
+        "question": "12 लाख की आय पर कितना टैक्स लगेगा?",
+        "answer": "नई टैक्स रिज़ीम में वित्त वर्ष 2026-27 के लिए, यदि आपकी सामान्य दर वाली कर योग्य आय ₹12 लाख तक है तो धारा 87A की छूट (अधिकतम ₹60,000) से कर शून्य हो सकता है। वेतनभोगी करदाताओं के लिए ₹75,000 की स्टैंडर्ड डिडक्शन जोड़कर यह सीमा लगभग ₹12.75 लाख सकल वेतन तक पहुँच जाती है। ₹12 लाख से थोड़ा ऊपर जाने पर पूरा टैक्स एकदम से नहीं लगता — मार्जिनल रिलीफ़ के कारण सेस से पहले कर उतना ही सीमित रहता है जितनी आय ₹12 लाख से ऊपर है। विशेष दर वाली आय होने पर गणना बदल सकती है।"
       }
     ],
     "related": [
@@ -2886,7 +2919,8 @@
     "related": [
       "income-tax-calculator-old-vs-new-regime-india",
       "sip-calculator-india",
-      "80c-deduction-calculator-india"
+      "80c-deduction-calculator-india",
+      "stock-portfolio-calculator-india"
     ],
     "howToUse": [
       "Add up your short-term gains on listed equity and equity funds for the financial year.",
@@ -3266,7 +3300,8 @@
       "sip-calculator-india",
       "fd-calculator-india",
       "ppf-calculator-india",
-      "capital-gains-tax-calculator-india"
+      "capital-gains-tax-calculator-india",
+      "mutual-fund-calculator-india"
     ],
     "howToUse": [
       "Enter the one-time amount you plan to invest.",
@@ -3445,7 +3480,8 @@
       "salary-in-hand-calculator-india",
       "ppf-calculator-india",
       "gratuity-calculator-india",
-      "sip-calculator-india"
+      "sip-calculator-india",
+      "retirement-calculator-india"
     ],
     "howToUse": [
       "Enter your monthly basic salary plus DA from your payslip.",
@@ -3500,12 +3536,12 @@
   {
     "slug": "8th-pay-commission-salary-calculator-india",
     "name": "8th Pay Commission Salary Calculator India",
-    "seoTitle": "8th Pay Commission Calculator | Fitment Factor Scenarios",
+    "seoTitle": "8th Pay Commission Calculator | DA Merger & Fitment Factor",
     "category": "Salary",
     "status": "live",
     "targetKeyword": "8th pay commission salary calculator",
     "shortDescription": "Estimate your revised basic pay, DA, HRA and gross salary under selectable 8th Pay Commission fitment-factor scenarios for central government employees. The Commission has not notified a final factor, so all factors here are planning scenarios.",
-    "metaDescription": "Estimate revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Results are illustrative until official recommendations are notified.",
+    "metaDescription": "Estimate revised basic pay from 8th Pay Commission fitment-factor scenarios and see how the DA merger into basic pay works. Illustrative until notified.",
     "inputs": [
       {
         "key": "currentBasic",
@@ -3618,6 +3654,18 @@
         "answer": "Yes. Employee NPS contribution (10% of basic+DA) and employer NPS contribution (14% of basic+DA) are both calculated on the revised basic. Your take-home net of NPS will be lower than the gross shown here."
       },
       {
+        "question": "What is DA merger in the 8th Pay Commission?",
+        "answer": "DA merger means the Dearness Allowance accumulated up to the implementation date is folded into basic pay rather than continuing as a separate allowance. In a pay-commission revision this normally happens through the fitment factor: the existing DA is absorbed into the revised basic, and DA then restarts from 0% on that higher basic. Because every other allowance is calculated on basic pay, a DA merger raises HRA, transport allowance, NPS contribution and pension base as well, which is why it matters more than the headline DA percentage alone."
+      },
+      {
+        "question": "DA मर्जर क्या है और इससे सैलरी पर क्या असर पड़ेगा?",
+        "answer": "DA मर्जर का मतलब है कि अब तक जमा हुआ महंगाई भत्ता (Dearness Allowance) अलग भत्ते के रूप में न रहकर मूल वेतन (basic pay) में जोड़ दिया जाता है। वेतन आयोग में यह आमतौर पर फिटमेंट फैक्टर के ज़रिए होता है — पुराना DA नए बेसिक में समा जाता है और फिर DA दोबारा 0% से शुरू होता है। चूँकि HRA, परिवहन भत्ता, NPS अंशदान और पेंशन सभी बेसिक पे पर गिने जाते हैं, इसलिए DA मर्जर से कुल वेतन पर असर सिर्फ़ DA प्रतिशत से कहीं ज़्यादा होता है।"
+      },
+      {
+        "question": "8वां वेतन आयोग कब लागू होगा?",
+        "answer": "अभी आधिकारिक तारीख़ अधिसूचित नहीं हुई है। आमतौर पर वेतन आयोग की सिफ़ारिशें लागू होने से पहले सरकार द्वारा स्वीकार की जाती हैं और फिर अधिसूचना जारी होती है। इस कैलकुलेटर में दिए गए फिटमेंट फैक्टर परिदृश्य केवल अनुमान के लिए हैं — अंतिम आँकड़े आधिकारिक अधिसूचना के बाद ही तय होंगे। ताज़ा स्थिति के लिए वित्त मंत्रालय की आधिकारिक घोषणाएँ देखें।"
+      },
+      {
         "question": "Will DA be reset to 0 after the 8th Pay Commission?",
         "answer": "Typically yes. The DA accumulated up to the Pay Commission implementation date is usually merged into basic pay via the fitment, and DA is reset to 0% on the new basic — then rises again from the next revision cycle."
       }
@@ -3667,8 +3715,8 @@
         ]
       },
       {
-        "heading": "DA, HRA and TA on revised basic",
-        "body": "All major allowances are recalculated on the new basic pay. Dearness Allowance (currently 55%) is usually merged into basic via the fitment and then reset to 0%. HRA is 24% for X cities (metro), 16% for Y cities, and 8% for Z cities. Transport allowance is tiered by pay level and city."
+        "heading": "DA merger into basic pay, and HRA and TA on revised basic",
+        "body": "All major allowances are recalculated on the new basic pay. The DA merger is the key step: Dearness Allowance (currently 55%) is usually merged into basic pay via the fitment factor and then reset to 0% on the revised basic. HRA is 24% for X cities (metro), 16% for Y cities, and 8% for Z cities. Transport allowance is tiered by pay level and city."
       },
       {
         "heading": "Source and Methodology",
@@ -3814,7 +3862,8 @@
       "sip-calculator-india",
       "lumpsum-calculator-india",
       "ppf-calculator-india",
-      "epf-corpus-calculator-india"
+      "epf-corpus-calculator-india",
+      "stock-portfolio-calculator-india"
     ],
     "howToUse": [
       "Enter the initial investment value (what you paid or the starting NAV/price).",
@@ -3903,10 +3952,10 @@
         "label": "Annuity purchase %",
         "unit": "%",
         "default": 40,
-        "min": 40,
+        "min": 20,
         "max": 100,
         "step": 5,
-        "help": "At maturity, at least 40% of the corpus must be used to buy an annuity (monthly pension). The rest (up to 60%) can be withdrawn lump-sum tax-free."
+        "help": "PFRDA permits as little as 20% annuity on a normal exit with a corpus above Rs 12 lakh. This calculator defaults to 40% because that keeps the lump sum at 60% of the corpus — the amount Section 10(12A) currently exempts. Lowering it towards 20% raises the lump sum towards 80%, and the portion above 60% has no matching income-tax exemption today, so it may be taxable at your slab rate."
       },
       {
         "key": "annuityRate",
@@ -3934,7 +3983,7 @@
       },
       {
         "key": "lumpSumWithdrawal",
-        "label": "Lump-sum withdrawal (60% max)",
+        "label": "Estimated lump-sum withdrawal (before tax)",
         "formula": "totalCorpus * (1 - annuityPercent/100)",
         "format": "currency"
       },
@@ -3951,36 +4000,36 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "NPS corpus = future value of monthly contribution compounded at the expected annual return until age 60. At maturity, at least 40% buys an annuity; monthly pension = annuity corpus × annuity rate / 12. The remaining 60% (or less) can be withdrawn tax-free.",
-    "example": "Age 30, Rs 5,000/month, 10% return, 40% annuity at 6%: corpus at 60 = Rs 1,13,02,000. Lump-sum = Rs 67,81,000. Annuity corpus = Rs 45,21,000. Monthly pension = Rs 22,605.",
+    "formulaExplanation": "NPS corpus = future value of monthly contribution compounded at the expected annual return until age 60. Under current PFRDA normal-exit rules for the All Citizen Model, a corpus above Rs 12 lakh can use at least 20% for annuity and up to 80% for lump-sum or periodic payout. Monthly pension = annuity corpus × annuity rate / 12. Income-tax treatment is separate: Section 10(12A) currently exempts lump-sum withdrawal up to 60% of the corpus, so verify the treatment of any amount above 60% before choosing an exit split.",
+    "example": "Age 30, Rs 5,000/month, 10% return, 40% annuity at 6% (the default): corpus at 60 = about Rs 1,13,02,000. Lump-sum = Rs 67,81,000, which sits inside the 60% currently exempt under Section 10(12A). Annuity corpus = Rs 45,21,000. Estimated monthly pension = Rs 22,605. Dropping the annuity to the permitted 20% minimum would raise the lump sum to about Rs 90,42,000 and cut the pension to about Rs 11,302, but the roughly Rs 22,60,000 above the 60% mark has no matching exemption today.",
     "quickAnswer": {
       "title": "NPS Quick Answer",
       "question": "How much NPS corpus will I have at 60?",
-      "answer": "NPS corpus = future value of monthly contributions at your chosen return rate until age 60. At 60, you must buy an annuity with at least 40% of the corpus (for monthly pension), and can withdraw up to 60% tax-free. Starting Rs 5,000/month at age 30 with 10% returns builds roughly Rs 1.13 crore by 60, giving about Rs 22,600/month pension on 40% annuity at 6%.",
+      "answer": "NPS corpus is the future value of monthly contributions at your chosen return rate until age 60. Under current All Citizen Model normal-exit rules, a corpus above Rs 12 lakh can use at least 20% for annuity and up to 80% for lump-sum or periodic payout. Starting Rs 5,000/month at age 30 with 10% returns builds roughly Rs 1.13 crore by 60, giving about Rs 22,600/month pension on this calculator's default 40% annuity at 6%. Income-tax exemption currently covers lump-sum withdrawal up to 60%, so withdrawal permission and tax exemption should not be treated as the same limit — the default keeps the lump sum inside the exempt 60%.",
       "formula": "Corpus = Monthly contribution × ((1+r)^n − 1) / r, where r = monthly rate, n = months to age 60",
-      "example": "Rs 5,000/month at age 30 at 10% CAGR → Rs 1.13 cr corpus at 60 → Rs 22,600/month pension.",
-      "note": "NPS 2.0: PFRDA increased tax-free lump-sum withdrawal to 80% for corpus below Rs 5 lakh. Check current rules."
+      "example": "Rs 5,000/month at age 30 at 10% CAGR → about Rs 1.13 cr corpus at 60 → about Rs 22,600/month pension with the default 40% annuity at 6%.",
+      "note": "Current PFRDA normal-exit thresholds vary by corpus and subscriber model. Section 10(12A) currently exempts lump-sum withdrawal up to 60%; verify any amount above that separately."
     },
     "faqs": [
       {
         "question": "What is the minimum NPS contribution per year?",
-        "answer": "For Tier 1 (mandatory) NPS account, the minimum annual contribution is Rs 1,000. No maximum limit applies for individual contributions, but 80CCD(1) deduction is capped at 10% of salary (Rs 1.5L under 80C limit) and additional 80CCD(1B) gives up to Rs 50,000 more."
+        "answer": "For a Tier 1 NPS account, the minimum annual contribution is Rs 1,000. There is no maximum contribution limit, but tax deductions depend on the chosen tax regime. Employee self-contribution deductions under Sections 80CCD(1) and 80CCD(1B) generally apply under the old regime; the new regime retains the eligible employer-contribution deduction under Section 80CCD(2)."
       },
       {
         "question": "Is NPS withdrawal taxable at maturity?",
-        "answer": "The lump-sum withdrawal (up to 60% of corpus) at maturity (age 60) is completely tax-free. The annuity income (monthly pension) is taxable as income at your applicable slab rate in the year of receipt."
+        "answer": "Section 10(12A) currently exempts lump-sum withdrawal up to 60% of the corpus at normal exit. Current PFRDA rules may permit a higher lump-sum or periodic payout for some non-government subscribers, but that permission does not automatically make the amount above 60% tax-exempt. Annuity income is taxable at the applicable slab rate when received."
       },
       {
         "question": "What are the tax benefits of NPS?",
-        "answer": "Employee's own NPS contribution: deductible under 80CCD(1) up to 10% of salary (capped within Rs 1.5L 80C limit). Additional self-contribution: Rs 50,000 under 80CCD(1B) over and above 80C. Employer NPS contribution: deductible under 80CCD(2) — 10% of salary for private sector (14% for govt employees), NO cap."
+        "answer": "Under the old regime, an employee's own NPS contribution may qualify under Section 80CCD(1), within the combined Section 80C limit, plus up to Rs 50,000 under Section 80CCD(1B). Under the new regime, those self-contribution deductions are generally unavailable, while an eligible employer contribution remains deductible under Section 80CCD(2), subject to the statutory percentage of salary. Verify the regime, employer contribution and current limits before filing."
       },
       {
         "question": "Can I withdraw NPS before 60?",
         "answer": "Partial withdrawal (up to 25% of your own contributions) is allowed after 3 years for specific purposes (education, marriage, medical, home). Premature exit before 60 (after 5 years) requires 80% annuity purchase; only 20% can be withdrawn. On death, the entire corpus is paid to the nominee tax-free."
       },
       {
-        "question": "What is NPS 2.0?",
-        "answer": "Under NPS 2.0 amendments (effective FY 2025-26 onwards), if the NPS corpus at maturity is Rs 5 lakh or less, the subscriber can withdraw the entire corpus tax-free without buying an annuity. Above Rs 5 lakh, the 40% annuity rule continues."
+        "question": "What are the current NPS normal-exit rules?",
+        "answer": "For the current All Citizen Model, normal exit is generally available after age 60 or 15 years of subscription. A corpus up to Rs 8 lakh can generally be taken fully through permitted payout options; for more than Rs 8 lakh and up to Rs 12 lakh, special lump-sum and periodic-payout options apply; above Rs 12 lakh, at least 20% must generally buy an annuity. Check the latest PFRDA/NPS Trust rules for your subscriber model before exiting."
       },
       {
         "question": "Which NPS scheme is better — Tier 1 or Tier 2?",
@@ -3991,13 +4040,14 @@
       "epf-corpus-calculator-india",
       "ppf-calculator-india",
       "sip-calculator-india",
-      "income-tax-calculator-old-vs-new-regime-india"
+      "income-tax-calculator-old-vs-new-regime-india",
+      "retirement-calculator-india"
     ],
     "howToUse": [
       "Enter your current age — corpus is estimated until age 60.",
       "Enter your monthly NPS Tier 1 contribution (include employer contribution if adding both).",
       "Set the expected annual return based on your NPS fund allocation (10% for aggressive, 7–8% for conservative).",
-      "Set annuity purchase % — minimum 40% is mandatory; higher % means more monthly pension.",
+      "Set annuity purchase % — the 40% default keeps your lump sum within the 60% currently exempt under Section 10(12A). Current All Citizen Model normal-exit rules allow going as low as 20% when corpus is above Rs 12 lakh, which increases the lump sum but leaves the portion above 60% without a matching exemption. Other subscriber models and corpus thresholds can differ.",
       "Set the annuity rate offered by insurers (typically 5.5–7%) to estimate monthly pension."
     ],
     "assumptions": [
@@ -4005,29 +4055,32 @@
       "Constant return rate — NPS equity allocation returns are market-linked and volatile.",
       "Annuity rate is an estimate; actual rates depend on the insurer and annuity type chosen at maturity.",
       "Employer NPS contributions (80CCD(2)) are not separately tracked — add them to monthly contribution if including both.",
+      "The calculator models the All Citizen Model normal-exit split for a corpus above Rs 12 lakh; government-sector and lower-corpus exit rules can differ. A corpus of Rs 8 lakh or less can generally be taken as 100% lump sum, which this calculator's 20% minimum annuity does not model.",
+      "Lump-sum and pension figures are pre-tax. Annuity income is taxable at your slab rate, and any lump sum above 60% of the corpus has no current exemption under Section 10(12A).",
+      "PFRDA permits up to 80% lump-sum or periodic payout in the modeled normal-exit scenario, while the Income Tax Department currently states a 60% lump-sum exemption under Section 10(12A).",
       "Educational estimate only. Verify current NPS rules and annuity rates on the NPS Trust website."
     ],
     "commonMistakes": [
       "Using the equity CAGR (10–12%) for a conservative NPS allocation with high government bond exposure.",
       "Forgetting that monthly pension (annuity income) is taxable at your slab rate.",
-      "Not using the extra Rs 50,000 80CCD(1B) deduction available over and above 80C.",
-      "Ignoring employer's 80CCD(2) NPS contribution — it is deductible without any cap for the employer."
+      "Assuming the extra Rs 50,000 Section 80CCD(1B) self-contribution deduction is available under the new regime; it generally belongs to the old-regime deduction set.",
+      "Treating employer NPS contribution as unlimited; Section 80CCD(2) uses a statutory percentage of salary and depends on the tax regime."
     ],
     "contentSections": [
       {
         "heading": "How NPS works",
-        "body": "The National Pension System (NPS) is a voluntary, long-term retirement savings scheme regulated by PFRDA. Contributions go into Tier 1 (retirement-locked) and optionally Tier 2 (liquid). Tier 1 funds are invested across equity (E), government securities (G) and corporate bonds (C) in the allocation you choose. At age 60, you withdraw up to 60% tax-free and must buy an annuity with at least 40% for a monthly pension.",
+        "body": "The National Pension System (NPS) is a voluntary, long-term retirement savings scheme regulated by PFRDA. Contributions go into Tier 1 and optionally Tier 2. Under current All Citizen Model normal-exit rules, a corpus above Rs 12 lakh can allocate up to 80% to lump-sum or periodic payout and at least 20% to annuity. The Income Tax Department currently describes lump-sum exemption up to 60%, so the permitted exit split and the tax-exempt split are not identical.",
         "bullets": [
-          "Tax benefits: 80CCD(1) up to Rs 1.5L + extra Rs 50,000 under 80CCD(1B).",
-          "Employer NPS (80CCD(2)): deductible without any cap on salary percentage.",
-          "Maturity: 60% lump-sum tax-free + 40% annuity (monthly pension, taxable)."
+          "Old regime: eligible self-contributions can use Section 80CCD(1) within the combined limit plus up to Rs 50,000 under Section 80CCD(1B).",
+          "New regime: eligible employer NPS contributions can be deducted under Section 80CCD(2), subject to the statutory percentage of salary.",
+          "Normal exit above Rs 12L corpus: up to 80% payout + at least 20% annuity; current lump-sum tax exemption is stated separately at up to 60%."
         ]
       },
       {
         "heading": "NPS vs EPF vs PPF",
-        "body": "EPF is automatic for organised-sector employees (12% employee + 3.67% employer to EPF). PPF is a 15-year government-backed investment with full EEE tax status. NPS is more flexible in investment choice (equity to bonds) and has the extra Rs 50,000 deduction under 80CCD(1B), but requires an annuity purchase at maturity. Many salaried investors use EPF + PPF as the safe core and NPS as an additional retirement vehicle.",
+        "body": "EPF is automatic for organised-sector employees (12% employee + 3.67% employer to EPF). PPF is a 15-year government-backed investment with full EEE tax status. NPS is more flexible in investment choice (equity to bonds) and may provide an extra Rs 50,000 Section 80CCD(1B) deduction under the old regime; the new regime instead retains the eligible employer-contribution deduction under Section 80CCD(2). NPS also requires an annuity purchase at maturity under the applicable exit rules.",
         "bullets": [
-          "NPS: market-linked, flexible allocation, extra tax deduction, annuity required.",
+          "NPS: market-linked, flexible allocation, regime-dependent tax benefits, annuity required.",
           "EPF: auto-deducted, employer-matched, ~8.25% declared rate.",
           "PPF: voluntary, risk-free, full EEE, 15-year lock-in."
         ]
@@ -4037,7 +4090,26 @@
         "body": "Corpus is computed as the future value of a constant monthly contribution compounded monthly at the entered annual rate until age 60. Lump-sum and annuity splits are applied on the total corpus. Monthly pension = annuity corpus × annuity rate / 12. All figures are pre-tax estimates."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10",
+    "officialSources": [
+      {
+        "label": "Income Tax Department — Section 115BAC new-regime deductions",
+        "href": "https://www.incometaxindia.gov.in/w/computation-of-tax-for-individual-1"
+      },
+      {
+        "label": "Income Tax Department — Section 80CCD",
+        "href": "https://www.incometaxindia.gov.in/w/section-80ccd-21"
+      },
+      {
+        "label": "PFRDA — NPS All Citizen Model exit rules",
+        "href": "https://www.pfrda.org.in/en/schemes/national-pension-system/nps-for-all-citizen-models"
+      },
+      {
+        "label": "NPS Trust — tax benefits under NPS",
+        "href": "https://npstrust.org.in/index.php/benefits-of-nps"
+      }
+    ]
   },
   {
     "slug": "step-up-sip-calculator-india",
@@ -4140,7 +4212,8 @@
       "sip-calculator-india",
       "lumpsum-calculator-india",
       "cagr-calculator-india",
-      "ppf-calculator-india"
+      "ppf-calculator-india",
+      "retirement-calculator-india"
     ],
     "howToUse": [
       "Enter your starting monthly SIP amount.",
@@ -4478,6 +4551,12 @@
         "format": "currency"
       },
       {
+        "key": "liquidAssets",
+        "label": "Liquid financial assets",
+        "formula": "cashSavings + fdRdBalance + mutualFunds",
+        "format": "currency"
+      },
+      {
         "key": "totalLiabilities",
         "label": "Total liabilities",
         "formula": "homeLoanBalance + personalLoan + creditCardDebt + otherLiabilities",
@@ -4490,9 +4569,15 @@
         "format": "currency"
       },
       {
+        "key": "liquidNetWorth",
+        "label": "Liquid net worth",
+        "formula": "liquidAssets - personalLoan - creditCardDebt - otherLiabilities",
+        "format": "currency"
+      },
+      {
         "key": "debtToAssetRatio",
         "label": "Debt-to-asset ratio",
-        "formula": "totalLiabilities / totalAssets * 100",
+        "formula": "totalLiabilities / max(totalAssets, 1) * 100",
         "format": "percent"
       }
     ],
@@ -4532,7 +4617,7 @@
     "howToUse": [
       "Enter the current value of each asset category — be honest with market values, not purchase prices.",
       "Enter all outstanding loan balances — home loan, personal loan, car loan, credit card dues.",
-      "Read your total assets, total liabilities, net worth and debt-to-asset ratio.",
+      "Read your total assets, liquid assets, total liabilities, net worth, liquid net worth and debt-to-asset ratio.",
       "Track this every 6–12 months to monitor your financial progress."
     ],
     "assumptions": [
@@ -4571,5 +4656,544 @@
       }
     ],
     "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "mutual-fund-calculator-india",
+    "name": "Mutual Fund Calculator India",
+    "seoTitle": "Mutual Fund Calculator India 2026 — SIP, Lumpsum & Returns",
+    "category": "Investments",
+    "status": "live",
+    "targetKeyword": "mutual fund calculator india",
+    "shortDescription": "Calculate mutual fund returns for SIP, lumpsum, and systematic withdrawal plans. Compare with FD, PPF and stock market returns.",
+    "metaDescription": "Free mutual fund calculator India 2026. Estimate SIP returns, lumpsum gains, SWP corpus and compare mutual fund vs FD, PPF, gold returns.",
+    "inputs": [
+      {
+        "key": "monthlyInvestment",
+        "label": "Monthly SIP amount (₹)",
+        "unit": "₹",
+        "default": 10000,
+        "min": 500,
+        "step": 500,
+        "help": "Amount invested every month."
+      },
+      {
+        "key": "lumpsumAmount",
+        "label": "Lumpsum investment (₹)",
+        "unit": "₹",
+        "default": 100000,
+        "min": 0,
+        "step": 10000,
+        "help": "One-time investment amount."
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected annual return",
+        "unit": "%",
+        "default": 12,
+        "min": 1,
+        "step": 0.5,
+        "help": "Expected average annual return from mutual funds."
+      },
+      {
+        "key": "years",
+        "label": "Investment duration",
+        "unit": "years",
+        "default": 10,
+        "min": 1,
+        "step": 1,
+        "help": "How long you plan to invest."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "sipTotalInvested",
+        "label": "SIP: total invested",
+        "formula": "monthlyInvestment * years * 12",
+        "format": "currency"
+      },
+      {
+        "key": "sipFutureValue",
+        "label": "SIP: future value",
+        "formula": "monthlyInvestment * ((((1 + (expectedReturn / 12 / 100)) ^ (years * 12)) - 1) / (expectedReturn / 12 / 100)) * (1 + (expectedReturn / 12 / 100))",
+        "format": "currency"
+      },
+      {
+        "key": "sipGains",
+        "label": "SIP: estimated gains",
+        "formula": "sipFutureValue - sipTotalInvested",
+        "format": "currency"
+      },
+      {
+        "key": "lumpsumFutureValue",
+        "label": "Lumpsum: future value",
+        "formula": "lumpsumAmount * (1 + expectedReturn / 100) ^ years",
+        "format": "currency"
+      },
+      {
+        "key": "lumpsumGains",
+        "label": "Lumpsum: estimated gains",
+        "formula": "lumpsumAmount * (1 + expectedReturn / 100) ^ years - lumpsumAmount",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "For SIP: FV = monthly investment × [((1 + monthly return)^months - 1) / monthly return] × (1 + monthly return). For lumpsum: FV = principal × (1 + annual return)^years.",
+    "example": "A ₹10,000 monthly SIP for 10 years at 12% gives an estimated future corpus based on monthly compounding.",
+    "faqs": [
+      {
+        "question": "What is the difference between SIP and lumpsum?",
+        "answer": "SIP invests regularly reducing timing risk. Lumpsum invests large amount at once."
+      },
+      {
+        "question": "What return should I expect?",
+        "answer": "Equity MF historically delivered 10-14% CAGR over 10+ years in India."
+      },
+      {
+        "question": "How does MF compare with FD or PPF?",
+        "answer": "MF offers higher potential returns than FDs (6-7%) and PPF (7.1%) but with higher risk."
+      },
+      {
+        "question": "Minimum SIP amount?",
+        "answer": "Most MFs allow SIPs starting from ₹500/month."
+      },
+      {
+        "question": "Taxes on mutual fund gains?",
+        "answer": "Equity: LTCG above ₹1L/year taxed at 12% (>12 months). STT taxed at 15% (≤12 months)."
+      },
+      {
+        "question": "What is SWP?",
+        "answer": "SWP lets you withdraw fixed amounts monthly from existing holdings."
+      },
+      {
+        "question": "Growth or dividend option?",
+        "answer": "Growth reinvests gains compounding returns. Dividend reduces corpus."
+      },
+      {
+        "question": "How to choose the right mutual fund?",
+        "answer": "Consider fund category, track record, expense ratio, and consistency."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "lumpsum-calculator-india",
+      "step-up-sip-calculator-india",
+      "stock-portfolio-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "Mutual Fund Calculator Quick Answer",
+      "question": "How does a mutual fund calculator estimate returns?",
+      "answer": "It estimates future corpus using investment mode, amount, expected annual return, and duration.",
+      "formula": "SIP FV = monthly investment × [((1 + monthly return)^months - 1) / monthly return] × (1 + monthly return)",
+      "note": "Educational estimate only. Actual returns depend on market performance."
+    },
+    "howToUse": [
+      "Choose investment mode: SIP, Lumpsum, or SWP.",
+      "Enter amount, expected return, and duration.",
+      "Review total invested, future value, and estimated gains."
+    ],
+    "assumptions": [
+      "Expected return is not guaranteed.",
+      "SIP assumes monthly investments at start of each month.",
+      "Does not include exit loads, expense ratios, or tax effects."
+    ],
+    "contentSections": [
+      {
+        "heading": "How does a mutual fund calculator work?",
+        "body": "Estimates how investments may grow using SIP, lumpsum, or SWP inputs."
+      },
+      {
+        "heading": "SIP vs lumpsum: which is better?",
+        "body": "SIP reduces timing risk through rupee-cost averaging. Lumpsum suits windfalls or market dips."
+      },
+      {
+        "heading": "Ideal investment horizon?",
+        "body": "Equity MF: 7-10+ years. Debt MF: 1-3 years. Hybrid: 3-5 years."
+      },
+      {
+        "heading": "How does inflation affect returns?",
+        "body": "If inflation is 6% and return is 12%, real return is ~6%."
+      },
+      {
+        "heading": "Is mutual fund investment safe?",
+        "body": "Regulated by SEBI. Not risk-free — equity funds can lose value short term."
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10"
+  },
+  {
+    "slug": "retirement-calculator-india",
+    "name": "Retirement Calculator India",
+    "seoTitle": "Retirement Calculator India 2026 — Corpus Needed & Monthly Savings",
+    "category": "Planning",
+    "status": "live",
+    "targetKeyword": "retirement calculator india",
+    "shortDescription": "Calculate retirement corpus needed, monthly savings required, and estimate retirement income from investments and pension.",
+    "metaDescription": "Free retirement calculator India 2026. Estimate corpus needed for retirement, monthly savings, and retirement income from investments and NPS.",
+    "inputs": [
+      {
+        "key": "currentAge",
+        "label": "Current age",
+        "unit": "years",
+        "default": 30,
+        "min": 22,
+        "max": 65,
+        "step": 1
+      },
+      {
+        "key": "retirementAge",
+        "label": "Retirement age",
+        "unit": "years",
+        "default": 60,
+        "min": 55,
+        "max": 70,
+        "step": 1
+      },
+      {
+        "key": "expectedLifeAge",
+        "label": "Expected life age",
+        "unit": "years",
+        "default": 85,
+        "min": 75,
+        "max": 95,
+        "step": 1
+      },
+      {
+        "key": "monthlyExpenseNow",
+        "label": "Current monthly expenses",
+        "unit": "₹",
+        "default": 50000,
+        "min": 10000,
+        "step": 1000
+      },
+      {
+        "key": "expenseReductionPercent",
+        "label": "Expense reduction post-retirement",
+        "unit": "%",
+        "default": 20,
+        "min": 0,
+        "max": 50,
+        "step": 5
+      },
+      {
+        "key": "inflationRate",
+        "label": "Annual inflation rate",
+        "unit": "%",
+        "default": 6,
+        "min": 2,
+        "max": 10,
+        "step": 0.5
+      },
+      {
+        "key": "postRetirementReturn",
+        "label": "Post-retirement investment return",
+        "unit": "%",
+        "default": 8,
+        "min": 4,
+        "max": 12,
+        "step": 0.5
+      },
+      {
+        "key": "existingCorpus",
+        "label": "Existing retirement corpus (₹)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "monthlySip",
+        "label": "Monthly SIP towards retirement (₹)",
+        "unit": "₹",
+        "default": 10000,
+        "min": 0,
+        "step": 500
+      },
+      {
+        "key": "sipReturn",
+        "label": "Expected SIP return",
+        "unit": "%",
+        "default": 12,
+        "min": 5,
+        "max": 18,
+        "step": 0.5
+      }
+    ],
+    "outputs": [
+      {
+        "key": "yearsToRetire",
+        "label": "Years to retirement",
+        "formula": "retirementAge - currentAge",
+        "format": "number"
+      },
+      {
+        "key": "monthlyExpenseAtRetirement",
+        "label": "Monthly expenses at retirement (today's value)",
+        "formula": "monthlyExpenseNow * (1 - expenseReductionPercent / 100)",
+        "format": "currency"
+      },
+      {
+        "key": "annualExpenseAtRetirement",
+        "label": "Annual expenses at retirement (inflation-adjusted)",
+        "formula": "monthlyExpenseNow * (1 - expenseReductionPercent / 100) * 12 * (1 + inflationRate / 100) ^ (retirementAge - currentAge)",
+        "format": "currency"
+      },
+      {
+        "key": "retirementCorpusNeeded",
+        "label": "Retirement corpus needed (in today's terms)",
+        "formula": "monthlyExpenseNow * (1 - expenseReductionPercent / 100) * 12 * ((1 - (1 + max(postRetirementReturn / 100 - inflationRate / 100, 0.01)) ^ (0 - (expectedLifeAge - retirementAge))) / max(postRetirementReturn / 100 - inflationRate / 100, 0.01))",
+        "format": "currency"
+      },
+      {
+        "key": "futureCorpusNeeded",
+        "label": "Retirement corpus needed (at retirement, inflation-adjusted)",
+        "formula": "retirementCorpusNeeded * (1 + inflationRate / 100) ^ (retirementAge - currentAge)",
+        "format": "currency"
+      },
+      {
+        "key": "futureExistingCorpus",
+        "label": "Future value of existing corpus",
+        "formula": "existingCorpus * (1 + sipReturn / 100) ^ (retirementAge - currentAge)",
+        "format": "currency"
+      },
+      {
+        "key": "futureSipCorpus",
+        "label": "Future value of monthly SIP",
+        "formula": "monthlySip * (((1 + sipReturn / 12 / 100) ^ ((retirementAge - currentAge) * 12) - 1) / (sipReturn / 12 / 100)) * (1 + sipReturn / 12 / 100)",
+        "format": "currency"
+      },
+      {
+        "key": "totalFutureCorpus",
+        "label": "Total projected retirement corpus",
+        "formula": "futureExistingCorpus + futureSipCorpus",
+        "format": "currency"
+      },
+      {
+        "key": "corpusShortfall",
+        "label": "Corpus shortfall (if any)",
+        "formula": "max(0, futureCorpusNeeded - totalFutureCorpus)",
+        "format": "currency"
+      },
+      {
+        "key": "requiredMonthlySip",
+        "label": "Required monthly SIP to meet target",
+        "formula": "corpusShortfall * (sipReturn / 12 / 100) / ((((1 + (sipReturn / 12 / 100)) ^ ((retirementAge - currentAge) * 12)) - 1) * (1 + (sipReturn / 12 / 100)))",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Retirement corpus = (monthly expenses at retirement × years in retirement) / (post-retirement return - inflation rate). Uses perpetuity formula.",
+    "example": "A 30-year-old earning ₹50,000/month wanting to retire at 60 needs approximately ₹1.5-2 crore corpus (today's value) at 6% inflation and 8% post-retirement return.",
+    "faqs": [
+      {
+        "question": "How much corpus do I need for retirement?",
+        "answer": "A common estimate is 20-25x your annual expenses at retirement. For ₹6 lakh/year expenses, you need ₹1.2-1.5 crore."
+      },
+      {
+        "question": "When should I start planning for retirement?",
+        "answer": "The earlier, the better. Starting at 25 vs 35 can reduce required monthly SIP by 40-50% due to compounding."
+      },
+      {
+        "question": "What investments are best for retirement?",
+        "answer": "Pre-retirement: Equity mutual funds (SIP) for growth. Post-retirement: Debt instruments and balanced portfolios."
+      },
+      {
+        "question": "Should I rely on NPS for retirement?",
+        "answer": "NPS is a good tool with tax benefits (80CCD), but use it as part of a diversified plan including PF, PPF, and mutual funds."
+      },
+      {
+        "question": "What is the 4% rule in retirement planning?",
+        "answer": "Withdraw 4% of corpus annually (adjusted for inflation). For ₹1 crore, this gives ₹4 lakh/year."
+      },
+      {
+        "question": "How does inflation affect retirement planning?",
+        "answer": "₹50,000/month today may need ₹1.2-1.5 lakh/month at retirement (6% inflation, 30 years)."
+      }
+    ],
+    "related": [
+      "nps-calculator-india",
+      "epf-corpus-calculator-india",
+      "sip-calculator-india",
+      "fire-retirement-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "Retirement Calculator Quick Answer",
+      "question": "How much do I need for retirement?",
+      "answer": "Typically 20-25x your annual expenses at retirement. For ₹6 lakh/year, you need ₹1.2-1.5 crore (today's value).",
+      "note": "Educational estimate. Actual needs depend on lifestyle, healthcare costs, and inflation."
+    },
+    "howToUse": [
+      "Enter current age, retirement age, and expected life age.",
+      "Enter current monthly expenses and reduction post-retirement.",
+      "Enter existing corpus and current monthly SIP.",
+      "Review corpus needed, projected corpus, and shortfall."
+    ],
+    "assumptions": [
+      "Expenses reduce post-retirement (no EMI, fewer discretionary expenses).",
+      "Inflation is constant throughout the planning period.",
+      "Returns are estimated — actual returns vary.",
+      "No Social Security or pension income included."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why retirement planning matters",
+        "body": "India's average life expectancy is 70+ years. With retirement at 60, you may need funds for 25+ years."
+      },
+      {
+        "heading": "The power of starting early",
+        "body": "Investing ₹5,000/month from age 25 at 12% gives ₹1.1 crore by 60. Starting at 35 requires ₹12,000/month."
+      },
+      {
+        "heading": "Common retirement mistakes",
+        "body": "Underestimating expenses, ignoring inflation, not diversifying, relying only on PF/NPS, and starting too late."
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10"
+  },
+  {
+    "slug": "stock-portfolio-calculator-india",
+    "name": "Stock Portfolio Calculator India",
+    "seoTitle": "Stock Portfolio Calculator India — Returns, Gains & Dividends",
+    "category": "Investments",
+    "status": "live",
+    "targetKeyword": "stock portfolio calculator india",
+    "shortDescription": "Calculate stock portfolio returns, capital gains, dividend yield, and compare with benchmarks like Nifty 50 and Sensex.",
+    "metaDescription": "Free stock portfolio calculator India. Track gains, losses, dividend income, and returns on your equity investments. Compare with Nifty 50.",
+    "inputs": [
+      {
+        "key": "totalInvested",
+        "label": "Total invested amount (₹)",
+        "unit": "₹",
+        "default": 500000,
+        "min": 1000,
+        "step": 1000
+      },
+      {
+        "key": "currentValue",
+        "label": "Current portfolio value (₹)",
+        "unit": "₹",
+        "default": 650000,
+        "min": 1,
+        "step": 1000
+      },
+      {
+        "key": "totalDividendsReceived",
+        "label": "Total dividends received (₹)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 500
+      },
+      {
+        "key": "holdingPeriodYears",
+        "label": "Holding period (years)",
+        "unit": "years",
+        "default": 5,
+        "min": 1,
+        "max": 30,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "totalGainLoss",
+        "label": "Total capital gain/loss (₹)",
+        "formula": "currentValue - totalInvested",
+        "format": "currency"
+      },
+      {
+        "key": "totalGainLossPercent",
+        "label": "Total return % (capital only)",
+        "formula": "((currentValue - totalInvested) / totalInvested) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "totalReturnWithDividends",
+        "label": "Total return % (including dividends)",
+        "formula": "((currentValue + totalDividendsReceived - totalInvested) / totalInvested) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "annualizedReturn",
+        "label": "Annualized return % (CAGR)",
+        "formula": "(((currentValue + totalDividendsReceived) / totalInvested) ^ (1 / holdingPeriodYears) - 1) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "dividendYield",
+        "label": "Dividend yield %",
+        "formula": "(totalDividendsReceived / currentValue) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "annualDividendIncome",
+        "label": "Annual dividend income (₹)",
+        "formula": "totalDividendsReceived / holdingPeriodYears",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Capital gain = current value - total invested. CAGR = ((ending value / beginning value) ^ (1/years)) - 1.",
+    "example": "If you invested ₹5,00,000 and portfolio is now worth ₹6,50,000 with ₹25,000 in dividends over 5 years, CAGR is ~5.5% and total return is 35%.",
+    "faqs": [
+      {
+        "question": "How to calculate stock portfolio returns?",
+        "answer": "Portfolio return = (current value + dividends - total invested) / total invested × 100. For annualized: CAGR formula."
+      },
+      {
+        "question": "Difference between absolute return and CAGR?",
+        "answer": "Absolute return is total gain over the period. CAGR annualizes the return for meaningful comparison."
+      },
+      {
+        "question": "How are stock gains taxed?",
+        "answer": "Equity: ST at 15% (≤12 months). LTCG above ₹1L/year taxed at 12% (>12 months). Dividends taxed at slab rate."
+      },
+      {
+        "question": "What is a good stock market return?",
+        "answer": "Nifty 50 has historically returned 12-14% CAGR over 10+ years."
+      },
+      {
+        "question": "How to compare with Nifty 50?",
+        "answer": "Calculate your portfolio CAGR and compare with Nifty 50 over same period. Consider volatility and drawdowns too."
+      }
+    ],
+    "related": [
+      "capital-gains-tax-calculator-india",
+      "cagr-calculator-india",
+      "xirr-portfolio-return-calculator-india",
+      "mutual-fund-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "Stock Portfolio Calculator Quick Answer",
+      "question": "How do I calculate my stock portfolio returns?",
+      "answer": "Total return = (current value + dividends - invested) / invested × 100. Annualized (CAGR) = ((ending/beginning)^(1/years)) - 1.",
+      "note": "Does not account for buy/sell transaction costs or taxes."
+    },
+    "howToUse": [
+      "Enter total amount invested in stocks.",
+      "Enter current portfolio market value.",
+      "Enter total dividends received and holding period.",
+      "Review capital gain/loss, CAGR, and dividend yield."
+    ],
+    "assumptions": [
+      "Total invested is user-entered.",
+      "Current value is approximate market value.",
+      "Dividends are fully recorded.",
+      "Does not account for transaction costs or taxes."
+    ],
+    "contentSections": [
+      {
+        "heading": "How to calculate stock portfolio returns",
+        "body": "Track total invested amount, current market value, and dividends received. Calculate absolute return and annualized CAGR."
+      },
+      {
+        "heading": "Why track portfolio returns?",
+        "body": "Tracking helps evaluate investment decisions, compare with benchmarks, identify underperformers, and make informed rebalancing decisions."
+      },
+      {
+        "heading": "How to beat the market?",
+        "body": "Focus on diversification, low-cost index funds, long-term horizon, and avoiding emotional decisions. Most active managers underperform indices over 10+ years."
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10"
   }
 ]

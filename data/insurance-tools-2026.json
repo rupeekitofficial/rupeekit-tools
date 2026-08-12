@@ -27,7 +27,7 @@
       { "question": "Is the calculated amount a policy recommendation?", "answer": "No. It is an educational cover-gap estimate; affordability, health, insurer underwriting and policy terms also matter." },
       { "question": "Should employer life insurance count as existing cover?", "answer": "You may include it, but remember that employer cover can end when you change or leave a job." }
     ],
-    "related": ["health-insurance-coverage-adequacy-calculator-india", "emergency-fund-calculator-india", "net-worth-tracker-calculator-india"],
+    "related": ["health-insurance-coverage-adequacy-calculator-india", "emergency-fund-calculator-india", "net-worth-calculator-india"],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-03"
   },
