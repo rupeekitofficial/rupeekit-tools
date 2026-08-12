@@ -3,6 +3,12 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { governmentSalaryUpdates } from '@/data/government-salary-updates';
 import UpdateVisual from '@/components/updates/UpdateVisual';
+import {
+  CORRECTIONS_POLICY_URL,
+  EDITORIAL_POLICY_URL,
+  EDITORIAL_TEAM_NAME,
+  editorialTeamRef,
+} from '@/lib/seo/editorial';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -87,16 +93,11 @@ export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) 
     description: update.summary,
     datePublished: update.publishedDate,
     dateModified,
-    author: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
-    },
+    author: editorialTeamRef,
+    reviewedBy: editorialTeamRef,
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    publishingPrinciples: EDITORIAL_POLICY_URL,
+    correctionsPolicy: CORRECTIONS_POLICY_URL,
     mainEntityOfPage: pageUrl,
   };
 
@@ -172,6 +173,16 @@ export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) 
 
           {/* Meta */}
           <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-slate-300">
+            <span>
+              By{' '}
+              <Link
+                href="/editorial-policy"
+                className="font-semibold text-white underline underline-offset-2"
+              >
+                {EDITORIAL_TEAM_NAME}
+              </Link>
+            </span>
+            <span>·</span>
             <span>{update.sourceName}</span>
             <span>·</span>
             <span>Published: {formattedPublished}</span>
@@ -181,6 +192,10 @@ export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) 
                 <span>Effective: {update.effectiveDate}</span>
               </>
             )}
+            <span>·</span>
+            <Link href="/corrections-policy" className="underline underline-offset-2">
+              Report a correction
+            </Link>
           </div>
         </div>
       </section>

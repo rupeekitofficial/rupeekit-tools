@@ -5,6 +5,11 @@ import { getDiscoverImage } from '@/data/discover-images';
 import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
 import FcraArticleLayout from '@/components/blog/FcraArticleLayout';
 import FcraOriginalMedia from '@/components/blog/FcraOriginalMedia';
+import {
+  CORRECTIONS_POLICY_URL,
+  EDITORIAL_POLICY_URL,
+  editorialTeamRef,
+} from '@/lib/seo/editorial';
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -73,8 +78,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     datePublished: post.publishedDateISO || undefined,
     dateModified: post.modifiedDateISO || post.publishedDateISO || undefined,
     inLanguage: 'en-IN',
-    author: { '@type': 'Person', name: 'RupeeKit Editorial Team', jobTitle: 'Personal Finance Research', worksFor: { '@id': `${siteUrl}/#organization` } },
+    author: editorialTeamRef,
+    reviewedBy: editorialTeamRef,
     publisher: { '@id': `${siteUrl}/#organization` },
+    publishingPrinciples: EDITORIAL_POLICY_URL,
+    correctionsPolicy: CORRECTIONS_POLICY_URL,
     isPartOf: { '@id': `${siteUrl}/#website` },
     ...(post.officialSources?.length ? { citation: post.officialSources.map((source) => source.href) } : {}),
   };
@@ -89,7 +97,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     ],
   };
 
-  const faqSchema = post.faqs && post.faqs.length > 0 ? {
+  const faqSchema = post.faqs?.length ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: post.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })),

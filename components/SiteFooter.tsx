@@ -47,11 +47,15 @@ export default function SiteFooter() {
     { name: 'Tools', href: '/#calculators' },
     { name: 'Blog', href: '/blog' },
     { name: 'Guides', href: '/guides' },
+    { name: '8th Pay Commission', href: '/8th-pay-commission' },
+    { name: 'NRI Guide', href: '/nri' },
     { name: 'Resources', href: '/resources' },
     { name: 'Recommended Tools', href: '/resources/recommended-money-tools' },
   ];
 
   const legalLinks = [
+    { name: 'Editorial Policy', href: '/editorial-policy' },
+    { name: 'Corrections Policy', href: '/corrections-policy' },
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
     { name: 'Terms of Use', href: '/terms' },
