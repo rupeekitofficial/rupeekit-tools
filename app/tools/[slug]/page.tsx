@@ -9,6 +9,8 @@ import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
+import EditorialByline from '@/components/seo/EditorialByline';
+import { editorialTeamRef } from '@/lib/seo/editorial';
 import { getGuidesForTool } from '@/data/calculator-guides';
 import { getDiscoverImage } from '@/data/discover-images';
 import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
@@ -20,6 +22,8 @@ const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
 const CAPITAL_GAINS_SLUG = 'capital-gains-tax-calculator-india';
 const EIGHTH_PAY_SLUG = '8th-pay-commission-salary-calculator-india';
+const PPF_SLUG = 'ppf-calculator-india';
+const NPS_SLUG = 'nps-calculator-india';
 const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
   'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 
@@ -66,16 +70,28 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-03',
   },
   [CAPITAL_GAINS_SLUG]: {
-    title: 'Capital Gains Tax Calculator India 2026 | STCG & LTCG',
+    // Title mirrors the H1 "Capital Gains Tax Calculator India (Equity)" so Google
+    // has less reason to rewrite it (rewrite rate drops sharply when title == H1).
+    title: 'Capital Gains Tax Calculator India 2026 (Equity STCG & LTCG)',
     description:
-      'Calculate tax on equity shares and equity-oriented mutual funds using current STCG, LTCG, exemption and cess rules for FY 2025-26.',
+      'Calculate equity STCG (20%) and LTCG (12.5% above Rs 1.25 lakh) for FY 2025-26. Free and instant, with the exact formula and a worked example. Educational estimate.',
     lastReviewedIso: '2026-08-03',
   },
   [EIGHTH_PAY_SLUG]: {
-    title: '8th Pay Commission Calculator | Fitment Factor Scenarios',
+    title: '8th Pay Commission Salary Calculator 2026 (Fitment Factor)',
     description:
-      'Estimate revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Results are illustrative until official recommendations are notified.',
+      'Estimate your revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Illustrative until the official recommendations are notified.',
     lastReviewedIso: '2026-08-03',
+  },
+  [PPF_SLUG]: {
+    title: 'PPF Calculator India 2026 - Maturity & Tax-Free Interest',
+    description:
+      'See your PPF maturity and tax-free interest at the current 7.1% notified rate. Enter yearly deposit and tenure to get the formula and a 15-year worked example.',
+  },
+  [NPS_SLUG]: {
+    title: 'NPS Calculator India 2026 - Pension & Corpus Estimate',
+    description:
+      'Estimate your NPS corpus, lump sum and monthly pension at retirement. Adjust contribution, return and annuity assumptions. Free, with a worked example.',
   },
   'fd-calculator-india': {
     lastReviewedIso: '2026-05-01',
@@ -626,6 +642,14 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const isSalaryClusterPage = salaryClusterSlugs.has(tool.slug);
 
   const contextualLinks: ContextualLink[] = [
+    isSalaryClusterPage ? {
+      href: '/8th-pay-commission',
+      label: '8th Pay Commission hub covering fitment factor, DA merger and status',
+    } : null,
+    tool.slug === CAPITAL_GAINS_SLUG ? {
+      href: '/nri',
+      label: 'NRI tax guide covering NRE/NRO, DTAA and Schedule FA',
+    } : null,
     isSalaryClusterPage && blogSlugs.has('new-labour-code-gratuity-rules-india-2026') ? {
       href: '/blog/new-labour-code-gratuity-rules-india-2026',
       label: 'new gratuity rules 2026 guide covering the 1-year vs 5-year rule',
@@ -880,6 +904,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     publisher: {
       '@id': `${SITE_URL}/#organization`,
     },
+    creator: editorialTeamRef,
+    maintainer: editorialTeamRef,
     ...(discoverImageUrl ? { image: discoverImageUrl } : {}),
   };
 
@@ -941,16 +967,16 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">{description}</p>
 
+          <EditorialByline
+            className="mt-4"
+            updatedIso={tool.lastReviewedIso ?? TOOL_SEO_OVERRIDES[tool.slug]?.lastReviewedIso}
+            updatedFallback={tool.lastReviewed}
+          />
+
           {isHraPage ? (
-            <p className="mt-4 text-sm text-slate-500">
-              Last reviewed: {tool.lastReviewed ?? 'July 2026'}
-              <br />
+            <p className="mt-2 text-sm text-slate-500">
               Reviewed for FY 2026-27 HRA city-rule changes.
             </p>
-          ) : isPersonalLoanPage ? (
-            <p className="mt-4 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
-          ) : tool.lastReviewed ? (
-            <p className="mt-4 text-sm text-slate-500">Last reviewed: {tool.lastReviewed}</p>
           ) : null}
         </div>
 

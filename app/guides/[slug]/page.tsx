@@ -6,6 +6,12 @@ import {
   getCalculatorGuide,
   getCalculatorGuideCluster,
 } from '@/data/calculator-guides';
+import EditorialByline from '@/components/seo/EditorialByline';
+import {
+  CORRECTIONS_POLICY_URL,
+  EDITORIAL_POLICY_URL,
+  editorialTeamRef,
+} from '@/lib/seo/editorial';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 
@@ -63,8 +69,11 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
       dateModified: guide.lastReviewedIso,
       datePublished: guide.lastReviewedIso,
       inLanguage: 'en-IN',
-      author: { '@id': `${SITE_URL}/#organization` },
+      author: editorialTeamRef,
+      reviewedBy: editorialTeamRef,
       publisher: { '@id': `${SITE_URL}/#organization` },
+      publishingPrinciples: EDITORIAL_POLICY_URL,
+      correctionsPolicy: CORRECTIONS_POLICY_URL,
       isPartOf: { '@id': `${SITE_URL}/#website` },
       about: { '@type': 'Thing', name: cluster.title },
       mentions: {
@@ -119,7 +128,7 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-brandNavy">{cluster.title}</p>
           <h1 className="mt-3 text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl">{guide.title}</h1>
           <p className="mt-5 text-lg leading-8 text-slate-700">{guide.metaDescription}</p>
-          <p className="mt-3 text-sm text-slate-500">Last reviewed: 16 July 2026</p>
+          <EditorialByline className="mt-3" updatedIso={guide.lastReviewedIso} />
         </header>
 
         <section className="mt-8 rounded-3xl border border-brandNavy/15 bg-brandNavy/5 p-6 md:p-8">

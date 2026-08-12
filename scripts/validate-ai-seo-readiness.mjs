@@ -427,7 +427,12 @@ ensure(
 );
 
 ensure(
-  blogPageSource.includes("const faqSchema = post.faqs && post.faqs.length > 0 ?"),
+  // Accepts either the long form or the optional-chained `post.faqs?.length`
+  // shorthand the page was later refactored to. Both gate the FAQPage schema on
+  // FAQs that are actually rendered, which is what this check is protecting.
+  /const faqSchema = post\.faqs(\?\.length|\s*&&\s*post\.faqs\.length > 0)\s*\?/.test(
+    blogPageSource
+  ),
   'FAQPage schema must be conditional on visible FAQs'
 );
 ensure(

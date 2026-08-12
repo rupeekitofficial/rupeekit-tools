@@ -4,6 +4,8 @@ import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
+import EditorialByline from '@/components/seo/EditorialByline';
+import { editorialTeamRef } from '@/lib/seo/editorial';
 import { TaxCalculatorApp } from '@/components/tax/TaxCalculatorApp';
 import { getDiscoverImage } from '@/data/discover-images';
 import { calculateIndianIncomeTax, type TaxInput } from '@/lib/tax/calculator';
@@ -284,6 +286,8 @@ export default function IncomeTaxCalculatorPage() {
       priceCurrency: 'INR',
     },
     publisher: { '@id': `${SITE_URL}/#organization` },
+    creator: editorialTeamRef,
+    maintainer: editorialTeamRef,
     ...(DISCOVER_IMAGE_URL ? { image: DISCOVER_IMAGE_URL } : {}),
   };
 
@@ -326,6 +330,7 @@ export default function IncomeTaxCalculatorPage() {
             rebate up to Rs 60,000 with marginal relief, and 4% cess are configured and tested. Earlier years remain
             selectable.
           </p>
+          <EditorialByline className="mt-4" updatedIso="2026-08-03" />
         </div>
         <div className="space-y-4">
           {DISCOVER_IMAGE ? <DiscoverHeroImage image={DISCOVER_IMAGE} priority /> : null}

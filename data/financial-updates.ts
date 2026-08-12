@@ -562,6 +562,10 @@ export const financialUpdates: FinancialUpdate[] = [
         label: 'Capital Gains Tax Calculator India',
         href: '/tools/capital-gains-tax-calculator-india',
       },
+      {
+        label: 'NRI Tax Guide: NRE vs NRO, DTAA and Schedule FA',
+        href: '/nri',
+      },
     ],
     tags: [
       'AIS',

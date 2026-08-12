@@ -43,16 +43,9 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
-  keywords: [
-    "RupeeKit",
-    "salary calculator India",
-    "in hand salary calculator",
-    "EMI calculator India",
-    "SIP calculator India",
-    "GST calculator India",
-    "FD calculator India",
-    "finance calculators India",
-  ],
+  // No `keywords`: Next.js renders it as <meta name="keywords">, which Google has
+  // ignored since 2009. Because it is set on the root layout it was emitted
+  // identically on all 112+ pages, which reads as boilerplate stuffing.
   icons: {
     icon: "/brand/rupeekit_icon_from_social_logo_transparent_square.png",
     apple: "/brand/rupeekit_icon_from_social_logo_transparent_square.png",
@@ -99,6 +92,35 @@ export default function RootLayout({
           height: 797,
         },
         sameAs: socialLinks.map((link) => link.href),
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            contactType: "editorial",
+            email: contactEmail,
+            url: `${siteUrl}/contact`,
+            availableLanguage: ["en", "hi"],
+          },
+        ],
+        publishingPrinciples: `${siteUrl}/editorial-policy`,
+        correctionsPolicy: `${siteUrl}/corrections-policy`,
+        knowsAbout: [
+          "Indian income tax",
+          "Salary and pay commission structures",
+          "Mutual fund SIP investing",
+          "Loan EMI and interest calculation",
+          "EPF, PPF and NPS retirement savings",
+          "NRI taxation and foreign asset disclosure",
+        ],
+      },
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#editorial-team`,
+        name: `${siteName} Editorial Team`,
+        description:
+          "RupeeKit's in-house personal-finance research desk. Every calculator, guide and update is written and reviewed against primary Indian sources — Income Tax Department, RBI, EPFO, PFRDA, PIB and the relevant Finance Act — before publication.",
+        url: `${siteUrl}/editorial-policy`,
+        parentOrganization: { "@id": `${siteUrl}/#organization` },
+        publishingPrinciples: `${siteUrl}/editorial-policy`,
       },
       {
         "@type": "WebSite",

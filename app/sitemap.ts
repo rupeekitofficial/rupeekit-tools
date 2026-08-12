@@ -83,6 +83,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy-policy',
     '/terms',
     '/disclaimer',
+    '/editorial-policy',
+    '/corrections-policy',
     '/blog',
     '/guides',
     '/resources',
@@ -95,6 +97,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/government-salary-updates',
     '/financial-updates',
     '/updates',
+    '/nri',
+    '/8th-pay-commission',
   ];
 
   const staticRouteLastModified = new Map<string, Date>([
@@ -107,7 +111,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/updates', latestUpdateDate],
   ]);
 
-  const hubRoutes = new Set(['/blog', '/tools', '/guides']);
+  const hubRoutes = new Set(['/blog', '/tools', '/guides', '/nri', '/8th-pay-commission']);
   const lowPriorityRoutes = new Set(['/privacy-policy', '/terms', '/disclaimer', '/affiliate-disclosure']);
 
   return [

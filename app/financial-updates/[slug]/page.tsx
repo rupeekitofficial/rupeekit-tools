@@ -6,6 +6,12 @@ import { financialUpdates } from '@/data/financial-updates';
 import { getDiscoverImage } from '@/data/discover-images';
 import UpdateVisual from '@/components/updates/UpdateVisual';
 import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
+import {
+  CORRECTIONS_POLICY_URL,
+  EDITORIAL_TEAM_NAME,
+  EDITORIAL_POLICY_URL,
+  editorialTeamRef,
+} from '@/lib/seo/editorial';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -117,16 +123,11 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
     datePublished: update.publishedDate,
     dateModified,
     inLanguage: 'en-IN',
-    author: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'RupeeKit',
-      url: SITE_URL,
-    },
+    author: editorialTeamRef,
+    reviewedBy: editorialTeamRef,
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    publishingPrinciples: EDITORIAL_POLICY_URL,
+    correctionsPolicy: CORRECTIONS_POLICY_URL,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageUrl,
@@ -214,6 +215,16 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
               {update.title}
             </h1>
             <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-300">
+              <span>
+                By{' '}
+                <Link
+                  href="/editorial-policy"
+                  className="font-semibold text-white underline underline-offset-2"
+                >
+                  {EDITORIAL_TEAM_NAME}
+                </Link>
+              </span>
+              <span aria-hidden="true">·</span>
               <span>{update.sourceName}</span>
               <span aria-hidden="true">·</span>
               <time dateTime={update.publishedDate}>
@@ -229,6 +240,10 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
                   <span>Reviewed {update.lastReviewed}</span>
                 </>
               ) : null}
+              <span aria-hidden="true">·</span>
+              <Link href="/corrections-policy" className="underline underline-offset-2">
+                Report a correction
+              </Link>
             </div>
           </div>
           {heroImage ? <DiscoverHeroImage image={heroImage} priority /> : null}

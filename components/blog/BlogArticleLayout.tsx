@@ -13,6 +13,7 @@ import BrokerAffiliateDisclosure from './BrokerAffiliateDisclosure';
 import BookRecommendationCard from './BookRecommendationCard';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
+import EditorialByline from '@/components/seo/EditorialByline';
 import { BlogInlineVisual, BlogSharePreviewCard } from './BlogVisuals';
 import BrokerComparisonCard from './BrokerComparisonCard';
 import { Tax2026Stats, Tax2026CTA, Tax2026CompactCTA, CommonMistakesCards } from './Tax2026Visuals';
@@ -135,6 +136,13 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
         heroImageAlt={post.heroImageAlt}
         heroImageWidth={post.heroImageWidth}
         heroImageHeight={post.heroImageHeight}
+      />
+
+      <EditorialByline
+        className="mt-6"
+        publishedIso={post.publishedDateISO}
+        updatedIso={post.modifiedDateISO}
+        updatedFallback={post.date}
       />
 
       {/* Main Grid Layout */}
