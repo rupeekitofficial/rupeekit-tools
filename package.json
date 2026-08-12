@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
+    "report:gsc": "node scripts/gsc-report.mjs",
     "validate": "npm run validate:tools && npm run validate:growth && npm run validate:ai-seo && npm run validate:internal-links && npm run validate:discover-images",
     "validate:ai-seo": "node scripts/validate-ai-seo-readiness.mjs",
     "validate:growth": "node scripts/validate-growth-clusters.mjs",
