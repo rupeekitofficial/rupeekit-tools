@@ -23,6 +23,8 @@ The root layout separately owns the linked `Organization` and `WebSite` graph; i
 
 The generic calculator route already emits `WebApplication` with `applicationCategory: FinanceApplication`, a zero-price INR `Offer`, canonical URL, language, publisher, browser requirements and a stored `dateModified` value where available. The dedicated income-tax calculator has the same application-schema role. No `Product`, `Review`, `AggregateRating` or fabricated rating markup is used.
 
+Google's current Software App rich-result documentation requires `name`, `offers.price`, and a genuine rating or review for Software App rich-result eligibility. RupeeKit has no genuine user-review corpus and must not fabricate one. Therefore the calculator `WebApplication` markup is kept as accurate semantic schema, but this audit does **not** claim that calculators qualify for Google's Software App rich result. That is preferable to adding fake ratings or reviews.
+
 ### FAQPage visibility
 
 - Tool FAQ schema is created from the same `tool.faqs` collection shown in the page FAQ section.
@@ -31,7 +33,7 @@ The generic calculator route already emits `WebApplication` with `applicationCat
 - Calculator-guide FAQs are generated from `faqItems`, and that same collection is rendered visibly near the end of the guide.
 - Government salary updates do not expose a FAQ collection, so they intentionally do not emit `FAQPage`.
 
-This avoids schema-only FAQ content.
+This avoids schema-only FAQ content. Google currently limits regular FAQ rich-result display largely to authoritative government and health sites, so RupeeKit keeps the markup only as truthful page semantics and does not treat it as a guaranteed SERP feature.
 
 ### Breadcrumbs
 
@@ -53,6 +55,8 @@ Legacy content without a trustworthy ISO modification date is not assigned a fab
 
 Calculator guides already render `cluster.methodSteps` as a visible ordered list under **How the calculator approaches it**. They are therefore genuinely how-to-shaped pages. A `HowTo` block is now emitted from the exact same `cluster.methodSteps` collection, with `HowToStep` entries matching the visible copy. No hidden steps or extra claims are added.
 
+Google's current supported structured-data gallery no longer lists standalone HowTo as a supported Search rich-result feature. The markup is therefore used for semantic clarity and other consumers, not presented as a promise of a Google HowTo rich result.
+
 ## Validation added
 
 `npm run validate:ai-seo` now runs the existing AI SEO readiness validator followed by `scripts/validate-structured-data.mjs`. The structured-data check fails when it detects:
@@ -68,7 +72,7 @@ Calculator guides already render `cluster.methodSteps` as a visible ordered list
 
 ## Rich-result caveat
 
-Valid schema does not guarantee a Google rich result. Google can choose not to display a supported enhancement, and some schema types may have limited or no dedicated rich-result treatment. RupeeKit uses schema to describe visible content accurately, not to manufacture SERP features.
+Google's current documentation still supports Article, Breadcrumb and Software App search features, but eligibility depends on each feature's required properties and Google does not guarantee display. Structured data that is accurate but unsupported as a dedicated rich-result feature can still describe page meaning to machines. RupeeKit prioritises truthful visible-content parity over trying to manufacture a SERP treatment.
 
 ## Search Console follow-up
 
