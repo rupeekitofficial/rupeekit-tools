@@ -103,6 +103,19 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
         acceptedAnswer: { '@type': 'Answer', text: item.answer },
       })),
     },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: `How ${cluster.toolName} approaches this calculation`,
+      description: cluster.description,
+      inLanguage: 'en-IN',
+      mainEntityOfPage: canonical,
+      step: cluster.methodSteps.map((step, index) => ({
+        '@type': 'HowToStep',
+        position: index + 1,
+        text: step,
+      })),
+    },
   ];
 
   return (
