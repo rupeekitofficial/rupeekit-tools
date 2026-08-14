@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "asOfDate": "2026-08-14",
+  "status": "measurement-pending-ci",
+  "source": "authoritative page-level issue #57 / Aug 4 fallback because the Day 10 topPages array is empty",
+  "thresholds": { "lcpGoodMs": 2500, "inpGoodMs": 200, "clsGood": 0.1 },
+  "codeAudit": {
+    "heroDimensionsReserved": true,
+    "toolHeroPriority": true,
+    "blogHeroServerRendered": true,
+    "standardResultPanelPresentOnInitialRender": true,
+    "bundleFollowUp": "Calculator.tsx still statically imports bespoke calculator modules; generic charts are already dynamically imported."
+  },
+  "pages": [
+    ["/blog/itr-2-ay-2026-27-filing-guide",961,4.54],
+    ["/tools/personal-loan-emi-calculator-india",602,12.9],
+    ["/tools/8th-pay-commission-salary-calculator-india",521,7.15],
+    ["/tools/emergency-fund-calculator-india",507,8.9],
+    ["/tools/personal-loan-eligibility-calculator-india",476,70.8],
+    ["/tools/gold-loan-calculator-india",474,30.3],
+    ["/blog/zerodha-vs-upstox-vs-angel-one-demat-account",467,5.04],
+    ["/blog/new-labour-code-gratuity-rules-india-2026",458,4.83],
+    ["/tools/income-tax-calculator-old-vs-new-regime-india",442,42.1],
+    ["/tools/net-worth-calculator-india",344,45.9],
+    ["/tools/capital-gains-tax-calculator-india",332,4.32],
+    ["/blog/how-to-calculate-in-hand-salary-from-ctc-india",259,13],
+    ["/tools/nps-calculator-india",205,3.3],
+    ["/tools/sukanya-samriddhi-yojana-calculator-india",201,63.8],
+    ["/tools/sip-calculator-india",187,3.33],
+    ["/blog/income-tax-on-12-lakh-salary-new-regime-india-2026",179,21],
+    ["/tools/cagr-calculator-india",165,18.5],
+    ["/blog/mutual-funds-for-beginners-india",163,14.8],
+    ["/tools/salary-in-hand-calculator-india",154,30.2],
+    ["/tools/step-up-sip-calculator-india",134,12.4]
+  ],
+  "measurementNote": "No CWV values are fabricated here. The PR workflow runs scripts/cwv-report.mjs against PageSpeed Insights for mobile and desktop and uploads the generated report artifact."
+}
