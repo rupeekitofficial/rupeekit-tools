@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "reportType": "code-audit-snapshot",
   "asOfDate": "2026-08-14",
   "status": "measurement-pending-ci",
   "source": "authoritative page-level issue #57 / Aug 4 fallback because the Day 10 topPages array is empty",

@@ -120,7 +120,7 @@ async function readGscTopPages() {
 }
 
 async function main() {
-  const output = argValue('--output', 'automation/reports/cwv-baseline-2026-08-14.json');
+  const output = argValue('--output', 'automation/reports/cwv-psi-2026-08-14.json');
   const limit = Number(argValue('--limit', '20'));
   const delayMs = Number(argValue('--delay-ms', '800'));
   const gscPages = await readGscTopPages();
@@ -146,6 +146,7 @@ async function main() {
 
   const report = {
     schemaVersion: 1,
+    reportType: 'psi-measurement',
     generatedAt: new Date().toISOString(),
     asOfDate: '2026-08-14',
     source: {
