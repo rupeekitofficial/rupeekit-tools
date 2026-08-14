@@ -10,6 +10,7 @@
     "lint": "next lint",
     "test": "vitest run",
     "report:gsc": "node scripts/gsc-report.mjs",
+    "report:cwv": "node scripts/cwv-report.mjs",
     "validate": "npm run validate:tools && npm run validate:growth && npm run validate:ai-seo && npm run validate:internal-links && npm run validate:discover-images",
     "validate:ai-seo": "node scripts/validate-ai-seo-readiness.mjs && node scripts/validate-structured-data.mjs",
     "validate:growth": "node scripts/validate-growth-clusters.mjs",
