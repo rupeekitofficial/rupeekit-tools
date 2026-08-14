@@ -27,9 +27,15 @@ jobs:
           node-version: 20
 
       - name: Measure top-20 pages
+        id: measure
+        continue-on-error: true
         env:
           PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
         run: node scripts/cwv-report.mjs --output cwv-baseline-2026-08-14.json --limit 20 --delay-ms 1200
+
+      - name: Explain incomplete measurement
+        if: steps.measure.outcome == 'failure'
+        run: echo "CWV artifact is incomplete. Configure the PAGESPEED_API_KEY repository secret and rerun this workflow; do not treat missing metrics as zero."
 
       - name: Upload CWV report
         if: always()
