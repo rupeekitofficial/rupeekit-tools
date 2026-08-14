@@ -1,0 +1,40 @@
+name: CWV baseline
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/cwv-report.mjs'
+      - 'components/blog/BlogHero.tsx'
+      - 'components/seo/DiscoverHeroImage.tsx'
+      - '.github/workflows/cwv-baseline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Measure top-20 pages
+        env:
+          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+        run: node scripts/cwv-report.mjs --output cwv-baseline-2026-08-14.json --limit 20 --delay-ms 1200
+
+      - name: Upload CWV report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cwv-baseline-2026-08-14
+          path: cwv-baseline-2026-08-14.json
+          if-no-files-found: warn
