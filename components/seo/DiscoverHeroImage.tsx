@@ -26,6 +26,7 @@ export default function DiscoverHeroImage({
         className="h-full w-full object-cover"
         sizes="(min-width: 1024px) 42vw, 100vw"
         priority={priority}
+        fetchPriority={priority ? 'high' : 'auto'}
       />
     </figure>
   );
