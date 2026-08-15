@@ -110,5 +110,29 @@
   "rent-agreement-stamp-duty-registration-cost-calculator-india": {
     "title": "Rent Agreement Cost Calculator India | Stamp Duty Estimate",
     "description": "Estimate rent-agreement stamp duty and registration cost from monthly rent, security deposit, tenure and your entered state-rate assumptions for planning."
+  },
+  "home-loan-swp-stress-test-india": {
+    "title": "Home Loan SWP Stress Test | EMI, Crash & Ending Corpus",
+    "description": "Test whether an investment corpus can fund home-loan EMIs under steady returns and a bad first year, with cash reserve and ending corpus shown."
+  },
+  "gratuity-2026-old-vs-new-calculator-india": {
+    "title": "Gratuity 2026 Calculator | Wage-Base Impact & Cap",
+    "description": "Compare gratuity using current eligible Basic plus DA and an entered wage-base scenario, with uncapped value, applied cap and estimated change shown."
+  },
+  "personal-loan-true-apr-calculator-india": {
+    "title": "Personal Loan APR Calculator | Fees, GST & Net Cash",
+    "description": "Estimate effective personal-loan cost from EMI, processing fee, GST, insurance and advance EMI deductions, with net cash received and APR shown."
+  },
+  "invest-vs-prepay-home-loan-calculator-india": {
+    "title": "Invest vs Prepay Home Loan | Interest vs Growth",
+    "description": "Compare home-loan interest saved by prepaying with the future gain from investing the same lump sum, including an entered annual tax-and-cost drag."
+  },
+  "loan-foreclosure-net-savings-calculator-india": {
+    "title": "Loan Foreclosure Calculator | Charges, GST & Net Saving",
+    "description": "Estimate future interest avoided by closing a loan, subtract foreclosure charge and GST, then compare net saving with the opportunity cost of cash."
+  },
+  "reduce-emi-vs-tenure-calculator-india": {
+    "title": "Reduce EMI vs Tenure Calculator | Prepayment Impact",
+    "description": "Compare a lower EMI with a shorter tenure after loan prepayment, including monthly EMI relief, months saved and interest under both repayment options."
   }
 }
