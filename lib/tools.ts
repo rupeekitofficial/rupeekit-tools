@@ -4,6 +4,7 @@ import decisionTools from '../data/decision-tools-2026.json';
 import insuranceTools from '../data/insurance-tools-2026.json';
 import investingTools from '../data/investing-tools-2026.json';
 import lifestageTools from '../data/lifestage-tools-2026.json';
+import ctrToolSeoOverrides from '../data/ctr-tool-seo-overrides-2026-08-15.json';
 import { CONSOLIDATED_TOOL_SLUGS } from './consolidated-routes';
 
 export type ToolInput = { key:string; label:string; unit?:string; default:number; min?:number; max?:number; step?:number; help?:string; };
@@ -21,7 +22,17 @@ export type Tool = {
   lastReviewed?:string; lastReviewedIso?:string; officialSources?:ToolOfficialSource[]; presets?:ToolPreset[];
 };
 
-export const allTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools] as Tool[];
+type ToolSeoCopyOverride = { title:string; description:string };
+const ctrSeoOverrides = ctrToolSeoOverrides as Record<string, ToolSeoCopyOverride>;
+const sourceTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools] as Tool[];
+
+export const allTools = sourceTools.map((tool) => {
+  const seoOverride = ctrSeoOverrides[tool.slug];
+  return seoOverride
+    ? { ...tool, seoTitle: seoOverride.title, metaDescription: seoOverride.description }
+    : tool;
+});
+
 export function getLiveTools(): Tool[] { return allTools.filter((tool) => tool.status === 'live' && !CONSOLIDATED_TOOL_SLUGS.has(tool.slug)); }
 export function getToolBySlug(slug:string): Tool|undefined { return allTools.find((tool) => tool.slug === slug && tool.status === 'live' && !CONSOLIDATED_TOOL_SLUGS.has(tool.slug)); }
 export function getRelatedTools(tool:Tool): Tool[] { const live=getLiveTools(); const bySlug=new Map(live.map((item)=>[item.slug,item])); return tool.related.map((slug)=>bySlug.get(slug)).filter(Boolean) as Tool[]; }
