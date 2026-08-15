@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import { BlogHeroVisual } from './BlogVisuals';
 
@@ -70,6 +68,7 @@ export default function BlogHero({
                   className="h-full w-full object-cover"
                   sizes="(min-width: 1024px) 38vw, 100vw"
                   priority
+                  fetchPriority="high"
                 />
               </div>
             ) : (
