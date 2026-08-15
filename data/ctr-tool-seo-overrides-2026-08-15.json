@@ -1,0 +1,114 @@
+{
+  "rent-vs-buy-calculator-india": {
+    "title": "Rent vs Buy Calculator India | 20-Year Cost Comparison",
+    "description": "Compare renting versus buying with home price, loan interest, rent growth, home appreciation, maintenance costs and invested down payment over time."
+  },
+  "home-affordability-calculator-india": {
+    "title": "Home Affordability Calculator India | EMI & Down Payment",
+    "description": "Estimate an affordable home price from monthly income, existing EMIs, down payment, interest rate and tenure, with EMI burden and loan amount shown."
+  },
+  "job-offer-comparison-calculator-india": {
+    "title": "Job Offer Comparison Calculator India | CTC vs In-Hand",
+    "description": "Compare two job offers using fixed pay, variable pay, joining bonus, benefits and estimated in-hand value so you can see the annual compensation gap clearly."
+  },
+  "salary-increment-calculator-india": {
+    "title": "Salary Increment Calculator India | Hike Amount & New Pay",
+    "description": "Calculate your new annual and monthly salary after a percentage hike, with the absolute increment shown so you can compare offers and appraisal outcomes."
+  },
+  "bonus-tax-calculator-india": {
+    "title": "Bonus Tax Calculator India | Gross Bonus vs Net Payout",
+    "description": "Estimate how a bonus changes taxable income and approximate take-home bonus after entered tax assumptions, with gross bonus and estimated tax impact shown."
+  },
+  "fire-retirement-calculator-india": {
+    "title": "FIRE Retirement Calculator India | Corpus & Monthly SIP",
+    "description": "Estimate the retirement corpus needed from annual expenses, inflation and withdrawal assumptions, then see the monthly investment required to reach the goal."
+  },
+  "net-worth-tracker-calculator-india": {
+    "title": "Net Worth Tracker Calculator India | Assets vs Liabilities",
+    "description": "Calculate total assets, liabilities and net worth from your financial balances, with a simple debt-to-assets view for an educational household snapshot."
+  },
+  "education-loan-emi-tax-benefit-calculator-india": {
+    "title": "Education Loan EMI Calculator India | Interest & Tax Benefit",
+    "description": "Estimate education-loan EMI, total interest and repayment cost, then model the entered Section 80E interest deduction assumption for an educational comparison."
+  },
+  "rental-yield-calculator-india": {
+    "title": "Rental Yield Calculator India | Gross & Net Yield",
+    "description": "Calculate gross and net rental yield from property value, monthly rent, vacancy and annual ownership costs, with estimated yearly rental income shown."
+  },
+  "debt-snowball-calculator-india": {
+    "title": "Debt Snowball Calculator India | Payoff Time & Interest",
+    "description": "Estimate debt payoff time and interest using a snowball-style repayment plan, with balances, monthly payments and extra repayment assumptions entered by you."
+  },
+  "term-life-insurance-cover-calculator-india": {
+    "title": "Term Insurance Cover Calculator India | Cover Gap Estimate",
+    "description": "Estimate additional life cover from annual income, replacement years, outstanding liabilities, family goals and existing life insurance, with the cover gap shown."
+  },
+  "health-insurance-coverage-adequacy-calculator-india": {
+    "title": "Health Insurance Cover Calculator India | Coverage Gap",
+    "description": "Estimate a family health-cover gap using family size, city tier, oldest age band, current sum insured, medical inflation and your chosen projection period."
+  },
+  "car-loan-emi-affordability-calculator-india": {
+    "title": "Car Loan EMI Calculator India | EMI & Income Burden",
+    "description": "Calculate car-loan EMI, total interest and repayment from on-road price, down payment, rate and tenure, with EMI-to-income ratio shown for context."
+  },
+  "two-wheeler-loan-emi-calculator-india": {
+    "title": "Two-Wheeler Loan EMI Calculator India | EMI & Interest",
+    "description": "Calculate bike or scooter loan EMI, total repayment and interest from on-road price, down payment, rate and tenure, with EMI-to-income ratio also shown."
+  },
+  "credit-card-minimum-due-trap-calculator-india": {
+    "title": "Credit Card Minimum Due Calculator | Payoff & Interest",
+    "description": "Estimate payoff months and interest for a credit-card balance using APR, minimum-due percentage and a fixed payment, with both repayment scenarios compared."
+  },
+  "credit-card-vs-personal-loan-calculator-india": {
+    "title": "Credit Card vs Personal Loan Calculator | Total Cost",
+    "description": "Compare a big purchase on revolving credit with a personal loan using APR, tenure and processing fee, with monthly payment and total financing cost shown."
+  },
+  "sovereign-gold-bond-vs-physical-gold-calculator-india": {
+    "title": "SGB vs Physical Gold Calculator | 8-Year Cost Comparison",
+    "description": "Compare an SGB-style holding with physical gold using investment amount, gold appreciation, coupon, making charges and storage costs over your chosen period."
+  },
+  "index-fund-vs-active-fund-cost-calculator-india": {
+    "title": "Index vs Active Fund Cost Calculator | Expense Ratio Drag",
+    "description": "Compare future values when index and active funds earn the same assumed gross return, isolating expense-ratio drag and the resulting corpus difference."
+  },
+  "elss-lock-in-vs-80c-options-calculator-india": {
+    "title": "ELSS vs PPF vs Tax-Saver FD | 3, 5 & 15-Year Lock-ins",
+    "description": "Compare pre-tax values for ELSS, tax-saver FD and PPF using your return assumptions, with native 3-year, 5-year and 15-year lock-in horizons shown."
+  },
+  "nps-tier-2-vs-mutual-fund-calculator-india": {
+    "title": "NPS Tier 2 vs Mutual Fund Calculator | Post-Tax Corpus",
+    "description": "Compare NPS Tier 2 and mutual-fund corpus values using monthly contributions, years, return assumptions and entered tax rates applied to estimated gains."
+  },
+  "xirr-portfolio-return-calculator-india": {
+    "title": "XIRR Portfolio Return Calculator | Annualised Estimate",
+    "description": "Approximate annualised portfolio return from up to three investments, their holding periods and current combined value, with absolute gain and return shown."
+  },
+  "rule-of-72-calculator-india": {
+    "title": "Rule of 72 Calculator India | Doubling Time at 8%-15%",
+    "description": "Estimate investment doubling time with the Rule of 72, compare it with exact annual compounding, and view preset estimates at 8%, 10%, 12% and 15%."
+  },
+  "ops-vs-nps-pension-comparison-calculator-india": {
+    "title": "OPS vs NPS Pension Calculator India | Monthly Payout",
+    "description": "Compare an entered OPS salary-linked pension scenario with an NPS corpus-and-annuity scenario, including estimated monthly payout and remaining corpus."
+  },
+  "scss-calculator-india": {
+    "title": "SCSS Calculator India | 8.2% Quarterly Interest Estimate",
+    "description": "Estimate SCSS quarterly and annual interest from your deposit and entered rate, with total interest over five years and principal returned at maturity."
+  },
+  "post-office-monthly-income-scheme-calculator-india": {
+    "title": "Post Office MIS Calculator | 7.4% Monthly Income Estimate",
+    "description": "Estimate Post Office MIS monthly and annual interest from the deposit and entered rate, with five-year total interest and principal returned at maturity."
+  },
+  "child-education-cost-planner-india": {
+    "title": "Child Education Cost Calculator | Future Cost & SIP",
+    "description": "Project a child's future education cost using current course cost and inflation, then estimate the monthly investment needed after current savings growth."
+  },
+  "wedding-cost-planner-india": {
+    "title": "Wedding Cost Calculator India | Future Budget & SIP",
+    "description": "Project a future wedding budget from today's cost and inflation, then estimate the monthly investment required after allowing for current savings growth."
+  },
+  "rent-agreement-stamp-duty-registration-cost-calculator-india": {
+    "title": "Rent Agreement Cost Calculator India | Stamp Duty Estimate",
+    "description": "Estimate rent-agreement stamp duty and registration cost from monthly rent, security deposit, tenure and your entered state-rate assumptions for planning."
+  }
+}
