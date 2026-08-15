@@ -14,6 +14,9 @@ const tools = toolFiles.flatMap((fileName) => {
   const file = path.join(process.cwd(), 'data', fileName);
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 });
+const ctrSeoOverrides = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), 'data', 'ctr-tool-seo-overrides-2026-08-15.json'), 'utf8')
+);
 
 const parser = new Parser({
   operators: {
@@ -69,6 +72,29 @@ for (const [index, tool] of tools.entries()) {
     typeof tool.status === 'string' && VALID_STATUSES.has(tool.status),
     `${tool.slug || `tool[${index}]`} has invalid status: ${tool.status}`
   );
+}
+
+for (const [slug, seo] of Object.entries(ctrSeoOverrides)) {
+  ensure(slugMap.has(slug), `CTR SEO override references missing tool slug: ${slug}`);
+  ensure(seo && typeof seo === 'object', `${slug} CTR SEO override must be an object`);
+  if (!seo || typeof seo !== 'object') continue;
+
+  ensure(typeof seo.title === 'string' && seo.title.trim().length > 0, `${slug} CTR SEO title is missing`);
+  if (typeof seo.title === 'string') {
+    ensure(seo.title.length <= 60, `${slug} CTR SEO title exceeds 60 characters (${seo.title.length})`);
+    ensure(!/^free\b/i.test(seo.title.trim()), `${slug} CTR SEO title must not begin with "Free"`);
+  }
+
+  ensure(
+    typeof seo.description === 'string' && seo.description.trim().length > 0,
+    `${slug} CTR SEO description is missing`
+  );
+  if (typeof seo.description === 'string') {
+    ensure(
+      seo.description.length >= 140 && seo.description.length <= 160,
+      `${slug} CTR SEO description must be 140-160 characters (${seo.description.length})`
+    );
+  }
 }
 
 for (const [index, tool] of tools.entries()) {
@@ -148,3 +174,4 @@ if (errors > 0) {
 }
 
 console.log(`✅ Validated ${tools.length} tool(s).`);
+console.log(`✅ Validated ${Object.keys(ctrSeoOverrides).length} CTR SEO title/description override(s).`);
