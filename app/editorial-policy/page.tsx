@@ -78,20 +78,20 @@ export default function EditorialPolicyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <h1 className="text-4xl font-black tracking-tight text-brandNavy dark:text-white">
+      <h1 className="text-4xl font-black tracking-tight text-brandNavy">
         Editorial Policy
       </h1>
-      <p className="mt-6 leading-8 text-brandText dark:text-slate-300">
+      <p className="mt-6 leading-8 text-brandText">
         RupeeKit publishes calculators and explainers about money — tax, salary,
         loans, retirement and investments. Getting those wrong costs readers real
         rupees, so this page sets out exactly how the content is produced, who
         stands behind it, and how to challenge it.
       </p>
 
-      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy dark:text-white">
+      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy">
         Who writes and reviews this content
       </h2>
-      <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
+      <p className="mt-4 leading-8 text-brandText">
         All content is produced by the <strong>{EDITORIAL_TEAM_NAME}</strong>, our
         in-house personal-finance research desk. We publish under an
         organisational byline rather than inventing individual expert profiles.
@@ -99,16 +99,16 @@ export default function EditorialPolicyPage() {
         specific deduction applies to your return — we say so and point you to a
         qualified professional instead of guessing on your behalf.
       </p>
-      <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
+      <p className="mt-4 leading-8 text-brandText">
         RupeeKit is not a SEBI-registered investment adviser, a chartered
         accountancy firm, or a lender. Nothing on this site is personalised
         financial, tax, legal or investment advice.
       </p>
 
-      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy dark:text-white">
+      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy">
         Sources we use
       </h2>
-      <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
+      <p className="mt-4 leading-8 text-brandText">
         Every rule, rate, threshold and deadline is traced to a primary Indian
         source. We do not cite other finance blogs as authority for a number.
       </p>
@@ -116,27 +116,27 @@ export default function EditorialPolicyPage() {
         {primarySources.map((source) => (
           <li
             key={source.name}
-            className="rounded-xl border border-brandBorder bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
+            className="rounded-xl border border-brandBorder bg-white p-4"
           >
             <a
               href={source.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-brandNavy underline underline-offset-2 dark:text-slate-100"
+              className="font-semibold text-brandNavy underline underline-offset-2"
             >
               {source.name}
             </a>
-            <p className="mt-1 text-sm leading-6 text-brandMuted dark:text-slate-400">
+            <p className="mt-1 text-sm leading-6 text-brandMuted">
               {source.used}
             </p>
           </li>
         ))}
       </ul>
 
-      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy dark:text-white">
+      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy">
         How calculators are built and checked
       </h2>
-      <ol className="mt-4 list-decimal space-y-3 pl-5 leading-8 text-brandText dark:text-slate-300">
+      <ol className="mt-4 list-decimal space-y-3 pl-5 leading-8 text-brandText">
         <li>
           The formula is written out in plain text on the page, so you can check
           our arithmetic rather than trust a black box.
@@ -155,10 +155,10 @@ export default function EditorialPolicyPage() {
         </li>
       </ol>
 
-      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy dark:text-white">
+      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy">
         Review cadence
       </h2>
-      <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
+      <p className="mt-4 leading-8 text-brandText">
         Every page carries a visible &ldquo;last reviewed&rdquo; date. Tax and
         salary pages are re-checked after the Union Budget, at the start of each
         financial year, and whenever the underlying rule changes. Rate-sensitive
@@ -168,10 +168,10 @@ export default function EditorialPolicyPage() {
         cosmetically to look current.
       </p>
 
-      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy dark:text-white">
+      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy">
         What we will not publish
       </h2>
-      <ul className="mt-4 list-disc space-y-2 pl-5 leading-8 text-brandText dark:text-slate-300">
+      <ul className="mt-4 list-disc space-y-2 pl-5 leading-8 text-brandText">
         <li>Buy/sell recommendations on specific stocks, funds or insurance products.</li>
         <li>Guaranteed-return claims, or projections presented as certainties.</li>
         <li>Paid placements disguised as editorial recommendations.</li>
@@ -179,14 +179,14 @@ export default function EditorialPolicyPage() {
         <li>Invented author credentials or fabricated expert quotes.</li>
       </ul>
 
-      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy dark:text-white">
+      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy">
         Independence and funding
       </h2>
-      <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
+      <p className="mt-4 leading-8 text-brandText">
         RupeeKit is funded by advertising and affiliate links, disclosed on our{' '}
         <Link
           href="/affiliate-disclosure"
-          className="font-semibold text-brandNavy underline underline-offset-2 dark:text-slate-200"
+          className="font-semibold text-brandNavy underline underline-offset-2"
         >
           affiliate disclosure
         </Link>{' '}
@@ -194,22 +194,22 @@ export default function EditorialPolicyPage() {
         which rules we report, or the order in which options are presented.
       </p>
 
-      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy dark:text-white">
+      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy">
         Errors
       </h2>
-      <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
+      <p className="mt-4 leading-8 text-brandText">
         We get things wrong sometimes. When we do, we fix them in the open — see
         the{' '}
         <Link
           href="/corrections-policy"
-          className="font-semibold text-brandNavy underline underline-offset-2 dark:text-slate-200"
+          className="font-semibold text-brandNavy underline underline-offset-2"
         >
           corrections policy
         </Link>
         , which explains how to report an error and what we do about it.
       </p>
 
-      <p className="mt-10 text-sm text-brandMuted dark:text-slate-400">
+      <p className="mt-10 text-sm text-brandMuted">
         Questions about this policy?{' '}
         <Link href="/contact" className="underline underline-offset-2">
           Contact us

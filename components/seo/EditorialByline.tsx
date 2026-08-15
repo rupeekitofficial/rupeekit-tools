@@ -34,7 +34,7 @@ export default function EditorialByline({
   return (
     <div
       className={[
-        'flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-brandMuted dark:text-slate-400',
+        'flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-brandMuted',
         className ?? '',
       ]
         .join(' ')
@@ -44,7 +44,7 @@ export default function EditorialByline({
         Written and reviewed by{' '}
         <Link
           href="/editorial-policy"
-          className="font-semibold text-brandNavy underline underline-offset-2 hover:text-brandDeepNavy dark:text-slate-200 dark:hover:text-white"
+          className="font-semibold text-brandNavy underline underline-offset-2 hover:text-brandDeepNavy"
         >
           {EDITORIAL_TEAM_NAME}
         </Link>
@@ -64,7 +64,7 @@ export default function EditorialByline({
       <span aria-hidden="true">·</span>
       <Link
         href="/corrections-policy"
-        className="underline underline-offset-2 hover:text-brandNavy dark:hover:text-white"
+        className="underline underline-offset-2 hover:text-brandNavy"
       >
         Report a correction
       </Link>

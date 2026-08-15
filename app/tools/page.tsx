@@ -60,8 +60,8 @@ export default function ToolsIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
 
-      <nav className="text-sm font-medium text-brandMuted dark:text-slate-400">
-        <Link href="/" className="transition hover:text-brandNavy dark:hover:text-white">
+      <nav className="text-sm font-medium text-brandMuted">
+        <Link href="/" className="transition hover:text-brandNavy">
           Home
         </Link>
         <span className="mx-2">/</span>
@@ -96,19 +96,19 @@ export default function ToolsIndexPage() {
         }))}
       />
 
-      <section className="mt-16 rounded-3xl border border-brandBorder bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900 md:p-8">
-        <h2 className="text-xl font-black text-brandDeepNavy dark:text-white">Made to show the working</h2>
-        <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
+      <section className="mt-16 rounded-3xl border border-brandBorder bg-white p-6 shadow-card md:p-8">
+        <h2 className="text-xl font-black text-brandDeepNavy">Made to show the working</h2>
+        <p className="mt-3 text-sm leading-7 text-slate-700">
           RupeeKit calculators are built for Indian salary structures, tax rules and financial
           products. Each one shows the formula, a worked example, common mistakes and FAQs, so you
           understand the math rather than just the final number. All results are educational
           estimates — verify major tax, loan and investment decisions with official sources or a
           qualified professional. New here? Start with the{' '}
-          <Link href="/start-here" className="font-bold text-brandNavy hover:underline dark:text-brandBrightGreen">
+          <Link href="/start-here" className="font-bold text-brandNavy hover:underline">
             Start Here guide
           </Link>{' '}
           or take the{' '}
-          <Link href="/money-health-check" className="font-bold text-brandNavy hover:underline dark:text-brandBrightGreen">
+          <Link href="/money-health-check" className="font-bold text-brandNavy hover:underline">
             Money Health Check
           </Link>
           .

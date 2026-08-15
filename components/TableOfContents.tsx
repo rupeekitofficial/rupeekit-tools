@@ -44,12 +44,12 @@ export default function TableOfContents({ items, title = 'On this page', id = 't
   }, [items]);
 
   return (
-    <nav id={id} aria-label="Table of contents" className="rounded-2xl border border-brandBorder bg-white text-sm shadow-card dark:border-slate-800 dark:bg-slate-900">
+    <nav id={id} aria-label="Table of contents" className="rounded-2xl border border-brandBorder bg-white text-sm shadow-card">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="flex w-full items-center justify-between gap-2 px-4 py-3 font-bold text-brandDeepNavy dark:text-white lg:cursor-default lg:pointer-events-none"
+        className="flex w-full items-center justify-between gap-2 px-4 py-3 font-bold text-brandDeepNavy lg:cursor-default lg:pointer-events-none"
       >
         <span>{title}</span>
         <svg aria-hidden="true" className={`h-4 w-4 transition-transform lg:hidden ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,8 +64,8 @@ export default function TableOfContents({ items, title = 'On this page', id = 't
                 href={`#${item.id}`}
                 className={`block rounded-lg px-3 py-2 leading-snug transition ${
                   activeId === item.id
-                    ? 'bg-brandBgSoft font-bold text-brandNavy dark:bg-slate-800 dark:text-brandBrightGreen'
-                    : 'text-brandMuted hover:bg-brandBgSoft hover:text-brandNavy dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white'
+                    ? 'bg-brandBgSoft font-bold text-brandNavy'
+                    : 'text-brandMuted hover:bg-brandBgSoft hover:text-brandNavy'
                 }`}
               >
                 {item.label}

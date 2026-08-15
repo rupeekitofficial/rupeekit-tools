@@ -65,16 +65,16 @@ export default function SiteFooter() {
   const contactEmail = 'rupeekitofficial@gmail.com';
 
   return (
-    <footer className="mt-16 border-t border-brandBorder bg-white dark:border-slate-800 dark:bg-slate-950">
+    <footer className="mt-16 border-t border-brandBorder bg-white">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Logo & About Section */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
               <Logo type="icon" width={40} height={40} className="h-10 w-10" />
-              <span className="text-xl font-bold tracking-tight text-brandNavy dark:text-white">RupeeKit</span>
+              <span className="text-xl font-bold tracking-tight text-brandNavy">RupeeKit</span>
             </Link>
-            <p className="text-sm leading-relaxed text-brandMuted dark:text-slate-400">
+            <p className="text-sm leading-relaxed text-brandMuted">
               Free India-focused calculators for salary, EMI, SIP, GST, FD, and personal finance planning.
             </p>
             <div className="flex gap-4 mt-2">
@@ -84,7 +84,7 @@ export default function SiteFooter() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-brandBorder text-brandMuted transition hover:scale-105 hover:border-brandNavy/30 hover:text-brandNavy dark:border-slate-800 dark:text-slate-400 dark:hover:text-white"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-brandBorder text-brandMuted transition hover:scale-105 hover:border-brandNavy/30 hover:text-brandNavy"
                   aria-label={link.name}
                 >
                   {link.icon}
@@ -95,11 +95,11 @@ export default function SiteFooter() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy dark:text-white">Navigation</h3>
-            <ul className="mt-4 flex flex-col gap-1 text-sm font-medium text-brandMuted dark:text-slate-400">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy">Navigation</h3>
+            <ul className="mt-4 flex flex-col gap-1 text-sm font-medium text-brandMuted">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
+                  <Link href={link.href} className="flex min-h-11 items-center transition hover:text-brandNavy">
                     {link.name}
                   </Link>
                 </li>
@@ -109,11 +109,11 @@ export default function SiteFooter() {
 
           {/* Legal Pages */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy dark:text-white">Legal</h3>
-            <ul className="mt-4 flex flex-col gap-1 text-sm font-medium text-brandMuted dark:text-slate-400">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy">Legal</h3>
+            <ul className="mt-4 flex flex-col gap-1 text-sm font-medium text-brandMuted">
               {legalLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
+                  <Link href={link.href} className="flex min-h-11 items-center transition hover:text-brandNavy">
                     {link.name}
                   </Link>
                 </li>
@@ -123,23 +123,23 @@ export default function SiteFooter() {
 
           {/* Contact Details */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy dark:text-white">Contact</h3>
-            <p className="mt-4 text-sm text-brandMuted dark:text-slate-400">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy">Contact</h3>
+            <p className="mt-4 text-sm text-brandMuted">
               For questions, feedback, or tool ideas:
             </p>
-            <p className="mt-2 break-all text-sm font-semibold text-brandText dark:text-slate-200">{contactEmail}</p>
+            <p className="mt-2 break-all text-sm font-semibold text-brandText">{contactEmail}</p>
           </div>
         </div>
 
         {/* Brand Disclaimer & Copyright */}
-        <div className="mt-12 border-t border-brandBorder pt-8 dark:border-slate-800">
-          <div className="rounded-2xl border border-brandBorder bg-brandBgSoft p-5 text-xs leading-relaxed text-brandMuted shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
-            <p className="mb-1 font-bold text-brandDeepNavy dark:text-white">Financial Disclaimer</p>
+        <div className="mt-12 border-t border-brandBorder pt-8">
+          <div className="rounded-2xl border border-brandBorder bg-brandBgSoft p-5 text-xs leading-relaxed text-brandMuted shadow-sm">
+            <p className="mb-1 font-bold text-brandDeepNavy">Financial Disclaimer</p>
             <p>
               RupeeKit provides educational calculators, reading lists, and money tools. Content is for general information only and is not financial, tax, legal, or investment advice.
             </p>
           </div>
-          <div className="mt-6 flex flex-col justify-between gap-4 text-xs text-brandMuted dark:text-slate-400 md:flex-row md:items-center">
+          <div className="mt-6 flex flex-col justify-between gap-4 text-xs text-brandMuted md:flex-row md:items-center">
             <p>© {new Date().getFullYear()} RupeeKit. All rights reserved.</p>
             <p className="text-slate-400">Educational Finance Tools for India</p>
           </div>

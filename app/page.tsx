@@ -153,20 +153,20 @@ export default function HomePage() {
         <section id="calculators" className="scroll-mt-28">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-brandGrowthGreen dark:text-brandBrightGreen">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-brandGrowthGreen">
                 Browse by goal
               </p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight text-brandDeepNavy dark:text-white md:text-4xl">
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-brandDeepNavy md:text-4xl">
                 Start with the decision in front of you
               </h2>
-              <p className="mt-3 text-sm leading-7 text-brandMuted dark:text-slate-400 md:text-base">
+              <p className="mt-3 text-sm leading-7 text-brandMuted md:text-base">
                 Each category opens into focused tools, so you can move from a question to a useful
                 estimate without hunting through a flat directory.
               </p>
             </div>
             <Link
               href="/tools"
-              className="inline-flex min-h-11 items-center gap-2 text-sm font-black text-brandNavy hover:underline dark:text-brandBrightGreen"
+              className="inline-flex min-h-11 items-center gap-2 text-sm font-black text-brandNavy hover:underline"
             >
               View all calculators <span aria-hidden="true">→</span>
             </Link>
@@ -178,26 +178,26 @@ export default function HomePage() {
               return (
                 <article
                   key={group.name}
-                  className="rounded-3xl border border-brandBorder bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-cardHover dark:border-slate-800 dark:bg-slate-900"
+                  className="rounded-3xl border border-brandBorder bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-cardHover"
                 >
                   <div className="flex items-start gap-4">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brandNavy/10 text-brandNavy dark:bg-brandBrightGreen/10 dark:text-brandBrightGreen">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brandNavy/10 text-brandNavy">
                       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d={group.iconPath} />
                       </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-black text-brandDeepNavy dark:text-white">{group.name}</h3>
-                      <p className="mt-1 text-sm leading-6 text-brandMuted dark:text-slate-400">{group.description}</p>
+                      <h3 className="text-xl font-black text-brandDeepNavy">{group.name}</h3>
+                      <p className="mt-1 text-sm leading-6 text-brandMuted">{group.description}</p>
                     </div>
                   </div>
 
-                  <ul className="mt-6 space-y-1 border-t border-brandBorder pt-4 dark:border-slate-800">
+                  <ul className="mt-6 space-y-1 border-t border-brandBorder pt-4">
                     {groupTools.map((tool) => (
                       <li key={tool.slug}>
                         <Link
                           href={`/tools/${tool.slug}`}
-                          className="group flex min-h-11 items-center justify-between gap-3 rounded-xl px-3 py-2 text-sm font-bold text-brandText transition hover:bg-brandBgSoft hover:text-brandNavy dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-white"
+                          className="group flex min-h-11 items-center justify-between gap-3 rounded-xl px-3 py-2 text-sm font-bold text-brandText transition hover:bg-brandBgSoft hover:text-brandNavy"
                         >
                           <span>{tool.name}</span>
                           <span aria-hidden="true" className="text-brandGrowthGreen transition group-hover:translate-x-1">→</span>
@@ -247,10 +247,10 @@ export default function HomePage() {
             ['Transparent formulas', 'See assumptions, worked examples, FAQs, and the math behind each estimate.'],
             ['Built for India', 'Use tools shaped around Indian salaries, taxes, lending, saving, and investing.'],
           ].map(([title, description]) => (
-            <div key={title} className="rounded-3xl border border-brandBorder bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900">
+            <div key={title} className="rounded-3xl border border-brandBorder bg-white p-6 shadow-card">
               <span aria-hidden="true" className="flex h-10 w-10 items-center justify-center rounded-full bg-brandGrowthGreen/10 text-lg font-black text-brandGrowthGreen">✓</span>
-              <h2 className="mt-5 text-lg font-black text-brandDeepNavy dark:text-white">{title}</h2>
-              <p className="mt-2 text-sm leading-6 text-brandMuted dark:text-slate-400">{description}</p>
+              <h2 className="mt-5 text-lg font-black text-brandDeepNavy">{title}</h2>
+              <p className="mt-2 text-sm leading-6 text-brandMuted">{description}</p>
             </div>
           ))}
         </section>

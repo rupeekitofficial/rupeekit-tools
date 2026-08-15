@@ -136,15 +136,8 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en-IN" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('rupeekit-theme');var d=t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',d)}catch(e){}})()`,
-          }}
-        />
-      </head>
-      <body className="min-h-screen flex flex-col bg-brandBgSoft text-brandText dark:bg-slate-950 dark:text-slate-100">
+    <html lang="en-IN">
+      <body className="min-h-screen flex flex-col bg-brandBgSoft text-brandText">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
