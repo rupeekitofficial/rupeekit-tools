@@ -69,11 +69,10 @@ function decodeLiteral(raw, quote) {
 }
 
 function extractPropertyLiterals(source, property) {
-  const regex = new RegExp(`${property}\\s*:\\s*([\\'\"\`])((?:\\\\.|(?!\\1)[\\s\\S])*?)\\1`, 'g');
+  const regex = new RegExp(`${property}\\s*:\\s*(['"])((?:\\\\.|(?!\\1)[\\s\\S])*?)\\1`, 'g');
   const values = [];
   let match;
   while ((match = regex.exec(source)) !== null) {
-    if (match[0].includes('${')) continue;
     values.push(decodeLiteral(match[2], match[1]));
   }
   return values;
@@ -180,6 +179,6 @@ if (errors > 0) {
 
 console.log(`✅ Audited ${auditedTitles} blog SEO title literal(s).`);
 console.log(`✅ Audited ${auditedDescriptions} blog meta description literal(s).`);
-console.log(`✅ Verified all 5 issue #58 zero-click titles remain unchanged and within 60 characters.`);
+console.log('✅ Verified all 5 issue #58 zero-click titles remain unchanged and within 60 characters.');
 console.log(`✅ Audited ${auditedUpdates} financial/government update metadata record(s).`);
 console.log(`ℹ️ ${warnings} legacy metadata item(s) are normalized or flagged without inventing new factual claims.`);
