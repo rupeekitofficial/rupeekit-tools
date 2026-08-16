@@ -77,10 +77,13 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-03',
   },
   [EIGHTH_PAY_SLUG]: {
-    title: '8th Pay Commission Salary Calculator 2026 (Fitment Factor)',
+    title: '8th Pay Commission Calculator: Fitment Scenarios',
     description:
-      'Estimate your revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Illustrative until the official recommendations are notified.',
-    lastReviewedIso: '2026-08-03',
+      'Compare unofficial 8th Pay Commission fitment scenarios without double-counting DA. See current gross, revised basic and projected gross separately.',
+    h1: '8th Pay Commission Salary Calculator (Unofficial Scenarios)',
+    heroDescription:
+      'Build a current 7th CPC gross-pay baseline, compare fitment-factor scenarios and keep projected DA and HRA separate. The 8th CPC has not notified a final factor, pay matrix or implementation date.',
+    lastReviewedIso: '2026-08-17',
   },
   // Titles for these two are the H1-aligned rewrites from the Aug 2026 SEO
   // analysis; it calls out the previous "PPF Calculator India | 15-Year
@@ -106,9 +109,13 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
       'Calculate compound annual growth rate from starting value, ending value and holding period, with the absolute gain shown for your investment.',
   },
   'personal-loan-eligibility-calculator-india': {
-    title: 'Personal Loan Eligibility Calculator | Income & FOIR',
+    title: 'Personal Loan Eligibility Calculator: Income & FOIR',
     description:
-      'Estimate maximum affordable EMI and personal-loan eligibility from take-home income, existing EMIs, FOIR, expected rate and selected tenure.',
+      'Estimate personal-loan eligibility from take-home income, existing EMIs, FOIR, rate and tenure. Instant browser calculation; not lender approval.',
+    h1: 'Personal Loan Eligibility Calculator India',
+    heroDescription:
+      'Estimate affordable EMI and borrowing capacity from take-home income and existing obligations, then test FOIR, interest-rate and tenure assumptions. No phone number, lender lead form or bureau lookup is required.',
+    lastReviewedIso: '2026-08-17',
   },
   'net-worth-calculator-india': {
     title: 'Net Worth Calculator India | Assets, Debt & Liquid Worth',
@@ -116,19 +123,31 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
       'Calculate total assets, liabilities, personal net worth, liquid net worth and debt-to-asset ratio from your current financial balances in one view.',
   },
   'gold-loan-calculator-india': {
-    title: 'Gold Loan Calculator India | Value, LTV, EMI & Interest',
+    title: 'Gold Loan Calculator 2026: RBI LTV, Value & EMI',
     description:
-      'Estimate pledged-gold value, eligible loan amount, monthly EMI and total interest using weight, purity, entered gold price, LTV, rate and tenure.',
+      'Estimate gold value, maximum loan, EMI and interest using RBI 2026 LTV tiers of 85%, 80% and 75%, actual purity and a lender-entered reference price.',
+    h1: 'Gold Loan Calculator India (RBI 2026 LTV Tiers)',
+    heroDescription:
+      'Value only the eligible gold content, apply the RBI consumption-loan LTV tier for the requested amount and estimate EMI and interest. Enter the lender reference price yourself; RupeeKit does not claim a live gold rate.',
+    lastReviewedIso: '2026-08-17',
   },
   'sukanya-samriddhi-yojana-calculator-india': {
-    title: 'SSY Calculator India | Deposit, Interest & Maturity',
+    title: 'SSY Calculator 2026: 21-Year Maturity & Interest',
     description:
-      'Estimate Sukanya Samriddhi maturity value, total deposits and interest at age 21 from the child’s age, annual contribution and entered SSY rate.',
+      'Project SSY maturity using 15 deposit years and a 21-year term from account opening. Includes current balance, editable 8.2% rate and official sources.',
+    h1: 'Sukanya Samriddhi Yojana (SSY) Calculator 2026',
+    heroDescription:
+      'Project a new or existing SSY account using the correct account-opening timeline: deposits for 15 years and maturity after 21 years. The 8.2% default is an editable Jul-Sep 2026 assumption, not a lifetime guarantee.',
+    lastReviewedIso: '2026-08-17',
   },
   'salary-in-hand-calculator-india': {
-    title: 'Salary In-Hand Calculator | CTC, PF, Tax & Take-Home',
+    title: 'Salary In-Hand Calculator 2026: CTC to Take-Home',
     description:
-      'Estimate monthly gross pay, basic salary, employee PF and take-home salary from annual CTC, salary structure, tax and other deductions each month.',
+      'Convert annual CTC to monthly gross and take-home for FY 2026-27 (AY 2027-28), with employer PF, employee PF, income tax and state-specific deductions.',
+    h1: 'Salary In-Hand Calculator India 2026',
+    heroDescription:
+      'Reconcile annual CTC with employer PF, gross salary, employee PF, estimated tax, professional tax and monthly take-home. Every result is explicitly monthly or annual, with FY 2026-27 mapped to AY 2027-28.',
+    lastReviewedIso: '2026-08-17',
   },
   'fd-calculator-india': {
     lastReviewedIso: '2026-05-01',
@@ -268,27 +287,27 @@ const BURIED_TOOL_INTENT_CONTENT: Record<string, SearchIntentSection[]> = {
   ],
   'gold-loan-calculator-india': [
     {
-      heading: 'Gold-loan eligibility check: value, LTV and repayment',
+      heading: 'Gold-loan eligibility check: value, RBI tier and repayment',
       body:
-        'The estimate separates assessed gold value from the eligible loan and then calculates EMI and interest. Change weight, purity, entered reference price and LTV to compare lender quotations on the same assumptions.',
+        'The estimate separates intrinsic gold value from the maximum amount supported across the RBI 85%, 80% and 75% consumption-loan bands, then calculates EMI and interest on the fundable request.',
       bullets: [
-        'Only eligible gold content should be entered; stones and non-gold attachments may not be valued.',
-        'A lower LTV reduces the loan amount and repayment burden.',
-        'Compare EMI-based, interest-servicing and bullet-repayment terms directly with the lender.',
-        'The calculator does not fetch a live gold price or promise lender approval.',
+        'Enter net gold weight after stones, gems, lac, strings, fastenings and other non-gold parts are excluded.',
+        'Use the lender’s published 24K reference price; the calculator does not insert a live market quote.',
+        'The exact ₹2.5 lakh and ₹5 lakh boundaries are applied to total consumption-loan amount per borrower.',
+        'Final assay, valuation, repayment-capacity review, fees and sanction remain with the lender.',
       ],
     },
   ],
   'sukanya-samriddhi-yojana-calculator-india': [
     {
-      heading: 'SSY maturity by child age and annual deposit',
+      heading: 'SSY maturity by account age and annual deposit',
       body:
-        'Use the child’s current age to estimate the time remaining to maturity, then compare annual deposit scenarios. The output separates total deposits from estimated interest so the compounding effect is visible.',
+        'Use completed years since account opening to calculate the remaining 15-year deposit window and 21-year maturity term. Child age checks opening eligibility only; it does not determine maturity.',
       bullets: [
-        'Compare the minimum planned deposit with a higher annual contribution.',
-        'Change the entered SSY rate when the government-announced rate changes.',
-        'Review total deposited, total interest and estimated maturity value together.',
-        'Verify current scheme rules and rates with India Post or another official source.',
+        'Use account age 0 and current balance 0 for a new account.',
+        'For an existing account, enter the latest passbook balance so historical credited rates are preserved.',
+        'The 8.2% default is checked for Jul-Sep 2026 and remains editable because rates can change quarterly.',
+        'Review future deposits and projected interest separately; no fixed 80C tax saving is assumed.',
       ],
     },
   ],
@@ -358,6 +377,7 @@ function buildGenericAnswerEngineSummary(tool: Tool) {
 }
 
 function buildGenericCalculatorFacts(tool: Tool) {
+  if (tool.factRows?.length) return tool.factRows;
   const keyInputs = tool.inputs.slice(0, 4).map((input) => input.label);
   const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 4).map((output) => output.label);
   return [
@@ -795,6 +815,41 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       href: '/tools/8th-pay-commission-salary-calculator-india',
       label: '8th Pay Commission fitment-factor scenario calculator',
     } : null,
+    ['gold-loan-calculator-india', 'personal-loan-eligibility-calculator-india'].includes(tool.slug)
+      && liveToolSlugs.has(PERSONAL_LOAN_SLUG) ? {
+      href: `/tools/${PERSONAL_LOAN_SLUG}`,
+      label: 'personal loan EMI calculator for total-cost comparison',
+    } : null,
+    tool.slug === 'gold-loan-calculator-india'
+      && liveToolSlugs.has('personal-loan-eligibility-calculator-india') ? {
+      href: '/tools/personal-loan-eligibility-calculator-india',
+      label: 'personal loan eligibility calculator for income-based capacity',
+    } : null,
+    tool.slug === 'personal-loan-eligibility-calculator-india'
+      && liveToolSlugs.has('emergency-fund-calculator-india') ? {
+      href: '/tools/emergency-fund-calculator-india',
+      label: 'emergency fund calculator before taking a new EMI',
+    } : null,
+    tool.slug === 'personal-loan-eligibility-calculator-india'
+      && liveToolSlugs.has('gold-loan-calculator-india') ? {
+      href: '/tools/gold-loan-calculator-india',
+      label: 'gold loan calculator for a collateral-backed alternative',
+    } : null,
+    ['ppf-calculator-india', '80c-deduction-calculator-india'].includes(tool.slug)
+      && liveToolSlugs.has('sukanya-samriddhi-yojana-calculator-india') ? {
+      href: '/tools/sukanya-samriddhi-yojana-calculator-india',
+      label: 'SSY calculator for the 15-year deposit and 21-year account term',
+    } : null,
+    tool.slug === 'sukanya-samriddhi-yojana-calculator-india'
+      && liveToolSlugs.has('ppf-calculator-india') ? {
+      href: '/tools/ppf-calculator-india',
+      label: 'PPF calculator for a rules-and-term comparison',
+    } : null,
+    tool.slug === 'sukanya-samriddhi-yojana-calculator-india'
+      && liveToolSlugs.has(SIP_SLUG) ? {
+      href: `/tools/${SIP_SLUG}`,
+      label: 'SIP calculator for a market-linked goal scenario',
+    } : null,
     liveToolSlugs.has('salary-in-hand-calculator-india') && tool.slug !== 'salary-in-hand-calculator-india' ? {
       href: '/tools/salary-in-hand-calculator-india',
       label: 'salary in-hand calculator',
@@ -1138,6 +1193,24 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             updatedFallback={tool.lastReviewed}
           />
 
+          {tool.calculationVersion || tool.factsCheckedIso ? (
+            <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-600">
+              {tool.calculationVersion ? (
+                <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 font-semibold">
+                  Tested calculation v{tool.calculationVersion}
+                </span>
+              ) : null}
+              {tool.factsCheckedIso ? (
+                <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 font-semibold">
+                  Primary sources checked {tool.factsCheckedIso}
+                </span>
+              ) : null}
+              <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 font-semibold">
+                Inputs processed in your browser
+              </span>
+            </div>
+          ) : null}
+
           {isHraPage ? (
             <p className="mt-2 text-sm text-slate-500">
               Reviewed for FY 2026-27 HRA city-rule changes.
@@ -1422,7 +1495,9 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 <section
                   key={section.heading}
                   id={
-                    isPersonalLoanPage
+                    /source and methodology/i.test(section.heading)
+                      ? 'source-and-methodology'
+                      : isPersonalLoanPage
                       ? PERSONAL_LOAN_SECTION_IDS[section.heading]
                       : isEmergencyFundPage && section.heading === 'Source and Methodology'
                         ? 'source-and-methodology'
@@ -1431,15 +1506,28 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   className="mt-8 scroll-mt-24"
                 >
                   <h2 className="text-2xl font-bold">{section.heading}</h2>
-                  {isEmergencyFundPage && section.heading === 'Source and Methodology' ? (
+                  {/source and methodology/i.test(section.heading) ? (
                     <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
                   ) : null}
                   <p className="mt-4 leading-8 text-slate-700">{section.body}</p>
-                  {isEmergencyFundPage && section.heading === 'Source and Methodology' ? (
-                    <p className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-3 text-sm leading-6 text-slate-700">
-                      Educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice.
-                      The result is for planning support only.
-                    </p>
+                  {/source and methodology/i.test(section.heading) ? (
+                    <div className="mt-4 space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700">
+                      {tool.calculationVersion ? (
+                        <p><strong>Calculation version:</strong> {tool.calculationVersion}{tool.factsCheckedIso ? <> · <strong>Facts checked:</strong> {tool.factsCheckedIso}</> : null}</p>
+                      ) : null}
+                      {tool.nextReviewTrigger ? <p><strong>Next review trigger:</strong> {tool.nextReviewTrigger}</p> : null}
+                      <p>Educational estimate only. RupeeKit does not provide personalized financial, investment, legal, tax or loan advice.</p>
+                      {tool.officialSources?.length ? (
+                        <div>
+                          <p className="font-bold text-slate-900">Primary references</p>
+                          <ul className="mt-2 list-disc space-y-1 pl-5">
+                            {tool.officialSources.map((source) => (
+                              <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-sky-700 hover:underline">{source.label}</a></li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : null}
+                    </div>
                   ) : null}
 
                   {isEmergencyFundPage && section.heading === 'Emergency Fund by Life Situation' ? (
@@ -1924,6 +2012,17 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             Inputs are processed in-page to show planning outputs. RupeeKit does not provide personalized financial,
             tax, legal, investment, or loan advice.
           </p>
+          {tool.calculationVersion ? (
+            <p className="mt-4 text-sm leading-6 text-slate-700">
+              <strong>Calculation version:</strong> {tool.calculationVersion}
+              {tool.factsCheckedIso ? <> · <strong>Facts checked:</strong> {tool.factsCheckedIso}</> : null}
+            </p>
+          ) : null}
+          {tool.nextReviewTrigger ? (
+            <p className="mt-2 text-sm leading-6 text-slate-700">
+              <strong>Next review trigger:</strong> {tool.nextReviewTrigger}
+            </p>
+          ) : null}
           {tool.officialSources?.length ? (
             <>
               <h3 className="mt-6 text-lg font-bold text-slate-950">Primary references</h3>
