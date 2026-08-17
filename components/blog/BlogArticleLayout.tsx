@@ -1,5 +1,3 @@
-'use client';
-
 import { Fragment } from 'react';
 import Link from 'next/link';
 import type { BlogPost } from '@/data/blog-posts';
@@ -99,7 +97,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
     post.answerEngineSummary ||
     `${post.h1} explains the key assumptions, practical steps, and common mistakes so you can plan with clearer estimates. This article is educational information only and should be cross-verified with official rules and records where required.`;
 
-  // Helper to slugify section titles to match Table of Contents links
   const slugify = (text: string) => {
     return text
       .toLowerCase()
@@ -110,7 +107,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
-      {/* Breadcrumbs */}
       <nav className="text-xs md:text-sm text-brandMuted mb-6 flex items-center gap-2">
         <Link href="/" className="hover:text-brandNavy transition font-medium">
           Home
@@ -123,7 +119,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
         <span className="text-brandText truncate max-w-[200px] md:max-w-none">{post.title}</span>
       </nav>
 
-      {/* Hero Header */}
       <BlogHero
         title={post.h1}
         category={post.category}
@@ -138,6 +133,22 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
         heroImageHeight={post.heroImageHeight}
       />
 
+      <section className="mt-6" data-direct-answer="server-rendered">
+        {post.quickAnswer ? (
+          <QuickAnswerBox
+            title={post.quickAnswer.title || 'Quick Answer'}
+            question={post.quickAnswer.question}
+            answer={post.quickAnswer.answer}
+            formula={post.quickAnswer.formula}
+            example={post.quickAnswer.example}
+            note={post.quickAnswer.note}
+            links={post.quickAnswer.links}
+          />
+        ) : (
+          <AnswerEngineSummary summary={answerEngineSummary} />
+        )}
+      </section>
+
       <EditorialByline
         className="mt-6"
         publishedIso={post.publishedDateISO}
@@ -145,39 +156,17 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
         updatedFallback={post.date}
       />
 
-      {/* Main Grid Layout */}
       <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_0.42fr]">
-        
-        {/* Left Column: Article Body */}
         <article className="flex flex-col gap-8">
-          
-          {/* Amazon affiliate disclosure at top if applicable */}
           {post.amazonDisclosure && <AffiliateDisclosure />}
-
-          {/* Broker affiliate disclosure at top if applicable */}
           {post.brokerAffiliateDisclosure && <BrokerAffiliateDisclosure />}
 
           <div className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8">
-            {/* Intro */}
             <p className="text-base md:text-lg leading-relaxed text-slate-800 font-medium">
               {post.intro}
             </p>
 
-            {post.quickAnswer ? (
-              <div className="mt-6">
-                <QuickAnswerBox
-                  title={post.quickAnswer.title || 'Quick Answer'}
-                  question={post.quickAnswer.question}
-                  answer={post.quickAnswer.answer}
-                  formula={post.quickAnswer.formula}
-                  example={post.quickAnswer.example}
-                  note={post.quickAnswer.note}
-                  links={post.quickAnswer.links}
-                />
-              </div>
-            ) : null}
-
-            <AnswerEngineSummary className="mt-6" summary={answerEngineSummary} />
+            {post.quickAnswer ? <AnswerEngineSummary className="mt-6" summary={answerEngineSummary} /> : null}
 
             <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-700">
@@ -282,7 +271,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
               </>
             )}
 
-            {/* Sections */}
             <div className="mt-8 space-y-10">
               {post.sections.map((section, idx) => {
                 const sectionId = slugify(section.title);
@@ -292,15 +280,11 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                       <h2 className="text-xl md:text-2xl font-black tracking-tight text-brandDeepNavy">
                         {section.title}
                       </h2>
-                      
-                      {/* Paragraphs */}
                       {section.paragraphs.map((p, pIdx) => (
                         <p key={pIdx} className="mt-4 text-sm md:text-base leading-relaxed text-slate-700">
                           {p}
                         </p>
                       ))}
-
-                      {/* Bullets */}
                       {section.bullets && section.bullets.length > 0 && (
                         <ul className="mt-4 list-disc space-y-2.5 pl-6 text-sm md:text-base text-slate-700">
                           {section.bullets.map((bullet) => (
@@ -308,8 +292,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                           ))}
                         </ul>
                       )}
-
-                      {/* Example Calculations / Blocks */}
                       {section.example && (
                         <div className="mt-5 rounded-2xl border border-brandNavy/10 bg-brandNavy/[0.02] p-5">
                           <h4 className="text-sm font-bold text-brandDeepNavy uppercase tracking-wider">
@@ -360,7 +342,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
               })}
             </div>
 
-            {/* Book lists for the books article */}
             {post.books && post.books.length > 0 && (
               <div className="mt-8 border-t border-brandBorder pt-8 space-y-6">
                 <h2 className="text-2xl font-black text-brandDeepNavy">
@@ -373,8 +354,7 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                 </div>
               </div>
             )}
-            
-            {/* Soft CTA to use RupeeKit calculators at the end of article */}
+
             <div className="mt-10 border-t border-brandBorder pt-8">
               <div className="rounded-2xl bg-brandBgSoft border border-brandBorder p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
@@ -395,21 +375,15 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
             </div>
           </div>
 
-          {/* FAQs */}
           <FAQSection faqs={post.faqs} />
-
-          {/* Finance educational disclaimer */}
           <FinanceDisclaimer />
-
         </article>
 
-        {/* Right Column: Sidebar (Sticky on Desktop) */}
         <aside className="flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents sections={post.sections} />
           <RelatedCalculatorLinks slugs={post.relatedCalculators} />
           {post.visualType && <BlogSharePreviewCard post={post} />}
         </aside>
-
       </div>
     </div>
   );
