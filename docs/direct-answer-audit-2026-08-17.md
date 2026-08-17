@@ -15,9 +15,10 @@ The Day 10 report (`automation/reports/gsc/2026-08-12.json`) is intentionally a 
 - `/tools/sip-calculator-india`
 - `/tools/capital-gains-tax-calculator-india`
 - `/tools/emergency-fund-calculator-india`
-- `/tools/8th-pay-commission-salary-calculator-india`
 
 Each gets concise direct-answer copy in the server-rendered hero paragraph immediately after the H1 and before calculator inputs. Existing dedicated scope blocks remain in place where present. No calculator formula, input or output changes in this issue.
+
+`/tools/8th-pay-commission-salary-calculator-india` is excluded from this set: the merged search-growth audit (PR #110) already ships a tested, server-rendered hero description for that exact page, which takes precedence over the generic `shortDescription` fallback and already satisfies the above-the-fold requirement.
 
 ### Blogs
 

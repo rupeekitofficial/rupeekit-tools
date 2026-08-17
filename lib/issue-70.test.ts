@@ -10,7 +10,6 @@ const requiredToolSlugs = [
   'sip-calculator-india',
   'capital-gains-tax-calculator-india',
   'emergency-fund-calculator-india',
-  '8th-pay-commission-salary-calculator-india',
 ] as const;
 
 describe('issue #70 above-the-fold direct answers', () => {

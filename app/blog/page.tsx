@@ -7,8 +7,8 @@ const SITE_URL_CONST = 'https://www.rupeekit.co.in';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Personal Finance Blog & Money Guides | RupeeKit' },
-  description: 'Explore free, practical personal finance articles, budgeting advice, investment strategies, and checklist guides for Indian salaried employees.',
+  title: { absolute: 'Personal Finance Guides India: Tax, Loans & Investing' },
+  description: 'Browse practical Indian money guides across seven clear hubs: budgeting, loans, tax, salary, savings, investing, and government compliance.',
   alternates: { canonical: `${SITE_URL}/blog` },
   robots: {
     index: true,
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     'max-image-preview': 'large',
   },
   openGraph: {
-    title: 'Personal Finance Blog & Money Guides | RupeeKit',
-    description: 'Explore free, practical personal finance articles for Indian salaried employees.',
+    title: 'Personal Finance Guides India: Tax, Loans & Investing',
+    description: 'Browse practical Indian money guides across seven clear topic hubs.',
     url: `${SITE_URL}/blog`,
     siteName: 'RupeeKit',
     type: 'website',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Personal Finance Blog & Money Guides | RupeeKit',
-    description: 'Explore free, practical personal finance articles for Indian salaried employees.',
+    title: 'Personal Finance Guides India: Tax, Loans & Investing',
+    description: 'Browse practical Indian money guides across seven clear topic hubs.',
   },
 };
 
@@ -39,10 +39,10 @@ export default function BlogListingPage() {
           RupeeKit Library
         </span>
         <h1 className="mt-4 text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl">
-          Personal Finance Guides &amp; Resources
+          Personal Finance Guides for India
         </h1>
         <p className="mt-4 text-brandMuted text-lg leading-relaxed">
-          Master budgeting, savings, investing, and tax planning in India with simple, educational, and formula-backed explanations.
+          Start with one of seven focused hubs for budgeting, loans, income tax, salary, savings, investing, or government compliance—then move directly to the calculator that supports the decision.
         </p>
       </section>
 
@@ -65,7 +65,7 @@ export default function BlogListingPage() {
             {
               '@context': 'https://schema.org',
               '@type': 'CollectionPage',
-              name: 'Personal Finance Blog & Money Guides | RupeeKit',
+              name: 'Personal Finance Guides India: Tax, Loans & Investing',
               url: `${SITE_URL_CONST}/blog`,
               description: 'Free, practical personal finance articles covering budgeting, savings, investing, taxes, and financial planning for Indian salaried employees.',
               hasPart: blogPosts.map((p) => ({

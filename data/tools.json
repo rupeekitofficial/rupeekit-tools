@@ -12,7 +12,7 @@
       {
         "key": "annualCtc",
         "label": "Annual CTC",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 1200000,
         "min": 0,
         "step": 10000,
@@ -40,7 +40,7 @@
       {
         "key": "monthlyTax",
         "label": "Monthly income tax/TDS",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 25000,
         "min": 0,
         "step": 500,
@@ -49,7 +49,7 @@
       {
         "key": "professionalTax",
         "label": "Professional tax",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 200,
         "min": 0,
         "step": 50,
@@ -58,7 +58,7 @@
       {
         "key": "otherDeduction",
         "label": "Other monthly deductions",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 500,
@@ -92,7 +92,7 @@
       }
     ],
     "formulaExplanation": "Monthly in-hand salary is estimated as monthly gross salary minus employee PF, monthly tax/TDS, professional tax and other recurring deductions.",
-    "example": "For a â‚¹12,00,000 CTC with 40% basic, 12% PF, â‚¹25,000 monthly tax and â‚¹200 professional tax, the estimated in-hand salary is shown after subtracting these deductions.",
+    "example": "For a ₹12,00,000 CTC with 40% basic, 12% PF, ₹25,000 monthly tax and ₹200 professional tax, the estimated in-hand salary is shown after subtracting these deductions.",
     "faqs": [
       {
         "question": "Is this salary calculator exact?",

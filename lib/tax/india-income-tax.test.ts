@@ -70,3 +70,40 @@ describe('estimateIncomeTax - new-regime year selection', () => {
     }
   });
 });
+
+describe('estimateIncomeTax - CTC to monthly take-home reconciliation', () => {
+  it('reconciles a Rs 12 lakh annual CTC across annual and monthly units', () => {
+    const result = estimateIncomeTax({
+      annualCtc: 1_200_000,
+      basicSalaryPercent: 50,
+      employerPfIncludedInCtc: true,
+      employeePfRate: 12,
+      monthlyProfessionalTax: 200,
+      monthlyOtherDeductions: 0,
+      regime: 'new',
+      financialYear: '2026-27',
+      ageGroup: 'below60',
+      input80C: 0,
+      input80D: 0,
+      hraReceivedMonthly: 0,
+      rentPaidMonthly: 0,
+      cityType: 'nonMetro',
+      otherDeductionsOldRegime: 0,
+    });
+
+    expect(result.employerPfAnnual).toBe(72_000);
+    expect(result.grossAnnualSalary + result.employerPfAnnual).toBe(1_200_000);
+    expect(result.grossMonthlySalary * 12).toBe(result.grossAnnualSalary);
+    expect(result.employeePfMonthly * 12).toBe(result.employeePfAnnual);
+    expect(result.professionalTaxMonthly * 12).toBe(result.professionalTaxAnnual);
+    expect(result.monthlyInHand * 12).toBe(result.annualInHand);
+    expect(
+      result.annualInHand
+      + result.employeePfAnnual
+      + result.professionalTaxAnnual
+      + result.otherDeductionsAnnual
+      + result.totalTax
+    ).toBeCloseTo(result.grossAnnualSalary, 6);
+    expect(result.monthlyInHand).toBe(87_800);
+  });
+});
