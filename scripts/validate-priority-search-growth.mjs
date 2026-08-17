@@ -6,7 +6,10 @@ const read = (relativePath) => fs.readFileSync(path.join(root, relativePath), 'u
 const readJson = (relativePath) => JSON.parse(read(relativePath));
 
 const overrides = readJson('data/search-growth-overrides-2026-08-17.json');
-const sourceTools = readJson('data/tools.json');
+const sourceTools = [
+  ...readJson('data/tools.json'),
+  ...readJson('data/growth-tools.json'),
+];
 const advancedRegistry = read('lib/advanced-calculators.ts');
 const engine = read('lib/calculators/search-growth.ts');
 const engineTests = read('lib/calculators/search-growth.test.ts');
@@ -16,6 +19,8 @@ const toolLoader = read('lib/tools.ts');
 
 const targets = [
   '8th-pay-commission-salary-calculator-india',
+  '8th-pay-commission-arrears-calculator-india',
+  '8th-pay-commission-pension-calculator-india',
   'gold-loan-calculator-india',
   'personal-loan-eligibility-calculator-india',
   'sukanya-samriddhi-yojana-calculator-india',
@@ -35,14 +40,17 @@ ensure(toolLoader.includes("search-growth-overrides-2026-08-17.json"), 'Runtime 
 
 for (const slug of targets) {
   const source = sourceTools.find((tool) => tool.slug === slug);
-  const override = overrides[slug];
+  const override = overrides[slug] ?? source;
   ensure(Boolean(source), `${slug}: source tool is missing`);
-  ensure(Boolean(override), `${slug}: priority override is missing`);
+  ensure(Boolean(override), `${slug}: priority governance record is missing`);
   if (!source || !override) continue;
 
   ensure(advancedRegistry.includes(`'${slug}'`), `${slug}: must use a dedicated advanced calculator`);
   ensure(override.formulaHold === false, `${slug}: formulaHold must be explicitly false before publish`);
-  ensure(override.calculationVersion === '2026-08-17.1', `${slug}: calculationVersion is not current`);
+  const expectedVersion = slug === '8th-pay-commission-salary-calculator-india'
+    ? '2026-08-17.2'
+    : '2026-08-17.1';
+  ensure(override.calculationVersion === expectedVersion, `${slug}: calculationVersion is not current`);
   ensure(/^\d{4}-\d{2}-\d{2}$/.test(override.factsCheckedIso), `${slug}: factsCheckedIso must be an ISO date`);
   ensure(override.lastReviewedIso === '2026-08-17', `${slug}: review date is not current`);
   ensure(typeof override.nextReviewTrigger === 'string' && override.nextReviewTrigger.length >= 30, `${slug}: next review trigger is missing`);
@@ -54,15 +62,21 @@ for (const slug of targets) {
 
 for (const slug of [
   '8th-pay-commission-salary-calculator-india',
+  '8th-pay-commission-arrears-calculator-india',
+  '8th-pay-commission-pension-calculator-india',
   'gold-loan-calculator-india',
   'sukanya-samriddhi-yojana-calculator-india',
   'salary-in-hand-calculator-india',
 ]) {
-  ensure(Array.isArray(overrides[slug]?.officialSources) && overrides[slug].officialSources.length > 0, `${slug}: primary sources are missing`);
+  const record = overrides[slug] ?? sourceTools.find((tool) => tool.slug === slug);
+  ensure(Array.isArray(record?.officialSources) && record.officialSources.length > 0, `${slug}: primary sources are missing`);
 }
 
 const requiredEngineEvidence = [
   'currentBasic * fitmentFactor',
+  'calculateArrearsMonths',
+  'paymentIndex - effectiveIndex',
+  'currentBasicPension * revisionMultiplier',
   'if (amount <= 250_000) return 85',
   'if (amount <= 500_000) return 80',
   'assessedGoldValue * 0.75',
@@ -78,11 +92,15 @@ for (const boundary of ['250_000', '250_001', '500_000', '500_001']) {
   ensure(engineTests.includes(boundary), `Gold-loan boundary test is missing: ${boundary}`);
 }
 ensure(engineTests.includes('does not double-count'), '8th CPC DA double-counting regression test is missing');
+ensure(engineTests.includes('excluding the selected payment month'), '8th CPC arrears month-boundary test is missing');
+ensure(engineTests.includes('pension DR and revision-multiplier assumptions separate'), '8th CPC pension DR-separation test is missing');
 ensure(engineTests.includes('15 years from SSY account opening'), 'SSY account-opening term regression test is missing');
 ensure(salaryTests.includes('Rs 12 lakh annual CTC'), 'Salary Rs 12 lakh reconciliation fixture is missing');
 
 const expectedTitles = [
-  '8th Pay Commission Calculator: Fitment Scenarios',
+  '8th Pay Commission Salary Calculator 2026: DA & HRA',
+  '8th Pay Commission Arrears Calculator 2026 | Scenario',
+  '8th Pay Commission Pension Calculator 2026 | Scenario',
   'Gold Loan Calculator 2026: RBI LTV, Value & EMI',
   'Personal Loan Eligibility Calculator: Income & FOIR',
   'SSY Calculator 2026: 21-Year Maturity & Interest',
@@ -107,4 +125,4 @@ if (failures > 0) {
 }
 
 console.log(`✅ Validated ${targets.length} priority search pages and calculation governance records.`);
-console.log('✅ Verified RBI LTV boundaries, SSY account-opening terms, 8th CPC DA separation, salary reconciliation and CTR copy.');
+console.log('✅ Verified RBI LTV boundaries, SSY account-opening terms, 8th CPC DA/HRA separation, arrears periods, pension DR separation, salary reconciliation and CTR copy.');

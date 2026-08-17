@@ -7,6 +7,8 @@ import GstCalculatorV2 from './GstCalculatorV2';
 import IncomeTaxCalculatorV2 from './IncomeTaxCalculatorV2';
 import PersonalLoanAprCalculator from './PersonalLoanAprCalculator';
 import EighthPayCommissionCalculator from './EighthPayCommissionCalculator';
+import EighthPayCommissionArrearsCalculator from './EighthPayCommissionArrearsCalculator';
+import EighthPayCommissionPensionCalculator from './EighthPayCommissionPensionCalculator';
 import GoldLoanCalculatorV2 from './GoldLoanCalculatorV2';
 import PersonalLoanEligibilityCalculatorV2 from './PersonalLoanEligibilityCalculatorV2';
 import SsyCalculatorV2 from './SsyCalculatorV2';
@@ -31,6 +33,14 @@ export default function AdvancedCalculatorRenderer({ tool }: { tool: Tool }) {
 
   if (tool.slug === ADVANCED_CALCULATORS.EIGHTH_PAY_COMMISSION) {
     return <EighthPayCommissionCalculator tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.EIGHTH_PAY_COMMISSION_ARREARS) {
+    return <EighthPayCommissionArrearsCalculator tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.EIGHTH_PAY_COMMISSION_PENSION) {
+    return <EighthPayCommissionPensionCalculator tool={tool} />;
   }
 
   if (tool.slug === ADVANCED_CALCULATORS.GOLD_LOAN) {

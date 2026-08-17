@@ -14,6 +14,12 @@ import {
 } from './PriorityCalculatorPrimitives';
 
 const FACTOR_SCENARIOS = [1.92, 2.08, 2.57, 2.86, 3];
+const HRA_SCENARIOS = [
+  { label: 'X city scenario — 30%', value: 30 },
+  { label: 'Y city scenario — 20%', value: 20 },
+  { label: 'Z city scenario — 10%', value: 10 },
+  { label: 'No projected HRA — 0%', value: 0 },
+];
 
 export default function EighthPayCommissionCalculator({ tool }: { tool: Tool }) {
   const [currentBasic, setCurrentBasic] = useState<NumericValue>(44_900);
@@ -104,17 +110,35 @@ export default function EighthPayCommissionCalculator({ tool }: { tool: Tool }) 
                 </select>
               </label>
               <NumericField id="eighth-custom-factor" label="Or enter a custom factor" unit="× current basic" value={fitmentFactor} onChange={setFitmentFactor} min={0.1} max={10} step={0.01} />
+              <label htmlFor="eighth-projected-hra" className="block sm:col-span-2">
+                <span className="flex items-center justify-between gap-3 text-sm font-semibold text-slate-700">
+                  Projected HRA city scenario
+                  <span className="text-xs font-medium text-slate-500">% of revised basic</span>
+                </span>
+                <select
+                  id="eighth-projected-hra"
+                  value={projectedHraPercent}
+                  onChange={(event) => setProjectedHraPercent(Number(event.target.value))}
+                  className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 font-semibold outline-none focus:border-brandNavy"
+                >
+                  {HRA_SCENARIOS.map((scenario) => (
+                    <option key={scenario.value} value={scenario.value}>{scenario.label}</option>
+                  ))}
+                </select>
+                <span className="mt-1.5 block text-xs leading-5 text-slate-500">
+                  This models government salary HRA, not income-tax HRA exemption. No 8th CPC HRA rate has been notified.
+                </span>
+              </label>
             </div>
           </div>
 
           <details className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <summary className="cursor-pointer text-sm font-bold text-brandDeepNavy">Advanced projected-allowance assumptions</summary>
+            <summary className="cursor-pointer text-sm font-bold text-brandDeepNavy">Advanced DA and transport assumptions</summary>
             <p className="mt-2 text-xs leading-5 text-slate-600">
               These inputs are separate assumptions because the Commission has not notified them. Projected DA defaults to 0% so current DA is not counted twice.
             </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               <NumericField id="eighth-projected-da" label="Projected DA scenario" unit="% of revised basic" value={projectedDaPercent} onChange={setProjectedDaPercent} max={200} />
-              <NumericField id="eighth-projected-hra" label="Projected HRA scenario" unit="% of revised basic" value={projectedHraPercent} onChange={setProjectedHraPercent} max={100} />
               <NumericField id="eighth-projected-ta" label="Projected transport allowance" unit="₹ / month" value={projectedTransportAllowance} onChange={setProjectedTransportAllowance} step={100} />
             </div>
           </details>
@@ -133,6 +157,26 @@ export default function EighthPayCommissionCalculator({ tool }: { tool: Tool }) 
               <p><strong>Current gross:</strong> {formatCurrency(result.currentBasic)} basic + {formatCurrency(result.currentDa)} DA + {formatCurrency(result.currentHra)} HRA + {formatCurrency(result.currentTransportAllowance)} TA.</p>
               <p className="mt-2"><strong>Basic increase only:</strong> {formatCurrency(result.basicIncrease)}. This is different from the gross-to-gross change above.</p>
             </div>
+          </div>
+
+          <div className="rounded-3xl border border-sky-200 bg-sky-50 p-5 shadow-sm md:p-6">
+            <div className="flex flex-wrap items-end justify-between gap-2">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wide text-sky-800">Government salary HRA scenario</p>
+                <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">Current vs projected HRA</h3>
+              </div>
+              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-sky-800">
+                {formatNumber(numeric(projectedHraPercent), 0)}% selected
+              </span>
+            </div>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              <ResultCard label="Current HRA / month" value={formatCurrency(result.currentHra)} detail={`${formatCurrency(result.currentHraAnnual)} per year`} />
+              <ResultCard label="Projected HRA / month" value={formatCurrency(result.projectedHra)} detail={`${formatCurrency(result.projectedHraAnnual)} per year`} emphasis />
+              <ResultCard label="HRA change / month" value={formatCurrency(result.hraChange)} detail={`${formatCurrency(result.hraChangeAnnual)} annual change`} />
+            </div>
+            <p className="mt-4 text-xs leading-5 text-sky-950">
+              The projected HRA percentage is a user-selected planning scenario. It does not predict the Commission&apos;s recommendation, a government decision, city classification or tax exemption.
+            </p>
           </div>
 
           {numeric(projectedDaPercent) > 0 ? (

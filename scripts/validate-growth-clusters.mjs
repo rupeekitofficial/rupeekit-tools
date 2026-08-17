@@ -12,6 +12,8 @@ const expectedGrowthSlugs = new Set([
   'invest-vs-prepay-home-loan-calculator-india',
   'loan-foreclosure-net-savings-calculator-india',
   'reduce-emi-vs-tenure-calculator-india',
+  '8th-pay-commission-arrears-calculator-india',
+  '8th-pay-commission-pension-calculator-india',
 ]);
 
 let errors = 0;
@@ -22,8 +24,8 @@ function ensure(condition, message) {
   }
 }
 
-ensure(growthTools.length === 6, `Expected 6 new calculator records, found ${growthTools.length}`);
-ensure(new Set(growthTools.map((tool) => tool.slug)).size === 6, 'New calculator slugs must be unique');
+ensure(growthTools.length === 8, `Expected 8 new calculator records, found ${growthTools.length}`);
+ensure(new Set(growthTools.map((tool) => tool.slug)).size === 8, 'New calculator slugs must be unique');
 
 for (const tool of growthTools) {
   ensure(expectedGrowthSlugs.has(tool.slug), `Unexpected growth tool slug: ${tool.slug}`);
@@ -58,4 +60,4 @@ if (errors) {
   process.exit(1);
 }
 
-console.log('Validated 6 new calculators and 34 supporting guides.');
+console.log('Validated 8 new calculators and 34 supporting guides.');

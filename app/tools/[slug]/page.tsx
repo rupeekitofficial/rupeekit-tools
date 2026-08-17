@@ -23,6 +23,13 @@ const SIP_SLUG = 'sip-calculator-india';
 const EMERGENCY_FUND_SLUG = 'emergency-fund-calculator-india';
 const CAPITAL_GAINS_SLUG = 'capital-gains-tax-calculator-india';
 const EIGHTH_PAY_SLUG = '8th-pay-commission-salary-calculator-india';
+const EIGHTH_PAY_ARREARS_SLUG = '8th-pay-commission-arrears-calculator-india';
+const EIGHTH_PAY_PENSION_SLUG = '8th-pay-commission-pension-calculator-india';
+const EIGHTH_PAY_CLUSTER_SLUGS = new Set([
+  EIGHTH_PAY_SLUG,
+  EIGHTH_PAY_ARREARS_SLUG,
+  EIGHTH_PAY_PENSION_SLUG,
+]);
 const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
   'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 
@@ -77,12 +84,30 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-03',
   },
   [EIGHTH_PAY_SLUG]: {
-    title: '8th Pay Commission Calculator: Fitment Scenarios',
+    title: '8th Pay Commission Salary Calculator 2026: DA & HRA',
     description:
-      'Compare unofficial 8th Pay Commission fitment scenarios without double-counting DA. See current gross, revised basic and projected gross separately.',
+      'Compare unofficial 8th Pay Commission salary scenarios for 2026 with current and projected DA, X/Y/Z HRA, fitment factor, monthly gross and annual change.',
     h1: '8th Pay Commission Salary Calculator (Unofficial Scenarios)',
     heroDescription:
-      'Build a current 7th CPC gross-pay baseline, compare fitment-factor scenarios and keep projected DA and HRA separate. The 8th CPC has not notified a final factor, pay matrix or implementation date.',
+      'Build a current 7th CPC gross-pay baseline, compare fitment-factor scenarios and see current versus projected X/Y/Z HRA monthly and annually. The 8th CPC has not notified a final factor, pay matrix, revised HRA or implementation date.',
+    lastReviewedIso: '2026-08-17',
+  },
+  [EIGHTH_PAY_ARREARS_SLUG]: {
+    title: '8th Pay Commission Arrears Calculator 2026 | Scenario',
+    description:
+      'Estimate an unofficial 8th Pay Commission arrears scenario from current and projected monthly basic, DA, HRA, other pay, dates and entered deductions.',
+    h1: '8th Pay Commission Arrears Calculator (Unofficial)',
+    heroDescription:
+      'Compare current and projected monthly basic, DA, HRA and other eligible pay across dates you select. No implementation date, arrears period, payment rule or eligible allowance is assumed to be official.',
+    lastReviewedIso: '2026-08-17',
+  },
+  [EIGHTH_PAY_PENSION_SLUG]: {
+    title: '8th Pay Commission Pension Calculator 2026 | Scenario',
+    description:
+      'Compare current pension plus DR with an unofficial 8th Pay Commission multiplier scenario, projected DR and additional pension rate. No official method assumed.',
+    h1: '8th Pay Commission Pension Calculator (Unofficial)',
+    heroDescription:
+      'Compare current basic pension plus DR with a flat-multiplier scenario, projected DR and an optional additional-pension rate. No official multiplier, parity formula or notional-fixation method is assumed.',
     lastReviewedIso: '2026-08-17',
   },
   // Titles for these two are the H1-aligned rewrites from the Aug 2026 SEO
@@ -779,7 +804,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const isSipPage = tool.slug === SIP_SLUG;
   const isEmergencyFundPage = tool.slug === EMERGENCY_FUND_SLUG;
   const isCapitalGainsPage = tool.slug === CAPITAL_GAINS_SLUG;
-  const isEighthPayPage = tool.slug === EIGHTH_PAY_SLUG;
+  const isEighthPayPage = EIGHTH_PAY_CLUSTER_SLUGS.has(tool.slug);
   const heading = getToolHeading(tool.slug, tool.name);
   const description = getToolDescription(tool.slug, tool.shortDescription);
   const discoverImage = getDiscoverImage(`/tools/${tool.slug}`);
@@ -789,7 +814,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
   const salaryClusterSlugs = new Set([
     'gratuity-calculator-india',
-    EIGHTH_PAY_SLUG,
+    ...EIGHTH_PAY_CLUSTER_SLUGS,
     'salary-in-hand-calculator-india',
   ]);
   const isSalaryClusterPage = salaryClusterSlugs.has(tool.slug);
@@ -814,6 +839,14 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     isSalaryClusterPage && tool.slug !== EIGHTH_PAY_SLUG && liveToolSlugs.has(EIGHTH_PAY_SLUG) ? {
       href: '/tools/8th-pay-commission-salary-calculator-india',
       label: '8th Pay Commission fitment-factor scenario calculator',
+    } : null,
+    isEighthPayPage && tool.slug !== EIGHTH_PAY_ARREARS_SLUG && liveToolSlugs.has(EIGHTH_PAY_ARREARS_SLUG) ? {
+      href: `/tools/${EIGHTH_PAY_ARREARS_SLUG}`,
+      label: '8th Pay Commission arrears scenario calculator',
+    } : null,
+    isEighthPayPage && tool.slug !== EIGHTH_PAY_PENSION_SLUG && liveToolSlugs.has(EIGHTH_PAY_PENSION_SLUG) ? {
+      href: `/tools/${EIGHTH_PAY_PENSION_SLUG}`,
+      label: '8th Pay Commission pension revision scenario calculator',
     } : null,
     ['gold-loan-calculator-india', 'personal-loan-eligibility-calculator-india'].includes(tool.slug)
       && liveToolSlugs.has(PERSONAL_LOAN_SLUG) ? {

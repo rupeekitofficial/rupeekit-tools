@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
+  calculateArrearsMonths,
   calculateEighthPayCommission,
+  calculateEighthPayCommissionArrears,
+  calculateEighthPayCommissionPension,
   calculateGoldLoan,
   calculateMaximumGoldLoanFromValue,
   calculatePersonalLoanEligibility,
@@ -27,6 +30,79 @@ describe('search-growth priority calculators', () => {
     expect(result.revisedBasic).toBeCloseTo(115_393);
     expect(result.projectedDa).toBe(0);
     expect(result.projectedGross).toBeCloseTo(153_610.9);
+    expect(result.currentHraAnnual).toBe(161_640);
+    expect(result.projectedHraAnnual).toBeCloseTo(415_414.8);
+    expect(result.hraChangeAnnual).toBeCloseTo(253_774.8);
+  });
+
+  it('counts arrears months up to but excluding the selected payment month', () => {
+    expect(calculateArrearsMonths(2026, 1, 2027, 1)).toBe(12);
+    expect(calculateArrearsMonths(2026, 1, 2027, 9)).toBe(20);
+    expect(calculateArrearsMonths(2027, 9, 2026, 1)).toBe(0);
+  });
+
+  it('builds arrears from eligible monthly components without assuming an official date', () => {
+    const result = calculateEighthPayCommissionArrears({
+      currentBasic: 44_900,
+      projectedBasic: 115_393,
+      currentDa: 26_940,
+      projectedDa: 0,
+      currentHra: 13_470,
+      projectedHra: 34_618,
+      currentOtherPay: 3_600,
+      projectedOtherPay: 3_600,
+      effectiveYear: 2026,
+      effectiveMonth: 1,
+      paymentYear: 2027,
+      paymentMonth: 1,
+      oneTimeDeductions: 10_000,
+    });
+
+    expect(result.arrearsMonths).toBe(12);
+    expect(result.currentEligibleMonthlyPay).toBe(88_910);
+    expect(result.projectedEligibleMonthlyPay).toBe(153_611);
+    expect(result.monthlyDifference).toBe(64_701);
+    expect(result.grossArrearsScenario).toBe(776_412);
+    expect(result.afterDeductionsScenario).toBe(766_412);
+  });
+
+  it('never reports negative arrears when the projected pay is lower', () => {
+    const result = calculateEighthPayCommissionArrears({
+      currentBasic: 50_000,
+      projectedBasic: 40_000,
+      currentDa: 30_000,
+      projectedDa: 0,
+      currentHra: 15_000,
+      projectedHra: 10_000,
+      currentOtherPay: 0,
+      projectedOtherPay: 0,
+      effectiveYear: 2026,
+      effectiveMonth: 1,
+      paymentYear: 2027,
+      paymentMonth: 1,
+      oneTimeDeductions: 5_000,
+    });
+
+    expect(result.monthlyDifference).toBe(0);
+    expect(result.grossArrearsScenario).toBe(0);
+    expect(result.afterDeductionsScenario).toBe(0);
+  });
+
+  it('keeps pension DR and revision-multiplier assumptions separate', () => {
+    const result = calculateEighthPayCommissionPension({
+      currentBasicPension: 25_000,
+      currentDrPercent: 60,
+      revisionMultiplier: 2.57,
+      projectedDrPercent: 0,
+      additionalPensionPercent: 0,
+    });
+
+    expect(result.currentDr).toBe(15_000);
+    expect(result.currentMonthlyPension).toBe(40_000);
+    expect(result.revisedBasicPensionScenario).toBeCloseTo(64_250);
+    expect(result.projectedMonthlyPension).toBeCloseTo(64_250);
+    expect(result.monthlyChange).toBeCloseTo(24_250);
+    expect(result.annualChange).toBeCloseTo(291_000);
   });
 
   it('uses the exact RBI gold-loan LTV boundaries', () => {
