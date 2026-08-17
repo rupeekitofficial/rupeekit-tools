@@ -5,6 +5,10 @@ const weekHubHref = '/blog/fy-2026-27-money-moves-salaried-indians-mid-year-chec
 export const day7ComparisonBlogPosts: BlogPost[] = [
   {
     slug: 'epf-vs-nps-vs-ppf-retirement-india',
+    heroImage: '/images/discover/epf-vs-nps-vs-ppf-retirement-india.webp',
+    heroImageAlt: 'Indian couple comparing three retirement-planning options at home with a laptop, calculator and long-term timeline',
+    heroImageWidth: 1600,
+    heroImageHeight: 900,
     seoTitle: 'EPF vs NPS vs PPF India: Retirement Comparison 2026',
     title: 'EPF vs NPS vs PPF — Which Retirement Instrument Should You Prioritise in India?',
     metaDescription: 'Compare EPF, NPS and PPF on liquidity, return type, tax treatment, lock-in and retirement use before choosing how to allocate long-term savings.',
@@ -99,6 +103,10 @@ export const day7ComparisonBlogPosts: BlogPost[] = [
   },
   {
     slug: 'cashback-vs-rewards-credit-cards-india',
+    heroImage: '/images/discover/cashback-vs-rewards-credit-cards-india.webp',
+    heroImageAlt: 'Indian professional comparing two unbranded credit cards using cashback and reward icons, a notebook and calculator',
+    heroImageWidth: 1600,
+    heroImageHeight: 900,
     seoTitle: 'Cashback vs Rewards Credit Cards India: Compare Value',
     title: 'Best Credit Cards for Cashback vs Rewards? How to Actually Compare Them in India',
     metaDescription: 'Compare cashback and reward cards using effective reward rate, annual-fee breakeven, exclusions and redemption value instead of headline points.',
@@ -183,6 +191,10 @@ export const day7ComparisonBlogPosts: BlogPost[] = [
   },
   {
     slug: 'salary-hike-negotiation-beyond-base-pay-india',
+    heroImage: '/images/discover/salary-hike-negotiation-beyond-base-pay-india.webp',
+    heroImageAlt: 'Indian professional discussing a salary offer and total compensation with a hiring manager in a modern office',
+    heroImageWidth: 1600,
+    heroImageHeight: 900,
     seoTitle: 'Salary Hike Negotiation India: Compare Total Offer Value',
     title: 'How to Negotiate a Salary Hike — What to Ask for Beyond Base Pay in India',
     metaDescription: 'Compare base salary, variable pay, joining bonus, benefits and role scope before negotiating a hike or switching jobs in India.',
@@ -256,6 +268,10 @@ export const day7ComparisonBlogPosts: BlogPost[] = [
   },
   {
     slug: 'robo-advisors-vs-diy-index-investing-india',
+    heroImage: '/images/discover/robo-advisors-vs-diy-index-investing-india.webp',
+    heroImageAlt: 'Indian investor comparing an automated portfolio path on a tablet with hands-on index research on a laptop',
+    heroImageWidth: 1600,
+    heroImageHeight: 900,
     seoTitle: 'Robo-Advisor vs DIY Index Investing India: Cost Trade-offs',
     title: 'Robo-Advisors vs DIY Index Investing in India — Costs and Trade-offs',
     metaDescription: 'Compare robo-advisory and DIY index investing on advisory cost, fund expense ratio, rebalancing, behaviour, tax and operational effort.',
@@ -340,6 +356,10 @@ export const day7ComparisonBlogPosts: BlogPost[] = [
   },
   {
     slug: 'gold-asset-class-sgb-etf-physical-gold-loan-india-2026',
+    heroImage: '/images/discover/gold-asset-class-sgb-etf-physical-gold-loan-india-2026.webp',
+    heroImageAlt: 'Indian women comparing physical gold, a generic bond document, a market chart and a gold valuation folder',
+    heroImageWidth: 1600,
+    heroImageHeight: 900,
     seoTitle: 'Gold in 2026: SGB, ETF, Physical Gold & Gold Loans',
     title: 'Gold as an Asset Class in 2026 — SGB, Gold ETF, Physical Gold and Gold Loan Compared',
     metaDescription: 'Compare existing SGB holdings, gold ETFs and physical gold, and understand why a gold loan is borrowing against gold rather than an investment alternative.',
@@ -423,6 +443,10 @@ export const day7ComparisonBlogPosts: BlogPost[] = [
   },
   {
     slug: 'fy-2026-27-money-moves-salaried-indians-mid-year-checklist',
+    heroImage: '/images/discover/fy-2026-27-money-moves-salaried-indians-mid-year-checklist.webp',
+    heroImageAlt: 'Indian salaried professional reviewing a mid-year financial checklist with tax, insurance, savings and investment papers',
+    heroImageWidth: 1600,
+    heroImageHeight: 900,
     seoTitle: 'FY 2026-27 Money Checklist for Salaried Indians',
     title: 'FY 2026-27 Money Moves — A Mid-Year Checklist for Salaried Indians',
     metaDescription: 'Use this FY 2026-27 checkpoint to review salary, tax, insurance, debt, investing, retirement and major goals with linked RupeeKit calculators.',

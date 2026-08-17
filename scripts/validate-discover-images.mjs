@@ -14,6 +14,18 @@ const investingTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'inves
 const lifestageTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'lifestage-tools-2026.json'), 'utf8'));
 const tools = [...baseTools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools];
 const errors = [];
+const day7BlogSource = fs.readFileSync(
+  path.join(root, 'data', 'day7-comparison-blog-posts.ts'),
+  'utf8',
+);
+const day7ImageSlugs = [
+  'epf-vs-nps-vs-ppf-retirement-india',
+  'cashback-vs-rewards-credit-cards-india',
+  'salary-hike-negotiation-beyond-base-pay-india',
+  'robo-advisors-vs-diy-index-investing-india',
+  'gold-asset-class-sgb-etf-physical-gold-loan-india-2026',
+  'fy-2026-27-money-moves-salaried-indians-mid-year-checklist',
+];
 
 const CONSOLIDATED_TOOL_SLUGS = new Set(
   fs
@@ -36,8 +48,18 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 89) {
-  errors.push(`Expected 89 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 95) {
+  errors.push(`Expected 95 Discover images, found ${manifest.length}.`);
+}
+
+for (const slug of day7ImageSlugs) {
+  const imageSource = `/images/discover/${slug}.webp`;
+  if (!manifest.some((image) => image.path === `/blog/${slug}` && image.src === imageSource)) {
+    errors.push(`Day 7 blog is missing its Discover manifest entry: ${slug}`);
+  }
+  if (!day7BlogSource.includes(`heroImage: '${imageSource}'`)) {
+    errors.push(`Day 7 blog card is missing its hero image reference: ${slug}`);
+  }
 }
 
 const paths = new Set();
