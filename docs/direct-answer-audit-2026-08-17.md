@@ -4,7 +4,7 @@
 
 Issue #70 targets pages in the Search Console position 3–10 opportunity band. The authoritative 4 Jul–5 Aug 2026 page-level baseline in issue #57 recorded 6,412 impressions and 48 clicks in positions 3–10 (0.75% CTR).
 
-The Day 10 report (`automation/reports/gsc/2026-08-12.json`) is intentionally a partial bootstrap: a fresh page-level API pull was unavailable, its `topPages` list is empty, and unknown subdivisions are recorded as null. The GSC Wizard connection was also unavailable during this implementation. Therefore this audit does not invent a fresh ranking list. It uses only page-level opportunities already recorded in issue #57 and `docs/gsc-ctr-improvement-2026-08-04.md`, plus HRA/FD pages already identified in the earlier GSC review.
+The Day 10 report (`automation/reports/gsc/2026-08-12.json`) is intentionally a partial bootstrap: a fresh page-level API pull was unavailable, its `topPages` list is empty, and unknown subdivisions are recorded as null. The GSC Wizard connection was also unavailable during this implementation. Therefore this audit does not invent a fresh ranking list. It uses only page-level opportunities already recorded in issue #57 and `docs/gsc-ctr-improvement-2026-08-04.md`.
 
 ## Pages covered
 
@@ -16,8 +16,6 @@ The Day 10 report (`automation/reports/gsc/2026-08-12.json`) is intentionally a 
 - `/tools/capital-gains-tax-calculator-india`
 - `/tools/emergency-fund-calculator-india`
 - `/tools/8th-pay-commission-salary-calculator-india`
-- `/tools/hra-exemption-calculator-india`
-- `/tools/fd-calculator-india`
 
 Each gets concise direct-answer copy in the server-rendered hero paragraph immediately after the H1 and before calculator inputs. Existing dedicated scope blocks remain in place where present. No calculator formula, input or output changes in this issue.
 
@@ -33,7 +31,7 @@ Each gets concise direct-answer copy in the server-rendered hero paragraph immed
 
 ## Scope and safety
 
-- Existing tax, HRA, capital-gains, PPF and government-pay rules were not changed.
+- Existing tax, capital-gains, PPF and government-pay rules were not changed.
 - No new rates, regulatory thresholds or lender criteria were introduced.
 - SIP and investment outputs retain market-linked/not-guaranteed language.
 - 8th Pay Commission outputs remain explicitly scenario-based rather than official or guaranteed.
@@ -53,4 +51,4 @@ This protects snippet-oriented content from silently moving below the calculator
 
 ## Day 16 hand-off
 
-Issue #70 deliberately does not pad these blocks with every query variant. Day 16 should use query-level data for vocabulary and sub-intent shape only, then add depth where the page genuinely lacks an answer. Likely areas to validate with fresh GSC query data include exact maturity/pension amount phrasing, SIP scenario variants, HRA city/regime questions, and eligibility or documentation phrasing. Query-level data must not be used to reconstruct site-wide CTR.
+Issue #70 deliberately does not pad these blocks with every query variant. Day 16 should use query-level data for vocabulary and sub-intent shape only, then add depth where the page genuinely lacks an answer. Likely areas to validate with fresh GSC query data include exact maturity/pension amount phrasing, SIP scenario variants, and eligibility or documentation phrasing. Query-level data must not be used to reconstruct site-wide CTR.
