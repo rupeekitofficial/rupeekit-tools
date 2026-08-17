@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run validate:discover-images && next build",
-    "postbuild": "npm run validate:discover-rendered",
+    "postbuild": "npm run validate:discover-rendered && npm run validate:direct-answer-rendered",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
@@ -16,7 +16,8 @@
     "validate:tools": "node scripts/validate-tools.mjs",
     "validate:internal-links": "node scripts/validate-internal-links.mjs",
     "validate:discover-images": "node scripts/validate-discover-images.mjs",
-    "validate:discover-rendered": "node scripts/validate-discover-rendered-output.mjs"
+    "validate:discover-rendered": "node scripts/validate-discover-rendered-output.mjs",
+    "validate:direct-answer-rendered": "node scripts/validate-direct-answer-rendered-output.mjs"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.5.1",
