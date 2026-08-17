@@ -85,6 +85,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
 
   // Tab State for Breakup Table
   const [breakupTab, setBreakupTab] = useState<'monthly' | 'annual'>('monthly');
+  const isMonthlyBreakup = breakupTab === 'monthly';
 
   // Calculate percentage of CTC segments for stacked chart
   const chartSegments = useMemo(() => {
@@ -106,7 +107,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
       {/* Disclaimer Top Alert */}
       <div className="rounded-2xl border border-brandNavy/10 bg-brandNavy/5 p-4 text-sm leading-6 text-brandNavy">
         <p className="font-bold flex items-center gap-1.5 text-brandDeepNavy">
-          <span>💼</span> Assessment Year {FY_META[financialYear].ay} Estimate
+          <span>💼</span> FY {financialYear} (AY {FY_META[financialYear].ay}) Estimate
         </p>
         <p className="mt-1 text-slate-600">
           This salary in-hand calculator uses revised tax brackets including the latest Union Budget changes for New Regime ({FY_META[financialYear].budget}). All calculations are estimates.
@@ -228,6 +229,9 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
                   onChange={(e) => setProfessionalTax(e.target.value === '' ? '' : Math.max(0, Number(e.target.value)))}
                   className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base font-semibold outline-none transition focus:border-brandNavy focus:bg-white focus:ring-4 focus:ring-brandNavy/10"
                 />
+                <span className="mt-1 block text-xs leading-5 text-slate-500">
+                  State-specific and not universal. Use your payslip amount or enter 0 if it does not apply.
+                </span>
               </label>
 
               <label className="block sm:col-span-2">
@@ -495,9 +499,9 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
 
             <div className="mt-4 space-y-2 text-sm">
               <div className="flex justify-between border-b border-slate-100 pb-2">
-                <span className="font-semibold text-slate-600">Cost to Company (CTC)</span>
+                <span className="font-semibold text-slate-600">{isMonthlyBreakup ? 'Monthly CTC equivalent' : 'Annual CTC'}</span>
                 <span className="font-bold text-slate-800">
-                  {breakupTab === 'monthly'
+                  {isMonthlyBreakup
                     ? formatCurrency((annualCtc === '' ? 0 : annualCtc) / 12)
                     : formatCurrency(annualCtc === '' ? 0 : annualCtc)}
                 </span>
@@ -506,20 +510,20 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
                 <div className="flex justify-between border-b border-slate-100 pb-2">
                   <span className="text-slate-500 pl-3">Less: Employer PF (12% of Basic)</span>
                   <span className="text-slate-700">
-                    - {breakupTab === 'monthly' ? formatCurrency(result.employerPfMonthly) : formatCurrency(result.employerPfAnnual)}
+                    - {isMonthlyBreakup ? formatCurrency(result.employerPfMonthly) : formatCurrency(result.employerPfAnnual)}
                   </span>
                 </div>
               )}
               <div className="flex justify-between border-b border-slate-100 pb-2 font-bold bg-slate-50 p-2 rounded-xl">
-                <span className="text-brandDeepNavy">Gross Annual Salary</span>
+                <span className="text-brandDeepNavy">{isMonthlyBreakup ? 'Gross monthly salary' : 'Gross annual salary'}</span>
                 <span className="text-brandDeepNavy">
-                  {breakupTab === 'monthly' ? formatCurrency(result.grossMonthlySalary) : formatCurrency(result.grossAnnualSalary)}
+                  {isMonthlyBreakup ? formatCurrency(result.grossMonthlySalary) : formatCurrency(result.grossAnnualSalary)}
                 </span>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                 <span className="text-slate-500">Basic Salary</span>
                 <span className="text-slate-800">
-                  {breakupTab === 'monthly' ? formatCurrency(result.basicMonthly) : formatCurrency(result.basicAnnual)}
+                  {isMonthlyBreakup ? formatCurrency(result.basicMonthly) : formatCurrency(result.basicAnnual)}
                 </span>
               </div>
               
@@ -527,26 +531,26 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
               <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                 <span className="text-slate-500">Employee PF ({employeePfRate}%)</span>
                 <span className="text-slate-800">
-                  - {breakupTab === 'monthly' ? formatCurrency(result.employeePfMonthly) : formatCurrency(result.employeePfAnnual)}
+                  - {isMonthlyBreakup ? formatCurrency(result.employeePfMonthly) : formatCurrency(result.employeePfAnnual)}
                 </span>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                 <span className="text-slate-500">Professional Tax</span>
                 <span className="text-slate-800">
-                  - {breakupTab === 'monthly' ? formatCurrency(result.professionalTaxMonthly) : formatCurrency(result.professionalTaxAnnual)}
+                  - {isMonthlyBreakup ? formatCurrency(result.professionalTaxMonthly) : formatCurrency(result.professionalTaxAnnual)}
                 </span>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                 <span className="text-slate-500">Estimated Income Tax (TDS)</span>
                 <span className="text-slate-800">
-                  - {breakupTab === 'monthly' ? formatCurrency(result.monthlyTaxTds) : formatCurrency(result.totalTax)}
+                  - {isMonthlyBreakup ? formatCurrency(result.monthlyTaxTds) : formatCurrency(result.totalTax)}
                 </span>
               </div>
               {typeof otherDeductions === 'number' && otherDeductions > 0 && (
                 <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                   <span className="text-slate-500">Other Deductions</span>
                   <span className="text-slate-800">
-                    - {breakupTab === 'monthly' ? formatCurrency(result.otherDeductionsMonthly) : formatCurrency(result.otherDeductionsAnnual)}
+                    - {isMonthlyBreakup ? formatCurrency(result.otherDeductionsMonthly) : formatCurrency(result.otherDeductionsAnnual)}
                   </span>
                 </div>
               )}
@@ -554,7 +558,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
               <div className="flex justify-between font-extrabold text-brandGrowthGreen bg-green-50 p-2 rounded-xl mt-3 text-base">
                 <span>Net In-Hand Salary</span>
                 <span>
-                  {breakupTab === 'monthly' ? formatCurrency(result.monthlyInHand) : formatCurrency(result.annualInHand)}
+                  {isMonthlyBreakup ? formatCurrency(result.monthlyInHand) : formatCurrency(result.annualInHand)}
                 </span>
               </div>
             </div>
