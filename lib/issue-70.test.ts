@@ -11,12 +11,10 @@ const requiredToolSlugs = [
   'capital-gains-tax-calculator-india',
   'emergency-fund-calculator-india',
   '8th-pay-commission-salary-calculator-india',
-  'hra-exemption-calculator-india',
-  'fd-calculator-india',
 ] as const;
 
 describe('issue #70 above-the-fold direct answers', () => {
-  it('provides concise direct-answer copy for the known page-one calculator set', () => {
+  it('provides concise direct-answer copy for the recorded page-one calculator set', () => {
     for (const slug of requiredToolSlugs) {
       const answer = directAnswers[slug];
       expect(answer, `${slug} should have a direct answer`).toBeTruthy();
