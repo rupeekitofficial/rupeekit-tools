@@ -271,6 +271,7 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
               </>
             )}
 
+            {/* Sections */}
             <div className="mt-8 space-y-10">
               {post.sections.map((section, idx) => {
                 const sectionId = slugify(section.title);
