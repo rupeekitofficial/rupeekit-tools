@@ -1,4 +1,4 @@
-export const SEARCH_GROWTH_RULESET_VERSION = '2026-08-17.1';
+export const SEARCH_GROWTH_RULESET_VERSION = '2026-08-17.2';
 
 const nonNegative = (value: number) => (Number.isFinite(value) ? Math.max(0, value) : 0);
 const clamp = (value: number, minimum: number, maximum: number) =>
@@ -54,6 +54,7 @@ export function calculateEighthPayCommission(inputs: EighthPayCommissionInputs) 
   const projectedGross = revisedBasic + projectedDa + projectedHra + projectedTransportAllowance;
   const basicIncrease = revisedBasic - currentBasic;
   const grossChange = projectedGross - currentGross;
+  const hraChange = projectedHra - currentHra;
 
   return {
     currentBasic,
@@ -68,7 +69,111 @@ export function calculateEighthPayCommission(inputs: EighthPayCommissionInputs) 
     projectedGross,
     basicIncrease,
     grossChange,
+    hraChange,
+    currentHraAnnual: currentHra * 12,
+    projectedHraAnnual: projectedHra * 12,
+    hraChangeAnnual: hraChange * 12,
     grossChangePercent: currentGross > 0 ? grossChange / currentGross * 100 : 0,
+  };
+}
+
+export type EighthPayCommissionArrearsInputs = {
+  currentBasic: number;
+  projectedBasic: number;
+  currentDa: number;
+  projectedDa: number;
+  currentHra: number;
+  projectedHra: number;
+  currentOtherPay: number;
+  projectedOtherPay: number;
+  effectiveYear: number;
+  effectiveMonth: number;
+  paymentYear: number;
+  paymentMonth: number;
+  oneTimeDeductions: number;
+};
+
+export function calculateArrearsMonths(
+  effectiveYearInput: number,
+  effectiveMonthInput: number,
+  paymentYearInput: number,
+  paymentMonthInput: number
+) {
+  const effectiveYear = Math.round(nonNegative(effectiveYearInput));
+  const effectiveMonth = Math.round(clamp(effectiveMonthInput, 1, 12));
+  const paymentYear = Math.round(nonNegative(paymentYearInput));
+  const paymentMonth = Math.round(clamp(paymentMonthInput, 1, 12));
+  const effectiveIndex = effectiveYear * 12 + effectiveMonth - 1;
+  const paymentIndex = paymentYear * 12 + paymentMonth - 1;
+
+  // The payment month is excluded: a January 2026 effective month and January
+  // 2027 payment month represent twelve accrued months (Jan-Dec 2026).
+  return Math.max(0, paymentIndex - effectiveIndex);
+}
+
+export function calculateEighthPayCommissionArrears(inputs: EighthPayCommissionArrearsInputs) {
+  const currentBasic = nonNegative(inputs.currentBasic);
+  const projectedBasic = nonNegative(inputs.projectedBasic);
+  const currentDa = nonNegative(inputs.currentDa);
+  const projectedDa = nonNegative(inputs.projectedDa);
+  const currentHra = nonNegative(inputs.currentHra);
+  const projectedHra = nonNegative(inputs.projectedHra);
+  const currentOtherPay = nonNegative(inputs.currentOtherPay);
+  const projectedOtherPay = nonNegative(inputs.projectedOtherPay);
+  const oneTimeDeductions = nonNegative(inputs.oneTimeDeductions);
+  const arrearsMonths = calculateArrearsMonths(
+    inputs.effectiveYear,
+    inputs.effectiveMonth,
+    inputs.paymentYear,
+    inputs.paymentMonth
+  );
+  const currentEligibleMonthlyPay = currentBasic + currentDa + currentHra + currentOtherPay;
+  const projectedEligibleMonthlyPay = projectedBasic + projectedDa + projectedHra + projectedOtherPay;
+  const monthlyDifference = Math.max(0, projectedEligibleMonthlyPay - currentEligibleMonthlyPay);
+  const grossArrearsScenario = monthlyDifference * arrearsMonths;
+
+  return {
+    currentEligibleMonthlyPay,
+    projectedEligibleMonthlyPay,
+    monthlyDifference,
+    arrearsMonths,
+    grossArrearsScenario,
+    oneTimeDeductions,
+    afterDeductionsScenario: Math.max(0, grossArrearsScenario - oneTimeDeductions),
+  };
+}
+
+export type EighthPayCommissionPensionInputs = {
+  currentBasicPension: number;
+  currentDrPercent: number;
+  revisionMultiplier: number;
+  projectedDrPercent: number;
+  additionalPensionPercent: number;
+};
+
+export function calculateEighthPayCommissionPension(inputs: EighthPayCommissionPensionInputs) {
+  const currentBasicPension = nonNegative(inputs.currentBasicPension);
+  const currentDrPercent = nonNegative(inputs.currentDrPercent);
+  const revisionMultiplier = nonNegative(inputs.revisionMultiplier);
+  const projectedDrPercent = nonNegative(inputs.projectedDrPercent);
+  const additionalPensionPercent = nonNegative(inputs.additionalPensionPercent);
+  const currentDr = currentBasicPension * currentDrPercent / 100;
+  const currentMonthlyPension = currentBasicPension + currentDr;
+  const revisedBasicPensionScenario = currentBasicPension * revisionMultiplier;
+  const projectedDr = revisedBasicPensionScenario * projectedDrPercent / 100;
+  const additionalPension = revisedBasicPensionScenario * additionalPensionPercent / 100;
+  const projectedMonthlyPension = revisedBasicPensionScenario + projectedDr + additionalPension;
+  const monthlyChange = projectedMonthlyPension - currentMonthlyPension;
+
+  return {
+    currentDr,
+    currentMonthlyPension,
+    revisedBasicPensionScenario,
+    projectedDr,
+    additionalPension,
+    projectedMonthlyPension,
+    monthlyChange,
+    annualChange: monthlyChange * 12,
   };
 }
 

@@ -1,6 +1,6 @@
 {
   "8th-pay-commission-salary-calculator-india": {
-    "shortDescription": "Compare unofficial 8th Pay Commission fitment-factor scenarios without double-counting current DA. See current gross, revised basic and projected gross separately.",
+    "shortDescription": "Compare unofficial 8th Pay Commission fitment-factor scenarios without double-counting current DA, with current and projected X/Y/Z HRA shown monthly and annually.",
     "formulaExplanation": "Current gross baseline = current basic + current DA + current HRA + current transport allowance. Revised basic scenario = current basic × selected fitment factor. Projected gross = revised basic + projected DA + projected HRA + projected transport allowance. Current DA is not added to revised basic a second time.",
     "example": "For current basic pay of ₹44,900, 60% current DA, 30% current HRA and ₹3,600 transport allowance, current gross is ₹88,910. A 2.57× scenario gives revised basic of ₹1,15,393. Projected allowances are then applied separately.",
     "quickAnswer": {
@@ -38,7 +38,8 @@
       "Confirm current DA and select the current X, Y or Z HRA category.",
       "Enter current transport allowance to build the gross baseline.",
       "Choose a fitment-factor scenario; none is labelled official.",
-      "Open advanced assumptions only if you want to model projected DA, HRA or transport allowance.",
+      "Choose a projected X, Y or Z HRA scenario and review its monthly and annual difference.",
+      "Open advanced assumptions only if you want to model projected DA or transport allowance.",
       "Compare revised basic separately from gross-to-gross change."
     ],
     "assumptions": [
@@ -68,8 +69,12 @@
         "body": "A fitment factor produces a revised-basic scenario, not an in-hand salary. The gross comparison adds only the projected allowances entered by the user. Tax, NPS, CGHS, pension, other allowances and arrears are outside this calculator."
       },
       {
+        "heading": "Current versus projected government HRA",
+        "body": "The calculator keeps current 7th CPC X/Y/Z HRA separate from a user-selected projected X/Y/Z scenario, then shows monthly and annual HRA differences. This is government salary HRA, not the income-tax HRA exemption calculation, and no 8th CPC HRA rate is treated as official."
+      },
+      {
         "heading": "Source and Methodology",
-        "body": "The status and constitution date come from the official 8th CPC website. Current DA is based on the PIB approval effective 1 January 2026. Current HRA categories follow the PIB-published 7th CPC DA-linked escalation. Calculation version 2026-08-17.1 is covered by boundary and double-counting regression tests."
+        "body": "The status and constitution date come from the official 8th CPC website. Current DA is based on the PIB approval effective 1 January 2026. Current HRA categories follow the PIB-published 7th CPC DA-linked escalation. Calculation version 2026-08-17.2 is covered by DA double-counting and HRA monthly-to-annual regression tests."
       }
     ],
     "lastReviewed": "17 August 2026",
@@ -87,11 +92,11 @@
       { "topic": "Projected gross", "explanation": "Revised basic + only the future allowance assumptions entered by the user" },
       { "topic": "Privacy and boundary", "explanation": "Browser-based educational scenario; not an official salary or arrears calculation" }
     ],
-    "calculationVersion": "2026-08-17.1",
+    "calculationVersion": "2026-08-17.2",
     "factsCheckedIso": "2026-08-17",
     "nextReviewTrigger": "Official 8th CPC report, pay matrix, fitment factor, allowance rule or implementation notification; or a new central DA order.",
     "formulaHold": false,
-    "calculationTests": ["current DA appears only in current baseline", "current HRA X/Y/Z scenarios", "fitment basic calculation", "projected DA defaults to zero", "basic-to-basic versus gross-to-gross reconciliation"]
+    "calculationTests": ["current DA appears only in current baseline", "current and projected HRA X/Y/Z scenarios", "monthly and annual HRA difference", "fitment basic calculation", "projected DA defaults to zero", "basic-to-basic versus gross-to-gross reconciliation"]
   },
   "gold-loan-calculator-india": {
     "shortDescription": "Estimate intrinsic gold value, maximum collateral-supported consumption loan, applicable RBI 85%/80%/75% LTV tier, EMI and interest using a lender reference price.",

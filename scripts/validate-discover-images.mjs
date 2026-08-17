@@ -48,8 +48,8 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 95) {
-  errors.push(`Expected 95 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 97) {
+  errors.push(`Expected 97 Discover images, found ${manifest.length}.`);
 }
 
 for (const slug of day7ImageSlugs) {
@@ -66,6 +66,7 @@ const paths = new Set();
 const sources = new Set();
 const reusableSources = new Set([
   '/images/discover/epf-corpus-calculator-india.webp',
+  '/images/discover/8th-pay-commission-salary-calculator-india.webp',
 ]);
 
 for (const image of manifest) {

@@ -13,11 +13,13 @@ import {
 
 const PAGE_URL = `${SITE_URL}/8th-pay-commission`;
 const CALCULATOR_URL = '/tools/8th-pay-commission-salary-calculator-india';
-const LAST_REVIEWED_ISO = '2026-08-12';
+const ARREARS_CALCULATOR_URL = '/tools/8th-pay-commission-arrears-calculator-india';
+const PENSION_CALCULATOR_URL = '/tools/8th-pay-commission-pension-calculator-india';
+const LAST_REVIEWED_ISO = '2026-08-17';
 
 const TITLE = '8th Pay Commission 2026: Fitment Factor, Salary & Status';
 const DESCRIPTION =
-  'What is settled about the 8th Pay Commission and what is still only a scenario — fitment factor, how revised basic pay is calculated, DA merger, and where to check the official position.';
+  'Official 8th Pay Commission status for August 2026: report timeline, consultation milestones, current activity, and what remains unnotified for salary, HRA, pension and arrears.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -55,10 +57,73 @@ const settledVsSpeculation = [
       'When a new pay structure takes effect, accumulated DA is merged into the revised basic and the DA percentage restarts from a low base. This is why a large fitment factor does not translate into a proportionate rise in take-home pay.',
   },
   {
+    claim: 'Revised X/Y/Z HRA rates have been approved',
+    verdict: 'Not settled',
+    detail:
+      'No 8th CPC HRA percentages or revised city classifications have been notified. Current 7th CPC HRA can be used as a clearly labelled planning reference, but not presented as the future rule.',
+  },
+  {
+    claim: 'A single pension multiplier has been approved',
+    verdict: 'Not settled',
+    detail:
+      'No pension revision multiplier, parity formula or notional pay-fixation method has been notified. Pension scenarios must keep current DR separate and state which illustrative method they use.',
+  },
+  {
     claim: 'Arrears will be paid from the effective date',
     verdict: 'Depends on notification',
     detail:
       'Whether arrears are paid, and from which date, is decided in the government resolution accepting the recommendations — not by the Commission itself. Do not plan around an arrears figure until the resolution is published.',
+  },
+];
+
+const officialStatus = [
+  {
+    milestone: 'Commission constituted',
+    date: '3 November 2025',
+    status: 'Completed',
+    detail: 'The Government of India constituted the 8th Central Pay Commission. Its 18-month period is for submitting recommendations; it is not an implementation deadline.',
+  },
+  {
+    milestone: 'Public questionnaire',
+    date: '5 February-31 March 2026',
+    status: 'Closed',
+    detail: 'The official questionnaire window has ended. Treat deadline searches as a completed consultation milestone, not a current submission opportunity.',
+  },
+  {
+    milestone: 'Memoranda and representations',
+    date: '5 March-15 June 2026',
+    status: 'Closed',
+    detail: 'The main online memorandum-submission window is closed. Separate visit-specific representation deadlines can still appear in official notices.',
+  },
+  {
+    milestone: 'Report and recommendations',
+    date: 'Within 18 months of constitution',
+    status: 'In progress',
+    detail: 'No final report, fitment factor, pay matrix, HRA rule, pension-revision method or arrears order is published on the official site as at this review.',
+  },
+  {
+    milestone: 'Government implementation',
+    date: 'Not notified',
+    status: 'Not notified',
+    detail: 'A government resolution and departmental fixation orders are needed after recommendations. An expected effect date is not the same as a notified implementation or payment date.',
+  },
+];
+
+const currentActivities = [
+  {
+    activity: 'Jaipur stakeholder visit',
+    schedule: '31 August-1 September 2026',
+    deadline: 'Representations requested by 18 August 2026',
+  },
+  {
+    activity: 'Chennai and Puducherry visits',
+    schedule: 'Chennai 7-8 September; Puducherry 9 September 2026',
+    deadline: 'Representations requested by 18 August 2026',
+  },
+  {
+    activity: 'Chandigarh stakeholder visit',
+    schedule: '16-18 September 2026',
+    deadline: 'Representations requested by 25 August 2026',
   },
 ];
 
@@ -95,6 +160,16 @@ const relatedTools = [
     href: CALCULATOR_URL,
     label: '8th Pay Commission Salary Calculator',
     note: 'Run your own basic pay through selectable fitment-factor scenarios and see revised basic, DA, HRA and gross.',
+  },
+  {
+    href: ARREARS_CALCULATOR_URL,
+    label: '8th Pay Commission Arrears Calculator',
+    note: 'Model current versus projected basic, DA, HRA and other eligible pay across dates you choose. No date is assumed official.',
+  },
+  {
+    href: PENSION_CALCULATOR_URL,
+    label: '8th Pay Commission Pension Calculator',
+    note: 'Compare current basic pension plus DR with an unofficial flat-multiplier scenario while keeping future DR separate.',
   },
   {
     href: '/tools/salary-in-hand-calculator-india',
@@ -143,16 +218,20 @@ const relatedReading = [
 
 const officialSources = [
   {
-    label: 'Department of Expenditure, Ministry of Finance — pay commission orders',
-    href: 'https://doe.gov.in',
+    label: '8th Central Pay Commission — official website and current notices',
+    href: 'https://8cpc.gov.in/',
   },
   {
-    label: 'Press Information Bureau — official announcements',
-    href: 'https://www.pib.gov.in/',
+    label: '8th CPC — official questionnaire page',
+    href: 'https://8cpc.gov.in/8th-central-pay-commission/',
   },
   {
-    label: 'Labour Bureau — AICPI-IW index used for DA calculation',
-    href: 'https://labourbureau.gov.in',
+    label: '8th CPC — official memorandum-submission page',
+    href: 'https://8cpc.gov.in/8cpc-memorandum-submission/',
+  },
+  {
+    label: 'PIB — terms of reference and 18-month report period',
+    href: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2183289',
   },
 ];
 
@@ -243,6 +322,10 @@ export default function EighthPayCommissionHubPage() {
               label: 'Run your own basic pay through the scenarios',
               href: CALCULATOR_URL,
             },
+            {
+              label: 'Model an arrears period without assuming a date',
+              href: ARREARS_CALCULATOR_URL,
+            },
           ]}
         />
       </div>
@@ -251,6 +334,50 @@ export default function EighthPayCommissionHubPage() {
         className="mt-6"
         summary="RupeeKit's 8th Pay Commission hub explains that revised basic pay equals current basic pay multiplied by a fitment factor, that no fitment factor has been officially notified as at August 2026, and that widely quoted figures such as 2.57 are references to the 7th Pay Commission rather than decisions. Because accumulated dearness allowance is merged into the revised basic and restarts from a low base, the increase in take-home pay is materially smaller than the fitment factor suggests. Arrears and pension revision depend on the government resolution accepting the recommendations, not on the Commission's report alone."
       />
+
+      <section className="mt-12 rounded-3xl border border-sky-200 bg-sky-50 p-5 md:p-8">
+        <p className="text-xs font-bold uppercase tracking-wide text-sky-800">Official status checked 17 August 2026</p>
+        <h2 className="mt-2 text-2xl font-bold text-brandDeepNavy">8th Pay Commission timeline and what is pending</h2>
+        <p className="mt-3 max-w-3xl leading-7 text-slate-700">
+          The Commission is active and collecting evidence, but the official record still does not contain a final fitment factor, pay matrix, revised HRA rate, pension method, implementation date or arrears order.
+        </p>
+        <div className="mt-5 overflow-x-auto rounded-2xl border border-sky-200 bg-white">
+          <table className="w-full min-w-[720px] text-left text-sm">
+            <thead className="bg-sky-100/70 text-xs uppercase tracking-wide text-sky-900">
+              <tr><th className="px-4 py-3">Milestone</th><th className="px-4 py-3">Date</th><th className="px-4 py-3">Status</th><th className="px-4 py-3">What it means</th></tr>
+            </thead>
+            <tbody className="divide-y divide-sky-100">
+              {officialStatus.map((item) => (
+                <tr key={item.milestone}>
+                  <td className="px-4 py-4 font-bold text-slate-900">{item.milestone}</td>
+                  <td className="px-4 py-4 text-slate-600">{item.date}</td>
+                  <td className="px-4 py-4"><span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">{item.status}</span></td>
+                  <td className="px-4 py-4 leading-6 text-slate-600">{item.detail}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-brandDeepNavy">Current official activity</h2>
+        <p className="mt-3 leading-7 text-slate-700">
+          The official site lists stakeholder visits scheduled after this review date. These notices show evidence gathering is active; they do not announce salary or pension outcomes.
+        </p>
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          {currentActivities.map((item) => (
+            <article key={item.activity} className="rounded-2xl border border-brandBorder bg-white p-5 shadow-sm">
+              <h3 className="font-bold text-slate-900">{item.activity}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{item.schedule}</p>
+              <p className="mt-3 rounded-xl bg-amber-50 p-3 text-xs leading-5 text-amber-900">{item.deadline}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mt-4 text-xs leading-5 text-slate-500">
+          Visit schedules and representation deadlines can change. Confirm the latest notice on the official 8th CPC website before acting.
+        </p>
+      </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-brandDeepNavy">
