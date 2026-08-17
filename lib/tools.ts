@@ -6,6 +6,7 @@ import investingTools from '../data/investing-tools-2026.json';
 import lifestageTools from '../data/lifestage-tools-2026.json';
 import ctrToolSeoOverrides from '../data/ctr-tool-seo-overrides-2026-08-15.json';
 import searchGrowthOverrides from '../data/search-growth-overrides-2026-08-17.json';
+import directAnswerOverrides from '../data/direct-answer-overrides-2026-08-17.json';
 import { CONSOLIDATED_TOOL_SLUGS } from './consolidated-routes';
 
 export type ToolInput = { key:string; label:string; unit?:string; default:number; min?:number; max?:number; step?:number; help?:string; };
@@ -29,15 +30,19 @@ export type Tool = {
 type ToolSeoCopyOverride = { title:string; description:string };
 const ctrSeoOverrides = ctrToolSeoOverrides as Record<string, ToolSeoCopyOverride>;
 const prioritySearchOverrides = searchGrowthOverrides as Record<string, Partial<Tool>>;
+const directAnswers = directAnswerOverrides as Record<string, string>;
 const sourceTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools] as Tool[];
 
 export const allTools = sourceTools.map((tool) => {
   const priorityOverride = prioritySearchOverrides[tool.slug];
   const mergedTool = priorityOverride ? { ...tool, ...priorityOverride } : tool;
   const seoOverride = ctrSeoOverrides[tool.slug];
-  return seoOverride
-    ? { ...mergedTool, seoTitle: seoOverride.title, metaDescription: seoOverride.description }
-    : mergedTool;
+  const directAnswer = directAnswers[tool.slug];
+  return {
+    ...mergedTool,
+    ...(seoOverride ? { seoTitle: seoOverride.title, metaDescription: seoOverride.description } : {}),
+    ...(directAnswer ? { shortDescription: directAnswer } : {}),
+  };
 });
 
 export function getLiveTools(): Tool[] { return allTools.filter((tool) => tool.status === 'live' && !CONSOLIDATED_TOOL_SLUGS.has(tool.slug)); }
