@@ -4,7 +4,5 @@
   "sip-calculator-india": "SIP future value is estimated from the monthly contribution, expected return and investment period. Returns are market-linked assumptions, not guaranteed investment outcomes.",
   "capital-gains-tax-calculator-india": "This calculator estimates tax for listed equity shares and equity-oriented mutual funds using the configured rules. It does not model property, debt funds, gold, crypto or unlisted shares.",
   "emergency-fund-calculator-india": "Emergency fund target = essential monthly expenses plus unavoidable EMIs, multiplied by the number of months of protection. Compare 3, 6, 9 and 12-month buffers using your own household costs.",
-  "8th-pay-commission-salary-calculator-india": "This calculator compares user-selected fitment-factor salary scenarios. Every result is illustrative and should not be treated as an official pay recommendation or guaranteed revised salary.",
-  "hra-exemption-calculator-india": "HRA exemption is estimated as the least of actual HRA received, rent paid minus 10% of eligible salary, and the applicable city salary cap. Verify the final claim against current official rules.",
-  "fd-calculator-india": "FD maturity is estimated from your principal, entered interest rate, tenure and compounding frequency. The result is an educational projection, not a bank rate quote or guaranteed return."
+  "8th-pay-commission-salary-calculator-india": "This calculator compares user-selected fitment-factor salary scenarios. Every result is illustrative and should not be treated as an official pay recommendation or guaranteed revised salary."
 }
