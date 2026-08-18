@@ -7,6 +7,7 @@ import lifestageTools from '../data/lifestage-tools-2026.json';
 import ctrToolSeoOverrides from '../data/ctr-tool-seo-overrides-2026-08-15.json';
 import searchGrowthOverrides from '../data/search-growth-overrides-2026-08-17.json';
 import directAnswerOverrides from '../data/direct-answer-overrides-2026-08-17.json';
+import queryVariantOverrides from '../data/query-variant-tool-overrides-2026-08-18.json';
 import { CONSOLIDATED_TOOL_SLUGS } from './consolidated-routes';
 
 export type ToolInput = { key:string; label:string; unit?:string; default:number; min?:number; max?:number; step?:number; help?:string; };
@@ -28,20 +29,36 @@ export type Tool = {
 };
 
 type ToolSeoCopyOverride = { title:string; description:string };
+type QueryVariantToolOverride = Pick<Tool, 'contentSections' | 'faqs' | 'officialSources'>;
 const ctrSeoOverrides = ctrToolSeoOverrides as Record<string, ToolSeoCopyOverride>;
 const prioritySearchOverrides = searchGrowthOverrides as Record<string, Partial<Tool>>;
 const directAnswers = directAnswerOverrides as Record<string, string>;
+const queryVariants = queryVariantOverrides as Record<string, Partial<QueryVariantToolOverride>>;
 const sourceTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools] as Tool[];
+
+function mergeUniqueSources(base: ToolOfficialSource[] = [], extra: ToolOfficialSource[] = []): ToolOfficialSource[] {
+  const byHref = new Map<string, ToolOfficialSource>();
+  [...base, ...extra].forEach((source) => byHref.set(source.href, source));
+  return [...byHref.values()];
+}
 
 export const allTools = sourceTools.map((tool) => {
   const priorityOverride = prioritySearchOverrides[tool.slug];
   const mergedTool = priorityOverride ? { ...tool, ...priorityOverride } : tool;
   const seoOverride = ctrSeoOverrides[tool.slug];
   const directAnswer = directAnswers[tool.slug];
+  const queryVariant = queryVariants[tool.slug];
   return {
     ...mergedTool,
     ...(seoOverride ? { seoTitle: seoOverride.title, metaDescription: seoOverride.description } : {}),
     ...(directAnswer ? { shortDescription: directAnswer } : {}),
+    ...(queryVariant
+      ? {
+          contentSections: [...(mergedTool.contentSections ?? []), ...(queryVariant.contentSections ?? [])],
+          faqs: [...mergedTool.faqs, ...(queryVariant.faqs ?? [])],
+          officialSources: mergeUniqueSources(mergedTool.officialSources, queryVariant.officialSources),
+        }
+      : {}),
   };
 });
 
