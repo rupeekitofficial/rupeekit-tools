@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { governmentSalaryUpdates } from '@/data/government-salary-updates';
+import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updates';
 import UpdateVisual from '@/components/updates/UpdateVisual';
 import {
   CORRECTIONS_POLICY_URL,
@@ -37,24 +37,21 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return governmentSalaryUpdates.map((u) => ({ slug: u.slug }));
+  return indexableGovernmentSalaryUpdates.map((u) => ({ slug: u.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const update = governmentSalaryUpdates.find((u) => u.slug === params.slug);
+  const update = indexableGovernmentSalaryUpdates.find((u) => u.slug === params.slug);
   if (!update) return { title: 'Update Not Found | RupeeKit' };
   const pageUrl = `${SITE_URL}/government-salary-updates/${update.slug}`;
   const cleanSummary = update.summary.substring(0, 155);
-  const isSample = update.status === 'sample';
   return {
     title: { absolute: `${update.title} | Government Salary Updates | RupeeKit` },
     description: cleanSummary,
     alternates: {
       canonical: pageUrl,
     },
-    robots: isSample
-      ? { index: false, follow: false }
-      : { index: true, follow: true, 'max-image-preview': 'large' },
+    robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
       title: `${update.title} | Government Salary Updates | RupeeKit`,
       description: cleanSummary,
@@ -72,7 +69,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default function GovernmentSalaryUpdateDetailPage({ params }: PageProps) {
-  const update = governmentSalaryUpdates.find((u) => u.slug === params.slug);
+  const update = indexableGovernmentSalaryUpdates.find((u) => u.slug === params.slug);
   if (!update) notFound();
   const pageUrl = `${SITE_URL}/government-salary-updates/${update.slug}`;
   const dateModified = (update as { modifiedDate?: string }).modifiedDate || update.publishedDate;
