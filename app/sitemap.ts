@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getLiveTools } from '@/lib/tools';
 import { blogPosts } from '@/data/all-blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
-import { governmentSalaryUpdates } from '@/data/government-salary-updates';
+import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updates';
 import { calculatorGuides } from '@/data/calculator-guides';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
@@ -31,7 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
   const liveTools = getLiveTools();
   const indexableFinancialUpdates = financialUpdates.filter((update) => update.status !== 'sample');
-  const indexableGovernmentUpdates = governmentSalaryUpdates.filter((update) => update.status !== 'sample');
 
   const toolDates = liveTools.map((tool) =>
     resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed)
@@ -51,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       parseIsoDate(update.publishedDate) ??
       STATIC_LAST_MODIFIED
   );
-  const governmentUpdateDates = indexableGovernmentUpdates.map(
+  const governmentUpdateDates = indexableGovernmentSalaryUpdates.map(
     (update) =>
       parseIsoDate((update as { modifiedDate?: string }).modifiedDate) ??
       parseIsoDate(update.publishedDate) ??
@@ -168,7 +167,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       };
     }),
-    ...indexableGovernmentUpdates
+    ...indexableGovernmentSalaryUpdates
       .map((u) => {
         const lastModified =
           parseIsoDate((u as { modifiedDate?: string }).modifiedDate) ??

@@ -52,6 +52,16 @@ function extractBlogSlugs() {
   return slugs;
 }
 
+function extractSampleSlugs(source) {
+  const slugs = [];
+  for (const entry of source.matchAll(/\{([\s\S]*?)\n\s*\},?/g)) {
+    if (!/status\s*:\s*['"]sample['"]/.test(entry[1])) continue;
+    const slug = entry[1].match(/slug\s*:\s*['"]([^'"]+)['"]/)?.[1];
+    if (slug) slugs.push(slug);
+  }
+  return slugs;
+}
+
 function addInbound(target, source, kind) {
   if (!inbound.has(target)) inbound.set(target, []);
   inbound.get(target).push({ source, kind });
@@ -117,7 +127,7 @@ for (const slug of blogSlugs) {
 }
 
 const sitemapSource = read('app/sitemap.ts');
-for (const required of ['getLiveTools()', 'blogPosts.map', 'indexableFinancialUpdates.map', 'indexableGovernmentUpdates']) {
+for (const required of ['getLiveTools()', 'blogPosts.map', 'indexableFinancialUpdates.map', 'indexableGovernmentSalaryUpdates']) {
   if (!sitemapSource.includes(required)) fail(`app/sitemap.ts is missing expected route source: ${required}`);
 }
 for (const slug of consolidatedTools) {
@@ -156,6 +166,45 @@ for (const [source, destination] of expectedRedirects) {
   }
 }
 if (!redirectsSource.includes('statusCode: 301')) fail('Consolidation redirects are not explicitly 301');
+
+const removedFinancialUpdateSlugs = [
+  'rbi-repo-rate-explainer',
+  'income-tax-regime-comparison',
+  'gst-council-explainer',
+  'sebi-mutual-fund-explainer',
+  'banking-fd-rate-tracker',
+  'personal-finance-epf-explainer',
+  'government-salary-da-link',
+  'hra-exemption-explainer',
+  'nps-tier1-explainer',
+  'tds-26as-explainer',
+];
+for (const slug of removedFinancialUpdateSlugs) {
+  const source = `/financial-updates/${slug}`;
+  if (!redirectsSource.includes(`'${slug}'`) || !redirectsSource.includes("destination: '/financial-updates'")) {
+    fail(`Missing retired-update redirect: ${source} -> /financial-updates`);
+  }
+}
+
+const governmentUpdateSource = read('data/government-salary-updates.ts');
+const sampleGovernmentUpdateSlugs = extractSampleSlugs(governmentUpdateSource);
+const governmentHubSource = read('components/updates/GovernmentSalaryUpdatesClient.tsx');
+const governmentDetailSource = read('app/government-salary-updates/[slug]/page.tsx');
+
+if (!governmentHubSource.includes('indexableGovernmentSalaryUpdates')) {
+  fail('Government salary hub can expose sample update links');
+}
+if (!governmentDetailSource.includes('indexableGovernmentSalaryUpdates')) {
+  fail('Government salary detail route can render sample updates');
+}
+if (governmentDetailSource.includes('index: false') || governmentDetailSource.includes('follow: false')) {
+  fail('Government salary detail route still emits noindex/nofollow metadata');
+}
+for (const slug of sampleGovernmentUpdateSlugs) {
+  if (!redirectsSource.includes(`'${slug}'`)) {
+    fail(`Missing retired-sample redirect: /government-salary-updates/${slug} -> /government-salary-updates`);
+  }
+}
 
 const auditRows = liveTools.map((tool) => {
   const refs = inbound.get(`/tools/${tool.slug}`) || [];
