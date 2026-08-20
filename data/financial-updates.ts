@@ -77,6 +77,197 @@ export interface FinancialUpdate {
 
 export const financialUpdates: FinancialUpdate[] = [
   {
+  id: 'income-tax-integrated-payment-module-2026',
+  slug: 'income-tax-integrated-payment-module-2026',
+  title: 'Paying Income Tax in 2026? Choose the Correct Act and Year Before Creating the Challan',
+  category: 'Income Tax',
+  sourceName: 'Income Tax Department, Ministry of Finance, Government of India',
+  sourceUrl: 'https://www.incometax.gov.in/iec/foportal/',
+  officialSources: [
+    {
+      label: 'Income Tax Department announcement: New Integrated Payment Module Goes Live',
+      href: 'https://www.incometax.gov.in/iec/foportal/',
+    },
+    {
+      label: 'Official General Questions FAQs for e-Pay Tax',
+      href: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/general-questions-0',
+    },
+    {
+      label: 'Official Income Tax Act, 2025 Tax Payments FAQs',
+      href: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/tax-payments',
+    },
+  ],
+  publishedDate: '2026-08-04',
+  modifiedDate: '2026-08-04',
+  lastReviewed: '4 August 2026',
+  effectiveDate:
+    'The Income Tax Act, 2025 applies from 1 April 2026 for Tax Year 2026-27 onwards. The integrated payment module was live on the official e-Filing portal when reviewed on 4 August 2026. The Department homepage does not display a separate launch date for the module.',
+  summary:
+    'The Income Tax Department has introduced one payment interface for dues governed by the Income Tax Act, 1961 and the Income Tax Act, 2025. The most important step is choosing the correct period: AY 2026-27 or earlier generally belongs to the 1961 Act, while Tax Year 2026-27 onwards belongs to the 2025 Act.',
+  quickAnswer:
+    'Use the Income Tax Act, 1961 for self-assessment tax relating to FY 2025-26 and AY 2026-27, even when you pay during 2026. Use the Income Tax Act, 2025 for advance tax and other payments relating to income earned from 1 April 2026 in Tax Year 2026-27. The payment date alone does not decide the Act; the income period and liability do.',
+  storyTitle: 'Arjun saw two Acts on the payment screen and almost chose the newer one',
+  story:
+    'Arjun was paying self-assessment tax for the salary and bank interest he earned during FY 2025-26. Because he was making the payment in August 2026, he assumed the newer Income Tax Act, 2025 must apply. The official FAQs explain otherwise: his liability belongs to AY 2026-27, so he should select the Income Tax Act, 1961. His advance-tax payment for income earned from April 2026 would instead belong to Tax Year 2026-27 under the 2025 Act.',
+  whatHappened:
+    'The Income Tax Department announced that a new integrated payment module is available on the e-Filing portal. It allows payments under both the Income Tax Act, 1961 for older periods and the Income Tax Act, 2025 for Tax Year 2026-27 onwards through one interface.',
+  officialFacts: [
+    'The integrated module supports payments governed by both the Income Tax Act, 1961 and the Income Tax Act, 2025.',
+    'Payments for periods up to AY 2026-27, including self-assessment tax for FY 2025-26, use the Income Tax Act, 1961.',
+    'Payments relating to Tax Year 2026-27 onwards use the Income Tax Act, 2025.',
+    'Advance tax for income earned during FY 2026-27 is payable under the Income Tax Act, 2025.',
+    'The official transition FAQ warns taxpayers to select AY 2026-27 for FY 2025-26 liabilities and Tax Year 2026-27 for FY 2026-27 liabilities so credit is granted in the correct period.',
+    'Payment modes remain available through authorised banking channels, including net banking, debit card, payment gateway, UPI, NEFT/RTGS and eligible over-the-counter options.',
+  ],
+  plainLanguageExplanation:
+    'The screen now supports two legal systems at the same time. Do not choose the newer Act merely because the calendar says 2026. First ask which income period created the liability. Old-period dues stay under the old Act; current Tax Year 2026-27 dues use the new Act.',
+  whyItMatters:
+    'A wrong Act or year selection can make a valid payment difficult to match with the intended liability. That may lead to missing tax credit, a payment appearing under the wrong period, or extra correction work before filing or responding to a demand.',
+  whoMayBeAffected:
+    'Individuals paying self-assessment tax for AY 2026-27, advance tax for FY 2026-27, an old outstanding demand, or another challan during the transition between the two Acts. Deductors and collectors may also need the correct Act and new TDS/TCS references for transactions from 1 April 2026.',
+  whoMayNotBeAffected:
+    'Taxpayers who are not making a payment may not need to act now. The module does not change a person’s tax liability, create a new tax, extend a deadline, or decide which deductions or tax regime apply.',
+  realisticExample: {
+    title: 'Example: two payments made in August 2026',
+    body:
+      'Arjun pays ₹22,000 of self-assessment tax for FY 2025-26 and AY 2026-27. He selects the Income Tax Act, 1961 and AY 2026-27. The same week, he pays advance tax on freelance income expected during April 2026 to March 2027. For that payment he selects the Income Tax Act, 2025 and Tax Year 2026-27. The dates are similar, but the governing periods are different.',
+  },
+  practicalSteps: [
+    'Write down the income period and the exact liability before opening e-Pay Tax.',
+    'For FY 2025-26 self-assessment tax, select the Income Tax Act, 1961 and AY 2026-27.',
+    'For advance tax on FY 2026-27 income, select the Income Tax Act, 2025 and Tax Year 2026-27.',
+    'Check the PAN, payment type, amount, Act and year on the challan preview before paying.',
+    'Save the challan receipt and verify it under Payment History after successful payment.',
+    'If the payment was made under the wrong details, use the official challan-correction guidance or grievance route rather than paying again without checking.',
+  ],
+  commonMisunderstandings: [
+    {
+      claim: 'Every payment made after 1 April 2026 must use the Income Tax Act, 2025.',
+      reality:
+        'No. A payment for an older liability can remain under the 1961 Act. Self-assessment tax for FY 2025-26 and AY 2026-27 is the clearest example.',
+    },
+    {
+      claim: 'AY 2026-27 and Tax Year 2026-27 mean the same period.',
+      reality:
+        'No. AY 2026-27 relates to income from FY 2025-26 under the 1961 Act. Tax Year 2026-27 refers to income from 1 April 2026 to 31 March 2027 under the 2025 Act.',
+    },
+    {
+      claim: 'The integrated module has changed tax rates or payment deadlines.',
+      reality:
+        'The announcement concerns the payment interface. The official FAQs say the core payment framework and payment modes continue; applicable rates and deadlines must be checked separately.',
+    },
+    {
+      claim: 'If I select the wrong year, I should immediately make a second payment.',
+      reality:
+        'Do not duplicate a payment without checking. Download the receipt, review the official correction options and raise a grievance when required.',
+    },
+  ],
+  whatToVerify:
+    'Verify the Act, Assessment Year or Tax Year, payment type, PAN and amount before generating the challan. Keep the receipt and confirmation. For a wrong challan, old demand, business TDS/TCS issue or case-specific interpretation, follow the official correction process or consult a qualified tax professional.',
+  announcementVsOrderNote:
+    'This is an e-Filing portal service update and transition guidance. It does not independently amend tax rates, filing deadlines, rebate rules, tax-regime eligibility or a taxpayer’s underlying liability.',
+  methodology:
+    'RupeeKit reviewed the official homepage announcement, the complete e-Pay Tax General Questions FAQs and the 30-question Income Tax Act, 2025 Tax Payments FAQ. The article focuses on the household-level distinction between AY 2026-27 under the 1961 Act and Tax Year 2026-27 under the 2025 Act, while avoiding personalised tax conclusions.',
+  relatedRupeeKitLinks: [
+    {
+      label: 'Income Tax Old vs New Regime Calculator',
+      href: '/tools/income-tax-calculator-old-vs-new-regime-india',
+    },
+    {
+      label: 'ITR-2 Filing Guide for AY 2026-27',
+      href: '/blog/itr-2-ay-2026-27-filing-guide',
+    },
+    {
+      label: 'Capital Gains Tax Calculator India',
+      href: '/tools/capital-gains-tax-calculator-india',
+    },
+  ],
+  tags: ['e-Pay Tax', 'Income Tax Act 2025', 'AY 2026-27', 'Tax Year 2026-27', 'Self Assessment Tax', 'Advance Tax'],
+  visualType: 'income-tax',
+  schemaType: 'NewsArticle',
+  heroImage: {
+    src: '/images/updates/income-tax-integrated-payment-module-2026/hero-choose-correct-tax-act.svg',
+    alt: 'Indian taxpayer choosing between the Income Tax Act 1961 and Income Tax Act 2025 in the integrated e-Pay Tax module',
+    width: 1600,
+    height: 900,
+  },
+  carouselSlides: [
+    {
+      src: '/images/updates/income-tax-integrated-payment-module-2026/slide-1-arjun-sees-two-acts.svg',
+      alt: 'Indian taxpayer Arjun sees two Income Tax Acts while creating an online tax challan',
+      caption: 'Arjun sees two Acts and pauses before choosing.',
+    },
+    {
+      src: '/images/updates/income-tax-integrated-payment-module-2026/slide-2-one-payment-module.svg',
+      alt: 'Visual showing one integrated e-Pay Tax module supporting the 1961 Act and the 2025 Act',
+      caption: 'One payment interface now supports both Acts.',
+    },
+    {
+      src: '/images/updates/income-tax-integrated-payment-module-2026/slide-3-ay-vs-tax-year.svg',
+      alt: 'Comparison of AY 2026-27 under the 1961 Act and Tax Year 2026-27 under the 2025 Act',
+      caption: 'AY 2026-27 and Tax Year 2026-27 refer to different income periods.',
+    },
+    {
+      src: '/images/updates/income-tax-integrated-payment-module-2026/slide-4-two-payment-examples.svg',
+      alt: 'Example comparing self-assessment tax for FY 2025-26 with advance tax for FY 2026-27',
+      caption: 'Two August payments can require different Act selections.',
+    },
+    {
+      src: '/images/updates/income-tax-integrated-payment-module-2026/slide-5-check-before-pay.svg',
+      alt: 'Checklist to verify PAN, Act, year, payment type and amount before paying income tax online',
+      caption: 'Check five details before completing the payment.',
+    },
+    {
+      src: '/images/updates/income-tax-integrated-payment-module-2026/slide-6-save-and-verify.svg',
+      alt: 'Taxpayer saving the challan receipt and verifying payment history after e-Pay Tax',
+      caption: 'Save the receipt and verify the payment under Payment History.',
+    },
+  ],
+  faqs: [
+    {
+      question: 'Which Act applies to self-assessment tax for AY 2026-27?',
+      answer:
+        'The official FAQ says self-assessment tax for AY 2026-27 and FY 2025-26 is governed by the Income Tax Act, 1961, even when the payment is made after 1 April 2026.',
+    },
+    {
+      question: 'Which Act applies to advance tax for FY 2026-27?',
+      answer:
+        'Advance tax relating to income earned during FY 2026-27 is paid under the Income Tax Act, 2025 using Tax Year 2026-27.',
+    },
+    {
+      question: 'Is Assessment Year the same as Tax Year?',
+      answer:
+        'No. Assessment Year is terminology under the 1961 Act. The 2025 Act uses Tax Year, meaning the financial year beginning on 1 April.',
+    },
+    {
+      question: 'What payment modes are available through e-Pay Tax?',
+      answer:
+        'The official FAQ lists net banking, debit card, payment gateway including credit card and UPI, NEFT or RTGS, and eligible over-the-counter payments at selected bank branches.',
+    },
+    {
+      question: 'Does the new payment module change tax rates?',
+      answer:
+        'The announcement describes an integrated interface. It does not itself announce a change in tax rates, rebates or filing deadlines.',
+    },
+    {
+      question: 'Why does the correct year matter?',
+      answer:
+        'The official transition FAQ says taxpayers should select the correct AY or Tax Year so the tax credit is granted in the correct period.',
+    },
+    {
+      question: 'What should I save after paying tax?',
+      answer:
+        'Download the challan receipt, keep the payment confirmation and verify the entry under Payment History on the official portal.',
+    },
+    {
+      question: 'What if I selected the wrong Act or year?',
+      answer:
+        'Do not assume the payment is lost and do not immediately duplicate it. Check the official challan-correction guidance or grievance facility and obtain professional help when the issue is case-specific.',
+    },
+  ],
+  status: 'official',
+},
+  {
     id: 'income-tax-demand-facilitation-centre-july-2026',
     slug: 'income-tax-demand-facilitation-centre-july-2026',
     title: 'Old Income Tax Demand Showing Against Your PAN? A New Help Centre Can Guide You',
