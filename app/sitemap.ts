@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getLiveTools } from '@/lib/tools';
 import { blogPosts } from '@/data/all-blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
+import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updates';
 import { calculatorGuides } from '@/data/calculator-guides';
 
@@ -30,7 +31,8 @@ function latestDate(dates: Date[], fallback = STATIC_LAST_MODIFIED): Date {
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
   const liveTools = getLiveTools();
-  const indexableFinancialUpdates = financialUpdates.filter((update) => update.status !== 'sample');
+  const allFinancialUpdates = [...day18FinancialUpdates, ...financialUpdates];
+  const indexableFinancialUpdates = allFinancialUpdates.filter((update) => update.status !== 'sample');
 
   const toolDates = liveTools.map((tool) =>
     resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed)

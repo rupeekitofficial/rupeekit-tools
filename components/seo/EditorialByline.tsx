@@ -4,6 +4,7 @@ import {
   EDITORIAL_TEAM_NAME,
   formatBylineDate,
 } from '@/lib/seo/editorial';
+import LatestOfficialUpdateLink from '@/components/seo/LatestOfficialUpdateLink';
 
 type EditorialBylineProps = {
   /** ISO date the page was first published. */
@@ -32,42 +33,45 @@ export default function EditorialByline({
   const updated = formatBylineDate(updatedIso) ?? updatedFallback ?? null;
 
   return (
-    <div
-      className={[
-        'flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-brandMuted dark:text-slate-400',
-        className ?? '',
-      ]
-        .join(' ')
-        .trim()}
-    >
-      <span>
-        Written and reviewed by{' '}
-        <Link
-          href="/editorial-policy"
-          className="font-semibold text-brandNavy underline underline-offset-2 hover:text-brandDeepNavy dark:text-slate-200 dark:hover:text-white"
-        >
-          {EDITORIAL_TEAM_NAME}
-        </Link>
-      </span>
-      {published ? (
-        <>
-          <span aria-hidden="true">·</span>
-          <span>Published {published}</span>
-        </>
-      ) : null}
-      {updated && updated !== published ? (
-        <>
-          <span aria-hidden="true">·</span>
-          <span>Last reviewed {updated}</span>
-        </>
-      ) : null}
-      <span aria-hidden="true">·</span>
-      <Link
-        href="/corrections-policy"
-        className="underline underline-offset-2 hover:text-brandNavy dark:hover:text-white"
+    <>
+      <div
+        className={[
+          'flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-brandMuted dark:text-slate-400',
+          className ?? '',
+        ]
+          .join(' ')
+          .trim()}
       >
-        Report a correction
-      </Link>
-    </div>
+        <span>
+          Written and reviewed by{' '}
+          <Link
+            href="/editorial-policy"
+            className="font-semibold text-brandNavy underline underline-offset-2 hover:text-brandDeepNavy dark:text-slate-200 dark:hover:text-white"
+          >
+            {EDITORIAL_TEAM_NAME}
+          </Link>
+        </span>
+        {published ? (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>Published {published}</span>
+          </>
+        ) : null}
+        {updated && updated !== published ? (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>Last reviewed {updated}</span>
+          </>
+        ) : null}
+        <span aria-hidden="true">·</span>
+        <Link
+          href="/corrections-policy"
+          className="underline underline-offset-2 hover:text-brandNavy dark:hover:text-white"
+        >
+          Report a correction
+        </Link>
+      </div>
+      <LatestOfficialUpdateLink />
+    </>
   );
 }
