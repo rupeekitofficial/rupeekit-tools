@@ -5,6 +5,7 @@ import { getDiscoverImage } from '@/data/discover-images';
 import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
 import FcraArticleLayout from '@/components/blog/FcraArticleLayout';
 import FcraOriginalMedia from '@/components/blog/FcraOriginalMedia';
+import { normalizeSerpDescription, normalizeSerpTitle } from '@/lib/seo/ctr-metadata';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_POLICY_URL,
@@ -24,8 +25,8 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   if (!post) return {};
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
   const pageUrl = `${siteUrl}/blog/${post.slug}`;
-  const title = post.seoTitle || post.title;
-  const description = post.metaDescription;
+  const title = normalizeSerpTitle(post.seoTitle || post.title);
+  const description = normalizeSerpDescription(post.metaDescription);
   const discoverImage = getDiscoverImage(`/blog/${post.slug}`);
   const heroImage = discoverImage?.src || post.heroImage;
   const heroImageAlt = discoverImage?.alt || post.heroImageAlt || title;
