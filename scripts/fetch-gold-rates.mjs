@@ -90,6 +90,18 @@ async function main() {
     history: historyFile.entries,
   });
 
+  // Print what we derived before deciding whether to accept it, so a rejected
+  // reading is diagnosable from the log rather than just "guardrails failed".
+  console.log(`\n  spot     ${quotes.map((q) => `${q.provider}=${q.xauUsd}`).join('  ')}`);
+  console.log(`  fx       ${fxQuote.provider}=${fxQuote.usdInr}`);
+  console.log(`  24K/gram ₹${snapshot.derived.perGram['24K']}`);
+  console.log(`  22K/gram ₹${snapshot.derived.perGram['22K']}`);
+  console.log(`  levies   ${snapshot.inputs.levies.importDutyPct}% duty, GST ${snapshot.inputs.levies.gstPct}% (excluded from valuation)`);
+  console.log(
+    `  ${snapshot.loanValuation.carat} ${snapshot.loanValuation.sampleDays}-day avg ₹${snapshot.loanValuation.averagePerGram}` +
+      `${snapshot.loanValuation.sufficient ? '' : '  (INSUFFICIENT HISTORY — not a 30-day average yet)'}`
+  );
+
   if (failures.length > 0 && !args.force) {
     fail('guardrails rejected this reading', failures);
   }
@@ -106,15 +118,6 @@ async function main() {
   ]
     .sort((a, b) => a.asOf.localeCompare(b.asOf))
     .slice(-HISTORY_RETENTION_DAYS);
-
-  console.log(`\n  spot     ${quotes.map((q) => `${q.provider}=${q.xauUsd}`).join('  ')}`);
-  console.log(`  fx       ${fxQuote.provider}=${fxQuote.usdInr}`);
-  console.log(`  24K/gram ₹${snapshot.derived.perGram['24K']}`);
-  console.log(`  22K/gram ₹${snapshot.derived.perGram['22K']}`);
-  console.log(
-    `  ${snapshot.loanValuation.carat} ${snapshot.loanValuation.sampleDays}-day avg ₹${snapshot.loanValuation.averagePerGram}` +
-      `${snapshot.loanValuation.sufficient ? '' : '  (INSUFFICIENT HISTORY — not a 30-day average yet)'}`
-  );
 
   if (args.dryRun) {
     console.log('\n  --dry-run: nothing written.');

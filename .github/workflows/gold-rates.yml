@@ -12,16 +12,55 @@ on:
         description: 'Bypass guardrails (use only to recover from a known-good reading the guards rejected)'
         type: boolean
         default: false
+  # Smoke-test the provider adapters whenever the pipeline changes. The local
+  # dev sandbox has no outbound network, so this is the first place the fetch
+  # meets a real response: it is the gate that catches CSV/JSON shape drift.
+  pull_request:
+    paths:
+      - 'scripts/gold/**'
+      - 'scripts/fetch-gold-rates.mjs'
+      - 'scripts/validate-gold-rates.mjs'
+      - 'data/gold-rates/**'
+      - '.github/workflows/gold-rates.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: gold-rates
+  group: gold-rates-${{ github.event_name == 'pull_request' && github.head_ref || 'scheduled' }}
   cancel-in-progress: false
 
 jobs:
+  # Dry run only: proves the providers respond and parse. Writes nothing,
+  # commits nothing. A red check here from a third-party outage is not a code
+  # defect -- read the log before assuming the adapters broke.
+  smoke:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch gold rates (dry run, no write)
+        env:
+          GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
+        run: node scripts/fetch-gold-rates.mjs --dry-run
+
+      - name: Validate committed snapshot
+        run: node scripts/validate-gold-rates.mjs
+
   refresh:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
