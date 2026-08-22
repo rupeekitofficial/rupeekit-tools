@@ -95,8 +95,73 @@ export async function fxFromExchangerateHost() {
   return { provider: 'exchangerate.host', usdInr: requireFinite(payload?.rates?.INR, 'exchangerate.host INR'), fetchedAt: new Date().toISOString() };
 }
 
-export const SPOT_PROVIDERS = [spotFromStooq, spotFromYahoo, spotFromGoldApi];
-export const FX_PROVIDERS = [fxFromFrankfurter, fxFromExchangerateHost];
+/** goldprice.org's own feed: free, no key, JSON. */
+export async function spotFromGoldPriceOrg() {
+  const payload = await getJson('https://data-asg.goldprice.org/dbXRates/USD');
+  const item = payload?.items?.[0];
+  return {
+    provider: 'goldprice.org',
+    xauUsd: requireFinite(item?.xauPrice, 'goldprice.org xauPrice'),
+    fetchedAt: new Date().toISOString(),
+  };
+}
+
+/** gold-api.com: free, no key, minimal JSON. */
+export async function spotFromGoldApiPublic() {
+  const payload = await getJson('https://api.gold-api.com/price/XAU');
+  return {
+    provider: 'gold-api.com',
+    xauUsd: requireFinite(payload?.price, 'gold-api.com price'),
+    fetchedAt: new Date().toISOString(),
+  };
+}
+
+/** Yahoo COMEX gold futures. Carries a small basis vs spot. */
+export async function spotFromYahooFutures() {
+  const payload = await getJson(
+    'https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval=1d&range=5d'
+  );
+  const price = payload?.chart?.result?.[0]?.meta?.regularMarketPrice;
+  return { provider: 'yahoo-gc-f', xauUsd: requireFinite(price, 'yahoo GC=F price'), fetchedAt: new Date().toISOString() };
+}
+
+/** Stooq without the header flag, in case `h` is what 404s. */
+export async function spotFromStooqNoHeader() {
+  const csv = await getText('https://stooq.com/q/l/?s=xauusd&f=sd2t2ohlcv&e=csv');
+  const rows = csv.trim().split('\n');
+  const values = rows[rows.length - 1].split(',');
+  return { provider: 'stooq-noheader', xauUsd: requireFinite(values[6], 'stooq close'), fetchedAt: new Date().toISOString() };
+}
+
+/** open.er-api.com: free, no key. */
+export async function fxFromOpenErApi() {
+  const payload = await getJson('https://open.er-api.com/v6/latest/USD');
+  return { provider: 'open.er-api', usdInr: requireFinite(payload?.rates?.INR, 'open.er-api INR'), fetchedAt: new Date().toISOString() };
+}
+
+/** exchangerate-api.com free endpoint: no key. */
+export async function fxFromExchangerateApi() {
+  const payload = await getJson('https://api.exchangerate-api.com/v4/latest/USD');
+  return { provider: 'exchangerate-api', usdInr: requireFinite(payload?.rates?.INR, 'exchangerate-api INR'), fetchedAt: new Date().toISOString() };
+}
+
+// Ordered by preference. The first responder is the primary quote; any others
+// that respond act as the cross-check.
+export const SPOT_PROVIDERS = [
+  spotFromGoldPriceOrg,
+  spotFromGoldApiPublic,
+  spotFromYahooFutures,
+  spotFromStooq,
+  spotFromStooqNoHeader,
+  spotFromYahoo,
+  spotFromGoldApi,
+];
+export const FX_PROVIDERS = [
+  fxFromFrankfurter,
+  fxFromOpenErApi,
+  fxFromExchangerateApi,
+  fxFromExchangerateHost,
+];
 
 /**
  * Collect every spot quote we can get. We want more than one: two independent

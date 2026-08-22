@@ -51,7 +51,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Probe first: reports every provider independently so one run diagnoses
+      # both sides. Runs even if the fetch below fails.
+      - name: Probe all providers
+        env:
+          GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
+        run: node scripts/probe-gold-providers.mjs
+
       - name: Fetch gold rates (dry run, no write)
+        if: always()
         env:
           GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
         run: node scripts/fetch-gold-rates.mjs --dry-run
