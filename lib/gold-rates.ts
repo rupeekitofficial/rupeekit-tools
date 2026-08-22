@@ -160,3 +160,79 @@ export function getGoldRatePayload() {
     disclosure: snapshot.disclosure,
   };
 }
+
+export type GoldLoanExampleRow = {
+  grams: number;
+  carat: Carat;
+  perGram: number;
+  intrinsicValue: number;
+  ltvPct: number;
+  eligibleLoan: number;
+};
+
+// RBI consumption-loan LTV bands, most generous first. The band is chosen by the
+// resulting loan amount, so the pairing has to be self-consistent: a value whose
+// 85% figure lands above Rs 2.5 lakh does not get the 85% band at all.
+const LTV_BANDS: { pct: number; maxLoan: number }[] = [
+  { pct: 85, maxLoan: 250_000 },
+  { pct: 80, maxLoan: 500_000 },
+  { pct: 75, maxLoan: Number.POSITIVE_INFINITY },
+];
+
+export function resolveLtvBand(intrinsicValue: number): { pct: number; loan: number } {
+  for (const band of LTV_BANDS) {
+    const loan = intrinsicValue * (band.pct / 100);
+    if (loan <= band.maxLoan) return { pct: band.pct, loan };
+  }
+  const last = LTV_BANDS[LTV_BANDS.length - 1];
+  return { pct: last.pct, loan: intrinsicValue * (last.pct / 100) };
+}
+
+const EXAMPLE_WEIGHTS = [10, 20, 50, 100];
+const EXAMPLE_CARATS: Carat[] = ['22K', '18K'];
+
+/**
+ * Server-rendered worked examples for the gold loan page.
+ *
+ * Calculators compute in the browser, so a crawler — and any answer engine
+ * quoting this page — sees only what is rendered as text. That makes these rows
+ * the site's citable surface, which is exactly why they must never carry a
+ * stale price. Returns null when no live rate exists, so the page shows the
+ * method instead of inventing figures.
+ */
+export function buildGoldLoanExamples(): {
+  asOf: string;
+  perGram: Record<Carat, number>;
+  basis: 'average' | 'spot';
+  rows: GoldLoanExampleRow[];
+} | null {
+  const snapshot = getGoldRateSnapshot();
+  if (!hasLiveGoldRate() || !snapshot.derived || !snapshot.asOf) return null;
+
+  const loan = getLoanValuationRate();
+  const rows: GoldLoanExampleRow[] = [];
+  for (const carat of EXAMPLE_CARATS) {
+    const perGram = snapshot.derived.perGram[carat];
+    if (!Number.isFinite(perGram)) continue;
+    for (const grams of EXAMPLE_WEIGHTS) {
+      const intrinsicValue = Math.round(grams * perGram);
+      const band = resolveLtvBand(intrinsicValue);
+      rows.push({
+        grams,
+        carat,
+        perGram: Math.round(perGram),
+        intrinsicValue,
+        ltvPct: band.pct,
+        eligibleLoan: Math.round(band.loan),
+      });
+    }
+  }
+  if (rows.length === 0) return null;
+
+  return {
+    asOf: snapshot.asOf,
+    perGram: snapshot.derived.perGram,
+    basis: loan.basis === 'average' ? 'average' : 'spot',
+    rows: rows.sort((a, b) => a.carat.localeCompare(b.carat) || a.grams - b.grams),
+  };
+}

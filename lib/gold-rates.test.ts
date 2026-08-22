@@ -11,7 +11,14 @@ import {
   guardrailFailures,
   purity,
 } from '../scripts/gold/derive.mjs';
-import { CARAT_FINENESS, LOAN_VALUATION_CARAT, getGoldRateSnapshot, hasLiveGoldRate } from './gold-rates';
+import {
+  CARAT_FINENESS,
+  LOAN_VALUATION_CARAT,
+  buildGoldLoanExamples,
+  getGoldRateSnapshot,
+  hasLiveGoldRate,
+  resolveLtvBand,
+} from './gold-rates';
 
 // A self-consistent reading used to exercise the maths. Not a market quote.
 const SAMPLE = { xauUsd: 3400, usdInr: 87.5, importDutyPct: 15 };
@@ -385,5 +392,44 @@ describe('independent reference check', () => {
     });
     expect(snapshot.reference.source).toBe('mcx-gold-futures');
     expect(snapshot.reference.divergencePct).toBeTypeOf('number');
+  });
+});
+
+describe('gold loan worked examples', () => {
+  it('picks a self-consistent LTV band, not just the most generous rate', () => {
+    // Rs 4,12,500 x 85% = Rs 3,50,625, which is above the Rs 2.5 lakh ceiling
+    // for the 85% band, so that band does not apply at all.
+    const band = resolveLtvBand(412_500);
+    expect(band.pct).toBe(80);
+    expect(Math.round(band.loan)).toBe(330_000);
+  });
+
+  it('uses the 85% band only when the resulting loan stays inside it', () => {
+    const band = resolveLtvBand(200_000);
+    expect(band.pct).toBe(85);
+    expect(Math.round(band.loan)).toBe(170_000);
+  });
+
+  it('falls to 75% for large pledges', () => {
+    const band = resolveLtvBand(2_000_000);
+    expect(band.pct).toBe(75);
+    expect(Math.round(band.loan)).toBe(1_500_000);
+  });
+
+  it('never returns a loan above its own band ceiling', () => {
+    for (let value = 50_000; value <= 3_000_000; value += 25_000) {
+      const { pct, loan } = resolveLtvBand(value);
+      expect(loan).toBeCloseTo(value * (pct / 100), 6);
+      if (pct === 85) expect(loan).toBeLessThanOrEqual(250_000);
+      if (pct === 80) expect(loan).toBeLessThanOrEqual(500_000);
+    }
+  });
+
+  it('renders no examples at all when no live rate exists', () => {
+    // The committed snapshot is unavailable, so this must be null rather than
+    // a table of invented figures.
+    if (!hasLiveGoldRate()) {
+      expect(buildGoldLoanExamples()).toBeNull();
+    }
   });
 });

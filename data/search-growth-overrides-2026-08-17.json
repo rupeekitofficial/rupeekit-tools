@@ -137,7 +137,7 @@
   "gold-loan-calculator-india": {
     "shortDescription": "Estimate intrinsic gold value, maximum collateral-supported consumption loan, applicable RBI 85%/80%/75% LTV tier, EMI and interest using a lender reference price.",
     "formulaExplanation": "Assessed intrinsic value = net eligible gold weight × lender-entered 24K reference price × purity/24. Maximum consumption-loan LTV is 85% up to ₹2.5 lakh, 80% above ₹2.5 lakh through ₹5 lakh, and 75% above ₹5 lakh. The engine tests all brackets and returns the highest self-consistent amount, then calculates reducing-balance EMI on the lower of the request and that maximum.",
-    "example": "For 50g of net 22K gold and a lender reference price of ₹9,000 per gram for 24K, intrinsic value is ₹4,12,500. A ₹4,00,000 request falls in the 80% bracket, while the maximum self-consistent collateral amount is ₹3,30,000 before lender credit checks and charges.",
+    "example": "Take 50g of net 22K gold. Intrinsic value is 50 x the 24K reference price x 22/24, counting gold content only and excluding making charges, wastage and stones. The RBI consumption-loan LTV band is then chosen by the resulting amount: 85% up to Rs 2.5 lakh, 80% above Rs 2.5 lakh through Rs 5 lakh, and 75% above Rs 5 lakh, and the pairing has to be self-consistent — a value whose 85% figure lands above Rs 2.5 lakh does not get the 85% band. The worked table below applies this to 10g, 20g, 50g and 100g at the current bullion value.",
     "quickAnswer": {
       "title": "Gold Loan Calculator Quick Answer",
       "question": "How much gold loan can I get under the RBI 2026 LTV rules?",
@@ -202,8 +202,8 @@
         "body": "Rules come from the Reserve Bank of India (Lending Against Gold and Silver Collateral) Directions, 2025, updated 29 September 2025 and required for compliance no later than 1 April 2026. Calculation version 2026-08-17.1 includes exact tests at ₹2,50,000/₹2,50,001 and ₹5,00,000/₹5,00,001."
       }
     ],
-    "lastReviewed": "17 August 2026",
-    "lastReviewedIso": "2026-08-17",
+    "lastReviewed": "22 August 2026",
+    "lastReviewedIso": "2026-08-22",
     "officialSources": [
       {
         "label": "RBI — Lending Against Gold and Silver Collateral Directions, 2025",

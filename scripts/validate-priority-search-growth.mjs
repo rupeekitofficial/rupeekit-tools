@@ -52,11 +52,15 @@ for (const slug of targets) {
     : '2026-08-17.1';
   ensure(override.calculationVersion === expectedVersion, `${slug}: calculationVersion is not current`);
   ensure(/^\d{4}-\d{2}-\d{2}$/.test(override.factsCheckedIso), `${slug}: factsCheckedIso must be an ISO date`);
-  // Per-slug, like calculationVersion above: only bump the slug whose facts were
-  // actually re-verified. A global bump would claim a review that did not happen.
-  const expectedReview = slug === '8th-pay-commission-salary-calculator-india'
-    ? '2026-08-22'
-    : '2026-08-17';
+  // Per-slug, like calculationVersion above. Only slugs whose facts were
+  // actually re-verified appear here; everything else stays pinned to the
+  // original review date, because a global bump would claim reviews that never
+  // happened.
+  const REVIEWED = {
+    '8th-pay-commission-salary-calculator-india': '2026-08-22',
+    'gold-loan-calculator-india': '2026-08-22',
+  };
+  const expectedReview = REVIEWED[slug] ?? '2026-08-17';
   ensure(
     override.lastReviewedIso === expectedReview,
     `${slug}: review date is not current (expected ${expectedReview})`

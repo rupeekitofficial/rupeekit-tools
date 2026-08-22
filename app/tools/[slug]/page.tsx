@@ -15,6 +15,7 @@ import { editorialTeamRef } from '@/lib/seo/editorial';
 import { getGuidesForTool } from '@/data/calculator-guides';
 import { getDiscoverImage } from '@/data/discover-images';
 import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
+import { buildGoldLoanExamples } from '@/lib/gold-rates';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 const HRA_SLUG = 'hra-exemption-calculator-india';
@@ -797,6 +798,11 @@ function SipEducationalContent({ links, lastReviewed }: { links: ContextualLink[
 export default function ToolPage({ params }: { params: { slug: string } }) {
   if (SLUGS_WITH_DEDICATED_ROUTE.has(params.slug)) notFound();
   const tool = getToolBySlug(params.slug);
+  // Server-rendered so a crawler and any answer engine quoting this page see
+  // real figures. Null when no live rate exists, so we show the method rather
+  // than invent numbers.
+  const goldLoanExamples =
+    params.slug === 'gold-loan-calculator-india' ? buildGoldLoanExamples() : null;
   if (!tool) notFound();
 
   const isHraPage = tool.slug === HRA_SLUG;
@@ -1488,6 +1494,49 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 <>
                   <h2 className="mt-8 text-2xl font-bold">Example calculation</h2>
                   <p className="mt-4 leading-8 text-slate-700">{tool.example}</p>
+                </>
+              ) : null}
+
+              {goldLoanExamples ? (
+                <>
+                  <h2 className="mt-8 text-2xl font-bold">
+                    How much gold loan for 10g, 20g, 50g or 100g
+                  </h2>
+                  <p className="mt-4 leading-8 text-slate-700">
+                    Worked from the bullion value on {goldLoanExamples.asOf} of{' '}
+                    ₹{goldLoanExamples.perGram['22K'].toLocaleString('en-IN')} per gram for 22K and{' '}
+                    ₹{goldLoanExamples.perGram['18K'].toLocaleString('en-IN')} per gram for 18K, then
+                    the RBI consumption-loan LTV band that the resulting amount falls into. Gold
+                    content only: making charges, wastage and stones are excluded, and your lender
+                    values on its own reference rate.
+                  </p>
+                  <div className="mt-4 overflow-x-auto">
+                    <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
+                      <thead>
+                        <tr className="border-b border-slate-300">
+                          <th className="py-2 pr-4 font-semibold">Gold pledged</th>
+                          <th className="py-2 pr-4 font-semibold">Intrinsic value</th>
+                          <th className="py-2 pr-4 font-semibold">LTV band</th>
+                          <th className="py-2 font-semibold">Indicative loan</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {goldLoanExamples.rows.map((row) => (
+                          <tr key={`${row.carat}-${row.grams}`} className="border-b border-slate-200">
+                            <td className="py-2 pr-4">{row.grams}g of {row.carat}</td>
+                            <td className="py-2 pr-4">₹{row.intrinsicValue.toLocaleString('en-IN')}</td>
+                            <td className="py-2 pr-4">{row.ltvPct}%</td>
+                            <td className="py-2">₹{row.eligibleLoan.toLocaleString('en-IN')}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {goldLoanExamples.basis === 'average'
+                      ? 'Based on the 30-day trailing average, the basis RBI-regulated lenders use to value pledged gold.'
+                      : 'Based on the latest bullion value. A 30-day trailing average is not yet available, so a lender may value your gold slightly differently.'}
+                  </p>
                 </>
               ) : null}
 
