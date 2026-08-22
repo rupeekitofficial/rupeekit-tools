@@ -29,7 +29,8 @@ async function probe(providers, label, valueKey) {
     try {
       const quote = await provider();
       const ms = Date.now() - started;
-      console.log(`  ✓ ${name.padEnd(PAD)} ${String(quote[valueKey]).padStart(12)}   ${ms}ms   [${quote.provider}]`);
+      const kind = quote.instrument ? ` (${quote.instrument})` : '';
+      console.log(`  ✓ ${name.padEnd(PAD)} ${String(quote[valueKey]).padStart(12)}   ${ms}ms   [${quote.provider}]${kind}`);
       working.push(quote);
     } catch (error) {
       const ms = Date.now() - started;
@@ -39,8 +40,15 @@ async function probe(providers, label, valueKey) {
   return working;
 }
 
-function reportSpread(quotes, valueKey, label) {
-  if (quotes.length < 2) return;
+function reportSpread(allQuotes, valueKey, label) {
+  // Spread is only meaningful within one instrument class.
+  const quotes = allQuotes.filter((quote) => quote.instrument !== 'futures');
+  if (quotes.length < 2) {
+    if (allQuotes.length >= 2) {
+      console.log(`\n  Only ${quotes.length} spot-class provider(s); futures quotes are excluded from the ${label} cross-check.`);
+    }
+    return;
+  }
   const values = quotes.map((quote) => quote[valueKey]);
   const min = Math.min(...values);
   const max = Math.max(...values);
@@ -69,8 +77,14 @@ async function main() {
     console.error('\n✗ Pipeline cannot run: needs at least one working provider on each side.');
     process.exit(1);
   }
-  if (spot.length === 1) {
-    console.warn('\n! Only one spot provider works. The 2% cross-check cannot run; consider adding another source.');
+  const spotClass = spot.filter((quote) => quote.instrument !== 'futures');
+  console.log(`  of which spot-class (not futures): ${spotClass.length}`);
+  if (spotClass.length === 0) {
+    console.error('\n✗ No spot-class provider works. A futures price must not be published as a cash rate.');
+    process.exit(1);
+  }
+  if (spotClass.length === 1) {
+    console.warn('\n! Only one spot-class provider works. The 2% cross-check cannot run; add another source.');
   }
   console.log('\n✓ Pipeline has a usable provider on each side.');
 }

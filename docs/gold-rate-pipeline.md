@@ -59,6 +59,37 @@ hallmark ratios are correct. Two config errors were found and fixed this way:
 `lib/gold-rates.test.ts` locks this as a regression test. If it starts failing,
 the levy model has drifted -- re-derive it, do not loosen the tolerance.
 
+## First live run, 22 August 2026 (CI)
+
+The provider adapters were written without network access and were wrong on
+first contact. The PR smoke test caught it. What the runners actually see:
+
+| Provider | Class | Result |
+|---|---|---|
+| gold-api.com | spot | ✅ 4604.40 |
+| coinbase-paxg | spot | added after this run |
+| yahoo GC=F | futures | ✅ 4680.60 |
+| goldprice.org | spot | ❌ 403 |
+| stooq (both URL forms) | spot | ❌ 404 |
+| yahoo XAUUSD=X | spot | ❌ 404 |
+| frankfurter | fx | ✅ 95.70 |
+
+Derived 24K Rs 16,275.69 against a reported market rate of Rs 16,309 — **0.20%**.
+
+Two things this exposed:
+
+1. **Dead providers.** goldprice.org and stooq appear to block datacenter IPs.
+   They are still exported for local use but dropped from the default list.
+2. **A futures quote is not a peer of a spot quote.** Yahoo GC=F sat 1.64%
+   above spot — that is the contango basis, not disagreement, and it passed the
+   2% cross-check by luck. Quotes now carry an `instrument` tag: the 2% check
+   runs only among spot-class quotes, futures get a wide 5% sanity band, and the
+   published rate is always taken from a spot quote. A run with only futures
+   quotes fails closed rather than publishing a futures price as a cash rate.
+
+`npm run probe:gold-providers` reports every provider independently, which is
+how to diagnose this without burning a CI round-trip per guess.
+
 ## Fail-closed
 
 `scripts/fetch-gold-rates.mjs` writes only when every guardrail passes:

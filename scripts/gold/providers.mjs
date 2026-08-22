@@ -51,7 +51,7 @@ export async function spotFromStooq() {
   const columns = header.split(',').map((name) => name.trim().toLowerCase());
   const values = row.split(',');
   const close = values[columns.indexOf('close')];
-  return { provider: 'stooq', xauUsd: requireFinite(close, 'stooq close'), fetchedAt: new Date().toISOString() };
+  return { provider: 'stooq', instrument: 'spot', xauUsd: requireFinite(close, 'stooq close'), fetchedAt: new Date().toISOString() };
 }
 
 /** Yahoo Finance chart endpoint: free, no key, unofficial. */
@@ -61,7 +61,7 @@ export async function spotFromYahoo() {
   );
   const result = payload?.chart?.result?.[0];
   const price = result?.meta?.regularMarketPrice;
-  return { provider: 'yahoo', xauUsd: requireFinite(price, 'yahoo regularMarketPrice'), fetchedAt: new Date().toISOString() };
+  return { provider: 'yahoo', instrument: 'spot', xauUsd: requireFinite(price, 'yahoo regularMarketPrice'), fetchedAt: new Date().toISOString() };
 }
 
 /** GoldAPI.io: needs GOLDAPI_KEY. Skipped silently when unset. */
@@ -77,7 +77,7 @@ export async function spotFromGoldApi() {
     });
     if (!response.ok) throw new Error(`HTTP ${response.status} from goldapi.io`);
     const payload = await response.json();
-    return { provider: 'goldapi', xauUsd: requireFinite(payload?.price, 'goldapi price'), fetchedAt: new Date().toISOString() };
+    return { provider: 'goldapi', instrument: 'spot', xauUsd: requireFinite(payload?.price, 'goldapi price'), fetchedAt: new Date().toISOString() };
   } finally {
     clearTimeout(timer);
   }
@@ -101,6 +101,7 @@ export async function spotFromGoldPriceOrg() {
   const item = payload?.items?.[0];
   return {
     provider: 'goldprice.org',
+    instrument: 'spot',
     xauUsd: requireFinite(item?.xauPrice, 'goldprice.org xauPrice'),
     fetchedAt: new Date().toISOString(),
   };
@@ -111,6 +112,7 @@ export async function spotFromGoldApiPublic() {
   const payload = await getJson('https://api.gold-api.com/price/XAU');
   return {
     provider: 'gold-api.com',
+    instrument: 'spot',
     xauUsd: requireFinite(payload?.price, 'gold-api.com price'),
     fetchedAt: new Date().toISOString(),
   };
@@ -122,7 +124,7 @@ export async function spotFromYahooFutures() {
     'https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval=1d&range=5d'
   );
   const price = payload?.chart?.result?.[0]?.meta?.regularMarketPrice;
-  return { provider: 'yahoo-gc-f', xauUsd: requireFinite(price, 'yahoo GC=F price'), fetchedAt: new Date().toISOString() };
+  return { provider: 'yahoo-gc-f', instrument: 'futures', xauUsd: requireFinite(price, 'yahoo GC=F price'), fetchedAt: new Date().toISOString() };
 }
 
 /** Stooq without the header flag, in case `h` is what 404s. */
@@ -130,7 +132,23 @@ export async function spotFromStooqNoHeader() {
   const csv = await getText('https://stooq.com/q/l/?s=xauusd&f=sd2t2ohlcv&e=csv');
   const rows = csv.trim().split('\n');
   const values = rows[rows.length - 1].split(',');
-  return { provider: 'stooq-noheader', xauUsd: requireFinite(values[6], 'stooq close'), fetchedAt: new Date().toISOString() };
+  return { provider: 'stooq-noheader', instrument: 'spot', xauUsd: requireFinite(values[6], 'stooq close'), fetchedAt: new Date().toISOString() };
+}
+
+/**
+ * Coinbase PAX Gold. PAXG is a token redeemable 1:1 for a fine troy ounce of
+ * LBMA gold, so it tracks spot closely and is an independent venue from the
+ * metals feeds. Included so the 2% spot cross-check has a genuine peer rather
+ * than being compared against a futures contract.
+ */
+export async function spotFromPaxg() {
+  const payload = await getJson('https://api.coinbase.com/v2/prices/PAXG-USD/spot');
+  return {
+    provider: 'coinbase-paxg',
+    instrument: 'spot',
+    xauUsd: requireFinite(payload?.data?.amount, 'coinbase PAXG amount'),
+    fetchedAt: new Date().toISOString(),
+  };
 }
 
 /** open.er-api.com: free, no key. */
@@ -147,14 +165,15 @@ export async function fxFromExchangerateApi() {
 
 // Ordered by preference. The first responder is the primary quote; any others
 // that respond act as the cross-check.
+// Confirmed 22 Aug 2026 from GitHub runners: goldprice.org 403s and both
+// stooq variants plus Yahoo XAUUSD=X 404 from datacenter IPs. They are kept
+// exported for local use but left out of the default list so every scheduled
+// run does not spend seconds on requests that are known to fail.
 export const SPOT_PROVIDERS = [
-  spotFromGoldPriceOrg,
   spotFromGoldApiPublic,
-  spotFromYahooFutures,
-  spotFromStooq,
-  spotFromStooqNoHeader,
-  spotFromYahoo,
+  spotFromPaxg,
   spotFromGoldApi,
+  spotFromYahooFutures,
 ];
 export const FX_PROVIDERS = [
   fxFromFrankfurter,

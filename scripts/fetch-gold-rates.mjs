@@ -66,9 +66,17 @@ async function main() {
   if (quotes.length === 0) {
     fail('no spot gold provider responded', spotErrors);
   }
-  if (quotes.length === 1) {
+  // The cross-check needs two SPOT-class quotes. A futures quote does not
+  // count: it carries a basis and cannot confirm a spot number.
+  const spotClass = quotes.filter((quote) => quote.instrument !== 'futures');
+  if (spotClass.length === 0) {
+    fail('only futures quotes available; refusing to publish a futures price as a cash rate', [
+      `responders: ${quotes.map((q) => q.provider).join(', ')}`,
+    ]);
+  }
+  if (spotClass.length === 1) {
     console.warn(
-      `  ! only one spot provider responded (${quotes[0].provider}); cross-check unavailable for this run`
+      `  ! only one spot-class provider responded (${spotClass[0].provider}); the 2% cross-check cannot run this cycle`
     );
   }
 

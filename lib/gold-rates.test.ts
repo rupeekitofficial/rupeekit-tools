@@ -252,3 +252,66 @@ describe('snapshot assembly (fixture-driven, no network)', () => {
     expect(snapshot.loanValuation.sampleDays).toBe(2);
   });
 });
+
+describe('instrument classes', () => {
+  const base = { xauUsd: 4600, usdInr: 95.7, perGram24k: 16_275 };
+
+  it('does not treat a futures basis as provider disagreement', () => {
+    // Observed on CI 22 Aug 2026: gold-api.com spot 4604.40 vs Yahoo GC=F
+    // futures 4680.60 is a 1.64% basis, not a 1.64% error.
+    const failures = guardrailFailures({
+      ...base,
+      spotQuotes: [
+        { provider: 'gold-api.com', instrument: 'spot', xauUsd: 4604.4 },
+        { provider: 'yahoo-gc-f', instrument: 'futures', xauUsd: 4680.6 },
+      ],
+    });
+    expect(failures).toEqual([]);
+  });
+
+  it('still flags two genuine spot providers that disagree', () => {
+    const failures = guardrailFailures({
+      ...base,
+      spotQuotes: [
+        { provider: 'a', instrument: 'spot', xauUsd: 4604 },
+        { provider: 'b', instrument: 'spot', xauUsd: 4780 },
+      ],
+    });
+    expect(failures.some((f) => f.includes('disagree'))).toBe(true);
+  });
+
+  it('flags a futures quote that is implausibly far from spot', () => {
+    const failures = guardrailFailures({
+      ...base,
+      spotQuotes: [
+        { provider: 'a', instrument: 'spot', xauUsd: 4604 },
+        { provider: 'f', instrument: 'futures', xauUsd: 5200 },
+      ],
+    });
+    expect(failures.some((f) => f.includes('sanity band'))).toBe(true);
+  });
+
+  it('publishes the spot quote, not the futures quote, when both are present', () => {
+    const { snapshot } = buildSnapshot({
+      asOf: '2026-08-22',
+      fetchedAt: '2026-08-22T18:23:11.000Z',
+      // Futures listed first, to prove ordering does not decide this.
+      spotQuotes: [
+        { provider: 'yahoo-gc-f', instrument: 'futures', xauUsd: 4680.6, fetchedAt: '' },
+        { provider: 'gold-api.com', instrument: 'spot', xauUsd: 4604.4, fetchedAt: '' },
+      ],
+      usdInrQuote: { provider: 'frankfurter', usdInr: 95.7, fetchedAt: '' },
+      history: [],
+    });
+    const fromSpot = derivePerGramFine({ xauUsd: 4604.4, usdInr: 95.7, importDutyPct: 15 });
+    expect(snapshot.derived.perGramFine).toBeCloseTo(Math.round(fromSpot * 100) / 100, 1);
+  });
+
+  it('reproduces the CI-observed 22 Aug 2026 derivation', () => {
+    // CI printed 24K Rs 16,275.69 from gold-api.com 4604.399902 / frankfurter 95.7.
+    const fine = derivePerGramFine({ xauUsd: 4604.399902, usdInr: 95.7, importDutyPct: 15 });
+    const { perGram } = deriveCaratTable(fine);
+    expect(perGram['24K']).toBeCloseTo(16_275.69, 1);
+    expect(perGram['22K']).toBeCloseTo(14_923.45, 1);
+  });
+});

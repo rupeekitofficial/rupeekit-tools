@@ -21,9 +21,15 @@ export const BOUNDS = {
 // error than a real market move, so we hold rather than publish.
 export const MAX_DAILY_MOVE_PCT = 10;
 
-// Two independent spot providers disagreeing by more than this means we cannot
+// Two independent SPOT providers disagreeing by more than this means we cannot
 // say which one is right, so we publish neither.
 export const MAX_PROVIDER_DIVERGENCE_PCT = 2;
+
+// Futures carry a basis over spot (contango/backwardation) that routinely runs
+// past 1%, so a futures quote is never a peer of a spot quote. It is only a
+// wide sanity band: useful for catching an order-of-magnitude error, useless
+// for catching a small one.
+export const MAX_FUTURES_BASIS_PCT = 5;
 
 export const MIN_AVERAGE_SAMPLE_DAYS = 30;
 
@@ -115,15 +121,31 @@ export function guardrailFailures({ xauUsd, usdInr, perGram24k, spotQuotes = [],
   }
 
   const quoted = spotQuotes.filter((quote) => Number.isFinite(quote.xauUsd));
-  if (quoted.length >= 2) {
-    for (let i = 0; i < quoted.length; i += 1) {
-      for (let j = i + 1; j < quoted.length; j += 1) {
-        const divergence = pctDiff(quoted[i].xauUsd, quoted[j].xauUsd);
-        if (divergence > MAX_PROVIDER_DIVERGENCE_PCT) {
-          failures.push(
-            `Spot providers disagree by ${divergence.toFixed(2)}% (${quoted[i].provider} ${quoted[i].xauUsd} vs ${quoted[j].provider} ${quoted[j].xauUsd}), limit ${MAX_PROVIDER_DIVERGENCE_PCT}%`
-          );
-        }
+  // Only compare like with like. A futures quote sitting 1.6% above spot is the
+  // basis, not a disagreement, and treating it as one both masks real errors and
+  // causes spurious holds when the basis widens.
+  const spotOnly = quoted.filter((quote) => quote.instrument !== 'futures');
+  const futuresOnly = quoted.filter((quote) => quote.instrument === 'futures');
+
+  for (let i = 0; i < spotOnly.length; i += 1) {
+    for (let j = i + 1; j < spotOnly.length; j += 1) {
+      const divergence = pctDiff(spotOnly[i].xauUsd, spotOnly[j].xauUsd);
+      if (divergence > MAX_PROVIDER_DIVERGENCE_PCT) {
+        failures.push(
+          `Spot providers disagree by ${divergence.toFixed(2)}% (${spotOnly[i].provider} ${spotOnly[i].xauUsd} vs ${spotOnly[j].provider} ${spotOnly[j].xauUsd}), limit ${MAX_PROVIDER_DIVERGENCE_PCT}%`
+        );
+      }
+    }
+  }
+
+  const primarySpot = spotOnly[0];
+  if (primarySpot) {
+    for (const future of futuresOnly) {
+      const basis = pctDiff(primarySpot.xauUsd, future.xauUsd);
+      if (basis > MAX_FUTURES_BASIS_PCT) {
+        failures.push(
+          `Futures quote ${future.provider} ${future.xauUsd} is ${basis.toFixed(2)}% from spot ${primarySpot.xauUsd}, beyond the ${MAX_FUTURES_BASIS_PCT}% sanity band`
+        );
       }
     }
   }
@@ -141,7 +163,9 @@ export function guardrailFailures({ xauUsd, usdInr, perGram24k, spotQuotes = [],
 }
 
 export function buildSnapshot({ asOf, fetchedAt, spotQuotes, usdInrQuote, history }) {
-  const primary = spotQuotes[0];
+  // The published rate must come from a spot quote: futures include a basis
+  // that is not part of the metal's cash value.
+  const primary = spotQuotes.find((quote) => quote.instrument !== 'futures') ?? spotQuotes[0];
   // Valuation rate: duty only. This is the published "gold rate" and the basis
   // a lender advances against.
   const perGramFine = derivePerGramFine({
