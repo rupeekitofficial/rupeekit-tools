@@ -1,0 +1,12 @@
+{
+  "_comment": "Statutory levies applied on top of landed bullion value. THESE CHANGE WITH EVERY UNION BUDGET. validate-gold-rates.mjs fails if reviewedOn is older than 180 days.",
+  "schemaVersion": 1,
+  "importDutyPct": 6,
+  "gstPct": 3,
+  "reviewedOn": "2026-08-22",
+  "reviewNote": "Import duty on gold was cut to 6% (5% BCD + 1% AIDC) in the July 2024 Union Budget. CONFIRM against the current CBIC tariff notification before relying on published output.",
+  "sources": [
+    { "label": "CBIC customs tariff notifications", "href": "https://www.cbic.gov.in/" },
+    { "label": "GST rate on gold (HSN 7113)", "href": "https://cbic-gst.gov.in/" }
+  ]
+}

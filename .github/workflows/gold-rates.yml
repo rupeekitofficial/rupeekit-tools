@@ -1,0 +1,61 @@
+name: Gold rates
+
+# Twice daily, loosely tracking the IBJA AM/PM publication rhythm.
+# 03:00 and 12:00 UTC == 08:30 and 17:30 IST.
+on:
+  schedule:
+    - cron: '0 3 * * *'
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Bypass guardrails (use only to recover from a known-good reading the guards rejected)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gold-rates
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Fail-closed: a non-zero exit here means nothing was written and the
+      # previously committed snapshot stays live with its real, older date.
+      # The red run is the alert; it is not safe to swallow.
+      - name: Fetch gold rates
+        env:
+          GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
+        run: node scripts/fetch-gold-rates.mjs ${{ inputs.force && '--force' || '' }}
+
+      - name: Validate snapshot
+        run: node scripts/validate-gold-rates.mjs
+
+      - name: Commit updated rates
+        run: |
+          if git diff --quiet -- data/gold-rates; then
+            echo "No change in gold rates; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/gold-rates
+          git commit -m "chore(gold-rates): refresh snapshot $(date -u +%Y-%m-%d)"
+          git push
