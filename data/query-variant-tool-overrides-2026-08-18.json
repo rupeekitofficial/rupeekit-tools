@@ -134,6 +134,16 @@
   "gold-loan-calculator-india": {
     "contentSections": [
       {
+        "heading": "What is the gold loan interest rate in India in 2026?",
+        "body": "Scheduled banks price gold loans from roughly 8.5% to 10% a year, with several large lenders starting near 8.75%. NBFCs disburse faster and accept a wider borrower profile, but usually charge more, and the full market runs to well over 20% a year at the top end. The rate you are offered depends on the lender, the assayed purity you pledge, the loan amount and tenure, and whether you service interest monthly or repay it as a bullet at closure. Always compare the annual rate: a branch quoting \"1.5% a month\" is quoting 18% a year.",
+        "bullets": [
+          "Banks: broadly 8.5% to 10% a year for standard consumption gold loans.",
+          "NBFCs: typically higher, in exchange for faster disbursal and lighter documentation.",
+          "Processing fee, valuation charge and any prepayment penalty sit on top of the headline rate.",
+          "A higher assayed purity and a lower LTV band generally attract a better rate."
+        ]
+      },
+      {
         "heading": "How much gold loan can you get for 10g, 20g or 50g of gold?",
         "body": "Weight alone is not enough. Enter the net eligible gold weight, assayed purity and the lender's current 24K reference price. The calculator first estimates intrinsic gold value and then applies the applicable RBI LTV constraint to the requested consumption-loan amount."
       },
@@ -147,6 +157,10 @@
       }
     ],
     "faqs": [
+      {
+        "question": "What is the interest rate on a gold loan right now?",
+        "answer": "Banks generally start near 8.5% to 9% a year and NBFCs charge more, with the wider market reaching well above 20% for some products. Rates move and depend on lender, purity, amount, tenure and repayment structure, so treat any published range as indicative and confirm the annual rate, processing fee and valuation charge directly with the lender before pledging."
+      },
       {
         "question": "How much loan can I get for 20 grams of 22K gold?",
         "answer": "The amount depends on the lender's reference price, net eligible weight, purity and the applicable RBI LTV tier. Enter 20 grams and 22K in the calculator with the lender's current reference price to estimate it."

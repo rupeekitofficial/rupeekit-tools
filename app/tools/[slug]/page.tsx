@@ -148,13 +148,13 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
       'Calculate total assets, liabilities, personal net worth, liquid net worth and debt-to-asset ratio from your current financial balances in one view.',
   },
   'gold-loan-calculator-india': {
-    title: 'Gold Loan Calculator 2026: RBI LTV, Value & EMI',
+    title: 'Gold Loan Interest Rate 2026: RBI LTV, Value & EMI',
     description:
-      'Estimate gold value, maximum loan, EMI and interest using RBI 2026 LTV tiers of 85%, 80% and 75%, actual purity and a lender-entered reference price.',
-    h1: 'Gold Loan Calculator India (RBI 2026 LTV Tiers)',
+      'Gold loan rates start near 8.5% at banks and run higher at NBFCs. Check RBI LTV tiers of 85%, 80% and 75%, your eligible gold value per gram and EMI.',
+    h1: 'Gold Loan Interest Rate and Eligibility Calculator India',
     heroDescription:
-      'Value only the eligible gold content, apply the RBI consumption-loan LTV tier for the requested amount and estimate EMI and interest. Enter the lender reference price yourself; RupeeKit does not claim a live gold rate.',
-    lastReviewedIso: '2026-08-17',
+      'Banks price gold loans from about 8.5% a year and NBFCs charge more for faster disbursal. Value only the eligible gold content, apply the RBI consumption-loan LTV tier for the amount you want, and estimate EMI and total interest before you pledge.',
+    lastReviewedIso: '2026-08-22',
   },
   'sukanya-samriddhi-yojana-calculator-india': {
     title: 'SSY Calculator 2026: 21-Year Maturity & Interest',

@@ -13,13 +13,37 @@ import {
 import { CARAT_FINENESS, LOAN_VALUATION_CARAT, getGoldRateSnapshot, hasLiveGoldRate } from './gold-rates';
 
 // A self-consistent reading used to exercise the maths. Not a market quote.
-const SAMPLE = { xauUsd: 3400, usdInr: 87.5, importDutyPct: 6, gstPct: 3 };
+const SAMPLE = { xauUsd: 3400, usdInr: 87.5, importDutyPct: 15 };
 
 describe('gold rate derivation', () => {
-  it('converts troy ounces to grams and applies FX and levies in order', () => {
+  it('converts troy ounces to grams and applies FX then duty, in order', () => {
     const perGramFine = derivePerGramFine(SAMPLE);
-    const expected = (3400 / purity.troyOunceGrams) * 87.5 * 1.06 * 1.03;
+    const expected = (3400 / purity.troyOunceGrams) * 87.5 * 1.15;
     expect(perGramFine).toBeCloseTo(expected, 6);
+  });
+
+  it('excludes GST from the valuation rate by default', () => {
+    // GST is a transaction tax charged at billing, not part of metal value.
+    expect(derivePerGramFine(SAMPLE)).toBe(derivePerGramFine({ ...SAMPLE, gstPct: 0 }));
+    expect(derivePerGramFine({ ...SAMPLE, gstPct: 3 })).toBeGreaterThan(derivePerGramFine(SAMPLE));
+  });
+
+  // Regression lock. On 22 Aug 2026 the reported national rates were 24K
+  // Rs 16,309/g and 22K Rs 14,950/g, with XAU/USD 4610 and USD/INR 95.765.
+  // Duty-only derivation reproduced both to within 0.02%; adding GST overshot
+  // by ~3%. If this test breaks, the levy model drifted -- do not "fix" it by
+  // loosening the tolerance.
+  it('reproduces the observed 22 Aug 2026 Indian market rate to within 0.1%', () => {
+    const fine = derivePerGramFine({ xauUsd: 4610, usdInr: 95.765, importDutyPct: 15 });
+    const { perGram } = deriveCaratTable(fine);
+    expect(Math.abs((perGram['24K'] - 16_309) / 16_309) * 100).toBeLessThan(0.1);
+    expect(Math.abs((perGram['22K'] - 14_950) / 14_950) * 100).toBeLessThan(0.1);
+  });
+
+  it('overshoots the observed market rate if GST is wrongly folded in', () => {
+    const wrong = derivePerGramFine({ xauUsd: 4610, usdInr: 95.765, importDutyPct: 15, gstPct: 3 });
+    const { perGram } = deriveCaratTable(wrong);
+    expect((perGram['24K'] - 16_309) / 16_309 * 100).toBeGreaterThan(2);
   });
 
   it('derives every carat from a single fine-gold price using hallmark fineness', () => {

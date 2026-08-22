@@ -9,9 +9,15 @@ mispricing every gold pledge the calculator valued.
 The published figure is **computed**, not copied:
 
 ```
-per gram fine (999.9) = (XAU_USD / 31.1034768) x USD_INR x (1 + duty) x (1 + GST)
+per gram fine (999.9) = (XAU_USD / 31.1034768) x USD_INR x (1 + import duty)
 per gram at carat     = per gram fine x hallmark fineness
 ```
+
+GST is deliberately **not** in the valuation rate. It is a transaction tax
+charged at billing, not part of the metal's value; the Indian "gold rate today"
+convention quotes the pre-GST landed rate, and lenders value pledged gold on
+that same basis. The GST-inclusive purchase price is published separately as
+`purchase.perGram` so the two cannot be confused.
 
 Three reasons this beats scraping a retail jeweller rate:
 
@@ -29,6 +35,29 @@ Three reasons this beats scraping a retail jeweller rate:
 Carats are **derived, never sourced separately** — one fine-gold price times a
 fixed hallmark ratio (999 / 916 / 750 / 585). `validate-gold-rates.mjs`
 enforces that the published carat table matches `perGramFine x fineness`.
+
+## Validation against the live market, 22 August 2026
+
+The derivation was checked against the reported national rate on 22 Aug 2026
+using XAU/USD 4610 and USD/INR 95.765:
+
+| Levy model | Derived 24K/g | vs reported Rs 16,309 | Derived 22K/g | vs reported Rs 14,950 |
+|---|---:|---:|---:|---:|
+| 6% duty + 3% GST | 15,481 | -5.08% | 14,195 | -5.05% |
+| 15% duty + 3% GST | 16,796 | +2.98% | 15,400 | +3.01% |
+| **15% duty, no GST** | **16,307** | **-0.02%** | **14,952** | **+0.01%** |
+
+The formula reproduces the market to within 0.02% once both levy assumptions
+are right, and the error was near-identical across both carats, confirming the
+hallmark ratios are correct. Two config errors were found and fixed this way:
+
+1. **Import duty is 15%, not 6%.** It was raised from 6% on 13 May 2026
+   (BCD 5% -> 10%, AIDC 1% -> 5%). The pipeline shipped with the July 2024
+   position.
+2. **GST must be excluded** from the valuation rate, as described above.
+
+`lib/gold-rates.test.ts` locks this as a regression test. If it starts failing,
+the levy model has drifted -- re-derive it, do not loosen the tolerance.
 
 ## Fail-closed
 
@@ -89,6 +118,23 @@ npm run validate:gold-rates
 `GOLDAPI_KEY` is optional; set it as a repo secret to add a third spot provider
 and strengthen the agreement check. Stooq and Yahoo need no key.
 
+## Where tool metadata actually comes from
+
+Discovered the hard way while rewriting the gold-loan snippet: a tool's title
+and description pass through **five** layers, and the last one wins.
+
+1. `data/tools.json` (base record)
+2. `data/search-growth-overrides-2026-08-17.json` (spread over the base)
+3. `data/ctr-tool-seo-overrides-2026-08-15.json` (title/description only)
+4. `data/query-variant-tool-overrides-2026-08-18.json` (appends sections/FAQs)
+5. **`app/tools/[slug]/page.tsx`** -- a hardcoded per-slug map, pinned by
+   `scripts/validate-priority-search-growth.mjs`
+
+Editing the base record has no effect on the rendered title for any slug
+present in layer 5. **Always verify against built output**
+(`.next/server/app/tools/<slug>.html`) rather than trusting the edit. Content
+additions belong in layer 4, which appends rather than replaces.
+
 ## Known follow-ups
 
 - The gold-loan formula scales by `goldPurityKarat / 24` (22/24 = 0.9167)
@@ -97,6 +143,8 @@ and strengthen the agreement check. Stooq and Yahoo need no key.
   PR.
 - Import duty and GST in `duty-config.json` were set from the July 2024 budget
   position and **must be confirmed** against the current CBIC notification.
+- Layer 5 above should be collapsed into the data files. Five metadata layers
+  for one title is why attribution keeps coming back "insufficient data".
 - The city/state rate table discussed for `gold rate today` is not built. Indian
   retail rates are set per city by local associations, not per state; the plan
   is one national benchmark plus a maintained city delta, starting with ~10

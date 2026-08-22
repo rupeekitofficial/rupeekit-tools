@@ -58,6 +58,20 @@ if (!(dutyConfig.importDutyPct >= 0 && dutyConfig.importDutyPct <= 50)) {
 if (!(dutyConfig.gstPct >= 0 && dutyConfig.gstPct <= 50)) {
   errors.push(`duty-config.json: gstPct ${dutyConfig.gstPct} is outside 0-50%.`);
 }
+if (dutyConfig.gstAppliesToValuation === true) {
+  errors.push(
+    'duty-config.json: gstAppliesToValuation must stay false. GST is charged at billing, not part of metal value; ' +
+      'folding it into the valuation rate overstates it by ~3% and breaks the market-rate regression test.'
+  );
+}
+if (dutyConfig.importDutyBreakdown) {
+  const { basicCustomsDutyPct = 0, aidcPct = 0 } = dutyConfig.importDutyBreakdown;
+  if (Math.abs(basicCustomsDutyPct + aidcPct - dutyConfig.importDutyPct) > 0.001) {
+    errors.push(
+      `duty-config.json: breakdown (${basicCustomsDutyPct}% BCD + ${aidcPct}% AIDC) does not sum to importDutyPct ${dutyConfig.importDutyPct}%.`
+    );
+  }
+}
 
 // --- snapshot -------------------------------------------------------------
 const snapshot = readJson('current.json');
@@ -100,6 +114,16 @@ if (snapshot.status === 'unavailable') {
     warnings.push(
       `current.json: rate is ${daysSince(snapshot.asOf)} days old. Check the scheduled fetch — pages are showing a stale "as of" date.`
     );
+  }
+
+  // The purchase figure must sit above the valuation figure by exactly GST.
+  if (snapshot.purchase?.perGramFine && snapshot.derived?.perGramFine) {
+    const expected = snapshot.derived.perGramFine * (1 + dutyConfig.gstPct / 100);
+    if (Math.abs(expected - snapshot.purchase.perGramFine) > 0.5) {
+      errors.push(
+        `current.json: purchase.perGramFine ${snapshot.purchase.perGramFine} is not the valuation rate plus ${dutyConfig.gstPct}% GST (${expected.toFixed(2)}).`
+      );
+    }
   }
 
   const loan = snapshot.loanValuation;

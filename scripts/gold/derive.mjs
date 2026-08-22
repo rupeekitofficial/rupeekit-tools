@@ -40,13 +40,19 @@ export function pctDiff(a, b) {
 /**
  * Landed price per gram of FINE gold (999.9), before hallmark fineness is applied.
  *
- *   troy ounce -> gram, USD -> INR, then statutory levies.
+ *   troy ounce -> gram, USD -> INR, then import duty, then optionally GST.
  *
  * This yields a bullion value: gold content only, excluding jeweller making
  * charges and stones. That is the correct basis for gold-loan valuation, where
  * lenders advance against metal content alone.
+ *
+ * GST defaults to zero because it is a transaction tax charged at billing, not
+ * part of the metal's value. The Indian "gold rate today" convention quotes the
+ * pre-GST landed rate, and lenders value pledged gold on that same basis.
+ * Validated 22 Aug 2026: duty-only derivation matched the reported national
+ * 24K and 22K rates to within 0.02%, while adding GST overshot by ~3%.
  */
-export function derivePerGramFine({ xauUsd, usdInr, importDutyPct, gstPct }) {
+export function derivePerGramFine({ xauUsd, usdInr, importDutyPct, gstPct = 0 }) {
   const perGramUsd = xauUsd / purity.troyOunceGrams;
   const perGramInr = perGramUsd * usdInr;
   const withDuty = perGramInr * (1 + importDutyPct / 100);
@@ -136,13 +142,24 @@ export function guardrailFailures({ xauUsd, usdInr, perGram24k, spotQuotes = [],
 
 export function buildSnapshot({ asOf, fetchedAt, spotQuotes, usdInrQuote, history }) {
   const primary = spotQuotes[0];
+  // Valuation rate: duty only. This is the published "gold rate" and the basis
+  // a lender advances against.
   const perGramFine = derivePerGramFine({
+    xauUsd: primary.xauUsd,
+    usdInr: usdInrQuote.usdInr,
+    importDutyPct: dutyConfig.importDutyPct,
+  });
+  const { perGram, per10Gram } = deriveCaratTable(perGramFine);
+
+  // Purchase rate: what a buyer is billed, before making charges. Kept separate
+  // so neither figure can be mistaken for the other.
+  const purchasePerGramFine = derivePerGramFine({
     xauUsd: primary.xauUsd,
     usdInr: usdInrQuote.usdInr,
     importDutyPct: dutyConfig.importDutyPct,
     gstPct: dutyConfig.gstPct,
   });
-  const { perGram, per10Gram } = deriveCaratTable(perGramFine);
+  const purchaseTable = deriveCaratTable(purchasePerGramFine);
 
   const previous = history.length > 0 ? history[history.length - 1] : null;
   const failures = guardrailFailures({
@@ -175,6 +192,12 @@ export function buildSnapshot({ asOf, fetchedAt, spotQuotes, usdInrQuote, histor
       asOf,
       fetchedAt,
       derived: { perGramFine: round(perGramFine), perGram, per10Gram },
+      purchase: {
+        perGramFine: round(purchasePerGramFine),
+        perGram: purchaseTable.perGram,
+        per10Gram: purchaseTable.per10Gram,
+        note: `Valuation rate plus ${dutyConfig.gstPct}% GST. Excludes making charges and wastage, which jewellers add on top.`,
+      },
       loanValuation: {
         carat: loanCarat,
         basis: `${MIN_AVERAGE_SAMPLE_DAYS}-day trailing average of ${loanCarat} per-gram bullion value`,
@@ -191,11 +214,12 @@ export function buildSnapshot({ asOf, fetchedAt, spotQuotes, usdInrQuote, histor
         levies: {
           importDutyPct: dutyConfig.importDutyPct,
           gstPct: dutyConfig.gstPct,
+          gstAppliesToValuation: dutyConfig.gstAppliesToValuation === true,
           reviewedOn: dutyConfig.reviewedOn,
         },
       },
       disclosure:
-        'Indicative bullion value derived from international spot gold and the USD/INR rate, plus statutory import duty and GST. Excludes jeweller making charges, wastage and stones. Not a quoted dealing price.',
+        'Indicative bullion value derived from international spot gold and the USD/INR rate plus statutory import duty. Quoted pre-GST, the basis on which lenders value pledged gold. Excludes jeweller making charges, wastage and stones. Not a quoted dealing price.',
     },
   };
 }

@@ -101,7 +101,7 @@ const expectedTitles = [
   '8th Pay Commission Salary Calculator 2026: DA & HRA',
   '8th Pay Commission Arrears Calculator 2026 | Scenario',
   '8th Pay Commission Pension Calculator 2026 | Scenario',
-  'Gold Loan Calculator 2026: RBI LTV, Value & EMI',
+  'Gold Loan Interest Rate 2026: RBI LTV, Value & EMI',
   'Personal Loan Eligibility Calculator: Income & FOIR',
   'SSY Calculator 2026: 21-Year Maturity & Interest',
   'Salary In-Hand Calculator 2026: CTC to Take-Home',
