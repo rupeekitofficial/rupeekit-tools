@@ -7,7 +7,7 @@ import { financialUpdates } from '../../data/financial-updates';
 import { getLiveTools, type Tool } from '../tools';
 
 export const SITE_URL = 'https://www.rupeekit.co.in';
-export const LLMS_CATALOG_LAST_REVIEWED = '2026-07-16';
+export const LLMS_CATALOG_LAST_REVIEWED = '2026-08-22';
 
 function oneLine(value: string): string {
   return value

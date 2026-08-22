@@ -42,6 +42,21 @@ const tools = [
 ];
 const toolBySlug = new Map(tools.map((tool) => [tool.slug, tool]));
 
+// Every calculator source that lib/tools.ts merges into the live catalogue.
+// The llms.txt coverage check below reads this list, not `tools`, so cluster
+// files added later cannot silently drop out of the discovery index.
+const allToolRecords = [
+  ...tools,
+  ...readJson('data', 'decision-tools-2026.json'),
+  ...readJson('data', 'insurance-tools-2026.json'),
+  ...readJson('data', 'investing-tools-2026.json'),
+  ...readJson('data', 'lifestage-tools-2026.json'),
+];
+const consolidatedToolSlugs = new Set(
+  [...readText('lib', 'consolidated-routes.ts').matchAll(/CONSOLIDATED_TOOL_SLUGS = new Set\(\[([\s\S]*?)\]\)/g)]
+    .flatMap((match) => [...match[1].matchAll(/'([a-z0-9-]+)'/g)].map((slug) => slug[1]))
+);
+
 const toolPageSource = readText('app', 'tools', '[slug]', 'page.tsx');
 const homePageSource = readText('app', 'page.tsx');
 const resourcesPageSource = readText('app', 'resources', 'page.tsx');
@@ -226,10 +241,19 @@ ensure(
   'public/llms.txt should include the SIP calculator URL'
 );
 
-for (const tool of tools.filter((item) => item.status === 'live')) {
+for (const tool of allToolRecords.filter(
+  (item) => item.status === 'live' && !consolidatedToolSlugs.has(item.slug)
+)) {
   ensure(
     llmsTxtSource.includes(`https://www.rupeekit.co.in/tools/${tool.slug}`),
     `public/llms.txt is missing live calculator URL: ${tool.slug}`
+  );
+}
+
+for (const slug of consolidatedToolSlugs) {
+  ensure(
+    !llmsTxtSource.includes(`https://www.rupeekit.co.in/tools/${slug}`),
+    `public/llms.txt links a consolidated (redirected) calculator URL: ${slug}`
   );
 }
 
