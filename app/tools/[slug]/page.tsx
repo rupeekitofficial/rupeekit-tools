@@ -15,6 +15,7 @@ import { editorialTeamRef } from '@/lib/seo/editorial';
 import { getGuidesForTool } from '@/data/calculator-guides';
 import { getDiscoverImage } from '@/data/discover-images';
 import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
+import { buildGoldLoanExamples } from '@/lib/gold-rates';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 const HRA_SLUG = 'hra-exemption-calculator-india';
@@ -84,13 +85,13 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-03',
   },
   [EIGHTH_PAY_SLUG]: {
-    title: '8th Pay Commission Salary Calculator 2026: DA & HRA',
+    title: '8th Pay Commission Status, Date & Salary Calculator',
     description:
-      'Compare unofficial 8th Pay Commission salary scenarios for 2026 with current and projected DA, X/Y/Z HRA, fitment factor, monthly gross and annual change.',
-    h1: '8th Pay Commission Salary Calculator (Unofficial Scenarios)',
+      'No implementation date is notified yet. See where the 8th CPC stands, its 18-month report window, and model salary scenarios by fitment factor.',
+    h1: '8th Pay Commission Status, Date and Salary Calculator',
     heroDescription:
-      'Build a current 7th CPC gross-pay baseline, compare fitment-factor scenarios and see current versus projected X/Y/Z HRA monthly and annually. The 8th CPC has not notified a final factor, pay matrix, revised HRA or implementation date.',
-    lastReviewedIso: '2026-08-17',
+      'No fitment factor, pay matrix, revised HRA or implementation date has been notified. The Commission was constituted on 3 November 2025 with an 18-month window to report. Below: where it stands today, then a scenario calculator that builds a 7th CPC baseline and compares fitment factors.',
+    lastReviewedIso: '2026-08-22',
   },
   [EIGHTH_PAY_ARREARS_SLUG]: {
     title: '8th Pay Commission Arrears Calculator 2026 | Scenario',
@@ -148,13 +149,13 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
       'Calculate total assets, liabilities, personal net worth, liquid net worth and debt-to-asset ratio from your current financial balances in one view.',
   },
   'gold-loan-calculator-india': {
-    title: 'Gold Loan Calculator 2026: RBI LTV, Value & EMI',
+    title: 'Gold Loan Interest Rate 2026: RBI LTV, Value & EMI',
     description:
-      'Estimate gold value, maximum loan, EMI and interest using RBI 2026 LTV tiers of 85%, 80% and 75%, actual purity and a lender-entered reference price.',
-    h1: 'Gold Loan Calculator India (RBI 2026 LTV Tiers)',
+      'Gold loan rates start near 8.5% at banks and run higher at NBFCs. Check RBI LTV tiers of 85%, 80% and 75%, your eligible gold value per gram and EMI.',
+    h1: 'Gold Loan Interest Rate and Eligibility Calculator India',
     heroDescription:
-      'Value only the eligible gold content, apply the RBI consumption-loan LTV tier for the requested amount and estimate EMI and interest. Enter the lender reference price yourself; RupeeKit does not claim a live gold rate.',
-    lastReviewedIso: '2026-08-17',
+      'Banks price gold loans from about 8.5% a year and NBFCs charge more for faster disbursal. Value only the eligible gold content, apply the RBI consumption-loan LTV tier for the amount you want, and estimate EMI and total interest before you pledge.',
+    lastReviewedIso: '2026-08-22',
   },
   'sukanya-samriddhi-yojana-calculator-india': {
     title: 'SSY Calculator 2026: 21-Year Maturity & Interest',
@@ -797,6 +798,11 @@ function SipEducationalContent({ links, lastReviewed }: { links: ContextualLink[
 export default function ToolPage({ params }: { params: { slug: string } }) {
   if (SLUGS_WITH_DEDICATED_ROUTE.has(params.slug)) notFound();
   const tool = getToolBySlug(params.slug);
+  // Server-rendered so a crawler and any answer engine quoting this page see
+  // real figures. Null when no live rate exists, so we show the method rather
+  // than invent numbers.
+  const goldLoanExamples =
+    params.slug === 'gold-loan-calculator-india' ? buildGoldLoanExamples() : null;
   if (!tool) notFound();
 
   const isHraPage = tool.slug === HRA_SLUG;
@@ -1488,6 +1494,49 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 <>
                   <h2 className="mt-8 text-2xl font-bold">Example calculation</h2>
                   <p className="mt-4 leading-8 text-slate-700">{tool.example}</p>
+                </>
+              ) : null}
+
+              {goldLoanExamples ? (
+                <>
+                  <h2 className="mt-8 text-2xl font-bold">
+                    How much gold loan for 10g, 20g, 50g or 100g
+                  </h2>
+                  <p className="mt-4 leading-8 text-slate-700">
+                    Worked from the bullion value on {goldLoanExamples.asOf} of{' '}
+                    ₹{goldLoanExamples.perGram['22K'].toLocaleString('en-IN')} per gram for 22K and{' '}
+                    ₹{goldLoanExamples.perGram['18K'].toLocaleString('en-IN')} per gram for 18K, then
+                    the RBI consumption-loan LTV band that the resulting amount falls into. Gold
+                    content only: making charges, wastage and stones are excluded, and your lender
+                    values on its own reference rate.
+                  </p>
+                  <div className="mt-4 overflow-x-auto">
+                    <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
+                      <thead>
+                        <tr className="border-b border-slate-300">
+                          <th className="py-2 pr-4 font-semibold">Gold pledged</th>
+                          <th className="py-2 pr-4 font-semibold">Intrinsic value</th>
+                          <th className="py-2 pr-4 font-semibold">LTV band</th>
+                          <th className="py-2 font-semibold">Indicative loan</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {goldLoanExamples.rows.map((row) => (
+                          <tr key={`${row.carat}-${row.grams}`} className="border-b border-slate-200">
+                            <td className="py-2 pr-4">{row.grams}g of {row.carat}</td>
+                            <td className="py-2 pr-4">₹{row.intrinsicValue.toLocaleString('en-IN')}</td>
+                            <td className="py-2 pr-4">{row.ltvPct}%</td>
+                            <td className="py-2">₹{row.eligibleLoan.toLocaleString('en-IN')}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {goldLoanExamples.basis === 'average'
+                      ? 'Based on the 30-day trailing average, the basis RBI-regulated lenders use to value pledged gold.'
+                      : 'Based on the latest bullion value. A 30-day trailing average is not yet available, so a lender may value your gold slightly differently.'}
+                  </p>
                 </>
               ) : null}
 

@@ -52,7 +52,19 @@ for (const slug of targets) {
     : '2026-08-17.1';
   ensure(override.calculationVersion === expectedVersion, `${slug}: calculationVersion is not current`);
   ensure(/^\d{4}-\d{2}-\d{2}$/.test(override.factsCheckedIso), `${slug}: factsCheckedIso must be an ISO date`);
-  ensure(override.lastReviewedIso === '2026-08-17', `${slug}: review date is not current`);
+  // Per-slug, like calculationVersion above. Only slugs whose facts were
+  // actually re-verified appear here; everything else stays pinned to the
+  // original review date, because a global bump would claim reviews that never
+  // happened.
+  const REVIEWED = {
+    '8th-pay-commission-salary-calculator-india': '2026-08-22',
+    'gold-loan-calculator-india': '2026-08-22',
+  };
+  const expectedReview = REVIEWED[slug] ?? '2026-08-17';
+  ensure(
+    override.lastReviewedIso === expectedReview,
+    `${slug}: review date is not current (expected ${expectedReview})`
+  );
   ensure(typeof override.nextReviewTrigger === 'string' && override.nextReviewTrigger.length >= 30, `${slug}: next review trigger is missing`);
   ensure(Array.isArray(override.calculationTests) && override.calculationTests.length >= 5, `${slug}: needs at least five named calculation checks`);
   ensure(Array.isArray(override.factRows) && override.factRows.length >= 5, `${slug}: needs at least five proof/fact rows`);
@@ -98,10 +110,10 @@ ensure(engineTests.includes('15 years from SSY account opening'), 'SSY account-o
 ensure(salaryTests.includes('Rs 12 lakh annual CTC'), 'Salary Rs 12 lakh reconciliation fixture is missing');
 
 const expectedTitles = [
-  '8th Pay Commission Salary Calculator 2026: DA & HRA',
+  '8th Pay Commission Status, Date & Salary Calculator',
   '8th Pay Commission Arrears Calculator 2026 | Scenario',
   '8th Pay Commission Pension Calculator 2026 | Scenario',
-  'Gold Loan Calculator 2026: RBI LTV, Value & EMI',
+  'Gold Loan Interest Rate 2026: RBI LTV, Value & EMI',
   'Personal Loan Eligibility Calculator: Income & FOIR',
   'SSY Calculator 2026: 21-Year Maturity & Interest',
   'Salary In-Hand Calculator 2026: CTC to Take-Home',

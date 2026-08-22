@@ -2946,7 +2946,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'new-labour-code-gratuity-rules-india-2026',
     seoTitle: 'New Gratuity Rules 2026: 1-Year vs 5-Year Rule',
     title: 'New Gratuity Rules 2026: 1-Year vs 5-Year Rule Explained',
-    metaDescription: 'Understand gratuity eligibility for regular and fixed-term employees, the 1-year and 5-year rules, calculation formula and practical examples.',
+    metaDescription: 'Fixed-term staff qualify for gratuity after 1 year under the Labour Codes in force from 21 November 2025. The 5-year rule still applies otherwise.',
     category: 'Salary & Tax',
     date: 'August 2026',
     publishedDateISO: '2026-07-13',

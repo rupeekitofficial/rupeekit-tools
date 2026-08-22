@@ -2660,7 +2660,7 @@
         "min": 10,
         "max": 75,
         "step": 5,
-        "help": "RBI caps gold loan LTV at 75% of gold value. Many lenders offer 60-75%."
+        "help": "RBI sets tiered caps for consumption gold loans: 85% up to Rs 2.5 lakh, 80% above Rs 2.5 lakh through Rs 5 lakh, and 75% above Rs 5 lakh. Individual lenders may offer less."
       },
       {
         "key": "annualRate",
