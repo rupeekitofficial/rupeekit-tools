@@ -84,13 +84,13 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-03',
   },
   [EIGHTH_PAY_SLUG]: {
-    title: '8th Pay Commission Salary Calculator 2026: DA & HRA',
+    title: '8th Pay Commission Status, Date & Salary Calculator',
     description:
-      'Compare unofficial 8th Pay Commission salary scenarios for 2026 with current and projected DA, X/Y/Z HRA, fitment factor, monthly gross and annual change.',
-    h1: '8th Pay Commission Salary Calculator (Unofficial Scenarios)',
+      'No implementation date is notified yet. See where the 8th CPC stands, its 18-month report window, and model salary scenarios by fitment factor.',
+    h1: '8th Pay Commission Status, Date and Salary Calculator',
     heroDescription:
-      'Build a current 7th CPC gross-pay baseline, compare fitment-factor scenarios and see current versus projected X/Y/Z HRA monthly and annually. The 8th CPC has not notified a final factor, pay matrix, revised HRA or implementation date.',
-    lastReviewedIso: '2026-08-17',
+      'No fitment factor, pay matrix, revised HRA or implementation date has been notified. The Commission was constituted on 3 November 2025 with an 18-month window to report. Below: where it stands today, then a scenario calculator that builds a 7th CPC baseline and compares fitment factors.',
+    lastReviewedIso: '2026-08-22',
   },
   [EIGHTH_PAY_ARREARS_SLUG]: {
     title: '8th Pay Commission Arrears Calculator 2026 | Scenario',
