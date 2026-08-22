@@ -9,6 +9,7 @@ import searchGrowthOverrides from '../data/search-growth-overrides-2026-08-17.js
 import directAnswerOverrides from '../data/direct-answer-overrides-2026-08-17.json';
 import queryVariantOverrides from '../data/query-variant-tool-overrides-2026-08-18.json';
 import { CONSOLIDATED_TOOL_SLUGS } from './consolidated-routes';
+import { applyLiveRateDefaults } from './live-rate-defaults';
 
 export type ToolInput = { key:string; label:string; unit?:string; default:number; min?:number; max?:number; step?:number; help?:string; };
 export type ToolOutput = { key:string; label:string; formula:string; format:'currency'|'number'|'percent'; hidden?:boolean; };
@@ -48,8 +49,9 @@ export const allTools = sourceTools.map((tool) => {
   const seoOverride = ctrSeoOverrides[tool.slug];
   const directAnswer = directAnswers[tool.slug];
   const queryVariant = queryVariants[tool.slug];
+  const withLiveRates = applyLiveRateDefaults(mergedTool);
   return {
-    ...mergedTool,
+    ...withLiveRates,
     ...(seoOverride ? { seoTitle: seoOverride.title, metaDescription: seoOverride.description } : {}),
     ...(directAnswer ? { shortDescription: directAnswer } : {}),
     ...(queryVariant
