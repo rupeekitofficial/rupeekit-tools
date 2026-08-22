@@ -90,6 +90,49 @@ Two things this exposed:
 `npm run probe:gold-providers` reports every provider independently, which is
 how to diagnose this without burning a CI round-trip per guess.
 
+## Validating the published rate
+
+Everything above checks INTERNAL consistency: do two spot feeds agree, is the
+number in range, did it jump. **None of it can catch a wrong levy assumption**,
+because the levies are applied identically to every feed. The 6% -> 15% duty
+error passed every internal guardrail and was 5.08% wrong; only comparison
+against a real Indian price surfaced it.
+
+Two things close that gap.
+
+### `GET /api/v1/gold-rates`
+
+Public JSON: the derived rate per carat, the purchase rate, the loan-valuation
+basis, the inputs it came from, the levies applied, and the reference it was
+checked against. Enough to re-derive the number yourself. When nothing has been
+published it returns `available: false` with no price rather than an estimate.
+
+### The reference gate
+
+`scripts/gold/reference.mjs` fetches an independent **Indian** price and
+compares. It must be Indian: an international XAU quote converted to rupees
+validates the FX leg and misses the duty leg entirely, which is the leg that
+broke.
+
+| Source | Class | Tolerance |
+|---|---|---|
+| MCX gold futures | futures — physically deliverable in India, so it embeds duty | 4% |
+| Published Indian retail | cash | 2% |
+
+**A reference is a gate, never a source.** Its value is compared and discarded,
+never republished — so this is a validation input rather than a redistribution
+of someone else's rate table.
+
+The failure mode is deliberately **asymmetric**, and reversing it breaks the
+pipeline in one of two ways:
+
+- **Reference unavailable → publish anyway.** Absence of evidence is not
+  evidence of error. A rotted scraper must never block every future update.
+- **Reference present and diverging → hold.** This is the only signal that a
+  levy assumption drifted.
+
+A 2% cash tolerance would have caught the duty bug on day one.
+
 ## Fail-closed
 
 `scripts/fetch-gold-rates.mjs` writes only when every guardrail passes:
@@ -119,7 +162,10 @@ overridden failures into the snapshot so it is visible afterwards.
 | `data/gold-rates/duty-config.json` | Import duty + GST; **fails the build after 180 days unreviewed** |
 | `data/gold-rates/current.json` | Latest guardrail-passed snapshot |
 | `data/gold-rates/history.json` | Rolling 400-day history, feeds the trailing average |
-| `lib/gold-rates.ts` | Typed accessors for pages |
+| `scripts/gold/reference.mjs` | Independent Indian references; gate only |
+| `scripts/probe-gold-providers.mjs` | Diagnostic: reports every provider and reference |
+| `app/api/v1/gold-rates/route.ts` | Public snapshot endpoint |
+| `lib/gold-rates.ts` | Typed accessors for pages, and the API payload |
 | `lib/live-rate-defaults.ts` | Binds calculator defaults to the snapshot |
 
 ## The 30-day average

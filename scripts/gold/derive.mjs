@@ -33,6 +33,14 @@ export const MAX_FUTURES_BASIS_PCT = 5;
 
 export const MIN_AVERAGE_SAMPLE_DAYS = 30;
 
+// Divergence from an independent Indian cash reference beyond this means one of
+// our levy assumptions is wrong. The 6% -> 15% duty error showed as 5.08%.
+export const MAX_REFERENCE_DIVERGENCE_PCT = 2;
+
+// Futures references carry a basis on top of any levy error, so they need more
+// room before the signal is trustworthy.
+export const MAX_FUTURES_REFERENCE_DIVERGENCE_PCT = 4;
+
 function round(value, dp = 2) {
   const factor = 10 ** dp;
   return Math.round(value * factor) / factor;
@@ -99,6 +107,48 @@ export function averageOverHistory(entries, carat, days = MIN_AVERAGE_SAMPLE_DAY
   };
 }
 
+/**
+ * Compare the derived rate against an independent Indian reference.
+ *
+ * The failure mode here is deliberately ASYMMETRIC, and getting it backwards
+ * breaks the pipeline in one of two ways:
+ *
+ *   reference unavailable  -> skip the check, publish anyway.
+ *       Absence of evidence is not evidence of error. A rotted scraper must
+ *       never be able to block every future update.
+ *
+ *   reference present and diverging -> HOLD.
+ *       This is the only signal we have that a levy assumption drifted.
+ *
+ * Returns { checked, divergencePct, failure } where `failure` is a string only
+ * when the update should be held.
+ */
+export function evaluateReference({ reference, derivedPer10Gram24K }) {
+  if (!reference || !Number.isFinite(reference.per10Gram24K)) {
+    return { checked: false, divergencePct: null, failure: null };
+  }
+  const divergence = ((derivedPer10Gram24K - reference.per10Gram24K) / reference.per10Gram24K) * 100;
+  const limit =
+    reference.instrument === 'futures'
+      ? MAX_FUTURES_REFERENCE_DIVERGENCE_PCT
+      : MAX_REFERENCE_DIVERGENCE_PCT;
+
+  const failure =
+    Math.abs(divergence) > limit
+      ? `Derived 10g 24K ₹${derivedPer10Gram24K.toFixed(2)} diverges ${divergence.toFixed(2)}% from ${reference.source} ₹${reference.per10Gram24K.toFixed(2)} (limit ${limit}%). A levy assumption is probably stale — check duty-config.json against the current CBIC notification.`
+      : null;
+
+  return {
+    checked: true,
+    source: reference.source,
+    instrument: reference.instrument,
+    referencePer10Gram24K: round(reference.per10Gram24K),
+    divergencePct: round(divergence, 3),
+    limitPct: limit,
+    failure,
+  };
+}
+
 function withinBounds(value, bound) {
   return Number.isFinite(value) && value >= bound.min && value <= bound.max;
 }
@@ -162,7 +212,7 @@ export function guardrailFailures({ xauUsd, usdInr, perGram24k, spotQuotes = [],
   return failures;
 }
 
-export function buildSnapshot({ asOf, fetchedAt, spotQuotes, usdInrQuote, history }) {
+export function buildSnapshot({ asOf, fetchedAt, spotQuotes, usdInrQuote, history, reference = null }) {
   // The published rate must come from a spot quote: futures include a basis
   // that is not part of the metal's cash value.
   const primary = spotQuotes.find((quote) => quote.instrument !== 'futures') ?? spotQuotes[0];
@@ -194,6 +244,12 @@ export function buildSnapshot({ asOf, fetchedAt, spotQuotes, usdInrQuote, histor
     previousPerGram24k: previous ? previous.perGram24K : null,
   });
 
+  const referenceCheck = evaluateReference({
+    reference,
+    derivedPer10Gram24K: per10Gram['24K'],
+  });
+  if (referenceCheck.failure) failures.push(referenceCheck.failure);
+
   const loanCarat = purity.loanValuationCarat;
   const projectedHistory = [
     ...history.filter((entry) => entry.asOf !== asOf),
@@ -216,6 +272,16 @@ export function buildSnapshot({ asOf, fetchedAt, spotQuotes, usdInrQuote, histor
       asOf,
       fetchedAt,
       derived: { perGramFine: round(perGramFine), perGram, per10Gram },
+      reference: referenceCheck.checked
+        ? {
+            source: referenceCheck.source,
+            instrument: referenceCheck.instrument,
+            per10Gram24K: referenceCheck.referencePer10Gram24K,
+            divergencePct: referenceCheck.divergencePct,
+            limitPct: referenceCheck.limitPct,
+            checkedAt: fetchedAt,
+          }
+        : { checked: false, note: 'No independent reference responded this cycle; the derived rate was published without an external cross-check.' },
       purchase: {
         perGramFine: round(purchasePerGramFine),
         perGram: purchaseTable.perGram,

@@ -6,6 +6,7 @@ import {
   averageOverHistory,
   buildSnapshot,
   deriveCaratTable,
+  evaluateReference,
   derivePerGramFine,
   guardrailFailures,
   purity,
@@ -313,5 +314,76 @@ describe('instrument classes', () => {
     const { perGram } = deriveCaratTable(fine);
     expect(perGram['24K']).toBeCloseTo(16_275.69, 1);
     expect(perGram['22K']).toBeCloseTo(14_923.45, 1);
+  });
+});
+
+describe('independent reference check', () => {
+  const derived = 162_756.9; // 10g of 24K, from the CI-observed run
+
+  it('holds the update when the derived rate diverges from an Indian cash reference', () => {
+    // The 6% duty bug produced a ~5% divergence. This is the check that would
+    // have caught it on day one; every internal guardrail passed.
+    const result = evaluateReference({
+      reference: { source: 'published-indian-retail', instrument: 'cash', per10Gram24K: 163_090 * 1.06 },
+      derivedPer10Gram24K: derived,
+    });
+    expect(result.checked).toBe(true);
+    expect(result.failure).toMatch(/levy assumption is probably stale/);
+  });
+
+  it('accepts a derived rate that tracks the reference', () => {
+    const result = evaluateReference({
+      reference: { source: 'published-indian-retail', instrument: 'cash', per10Gram24K: 163_090 },
+      derivedPer10Gram24K: derived,
+    });
+    expect(result.failure).toBeNull();
+    expect(Math.abs(result.divergencePct ?? 99)).toBeLessThan(1);
+  });
+
+  it('publishes when no reference responds: absence of evidence is not evidence of error', () => {
+    const result = evaluateReference({ reference: null, derivedPer10Gram24K: derived });
+    expect(result.checked).toBe(false);
+    expect(result.failure).toBeNull();
+  });
+
+  it('allows a futures reference more room than a cash reference', () => {
+    const threePercentOff = { per10Gram24K: derived * 1.03 };
+    const asCash = evaluateReference({
+      reference: { source: 'x', instrument: 'cash', ...threePercentOff },
+      derivedPer10Gram24K: derived,
+    });
+    const asFutures = evaluateReference({
+      reference: { source: 'x', instrument: 'futures', ...threePercentOff },
+      derivedPer10Gram24K: derived,
+    });
+    expect(asCash.failure).not.toBeNull();
+    expect(asFutures.failure).toBeNull();
+  });
+
+  it('a broken reference cannot block the pipeline forever', () => {
+    // A reference that throws resolves to null upstream, which must behave
+    // exactly like "not configured" rather than holding every future update.
+    const { failures } = buildSnapshot({
+      asOf: '2026-08-22',
+      fetchedAt: '2026-08-22T18:26:53.000Z',
+      spotQuotes: [{ provider: 'gold-api.com', instrument: 'spot', xauUsd: 4604.4, fetchedAt: '' }],
+      usdInrQuote: { provider: 'frankfurter', usdInr: 95.7, fetchedAt: '' },
+      history: [],
+      reference: null,
+    });
+    expect(failures).toEqual([]);
+  });
+
+  it('records the reference in the snapshot so the API can expose it', () => {
+    const { snapshot } = buildSnapshot({
+      asOf: '2026-08-22',
+      fetchedAt: '2026-08-22T18:26:53.000Z',
+      spotQuotes: [{ provider: 'gold-api.com', instrument: 'spot', xauUsd: 4604.4, fetchedAt: '' }],
+      usdInrQuote: { provider: 'frankfurter', usdInr: 95.7, fetchedAt: '' },
+      history: [],
+      reference: { source: 'mcx-gold-futures', instrument: 'futures', per10Gram24K: 163_000 },
+    });
+    expect(snapshot.reference.source).toBe('mcx-gold-futures');
+    expect(snapshot.reference.divergencePct).toBeTypeOf('number');
   });
 });

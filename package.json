@@ -23,7 +23,8 @@
     "validate:direct-answer-rendered": "node scripts/validate-direct-answer-rendered-output.mjs",
     "validate:gold-rates": "node scripts/validate-gold-rates.mjs",
     "fetch:gold-rates": "node scripts/fetch-gold-rates.mjs",
-    "probe:gold-providers": "node scripts/probe-gold-providers.mjs"
+    "probe:gold-providers": "node scripts/probe-gold-providers.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.5.1",

@@ -126,6 +126,22 @@ if (snapshot.status === 'unavailable') {
     }
   }
 
+  // A published rate must record whether it was externally cross-checked. The
+  // absence of a reference is acceptable; silently omitting the field is not,
+  // because then nobody can tell which happened.
+  if (!snapshot.reference) {
+    errors.push('current.json: a published rate must carry a reference block, even one recording that no reference responded.');
+  } else if (snapshot.reference.source && Number.isFinite(snapshot.reference.divergencePct)) {
+    const limit = snapshot.reference.limitPct ?? 2;
+    if (Math.abs(snapshot.reference.divergencePct) > limit) {
+      errors.push(
+        `current.json: recorded divergence ${snapshot.reference.divergencePct}% from ${snapshot.reference.source} exceeds its ${limit}% limit; this snapshot should never have been written.`
+      );
+    }
+  } else if (snapshot.reference.checked !== false) {
+    errors.push('current.json: reference block is neither a completed check nor an explicit { checked: false }.');
+  }
+
   const loan = snapshot.loanValuation;
   if (loan && loan.sufficient === false && loan.note === null) {
     errors.push('current.json: loanValuation is not based on a full window but carries no note saying so.');

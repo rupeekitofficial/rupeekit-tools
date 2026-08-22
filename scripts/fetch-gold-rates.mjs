@@ -20,6 +20,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { buildSnapshot } from './gold/derive.mjs';
 import { collectSpotQuotes, resolveFxQuote } from './gold/providers.mjs';
+import { resolveReference } from './gold/reference.mjs';
 
 const dataDir = path.join(process.cwd(), 'data', 'gold-rates');
 const currentPath = path.join(dataDir, 'current.json');
@@ -86,6 +87,14 @@ async function main() {
     fail('no USD/INR provider responded', fxErrors);
   }
 
+  // Independent Indian reference. Unavailability is tolerated by design: it
+  // skips the external check rather than blocking the update.
+  const { reference, errors: referenceErrors } = await resolveReference();
+  referenceErrors.forEach((error) => console.warn(`  ! reference unavailable: ${error}`));
+  if (!reference) {
+    console.warn('  ! no independent reference responded; publishing without an external cross-check');
+  }
+
   const historyFile = readJson(historyPath, { schemaVersion: 1, entries: [] });
   const fetchedAt = new Date().toISOString();
   const asOf = fetchedAt.slice(0, 10);
@@ -96,6 +105,7 @@ async function main() {
     spotQuotes: quotes,
     usdInrQuote: fxQuote,
     history: historyFile.entries,
+    reference,
   });
 
   // Print what we derived before deciding whether to accept it, so a rejected
@@ -105,6 +115,11 @@ async function main() {
   console.log(`  24K/gram ₹${snapshot.derived.perGram['24K']}`);
   console.log(`  22K/gram ₹${snapshot.derived.perGram['22K']}`);
   console.log(`  levies   ${snapshot.inputs.levies.importDutyPct}% duty, GST ${snapshot.inputs.levies.gstPct}% (excluded from valuation)`);
+  console.log(
+    snapshot.reference?.source
+      ? `  ref      ${snapshot.reference.source} 10g ₹${snapshot.reference.per10Gram24K}  divergence ${snapshot.reference.divergencePct}%  (limit ${snapshot.reference.limitPct}%)`
+      : '  ref      none available — published without an external cross-check'
+  );
   console.log(
     `  ${snapshot.loanValuation.carat} ${snapshot.loanValuation.sampleDays}-day avg ₹${snapshot.loanValuation.averagePerGram}` +
       `${snapshot.loanValuation.sufficient ? '' : '  (INSUFFICIENT HISTORY — not a 30-day average yet)'}`

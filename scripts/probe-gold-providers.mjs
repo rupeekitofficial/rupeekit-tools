@@ -16,6 +16,7 @@
 
 import process from 'node:process';
 import { FX_PROVIDERS, SPOT_PROVIDERS } from './gold/providers.mjs';
+import { REFERENCE_SOURCES } from './gold/reference.mjs';
 
 const PAD = 22;
 
@@ -69,9 +70,16 @@ async function main() {
   const fx = await probe(FX_PROVIDERS, 'FX  (USD/INR)', 'usdInr');
   reportSpread(fx, 'usdInr', 'USD/INR');
 
+  const references = await probe(REFERENCE_SOURCES, 'REFERENCE  (Indian 10g 24K, gate only — never published)', 'per10Gram24K');
+
   console.log('\n' + '='.repeat(70));
   console.log(`spot providers working: ${spot.length}/${SPOT_PROVIDERS.length}`);
   console.log(`fx   providers working: ${fx.length}/${FX_PROVIDERS.length}`);
+  console.log(`reference sources working: ${references.length}/${REFERENCE_SOURCES.length}`);
+  if (references.length === 0) {
+    console.warn('! No Indian reference responded. The pipeline will still publish, but with no external');
+    console.warn('  check on the levy assumptions — the one class of error internal guardrails cannot catch.');
+  }
 
   if (spot.length === 0 || fx.length === 0) {
     console.error('\n✗ Pipeline cannot run: needs at least one working provider on each side.');

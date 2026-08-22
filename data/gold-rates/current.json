@@ -6,6 +6,10 @@
   "derived": null,
   "loanValuation": null,
   "inputs": null,
-  "disclosure": "Indicative bullion value derived from international spot gold and the USD/INR rate, plus statutory import duty and GST. Excludes jeweller making charges, wastage and stones. Not a quoted dealing price.",
-  "_seed": "Placeholder committed with the pipeline. No live fetch has run yet, so there is deliberately NO price here — a seeded number would be a fabricated gold rate, which is the exact failure this pipeline exists to prevent. The first successful run of scripts/fetch-gold-rates.mjs replaces this file."
+  "disclosure": "Indicative bullion value derived from international spot gold and the USD/INR rate plus statutory import duty. Quoted pre-GST, the basis on which lenders value pledged gold. Excludes jeweller making charges, wastage and stones. Not a quoted dealing price.",
+  "_seed": "Placeholder committed with the pipeline. No live fetch has run yet, so there is deliberately NO price here \u2014 a seeded number would be a fabricated gold rate, which is the exact failure this pipeline exists to prevent. The first successful run of scripts/fetch-gold-rates.mjs replaces this file.",
+  "reference": {
+    "checked": false,
+    "note": "No fetch has run, so no reference check has been performed."
+  }
 }

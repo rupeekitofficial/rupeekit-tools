@@ -3,6 +3,17 @@ import purityConfig from '../data/gold-rates/purity.json';
 
 export type Carat = '24K' | '22K' | '18K' | '14K';
 
+export type GoldRateReference =
+  | {
+      source: string;
+      instrument: string;
+      per10Gram24K: number;
+      divergencePct: number;
+      limitPct: number;
+      checkedAt: string;
+    }
+  | { checked: false; note: string };
+
 export type GoldRateSnapshot = {
   schemaVersion: number;
   status: 'ok' | 'forced' | 'unavailable';
@@ -21,6 +32,13 @@ export type GoldRateSnapshot = {
     sufficient: boolean;
     note: string | null;
   } | null;
+  purchase: {
+    perGramFine: number;
+    perGram: Record<Carat, number>;
+    per10Gram: Record<Carat, number>;
+    note: string;
+  } | null;
+  reference?: GoldRateReference;
   inputs: {
     spot: { provider: string; xauUsd: number; fetchedAt: string }[];
     fx: { provider: string; usdInr: number; fetchedAt: string };
@@ -93,6 +111,52 @@ export function getRateProvenance(): { asOf: string | null; sources: string[]; d
     sources: snapshot.inputs
       ? [...snapshot.inputs.spot.map((quote) => quote.provider), snapshot.inputs.fx.provider]
       : [],
+    disclosure: snapshot.disclosure,
+  };
+}
+
+/**
+ * Public API payload. Deliberately includes the inputs, the levies and the
+ * reference check, not just the headline number: anyone should be able to
+ * re-derive the rate themselves and see what it was validated against.
+ */
+export function getGoldRatePayload() {
+  const snapshot = getGoldRateSnapshot();
+  if (!hasLiveGoldRate() || !snapshot.derived) {
+    return {
+      schemaVersion: '1.0',
+      status: snapshot.status,
+      asOf: null,
+      available: false,
+      note: 'No gold rate has been published yet. The rate is deliberately absent rather than estimated.',
+      disclosure: snapshot.disclosure,
+    };
+  }
+
+  const loan = getLoanValuationRate();
+  return {
+    schemaVersion: '1.0',
+    status: snapshot.status,
+    available: true,
+    asOf: snapshot.asOf,
+    fetchedAt: snapshot.fetchedAt,
+    valuation: {
+      basis: 'Landed bullion value including import duty, excluding GST',
+      perGram: snapshot.derived.perGram,
+      per10Gram: snapshot.derived.per10Gram,
+    },
+    purchase: snapshot.purchase
+      ? { perGram: snapshot.purchase.perGram, per10Gram: snapshot.purchase.per10Gram, note: snapshot.purchase.note }
+      : null,
+    loanValuation: {
+      carat: loan.carat,
+      perGram: loan.perGram,
+      basis: loan.basis,
+      sampleDays: loan.sampleDays,
+      sufficient: loan.sufficient,
+    },
+    reference: snapshot.reference ?? { checked: false, note: 'No reference recorded for this snapshot.' },
+    inputs: snapshot.inputs,
     disclosure: snapshot.disclosure,
   };
 }
