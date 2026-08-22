@@ -133,6 +133,34 @@ pipeline in one of two ways:
 
 A 2% cash tolerance would have caught the duty bug on day one.
 
+### Current status: the gate is built but INERT
+
+As of 22 Aug 2026 neither reference source responds from GitHub runners:
+
+| Source | Result |
+|---|---|
+| MCX market watch | HTTP 403 — anti-bot / session required |
+| Published Indian retail | Page fetched, but the 24K figure could not be parsed |
+
+The asymmetric design then does the right thing and publishes anyway, logging
+`ref none available — published without an external cross-check`. **That is
+correct behaviour and also means the gate currently protects nothing.** Do not
+treat the presence of this code as evidence the rate is externally validated;
+check `reference.checked` in the snapshot or the API payload.
+
+Closing this properly needs one of:
+
+1. **An IBJA licence** — the real answer, and the only one that is not fragile.
+2. **A working MCX path** — the data is public and free, but the market-watch
+   endpoint blocks datacenter IPs.
+3. **A hardened retail scrape** — the page is reachable, so only parsing failed;
+   fixable, but it will need maintenance forever, which is why it is the
+   fallback and not the primary.
+
+Until one lands, the practical safeguards against levy drift are the 180-day
+`duty-config.json` review expiry and a manual spot-check of
+`/api/v1/gold-rates` against any published rate.
+
 ## Fail-closed
 
 `scripts/fetch-gold-rates.mjs` writes only when every guardrail passes:
