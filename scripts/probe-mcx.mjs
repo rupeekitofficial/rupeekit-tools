@@ -21,14 +21,19 @@ const UA = 'RupeeKitGoldRates/1.0 (+https://www.rupeekit.co.in)';
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
 
+const MW = 'https://www.mcxindia.com/backpage.aspx/GetMarketWatch';
+
+// The HTML pages 403 from datacenter IPs whatever UA is used. The JSON page
+// method answered POST with 200. Open question: was that the method, or the
+// browser UA? Prefer the honest UA if it works -- spoofing past a deliberate
+// filter is not something to build a pipeline on.
 const attempts = [
-  { label: 'bhavcopy page (plain UA)', url: 'https://www.mcxindia.com/market-data/bhavcopy', ua: UA },
-  { label: 'bhavcopy page (browser UA)', url: 'https://www.mcxindia.com/market-data/bhavcopy', ua: BROWSER_UA },
-  { label: 'mcx home (browser UA)', url: 'https://www.mcxindia.com/', ua: BROWSER_UA },
-  { label: 'market watch backpage', url: 'https://www.mcxindia.com/backpage.aspx/GetMarketWatch', ua: BROWSER_UA, method: 'POST' },
+  { label: 'market watch POST, honest UA', url: MW, ua: UA, method: 'POST', dump: true },
+  { label: 'market watch POST, browser UA', url: MW, ua: BROWSER_UA, method: 'POST', dump: true },
+  { label: 'market watch GET, honest UA', url: MW, ua: UA },
 ];
 
-async function attempt({ label, url, ua, method = 'GET' }) {
+async function attempt({ label, url, ua, method = 'GET', dump = false }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   const started = Date.now();
@@ -48,11 +53,20 @@ async function attempt({ label, url, ua, method = 'GET' }) {
     console.log(
       `  ${response.ok ? '✓' : '✗'} ${label.padEnd(28)} HTTP ${response.status}  ${ms}ms  ${body.length} bytes`
     );
-    if (response.ok) {
-      // Does the page even contain the controls Selenium drives?
-      const hasDatePicker = body.includes('txtDate_hid_val');
-      const hasCsvLink = body.includes('lnkExpToCSV');
-      console.log(`      date control present: ${hasDatePicker} | csv link present: ${hasCsvLink}`);
+    if (response.ok && dump) {
+      try {
+        const payload = JSON.parse(body);
+        console.log(`      top-level keys: ${Object.keys(payload).join(', ')}`);
+        const rows = payload?.d?.Data ?? payload?.d ?? payload?.Data ?? payload?.data ?? [];
+        const list = Array.isArray(rows) ? rows : [];
+        console.log(`      rows: ${list.length}`);
+        if (list.length) console.log(`      row keys: ${Object.keys(list[0]).join(', ')}`);
+        const gold = list.filter((r) => String(r?.Symbol ?? '').toUpperCase() === 'GOLD');
+        console.log(`      GOLD rows: ${gold.length}`);
+        if (gold.length) console.log(`      first GOLD: ${JSON.stringify(gold[0]).slice(0, 320)}`);
+      } catch (error) {
+        console.log(`      not JSON (${error.message.slice(0, 50)}); first 200 chars: ${body.slice(0, 200)}`);
+      }
     }
   } catch (error) {
     console.log(`  ✗ ${label.padEnd(28)} ${error.message.slice(0, 80)}`);
@@ -63,5 +77,6 @@ async function attempt({ label, url, ua, method = 'GET' }) {
 
 console.log('Probing MCX reachability from this runner.\n');
 for (const a of attempts) await attempt(a);
-console.log('\nIf every row is 403/blocked, MCX does not serve datacenter IPs and the');
-console.log('bhavcopy route is closed regardless of how it is parsed.');
+console.log('\nIf the honest-UA POST works, the reference gate can be closed without');
+console.log('spoofing anything. If only the browser UA works, that is a deliberate');
+console.log('filter and the route should be treated as closed.');
