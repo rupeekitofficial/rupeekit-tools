@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { blogPosts } from '@/data/all-blog-posts';
-import { getToolBySlug } from '@/lib/tools';
-import { availableTaxYears, indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
+import { blogPosts } from '../data/all-blog-posts';
+import { getToolBySlug } from './tools';
+import { availableTaxYears, indiaIncomeTaxRules } from './tax/indiaIncomeTaxRules';
 
 const TAX_TOOL = 'income-tax-calculator-old-vs-new-regime-india';
 const SALARY_TOOL = 'salary-in-hand-calculator-india';
