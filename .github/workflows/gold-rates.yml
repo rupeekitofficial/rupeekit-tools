@@ -58,11 +58,6 @@ jobs:
           GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
         run: node scripts/probe-gold-providers.mjs
 
-      # Fact-finding only: is MCX reachable from a runner? Never gates the job.
-      - name: Probe MCX reachability
-        if: always()
-        run: node scripts/probe-mcx.mjs
-
       - name: Fetch gold rates (dry run, no write)
         if: always()
         env:

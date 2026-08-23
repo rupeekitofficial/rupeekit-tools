@@ -114,10 +114,10 @@ compares. It must be Indian: an international XAU quote converted to rupees
 validates the FX leg and misses the duty leg entirely, which is the leg that
 broke.
 
-| Source | Class | Tolerance |
-|---|---|---|
-| MCX gold futures | futures — physically deliverable in India, so it embeds duty | 4% |
-| Published Indian retail | cash | 2% |
+| Source | Class | Tolerance | Status |
+|---|---|---|---|
+| Published Indian retail | cash | 2% | responds; parse needs fixing |
+| ~~MCX gold futures~~ | futures | 4% | **retired — route closed, see below** |
 
 **A reference is a gate, never a source.** Its value is compared and discarded,
 never republished — so this is a validation input rather than a redistribution
@@ -135,12 +135,43 @@ A 2% cash tolerance would have caught the duty bug on day one.
 
 ### Current status: the gate is built but INERT
 
-As of 22 Aug 2026 neither reference source responds from GitHub runners:
+As of 23 Aug 2026 neither reference source responds from GitHub runners:
 
 | Source | Result |
 |---|---|
-| MCX market watch | HTTP 403 — anti-bot / session required |
+| MCX | **closed** — see below |
 | Published Indian retail | Page fetched, but the 24K figure could not be parsed |
+
+### Why MCX is closed, not merely unimplemented
+
+MCX looked like the strongest free option: its contracts are physically
+deliverable in India, so the price embeds import duty the way a cash price does,
+and MCX explicitly permits *delayed* data for public website display. Probed
+properly from a runner on 23 Aug 2026 (`node scripts/probe-mcx.mjs`):
+
+| Attempt | Result |
+|---|---|
+| market watch POST, honest UA | HTTP 403 |
+| market watch POST, browser UA | HTTP 200 — **but the body is MCX's own 404 HTML page**, not JSON |
+| market watch GET, honest UA | HTTP 403 |
+| bhavcopy page / mcx home, any UA | HTTP 403 |
+
+Two independent blockers:
+
+1. **MCX 403s any client without a browser user-agent.** That is a deliberate
+   filter. Getting past it means spoofing a UA to defeat an access control MCX
+   chose to apply — not a foundation for a finance pipeline.
+2. **The page method returns 404 regardless.** The 200 was an error page. The
+   real bhavcopy sits behind an ASP.NET postback page that needs Selenium, and
+   that page 403s at the domain level anyway.
+
+An earlier note in this repo said "MCX 403s — anti-bot / session required" based
+on a single failed call that was itself buggy (it issued a GET against a POST
+page method). The conclusion happened to be right; the reasoning was not. The
+probe above is the actual evidence.
+
+`scripts/probe-mcx.mjs` is kept for re-testing if MCX ever changes, but is not
+wired into any workflow.
 
 The asymmetric design then does the right thing and publishes anyway, logging
 `ref none available — published without an external cross-check`. **That is
