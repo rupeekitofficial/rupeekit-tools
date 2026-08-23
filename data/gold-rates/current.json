@@ -1,15 +1,80 @@
 {
   "schemaVersion": 1,
-  "status": "unavailable",
-  "asOf": null,
-  "fetchedAt": null,
-  "derived": null,
-  "loanValuation": null,
-  "inputs": null,
-  "disclosure": "Indicative bullion value derived from international spot gold and the USD/INR rate plus statutory import duty. Quoted pre-GST, the basis on which lenders value pledged gold. Excludes jeweller making charges, wastage and stones. Not a quoted dealing price.",
-  "_seed": "Placeholder committed with the pipeline. No live fetch has run yet, so there is deliberately NO price here \u2014 a seeded number would be a fabricated gold rate, which is the exact failure this pipeline exists to prevent. The first successful run of scripts/fetch-gold-rates.mjs replaces this file.",
+  "status": "ok",
+  "asOf": "2026-08-23",
+  "fetchedAt": "2026-08-23T03:39:27.598Z",
+  "derived": {
+    "perGramFine": 16291.98,
+    "perGram": {
+      "24K": 16275.69,
+      "22K": 14923.45,
+      "18K": 12218.99,
+      "14K": 9530.81
+    },
+    "per10Gram": {
+      "24K": 162756.88,
+      "22K": 149234.54,
+      "18K": 122189.85,
+      "14K": 95308.08
+    }
+  },
   "reference": {
     "checked": false,
-    "note": "No fetch has run, so no reference check has been performed."
-  }
+    "note": "No independent reference responded this cycle; the derived rate was published without an external cross-check."
+  },
+  "purchase": {
+    "perGramFine": 16780.74,
+    "perGram": {
+      "24K": 16763.96,
+      "22K": 15371.16,
+      "18K": 12585.55,
+      "14K": 9816.73
+    },
+    "per10Gram": {
+      "24K": 167639.59,
+      "22K": 153711.58,
+      "18K": 125855.55,
+      "14K": 98167.33
+    },
+    "note": "Valuation rate plus 3% GST. Excludes making charges and wastage, which jewellers add on top."
+  },
+  "loanValuation": {
+    "carat": "22K",
+    "basis": "30-day trailing average of 22K per-gram bullion value",
+    "averagePerGram": 14923.45,
+    "sampleDays": 1,
+    "sufficient": false,
+    "note": "Only 1 day(s) of history: this is NOT yet a 30-day average and must not be presented as one."
+  },
+  "inputs": {
+    "spot": [
+      {
+        "provider": "gold-api.com",
+        "xauUsd": 4604.399902,
+        "fetchedAt": "2026-08-23T03:39:26.732Z"
+      },
+      {
+        "provider": "coinbase-paxg",
+        "xauUsd": 4587.24,
+        "fetchedAt": "2026-08-23T03:39:26.840Z"
+      },
+      {
+        "provider": "yahoo-gc-f",
+        "xauUsd": 4680.6,
+        "fetchedAt": "2026-08-23T03:39:27.024Z"
+      }
+    ],
+    "fx": {
+      "provider": "frankfurter",
+      "usdInr": 95.7,
+      "fetchedAt": "2026-08-23T03:39:27.242Z"
+    },
+    "levies": {
+      "importDutyPct": 15,
+      "gstPct": 3,
+      "gstAppliesToValuation": false,
+      "reviewedOn": "2026-08-22"
+    }
+  },
+  "disclosure": "Indicative bullion value derived from international spot gold and the USD/INR rate plus statutory import duty. Quoted pre-GST, the basis on which lenders value pledged gold. Excludes jeweller making charges, wastage and stones. Not a quoted dealing price."
 }

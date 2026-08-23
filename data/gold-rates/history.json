@@ -1,4 +1,12 @@
 {
   "schemaVersion": 1,
-  "entries": []
+  "entries": [
+    {
+      "asOf": "2026-08-23",
+      "xauUsd": 4604.399902,
+      "usdInr": 95.7,
+      "perGram24K": 16275.69,
+      "perGram22K": 14923.45
+    }
+  ]
 }
