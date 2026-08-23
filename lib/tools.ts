@@ -8,6 +8,7 @@ import ctrToolSeoOverrides from '../data/ctr-tool-seo-overrides-2026-08-15.json'
 import searchGrowthOverrides from '../data/search-growth-overrides-2026-08-17.json';
 import directAnswerOverrides from '../data/direct-answer-overrides-2026-08-17.json';
 import queryVariantOverrides from '../data/query-variant-tool-overrides-2026-08-18.json';
+import issue76ToolOverrides from '../data/issue-76-tool-overrides-2026-08-23.json';
 import { CONSOLIDATED_TOOL_SLUGS } from './consolidated-routes';
 import { applyLiveRateDefaults } from './live-rate-defaults';
 
@@ -35,6 +36,7 @@ const ctrSeoOverrides = ctrToolSeoOverrides as Record<string, ToolSeoCopyOverrid
 const prioritySearchOverrides = searchGrowthOverrides as Record<string, Partial<Tool>>;
 const directAnswers = directAnswerOverrides as Record<string, string>;
 const queryVariants = queryVariantOverrides as Record<string, Partial<QueryVariantToolOverride>>;
+const issue76Overrides = issue76ToolOverrides as Record<string, Partial<Tool>>;
 const sourceTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools] as Tool[];
 
 function mergeUniqueSources(base: ToolOfficialSource[] = [], extra: ToolOfficialSource[] = []): ToolOfficialSource[] {
@@ -43,9 +45,27 @@ function mergeUniqueSources(base: ToolOfficialSource[] = [], extra: ToolOfficial
   return [...byHref.values()];
 }
 
+function mergeUniqueStrings(base: string[] = [], extra: string[] = []): string[] {
+  return [...new Set([...base, ...extra])];
+}
+
 export const allTools = sourceTools.map((tool) => {
   const priorityOverride = prioritySearchOverrides[tool.slug];
-  const mergedTool = priorityOverride ? { ...tool, ...priorityOverride } : tool;
+  const priorityMergedTool = priorityOverride ? { ...tool, ...priorityOverride } : tool;
+  const rescueOverride = issue76Overrides[tool.slug];
+  const mergedTool = rescueOverride
+    ? {
+        ...priorityMergedTool,
+        ...rescueOverride,
+        contentSections: [
+          ...(priorityMergedTool.contentSections ?? []),
+          ...(rescueOverride.contentSections ?? []),
+        ],
+        faqs: [...priorityMergedTool.faqs, ...(rescueOverride.faqs ?? [])],
+        officialSources: mergeUniqueSources(priorityMergedTool.officialSources, rescueOverride.officialSources),
+        related: mergeUniqueStrings(priorityMergedTool.related, rescueOverride.related),
+      }
+    : priorityMergedTool;
   const seoOverride = ctrSeoOverrides[tool.slug];
   const directAnswer = directAnswers[tool.slug];
   const queryVariant = queryVariants[tool.slug];
