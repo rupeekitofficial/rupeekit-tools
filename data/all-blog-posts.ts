@@ -5,6 +5,7 @@ import { day7ComparisonBlogPosts } from './day7-comparison-blog-posts';
 import queryVariantBlogOverrides from './query-variant-blog-overrides-2026-08-18.json';
 import issue76BlogOverrides from './issue-76-blog-overrides-2026-08-23.json';
 import { CONSOLIDATED_BLOG_SLUGS } from '../lib/consolidated-routes';
+import { enrichLegacyBlogPost } from '../lib/seo/enrich-blog-post';
 import type { BlogPost } from './blog-posts';
 
 export type {
@@ -30,16 +31,19 @@ export const blogPosts = [
   .map((post) => {
     const queryOverride = queryVariantOverrides[post.slug];
     const issue76Override = issue76Overrides[post.slug];
-    if (!queryOverride && !issue76Override) return post;
-    return {
-      ...post,
-      sections: [...post.sections, ...(queryOverride?.sections ?? [])],
-      faqs: [...post.faqs, ...(queryOverride?.faqs ?? [])],
-      relatedCalculators: [
-        ...new Set([
-          ...post.relatedCalculators,
-          ...(issue76Override?.relatedCalculators ?? []),
-        ]),
-      ],
-    };
+    const mergedPost = !queryOverride && !issue76Override
+      ? post
+      : {
+          ...post,
+          sections: [...post.sections, ...(queryOverride?.sections ?? [])],
+          faqs: [...post.faqs, ...(queryOverride?.faqs ?? [])],
+          relatedCalculators: [
+            ...new Set([
+              ...post.relatedCalculators,
+              ...(issue76Override?.relatedCalculators ?? []),
+            ]),
+          ],
+        };
+
+    return enrichLegacyBlogPost(mergedPost);
   });
