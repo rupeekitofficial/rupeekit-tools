@@ -16,15 +16,7 @@ const manifest = [
 const creativeBriefs = JSON.parse(
   fs.readFileSync(path.join(root, 'data', 'discover-creative-briefs-2026-08-24.json'), 'utf8'),
 );
-const creativeBriefByPath = new Map(creativeBriefs.map((brief) => [brief.path, brief]));
 const errors = [];
-
-function preferredImagePath(image) {
-  const brief = creativeBriefByPath.get(image.path);
-  if (!brief) return image.src;
-  const slug = brief.path.split('/').filter(Boolean).at(-1);
-  return `/discover-image/${slug}`;
-}
 
 for (const image of manifest) {
   const htmlPath = path.join(root, '.next', 'server', 'app', `${image.path.replace(/^\//, '')}.html`);
@@ -34,7 +26,7 @@ for (const image of manifest) {
   }
 
   const html = fs.readFileSync(htmlPath, 'utf8');
-  const expectedImagePath = preferredImagePath(image);
+  const expectedImagePath = image.src;
   const escapedImagePath = expectedImagePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const absoluteImageUrlPattern = `https?:\\/\\/[^\"']+${escapedImagePath}`;
 
@@ -64,14 +56,12 @@ if (!fs.existsSync(imageSitemapPath)) {
 
   for (const image of manifest) {
     const pageUrl = `${siteUrl}${image.path}`;
-    // The image sitemap intentionally retains the crawlable static editorial WebP.
-    // Priority pages can use a programmatic card in metadata and the visible hero.
     const imageUrl = `${siteUrl}${image.src}`;
     if (!xml.includes(`<loc>${pageUrl}</loc>`)) {
       errors.push(`Image sitemap is missing the page URL for ${image.path}.`);
     }
     if (!xml.includes(`<image:loc>${imageUrl}</image:loc>`)) {
-      errors.push(`Image sitemap is missing the base editorial image URL for ${image.path}.`);
+      errors.push(`Image sitemap is missing the static editorial image URL for ${image.path}.`);
     }
   }
 
@@ -93,4 +83,4 @@ if (errors.length) {
 }
 
 console.log(`Rendered Discover image validation passed for ${manifest.length} required pages.`);
-console.log(`Rendered ${creativeBriefs.length} priority pages with programmatic Discover cards.`);
+console.log(`Priority Discover creative governance remains enabled for ${creativeBriefs.length} pages.`);
