@@ -1,6 +1,9 @@
 'use client';
 
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import Logo from '@/components/Logo';
+import { getDiscoverCreativeBrief } from '@/data/discover-images';
 import { BlogHeroVisual } from './BlogVisuals';
 
 interface BlogHeroProps {
@@ -30,7 +33,9 @@ export default function BlogHero({
   heroImageWidth,
   heroImageHeight,
 }: BlogHeroProps) {
+  const pathname = usePathname();
   const hasVisual = Boolean(heroImage || visualType);
+  const discoverBrief = pathname ? getDiscoverCreativeBrief(pathname) : undefined;
 
   return (
     <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 text-white shadow-xl">
@@ -71,6 +76,22 @@ export default function BlogHero({
                   sizes="(min-width: 1280px) 1152px, (min-width: 1024px) calc(100vw - 8rem), (min-width: 640px) calc(100vw - 4rem), calc(100vw - 2rem)"
                   priority
                 />
+
+                {discoverBrief ? (
+                  <div
+                    data-discover-overlay="true"
+                    className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex min-h-[42%] items-end bg-gradient-to-t from-slate-950/90 via-slate-950/48 to-transparent p-4 sm:p-6 md:p-8"
+                  >
+                    <div className="max-w-[88%] sm:max-w-2xl">
+                      <p className="text-2xl font-black leading-tight tracking-tight text-white drop-shadow-lg sm:text-3xl md:text-4xl">
+                        {discoverBrief.safeHook}
+                      </p>
+                      <div className="mt-3 inline-flex items-center rounded-xl bg-white/95 px-3 py-2 shadow-lg backdrop-blur-sm sm:mt-4 sm:px-4">
+                        <Logo type="horizontal" width={132} height={33} className="h-auto w-[112px] sm:w-[132px]" />
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
               </div>
               <figcaption className="sr-only">{heroImageAlt || visualAlt || title}</figcaption>
             </figure>
