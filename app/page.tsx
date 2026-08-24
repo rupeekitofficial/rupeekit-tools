@@ -109,17 +109,20 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-950 text-white">
         <div aria-hidden="true" className="absolute -left-36 top-32 h-80 w-80 rounded-full bg-blue-400/15 blur-3xl" />
         <div aria-hidden="true" className="absolute -right-24 -top-28 h-96 w-96 rounded-full bg-brandBrightGreen/20 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24">
-          <div className="max-w-4xl">
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-brandBrightGreen">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-16 text-center md:px-6 md:py-24">
+          <div className="w-full max-w-5xl">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-brandBrightGreen">
               Money math, made useful
             </p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl md:text-hero">
-              Make your next money decision with clearer numbers.
+            <h1
+              className="mx-auto mt-5 max-w-5xl text-4xl font-extrabold leading-[0.98] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-7xl"
+              style={{ fontFamily: '"Trebuchet MS", "Segoe UI", Arial, sans-serif' }}
+            >
+              One wrong number can change the decision.
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-slate-200 md:text-lg">
-              India-focused calculators for salary, tax, loans, savings and investing — free,
-              private, and explained in plain language.
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-200 md:text-xl md:leading-8">
+              Check your EMI, tax, take-home salary, SIP and savings numbers before you decide —
+              free India-focused calculators, private by default, with no signup required.
             </p>
 
             <CalculatorJumpSearch
@@ -131,17 +134,17 @@ export default function HomePage() {
               }))}
             />
 
-            <div className="mt-8 grid max-w-3xl grid-cols-3 divide-x divide-white/15 rounded-2xl border border-white/15 bg-white/10 py-4 backdrop-blur-sm">
+            <div className="mx-auto mt-8 grid w-full max-w-4xl grid-cols-3 divide-x divide-white/15 rounded-2xl border border-white/15 bg-white/10 py-5 backdrop-blur-sm">
               <div className="px-3 text-center md:px-6">
-                <strong className="block text-xl font-black text-white md:text-2xl">{tools.length}</strong>
+                <strong className="block text-xl font-black text-white md:text-3xl">{tools.length}</strong>
                 <span className="mt-1 block text-[11px] font-bold uppercase tracking-wide text-slate-300">Calculators</span>
               </div>
               <div className="px-3 text-center md:px-6">
-                <strong className="block text-xl font-black text-white md:text-2xl">{CATEGORY_GROUPS.length}</strong>
+                <strong className="block text-xl font-black text-white md:text-3xl">{CATEGORY_GROUPS.length}</strong>
                 <span className="mt-1 block text-[11px] font-bold uppercase tracking-wide text-slate-300">Money goals</span>
               </div>
               <div className="px-3 text-center md:px-6">
-                <strong className="block text-xl font-black text-white md:text-2xl">₹0</strong>
+                <strong className="block text-xl font-black text-white md:text-3xl">₹0</strong>
                 <span className="mt-1 block text-[11px] font-bold uppercase tracking-wide text-slate-300">No signup</span>
               </div>
             </div>
