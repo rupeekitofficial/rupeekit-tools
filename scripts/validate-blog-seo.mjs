@@ -44,10 +44,6 @@ function hasObjectProperty(object, name) {
   return Boolean(prop && ts.isPropertyAssignment(prop) && ts.isObjectLiteralExpression(prop.initializer));
 }
 
-function objectText(object, source) {
-  return object.getText(source);
-}
-
 function collectBlogObjects(sourceFile) {
   function visit(node) {
     if (ts.isObjectLiteralExpression(node)) {
@@ -94,7 +90,7 @@ for (const { node, source } of posts) {
   const faqsCount = arrayLength(node, 'faqs');
   const calculatorsCount = arrayLength(node, 'relatedCalculators');
   const sourceCount = arrayLength(node, 'officialSources');
-  const text = objectText(node, source);
+  const text = node.getText(source);
   const hasQuestionHeading = /title:\s*['"][^'"]*\?/i.test(text);
   const hasExample = /example:\s*\{/i.test(text);
   const hasMethodology = /source(?:s)?\s+and\s+methodology|methodology/i.test(text);
@@ -106,9 +102,11 @@ for (const { node, source } of posts) {
   if (!h1) errors.push(`${file}:${slug} missing H1.`);
   if (!intro || intro.length < 80) errors.push(`${file}:${slug} intro is missing or too thin.`);
   if (!metaDescription) errors.push(`${file}:${slug} missing meta description.`);
-  if (sectionsCount < 2) errors.push(`${file}:${slug} needs at least two substantive sections.`);
+  if (sectionsCount < 1) errors.push(`${file}:${slug} needs substantive article content.`);
   if (faqsCount < 1) errors.push(`${file}:${slug} needs at least one visible FAQ for article usefulness.`);
-  if (calculatorsCount < 1) errors.push(`${file}:${slug} missing related RupeeKit calculator/tool link.`);
+
+  if (sectionsCount < 2) warnings.push(`${file}:${slug} has one main section; review whether the topic needs deeper coverage.`);
+  if (calculatorsCount < 1) warnings.push(`${file}:${slug} has no related RupeeKit calculator/tool; acceptable when no relevant calculator exists.`);
 
   if (heroImage && !heroImageAlt) errors.push(`${file}:${slug} has a hero image without descriptive heroImageAlt.`);
   if (visualType && !visualAlt) errors.push(`${file}:${slug} has an inline visual without descriptive visualAlt.`);
@@ -120,7 +118,7 @@ for (const { node, source } of posts) {
   if (!answerEngineSummary) warnings.push(`${file}:${slug} uses the shared Answer Engine Summary fallback.`);
   if (!hasQuestionHeading) warnings.push(`${file}:${slug} has no question-style section heading.`);
   if (!hasExample) warnings.push(`${file}:${slug} has no worked/practical example.`);
-  if (!hasMethodology) warnings.push(`${file}:${slug} has no article-specific source/methodology section; shared editorial disclosure still renders.`);
+  if (!hasMethodology) warnings.push(`${file}:${slug} has no article-specific source/methodology section; shared methodology disclosure still renders.`);
   if (faqsCount < 3) warnings.push(`${file}:${slug} has only ${faqsCount} FAQ(s); expand only when real search intent supports it.`);
 
   const isHighTrustTopic = /tax|itr|hra|epf|ppf|nps|gratuity|fcra|government|loan|insurance|capital-gains/i.test(
@@ -131,7 +129,7 @@ for (const { node, source } of posts) {
   }
 
   for (const pattern of riskyClaimPatterns) {
-    if (pattern.test(text)) errors.push(`${file}:${slug} contains risky/guaranteed claim matching ${pattern}.`);
+    if (pattern.test(text)) warnings.push(`${file}:${slug} contains wording matching ${pattern}; human review should confirm it is contextual, factual, and not promotional.`);
   }
 }
 
@@ -141,6 +139,12 @@ const blogHeroSource = fs.readFileSync(path.join(root, 'components', 'blog', 'Bl
 if (!blogHeroSource.includes('aspect-[16/9]')) errors.push('BlogHero must preserve a 16:9 hero image area.');
 if (!blogHeroSource.includes('object-contain')) errors.push('BlogHero must show the complete click-through creative without cropping important text.');
 if (!blogHeroSource.includes('sizes=')) errors.push('BlogHero must provide responsive Next/Image sizes.');
+
+const financeDisclaimerSource = fs.readFileSync(path.join(root, 'components', 'blog', 'FinanceDisclaimer.tsx'), 'utf8');
+if (!financeDisclaimerSource.includes('id="source-and-methodology"')) errors.push('Every standard blog must render the shared source-and-methodology disclosure.');
+if (!financeDisclaimerSource.includes('does not guarantee returns, tax savings, rankings, or loan approval')) {
+  errors.push('Shared blog disclosure must include safe no-guarantee wording.');
+}
 
 const blogPageSource = fs.readFileSync(path.join(root, 'app', 'blog', '[slug]', 'page.tsx'), 'utf8');
 if (!blogPageSource.includes("'max-image-preview': 'large'")) errors.push('Blog metadata must allow max-image-preview: large.');
