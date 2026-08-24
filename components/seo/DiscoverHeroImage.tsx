@@ -19,6 +19,7 @@ export default function DiscoverHeroImage({
 }: DiscoverHeroImageProps) {
   const pathname = usePathname();
   const isCalculatorRoute = pathname?.startsWith('/tools/');
+  const isProgrammaticDiscoverCard = image.src.startsWith('/discover-image/');
 
   return (
     <>
@@ -63,6 +64,7 @@ export default function DiscoverHeroImage({
           className="h-full w-full object-contain"
           sizes="(min-width: 1280px) 1152px, (min-width: 1024px) calc(100vw - 8rem), (min-width: 640px) calc(100vw - 4rem), calc(100vw - 2rem)"
           priority={priority}
+          unoptimized={isProgrammaticDiscoverCard}
         />
         <figcaption className="sr-only">{image.alt}</figcaption>
       </figure>
