@@ -16,17 +16,45 @@ export default function HeroMotionBackdrop() {
         <div className="hero-ring hero-ring-one" />
         <div className="hero-ring hero-ring-two" />
 
-        <div className="hero-float-card hero-float-card-one">
-          <span className="hero-float-label">EMI</span>
-          <span className="hero-float-value">₹</span>
+        <div className="hero-icon-badge hero-icon-calculator" title="Calculator">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <rect x="5" y="3" width="14" height="18" rx="3" />
+            <path d="M8 7h8M8 11h2m4 0h2M8 15h2m4 0h2M8 19h2m4 0h2" />
+          </svg>
         </div>
-        <div className="hero-float-card hero-float-card-two">
-          <span className="hero-float-label">SIP</span>
-          <span className="hero-float-value">↗</span>
+
+        <div className="hero-icon-badge hero-icon-rupee" title="Rupee">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path d="M6 5h12M6 9h12M7 5c5 0 7 2 7 4s-2 4-7 4h-1l8 7" />
+          </svg>
         </div>
-        <div className="hero-float-card hero-float-card-three">
-          <span className="hero-float-label">TAX</span>
-          <span className="hero-float-value">%</span>
+
+        <div className="hero-icon-badge hero-icon-chart" title="Growth chart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path d="M4 19V9m5 10V5m5 14v-7m5 7V8" />
+            <path d="m4 8 5-3 5 4 6-5" />
+          </svg>
+        </div>
+
+        <div className="hero-icon-badge hero-icon-wallet" title="Wallet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18a2 2 0 0 1 2 2v11H6.5A2.5 2.5 0 0 1 4 15.5v-8Z" />
+            <path d="M15 11h5v4h-5a2 2 0 1 1 0-4Z" />
+          </svg>
+        </div>
+
+        <div className="hero-icon-badge hero-icon-document" title="Tax document">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path d="M6 3h8l4 4v14H6V3Z" />
+            <path d="M14 3v5h4M9 12h6M9 16h6" />
+          </svg>
+        </div>
+
+        <div className="hero-icon-badge hero-icon-shield" title="Privacy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path d="M12 3 5 6v5c0 4.5 2.8 8.2 7 10 4.2-1.8 7-5.5 7-10V6l-7-3Z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
         </div>
 
         <div className="hero-grid-wrap">
@@ -113,59 +141,94 @@ export default function HeroMotionBackdrop() {
           animation-duration: 20s;
         }
 
-        .hero-float-card {
+        .hero-icon-badge {
           position: absolute;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 0.75rem;
-          min-width: 7.5rem;
-          padding: 0.75rem 0.9rem;
-          border: 1px solid rgba(255, 255, 255, 0.13);
-          border-radius: 1rem;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035));
-          box-shadow: 0 20px 60px rgba(1, 12, 35, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-          backdrop-filter: blur(10px);
-          color: rgba(255, 255, 255, 0.82);
+          width: 4.4rem;
+          height: 4.4rem;
+          display: grid;
+          place-items: center;
+          border-radius: 1.35rem;
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.045));
+          box-shadow:
+            0 22px 62px rgba(1, 12, 35, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.17),
+            0 0 38px rgba(74, 222, 128, 0.06);
+          backdrop-filter: blur(12px);
+          color: rgba(220, 252, 231, 0.92);
           transform-style: preserve-3d;
           will-change: transform;
-          animation: hero-card-float 13s ease-in-out infinite;
+          animation: hero-icon-float 14s ease-in-out infinite;
         }
 
-        .hero-float-label {
-          font-size: 0.66rem;
-          font-weight: 900;
-          letter-spacing: 0.18em;
-          color: rgba(226, 232, 240, 0.72);
+        .hero-icon-badge::after {
+          content: '';
+          position: absolute;
+          inset: 0.45rem;
+          border-radius: 0.95rem;
+          border: 1px solid rgba(134, 239, 172, 0.1);
+          background: radial-gradient(circle at 35% 25%, rgba(134, 239, 172, 0.09), transparent 62%);
         }
 
-        .hero-float-value {
-          font-size: 1.45rem;
-          font-weight: 900;
-          color: rgba(134, 239, 172, 0.92);
-          text-shadow: 0 0 24px rgba(74, 222, 128, 0.32);
+        .hero-icon-badge svg {
+          position: relative;
+          z-index: 1;
+          width: 2rem;
+          height: 2rem;
+          filter: drop-shadow(0 0 14px rgba(74, 222, 128, 0.2));
         }
 
-        .hero-float-card-one {
+        .hero-icon-calculator {
           left: 4.5%;
           top: 17%;
-          transform: rotateY(18deg) rotateZ(-6deg) translateZ(34px);
+          --base-transform: rotateY(18deg) rotateZ(-7deg) translateZ(36px);
+          animation-delay: -1s;
         }
 
-        .hero-float-card-two {
-          right: 5%;
-          top: 37%;
-          transform: rotateY(-17deg) rotateZ(5deg) translateZ(44px);
-          animation-delay: -4s;
-          animation-duration: 15s;
-        }
-
-        .hero-float-card-three {
-          left: 9%;
-          bottom: 10%;
-          transform: rotateY(12deg) rotateZ(4deg) translateZ(24px);
-          animation-delay: -8s;
+        .hero-icon-rupee {
+          right: 5.5%;
+          top: 22%;
+          --base-transform: rotateY(-18deg) rotateZ(7deg) translateZ(48px);
+          animation-delay: -5s;
           animation-duration: 16s;
+        }
+
+        .hero-icon-chart {
+          right: 7.5%;
+          bottom: 13%;
+          --base-transform: rotateY(-13deg) rotateZ(-5deg) translateZ(34px);
+          animation-delay: -8s;
+          animation-duration: 17s;
+        }
+
+        .hero-icon-wallet {
+          left: 8.5%;
+          bottom: 12%;
+          --base-transform: rotateY(15deg) rotateZ(6deg) translateZ(30px);
+          animation-delay: -10s;
+          animation-duration: 18s;
+        }
+
+        .hero-icon-document {
+          left: 19%;
+          top: 8%;
+          width: 3.7rem;
+          height: 3.7rem;
+          --base-transform: rotateY(10deg) rotateZ(9deg) translateZ(20px);
+          animation-delay: -3s;
+          animation-duration: 19s;
+          opacity: 0.72;
+        }
+
+        .hero-icon-shield {
+          right: 19%;
+          top: 7%;
+          width: 3.7rem;
+          height: 3.7rem;
+          --base-transform: rotateY(-10deg) rotateZ(-8deg) translateZ(22px);
+          animation-delay: -12s;
+          animation-duration: 20s;
+          opacity: 0.72;
         }
 
         .hero-grid-wrap {
@@ -176,7 +239,7 @@ export default function HeroMotionBackdrop() {
           bottom: -30%;
           perspective: 1000px;
           overflow: hidden;
-          opacity: 0.36;
+          opacity: 0.33;
           mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.78) 27%, #000 100%);
         }
 
@@ -186,8 +249,8 @@ export default function HeroMotionBackdrop() {
           transform-origin: center top;
           transform: rotateX(68deg) scale(1.12);
           background-image:
-            linear-gradient(rgba(148, 163, 184, 0.16) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+            linear-gradient(rgba(148, 163, 184, 0.14) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(148, 163, 184, 0.14) 1px, transparent 1px);
           background-size: 58px 58px;
           animation: hero-grid-travel 15s linear infinite;
         }
@@ -202,9 +265,9 @@ export default function HeroMotionBackdrop() {
           50% { opacity: 0.56; filter: brightness(1.2); }
         }
 
-        @keyframes hero-card-float {
-          0%, 100% { translate: 0 0; }
-          50% { translate: 0 -15px; }
+        @keyframes hero-icon-float {
+          0%, 100% { transform: var(--base-transform) translate3d(0, 0, 0) scale(1); }
+          50% { transform: var(--base-transform) translate3d(0, -16px, 0) scale(1.04); }
         }
 
         @keyframes hero-grid-travel {
@@ -212,24 +275,44 @@ export default function HeroMotionBackdrop() {
           100% { background-position: 0 58px, 58px 0; }
         }
 
-        @media (max-width: 767px) {
-          .hero-float-card {
-            opacity: 0.42;
-            transform: scale(0.78);
-          }
-
-          .hero-float-card-one {
-            left: -1.25rem;
-            top: 15%;
-          }
-
-          .hero-float-card-two {
-            right: -1.6rem;
-            top: 44%;
-          }
-
-          .hero-float-card-three {
+        @media (max-width: 1023px) {
+          .hero-icon-document,
+          .hero-icon-shield {
             display: none;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .hero-icon-badge {
+            width: 3.25rem;
+            height: 3.25rem;
+            border-radius: 1rem;
+            opacity: 0.46;
+          }
+
+          .hero-icon-badge svg {
+            width: 1.45rem;
+            height: 1.45rem;
+          }
+
+          .hero-icon-calculator {
+            left: -0.8rem;
+            top: 17%;
+          }
+
+          .hero-icon-rupee {
+            right: -0.75rem;
+            top: 26%;
+          }
+
+          .hero-icon-chart {
+            right: -0.75rem;
+            bottom: 15%;
+          }
+
+          .hero-icon-wallet {
+            left: -0.85rem;
+            bottom: 15%;
           }
 
           .hero-ring-one {
@@ -242,14 +325,14 @@ export default function HeroMotionBackdrop() {
 
           .hero-grid-wrap {
             top: 57%;
-            opacity: 0.28;
+            opacity: 0.24;
           }
         }
 
         @media (prefers-reduced-motion: reduce) {
           .hero-orb,
           .hero-ring,
-          .hero-float-card,
+          .hero-icon-badge,
           .hero-grid {
             animation: none !important;
           }
