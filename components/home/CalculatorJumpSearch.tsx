@@ -36,7 +36,7 @@ export default function CalculatorJumpSearch({ tools }: { tools: SearchTool[] })
   }
 
   return (
-    <div className="relative mt-8 max-w-2xl">
+    <div className="relative mx-auto mt-9 w-full max-w-3xl">
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
         <label className="sr-only" htmlFor="homepage-calculator-search">
           Search calculators
@@ -48,7 +48,7 @@ export default function CalculatorJumpSearch({ tools }: { tools: SearchTool[] })
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
-            className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
+            className="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
           >
             <circle cx="11" cy="11" r="7" />
             <path d="m20 20-3.5-3.5" />
@@ -58,22 +58,22 @@ export default function CalculatorJumpSearch({ tools }: { tools: SearchTool[] })
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search SIP, EMI, tax, salary…"
+            placeholder="Search EMI, tax, salary, SIP…"
             autoComplete="off"
-            className="h-14 w-full rounded-2xl border border-white/30 bg-white pl-12 pr-4 text-base font-medium text-slate-950 shadow-lg outline-none ring-0 placeholder:text-slate-500 focus:border-brandBrightGreen focus:ring-4 focus:ring-brandBrightGreen/25 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400"
+            className="h-16 w-full rounded-2xl border border-white/30 bg-white pl-14 pr-4 text-base font-semibold text-slate-950 shadow-lg outline-none ring-0 placeholder:text-slate-500 focus:border-brandBrightGreen focus:ring-4 focus:ring-brandBrightGreen/25 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400"
           />
         </div>
         <button
           type="submit"
           disabled={matches.length === 0}
-          className="h-14 rounded-2xl bg-brandGrowthGreen px-6 text-sm font-black text-white shadow-lg transition hover:bg-brandBrightGreen disabled:cursor-not-allowed disabled:opacity-50"
+          className="h-16 rounded-2xl bg-brandGrowthGreen px-8 text-base font-black text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-brandBrightGreen disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-50"
         >
           Open calculator
         </button>
       </form>
 
       {query.trim() ? (
-        <div className="absolute inset-x-0 top-[4.25rem] z-20 overflow-hidden rounded-2xl border border-brandBorder bg-white shadow-2xl sm:right-44 dark:border-slate-700 dark:bg-slate-900">
+        <div className="absolute inset-x-0 top-[4.75rem] z-20 overflow-hidden rounded-2xl border border-brandBorder bg-white shadow-2xl sm:right-48 dark:border-slate-700 dark:bg-slate-900">
           {matches.length ? (
             <ul aria-label="Calculator search results" className="divide-y divide-brandBorder dark:divide-slate-700">
               {matches.map((tool) => (
