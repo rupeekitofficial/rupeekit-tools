@@ -2,7 +2,10 @@
 
 export default function HeroMotionBackdrop() {
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div
+      aria-hidden="true"
+      className="hero-motion-backdrop pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(59,130,246,0.22),transparent_30%),radial-gradient(circle_at_82%_12%,rgba(74,222,128,0.18),transparent_28%),radial-gradient(circle_at_50%_88%,rgba(14,165,233,0.14),transparent_34%),linear-gradient(135deg,#082b78_0%,#07327d_46%,#03183e_100%)]" />
 
       <div className="hero-scene absolute inset-0">
@@ -32,6 +35,12 @@ export default function HeroMotionBackdrop() {
       </div>
 
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,transparent_42%,rgba(2,17,48,0.18)_72%,rgba(2,17,48,0.52)_100%)]" />
+
+      <style jsx global>{`
+        section:has(.hero-motion-backdrop) > div.relative {
+          isolation: isolate;
+        }
+      `}</style>
 
       <style jsx>{`
         .hero-scene {
@@ -205,7 +214,7 @@ export default function HeroMotionBackdrop() {
 
         @media (max-width: 767px) {
           .hero-float-card {
-            opacity: 0.48;
+            opacity: 0.42;
             transform: scale(0.78);
           }
 
