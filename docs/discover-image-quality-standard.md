@@ -22,7 +22,7 @@ RupeeKit Discover images should make a finance story immediately understandable 
 1. Tell one finance story, not a generic finance mood.
 2. Use an Indian household, salaried professional, taxpayer, saver, borrower or investor when a human subject improves relevance.
 3. Show the decision inputs visually: for example income + EMI, salary + deductions, rent + HRA, or contribution + time horizon.
-4. Use zero text where the visual works on its own. If a hook materially improves comprehension, keep it to four words or fewer.
+4. Use zero text where the visual works on its own. If a hook materially improves comprehension, prefer four words or fewer and never exceed five words.
 5. A hook must be an accurate question or framing device, never a withheld-fact trick.
 6. Avoid generic logo-only images, stock-market rockets, piles of cash, exaggerated shock faces and unrelated luxury imagery.
 7. Do not visually imply guaranteed returns, guaranteed tax savings, loan approval, a lowest rate, a fixed future rate or a universal financial recommendation.
