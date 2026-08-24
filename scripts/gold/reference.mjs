@@ -41,12 +41,28 @@ function requireFinite(value, label) {
 }
 
 /**
- * MCX gold futures. The strongest free reference available: MCX contracts are
- * physically deliverable inside India, so the price embeds import duty the same
- * way a domestic cash price does. It carries a futures basis, hence the wider
- * tolerance applied by the caller.
+ * MCX gold futures. RETIRED — kept for the record, not in REFERENCE_SOURCES.
  *
- * MCX quotes GOLD per 10 grams at 995 fineness.
+ * On paper this was the strongest free reference: MCX contracts are physically
+ * deliverable inside India, so the price embeds import duty the way a domestic
+ * cash price does. In practice the route is closed. Probed from a GitHub runner
+ * on 23 Aug 2026:
+ *
+ *   market watch POST, honest UA    HTTP 403
+ *   market watch POST, browser UA   HTTP 200  -- but the body is MCX's own 404
+ *                                                HTML error page, not JSON
+ *   market watch GET, honest UA     HTTP 403
+ *   bhavcopy page / mcx home, any UA  HTTP 403
+ *
+ * Two independent blockers. MCX 403s any client that does not present a browser
+ * user-agent, which is a deliberate filter rather than an accident; and the page
+ * method being targeted returns 404 regardless, so the data was never behind it.
+ * Reaching the real bhavcopy needs Selenium against an HTML page that 403s at
+ * the domain level anyway.
+ *
+ * Do not re-enable without re-probing (`node scripts/probe-mcx.mjs`). Getting
+ * past the filter would mean spoofing a user-agent to defeat an access control
+ * MCX chose to apply, which is not a foundation for a finance pipeline.
  */
 export async function referenceFromMcxQuote() {
   const body = await getText('https://www.mcxindia.com/backpage.aspx/GetMarketWatch', {
@@ -94,7 +110,9 @@ export async function referenceFromPublishedIndianRate() {
   };
 }
 
-export const REFERENCE_SOURCES = [referenceFromMcxQuote, referenceFromPublishedIndianRate];
+// referenceFromMcxQuote is deliberately absent: see its docblock. The published
+// retail page is still viable — it responds, only the parse fails — so it stays.
+export const REFERENCE_SOURCES = [referenceFromPublishedIndianRate];
 
 /**
  * Try each reference in order; the first that responds wins. Returns null when

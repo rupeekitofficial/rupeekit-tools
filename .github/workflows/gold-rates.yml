@@ -72,8 +72,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # actions/checkout pins the SHA that triggered the run. On a re-run that
+      # is the ORIGINAL trigger SHA, which by then sits behind main because an
+      # earlier run of this same workflow already pushed a snapshot — so the
+      # commit lands on stale history and the push is rejected as
+      # non-fast-forward. Take the branch tip instead, with full history so the
+      # rebase in the commit step below can work.
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -105,4 +114,18 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/gold-rates
           git commit -m "chore(gold-rates): refresh snapshot $(date -u +%Y-%m-%d)"
-          git push
+          # Another commit can land on main between checkout and here — the
+          # other daily run, or a merge. The fetched rate is perfectly good, so
+          # rebase onto whatever arrived and retry rather than discarding it.
+          # Never force-push: losing someone else's commit is far worse than
+          # skipping one rate update.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Pushed on attempt ${attempt}."
+              exit 0
+            fi
+            echo "Push rejected on attempt ${attempt}; rebasing onto origin/main and retrying."
+            git pull --rebase origin main || exit 1
+          done
+          echo "Could not push after 3 attempts; leaving the previous snapshot in place."
+          exit 1

@@ -9,6 +9,7 @@ import searchGrowthOverrides from '../data/search-growth-overrides-2026-08-17.js
 import directAnswerOverrides from '../data/direct-answer-overrides-2026-08-17.json';
 import queryVariantOverrides from '../data/query-variant-tool-overrides-2026-08-18.json';
 import issue76ToolOverrides from '../data/issue-76-tool-overrides-2026-08-23.json';
+import issue77RescueOverrides from '../data/issue-77-rescue-overrides-2026-08-24.json';
 import { CONSOLIDATED_TOOL_SLUGS } from './consolidated-routes';
 import { applyLiveRateDefaults } from './live-rate-defaults';
 
@@ -37,6 +38,7 @@ const prioritySearchOverrides = searchGrowthOverrides as Record<string, Partial<
 const directAnswers = directAnswerOverrides as Record<string, string>;
 const queryVariants = queryVariantOverrides as Record<string, Partial<QueryVariantToolOverride>>;
 const issue76Overrides = issue76ToolOverrides as Record<string, Partial<Tool>>;
+const issue77Overrides = issue77RescueOverrides as Record<string, Partial<Tool>>;
 const sourceTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools] as Tool[];
 
 function mergeUniqueSources(base: ToolOfficialSource[] = [], extra: ToolOfficialSource[] = []): ToolOfficialSource[] {
@@ -47,6 +49,24 @@ function mergeUniqueSources(base: ToolOfficialSource[] = [], extra: ToolOfficial
 
 function mergeUniqueStrings(base: string[] = [], extra: string[] = []): string[] {
   return [...new Set([...base, ...extra])];
+}
+
+function mergeUniqueFaqs(base: ToolFaq[] = [], extra: ToolFaq[] = []): ToolFaq[] {
+  const byQuestion = new Map<string, ToolFaq>();
+  [...base, ...extra].forEach((faq) => byQuestion.set(faq.question, faq));
+  return [...byQuestion.values()];
+}
+
+function mergeUniqueContentSections(base: ToolContentSection[] = [], extra: ToolContentSection[] = []): ToolContentSection[] {
+  const byHeading = new Map<string, ToolContentSection>();
+  [...base, ...extra].forEach((section) => byHeading.set(section.heading, section));
+  return [...byHeading.values()];
+}
+
+function mergeUniqueFactRows(base: ToolFactRow[] = [], extra: ToolFactRow[] = []): ToolFactRow[] {
+  const byTopic = new Map<string, ToolFactRow>();
+  [...base, ...extra].forEach((row) => byTopic.set(row.topic, row));
+  return [...byTopic.values()];
 }
 
 export const allTools = sourceTools.map((tool) => {
@@ -69,19 +89,32 @@ export const allTools = sourceTools.map((tool) => {
   const seoOverride = ctrSeoOverrides[tool.slug];
   const directAnswer = directAnswers[tool.slug];
   const queryVariant = queryVariants[tool.slug];
+  const issue77Override = issue77Overrides[tool.slug];
   const withLiveRates = applyLiveRateDefaults(mergedTool);
-  return {
+  const withQueryVariants = {
     ...withLiveRates,
     ...(seoOverride ? { seoTitle: seoOverride.title, metaDescription: seoOverride.description } : {}),
     ...(directAnswer ? { shortDescription: directAnswer } : {}),
     ...(queryVariant
       ? {
-          contentSections: [...(mergedTool.contentSections ?? []), ...(queryVariant.contentSections ?? [])],
-          faqs: [...mergedTool.faqs, ...(queryVariant.faqs ?? [])],
+          contentSections: mergeUniqueContentSections(mergedTool.contentSections, queryVariant.contentSections),
+          faqs: mergeUniqueFaqs(mergedTool.faqs, queryVariant.faqs),
           officialSources: mergeUniqueSources(mergedTool.officialSources, queryVariant.officialSources),
         }
       : {}),
-  };
+  } as Tool;
+
+  if (!issue77Override) return withQueryVariants;
+
+  return {
+    ...withQueryVariants,
+    ...issue77Override,
+    related: mergeUniqueStrings(withQueryVariants.related, issue77Override.related),
+    contentSections: mergeUniqueContentSections(withQueryVariants.contentSections, issue77Override.contentSections),
+    faqs: mergeUniqueFaqs(withQueryVariants.faqs, issue77Override.faqs),
+    officialSources: mergeUniqueSources(withQueryVariants.officialSources, issue77Override.officialSources),
+    factRows: mergeUniqueFactRows(withQueryVariants.factRows, issue77Override.factRows),
+  } as Tool;
 });
 
 export function getLiveTools(): Tool[] { return allTools.filter((tool) => tool.status === 'live' && !CONSOLIDATED_TOOL_SLUGS.has(tool.slug)); }
