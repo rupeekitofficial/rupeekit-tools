@@ -24,6 +24,7 @@ export default function DiscoverHeroImage({
     <>
       {isCalculatorRoute ? (
         <style jsx global>{`
+          /* Calculator pages use a large editorial hero instead of a narrow side-column image. */
           @media (min-width: 1024px) {
             header:has(.rupeekit-calculator-discover-hero) {
               grid-template-columns: minmax(0, 1fr) !important;
