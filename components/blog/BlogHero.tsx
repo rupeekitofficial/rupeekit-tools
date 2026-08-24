@@ -31,6 +31,7 @@ export default function BlogHero({
   heroImageHeight,
 }: BlogHeroProps) {
   const hasVisual = Boolean(heroImage || visualType);
+  const isProgrammaticDiscoverCard = Boolean(heroImage?.startsWith('/discover-image/'));
 
   return (
     <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 text-white shadow-xl">
@@ -70,6 +71,7 @@ export default function BlogHero({
                   className="object-contain"
                   sizes="(min-width: 1280px) 1152px, (min-width: 1024px) calc(100vw - 8rem), (min-width: 640px) calc(100vw - 4rem), calc(100vw - 2rem)"
                   priority
+                  unoptimized={isProgrammaticDiscoverCard}
                 />
               </div>
               <figcaption className="sr-only">{heroImageAlt || visualAlt || title}</figcaption>
