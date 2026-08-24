@@ -21,9 +21,10 @@ export type DiscoverCreativeBrief = {
   avoid: string[];
 };
 
-// Keep the exported sitemap inventory bound to the original static WebP files.
-// Priority pages may render a programmatic Discover card on-page and in metadata,
-// but the base editorial image remains crawlable through the image sitemap.
+// Keep every preferred image bound to a verified static WebP. Static assets are
+// reliable in the visible hero, Open Graph/Twitter metadata, structured data and
+// the image sitemap. Creative briefs govern future image regeneration/review but
+// do not replace the actual editorial image at runtime.
 export const discoverImages = [
   ...imageManifest,
   ...fcraImageManifest,
@@ -42,10 +43,6 @@ function normalizePath(pathname: string) {
   return pathname.replace(/\/$/, '');
 }
 
-function slugFromPath(pathname: string) {
-  return normalizePath(pathname).split('/').filter(Boolean).at(-1);
-}
-
 export function getBaseDiscoverImage(pathname: string): DiscoverImage | undefined {
   return discoverImageByPath.get(normalizePath(pathname));
 }
@@ -59,18 +56,7 @@ export function getDiscoverCreativeBriefBySlug(slug: string): DiscoverCreativeBr
 }
 
 export function getDiscoverImage(pathname: string): DiscoverImage | undefined {
-  const normalizedPath = normalizePath(pathname);
-  const baseImage = discoverImageByPath.get(normalizedPath);
-  if (!baseImage) return undefined;
-
-  const brief = creativeBriefByPath.get(normalizedPath);
-  const slug = slugFromPath(normalizedPath);
-  if (!brief || !slug) return baseImage;
-
-  return {
-    ...baseImage,
-    src: `/discover-image/${slug}`,
-  };
+  return getBaseDiscoverImage(pathname);
 }
 
 export function getAbsoluteDiscoverImageUrl(siteUrl: string, pathname: string): string | undefined {
