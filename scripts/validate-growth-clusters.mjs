@@ -51,7 +51,10 @@ const toolPage = fs.readFileSync(path.join(root, 'app', 'tools', '[slug]', 'page
 const sitemap = fs.readFileSync(path.join(root, 'app', 'sitemap.ts'), 'utf8');
 const llms = fs.readFileSync(path.join(root, 'public', 'llms.txt'), 'utf8');
 ensure(toolPage.includes('getGuidesForTool'), 'Calculator pages do not link their supporting guides');
-ensure(sitemap.includes('calculatorGuides.map'), 'Supporting guides are missing from sitemap generation');
+// `allGuides` is the merged view of the original 34 calculator guides plus the
+// policy guides added later. Asserting on it keeps the original intent — every
+// guide reaches the sitemap — while covering both sets.
+ensure(sitemap.includes('allGuides.map'), 'Supporting guides are missing from sitemap generation');
 ensure(llms.includes('/tools/home-loan-swp-stress-test-india'), 'llms.txt is missing the SWP stress test');
 ensure(llms.includes('/guides/can-swp-pay-home-loan-emi'), 'llms.txt is missing the SWP guide cluster');
 

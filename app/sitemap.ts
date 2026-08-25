@@ -4,7 +4,7 @@ import { blogPosts } from '@/data/all-blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updates';
-import { calculatorGuides } from '@/data/calculator-guides';
+import { allGuides } from '@/data/calculator-guides';
 import { PAY_MATRIX_LEVELS } from '@/data/pay-matrix-levels';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolDates = liveTools.map((tool) =>
     resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed)
   );
-  const guideDates = calculatorGuides.map(
+  const guideDates = allGuides.map(
     (guide) => parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED
   );
   const blogDates = blogPosts.map(
@@ -141,7 +141,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       };
     }),
-    ...calculatorGuides.map((guide) => ({
+    ...allGuides.map((guide) => ({
       url: `${baseUrl}/guides/${guide.slug}`,
       lastModified: parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED,
       changeFrequency: 'monthly' as const,
