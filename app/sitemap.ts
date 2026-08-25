@@ -99,6 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/start-here',
     '/government-salary-updates',
     '/financial-updates',
+    '/deadlines',
     '/updates',
     '/nri',
     '/8th-pay-commission',

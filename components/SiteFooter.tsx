@@ -48,6 +48,7 @@ export default function SiteFooter() {
     { name: 'Blog', href: '/blog' },
     { name: 'Guides', href: '/guides' },
     { name: '8th Pay Commission', href: '/8th-pay-commission' },
+    { name: 'Tax Deadlines', href: '/deadlines' },
     { name: 'NRI Guide', href: '/nri' },
     { name: 'Resources', href: '/resources' },
     { name: 'Recommended Tools', href: '/resources/recommended-money-tools' },
