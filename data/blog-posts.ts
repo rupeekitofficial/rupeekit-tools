@@ -2964,6 +2964,8 @@ export const blogPosts: BlogPost[] = [
       note: 'The Government made the four Labour Codes effective from 21 November 2025. Verify the employment contract and current official rules before applying the fixed-term exception.',
       links: [
         { label: 'Estimate your gratuity with the Gratuity Calculator', href: '/tools/gratuity-calculator-india' },
+        { label: 'See your gratuity on the revised wage base', href: '/tools/gratuity-under-new-wage-code-calculator-india' },
+        { label: 'Check what the 50% wage rule does to your take-home', href: '/tools/new-labour-code-take-home-calculator-india' },
         { label: 'Compare old vs new gratuity wage-base scenarios', href: '/guides/gratuity-2026-old-vs-new' },
         { label: 'Fixed-term employee one-year gratuity guide', href: '/guides/fixed-term-employee-gratuity-one-year' },
       ],

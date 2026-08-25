@@ -5,8 +5,10 @@ import { financialUpdates } from '@/data/financial-updates';
 import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updates';
 import { calculatorGuides } from '@/data/calculator-guides';
+import { PAY_MATRIX_LEVELS } from '@/data/pay-matrix-levels';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
+const PAY_MATRIX_LEVEL_LAST_MODIFIED = new Date('2026-08-25');
 
 function parseIsoDate(value?: string): Date | null {
   if (!value) return null;
@@ -169,6 +171,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       };
     }),
+    ...PAY_MATRIX_LEVELS.map((entry) => ({
+      url: `${baseUrl}/8th-pay-commission/${entry.slug}`,
+      lastModified: PAY_MATRIX_LEVEL_LAST_MODIFIED,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    })),
     ...indexableGovernmentSalaryUpdates
       .map((u) => {
         const lastModified =
