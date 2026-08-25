@@ -15,7 +15,8 @@ const decisionTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'decisi
 const insuranceTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'insurance-tools-2026.json'), 'utf8'));
 const investingTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'investing-tools-2026.json'), 'utf8'));
 const lifestageTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'lifestage-tools-2026.json'), 'utf8'));
-const tools = [...baseTools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools];
+const policyTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'policy-tools-2026.json'), 'utf8'));
+const tools = [...baseTools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools, ...policyTools];
 const errors = [];
 const warnings = [];
 const day7BlogSource = fs.readFileSync(
@@ -52,8 +53,8 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 97) {
-  errors.push(`Expected 97 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 104) {
+  errors.push(`Expected 104 Discover images, found ${manifest.length}.`);
 }
 
 for (const slug of day7ImageSlugs) {
@@ -68,9 +69,17 @@ for (const slug of day7ImageSlugs) {
 
 const paths = new Set();
 const sources = new Set();
+// Policy-lane calculators launched before their bespoke Discover assets exist.
+// They reuse the reviewed parent-topic image of the calculator they extend, the
+// same strategy the calculator guides use. Issue #129 still tracks bespoke P0
+// artwork; these rows are interim coverage, not the final creative.
 const reusableSources = new Set([
   '/images/discover/epf-corpus-calculator-india.webp',
   '/images/discover/8th-pay-commission-salary-calculator-india.webp',
+  '/images/discover/health-insurance-coverage-adequacy-calculator-india.webp',
+  '/images/discover/capital-gains-tax-calculator-india.webp',
+  '/images/discover/salary-in-hand-calculator-india.webp',
+  '/images/discover/gratuity-2026-old-vs-new-calculator-india.webp',
 ]);
 
 for (const image of manifest) {
