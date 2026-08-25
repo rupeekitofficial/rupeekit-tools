@@ -12,6 +12,8 @@ import EighthPayCommissionPensionCalculator from './EighthPayCommissionPensionCa
 import GoldLoanCalculatorV2 from './GoldLoanCalculatorV2';
 import PersonalLoanEligibilityCalculatorV2 from './PersonalLoanEligibilityCalculatorV2';
 import SsyCalculatorV2 from './SsyCalculatorV2';
+import LabourCodeTakeHomeCalculator from './LabourCodeTakeHomeCalculator';
+import NewWageGratuityCalculator from './NewWageGratuityCalculator';
 import { ADVANCED_CALCULATORS } from '@/lib/advanced-calculators';
 
 export default function AdvancedCalculatorRenderer({ tool }: { tool: Tool }) {
@@ -53,6 +55,14 @@ export default function AdvancedCalculatorRenderer({ tool }: { tool: Tool }) {
 
   if (tool.slug === ADVANCED_CALCULATORS.SSY) {
     return <SsyCalculatorV2 tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.LABOUR_CODE_TAKE_HOME) {
+    return <LabourCodeTakeHomeCalculator tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.NEW_WAGE_GRATUITY) {
+    return <NewWageGratuityCalculator tool={tool} />;
   }
 
   return null;

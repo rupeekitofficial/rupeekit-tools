@@ -9,6 +9,7 @@ const toolFiles = [
   'insurance-tools-2026.json',
   'investing-tools-2026.json',
   'lifestage-tools-2026.json',
+  'policy-tools-2026.json',
 ];
 const readToolFile = (fileName) => JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', fileName), 'utf8'));
 const tools = toolFiles.flatMap(readToolFile);
@@ -37,6 +38,7 @@ const protectedSeoSlugs = new Set([
 ]);
 
 const ctrFullScopeFiles = [
+  'policy-tools-2026.json',
   'decision-tools-2026.json',
   'insurance-tools-2026.json',
   'investing-tools-2026.json',

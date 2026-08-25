@@ -11,6 +11,8 @@ export const ADVANCED_CALCULATORS = {
   GOLD_LOAN: 'gold-loan-calculator-india',
   PERSONAL_LOAN_ELIGIBILITY: 'personal-loan-eligibility-calculator-india',
   SSY: 'sukanya-samriddhi-yojana-calculator-india',
+  LABOUR_CODE_TAKE_HOME: 'new-labour-code-take-home-calculator-india',
+  NEW_WAGE_GRATUITY: 'gratuity-under-new-wage-code-calculator-india',
 } as const;
 
 export type AdvancedCalculatorSlug = typeof ADVANCED_CALCULATORS[keyof typeof ADVANCED_CALCULATORS];
