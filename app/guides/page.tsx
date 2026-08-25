@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { calculatorGuideClusters, calculatorGuides } from '@/data/calculator-guides';
+import { allGuideClusters, allGuides } from '@/data/calculator-guides';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 
@@ -16,7 +16,7 @@ export default function CalculatorGuidesPage() {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'RupeeKit calculator guides',
-    itemListElement: calculatorGuides.map((guide, index) => ({
+    itemListElement: allGuides.map((guide, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: guide.title,
@@ -40,8 +40,8 @@ export default function CalculatorGuidesPage() {
       </div>
 
       <div className="mt-10 space-y-8">
-        {calculatorGuideClusters.map((cluster) => {
-          const guides = calculatorGuides.filter((guide) => guide.clusterId === cluster.id);
+        {allGuideClusters.map((cluster) => {
+          const guides = allGuides.filter((guide) => guide.clusterId === cluster.id);
           return (
             <section key={cluster.id} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-8">
               <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">

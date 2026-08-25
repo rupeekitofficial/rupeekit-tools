@@ -4,9 +4,11 @@ import { blogPosts } from '@/data/all-blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updates';
-import { calculatorGuides } from '@/data/calculator-guides';
+import { allGuides } from '@/data/calculator-guides';
+import { PAY_MATRIX_LEVELS } from '@/data/pay-matrix-levels';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
+const PAY_MATRIX_LEVEL_LAST_MODIFIED = new Date('2026-08-25');
 
 function parseIsoDate(value?: string): Date | null {
   if (!value) return null;
@@ -37,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolDates = liveTools.map((tool) =>
     resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed)
   );
-  const guideDates = calculatorGuides.map(
+  const guideDates = allGuides.map(
     (guide) => parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED
   );
   const blogDates = blogPosts.map(
@@ -97,6 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/start-here',
     '/government-salary-updates',
     '/financial-updates',
+    '/deadlines',
     '/updates',
     '/nri',
     '/8th-pay-commission',
@@ -139,7 +142,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       };
     }),
-    ...calculatorGuides.map((guide) => ({
+    ...allGuides.map((guide) => ({
       url: `${baseUrl}/guides/${guide.slug}`,
       lastModified: parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED,
       changeFrequency: 'monthly' as const,
@@ -169,6 +172,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       };
     }),
+    ...PAY_MATRIX_LEVELS.map((entry) => ({
+      url: `${baseUrl}/8th-pay-commission/${entry.slug}`,
+      lastModified: PAY_MATRIX_LEVEL_LAST_MODIFIED,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    })),
     ...indexableGovernmentSalaryUpdates
       .map((u) => {
         const lastModified =

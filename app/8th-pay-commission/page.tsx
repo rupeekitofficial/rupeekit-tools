@@ -4,6 +4,7 @@ import Link from 'next/link';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import { PAY_MATRIX_LEVELS } from '@/data/pay-matrix-levels';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_POLICY_URL,
@@ -432,6 +433,33 @@ export default function EighthPayCommissionHubPage() {
           </Link>{' '}
           lets you set the fitment factor and DA percentage yourself so you can
           see that gap for your own pay, rather than a stock example.
+        </p>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-brandDeepNavy">
+          Scenarios by pay matrix level
+        </h2>
+        <p className="mt-4 leading-8 text-slate-700">
+          Each level starts from a different cell of the current matrix, so the
+          same fitment factor produces a very different figure. Pick your level
+          to see the four published scenarios applied to its entry pay, and how
+          much of the apparent rise is really the DA merge.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {PAY_MATRIX_LEVELS.map((entry) => (
+            <Link
+              key={entry.slug}
+              href={`/8th-pay-commission/${entry.slug}`}
+              className="rounded-full border border-brandBorder bg-white px-4 py-2 text-sm font-semibold text-brandNavy transition hover:border-brandNavy/40 hover:bg-slate-50"
+            >
+              Level {entry.level}
+            </Link>
+          ))}
+        </div>
+        <p className="mt-4 text-sm leading-6 text-slate-500">
+          Levels 15 to 18 are fixed-pay apex posts held by a very small number of
+          officers and are not published as separate pages.
         </p>
       </section>
 

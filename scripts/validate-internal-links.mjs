@@ -10,6 +10,7 @@ const toolFiles = [
   'insurance-tools-2026.json',
   'investing-tools-2026.json',
   'lifestage-tools-2026.json',
+  'policy-tools-2026.json',
 ];
 
 function read(rel) {

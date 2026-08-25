@@ -142,5 +142,33 @@
   "8th-pay-commission-pension-calculator-india": {
     "title": "8th Pay Commission Pension Calculator 2026 | Scenario",
     "description": "Compare current pension plus DR with an unofficial 8th Pay Commission multiplier scenario, projected DR and additional pension rate. No official method assumed."
+  },
+  "new-labour-code-take-home-calculator-india": {
+    "title": "New Labour Code Take-Home Calculator (50% Wage Rule)",
+    "description": "See how the 50% wage rule changes your monthly take-home, PF and gratuity. Enter your CTC and current basic percentage to compare both structures."
+  },
+  "gratuity-under-new-wage-code-calculator-india": {
+    "title": "Gratuity Under the New Wage Code | Revised Payout",
+    "description": "Estimate gratuity on the revised wage base under the labour codes. Compare your payout on current basic against the 50% floor, with the one-year rule."
+  },
+  "room-rent-proportionate-deduction-calculator-india": {
+    "title": "Room Rent Proportionate Deduction Calculator",
+    "description": "Your room cost more than the policy allows. See how much of the whole hospital bill the insurer cuts, not just the room rent difference itself."
+  },
+  "notional-increment-pension-calculator-india": {
+    "title": "Notional Increment Calculator for 30 June Retirees",
+    "description": "Retired on 30 June or 31 December? Estimate the extra pension and arrears from one notional increment after the February 2025 Supreme Court ruling."
+  },
+  "pension-commutation-calculator-india": {
+    "title": "Pension Commutation Calculator | Lump Sum & Payback",
+    "description": "See your commutation lump sum, reduced pension and break-even point, including why dearness relief stays on your full basic pension after commuting."
+  },
+  "epf-taxable-interest-rule-9d-calculator-india": {
+    "title": "EPF Taxable Interest Calculator | Rule 9D Split",
+    "description": "Contributing over 2.5 lakh a year? Split your provident fund into taxable and non-taxable accounts and see the interest taxed each year, plus TDS."
+  },
+  "inherited-property-capital-gains-calculator-india": {
+    "title": "Inherited Property Capital Gains Calculator India",
+    "description": "Selling inherited property? Use the previous owner's cost and the 2001 fair market value, and compare both long-term capital gains tax routes."
   }
 }

@@ -4,6 +4,7 @@ import decisionTools from '../data/decision-tools-2026.json';
 import insuranceTools from '../data/insurance-tools-2026.json';
 import investingTools from '../data/investing-tools-2026.json';
 import lifestageTools from '../data/lifestage-tools-2026.json';
+import policyTools from '../data/policy-tools-2026.json';
 import ctrToolSeoOverrides from '../data/ctr-tool-seo-overrides-2026-08-15.json';
 import searchGrowthOverrides from '../data/search-growth-overrides-2026-08-17.json';
 import directAnswerOverrides from '../data/direct-answer-overrides-2026-08-17.json';
@@ -39,7 +40,7 @@ const directAnswers = directAnswerOverrides as Record<string, string>;
 const queryVariants = queryVariantOverrides as Record<string, Partial<QueryVariantToolOverride>>;
 const issue76Overrides = issue76ToolOverrides as Record<string, Partial<Tool>>;
 const issue77Overrides = issue77RescueOverrides as Record<string, Partial<Tool>>;
-const sourceTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools] as Tool[];
+const sourceTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools, ...policyTools] as Tool[];
 
 function mergeUniqueSources(base: ToolOfficialSource[] = [], extra: ToolOfficialSource[] = []): ToolOfficialSource[] {
   const byHref = new Map<string, ToolOfficialSource>();

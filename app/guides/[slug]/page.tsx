@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
-  calculatorGuides,
+  allGuides,
   getCalculatorGuide,
   getCalculatorGuideCluster,
 } from '@/data/calculator-guides';
@@ -18,7 +18,7 @@ import {
 const SITE_URL = 'https://www.rupeekit.co.in';
 
 export function generateStaticParams() {
-  return calculatorGuides.map((guide) => ({ slug: guide.slug }));
+  return allGuides.map((guide) => ({ slug: guide.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
@@ -69,7 +69,7 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
   const cluster = getCalculatorGuideCluster(guide.clusterId);
   if (!cluster) notFound();
 
-  const siblings = calculatorGuides
+  const siblings = allGuides
     .filter((item) => item.clusterId === guide.clusterId && item.slug !== guide.slug)
     .slice(0, 5);
   const canonicalPath = `/guides/${guide.slug}`;
