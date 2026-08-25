@@ -6,6 +6,8 @@ import {
   getCalculatorGuide,
   getCalculatorGuideCluster,
 } from '@/data/calculator-guides';
+import { getDiscoverImage } from '@/data/discover-images';
+import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
 import EditorialByline from '@/components/seo/EditorialByline';
 import {
   CORRECTIONS_POLICY_URL,
@@ -23,7 +25,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const guide = getCalculatorGuide(params.slug);
   if (!guide) return {};
 
-  const canonical = `${SITE_URL}/guides/${guide.slug}`;
+  const canonicalPath = `/guides/${guide.slug}`;
+  const canonical = `${SITE_URL}${canonicalPath}`;
+  const discoverImage = getDiscoverImage(canonicalPath);
+  const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
+
   return {
     title: { absolute: guide.seoTitle },
     description: guide.metaDescription,
@@ -36,6 +42,22 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       siteName: 'RupeeKit',
       type: 'article',
       locale: 'en_IN',
+      ...(discoverImageUrl && discoverImage
+        ? {
+            images: [{
+              url: discoverImageUrl,
+              width: discoverImage.width,
+              height: discoverImage.height,
+              alt: discoverImage.alt,
+            }],
+          }
+        : {}),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: guide.seoTitle,
+      description: guide.metaDescription,
+      ...(discoverImageUrl ? { images: [discoverImageUrl] } : {}),
     },
   };
 }
@@ -50,7 +72,10 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
   const siblings = calculatorGuides
     .filter((item) => item.clusterId === guide.clusterId && item.slug !== guide.slug)
     .slice(0, 5);
-  const canonical = `${SITE_URL}/guides/${guide.slug}`;
+  const canonicalPath = `/guides/${guide.slug}`;
+  const canonical = `${SITE_URL}${canonicalPath}`;
+  const discoverImage = getDiscoverImage(canonicalPath);
+  const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
   const faqItems = [
     { question: guide.question, answer: guide.answer },
     {
@@ -75,6 +100,7 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
       publishingPrinciples: EDITORIAL_POLICY_URL,
       correctionsPolicy: CORRECTIONS_POLICY_URL,
       isPartOf: { '@id': `${SITE_URL}/#website` },
+      ...(discoverImageUrl ? { image: discoverImageUrl } : {}),
       about: { '@type': 'Thing', name: cluster.title },
       mentions: {
         '@type': 'WebApplication',
@@ -143,6 +169,10 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
           <p className="mt-5 text-lg leading-8 text-slate-700">{guide.metaDescription}</p>
           <EditorialByline className="mt-3" updatedIso={guide.lastReviewedIso} />
         </header>
+
+        {discoverImage ? (
+          <DiscoverHeroImage image={discoverImage} className="mt-7" priority />
+        ) : null}
 
         <section className="mt-8 rounded-3xl border border-brandNavy/15 bg-brandNavy/5 p-6 md:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-brandNavy">Direct answer</p>
