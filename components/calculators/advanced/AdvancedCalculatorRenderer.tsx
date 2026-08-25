@@ -14,6 +14,11 @@ import PersonalLoanEligibilityCalculatorV2 from './PersonalLoanEligibilityCalcul
 import SsyCalculatorV2 from './SsyCalculatorV2';
 import LabourCodeTakeHomeCalculator from './LabourCodeTakeHomeCalculator';
 import NewWageGratuityCalculator from './NewWageGratuityCalculator';
+import RoomRentDeductionCalculator from './RoomRentDeductionCalculator';
+import NotionalIncrementCalculator from './NotionalIncrementCalculator';
+import PensionCommutationCalculator from './PensionCommutationCalculator';
+import Rule9dEpfInterestCalculator from './Rule9dEpfInterestCalculator';
+import InheritedPropertyGainsCalculator from './InheritedPropertyGainsCalculator';
 import { ADVANCED_CALCULATORS } from '@/lib/advanced-calculators';
 
 export default function AdvancedCalculatorRenderer({ tool }: { tool: Tool }) {
@@ -63,6 +68,26 @@ export default function AdvancedCalculatorRenderer({ tool }: { tool: Tool }) {
 
   if (tool.slug === ADVANCED_CALCULATORS.NEW_WAGE_GRATUITY) {
     return <NewWageGratuityCalculator tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.ROOM_RENT_DEDUCTION) {
+    return <RoomRentDeductionCalculator tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.NOTIONAL_INCREMENT) {
+    return <NotionalIncrementCalculator tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.PENSION_COMMUTATION) {
+    return <PensionCommutationCalculator tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.RULE_9D_EPF_INTEREST) {
+    return <Rule9dEpfInterestCalculator tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.INHERITED_PROPERTY_GAINS) {
+    return <InheritedPropertyGainsCalculator tool={tool} />;
   }
 
   return null;

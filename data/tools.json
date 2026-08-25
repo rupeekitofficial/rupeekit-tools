@@ -2923,7 +2923,8 @@
       "income-tax-calculator-old-vs-new-regime-india",
       "sip-calculator-india",
       "80c-deduction-calculator-india",
-      "stock-portfolio-calculator-india"
+      "stock-portfolio-calculator-india",
+      "inherited-property-capital-gains-calculator-india"
     ],
     "howToUse": [
       "Add up your short-term gains on listed equity and equity funds for the financial year.",
@@ -3139,7 +3140,8 @@
       "80c-deduction-calculator-india",
       "fd-calculator-india",
       "sip-calculator-india",
-      "lumpsum-calculator-india"
+      "lumpsum-calculator-india",
+      "epf-taxable-interest-rule-9d-calculator-india"
     ],
     "howToUse": [
       "Enter how much you plan to invest each financial year (Rs 500 to Rs 1,50,000).",
@@ -3485,7 +3487,8 @@
       "gratuity-calculator-india",
       "sip-calculator-india",
       "retirement-calculator-india",
-      "new-labour-code-take-home-calculator-india"
+      "new-labour-code-take-home-calculator-india",
+      "epf-taxable-interest-rule-9d-calculator-india"
     ],
     "howToUse": [
       "Enter your monthly basic salary plus DA from your payslip.",
@@ -4047,7 +4050,9 @@
       "ppf-calculator-india",
       "sip-calculator-india",
       "income-tax-calculator-old-vs-new-regime-india",
-      "retirement-calculator-india"
+      "retirement-calculator-india",
+      "pension-commutation-calculator-india",
+      "notional-increment-pension-calculator-india"
     ],
     "howToUse": [
       "Enter your current age — corpus is estimated until age 60.",
@@ -5018,7 +5023,8 @@
       "nps-calculator-india",
       "epf-corpus-calculator-india",
       "sip-calculator-india",
-      "fire-retirement-calculator-india"
+      "fire-retirement-calculator-india",
+      "pension-commutation-calculator-india"
     ],
     "quickAnswer": {
       "title": "Retirement Calculator Quick Answer",

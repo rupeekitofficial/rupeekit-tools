@@ -1646,7 +1646,9 @@
       "8th-pay-commission-salary-calculator-india",
       "8th-pay-commission-arrears-calculator-india",
       "ops-vs-nps-pension-comparison-calculator-india",
-      "nps-calculator-india"
+      "nps-calculator-india",
+      "notional-increment-pension-calculator-india",
+      "pension-commutation-calculator-india"
     ],
     "howToUse": [
       "Enter current basic pension before DR.",
