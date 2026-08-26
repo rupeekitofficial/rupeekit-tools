@@ -6,6 +6,7 @@ import Logo from './Logo';
 
 const navLinks = [
   { name: 'Tools', href: '/tools' },
+  { name: 'Hubs', href: '/tool-hubs' },
   { name: 'Blog', href: '/blog' },
   { name: 'Guides', href: '/guides' },
   { name: 'Resources', href: '/resources' },
@@ -44,7 +45,6 @@ export default function SiteHeader() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close on Escape + lock body scroll while the drawer is open
   useEffect(() => {
     if (!mobileMenuOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -138,7 +138,6 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile drawer with backdrop */}
       {mobileMenuOpen ? (
         <div className="md:hidden" role="dialog" aria-modal="true" aria-label="Mobile menu">
           <button
