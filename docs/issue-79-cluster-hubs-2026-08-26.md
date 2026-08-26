@@ -6,6 +6,8 @@ Date: 26 August 2026
 
 Issue #78 classified the portfolio first; this work is intentionally stacked on that branch so it does not resurrect any retired or consolidated URL. The aim is to make every surviving calculator reachable through a useful topical path rather than relying on the XML sitemap or a flat directory alone.
 
+Review order matters: merge the issue #78 portfolio-triage PR first, then retarget this issue #79 PR to `main`. CI may temporarily target `main` while validating the combined stack, but the intended review dependency remains #78 before #79.
+
 ## Seven non-competing cluster hubs
 
 | Hub | Target keyword | Scope |
