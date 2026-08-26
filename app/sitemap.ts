@@ -5,6 +5,7 @@ import { financialUpdates } from '@/data/financial-updates';
 import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updates';
 import { calculatorGuides } from '@/data/calculator-guides';
+import { toolClusters } from '@/data/tool-clusters';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
 
@@ -79,6 +80,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '',
     '/tools',
+    '/tool-hubs',
     '/about',
     '/contact',
     '/privacy-policy',
@@ -105,6 +107,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRouteLastModified = new Map<string, Date>([
     ['', latestSiteDate],
     ['/tools', latestToolDate],
+    ['/tool-hubs', latestToolDate],
     ['/guides', latestGuideDate],
     ['/blog', latestBlogDate],
     ['/financial-updates', latestFinancialUpdateDate],
@@ -112,7 +115,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/updates', latestUpdateDate],
   ]);
 
-  const hubRoutes = new Set(['/blog', '/tools', '/guides', '/nri', '/8th-pay-commission']);
+  const hubRoutes = new Set(['/blog', '/tools', '/tool-hubs', '/guides', '/nri', '/8th-pay-commission']);
   const lowPriorityRoutes = new Set(['/privacy-policy', '/terms', '/disclaimer', '/affiliate-disclosure']);
 
   return [
@@ -129,6 +132,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         hubRoutes.has(route) ? 0.8 :
         lowPriorityRoutes.has(route) ? 0.3 :
         0.5,
+    })),
+    ...toolClusters.map((cluster) => ({
+      url: `${baseUrl}/tool-hubs/${cluster.slug}`,
+      lastModified: latestToolDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
     })),
     ...liveTools.map((tool) => {
       const lastModified = resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed);
