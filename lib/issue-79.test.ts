@@ -45,7 +45,6 @@ describe('issue 79 cluster hubs and discovery links', () => {
       const sources = Object.entries(overrides)
         .filter(([, related]) => related.includes(target))
         .map(([source]) => source);
-      expect(sources, target).toHaveLength(expect.any(Number));
       expect(sources.length, target).toBeGreaterThanOrEqual(2);
     }
   });
