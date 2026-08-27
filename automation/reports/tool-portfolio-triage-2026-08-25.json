@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-08-25",
   "issue": 78,
-  "scope": "All 59 tool records across the six RupeeKit tool datasets",
+  "scope": "All 71 tool records across the seven RupeeKit tool datasets (70 live routes plus the one already-consolidated record)",
   "evidence": {
     "authoritativeBaseline": "GitHub issue #57, page-level GSC export for 2026-07-04 through 2026-08-05",
     "day10Report": "automation/reports/gsc/2026-08-12.json",
@@ -18,11 +18,16 @@
   },
   "summary": {
     "keep-and-invest": 27,
-    "keep-too-new": 26,
+    "keep-too-new": 38,
     "merge": 1,
     "fix-discovery": 5,
     "retire": 0,
-    "total": 59
+    "total": 71,
+    "coverage": {
+      "recordsInDatasetsAtSnapshot": 64,
+      "recordsAddedAfterSnapshot": 7,
+      "note": "The first pass of this registry covered 59 of the 64 records that were live on 25 August 2026. The five omitted records (mutual-fund, retirement, stock-portfolio, and the two 8th CPC arrears/pension calculators) and the seven policy-lane calculators shipped on 26 August in #131 were added when this registry was merged to main, so the registry now covers every live tool record."
+    }
   },
   "decisions": [
     {"slug":"salary-in-hand-calculator-india","classification":"keep-and-invest","reason":"Core salary journey; issue #57 recorded 154 impressions and zero clicks, so demand exists and the problem is ranking/click-through rather than portfolio fit."},
@@ -88,7 +93,21 @@
     {"slug":"post-office-monthly-income-scheme-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct monthly-income product intent and too new to judge."},
     {"slug":"child-education-cost-planner-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct goal-planning intent and too new to judge."},
     {"slug":"wedding-cost-planner-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct goal-planning intent and too new to judge."},
-    {"slug":"rent-agreement-stamp-duty-registration-cost-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct user-entered state-cost estimate and too new to judge."}
+    {"slug":"rent-agreement-stamp-duty-registration-cost-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct user-entered state-cost estimate and too new to judge."},
+
+    {"slug":"mutual-fund-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Shipped 11 August 2026 in the trends-keyword batch; distinct generic mutual-fund projection intent and inside the issue-78 conservative window."},
+    {"slug":"retirement-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Shipped 11 August 2026; generic retirement-corpus intent that overlaps but does not duplicate the NPS/EPF scheme calculators. Re-check overlap at review."},
+    {"slug":"stock-portfolio-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Shipped 11 August 2026; distinct equity-portfolio valuation intent and too new for a traffic-based judgement."},
+    {"slug":"8th-pay-commission-arrears-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Shipped 17 August 2026 alongside the 8th CPC pages; distinct arrears computation and too new to judge."},
+    {"slug":"8th-pay-commission-pension-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Shipped 17 August 2026 alongside the 8th CPC pages; distinct pension-revision intent and too new to judge."},
+
+    {"slug":"new-labour-code-take-home-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct new labour code wage definition impact on take-home; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"gratuity-under-new-wage-code-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct gratuity recomputed on the new wage-code definition; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"room-rent-proportionate-deduction-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct proportionate room-rent deduction on a health claim; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"notional-increment-pension-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct notional-increment effect on pension; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"pension-commutation-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct commutation trade-off between lump sum and monthly pension; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"epf-taxable-interest-rule-9d-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct Rule 9D taxable EPF interest split; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"inherited-property-capital-gains-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct capital gains on inherited property with indexation and holding-period inheritance; classified on ship date only and too new for any traffic-based judgement."}
   ],
   "actions": {
     "newMergesThisRun": [],

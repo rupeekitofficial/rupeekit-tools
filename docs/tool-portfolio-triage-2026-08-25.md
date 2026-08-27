@@ -4,7 +4,9 @@ Issue: #78
 
 ## Decision
 
-This pass classifies all 59 tool records without inventing fresh traffic data that the repository does not currently have.
+This pass classifies every live tool record without inventing fresh traffic data that the repository does not currently have.
+
+Coverage note: the first pass of this triage covered 59 of the 64 tool records that were live on 25 August 2026. The five omitted records, plus the seven policy-lane calculators shipped on 26 August in #131, were classified when this document was merged to `main`. The registry and the tables below therefore cover all 71 tool records in the datasets: 70 live routes plus the one already-consolidated record.
 
 The Day-10 report is explicitly `bootstrap-partial`: its fresh GSC API pull did not complete, `topPages` is empty, and it preserves only the authoritative page-level baseline from issue #57. The Day-9 indexing audit does provide current source-level evidence for sitemap, canonical, redirects and inbound-link counts. Therefore this triage uses four evidence layers, in this order:
 
@@ -20,19 +22,19 @@ The machine-readable registry is `automation/reports/tool-portfolio-triage-2026-
 | Classification | Count | Decision |
 |---|---:|---|
 | Keep and invest | 27 | Existing demand or clear differentiated/core intent |
-| Keep but too new to judge | 26 | Re-review after a fair post-indexing window |
+| Keep but too new to judge | 38 | Re-review after a fair post-indexing window |
 | Fix discovery | 5 | Keep; prioritise stronger contextual internal links on Day 24 |
 | Merge | 1 | `net-worth-tracker-calculator-india` → `net-worth-calculator-india`, already completed in #57 |
 | Retire | 0 | No page meets the evidence bar for retirement in this run |
-| **Total** | **59** | |
+| **Total** | **71** | |
 
 ## Why there are no new retirements
 
-Issue #78 explicitly says not to treat absence of data as evidence of absence of demand, especially for pages shipped after about 20 July. The fresh Day-10 page rows are unavailable, and 26 calculators are still inside that conservative window. Retiring one of them now would be a data-free decision.
+Issue #78 explicitly says not to treat absence of data as evidence of absence of demand, especially for pages shipped after about 20 July. The fresh Day-10 page rows are unavailable, and 38 calculators are still inside that conservative window. Retiring one of them now would be a data-free decision.
 
 For the older set, the pages with explicit GSC evidence either have impressions, serve a distinct core calculation, or already belong to an established topical journey. None currently satisfies all three retirement conditions at once: no demand, no meaningful differentiation, and no discovery value after a fair measurement window.
 
-That is not a permanent keep decision. The 26 new tools have explicit review dates below. At those checkpoints, a page can move to merge or retire if it has had time to be indexed, has no useful search demand, duplicates a stronger survivor, and carries no unique user value.
+That is not a permanent keep decision. The new tools have explicit review dates below. At those checkpoints, a page can move to merge or retire if it has had time to be indexed, has no useful search demand, duplicates a stronger survivor, and carries no unique user value.
 
 ## Existing merge verified
 
@@ -54,7 +56,7 @@ The following pages should remain live and be prioritised for stronger contextua
 
 `education-loan-emi-tax-benefit-calculator-india` also had zero contextual inbound links in the Day-9 audit, but it remains in **Keep but too new to judge** because it shipped after the cutoff. Day 24 should still improve its links before its 15 September review.
 
-## Full 59-tool decision table
+## Full decision table
 
 ### Core / established tools
 
@@ -153,6 +155,25 @@ Review date: **28 September 2026**.
 | `wedding-cost-planner-india` | Keep but too new to judge | Distinct goal-planning intent; shipped 8 Aug |
 | `rent-agreement-stamp-duty-registration-cost-calculator-india` | Keep but too new to judge | Distinct user-entered state-cost estimate; shipped 8 Aug |
 
+### Records added during the merge to `main`
+
+The first five were live on 25 August 2026 but were missing from the original table. The remaining seven shipped on 26 August 2026 in the policy lane (#131), after this snapshot was written, and are classified on ship date alone.
+
+| Slug | Classification | Reason / review |
+|---|---|---|
+| `mutual-fund-calculator-india` | Keep but too new to judge | Shipped 11 Aug; distinct generic mutual-fund projection intent. Review 21 Sep |
+| `retirement-calculator-india` | Keep but too new to judge | Shipped 11 Aug; generic retirement-corpus intent. Re-check overlap with the NPS/EPF calculators at review. Review 21 Sep |
+| `stock-portfolio-calculator-india` | Keep but too new to judge | Shipped 11 Aug; distinct equity-portfolio valuation intent. Review 21 Sep |
+| `8th-pay-commission-arrears-calculator-india` | Keep but too new to judge | Shipped 17 Aug; distinct arrears computation. Review 28 Sep |
+| `8th-pay-commission-pension-calculator-india` | Keep but too new to judge | Shipped 17 Aug; distinct pension-revision intent. Review 28 Sep |
+| `new-labour-code-take-home-calculator-india` | Keep but too new to judge | Shipped 26 Aug in #131. Review 7 Oct |
+| `gratuity-under-new-wage-code-calculator-india` | Keep but too new to judge | Shipped 26 Aug in #131. Review 7 Oct |
+| `room-rent-proportionate-deduction-calculator-india` | Keep but too new to judge | Shipped 26 Aug in #131. Review 7 Oct |
+| `notional-increment-pension-calculator-india` | Keep but too new to judge | Shipped 26 Aug in #131. Review 7 Oct |
+| `pension-commutation-calculator-india` | Keep but too new to judge | Shipped 26 Aug in #131. Review 7 Oct |
+| `epf-taxable-interest-rule-9d-calculator-india` | Keep but too new to judge | Shipped 26 Aug in #131. Review 7 Oct |
+| `inherited-property-capital-gains-calculator-india` | Keep but too new to judge | Shipped 26 Aug in #131. Review 7 Oct |
+
 ## Merge / redirect execution status
 
 No new merge or retirement is justified by the available evidence, so this issue does not add new redirects or remove additional sitemap URLs.
@@ -173,6 +194,7 @@ This satisfies the merge rule without creating duplicate or chained redirects.
 - A recent calculator can only graduate from `keep-too-new` after its review date and after indexation/internal-link status is checked. Zero clicks before that date are not enough to retire it.
 - `fix-discovery` does not imply the calculator is weak. It means demand/differentiation is strong enough to keep it while the link graph is the next obvious lever.
 - No formula, tax rate, interest rate, eligibility rule or other financial assumption is changed by this triage.
+- The twelve records added during the merge to `main` were classified from ship date and intent only. None of them has page-level GSC evidence, so none can be retired before its review date.
 
 ## Next action
 
