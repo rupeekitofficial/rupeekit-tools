@@ -11,6 +11,7 @@ import directAnswerOverrides from '../data/direct-answer-overrides-2026-08-17.js
 import queryVariantOverrides from '../data/query-variant-tool-overrides-2026-08-18.json';
 import issue76ToolOverrides from '../data/issue-76-tool-overrides-2026-08-23.json';
 import issue77RescueOverrides from '../data/issue-77-rescue-overrides-2026-08-24.json';
+import issue80ToolOverrides from '../data/issue-80-tool-overrides-2026-08-27.json';
 import { CONSOLIDATED_TOOL_SLUGS } from './consolidated-routes';
 import { applyLiveRateDefaults } from './live-rate-defaults';
 
@@ -40,6 +41,7 @@ const directAnswers = directAnswerOverrides as Record<string, string>;
 const queryVariants = queryVariantOverrides as Record<string, Partial<QueryVariantToolOverride>>;
 const issue76Overrides = issue76ToolOverrides as Record<string, Partial<Tool>>;
 const issue77Overrides = issue77RescueOverrides as Record<string, Partial<Tool>>;
+const issue80Overrides = issue80ToolOverrides as Record<string, Partial<Tool>>;
 const sourceTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools, ...policyTools] as Tool[];
 
 function mergeUniqueSources(base: ToolOfficialSource[] = [], extra: ToolOfficialSource[] = []): ToolOfficialSource[] {
@@ -68,6 +70,19 @@ function mergeUniqueFactRows(base: ToolFactRow[] = [], extra: ToolFactRow[] = []
   const byTopic = new Map<string, ToolFactRow>();
   [...base, ...extra].forEach((row) => byTopic.set(row.topic, row));
   return [...byTopic.values()];
+}
+
+function mergeToolOverride(base: Tool, override?: Partial<Tool>): Tool {
+  if (!override) return base;
+  return {
+    ...base,
+    ...override,
+    related: mergeUniqueStrings(base.related, override.related),
+    contentSections: mergeUniqueContentSections(base.contentSections, override.contentSections),
+    faqs: mergeUniqueFaqs(base.faqs, override.faqs),
+    officialSources: mergeUniqueSources(base.officialSources, override.officialSources),
+    factRows: mergeUniqueFactRows(base.factRows, override.factRows),
+  } as Tool;
 }
 
 function firstSentence(value: string) {
@@ -152,6 +167,7 @@ export const allTools = sourceTools.map((tool) => {
   const directAnswer = directAnswers[tool.slug];
   const queryVariant = queryVariants[tool.slug];
   const issue77Override = issue77Overrides[tool.slug];
+  const issue80Override = issue80Overrides[tool.slug];
   const withLiveRates = applyLiveRateDefaults(mergedTool);
   const withQueryVariants = {
     ...withLiveRates,
@@ -166,17 +182,9 @@ export const allTools = sourceTools.map((tool) => {
       : {}),
   } as Tool;
 
-  if (!issue77Override) return enrichLegacyTool(withQueryVariants);
-
-  return enrichLegacyTool({
-    ...withQueryVariants,
-    ...issue77Override,
-    related: mergeUniqueStrings(withQueryVariants.related, issue77Override.related),
-    contentSections: mergeUniqueContentSections(withQueryVariants.contentSections, issue77Override.contentSections),
-    faqs: mergeUniqueFaqs(withQueryVariants.faqs, issue77Override.faqs),
-    officialSources: mergeUniqueSources(withQueryVariants.officialSources, issue77Override.officialSources),
-    factRows: mergeUniqueFactRows(withQueryVariants.factRows, issue77Override.factRows),
-  } as Tool);
+  const withIssue77 = mergeToolOverride(withQueryVariants, issue77Override);
+  const withIssue80 = mergeToolOverride(withIssue77, issue80Override);
+  return enrichLegacyTool(withIssue80);
 });
 
 export function getLiveTools(): Tool[] { return allTools.filter((tool) => tool.status === 'live' && !CONSOLIDATED_TOOL_SLUGS.has(tool.slug)); }
