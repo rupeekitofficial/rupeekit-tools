@@ -19,7 +19,7 @@
     "validate:priority-growth": "node scripts/validate-priority-search-growth.mjs",
     "validate:internal-links": "node scripts/validate-internal-links.mjs",
     "validate:financial-updates": "node scripts/validate-day18-financial-updates.mjs",
-    "validate:discover-images": "node scripts/validate-discover-images.mjs",
+    "validate:discover-images": "node scripts/validate-discover-images.mjs && node scripts/validate-decision-discover-images.mjs",
     "validate:discover-guides": "node scripts/validate-discover-guide-images.mjs",
     "validate:discover-rendered": "node scripts/validate-discover-rendered-output.mjs",
     "validate:discover-guides-rendered": "node scripts/validate-discover-guide-rendered-output.mjs",
