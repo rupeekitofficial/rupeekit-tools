@@ -20,9 +20,10 @@ const errors = [];
 const expectedSlugs = new Set(expected.map((entry) => entry.slug));
 const decisionSlugs = new Set(decisionTools.map((tool) => tool.slug));
 const sources = new Set();
+let liveAssetCount = 0;
 
 if (expected.length !== 10) {
-  errors.push(`Expected 10 decision-image review rows, found ${expected.length}.`);
+  errors.push(`Expected 10 original decision-image review rows, found ${expected.length}.`);
 }
 
 for (const entry of expected) {
@@ -35,13 +36,26 @@ for (const entry of expected) {
   }
 
   const expectedPath = `/tools/${entry.slug}`;
-  const expectedSrc = `/images/discover/${entry.slug}.webp`;
   const image = manifest.find((candidate) => candidate.path === expectedPath);
 
+  if (entry.consolidatedTo) {
+    if (image) {
+      errors.push(`Consolidated decision slug must not keep a Discover manifest row: ${expectedPath}.`);
+    }
+    const survivorPath = `/tools/${entry.consolidatedTo}`;
+    if (!manifest.some((candidate) => candidate.path === survivorPath)) {
+      errors.push(`Consolidated decision slug survivor has no Discover image: ${survivorPath}.`);
+    }
+    continue;
+  }
+
+  const expectedSrc = `/images/discover/${entry.slug}.webp`;
   if (!image) {
     errors.push(`Missing Discover manifest row for ${expectedPath}.`);
     continue;
   }
+  liveAssetCount += 1;
+
   if (image.src !== expectedSrc) {
     errors.push(`Decision tool must use its own Discover source: ${expectedPath} -> ${image.src}`);
   }
@@ -89,4 +103,6 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Decision Discover image validation passed for ${expected.length} branded calculator assets.`);
+console.log(
+  `Decision Discover image validation passed for ${liveAssetCount} live branded assets plus ${expected.length - liveAssetCount} consolidated legacy route(s).`,
+);
