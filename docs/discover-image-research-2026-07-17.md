@@ -14,7 +14,9 @@ Generic logo-only creatives remain excluded. A small RupeeKit brand mark may app
 
 ### Decision-calculator branding policy
 
-The ten decision calculators introduced in the PR #39 batch deliberately use branded Discover artwork. Each of those hero images must include the **RupeeKit logo** from an approved repository asset, kept legible and unobscured while remaining visually secondary to the page-specific scene. The logo is a brand signature, not a watermark, and must not cover a person, chart, document, result, or other meaningful subject.
+The ten decision calculators introduced in the PR #39 batch deliberately use branded Discover artwork. Each live canonical page from that batch must include the **RupeeKit logo** from an approved repository asset, kept legible and unobscured while remaining visually secondary to the page-specific scene. The logo is a brand signature, not a watermark, and must not cover a person, chart, document, result, or other meaningful subject.
+
+If a later SEO consolidation retires one of those ten URLs, the retired URL must not keep or regain a standalone Discover manifest entry merely to satisfy this historical batch count. Its surviving canonical page carries the current image requirement instead.
 
 Approved logo assets for this batch are:
 
@@ -22,7 +24,7 @@ Approved logo assets for this batch are:
 - `public/brand/rupeekit_icon_from_social_logo_transparent_square.png`
 - `public/brand/rupeekit_logo_transparent_full.png`
 
-The branded direction does not relax the quality rules below: each calculator still needs a unique 1600 × 900 WebP, descriptive alt text, a distinct composition, and a page-relevant financial story. Recolouring one template ten times or using the RupeeKit logo as the main visual is not acceptable.
+The branded direction does not relax the quality rules below: each live calculator still needs a unique 1600 × 900 WebP, descriptive alt text, a distinct composition, and a page-relevant financial story. Recolouring one template ten times or using the RupeeKit logo as the main visual is not acceptable.
 
 Every rollout image is:
 
