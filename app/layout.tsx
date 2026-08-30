@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import GoogleAnalyticsRouteTracker from "@/components/GoogleAnalyticsRouteTracker";
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "RupeeKit";
 const siteUrl =
@@ -162,10 +163,12 @@ export default function RootLayout({
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){window.dataLayer.push(arguments);}
+                window.gtag = gtag;
                 gtag('js', new Date());
-                gtag('config', '${gaId}');
+                gtag('config', '${gaId}', { send_page_view: false });
               `}
             </Script>
+            <GoogleAnalyticsRouteTracker />
           </>
         ) : null}
 
@@ -173,7 +176,7 @@ export default function RootLayout({
           <Script
             id="adsense-auto-ads"
             strategy="afterInteractive"
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+            src={`https://pagead2.googlesyndication.com/pagead/js?client=${adsenseClient}`}
             crossOrigin="anonymous"
           />
         ) : null}
