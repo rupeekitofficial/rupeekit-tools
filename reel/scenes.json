@@ -1,0 +1,128 @@
+{
+  "project": "salary-only",
+  "master": { "width": 1080, "height": 1920, "fps": 30, "duration": 30.1 },
+  "brand": {
+    "ink": "#0F172A",
+    "navy": "#003080",
+    "green": "#43A047",
+    "alert": "#B42318",
+    "ground": "#FFFFFF",
+    "captionFill": "#FFE500"
+  },
+  "stylePreamble": "Minimalist black-ink stick-figure whiteboard illustration on a pure white background. Thick uniform black outlines of even weight, simple round heads with small dot eyes and minimal expression. Flat colour fills only, no gradients, no shadows, no texture, no background scenery. Emerald green #43A047 for growth and wealth elements. Cool grey for neutral objects. Red #B42318 used only for a warning arrow or alert triangle. Vector-clean, high contrast, generous white space. Absolutely no text, no letters, no numbers, no labels, no watermarks anywhere in the image.",
+  "negativePrompt": "text, letters, words, numbers, labels, captions, watermark, signature, logo, currency symbols, gradients, drop shadows, photorealism, 3d render, background scenery, cluttered detail, extra fingers",
+  "notes": "Render each half separately at 540x1000 and composite with a 2px black divider. Half-images keep the stick-figure style far more consistent than asking one prompt for a split screen, and they let you re-roll one side without losing the other.",
+  "scenes": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 4.2,
+      "title": "Salary Only?",
+      "labelLeft": "One Payday",
+      "labelRight": "Real Wealth",
+      "vo": "If your salary is your only plan, your future rests on one payday.",
+      "promptLeft": "A stick figure standing on top of a single tall stone pillar that is visibly cracked and splitting, holding a small pay cheque. A red warning triangle floats beside the cracked pillar. The figure looks unsteady.",
+      "promptRight": "A confident stick figure standing with hands on hips on a wide platform supported by three solid emerald green pillars. Beside the figure, a small potted plant with banknote leaves, a stack of coins, and a green rising bar chart."
+    },
+    {
+      "id": 2,
+      "start": 4.2,
+      "end": 7.2,
+      "title": "Trade Time",
+      "labelLeft": "Work",
+      "labelRight": "Freedom",
+      "vo": "You trade your most valuable asset, time, to earn it.",
+      "promptLeft": "A tired stick figure carrying a briefcase, walking inside the outline of a giant clock face as if trapped on its dial. Banknotes fall away from the figure toward the ground.",
+      "promptRight": "A relaxed stick figure sitting on the ground leaning back, beside a large tree whose leaves are emerald green banknotes. A piggy bank sits next to the figure and a green arrow curves upward behind them."
+    },
+    {
+      "id": 3,
+      "start": 7.2,
+      "end": 10.4,
+      "title": "Paycheck Gone",
+      "labelLeft": "Credited",
+      "labelRight": "Gone",
+      "vo": "Then it vanishes into rent, EMIs, groceries and bills.",
+      "promptLeft": "A smiling stick figure holding out one large green banknote with both hands, presenting it forward.",
+      "promptRight": "A worried stick figure holding an open empty metal cash box while five banknotes fly out of it in an arc, scattering toward small flat grey icons of a house, a shopping basket, a power plug, a car and a washing machine."
+    },
+    {
+      "id": 4,
+      "start": 10.4,
+      "end": 12.8,
+      "title": "Time Runs Out",
+      "labelLeft": "Limited",
+      "labelRight": "Compounding",
+      "vo": "But your time runs out.",
+      "promptLeft": "A stick figure standing with hand on chin looking worried at a very large hourglass, most of its sand already fallen to the bottom chamber. A red warning triangle beside the hourglass.",
+      "promptRight": "A relaxed stick figure with hands behind head standing beside a tree with emerald green banknote foliage, three ascending stacks of coins and a green arrow curving steeply upward."
+    },
+    {
+      "id": 5,
+      "start": 12.8,
+      "end": 15.9,
+      "title": "Income Trap",
+      "labelLeft": "One Source",
+      "labelRight": "Many Sources",
+      "vo": "One income isn't stability. It's one point of failure.",
+      "promptLeft": "A distressed stick figure standing inside a cage whose bars are drawn over one giant green banknote, gripping the bars. A closed padlock hangs on the cage. A red warning triangle floats above.",
+      "promptRight": "A calm stick figure walking forward freely. Around them, evenly spaced: a small office building, a laptop, a leafy plant, a stack of coins and a green upward arrow, all separate and uncluttered."
+    },
+    {
+      "id": 6,
+      "start": 15.9,
+      "end": 20.1,
+      "title": "Assets Work",
+      "labelLeft": "You Work",
+      "labelRight": "Assets Work",
+      "vo": "Assets keep earning after you stop working.",
+      "promptLeft": "Two stick figures stacked vertically, each straining uphill on a steep diagonal slope carrying a heavy sack over the shoulder, sweat drops beside their heads, motion lines behind them. A red arrow points downward at the top figure.",
+      "promptRight": "A relaxed stick figure reclining at the base of a large tree with emerald green banknote leaves, holding a piggy bank. Below, small green arrows flow inward from a house, a shop, a laptop and a bar chart. One tall green arrow rises up the right side."
+    },
+    {
+      "id": 7,
+      "start": 20.1,
+      "end": 21.9,
+      "title": "Two Paths",
+      "labelLeft": "Most",
+      "labelRight": "Few",
+      "vo": "Same salary. Two different endings.",
+      "promptLeft": "A stick figure running inside a large grey hamster wheel, carrying a briefcase. Grey bags, boxes and papers pile up beneath the wheel. A red arrow curves downward above the wheel.",
+      "promptRight": "A stick figure sitting calmly in an armchair reading. Beside them a tree with green banknote leaves in a pot, a stack of coins, a piggy bank and a small green rising bar chart."
+    },
+    {
+      "id": 8,
+      "start": 21.9,
+      "end": 23.9,
+      "title": "Rare Skills",
+      "labelLeft": "One Skill",
+      "labelRight": "Rare Skills",
+      "vo": "One skill pays once. Rare skills compound.",
+      "promptLeft": "A stick figure holding a single grey toolbox in one hand and one small banknote in the other, standing plainly with nothing else around them.",
+      "promptRight": "A confident stick figure with hands on hips at the centre, surrounded evenly by six small flat grey icons: a laptop, a microphone, a camera, a presentation board, a code window and a handshake. Four green arrows point inward toward the figure. Two stacks of coins at the feet."
+    },
+    {
+      "id": 9,
+      "start": 23.9,
+      "end": 28.1,
+      "title": "Survive Or Free",
+      "labelLeft": "Survive",
+      "labelRight": "Free",
+      "vo": "A salary helps you survive the month. Assets buy back your years.",
+      "promptLeft": "A sad stick figure holding an open empty wallet in one hand and a small cheque in the other. Four thin black arrows lead away from the cheque to small flat icons of a house, a grocery basket, a bill sheet and a car. A large red arrow points down from above.",
+      "promptRight": "A smiling stick figure walking through a tall open green gate, carrying a wallet overflowing with banknotes. Green banknotes float around them and two large green arrows sweep upward behind the gate."
+    },
+    {
+      "id": 10,
+      "start": 28.1,
+      "end": 30.1,
+      "title": "Know Your Number",
+      "labelLeft": "Guessing",
+      "labelRight": "Knowing",
+      "vo": "Run your real numbers on RupeeKit. Free.",
+      "liveCapture": true,
+      "promptLeft": "A stick figure standing at the bottom of a short flat plain staircase of only three steps, holding a pay cheque, with nothing above the steps.",
+      "promptRight": "SCREEN CAPTURE, NOT ILLUSTRATED. Screen-record the salary in-hand calculator at /tools/salary-in-hand-calculator-india on a phone viewport: a thumb enters a CTC value, the in-hand figure resolves, then the RupeeKit wordmark and rupeekit.co.in draw on."
+    }
+  ]
+}
