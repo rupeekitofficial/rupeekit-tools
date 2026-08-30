@@ -12,6 +12,7 @@ import queryVariantOverrides from '../data/query-variant-tool-overrides-2026-08-
 import issue76ToolOverrides from '../data/issue-76-tool-overrides-2026-08-23.json';
 import issue77RescueOverrides from '../data/issue-77-rescue-overrides-2026-08-24.json';
 import issue80ToolOverrides from '../data/issue-80-tool-overrides-2026-08-27.json';
+import issue79RelatedOverrides from '../data/issue-79-related-overrides.json';
 import { CONSOLIDATED_TOOL_SLUGS } from './consolidated-routes';
 import { applyLiveRateDefaults } from './live-rate-defaults';
 
@@ -42,6 +43,7 @@ const queryVariants = queryVariantOverrides as Record<string, Partial<QueryVaria
 const issue76Overrides = issue76ToolOverrides as Record<string, Partial<Tool>>;
 const issue77Overrides = issue77RescueOverrides as Record<string, Partial<Tool>>;
 const issue80Overrides = issue80ToolOverrides as Record<string, Partial<Tool>>;
+const issue79Related = issue79RelatedOverrides as Record<string, string[]>;
 const sourceTools = [...tools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools, ...policyTools] as Tool[];
 
 function mergeUniqueSources(base: ToolOfficialSource[] = [], extra: ToolOfficialSource[] = []): ToolOfficialSource[] {
@@ -180,6 +182,7 @@ export const allTools = sourceTools.map((tool) => {
           officialSources: mergeUniqueSources(mergedTool.officialSources, queryVariant.officialSources),
         }
       : {}),
+    related: mergeUniqueStrings(mergedTool.related, issue79Related[tool.slug] ?? []),
   } as Tool;
 
   const withIssue77 = mergeToolOverride(withQueryVariants, issue77Override);

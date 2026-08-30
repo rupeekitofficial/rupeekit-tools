@@ -79,23 +79,52 @@ const tools = toolFiles.flatMap((fileName) =>
 const liveTools = tools.filter((tool) => tool.status === 'live' && !consolidatedTools.has(tool.slug));
 const liveToolBySlug = new Map(liveTools.map((tool) => [tool.slug, tool]));
 const blogSlugs = new Set([...extractBlogSlugs()].filter((slug) => !consolidatedBlogs.has(slug)));
+const issue79Related = JSON.parse(read('data/issue-79-related-overrides.json'));
 
 const inbound = new Map();
 
-// Hub pages are real crawl paths and prevent strict orphans. We still report
-// contextual inbound links separately so a page linked only from a directory is visible.
 for (const tool of liveTools) addInbound(`/tools/${tool.slug}`, '/tools', 'hub');
 for (const slug of blogSlugs) addInbound(`/blog/${slug}`, '/blog', 'hub');
+
+// Each live calculator should be rendered inside exactly one orienting cluster
+// hub. That is stronger than a flat directory link because the hub explains when
+// to use the tool and what to compare next. The hub route only renders a tool
+// whose category is claimed by a cluster, so the inbound link is credited from
+// the same category mapping rather than assumed for every live tool.
+const clusterCategories = new Map();
+for (const block of read('data/tool-clusters.ts').matchAll(/slug: '([a-z0-9-]+)',[\s\S]*?sourceCategories: \[([^\]]*)\]/g)) {
+  const categories = [...block[2].matchAll(/'([^']+)'/g)].map((match) => match[1]);
+  for (const category of categories) {
+    if (clusterCategories.has(category)) {
+      fail(`Category ${category} is claimed by more than one cluster hub: ${clusterCategories.get(category)} and ${block[1]}`);
+      continue;
+    }
+    clusterCategories.set(category, block[1]);
+  }
+}
+for (const tool of liveTools) {
+  const cluster = clusterCategories.get(tool.category);
+  if (!cluster) {
+    fail(`Live tool has no cluster hub for its category: /tools/${tool.slug} (${tool.category})`);
+    continue;
+  }
+  addInbound(`/tools/${tool.slug}`, `/tool-hubs/${cluster}`, 'cluster-hub');
+}
 
 for (const tool of liveTools) {
   for (const relatedSlug of tool.related || []) {
     if (!liveToolBySlug.has(relatedSlug)) continue;
     addInbound(`/tools/${relatedSlug}`, `/tools/${tool.slug}`, 'related-tool');
   }
+  for (const relatedSlug of issue79Related[tool.slug] || []) {
+    if (!liveToolBySlug.has(relatedSlug)) {
+      fail(`Issue 79 related override points to a non-live tool: ${tool.slug} -> ${relatedSlug}`);
+      continue;
+    }
+    addInbound(`/tools/${relatedSlug}`, `/tools/${tool.slug}`, 'issue79-contextual');
+  }
 }
 
-// Blog relatedCalculators are stored across several TS data modules. They are
-// counted as contextual discovery links even when the module is split out.
 for (const rel of fs.readdirSync(path.join(ROOT, 'data'))) {
   if (!rel.endsWith('.ts')) continue;
   const source = read(path.join('data', rel));
@@ -107,8 +136,6 @@ for (const rel of fs.readdirSync(path.join(ROOT, 'data'))) {
   }
 }
 
-// Count literal in-body links from app/components/data. This intentionally uses
-// file paths as the source when a reusable component is shared across routes.
 for (const rel of [...walk('app'), ...walk('components'), ...walk('data')]) {
   const source = read(rel);
   for (const match of source.matchAll(/['"]\/(tools|blog)\/([a-z0-9-]+)['"]/g)) {
@@ -120,15 +147,29 @@ for (const rel of [...walk('app'), ...walk('components'), ...walk('data')]) {
 
 for (const tool of liveTools) {
   const target = `/tools/${tool.slug}`;
-  if ((inbound.get(target) || []).length === 0) fail(`Orphan live tool: ${target}`);
+  const refs = inbound.get(target) || [];
+  if (refs.length === 0) fail(`Orphan live tool: ${target}`);
+  const contextual = refs.filter((ref) => ref.kind !== 'hub');
+  if (contextual.length === 0) fail(`Live tool has no contextual inbound link: ${target}`);
 }
 for (const slug of blogSlugs) {
   const target = `/blog/${slug}`;
   if ((inbound.get(target) || []).length === 0) fail(`Orphan blog page: ${target}`);
 }
 
+const namedDiscoveryTargets = [
+  'loan-foreclosure-net-savings-calculator-india',
+  'personal-loan-true-apr-calculator-india',
+  'reduce-emi-vs-tenure-calculator-india',
+  'home-affordability-calculator-india',
+];
+for (const slug of namedDiscoveryTargets) {
+  const refs = (inbound.get(`/tools/${slug}`) || []).filter((ref) => ref.kind === 'issue79-contextual');
+  if (refs.length < 2) fail(`${slug} needs at least 2 explicit issue-79 contextual inbound links; found ${refs.length}`);
+}
+
 const sitemapSource = read('app/sitemap.ts');
-for (const required of ['getLiveTools()', 'blogPosts.map', 'indexableFinancialUpdates.map', 'indexableGovernmentSalaryUpdates']) {
+for (const required of ['getLiveTools()', 'toolClusters.map', 'blogPosts.map', 'indexableFinancialUpdates.map', 'indexableGovernmentSalaryUpdates']) {
   if (!sitemapSource.includes(required)) fail(`app/sitemap.ts is missing expected route source: ${required}`);
 }
 for (const slug of consolidatedTools) {
@@ -137,6 +178,15 @@ for (const slug of consolidatedTools) {
 for (const slug of consolidatedBlogs) {
   if (blogSlugs.has(slug)) fail(`Consolidated blog still treated as live: ${slug}`);
 }
+
+const clusterSource = read('data/tool-clusters.ts');
+const hubRouteSource = read('app/tool-hubs/[slug]/page.tsx');
+const headerSource = read('components/SiteHeader.tsx');
+for (const slug of ['loans-emi', 'tax-compliance', 'investing-markets', 'insurance-protection', 'government-pension', 'life-stage-planning', 'small-savings']) {
+  if (!clusterSource.includes(`slug: '${slug}'`)) fail(`Missing required calculator cluster: ${slug}`);
+}
+if (!hubRouteSource.includes('getPrimaryClusterForTool')) fail('Cluster hub route does not render live tools by primary cluster');
+if (!headerSource.includes("href: '/tool-hubs'")) fail('Primary navigation does not expose calculator hubs');
 
 const toolRoute = read('app/tools/[slug]/page.tsx');
 const blogRoute = read('app/blog/[slug]/page.tsx');
@@ -221,11 +271,11 @@ const auditRows = liveTools.map((tool) => {
 });
 
 console.log(`INDEXING_AUDIT_ROWS=${JSON.stringify(auditRows)}`);
-console.log(`ℹ️ ${liveTools.length} live tools, ${blogSlugs.size} blog pages, ${auditRows.filter((row) => row.contextualInboundLinkCount === 0).length} tools linked only from hub-level discovery.`);
+console.log(`ℹ️ ${liveTools.length} live tools, ${blogSlugs.size} blog pages, ${auditRows.filter((row) => row.contextualInboundLinkCount === 0).length} tools without contextual inbound discovery.`);
 
 if (failures > 0) {
   console.error(`\nInternal-link/indexing validation failed with ${failures} error(s).`);
   process.exit(1);
 }
 
-console.log('✅ Sitemap sources, canonical/robots metadata, redirects, and zero-orphan crawl paths validated.');
+console.log('✅ Cluster hubs, contextual inbound links, sitemap sources, canonical/robots metadata, redirects, and zero-orphan crawl paths validated.');
