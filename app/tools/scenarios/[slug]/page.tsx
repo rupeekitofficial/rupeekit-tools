@@ -19,7 +19,7 @@ type Scenario = {
   lastModifiedIso: string;
 };
 
-const scenarioList = scenarios as Scenario[];
+const scenarioList = scenarios as unknown as Scenario[];
 
 function getScenario(slug: string) {
   return scenarioList.find((scenario) => scenario.slug === slug);
