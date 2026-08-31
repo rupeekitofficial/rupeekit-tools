@@ -6,6 +6,9 @@ export type CalculatorAnalyticsBase = {
 export type AnalyticsEventMap = {
   calculator_used: CalculatorAnalyticsBase;
   result_viewed: CalculatorAnalyticsBase;
+  result_shared: CalculatorAnalyticsBase & {
+    share_method: 'copy_link' | 'native_share';
+  };
   guide_click: CalculatorAnalyticsBase & {
     destination: string;
   };
@@ -37,9 +40,11 @@ export function trackAnalyticsEvent<EventName extends keyof AnalyticsEventMap>(
 }
 
 export function trackPageView(pathname: string): boolean {
+  // Calculator share URLs can contain user-entered values in the query string.
+  // Never send those values to analytics; page reporting is intentionally path-only.
   const pageLocation =
     typeof window !== 'undefined' && window.location
-      ? `${window.location.origin}${pathname}${window.location.search}`
+      ? `${window.location.origin}${pathname}`
       : pathname;
   const pageTitle = typeof document !== 'undefined' ? document.title : '';
 
