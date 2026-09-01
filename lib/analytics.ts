@@ -3,6 +3,11 @@ export type CalculatorAnalyticsBase = {
   tool_category: string;
 };
 
+type NewsletterAnalyticsBase = {
+  placement: 'financial_update' | 'calculator_result' | 'provider_confirmation';
+  context: string;
+};
+
 export type AnalyticsEventMap = {
   calculator_used: CalculatorAnalyticsBase;
   result_viewed: CalculatorAnalyticsBase;
@@ -13,6 +18,9 @@ export type AnalyticsEventMap = {
     destination: string;
     cta_type: 'related_tool' | 'resource';
   };
+  newsletter_form_viewed: NewsletterAnalyticsBase;
+  newsletter_form_submitted: NewsletterAnalyticsBase;
+  newsletter_confirmed: NewsletterAnalyticsBase;
 };
 
 declare global {
