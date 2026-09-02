@@ -19,7 +19,19 @@ readText('components/Calculator.tsx'),readText('components/CalculatorAnalyticsBo
 assert(toolPage.includes('<Calculator tool={tool}'),'Dynamic tool route must render through Calculator');
 assert(calculator.includes('<CalculatorAnalyticsBoundary'),'Calculator must use CalculatorAnalyticsBoundary');
 assert(boundary.includes("trackAnalyticsEvent('calculator_used'")&&boundary.includes("trackAnalyticsEvent('result_viewed'"),'Boundary must emit calculator events');
+for (const eventName of ['calculation_completed','result_panel_viewed','calculator_session_summary','calculator_abandoned']) {
+  assert(boundary.includes(`trackAnalyticsEvent('${eventName}'`),`Boundary must emit ${eventName}`);
+  assert(analytics.includes(`${eventName}:`),`Analytics event map must type ${eventName}`);
+}
+assert(boundary.includes('time_to_first_calculation_ms'),'Journey analytics must record time to first calculation');
+assert(boundary.includes('recalculations:'),'Journey analytics must record recalculation count');
+assert(boundary.includes('IntersectionObserver'),'Journey analytics must observe result-panel visibility');
 assert(link.includes("trackAnalyticsEvent('guide_click'")&&link.includes("trackAnalyticsEvent('tool_cta_click'"),'AnalyticsLink must emit click events');
 assert(analytics.includes('tool_slug: string')&&analytics.includes('tool_category: string'),'Analytics base must require slug/category');
+const forbiddenJourneyParameters=['principal','salary','income','investment','emi','tax','email','pan','aadhaar','bank'];
+const journeyTypeSection=analytics.slice(analytics.indexOf('calculation_completed:'),analytics.indexOf('guide_click:'));
+for (const forbidden of forbiddenJourneyParameters) {
+  assert(!new RegExp(`\\b${forbidden}\\b`, 'i').test(journeyTypeSection),`Journey analytics must not expose user-entered financial/PII field: ${forbidden}`);
+}
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
-console.log(`Analytics coverage validation passed for ${count} live tool slugs.`);
+console.log(`Analytics coverage validation passed for ${count} live tool slugs, including issue #82 journey events.`);
