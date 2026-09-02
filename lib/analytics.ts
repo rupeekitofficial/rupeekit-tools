@@ -6,6 +6,23 @@ export type CalculatorAnalyticsBase = {
 export type AnalyticsEventMap = {
   calculator_used: CalculatorAnalyticsBase;
   result_viewed: CalculatorAnalyticsBase;
+  calculation_completed: CalculatorAnalyticsBase & {
+    calculation_number: number;
+    time_to_first_calculation_ms?: number;
+  };
+  result_panel_viewed: CalculatorAnalyticsBase & {
+    calculation_number: number;
+  };
+  calculator_session_summary: CalculatorAnalyticsBase & {
+    calculations: number;
+    recalculations: number;
+    result_panel_viewed: boolean;
+    engagement_time_msec: number;
+  };
+  calculator_abandoned: CalculatorAnalyticsBase & {
+    engagement_time_msec: number;
+    reason: 'pagehide' | 'hidden' | 'unmount';
+  };
   guide_click: CalculatorAnalyticsBase & {
     destination: string;
   };
@@ -39,7 +56,7 @@ export function trackAnalyticsEvent<EventName extends keyof AnalyticsEventMap>(
 export function trackPageView(pathname: string): boolean {
   const pageLocation =
     typeof window !== 'undefined' && window.location
-      ? `${window.location.origin}${pathname}${window.location.search}`
+      ? `${window.location.origin}${pathname}`
       : pathname;
   const pageTitle = typeof document !== 'undefined' ? document.title : '';
 
