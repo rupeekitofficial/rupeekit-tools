@@ -11,6 +11,23 @@ type NewsletterAnalyticsBase = {
 export type AnalyticsEventMap = {
   calculator_used: CalculatorAnalyticsBase;
   result_viewed: CalculatorAnalyticsBase;
+  calculation_completed: CalculatorAnalyticsBase & {
+    calculation_number: number;
+    time_to_first_calculation_ms?: number;
+  };
+  result_panel_viewed: CalculatorAnalyticsBase & {
+    calculation_number: number;
+  };
+  calculator_session_summary: CalculatorAnalyticsBase & {
+    calculations: number;
+    recalculations: number;
+    result_panel_viewed: boolean;
+    engagement_time_msec: number;
+  };
+  calculator_abandoned: CalculatorAnalyticsBase & {
+    engagement_time_msec: number;
+    reason: 'pagehide' | 'hidden' | 'unmount';
+  };
   result_shared: CalculatorAnalyticsBase & {
     share_method: 'copy_link' | 'native_share';
   };
