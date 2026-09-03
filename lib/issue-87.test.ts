@@ -1,22 +1,18 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { BROKER_CHARGES_LAST_VERIFIED, BROKERS } from '../components/blog/BrokerComparisonCard';
 
 describe('issue #87 monetisation readiness', () => {
   it('keeps commercial facts freshly verified and corrects the known broker-pricing errors', () => {
-    expect(BROKER_CHARGES_LAST_VERIFIED).toBe('3 September 2026');
+    const card = readFileSync('components/blog/BrokerComparisonCard.tsx', 'utf8');
 
-    const zerodha = BROKERS.find((broker) => broker.name === 'Zerodha');
-    const upstox = BROKERS.find((broker) => broker.name === 'Upstox');
-    const angel = BROKERS.find((broker) => broker.name === 'Angel One');
-
-    expect(zerodha?.delivery).toContain('Rs 0');
-    expect(zerodha?.nri).toContain('available');
-    expect(upstox?.delivery).toBe('Rs 20 per executed order');
-    expect(upstox?.intraday).toContain('0.1%');
-    expect(angel?.delivery).toContain('0.1%');
-    expect(angel?.intraday).toContain('Rs 5 minimum');
-    expect(angel?.amc).toContain('First year Rs 0');
+    expect(card).toContain("BROKER_CHARGES_LAST_VERIFIED = '3 September 2026'");
+    expect(card).toContain("delivery: 'Rs 0 brokerage for resident individual delivery trades'");
+    expect(card).toContain("nri: 'NRI trading and demat accounts available; separate pricing and eligibility apply'");
+    expect(card).toContain("delivery: 'Rs 20 per executed order'");
+    expect(card).toContain("intraday: 'Rs 20 or 0.1%/order (lower)'");
+    expect(card).toContain("delivery: 'After intro offer: Rs 20 or 0.1%/order (lower; Rs 5 minimum)'");
+    expect(card).toContain("intraday: 'After intro offer: Rs 20 or 0.1%/order (lower; Rs 5 minimum)'");
+    expect(card).toContain("amc: 'First year Rs 0; then non-BSDA Rs 60 + GST/quarter'");
   });
 
   it('requires disclosure before partner links and forbids payout-based ordering', () => {
