@@ -90,8 +90,8 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
       'No implementation date is notified yet. See where the 8th CPC stands, its 18-month report window, and model salary scenarios by fitment factor.',
     h1: '8th Pay Commission Status, Date and Salary Calculator',
     heroDescription:
-      'No fitment factor, pay matrix, revised HRA or implementation date has been notified. The Commission was constituted on 3 November 2025 with an 18-month window to report. Below: where it stands today, then a scenario calculator that builds a 7th CPC baseline and compares fitment factors.',
-    lastReviewedIso: '2026-08-22',
+      'No fitment factor, pay matrix, revised HRA or implementation date has been notified. The Commission was constituted on 3 November 2025 with an 18-month window to report. Below: where it stands today, then a scenario calculator that compares every fitment factor at once, with minimum-HRA floors, NPS/UPS/OPS deductions and a conditional arrears estimate.',
+    lastReviewedIso: '2026-09-03',
   },
   [EIGHTH_PAY_ARREARS_SLUG]: {
     title: '8th Pay Commission Arrears Calculator 2026 | Scenario',

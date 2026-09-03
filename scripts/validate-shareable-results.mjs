@@ -60,7 +60,9 @@ assert(analytics.includes('result_shared:'), 'Typed analytics map must define re
 assert(!analytics.includes('window.location.search'), 'Analytics page_location must not include user-entered query values.');
 
 assert(middleware.includes("X-Robots-Tag')") || middleware.includes("X-Robots-Tag', 'noindex, follow'"), 'Parameter URLs must receive X-Robots-Tag noindex.');
-assert(middleware.includes("matcher: ['/tools/:path*']"), 'Noindex middleware must cover calculator routes.');
+// The matcher may list further shareable-scenario surfaces (the 8th CPC hub
+// embeds the same calculator), so require coverage rather than an exact list.
+assert(middleware.includes("'/tools/:path*'"), 'Noindex middleware must cover calculator routes.');
 assert(sitemap.includes('indexable-calculator-scenarios.json'), 'Indexable scenario pages must be sourced by sitemap.');
 assert(sitemap.includes('/tools/scenarios/${scenario.slug}'), 'Scenario sitemap URLs are missing.');
 assert(route.includes('alternates: { canonical }'), 'Scenario pages must be self-canonical.');

@@ -10,7 +10,9 @@ describe('issue #84 shareable calculator results', () => {
   it('keeps arbitrary parameter URLs out of the index', () => {
     const middleware = read('middleware.ts');
     expect(middleware).toContain("X-Robots-Tag', 'noindex, follow'");
-    expect(middleware).toContain("matcher: ['/tools/:path*']");
+    // The matcher may cover additional shareable-scenario surfaces (the 8th CPC
+    // hub embeds the same calculator), so assert coverage rather than an exact list.
+    expect(middleware).toContain("'/tools/:path*'");
   });
 
   it('restores and shares calculator inputs through one shared boundary', () => {

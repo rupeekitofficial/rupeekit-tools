@@ -2,10 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
-  const isToolPage = request.nextUrl.pathname.startsWith('/tools/');
+  // The 8th CPC hub carries the same shareable scenario parameters as the
+  // calculator pages, so parameterised variants of it are treated identically.
+  const isShareableCalculatorPath =
+    request.nextUrl.pathname.startsWith('/tools/') ||
+    request.nextUrl.pathname === '/8th-pay-commission';
   const hasParameters = request.nextUrl.searchParams.size > 0;
 
-  if (isToolPage && hasParameters) {
+  if (isShareableCalculatorPath && hasParameters) {
     response.headers.set('X-Robots-Tag', 'noindex, follow');
   }
 
@@ -13,5 +17,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/tools/:path*'],
+  matcher: ['/tools/:path*', '/8th-pay-commission'],
 };
