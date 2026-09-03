@@ -3,6 +3,18 @@
 import type { ReactNode, SyntheticEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { trackAnalyticsEvent } from '@/lib/analytics';
+import FinancialUpdatesSignup from '@/components/updates/FinancialUpdatesSignup';
+
+const UPDATE_ALERT_TOOL_SLUGS = new Set([
+  '8th-pay-commission-salary-calculator-india',
+  '8th-pay-commission-arrears-calculator-india',
+  '8th-pay-commission-pension-calculator-india',
+  'income-tax-calculator-old-vs-new-regime-india',
+  'ppf-calculator-india',
+  'sukanya-samriddhi-yojana-calculator-india',
+  'scss-calculator-india',
+  'post-office-monthly-income-scheme-calculator-india',
+]);
 
 const SHARE_PARAM_PREFIX = 'rk_';
 
@@ -88,6 +100,8 @@ export default function CalculatorAnalyticsBoundary({
     if (target instanceof Element && target.closest('button')) markUsed();
   };
 
+  const showUpdateSignup = hasInteracted && UPDATE_ALERT_TOOL_SLUGS.has(toolSlug);
+
   const buildPermalink = () => {
     const root = rootRef.current;
     if (!root || typeof window === 'undefined') return null;
@@ -138,6 +152,11 @@ export default function CalculatorAnalyticsBoundary({
   return (
     <div ref={rootRef} onChangeCapture={markUsed} onInputCapture={markUsed} onClickCapture={markButtonUse}>
       {children}
+      {showUpdateSignup ? (
+        <div className="mt-6">
+          <FinancialUpdatesSignup placement="calculator_result" context={toolSlug} />
+        </div>
+      ) : null}
       <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>

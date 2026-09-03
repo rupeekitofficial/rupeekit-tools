@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { FinancialUpdate } from '@/data/financial-updates';
 import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import { editorialTeamRef } from '@/lib/seo/editorial';
+import FinancialUpdatesSignup from '@/components/updates/FinancialUpdatesSignup';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -150,6 +151,8 @@ export default function OfficialFinancialUpdatePage({ update }: { update: Financ
           ))}
         </ul>
       </section>
+
+      <FinancialUpdatesSignup placement="financial_update" context={update.slug} />
 
       {update.faqs?.length ? (
         <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8">
