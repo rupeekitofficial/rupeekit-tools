@@ -3,6 +3,11 @@ export type CalculatorAnalyticsBase = {
   tool_category: string;
 };
 
+type NewsletterAnalyticsBase = {
+  placement: 'financial_update' | 'calculator_result' | 'provider_confirmation';
+  context: string;
+};
+
 export type AnalyticsEventMap = {
   calculator_used: CalculatorAnalyticsBase;
   result_viewed: CalculatorAnalyticsBase;
@@ -23,6 +28,9 @@ export type AnalyticsEventMap = {
     engagement_time_msec: number;
     reason: 'pagehide' | 'hidden' | 'unmount';
   };
+  result_shared: CalculatorAnalyticsBase & {
+    share_method: 'copy_link' | 'native_share';
+  };
   guide_click: CalculatorAnalyticsBase & {
     destination: string;
   };
@@ -30,6 +38,9 @@ export type AnalyticsEventMap = {
     destination: string;
     cta_type: 'related_tool' | 'resource';
   };
+  newsletter_form_viewed: NewsletterAnalyticsBase;
+  newsletter_form_submitted: NewsletterAnalyticsBase;
+  newsletter_confirmed: NewsletterAnalyticsBase;
 };
 
 declare global {
@@ -54,6 +65,8 @@ export function trackAnalyticsEvent<EventName extends keyof AnalyticsEventMap>(
 }
 
 export function trackPageView(pathname: string): boolean {
+  // Calculator share URLs can contain user-entered values in the query string.
+  // Never send those values to analytics; page reporting is intentionally path-only.
   const pageLocation =
     typeof window !== 'undefined' && window.location
       ? `${window.location.origin}${pathname}`

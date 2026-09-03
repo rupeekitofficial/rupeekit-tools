@@ -7,6 +7,7 @@ import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updat
 import { allGuides } from '@/data/calculator-guides';
 import { PAY_MATRIX_LEVELS } from '@/data/pay-matrix-levels';
 import { toolClusters } from '@/data/tool-clusters';
+import calculatorScenarios from '@/data/indexable-calculator-scenarios.json';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
 const PAY_MATRIX_LEVEL_LAST_MODIFIED = new Date('2026-08-25');
@@ -49,6 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       parseIsoDate(post.publishedDateISO) ??
       STATIC_LAST_MODIFIED
   );
+  const scenarioDates = calculatorScenarios.map(
+    (scenario) => parseIsoDate(scenario.lastModifiedIso) ?? STATIC_LAST_MODIFIED
+  );
   const financialUpdateDates = indexableFinancialUpdates.map(
     (update) =>
       parseIsoDate((update as { modifiedDate?: string }).modifiedDate) ??
@@ -75,6 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...toolDates,
     ...guideDates,
     ...blogDates,
+    ...scenarioDates,
     ...financialUpdateDates,
     ...governmentUpdateDates,
   ]);
@@ -151,6 +156,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       };
     }),
+    ...calculatorScenarios.map((scenario) => ({
+      url: `${baseUrl}/tools/scenarios/${scenario.slug}`,
+      lastModified: parseIsoDate(scenario.lastModifiedIso) ?? STATIC_LAST_MODIFIED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
+    })),
     ...allGuides.map((guide) => ({
       url: `${baseUrl}/guides/${guide.slug}`,
       lastModified: parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED,
@@ -187,18 +198,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: 0.7,
     })),
-    ...indexableGovernmentSalaryUpdates
-      .map((u) => {
-        const lastModified =
-          parseIsoDate((u as { modifiedDate?: string }).modifiedDate) ??
-          parseIsoDate(u.publishedDate) ??
-          STATIC_LAST_MODIFIED;
-        return {
-          url: `${baseUrl}/government-salary-updates/${u.slug}`,
-          lastModified,
-          changeFrequency: 'monthly' as const,
-          priority: 0.6,
-        };
-      }),
+    ...indexableGovernmentSalaryUpdates.map((u) => {
+      const lastModified =
+        parseIsoDate((u as { modifiedDate?: string }).modifiedDate) ??
+        parseIsoDate(u.publishedDate) ??
+        STATIC_LAST_MODIFIED;
+      return {
+        url: `${baseUrl}/government-salary-updates/${u.slug}`,
+        lastModified,
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+      };
+    }),
   ];
 }
