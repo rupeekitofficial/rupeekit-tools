@@ -4,6 +4,7 @@ import type { ReactNode, SyntheticEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import FinancialUpdatesSignup from '@/components/updates/FinancialUpdatesSignup';
+import ContextualNextSteps from '@/components/ContextualNextSteps';
 
 const UPDATE_ALERT_TOOL_SLUGS = new Set([
   '8th-pay-commission-salary-calculator-india',
@@ -55,6 +56,7 @@ export default function CalculatorAnalyticsBoundary({
   children: ReactNode;
 }) {
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [hasCalculated, setHasCalculated] = useState(false);
   const [shareStatus, setShareStatus] = useState('');
   const rootRef = useRef<HTMLDivElement | null>(null);
   const mountedAtRef = useRef<number>(0);
@@ -108,6 +110,7 @@ export default function CalculatorAnalyticsBoundary({
 
   const recordCalculation = () => {
     calculationCountRef.current += 1;
+    setHasCalculated(true);
     const calculationNumber = calculationCountRef.current;
     const parameters = baseParameters();
 
@@ -271,6 +274,7 @@ export default function CalculatorAnalyticsBoundary({
       onClickCapture={markButtonUse}
     >
       {children}
+      <ContextualNextSteps toolSlug={toolSlug} toolCategory={toolCategory} visible={hasCalculated} />
       {showUpdateSignup ? (
         <div className="mt-6">
           <FinancialUpdatesSignup placement="calculator_result" context={toolSlug} />
