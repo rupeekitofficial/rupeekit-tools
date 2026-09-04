@@ -36,7 +36,7 @@ export type AnalyticsEventMap = {
   };
   tool_cta_click: CalculatorAnalyticsBase & {
     destination: string;
-    cta_type: 'related_tool' | 'resource';
+    cta_type: 'related_tool' | 'resource' | 'contextual_next_step';
   };
   newsletter_form_viewed: NewsletterAnalyticsBase;
   newsletter_form_submitted: NewsletterAnalyticsBase;
