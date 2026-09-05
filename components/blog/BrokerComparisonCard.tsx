@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export const BROKER_CHARGES_LAST_VERIFIED = '3 September 2026';
+export const BROKER_CHARGES_LAST_VERIFIED = '5 September 2026';
 
 export const BROKERS = [
   {

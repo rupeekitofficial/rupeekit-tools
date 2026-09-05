@@ -5,7 +5,7 @@ describe('issue #87 monetisation readiness', () => {
   it('keeps commercial facts freshly verified and corrects the known broker-pricing errors', () => {
     const card = readFileSync('components/blog/BrokerComparisonCard.tsx', 'utf8');
 
-    expect(card).toContain("BROKER_CHARGES_LAST_VERIFIED = '3 September 2026'");
+    expect(card).toContain("BROKER_CHARGES_LAST_VERIFIED = '5 September 2026'");
     expect(card).toContain("delivery: 'Rs 0 brokerage for resident individual delivery trades'");
     expect(card).toContain("nri: 'NRI trading and demat accounts available; separate pricing and eligibility apply'");
     expect(card).toContain("delivery: 'Rs 20 per executed order'");
