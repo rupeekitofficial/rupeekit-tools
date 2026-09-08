@@ -17,16 +17,16 @@ const PAGE_URL = `${SITE_URL}/8th-pay-commission`;
 const CALCULATOR_URL = '/tools/8th-pay-commission-salary-calculator-india';
 const ARREARS_CALCULATOR_URL = '/tools/8th-pay-commission-arrears-calculator-india';
 const PENSION_CALCULATOR_URL = '/tools/8th-pay-commission-pension-calculator-india';
-const LAST_REVIEWED_ISO = '2026-09-03';
-const STATUS_AS_OF = 'September 2026';
+const LAST_REVIEWED_ISO = '2026-09-08';
+const STATUS_AS_OF = '8 September 2026';
 
 // News velocity on this cluster is high and the status block is dated, so the
 // page is revalidated hourly rather than pinned to a build.
 export const revalidate = 3600;
 
-const TITLE = '8th Pay Commission 2026: Fitment Factor, Salary & Status';
+const TITLE = '8th Pay Commission Sep 2026: Fitment Factor & Latest Status';
 const DESCRIPTION =
-  'Status as of September 2026: no 8th CPC fitment factor is final. Model your revised basic, HRA, net pay and arrears across every fitment-factor scenario.';
+  'Latest verified 8th Pay Commission status for September 2026: fitment factor not announced, consultation timeline, salary scenarios, pension and arrears.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -118,19 +118,24 @@ const officialStatus = [
 
 const currentActivities = [
   {
-    activity: 'Jaipur stakeholder visit',
-    schedule: '31 August-1 September 2026',
+    activity: 'Chennai stakeholder visit',
+    schedule: '7-8 September 2026',
     deadline: 'Representations requested by 18 August 2026',
   },
   {
-    activity: 'Chennai and Puducherry visits',
-    schedule: 'Chennai 7-8 September; Puducherry 9 September 2026',
+    activity: 'Puducherry stakeholder visit',
+    schedule: '9 September 2026',
     deadline: 'Representations requested by 18 August 2026',
   },
   {
     activity: 'Chandigarh stakeholder visit',
     schedule: '16-18 September 2026',
     deadline: 'Representations requested by 25 August 2026',
+  },
+  {
+    activity: 'Bengaluru stakeholder visit',
+    schedule: '7-8 October 2026',
+    deadline: 'Representations requested by 18 September 2026',
   },
 ];
 
@@ -368,7 +373,7 @@ export default function EighthPayCommissionHubPage() {
           Government Salary
         </span>
         <h1 className="mt-5 text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl">
-          8th Pay Commission 2026: Fitment Factor, Salary &amp; Status
+          8th Pay Commission September 2026: Fitment Factor &amp; Latest Status
         </h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
           Almost every 8th Pay Commission number in circulation is a projection
@@ -385,10 +390,11 @@ export default function EighthPayCommissionHubPage() {
         className="mt-8 rounded-3xl border-l-4 border-l-rose-500 border-y border-r border-slate-200 bg-white p-5 shadow-sm md:p-6"
       >
         <p className="text-xs font-bold uppercase tracking-wide text-rose-700">
-          Status as of {STATUS_AS_OF}
+          Latest verified update — {STATUS_AS_OF}
         </p>
         <p className="mt-2 text-lg font-bold leading-8 text-brandDeepNavy">
-          No fitment factor is final. The 8th Central Pay Commission has not submitted its report, and the
+          The official 8th CPC calendar lists the Chennai stakeholder visit for 7-8 September and Puducherry
+          for 9 September. No fitment factor is final: the Commission has not submitted its report, and the
           government has not issued a resolution, pay matrix, HRA structure or implementation date.
         </p>
         <dl className="mt-4 grid gap-4 sm:grid-cols-3">
@@ -453,7 +459,7 @@ export default function EighthPayCommissionHubPage() {
 
       <AnswerEngineSummary
         className="mt-6"
-        summary="RupeeKit's 8th Pay Commission hub explains that revised basic pay equals current basic pay multiplied by a fitment factor, that no fitment factor has been officially notified as at August 2026, and that widely quoted figures such as 2.57 are references to the 7th Pay Commission rather than decisions. Because accumulated dearness allowance is merged into the revised basic and restarts from a low base, the increase in take-home pay is materially smaller than the fitment factor suggests. Arrears and pension revision depend on the government resolution accepting the recommendations, not on the Commission's report alone."
+        summary="RupeeKit's 8th Pay Commission hub explains that revised basic pay equals current basic pay multiplied by a fitment factor, that no fitment factor has been officially notified as at 8 September 2026, and that widely quoted figures such as 2.57 are references to the 7th Pay Commission rather than decisions. The official 8th CPC calendar lists stakeholder consultations in Chennai on 7-8 September and Puducherry on 9 September. Because accumulated dearness allowance is merged into the revised basic and restarts from a low base, the increase in take-home pay is materially smaller than the fitment factor suggests. Arrears and pension revision depend on the government resolution accepting the recommendations, not on the Commission's report alone."
       />
 
       {/* The calculator is the reason this page exists: a snippet can restate
@@ -589,7 +595,7 @@ export default function EighthPayCommissionHubPage() {
       </section>
 
       <section className="mt-12 rounded-3xl border border-sky-200 bg-sky-50 p-5 md:p-8">
-        <p className="text-xs font-bold uppercase tracking-wide text-sky-800">Official status checked 3 September 2026</p>
+        <p className="text-xs font-bold uppercase tracking-wide text-sky-800">Official status checked {STATUS_AS_OF}</p>
         <h2 className="mt-2 text-2xl font-bold text-brandDeepNavy">8th Pay Commission timeline and what is pending</h2>
         <p className="mt-3 max-w-3xl leading-7 text-slate-700">
           The Commission is active and collecting evidence, but the official record still does not contain a final fitment factor, pay matrix, revised HRA rate, pension method, implementation date or arrears order.
