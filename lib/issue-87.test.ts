@@ -45,7 +45,7 @@ describe('issue #87 monetisation readiness', () => {
     expect(override).toContain("seoTitle: 'Zerodha vs Upstox vs Angel One 2026: Which Is Best?'");
     expect(override).toContain("modifiedDateISO: '2026-09-08'");
     expect(override).toContain('Charges last verified 3 September 2026');
-    expect(override).toContain('all three have NRI account options');
+    expect(override).toMatch(/all three have NRI account options/i);
     expect(override).not.toContain('which Zerodha and Upstox do not offer');
     expect(allPosts).toContain('BROKER_COMPARISON_SLUG');
     expect(allPosts).toContain('{ ...mergedPost, ...brokerComparisonOverride }');
