@@ -25,6 +25,32 @@ describe('issue #87 monetisation readiness', () => {
     expect(card).toContain('does not order recommendations by payout');
   });
 
+  it('tracks broker affiliate clicks without collecting financial or identity data', () => {
+    const analytics = readFileSync('lib/analytics.ts', 'utf8');
+    const card = readFileSync('components/blog/BrokerComparisonCard.tsx', 'utf8');
+
+    expect(analytics).toContain('affiliate_click');
+    expect(analytics).toContain("broker: 'zerodha' | 'upstox' | 'angel_one'");
+    expect(analytics).toContain("placement: 'comparison_card'");
+    expect(analytics).toContain('page_path: string');
+    expect(card).toContain("trackAnalyticsEvent('affiliate_click'");
+    expect(card).toContain("page_path: BROKER_COMPARISON_PAGE");
+    expect(card).toContain('RupeeKit never collects your PAN, Aadhaar, bank details or KYC documents');
+  });
+
+  it('applies the September CTR and decision-intent override to the commercial broker page', () => {
+    const override = readFileSync('data/broker-comparison-override-2026-09-08.ts', 'utf8');
+    const allPosts = readFileSync('data/all-blog-posts.ts', 'utf8');
+
+    expect(override).toContain("seoTitle: 'Zerodha vs Upstox vs Angel One 2026: Which Is Best?'");
+    expect(override).toContain("modifiedDateISO: '2026-09-08'");
+    expect(override).toContain('Charges last verified 3 September 2026');
+    expect(override).toContain('all three have NRI account options');
+    expect(override).not.toContain('which Zerodha and Upstox do not offer');
+    expect(allPosts).toContain('BROKER_COMPARISON_SLUG');
+    expect(allPosts).toContain('{ ...mergedPost, ...brokerComparisonOverride }');
+  });
+
   it('keeps the future commercial slot disabled by default and reserves space when enabled', () => {
     const slot = readFileSync('components/monetization/ReservedCommercialSlot.tsx', 'utf8');
     expect(slot).toContain('enabled = false');
