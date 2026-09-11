@@ -9,6 +9,7 @@ import {
 import { getDiscoverImage } from '@/data/discover-images';
 import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
 import EditorialByline from '@/components/seo/EditorialByline';
+import FinanceDisclaimer from '@/components/blog/FinanceDisclaimer';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_POLICY_URL,
@@ -272,11 +273,11 @@ export default function CalculatorGuidePage({ params }: { params: { slug: string
               <p className="mt-1">{item.answer}</p>
             </div>
           ))}
-          <p className="mt-6">
-            RupeeKit provides educational estimates only. This page is not personalised financial, investment, tax,
-            legal or lending advice. Verify current rules, product documents and your own facts before acting.
-          </p>
         </section>
+
+        <div className="mt-8">
+          <FinanceDisclaimer />
+        </div>
       </article>
     </main>
   );
