@@ -38,6 +38,11 @@ export type AnalyticsEventMap = {
     destination: string;
     cta_type: 'related_tool' | 'resource' | 'contextual_next_step';
   };
+  affiliate_click: {
+    broker: 'zerodha' | 'upstox' | 'angel_one';
+    placement: 'comparison_card';
+    page_path: string;
+  };
   newsletter_form_viewed: NewsletterAnalyticsBase;
   newsletter_form_submitted: NewsletterAnalyticsBase;
   newsletter_confirmed: NewsletterAnalyticsBase;

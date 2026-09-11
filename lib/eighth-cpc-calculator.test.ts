@@ -12,8 +12,8 @@ const middleware = read('middleware.ts');
 
 describe('8th CPC hub freshness and indexing', () => {
   it('carries a dated status block near the top of the page', () => {
-    expect(hub).toContain('Status as of {STATUS_AS_OF}');
-    expect(hub).toContain("const STATUS_AS_OF = 'September 2026'");
+    expect(hub).toContain('Latest verified update — {STATUS_AS_OF}');
+    expect(hub).toContain("const STATUS_AS_OF = '8 September 2026'");
     // The status block must precede the calculator in the document.
     expect(hub.indexOf('id="status"')).toBeLessThan(hub.indexOf('id="calculator"'));
   });
@@ -23,7 +23,7 @@ describe('8th CPC hub freshness and indexing', () => {
   });
 
   it('keeps dateModified aligned with the review date', () => {
-    expect(hub).toContain("const LAST_REVIEWED_ISO = '2026-09-03'");
+    expect(hub).toContain("const LAST_REVIEWED_ISO = '2026-09-08'");
     expect(hub).toContain('dateModified: LAST_REVIEWED_ISO');
   });
 
