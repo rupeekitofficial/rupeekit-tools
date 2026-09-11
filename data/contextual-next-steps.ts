@@ -124,7 +124,7 @@ export const CONTEXTUAL_NEXT_STEPS: Record<string, ContextualNextStep[]> = {
     {
       question: 'Want to measure the investment return before tax?',
       label: 'Calculate XIRR for irregular cash flows',
-      href: '/tools/xirr-calculator-india',
+      href: '/tools/xirr-portfolio-return-calculator-india',
       destinationType: 'tool',
     },
   ],
@@ -174,7 +174,7 @@ export const CONTEXTUAL_NEXT_STEPS: Record<string, ContextualNextStep[]> = {
     {
       question: 'Were there multiple deposits or withdrawals between start and end?',
       label: 'Use XIRR for irregular cash flows',
-      href: '/tools/xirr-calculator-india',
+      href: '/tools/xirr-portfolio-return-calculator-india',
       destinationType: 'tool',
     },
     {

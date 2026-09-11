@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { blogPosts } from '@/data/all-blog-posts';
-import { CONTEXTUAL_NEXT_STEPS, CONTEXTUAL_NEXT_STEP_TOOL_SLUGS } from '@/data/contextual-next-steps';
-import { getToolBySlug } from '@/lib/tools';
+import { blogPosts } from '../data/all-blog-posts';
+import { CONTEXTUAL_NEXT_STEPS, CONTEXTUAL_NEXT_STEP_TOOL_SLUGS } from '../data/contextual-next-steps';
+import { getToolBySlug } from './tools';
 
 describe('issue #83 contextual calculator journeys', () => {
   it('defines explicit contextual next steps for exactly 20 priority tools', () => {
