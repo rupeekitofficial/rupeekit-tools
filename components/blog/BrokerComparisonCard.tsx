@@ -1,12 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import { trackAnalyticsEvent } from '@/lib/analytics';
 
-export const BROKER_CHARGES_LAST_VERIFIED = '5 September 2026';
+export const BROKER_CHARGES_LAST_VERIFIED = '3 September 2026';
+const BROKER_COMPARISON_PAGE = '/blog/zerodha-vs-upstox-vs-angel-one-demat-account';
 
 export const BROKERS = [
   {
     name: 'Zerodha',
+    analyticsId: 'zerodha',
     tagline: 'Simple, reliable, self-directed',
     accountOpening: 'Rs 0 for resident individual online accounts',
     delivery: 'Rs 0 brokerage for resident individual delivery trades',
@@ -25,6 +28,7 @@ export const BROKERS = [
   },
   {
     name: 'Upstox',
+    analyticsId: 'upstox',
     tagline: 'Modern platform and active-trading tools',
     accountOpening: 'Rs 0',
     delivery: 'Rs 20 per executed order',
@@ -43,6 +47,7 @@ export const BROKERS = [
   },
   {
     name: 'Angel One',
+    analyticsId: 'angel_one',
     tagline: 'Research tools and broad account support',
     accountOpening: 'Rs 0 for standard resident online account opening',
     delivery: 'After intro offer: Rs 20 or 0.1%/order (lower; Rs 5 minimum)',
@@ -138,6 +143,14 @@ export default function BrokerComparisonCard() {
         <div className="mb-4 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-[11px] leading-relaxed text-blue-900">
           <span className="font-bold">Commercial disclosure before partner links:</span> RupeeKit may earn a referral or affiliate fee from some links below. Commercial relationships never determine comparison order, factual conclusions, or which broker is described as suitable for a use case. Always verify current pricing and eligibility on the broker&apos;s official site before opening an account.
         </div>
+
+        <div className="mb-4">
+          <p className="text-sm font-black text-brandDeepNavy">Ready to compare your closest match?</p>
+          <p className="mt-1 text-[11px] leading-relaxed text-brandMuted">
+            Choose by how you invest, then continue to the broker&apos;s official account-opening page to verify current pricing and eligibility.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {BROKERS.map((broker) => (
             <Link
@@ -145,18 +158,37 @@ export default function BrokerComparisonCard() {
               href={broker.href}
               target="_blank"
               rel="noopener noreferrer sponsored"
-              className="flex flex-col items-center rounded-2xl border border-brandBorder bg-white px-4 py-3.5 text-center shadow-sm hover:shadow-md hover:border-brandNavy/30 transition-all"
+              aria-label={`${broker.label} on the broker's official account-opening page`}
+              onClick={() =>
+                trackAnalyticsEvent('affiliate_click', {
+                  broker: broker.analyticsId,
+                  placement: 'comparison_card',
+                  page_path: BROKER_COMPARISON_PAGE,
+                })
+              }
+              className="flex flex-col items-stretch rounded-2xl border border-brandBorder bg-white px-4 py-4 text-left shadow-sm hover:shadow-md hover:border-brandNavy/30 transition-all"
             >
               <span className="text-sm font-black text-brandDeepNavy">{broker.name}</span>
-              <span className="text-[10px] text-brandMuted mt-0.5 mb-2.5">{broker.tagline}</span>
-              <span className="rounded-full bg-brandGrowthGreen px-4 py-1.5 text-[11px] font-bold text-white">
+              <span className="text-[10px] text-brandMuted mt-0.5">{broker.tagline}</span>
+              <span className="mt-3 text-[10px] font-bold uppercase tracking-wide text-brandNavy">May suit</span>
+              <span className="mt-1 min-h-[48px] text-[11px] leading-relaxed text-slate-700">{broker.bestFor}</span>
+              <span className="mt-3 rounded-xl bg-slate-50 px-3 py-2 text-[10px] leading-relaxed text-slate-700">
+                <strong>Delivery:</strong> {broker.delivery}
+              </span>
+              <span className="mt-3 rounded-full bg-brandGrowthGreen px-4 py-2 text-center text-[11px] font-bold text-white">
                 {broker.label}
+              </span>
+              <span className="mt-2 text-center text-[9px] leading-relaxed text-brandMuted">
+                Opens the broker&apos;s official account-opening page in a new tab.
               </span>
             </Link>
           ))}
         </div>
-        <p className="mt-3 text-[10px] text-brandMuted text-center leading-relaxed">
+        <p className="mt-4 text-[10px] text-brandMuted text-center leading-relaxed">
           Charges last verified: {BROKER_CHARGES_LAST_VERIFIED}, against each broker&apos;s official pricing/support pages. Statutory and depository charges can apply in addition and pricing can change. RupeeKit earns affiliate commissions from Angel One and Upstox; the Zerodha URL is a referral link. No broker is universally best, and RupeeKit does not order recommendations by payout.
+        </p>
+        <p className="mt-2 text-[10px] text-brandMuted text-center leading-relaxed">
+          RupeeKit never collects your PAN, Aadhaar, bank details or KYC documents. Any account-opening information is entered only on the broker&apos;s website.
         </p>
       </div>
     </div>

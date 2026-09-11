@@ -1,11 +1,18 @@
 {
   "personal-loan-emi-calculator-india": [
+    "personal-loan-eligibility-calculator-india",
     "personal-loan-true-apr-calculator-india",
     "loan-foreclosure-net-savings-calculator-india"
   ],
   "personal-loan-eligibility-calculator-india": [
     "personal-loan-true-apr-calculator-india",
     "loan-foreclosure-net-savings-calculator-india"
+  ],
+  "personal-loan-true-apr-calculator-india": [
+    "personal-loan-eligibility-calculator-india"
+  ],
+  "loan-foreclosure-net-savings-calculator-india": [
+    "personal-loan-eligibility-calculator-india"
   ],
   "home-loan-emi-calculator-india": [
     "home-affordability-calculator-india",

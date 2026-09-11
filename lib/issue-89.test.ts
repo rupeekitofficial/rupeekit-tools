@@ -54,9 +54,17 @@ describe('issue #89 freshness maintenance', () => {
     expect(pkg.scripts.validate).toContain('validate:freshness');
   });
 
-  it('shows the freshly verified broker-pricing date on the comparison surface', () => {
+  it('shows a verified broker-pricing date that matches the sourced comparison copy', () => {
     const card = readFileSync('components/blog/BrokerComparisonCard.tsx', 'utf8');
-    expect(card).toContain("BROKER_CHARGES_LAST_VERIFIED = '5 September 2026'");
+    const override = readFileSync('data/broker-comparison-override-2026-09-08.ts', 'utf8');
+
+    const cardDate = card.match(/BROKER_CHARGES_LAST_VERIFIED = '([^']+)'/)?.[1];
+    const overrideDate = override.match(/BROKER_CHARGES_VERIFIED_LABEL = '([^']+)'/)?.[1];
+
+    // The displayed verification date must never run ahead of the date the
+    // underlying figures and methodology copy were actually sourced against.
+    expect(cardDate).toMatch(/^\d{1,2} [A-Z][a-z]+ \d{4}$/);
+    expect(cardDate).toBe(overrideDate);
     expect(card).toContain('Always verify current pricing and eligibility');
   });
 });
