@@ -36,7 +36,7 @@ export type AnalyticsEventMap = {
   };
   tool_cta_click: CalculatorAnalyticsBase & {
     destination: string;
-    cta_type: 'related_tool' | 'resource';
+    cta_type: 'related_tool' | 'resource' | 'contextual_next_step';
   };
   affiliate_click: {
     broker: 'zerodha' | 'upstox' | 'angel_one';
