@@ -5,6 +5,7 @@ import { day7ComparisonBlogPosts } from './day7-comparison-blog-posts';
 import queryVariantBlogOverrides from './query-variant-blog-overrides-2026-08-18.json';
 import issue76BlogOverrides from './issue-76-blog-overrides-2026-08-23.json';
 import issue80BlogOverrides from './issue-80-blog-overrides-2026-08-27.json';
+import { BROKER_COMPARISON_SLUG, brokerComparisonOverride } from './broker-comparison-override-2026-09-08';
 import { CONSOLIDATED_BLOG_SLUGS } from '../lib/consolidated-routes';
 import { enrichLegacyBlogPost } from '../lib/seo/enrich-blog-post';
 import type { BlogPost } from './blog-posts';
@@ -62,5 +63,10 @@ export const blogPosts = [
       ],
     };
 
-    return enrichLegacyBlogPost(mergedPost) as IntentAwareBlogPost;
+    const finalPost: IntentAwareBlogPost =
+      post.slug === BROKER_COMPARISON_SLUG
+        ? ({ ...mergedPost, ...brokerComparisonOverride } as IntentAwareBlogPost)
+        : mergedPost;
+
+    return enrichLegacyBlogPost(finalPost) as IntentAwareBlogPost;
   });
