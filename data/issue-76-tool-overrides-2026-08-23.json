@@ -83,11 +83,15 @@
         "href": "https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1"
       },
       {
+        "label": "Income Tax Department — ITR-2 online guidance for AY 2026-27",
+        "href": "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/file-itr-2-online"
+      },
+      {
         "label": "EPFO — Employees' Provident Fund Organisation",
         "href": "https://www.epfindia.gov.in/"
       }
     ],
-    "lastReviewed": "23 August 2026",
-    "lastReviewedIso": "2026-08-23"
+    "lastReviewed": "12 September 2026",
+    "lastReviewedIso": "2026-09-12"
   }
 }
