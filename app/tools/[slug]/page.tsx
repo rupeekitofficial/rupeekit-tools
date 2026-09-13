@@ -158,9 +158,9 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-22',
   },
   'sukanya-samriddhi-yojana-calculator-india': {
-    title: 'SSY Calculator 2026: 21-Year Maturity & Interest',
+    title: 'Sukanya Samriddhi Yojana Calculator 2026 | SSY Maturity',
     description:
-      'Project SSY maturity using 15 deposit years and a 21-year term from account opening. Includes current balance, editable 8.2% rate and official sources.',
+      'Calculate Sukanya Samriddhi Yojana maturity using 15 deposit years and a 21-year term from account opening. Editable 8.2% rate, post office and bank SSY.',
     h1: 'Sukanya Samriddhi Yojana (SSY) Calculator 2026',
     heroDescription:
       'Project a new or existing SSY account using the correct account-opening timeline: deposits for 15 years and maturity after 21 years. The 8.2% default is an editable Jul-Sep 2026 assumption, not a lifetime guarantee.',

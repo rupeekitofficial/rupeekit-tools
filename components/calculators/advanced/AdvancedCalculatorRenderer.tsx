@@ -19,6 +19,7 @@ import NotionalIncrementCalculator from './NotionalIncrementCalculator';
 import PensionCommutationCalculator from './PensionCommutationCalculator';
 import Rule9dEpfInterestCalculator from './Rule9dEpfInterestCalculator';
 import InheritedPropertyGainsCalculator from './InheritedPropertyGainsCalculator';
+import JobOfferComparisonCalculator from './JobOfferComparisonCalculator';
 import { ADVANCED_CALCULATORS } from '@/lib/advanced-calculators';
 
 export default function AdvancedCalculatorRenderer({ tool }: { tool: Tool }) {
@@ -88,6 +89,10 @@ export default function AdvancedCalculatorRenderer({ tool }: { tool: Tool }) {
 
   if (tool.slug === ADVANCED_CALCULATORS.INHERITED_PROPERTY_GAINS) {
     return <InheritedPropertyGainsCalculator tool={tool} />;
+  }
+
+  if (tool.slug === ADVANCED_CALCULATORS.JOB_OFFER_COMPARISON) {
+    return <JobOfferComparisonCalculator tool={tool} />;
   }
 
   return null;

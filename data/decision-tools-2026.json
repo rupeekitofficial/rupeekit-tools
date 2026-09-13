@@ -328,8 +328,8 @@
     "category": "Salary",
     "status": "live",
     "targetKeyword": "job offer comparison calculator India",
-    "shortDescription": "Compare two offers using fixed pay, expected variable pay, employer benefits, work costs and joining bonus.",
-    "metaDescription": "Compare two salary offers beyond headline CTC using expected variable pay, benefits, joining bonus and recurring costs.",
+    "shortDescription": "Compare up to three offers on post-tax in-hand pay, with expected variable pay, provident fund, employer benefits, work costs and joining bonus.",
+    "metaDescription": "Compare up to three salary offers on post-tax in-hand pay rather than headline CTC, including provident fund, benefits, joining bonus and work costs.",
     "inputs": [
       {
         "key": "offerAFixed",
@@ -468,16 +468,24 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "Converts variable pay into expected value, adds benefits and bonus, and subtracts recurring work costs.",
-    "example": "A higher CTC can lose after uncertain variable pay and commuting costs are included.",
+    "formulaExplanation": "Converts variable pay into expected value, runs each offer through the same India income-tax calculation for the selected financial year and regime, then adds benefits and subtracts recurring work costs. Provident fund is reported separately because it reduces in-hand pay but remains the employee's money.",
+    "example": "A higher CTC can lose once uncertain variable pay, commuting costs and a lower basic-pay percentage are taken into account.",
     "faqs": [
       {
-        "question": "Does this calculate exact in-hand salary?",
-        "answer": "No. It compares offer economics before personal tax and payroll deductions."
+        "question": "Does this compare offers after income tax?",
+        "answer": "Yes. Each offer is run through the same income-tax calculation for the financial year and regime you select, so the figures compared are in-hand rather than headline CTC. HRA exemption and surcharge above Rs 50 lakh are not modelled."
       },
       {
         "question": "How should I estimate the payout chance for variable pay?",
         "answer": "Use your own or peers' historical payout track record at each company rather than the maximum advertised bonus."
+      },
+      {
+        "question": "Why does the offer with more in-hand pay sometimes lose on total value?",
+        "answer": "A higher basic-pay percentage means more provident fund is deducted from your salary and matched by the employer. That lowers monthly cash but raises retirement saving, which is still your money, so the calculator reports both."
+      },
+      {
+        "question": "Is the joining bonus counted every year?",
+        "answer": "No. It is taxed as salary but carries no provident fund, so it is shown only in the year-one row. The ongoing-year comparison excludes it."
       }
     ],
     "related": [

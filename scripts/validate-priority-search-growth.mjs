@@ -115,7 +115,7 @@ const expectedTitles = [
   '8th Pay Commission Pension Calculator 2026 | Scenario',
   'Gold Loan Interest Rate 2026: RBI LTV, Value & EMI',
   'Personal Loan Eligibility Calculator: Income & FOIR',
-  'SSY Calculator 2026: 21-Year Maturity & Interest',
+  'Sukanya Samriddhi Yojana Calculator 2026 | SSY Maturity',
   'Salary In-Hand Calculator 2026: CTC to Take-Home',
 ];
 for (const title of expectedTitles) ensure(toolPage.includes(title), `CTR/H1 page override is missing: ${title}`);
