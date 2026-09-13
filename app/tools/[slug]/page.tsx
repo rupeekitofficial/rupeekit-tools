@@ -73,7 +73,7 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
   [SIP_SLUG]: {
     title: 'SIP Calculator India 2026 | Step-Up, Goal & Delay Cost',
     description:
-      'Calculate SIP returns, step-up SIP, goal-based investment, inflation-adjusted corpus and the cost of delaying, pausing or missing SIPs.',
+      'Calculate SIP returns, step-up SIP, goal-based investing and inflation-adjusted corpus, plus the long-term cost of delaying, pausing or missing SIPs.',
     lastReviewedIso: '2026-08-03',
   },
   [CAPITAL_GAINS_SLUG]: {
@@ -81,7 +81,7 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     // has less reason to rewrite it (rewrite rate drops sharply when title == H1).
     title: 'Capital Gains Tax Calculator India 2026 (Equity STCG & LTCG)',
     description:
-      'Calculate equity STCG (20%) and LTCG (12.5% above Rs 1.25 lakh) for FY 2025-26. Free and instant, with the exact formula and a worked example. Educational estimate.',
+      'Calculate equity STCG (20%) and LTCG (12.5% above Rs 1.25 lakh) for FY 2025-26, with the exact formula and a worked example. Educational estimate only.',
     lastReviewedIso: '2026-08-03',
   },
   [EIGHTH_PAY_SLUG]: {

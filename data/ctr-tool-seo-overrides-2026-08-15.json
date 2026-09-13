@@ -170,5 +170,53 @@
   "inherited-property-capital-gains-calculator-india": {
     "title": "Inherited Property Capital Gains Calculator India",
     "description": "Selling inherited property? Use the previous owner's cost and the 2001 fair market value, and compare both long-term capital gains tax routes."
+  },
+  "80c-deduction-calculator-india": {
+    "title": "80C Deduction Calculator India 2026 — Maximise Tax Savings",
+    "description": "Estimate annual Section 80C tax savings from EPF, PPF, ELSS, life insurance and other eligible investments against the Rs 1.5 lakh yearly ceiling."
+  },
+  "emi-calculator-india": {
+    "title": "EMI Calculator India 2026 — Monthly EMI & Total Interest",
+    "description": "Estimate monthly EMI, total interest and total repayment for home, personal and car loans from loan amount, interest rate and tenure. No login needed."
+  },
+  "epf-corpus-calculator-india": {
+    "title": "EPF Corpus Calculator India 2026 — PF Balance at Retirement",
+    "description": "EPF corpus calculator for India — estimate your provident fund balance at retirement from basic salary, contributions and interest. Calculate now."
+  },
+  "fd-calculator-india": {
+    "title": "FD Calculator India 2026: Maturity, Interest & 444-Day FDs",
+    "description": "FD calculator — maturity and interest for any deposit in seconds, including special 444-day FDs. Set amount, rate, tenure and compounding. No login."
+  },
+  "gratuity-calculator-india": {
+    "title": "Gratuity Calculator India 2026 — Payout Under Gratuity Act",
+    "description": "Estimate your gratuity payout using last drawn salary, completed years of service and the Payment of Gratuity Act thresholds. Educational estimate only."
+  },
+  "gst-calculator-india": {
+    "title": "GST Calculator India 2026 — Add or Remove 5% to 28% GST",
+    "description": "Add or remove 5%, 12%, 18% or 28% GST from any invoice value and calculate CGST, SGST and the total GST payable with this India GST calculator."
+  },
+  "home-loan-emi-calculator-india": {
+    "title": "Home Loan EMI Calculator India 2026 — EMI & Total Interest",
+    "description": "Home loan EMI calculator for India — get monthly EMI, total interest and total repayment for any loan amount, interest rate and tenure. Calculate now."
+  },
+  "lumpsum-calculator-india": {
+    "title": "Lumpsum Calculator India 2026 — One-Time Investment Growth",
+    "description": "Lumpsum calculator for India — project one-time investment growth with expected returns, total gain and inflation-adjusted value. Educational estimate."
+  },
+  "mutual-fund-calculator-india": {
+    "title": "Mutual Fund Calculator India 2026 — SIP, Lumpsum & Returns",
+    "description": "Estimate SIP returns, lumpsum gains and SWP corpus, then compare mutual fund outcomes against FD, PPF and gold using your own return assumptions."
+  },
+  "recurring-deposit-calculator-india": {
+    "title": "RD Calculator India 2026 — Recurring Deposit Maturity",
+    "description": "Estimate your recurring deposit maturity amount and total interest earned in India from monthly instalment, interest rate and tenure. Plan RD savings."
+  },
+  "retirement-calculator-india": {
+    "title": "Retirement Calculator India 2026 — Corpus & Monthly Saving",
+    "description": "Estimate the retirement corpus you need, the monthly saving required to reach it, and the income it can support from investments and NPS in India."
+  },
+  "stock-portfolio-calculator-india": {
+    "title": "Stock Portfolio Calculator India — Gains & Dividend Income",
+    "description": "Track realised and unrealised gains, dividend income and overall returns on your equity holdings in India, and compare performance against Nifty 50."
   }
 }
