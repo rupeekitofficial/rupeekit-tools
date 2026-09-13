@@ -41,6 +41,8 @@ export function NumericField({
   unit?: string;
   help?: string;
 }) {
+  const helpId = help ? `${id}-help` : undefined;
+
   return (
     <label htmlFor={id} className="block">
       <span className="flex items-center justify-between gap-3 text-sm font-semibold text-slate-700">
@@ -51,6 +53,10 @@ export function NumericField({
         id={id}
         type="number"
         inputMode="decimal"
+        autoCorrect="off"
+        autoCapitalize="none"
+        spellCheck={false}
+        aria-describedby={helpId}
         value={value}
         min={min}
         max={max}
@@ -62,9 +68,9 @@ export function NumericField({
           if (!Number.isFinite(next)) return;
           onChange(Math.min(max ?? Number.POSITIVE_INFINITY, Math.max(min, next)));
         }}
-        className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base font-semibold text-slate-950 outline-none transition focus:border-brandNavy focus:bg-white focus:ring-4 focus:ring-brandNavy/10"
+        className="mt-2 min-h-11 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base font-semibold text-slate-950 outline-none transition focus:border-brandNavy focus:bg-white focus:ring-4 focus:ring-brandNavy/10"
       />
-      {help ? <span className="mt-1.5 block text-xs leading-5 text-slate-500">{help}</span> : null}
+      {help ? <span id={helpId} className="mt-1.5 block text-xs leading-5 text-slate-500">{help}</span> : null}
     </label>
   );
 }
