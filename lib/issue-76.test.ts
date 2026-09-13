@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { blogPosts } from '../data/all-blog-posts';
+import issue76ToolOverrides from '../data/issue-76-tool-overrides-2026-08-23.json';
 import { getToolBySlug } from './tools';
 import { availableTaxYears, indiaIncomeTaxRules } from './tax/indiaIncomeTaxRules';
 
@@ -81,5 +82,13 @@ describe('issue #76 tax and salary rescue', () => {
       expect(post?.relatedCalculators).toContain(SALARY_TOOL);
       expect(post?.relatedCalculators).toContain(TAX_TOOL);
     });
+  });
+
+  it('keeps source verification current and educational', () => {
+    const salary = issue76ToolOverrides[SALARY_TOOL];
+    expect(salary.lastReviewedIso).toBe('2026-09-12');
+    expect(salary.quickAnswer.note).toContain('Educational estimate only');
+    expect(salary.officialSources.some((source) => source.href.includes('incometax.gov.in'))).toBe(true);
+    expect(salary.officialSources.some((source) => source.href.includes('epfindia.gov.in'))).toBe(true);
   });
 });
