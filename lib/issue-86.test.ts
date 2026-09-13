@@ -12,7 +12,7 @@ describe('issue #86 mobile calculator safeguards', () => {
     expect(source).toContain('inputMode="decimal"');
     expect(source).toContain('min={input.min}');
     expect(source).toContain('max={input.max}');
-    expect(source).toContain('step={input.step}');
+    expect(source).toContain('step={input.step ?? 1}');
   });
 
   it('keeps advanced numeric fields mobile-friendly and suppresses text correction behaviours', () => {
