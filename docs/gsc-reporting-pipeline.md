@@ -19,7 +19,13 @@ Reports are written to `automation/reports/gsc/YYYY-MM-DD.json`. The date in the
 
 ## Service-account setup
 
-Create or reuse a Google Cloud service account and enable the Google Search Console API. Add the service-account email as a user/owner with sufficient access to the RupeeKit Search Console property. Store credentials only in environment variables; never commit the JSON key file.
+Full step-by-step setup, including the Search Console permission level, the private-key escaping the
+script expects, a verification command and a troubleshooting table, is in
+[`gsc-service-account-setup.md`](./gsc-service-account-setup.md).
+
+In short: create a Google Cloud service account, enable the Google Search Console API, add the
+service-account email as a **Full** user on the RupeeKit Search Console property, and store the
+credentials only in environment variables. Never commit the JSON key file.
 
 Required variables:
 
