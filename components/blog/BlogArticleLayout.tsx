@@ -74,6 +74,44 @@ function GratuityEligibilityTable() {
   );
 }
 
+const EMERGENCY_FUND_EXAMPLE_ROWS = [
+  { monthlyCost: '₹25,000', threeMonths: '₹75,000', sixMonths: '₹1,50,000', nineMonths: '₹2,25,000', twelveMonths: '₹3,00,000' },
+  { monthlyCost: '₹40,000', threeMonths: '₹1,20,000', sixMonths: '₹2,40,000', nineMonths: '₹3,60,000', twelveMonths: '₹4,80,000' },
+  { monthlyCost: '₹60,000', threeMonths: '₹1,80,000', sixMonths: '₹3,60,000', nineMonths: '₹5,40,000', twelveMonths: '₹7,20,000' },
+] as const;
+
+function EmergencyFundExamplesTable() {
+  return (
+    <div className="mt-5 overflow-x-auto rounded-2xl border border-brandBorder">
+      <table className="w-full min-w-[680px] text-left text-sm text-slate-700">
+        <caption className="bg-slate-50 px-5 py-4 text-left text-sm font-bold text-brandDeepNavy">
+          Emergency fund examples by monthly survival cost
+        </caption>
+        <thead className="border-t border-brandBorder bg-slate-50 text-xs uppercase tracking-wide text-slate-600">
+          <tr>
+            <th className="px-4 py-3">Monthly survival cost</th>
+            <th className="px-4 py-3">3 months</th>
+            <th className="px-4 py-3">6 months</th>
+            <th className="px-4 py-3">9 months</th>
+            <th className="px-4 py-3">12 months</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-slate-100 bg-white">
+          {EMERGENCY_FUND_EXAMPLE_ROWS.map((row) => (
+            <tr key={row.monthlyCost}>
+              <th scope="row" className="px-4 py-3 font-semibold text-slate-900">{row.monthlyCost}</th>
+              <td className="px-4 py-3">{row.threeMonths}</td>
+              <td className="px-4 py-3">{row.sixMonths}</td>
+              <td className="px-4 py-3">{row.nineMonths}</td>
+              <td className="px-4 py-3">{row.twelveMonths}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function formatBlogDateLabel(isoDate?: string, fallback?: string) {
   if (!isoDate) return fallback ?? 'Not specified';
   const parsed = new Date(isoDate);
@@ -303,6 +341,9 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                           </p>
                         </div>
                       )}
+                      {isEmergencyFundGuide && section.title === 'How many months of expenses should an emergency fund cover?' ? (
+                        <EmergencyFundExamplesTable />
+                      ) : null}
                     </section>
                     {idx === 0 && post.visualType && (
                       <BlogInlineVisual
@@ -377,6 +418,24 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
           </div>
 
           <FAQSection faqs={post.faqs} />
+          {isEmergencyFundGuide && post.officialSources?.length ? (
+            <section className="rounded-2xl border border-brandBorder bg-white p-5 text-sm leading-relaxed text-brandMuted shadow-sm">
+              <h2 className="text-base font-bold text-brandDeepNavy">Official references checked</h2>
+              <p className="mt-2">
+                These references support the deposit-protection and product-risk explanations. The 3 to 12-month
+                figures on this page are transparent planning scenarios, not rules issued by these authorities.
+              </p>
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                {post.officialSources.map((source) => (
+                  <li key={source.href}>
+                    <a href={source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brandNavy hover:underline">
+                      {source.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
           <FinanceDisclaimer />
         </article>
 
