@@ -34,11 +34,6 @@ const EIGHTH_PAY_CLUSTER_SLUGS = new Set([
 const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
   'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 
-/**
- * Single source of truth for per-calculator SEO/content overrides.
- * Every field falls back to the tool's own data (tool.seoTitle, tool.name,
- * tool.metaDescription, tool.shortDescription, tool.lastReviewedIso) when omitted.
- */
 type ToolSeoOverride = {
   title?: string;
   description?: string;
@@ -77,20 +72,18 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-03',
   },
   [CAPITAL_GAINS_SLUG]: {
-    // Title mirrors the H1 "Capital Gains Tax Calculator India (Equity)" so Google
-    // has less reason to rewrite it (rewrite rate drops sharply when title == H1).
     title: 'Capital Gains Tax Calculator India 2026 (Equity STCG & LTCG)',
     description:
       'Calculate equity STCG (20%) and LTCG (12.5% above Rs 1.25 lakh) for FY 2025-26, with the exact formula and a worked example. Educational estimate only.',
     lastReviewedIso: '2026-08-03',
   },
   [EIGHTH_PAY_SLUG]: {
-    title: '8th Pay Commission Status, Date & Salary Calculator',
+    title: '8th Pay Commission Salary Calculator | Fitment Scenarios',
     description:
-      'No implementation date is notified yet. See where the 8th CPC stands, its 18-month report window, and model salary scenarios by fitment factor.',
-    h1: '8th Pay Commission Status, Date and Salary Calculator',
+      'Compare 8th Pay Commission salary scenarios by fitment factor, HRA and deductions. No final fitment factor or implementation order is published yet.',
+    h1: '8th Pay Commission Salary Calculator (Scenario)',
     heroDescription:
-      'No fitment factor, pay matrix, revised HRA or implementation date has been notified. The Commission was constituted on 3 November 2025 with an 18-month window to report. Below: where it stands today, then a scenario calculator that compares every fitment factor at once, with minimum-HRA floors, NPS/UPS/OPS deductions and a conditional arrears estimate.',
+      'Estimate and compare unofficial 8th Pay Commission salary scenarios from your current basic pay and illustrative fitment factors. The official Commission is still consulting stakeholders, and its current site does not publish a final fitment factor, pay matrix or implementation order. Results are educational scenarios, not notified pay.',
     lastReviewedIso: '2026-09-03',
   },
   [EIGHTH_PAY_ARREARS_SLUG]: {
@@ -111,9 +104,6 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
       'Compare current basic pension plus DR with a flat-multiplier scenario, projected DR and an optional additional-pension rate. No official multiplier, parity formula or notional-fixation method is assumed.',
     lastReviewedIso: '2026-08-17',
   },
-  // Titles for these two are the H1-aligned rewrites from the Aug 2026 SEO
-  // analysis; it calls out the previous "PPF Calculator India | 15-Year
-  // Maturity & Interest" as a title/H1 mismatch driving Google rewrites.
   'nps-calculator-india': {
     title: 'NPS Calculator India 2026 - Pension & Corpus Estimate',
     description:
@@ -431,9 +421,6 @@ function buildGenericCalculatorFacts(tool: Tool) {
   ];
 }
 
-// This slug has its own literal route at app/tools/income-tax-calculator-old-vs-new-regime-india/page.tsx.
-// It must be excluded here too, otherwise this dynamic route and that literal route both try to
-// pre-render the same output path, and the build nondeterministically picks a winner.
 const SLUGS_WITH_DEDICATED_ROUTE = new Set(['income-tax-calculator-old-vs-new-regime-india']);
 
 export function generateStaticParams() {
@@ -798,9 +785,6 @@ function SipEducationalContent({ links, lastReviewed }: { links: ContextualLink[
 export default function ToolPage({ params }: { params: { slug: string } }) {
   if (SLUGS_WITH_DEDICATED_ROUTE.has(params.slug)) notFound();
   const tool = getToolBySlug(params.slug);
-  // Server-rendered so a crawler and any answer engine quoting this page see
-  // real figures. Null when no live rate exists, so we show the method rather
-  // than invent numbers.
   const goldLoanExamples =
     params.slug === 'gold-loan-calculator-india' ? buildGoldLoanExamples() : null;
   if (!tool) notFound();
