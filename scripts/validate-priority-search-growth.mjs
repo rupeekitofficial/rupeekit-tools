@@ -110,7 +110,7 @@ ensure(engineTests.includes('15 years from SSY account opening'), 'SSY account-o
 ensure(salaryTests.includes('Rs 12 lakh annual CTC'), 'Salary Rs 12 lakh reconciliation fixture is missing');
 
 const expectedTitles = [
-  '8th Pay Commission Status, Date & Salary Calculator',
+  '8th Pay Commission Salary Calculator | Fitment Scenarios',
   '8th Pay Commission Arrears Calculator 2026 | Scenario',
   '8th Pay Commission Pension Calculator 2026 | Scenario',
   'Gold Loan Interest Rate 2026: RBI LTV, Value & EMI',
