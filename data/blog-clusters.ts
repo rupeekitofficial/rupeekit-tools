@@ -47,6 +47,8 @@ export const BLOG_CLUSTERS: BlogCluster[] = [
     description: 'Plan SSY, PPF, deposits, pension and goal-based long-term savings.',
     calculatorHref: '/tools/sukanya-samriddhi-yojana-calculator-india',
     calculatorLabel: 'SSY calculator',
+    secondaryCalculatorHref: '/tools/emergency-fund-calculator-india',
+    secondaryCalculatorLabel: 'Emergency fund calculator',
   },
   {
     id: 'investing',
